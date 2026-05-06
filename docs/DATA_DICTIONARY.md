@@ -1,34 +1,24 @@
 # 📊 데이터 명세서 (Data Dictionary)
 
-대회에서 제공된 원본 데이터의 구조(Schema), 피처(Feature)의 의미, 그리고 탐색적 데이터 분석(EDA) 과정에서 발견한 특이사항을 기록하는 문서입니다.
+## 1. 파일 목록 및 구조 (File Overview)
+```text
+├── train/
+│  ├── TRAIN_00001.csv
+│  ├── TRAIN_00002.csv
+│  ├── ...
+│  └── TRAIN_10000.csv
+├── test/
+│  ├── TEST_00001.csv
+│  ├── TEST_00002.csv
+│  ├── ...
+│  └── TEST_10000.csv
+├── train_labels.csv
+└── sample_submission.csv
+```
 
-> **💡 에이전트(Gemini CLI) 활용 팁**
-> 에이전트가 피처 엔지니어링(`src/features.py`) 코드를 작성하기 전에, 데이터의 구조를 빠르게 파악할 수 있도록 사용자가 초기 EDA 후 이 문서를 채워두는 것이 좋습니다.
-
----
-
-## 1. 파일 목록 (File Overview)
-- `train.csv`: 모델 학습용 원본 데이터. (Row: N건, Column: M개)
-- `test.csv`: 추론 및 제출용 데이터. (Row: N건)
-- `sample_submission.csv`: 제출 파일 양식.
-
-## 2. 컬럼 명세 (Column Description)
-
-| 변수명 (Feature) | 데이터 타입 (Type) | 의미 (Description) | 특이사항 (Notes / EDA 발견점) |
-| :--- | :---: | :--- | :--- |
-| `id` | String | 고유 식별자 | 학습 시 제외(Drop) 필요 |
-| `target` | Float | 예측해야 할 타겟 변수 (Y) | 분포가 한쪽으로 치우침(Skewed), Log 변환 필요 |
-| `feature_1` | Integer | (예시) 일일 강수량 | 결측치(NaN) 다수 존재 (평균값 대체 보류) |
-| `feature_2` | Category | (예시) 지역 코드 | 고유값 15개, One-Hot Encoding 고려 |
-
----
-
-## 3. 결측치 및 이상치 (Missing Values & Outliers)
-- **결측치**: `feature_1` 컬럼에 약 15% 결측치 존재. K-NN Imputer 또는 평균값 대체 고려.
-- **이상치**: `feature_3` 변수 중 상위 1% 값이 비정상적으로 높음. 99% 윈조라이징(Winsorization) 또는 제거 테스트 필요.
-
-## 4. 파생 변수 아이디어 (Feature Engineering Ideas)
-(대회를 진행하며 떠오른 아이디어를 자유롭게 메모하세요.)
-- [ ] 아이디어 1: `feature_1`과 `feature_2`를 곱하여 교호작용(Interaction) 변수 생성.
-- [ ] 아이디어 2: 날짜(Date) 컬럼에서 `요일`, `주말 여부`, `공휴일 여부` 추출.
-- [ ] 아이디어 3: AI Hub 기상 데이터와 `지역 코드`를 기준으로 병합(Merge)하여 `일평균_습도` 피처 추가.
+## 2. 세부 설명
+본 대회의 좌표는 방 기준 절대 좌표가 아니라, LiDAR 센서 기준의 sensor-local 3차원 좌표계입니다. 좌표 단위는 미터(m)이며, 축 방향은 x: forward, y: left, z: up으로 정의됩니다.
+- `train/`: 학습용 관측 시계열 샘플 폴더. 각 CSV는 하나의 모기 샘플이며, 컬럼은 `timestep_ms`, `x`, `y`, `z` 입니다.
+- `test/`: 평가용 관측 시계열 샘플 폴더. 구조와 컬럼은 `train/`과 동일합니다.
+- `train_labels.csv`: 각 `TRAIN_xxxxx.csv`에 대응되는 정답 파일. 컬럼은 `id`, `x`, `y`, `z` 이며, 마지막 관측 시점 이후 80ms 시점의 실제 모기 좌표를 의미합니다.
+- `sample_submission.csv`: 제출 양식 파일. 컬럼은 `id`, `x`, `y`, `z` 입니다.

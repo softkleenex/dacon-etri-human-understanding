@@ -1,14 +1,20 @@
 # ⚖️ 평가 산식 및 지표 (Evaluation Metric)
 
-모델의 성능을 어떻게 채점하는지에 대한 공식을 반드시 명확히 기재합니다. 에이전트(Gemini CLI)가 이 문서를 읽고 `src/features.py`나 손실 함수(Loss Function)를 목적에 맞게 튜닝(Custom Loss)할 수 있습니다.
-
 ## 🎯 공식 평가 지표 (Metric)
-- (예: RMSE, MAE, F1-Score, NRMSE 등)
+- Average Log-Loss
 
 ## 🧮 산식 (Formula)
-- (대회 홈페이지에 공개된 수식을 텍스트 또는 수식 형태로 기입합니다.)
-- 예: $\sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}$
+$$\text{Score} = \frac{1}{K} \sum_{j=1}^{K} \left[ -\frac{1}{N} \sum_{i=1}^{N} (y_{ij} \log p_{ij} + (1 - y_{ij}) \log(1 - p_{ij})) \right]$$
 
-## 💡 에이전트를 위한 튜닝 전략 제안 (Agentic Strategy)
-- (이 평가지표를 잘 받기 위해 어떤 접근을 해야 하는지 메모합니다.)
-- 예: "MAE가 아니라 RMSE이므로 튀는 값(Outlier) 하나를 잘못 맞추면 페널티가 엄청나게 큽니다. 이상치 처리에 각별히 신경 쓰고, 손실 함수에 L2 Loss(MSE)를 최우선으로 적용하세요."
+## 📝 평가 방식 상세 (Evaluation Procedure)
+1) **리더보드 평가** : 리더보드 제출 필수 참여 요건.
+- Public Score : 전체 테스트 데이터 중 사전 샘플링된 44%
+- Private Score : 전체 테스트 데이터 100% (제출마감 후 공개)
+- 상위 60팀에게 논문 작성 지원용 Claude API 크레딧 제공
+2) **논문 평가 (Accept / Reject)**
+- ICTC 2026 Workshop Track(ETRI Human Understanding AI Paper Challenge 부문) 제출된 논문 대상 진행
+- 채택된 논문은 반드시 ICTC 2026 학술대회 등록/발표
+3) **재현성 검증**
+- 논문이 채택된 팀은 코드 및 모델 설명서를 제출해야 함
+4) **종합 평가**
+- 재현성 검증 통과 논문 대상으로 최종 수상팀(1~5위) 선정 (참신성, 기술적 완성도, 기여도 등 평가)
