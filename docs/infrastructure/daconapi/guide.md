@@ -21,14 +21,20 @@ echo $DACON_TEAMNAME
 > **사전 패키지 설치 필요**: DACON에서 제공하는 `dacon_submit_api` 휠(whl) 파일이 설치되어 있어야 합니다. (대회 홈페이지에서 다운로드 후 `pip install` 진행)
 
 ### 2. 실전 파이썬 자동 제출 스니펫
-추론 스크립트(`scripts/inference.py`)의 맨 마지막에 아래 로직을 덧붙여 파이프라인을 완성합니다.
+대회의 성격(일반 CSV 제출 vs 코드 파일 제출)에 따라 사용하는 함수가 다릅니다. 추론 스크립트의 맨 마지막에 아래 로직을 덧붙여 파이프라인을 완성하세요.
 
 ```python
 import os
 from dacon_submit_api import dacon_submit_api 
 
-def submit_to_dacon(submission_file_path: str, competition_id: str, memo: str = "Auto-submitted via baseline"):
-    """전역 환경변수를 읽어와 DACON에 자동으로 제출합니다."""
+def submit_to_dacon(filepath: str, competition_id: str, submission_type: str = "general", memo: str = "Auto-submitted via baseline"):
+    """
+    전역 환경변수를 읽어와 DACON에 자동으로 제출합니다.
+    
+    :param filepath: 제출할 파일의 경로 (CSV 파일 또는 코드 파일/압축본)
+    :param competition_id: 대회 URL에서 확인 가능한 대회 ID
+    :param submission_type: "general" (일반 제출, 최대 100MB) 또는 "code" (코드 제출)
+    """
     
     # 1. 전역 시스템 변수에서 토큰과 팀명 로드
     dacon_token = os.environ.get("DACON_TOKEN")
@@ -37,16 +43,27 @@ def submit_to_dacon(submission_file_path: str, competition_id: str, memo: str = 
     if not dacon_token or not team_name:
         raise ValueError("전역 환경변수(DACON_TOKEN, DACON_TEAMNAME)가 설정되지 않았습니다.")
         
-    print(f"🚀 {team_name} 팀의 결과물을 제출합니다...")
+    print(f"🚀 {team_name} 팀의 결과물을 제출합니다... (방식: {submission_type})")
     
-    # 2. DACON API 호출
-    result = dacon_submit_api.post_submission_file(
-        filepath=submission_file_path, 
-        token=dacon_token, 
-        competition_id=competition_id, 
-        team_name=team_name, 
-        memo=memo
-    )
+    # 2. DACON API 호출 (제출 방식에 따른 분기)
+    if submission_type == "general":
+        result = dacon_submit_api.post_submission_file(
+            filepath=filepath, 
+            token=dacon_token, 
+            competition_id=competition_id, 
+            team_name=team_name, 
+            memo=memo
+        )
+    elif submission_type == "code":
+        result = dacon_submit_api.post_code_submission_file(
+            filepath=filepath, 
+            token=dacon_token, 
+            competition_id=competition_id, 
+            team_name=team_name, 
+            memo=memo
+        )
+    else:
+        raise ValueError("submission_type은 'general' 또는 'code'여야 합니다.")
     
     # 3. 결과 확인
     if result.get('isSubmitted'):
@@ -54,10 +71,15 @@ def submit_to_dacon(submission_file_path: str, competition_id: str, memo: str = 
     else:
         print(f"❌ 제출 실패: {result.get('detail')}")
 
-# 사용 예시 (대회 ID는 URL에서 확인 가능)
-# submit_to_dacon("submissions/xgb_fold5_ensemble.csv", "235831")
+# 사용 예시 (일반 결과물 제출)
+# submit_to_dacon("submissions/xgb_fold5_ensemble.csv", "235831", submission_type="general")
+
+# 사용 예시 (코드 제출 대회용)
+# submit_to_dacon("submissions/my_code_submission.zip", "235831", submission_type="code")
 ```
 
 ## ⚠️ 실전 주의 사항
+- **제출 파일 크기 제한**: 
+  - 일반 제출(`general`): **100MB 이하**의 CSV 파일만 가능합니다.
+  - 코드 제출(`code`): 각 대회별 상세페이지의 규정을 반드시 참고하세요.
 - **하루 제출 횟수 제한**: DACON은 보통 하루 제출 횟수(예: 3회)가 엄격하게 정해져 있습니다. 무턱대고 API 제출을 자동화해두면 아까운 기회를 날릴 수 있습니다. **반드시 로컬 K-Fold OOF 점수가 기존 최고 점수를 갱신했을 때만 API가 호출되도록 제어문(if 조건)을 걸어두세요.**
-- **파일 크기 제한**: 일반 파일 제출 방식은 100MB 이하만 가능합니다. 딥러닝 앙상블 등 용량이 커졌을 경우 코드 제출 방식을 고려해야 합니다.
