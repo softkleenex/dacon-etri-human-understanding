@@ -1,53 +1,40 @@
-# Hugging Face Hub 가이드
+# Hugging Face Hub 활용 매뉴얼
 
-자연어 처리(NLP)를 넘어 시계열(Time-series), 비전(Vision), 멀티모달 최신 연구 논문과 사전 학습된(Pre-trained) 모델 가중치를 프로젝트에 신속하게 주입하기 위한 MLOps 툴 체인입니다.
+대회 문제(예: 시계열 예측, 이상 탐지 등)를 풀기 위해 처음부터 모델 구조를 짜는 대신, 글로벌 탑급 연구원들이 이미 만들어둔 SOTA(State-of-the-Art) 모델 아키텍처와 가중치를 코드에 수혈하기 위해 사용합니다. (전역 토큰 로그인은 완료되어 있습니다.)
 
----
+## 🎯 사용 목적 (Why use this?)
+- **사전학습 가중치 획득**: 방대한 데이터로 미리 학습된 언어 모델(LLM)이나 시계열 파운데이션 모델(Time-Series Foundation Model)을 다운로드하여, 내 대회 데이터에 맞게 조금만 튜닝(Fine-tuning)함으로써 압도적인 성능 우위를 점합니다.
+- **최신 논문 및 아키텍처 수혈**: Gemini CLI(AI 에이전트)를 통해 "최근 1년 내 발표된 우수한 다변량 시계열 논문을 검색해줘"라고 지시한 뒤, 그 논문의 공식 코드를 바로 가져와 프로젝트에 이식합니다.
 
-## 1. 인증 및 환경 변수 설정
-**시스템 전역(`~/.zshrc` 및 `~/.cache/huggingface/token`)에 `HF_TOKEN`이 안전하게 연동되어 있습니다.** 
-따라서 별도로 소스 코드 내에 토큰을 기입할 필요 없이, Llama, Gemma, Time-Series Transformer 등 권한이 필요한 Gated 모델이나 Private 레포지토리에 자유롭게 접근 가능합니다.
+## 🚀 사용 방법 (How to use?)
 
-- **CLI 기반 인증 확인**: `hf auth whoami` (터미널에서 정상 로그인 여부 확인 가능)
-
----
-
-## 2. CLI 주요 명령어 (`hf`)
-파이썬 스크립트 작성 전, 터미널에서 즉각적으로 모델 구조나 데이터셋을 검색하고 로컬에 다운로드해둘 때 매우 유용합니다.
-
+### 1. CLI로 빠르게 모델/가중치 다운로드
+터미널에서 필요한 모델 가중치 파일(`.bin`, `.safetensors`)을 내 프로젝트의 `models/` 폴더로 고속 다운로드합니다.
 ```bash
-# 대회 도메인과 관련된 최신 모델 검색
+# Hugging Face에 등록된 시계열 모델 검색
 hf models ls --search "time-series forecasting"
 
-# 특정 모델의 가중치 파일들만 로컬 폴더로 초고속 다운로드
-hf download facebook/time-series-transformer-tourism-monthly --local-dir ./models/ts_transformer
+# 선택한 모델을 로컬 특정 폴더로 다운로드
+hf download facebook/time-series-transformer-tourism-monthly --local-dir ./models/pretrained_ts
 ```
 
----
-
-## 3. Python API 활용 (`huggingface_hub` & `transformers`)
-코드 내에서 모델을 동적으로 로드하거나 커스텀 전처리된 데이터셋을 캐싱하여 사용할 때 강력합니다.
+### 2. 코드 레벨에서 동적 로드 (Python)
+스크립트 안에서 `huggingface_hub` 라이브러리를 사용하면 캐시 시스템을 활용해 코드가 실행될 때 알아서 로드되게 할 수 있습니다.
 
 ```python
 from huggingface_hub import hf_hub_download
 import torch
 
-# 1. 모델 가중치 파일만 동적으로 다운로드 및 로드 (Cache 활용)
-model_path = hf_hub_download(
+# 모델 가중치를 로컬 캐시로 다운로드하고 경로 반환
+weight_path = hf_hub_download(
     repo_id="facebook/time-series-transformer-tourism-monthly", 
     filename="pytorch_model.bin"
 )
-state_dict = torch.load(model_path)
-my_custom_model.load_state_dict(state_dict, strict=False)
 
-# 2. 비공개 데이터셋 로드 시 전역 토큰 사용 
-from datasets import load_dataset
-# 토큰 환경변수가 자동으로 인식되므로 token=True 만 선언하면 됩니다.
-dataset = load_dataset("softkleenex/dacon-private-data", token=True) 
+# 내 커스텀 PyTorch 모델 뼈대에 가중치 덧씌우기
+my_model = CustomTimeSeriesTransformer()
+my_model.load_state_dict(torch.load(weight_path), strict=False)
 ```
 
----
-
-## 4. Dacon 대회 적용 전략 (Agent Integration)
-- **최신 아키텍처 수혈**: 대회 주제(예: 시계열 예측, 이상 탐지)와 유사한 문제를 푼 최근 SOTA 모델(Informer, Autoformer 등)을 Hugging Face에서 탐색하여 뼈대(`src/models.py`)로 이식합니다. 처음부터 PyTorch 코드를 짤 필요가 없습니다.
-- **MCP 연동**: 에이전트(Gemini CLI)는 내장된 Hugging Face 플러그인을 활용하여 최신 논문을 스스로 검색(`paper_search`)하고 초록(Abstract)을 읽어 대회에 맞는 피처 엔지니어링 및 손실 함수 아이디어를 도출할 수 있습니다.
+## ⚠️ 실전 주의 사항
+모델을 다운로드할 때는 라이선스(License) 제약을 반드시 확인하세요. Llama 계열이나 특정 Gated 모델들은 웹사이트에서 "사용 조건 동의(Accept License)" 버튼을 눌러야만 API 토큰을 통해 다운로드가 가능해집니다. 에러가 난다면 웹에서 동의 버튼을 눌렀는지 체크하세요.
