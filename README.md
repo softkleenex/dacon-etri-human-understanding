@@ -21,11 +21,11 @@ This is a generic baseline repository for Dacon (and Kaggle) competitions. It pr
    ```
 
 2. **Environment Variables:**
-   Copy `.env.example` to `.env` and fill in necessary keys (like WandB API key, Kaggle token, etc.).
+   Copy `.env.example` to `.env` and fill in necessary keys (like Kaggle token, etc.).
    ```bash
    cp .env.example .env
    ```
-   *Note: `DACON_TOKEN` and `DACON_TEAMNAME` are configured globally in `~/.zshrc` and do not need to be set in the `.env` file per project.*
+   *Note: `DACON_TOKEN`, `DACON_TEAMNAME`, `WANDB_API_KEY`, and `HF_TOKEN` are configured globally in `~/.zshrc` and do not need to be set in the `.env` file per project.*
 
 ## Development
 
