@@ -6,6 +6,10 @@ This is a generic baseline repository for Dacon (and Kaggle) competitions. It pr
 
 - `data/`: Store datasets here. `raw/` for unmodified original data, `processed/` for cleaned/engineered data.
 - `docs/`: Project documentation, strategy notes, and planning.
+  - `MASTER_PLAN.md`: 대회 전반의 목표와 운영 지침.
+  - `DATA_DICTIONARY.md`: 피처 명세 및 EDA 발견점 기록 템플릿.
+  - `SUBMISSION_HISTORY.md`: 리더보드 제출 결과 및 실험 실패 기록부.
+  - `infrastructure/`: 도구별 세부 활용 매뉴얼.
 - `models/`: Saved models and weights.
 - `notebooks/`: Jupyter notebooks for EDA and experimentation.
 - `scripts/`: Executable scripts for training, inference, and submission orchestration.
