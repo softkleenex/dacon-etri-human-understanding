@@ -5,7 +5,7 @@
 ## 1. 인프라 명세 및 활용 전략 (Infrastructure Specification)
 
 인프라 구성, 도구 연동(Kaggle CLI, WandB, Optuna 등) 및 로컬/클라우드 환경 분리 전략에 대한 상세 내용은 별도의 문서를 참고하세요.
-👉 **[인프라 및 도구 활용 전략 문서 보기](infrastructure/overview.md)**
+👉 **[인프라 및 도구 활용 전략 문서 보기](infrastructure/README.md)**
 
 ---
 
