@@ -3,11 +3,13 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Data directories (do not commit data)
+# Data directories (Absolutely DO NOT commit data)
 data/raw/*
-data/processed/*
 !data/raw/.gitkeep
+data/processed/*
 !data/processed/.gitkeep
+data/external/*
+!data/external/.gitkeep
 
 # Models and Submissions
 models/*
@@ -27,18 +29,23 @@ ENV/
 # Jupyter Notebooks
 .ipynb_checkpoints
 
+# DVC (Data Version Control)
+/data/**/*.dvc
+.dvc/config.local
+.dvc/cache/
+.dvc/tmp/
+
 # Kaggle/Dacon specific
 kaggle.json
 *.zip
+*.tar
+*.tar.gz
 
-# OS generated files
+# Logs and OS files
 .DS_Store
 .DS_Store?
 ._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
 logs/
-experiment_history.json
 *.log
+experiment_history.json
+optuna_study.db

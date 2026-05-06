@@ -1,0 +1,39 @@
+# Gemini AI Agent Ignore File
+# Gemini CLI가 컨텍스트(Context)를 낭비하지 않도록, 읽을 필요가 없는 대용량 파일이나 자동 생성 폴더를 차단합니다.
+
+# 1. 가상 환경 및 패키지
+.venv/
+env/
+venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+
+# 2. 대용량 데이터 및 모델 가중치
+# 에이전트는 데이터의 메타데이터(컬럼명 등)는 스크립트를 실행해서 파악해야지, CSV 원본을 읽게 두면 안 됩니다.
+data/raw/
+data/processed/
+data/external/
+models/
+submissions/
+
+# 3. 바이너리 및 로그 파일
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.zip
+*.tar
+*.csv
+*.parquet
+*.log
+logs/
+optuna_study.db
+
+# 4. OS 및 에디터 설정
+.DS_Store
+.vscode/
+.idea/
+
+# 5. DVC 내부 파일
+.dvc/
