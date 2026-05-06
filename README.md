@@ -4,9 +4,11 @@ This is a generic baseline repository for Dacon (and Kaggle) competitions. It pr
 
 ## Directory Structure
 
+- `_inbox/`: 사용자(User)와 에이전트(Agent) 간의 소통 창구. 이미지나 임시 문서를 올려두는 Dropzone.
 - `data/`: Store datasets here. `raw/` for unmodified original data, `processed/` for cleaned/engineered data.
 - `docs/`: Project documentation, strategy notes, and planning.
   - `MASTER_PLAN.md`: 대회 전반의 목표와 운영 지침.
+  - `competition_info/`: 대회 공식 개요, 규칙, 평가 산식 등 정보 저장소.
   - `DATA_DICTIONARY.md`: 피처 명세 및 EDA 발견점 기록 템플릿.
   - `SUBMISSION_HISTORY.md`: 리더보드 제출 결과 및 실험 실패 기록부.
   - `infrastructure/`: 도구별 세부 활용 매뉴얼.
