@@ -25,6 +25,7 @@ This is a generic baseline repository for Dacon (and Kaggle) competitions. It pr
    ```bash
    cp .env.example .env
    ```
+   *Note: `DACON_TOKEN` and `DACON_TEAMNAME` are configured globally in `~/.zshrc` and do not need to be set in the `.env` file per project.*
 
 ## Development
 
