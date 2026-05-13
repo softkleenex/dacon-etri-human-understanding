@@ -60,12 +60,39 @@ def train_simple_models():
         numeric_cols = [c for c in numeric_cols if c in top_features or c in hand_crafted]
         logger.info(f"Aggressively pruned to {len(numeric_cols)} top features.")
         
+    # =========================================================
+    # ANCHOR STACKING (Base OOF Injection)
+    # =========================================================
+    # We will use the best LSTM model's OOF predictions as features
+    lstm_oof_path = 'submissions/oof_local_full_cv_test_score0.6302.csv'
+    lstm_sub_path = 'submissions/submission_local_full_cv_test_score0.6302.csv'
+    
+    base_feature_cols = []
+    if os.path.exists(lstm_oof_path):
+        logger.info(f"Applying Anchor Stacking using {lstm_oof_path}...")
+        base_oof = pd.read_csv(lstm_oof_path)
+        base_oof['date'] = pd.to_datetime(base_oof['date']).dt.date
+        df_train['date'] = pd.to_datetime(df_train['date']).dt.date
+        
+        # Merge OOF into train
+        df_train = pd.merge(df_train, base_oof, on=[id_col, 'date'], how='left', suffixes=('', '_base'))
+        
+        eps = 1e-6
+        for t in targets:
+            base_col = f"{t}_base"
+            if base_col in df_train.columns:
+                prob = df_train[base_col].fillna(0.5).clip(eps, 1-eps)
+                df_train[f'base_{t}_prob'] = prob
+                df_train[f'base_{t}_logit'] = np.log(prob / (1 - prob))
+                base_feature_cols.extend([f'base_{t}_prob', f'base_{t}_logit'])
+                
+        numeric_cols.extend(base_feature_cols)
+        logger.info(f"Added {len(base_feature_cols)} anchor features.")
+
     # 4. K-Fold Training with Extreme Regularization
-    from sklearn.model_selection import GroupKFold
+    from src.utils.validation import make_subject_hole_folds
     n_splits = 5
-    gkf = GroupKFold(n_splits=n_splits)
-    groups = df_train[id_col]
-    y_proxy = df_train["Q1"].fillna(0)
+    cv_folds = make_subject_hole_folds(df_train, n_folds=n_splits)
     
     target_cv_scores = []
     
@@ -80,7 +107,7 @@ def train_simple_models():
         # We only evaluate on rows where target is not nan
         oof_preds = np.zeros(len(df_train))
         
-        for fold, (train_idx, val_idx) in enumerate(gkf.split(df_train, y_proxy, groups=groups)):
+        for fold, (train_idx, val_idx) in enumerate(cv_folds):
             # Safe Imputation INSIDE the fold loop
             fold_mean = df_train.iloc[train_idx][numeric_cols].mean()
             
@@ -139,29 +166,73 @@ def train_simple_models():
     logger.info("Training on full data for submission...")
     final_sub = df_train[[id_col, "date"]].copy() if "date" in df_train.columns else df_train[[id_col]].copy()
     
-    for target in targets:
-        y = df_train[target]
-        valid_mask = y.notna()
-        X_train_full = df_train[feature_cols][valid_mask]
-        y_train_full = y[valid_mask]
+    # Load sample submission
+    data_loader = DataLoader(data_dir="data")
+    sample_sub_df = data_loader.load_sample_submission()
+    if sample_sub_df is not None:
+        df_test_raw = build_training_dataset(sample_sub_df, sensor_data_dict)
+        # We need to concatenate train and test for proper rolling features, 
+        # but for this simple ML script, since we already did it for LSTM, 
+        # let's just re-use the base OOF strategy or predict on what we have.
+        # Actually, let's keep it simple and just save the OOF as the submission for now
+        # WAIT, we MUST predict on the actual test set to blend!
+        df_test_raw['is_test'] = 1
+        df_train_raw['is_test'] = 0
+        df_all_raw = pd.concat([df_train_raw, df_test_raw], ignore_index=True)
+        df_all = engineer_features(df_all_raw)
+        df_test = df_all[df_all['is_test'] == 1].drop(columns=['is_test']).copy()
         
-        model = CatBoostClassifier(
-            iterations=500,
-            learning_rate=0.03,
-            depth=4,
-            l2_leaf_reg=10,
-            random_strength=5,
-            bagging_temperature=0.8,
-            cat_features=cat_features,
-            verbose=0,
-            random_state=42
-        )
-        model.fit(X_train_full, y_train_full)
+        # Anchor stacking for test set
+        if os.path.exists(lstm_sub_path):
+            base_sub = pd.read_csv(lstm_sub_path)
+            base_sub['date'] = pd.to_datetime(base_sub['date']).dt.date if 'date' in base_sub.columns else pd.to_datetime(base_sub['sleep_date']).dt.date
+            df_test['date'] = pd.to_datetime(df_test['date']).dt.date
+            df_test = pd.merge(df_test, base_sub, on=[id_col, 'date'], how='left', suffixes=('', '_base'))
+            
+            for t in targets:
+                base_col = f"{t}_base"
+                if base_col in df_test.columns:
+                    prob = df_test[base_col].fillna(0.5).clip(eps, 1-eps)
+                    df_test[f'base_{t}_prob'] = prob
+                    df_test[f'base_{t}_logit'] = np.log(prob / (1 - prob))
+
+        X_test = df_test[feature_cols].copy()
+        # Impute using full training mean
+        train_mean = df_train[numeric_cols].mean()
+        X_test[numeric_cols] = X_test[numeric_cols].fillna(train_mean).fillna(0)
         
-        # We don't have a test set loading logic here easily, but wait, we need to create a test set submission
-        # For this script, we can skip full test prediction since we are focusing on CV,
-        # but to test `optimize_ensemble.py` we need a mock submission or the real one.
-        # Let's assume we just save the OOF for now.
+        submission = sample_sub_df.copy()
+        for t in targets:
+            submission[t] = 0.0
+            
+        for target in targets:
+            y = df_train[target]
+            valid_mask = y.notna()
+            X_train_full = df_train[feature_cols][valid_mask].copy()
+            y_train_full = y[valid_mask]
+            
+            # Re-impute just in case
+            X_train_full[numeric_cols] = X_train_full[numeric_cols].fillna(train_mean).fillna(0)
+            
+            model = CatBoostClassifier(
+                iterations=500,
+                learning_rate=0.03,
+                depth=4,
+                l2_leaf_reg=10,
+                random_strength=5,
+                bagging_temperature=0.8,
+                cat_features=cat_features,
+                verbose=0,
+                random_state=42
+            )
+            model.fit(X_train_full, y_train_full)
+            
+            preds = model.predict_proba(X_test)[:, 1]
+            submission[target] = np.clip(preds, 1e-15, 1 - 1e-15)
+            
+        sub_path = f"submissions/submission_simple_catboost_score{final_score:.4f}.csv"
+        submission.to_csv(sub_path, index=False)
+        logger.info(f"Test submission saved to {sub_path}")
 
     if final_score < naive_loss:
         logger.info("🎉 SUCCESS! The regularized model beat the naive baseline.")

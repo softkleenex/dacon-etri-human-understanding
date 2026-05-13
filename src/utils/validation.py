@@ -55,3 +55,52 @@ def validate_submission(sub_df: pd.DataFrame, sample_sub_df: pd.DataFrame) -> bo
         logger.info("Submission passed all validation checks!")
         
     return is_valid
+
+def make_subject_hole_folds(train: pd.DataFrame, n_folds: int = 5) -> list:
+    """
+    Subject 내에서 시간적 홀(hole)을 만드는 CV 전략
+    Train/Test가 인터리빙(섞여)된 구조를 시뮬레이션
+
+    Args:
+        train: 훈련 데이터프레임
+        n_folds: CV 폴드 수
+
+    Returns:
+        (train_idx, valid_idx) 튜플 리스트
+    """
+    all_indices = train.index.to_numpy()
+    result = []
+
+    # 각 Subject별 시간순 정렬 후 chunk 분할
+    block_count = max(n_folds * 2, 4)  # 홀 수를 위해 2배
+    by_subject = {}
+    
+    sort_col = "sleep_date" if "sleep_date" in train.columns else "date"
+    id_col = "subject_id" if "subject_id" in train.columns else "user_id"
+
+    for subject_id, group in train.sort_values([id_col, sort_col]).groupby(id_col, sort=False):
+        indices = group.index.to_numpy()
+        # 동일 크기로 분할
+        chunks = [chunk for chunk in np.array_split(indices, block_count) if len(chunk)]
+        by_subject[str(subject_id)] = chunks
+
+    # 각 fold에 대해 두 개의 홀 생성 (early + late)
+    for fold_id in range(n_folds):
+        valid_parts = []
+
+        for chunks in by_subject.values():
+            # fold_id: early hole, fold_id + n_folds: late hole
+            for hole_id in (fold_id, fold_id + n_folds):
+                if hole_id < len(chunks):
+                    valid_parts.append(chunks[hole_id])
+
+        if not valid_parts:
+            continue
+
+        valid_idx = np.concatenate(valid_parts)
+        train_idx = np.setdiff1d(all_indices, valid_idx, assume_unique=False)
+
+        if len(train_idx) and len(valid_idx):
+            result.append((train_idx, valid_idx))
+
+    return result

@@ -16,10 +16,10 @@ logger = get_logger(__name__)
 
 def optimize_ensemble_weights(submission_dir='submissions'):
     """
-    Finds OOF files, loads them, and uses scipy.optimize to find the best blending weights.
-    Then, it blends the corresponding test submission files using these optimal weights.
+    Finds OOF files, loads them, and uses scipy.optimize to find the best blending weights
+    TARGET BY TARGET independently. Then blends test files using these weights.
     """
-    logger.info("Starting Ensemble Weight Optimization...")
+    logger.info("Starting Target-Specific Ensemble Weight Optimization...")
     
     # 1. Load True Targets
     data_loader = DataLoader(data_dir="data")
@@ -62,7 +62,6 @@ def optimize_ensemble_weights(submission_dir='submissions'):
             continue
             
         # Try to find corresponding submission file
-        # format: oof_RUNNAME_scoreXXXX.csv -> submission_RUNNAME_scoreXXXX.csv
         sub_name = os.path.basename(oof_f).replace('oof_', 'submission_')
         sub_path = os.path.join(submission_dir, sub_name)
         if not os.path.exists(sub_path):
@@ -79,62 +78,62 @@ def optimize_ensemble_weights(submission_dir='submissions'):
         
     logger.info(f"Optimizing blending weights for {num_models} models...")
     
-    # 3. Optimization Objective (Minimize Log-Loss)
+    # 3. Optimization Objective (Minimize Log-Loss) per Target
     y_true = metrics_df[targets].values
-    
-    # We create a mask for valid targets
     valid_mask = ~np.isnan(y_true)
     
-    def log_loss_objective(weights):
-        # Normalize weights to sum to 1
-        weights = weights / np.sum(weights)
-        
-        # Blend OOF predictions
-        blended_preds = np.zeros_like(oof_preds[0])
-        for w, p in zip(weights, oof_preds):
-            blended_preds += w * p
-            
-        # Clip to prevent infinity
-        blended_preds = np.clip(blended_preds, 1e-15, 1 - 1e-15)
-        
-        # Calculate mean log loss across valid targets
-        total_loss = 0
-        active = 0
-        for i in range(len(targets)):
-            mask = valid_mask[:, i]
-            if mask.sum() > 0:
-                total_loss += log_loss(y_true[mask, i], blended_preds[mask, i])
-                active += 1
-                
-        return total_loss / active if active > 0 else 0.0
+    target_weights = {}
+    overall_score = 0
+    active_targets = 0
 
-    # Initial guess: equal weights
-    initial_weights = [1.0 / num_models] * num_models
-    bounds = [(0.0, 1.0)] * num_models
-    
-    # Constrain weights to sum to 1
-    constraints = ({'type': 'eq', 'fun': lambda w: 1.0 - sum(w)})
-    
-    res = minimize(log_loss_objective, initial_weights, method='SLSQP', bounds=bounds, constraints=constraints)
-    
-    optimal_weights = res.x / np.sum(res.x)
-    optimal_score = res.fun
-    
-    logger.info(f"Optimization Successful! New Ensemble CV Score: {optimal_score:.4f}")
-    for i, w in enumerate(optimal_weights):
-        logger.info(f" - Weight {w:.4f} for {os.path.basename(sub_files[i])}")
+    for i, target in enumerate(targets):
+        mask = valid_mask[:, i]
+        if mask.sum() == 0:
+            continue
+            
+        def target_objective(weights):
+            weights = weights / np.sum(weights)
+            blended_preds = np.zeros_like(oof_preds[0][:, i])
+            for w, p in zip(weights, oof_preds):
+                blended_preds += w * p[:, i]
+                
+            blended_preds = np.clip(blended_preds, 1e-15, 1 - 1e-15)
+            return log_loss(y_true[mask, i], blended_preds[mask])
+
+        initial_weights = [1.0 / num_models] * num_models
+        bounds = [(0.0, 1.0)] * num_models
+        constraints = ({'type': 'eq', 'fun': lambda w: 1.0 - sum(w)})
+        
+        res = minimize(target_objective, initial_weights, method='SLSQP', bounds=bounds, constraints=constraints)
+        
+        opt_w = res.x / np.sum(res.x)
+        target_weights[target] = opt_w
+        overall_score += res.fun
+        active_targets += 1
+        
+        logger.info(f"--- Target {target} ---")
+        logger.info(f"  Log-Loss: {res.fun:.4f}")
+        for j, w in enumerate(opt_w):
+            logger.info(f"  Weight {w:.4f} : {os.path.basename(sub_files[j])}")
+
+    final_cv = overall_score / active_targets if active_targets > 0 else 0
+    logger.info(f"\nOptimization Successful! Target-Specific Ensemble CV Score: {final_cv:.4f}")
         
     # 4. Create Final Optimal Submission
-    logger.info("Applying weights to test submissions...")
+    logger.info("Applying TARGET-SPECIFIC weights to test submissions...")
     
     ensemble_sub_df = pd.read_csv(sub_files[0]).copy()
     for t in targets:
         ensemble_sub_df[t] = 0.0
         
-    for w, sub_f in zip(optimal_weights, sub_files):
-        df = pd.read_csv(sub_f)
-        for t in targets:
-            ensemble_sub_df[t] += w * df[t]
+    # Read all submission dfs into memory to apply weights easily
+    sub_dfs = [pd.read_csv(f) for f in sub_files]
+        
+    for t in targets:
+        if t in target_weights:
+            w_list = target_weights[t]
+            for j, w in enumerate(w_list):
+                ensemble_sub_df[t] += w * sub_dfs[j][t]
             
     # Clip
     for t in targets:
@@ -142,7 +141,7 @@ def optimize_ensemble_weights(submission_dir='submissions'):
         
     output_path = os.path.join(submission_dir, 'submission_optimal_ensemble_latest.csv')
     ensemble_sub_df.to_csv(output_path, index=False)
-    logger.info(f"✅ Optimally Blended Submission saved to {output_path}")
+    logger.info(f"✅ Target-Specific Blended Submission saved to {output_path}")
     
 if __name__ == "__main__":
     optimize_ensemble_weights()

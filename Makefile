@@ -5,7 +5,7 @@ KAGGLE_NOTEBOOK_DIR ?= notebooks/kaggle_runner
 KAGGLE_SLUG ?= softkleenex/dacon-etri-human-runner
 PULL_DIR ?= ./submissions
 AUTO_SUBMIT ?= true
-COMPETITION_ID ?= "236690" # Update this to your actual Dacon competition ID if needed
+COMPETITION_ID ?= 236690 # Update this to your actual Dacon competition ID if needed
 
 help:
 	@echo "Available commands:"
@@ -99,21 +99,18 @@ SUB_PATH ?= "submissions/submission_ensemble_latest.csv"
 SUB_MEMO ?= "Automated submission"
 
 dacon-submit:
-	@.venv/bin/python -c "\
+	@.venv/bin/python -c "import os; \
 from dacon_submit_api import dacon_submit_api; \
-import os; \
 dacon_token = os.environ.get('DACON_TOKEN'); \
 team_name = os.environ.get('DACON_TEAMNAME'); \
 sub_path = '$(SUB_PATH)'; \
 sub_memo = '$(SUB_MEMO)'; \
-if not dacon_token or not team_name: \
-    print('Error: DACON_TOKEN or DACON_TEAMNAME not set. Please export them in your shell.'); \
-    exit(1); \
+assert dacon_token and team_name, 'Error: DACON_TOKEN or DACON_TEAMNAME not set. Please export them in your shell.'; \
 print(f'Submitting {sub_path} to Dacon...'); \
 result = dacon_submit_api.post_submission_file( \
     file_path=sub_path, \
     token=dacon_token, \
-    cpt_id='$(COMPETITION_ID)', \
+    cpt_id='$(strip $(COMPETITION_ID))', \
     team_name=team_name, \
     memo=sub_memo \
 ); \

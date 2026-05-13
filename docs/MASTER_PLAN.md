@@ -33,6 +33,13 @@
 - **Cross-Validation:** 훈련 셋과 검증 셋에 동일 유저가 섞여 들어가는 타겟 누수를 완벽히 차단하기 위해 **GroupKFold (group=subject_id)** 를 엄격하게 적용합니다.
 - **Custom Metrics:** 무한대 손실 방지를 위한 확률값 클리핑(`np.clip`) 검증 로직을 거치며, 모델의 조기 종료(Early Stopping) 및 최우수 가중치 저장(Checkpointing) 기준을 `val_logloss_mean`으로 맞추어 공식 지표에 직접적으로 최적화합니다.
 
+### 2.5. SOTA Code Share Integration (0.59 달성을 위한 신규 전략)
+경쟁자들의 SOTA(State of the Art) 오픈 소스를 분석하여 도출된, 0.50 타겟을 향한 핵심 확장 전략입니다.
+1. **Subject-Hole CV**: 단순한 `GroupKFold`(유저 완전 격리)나 `StratifiedKFold`를 넘어, **한 유저의 시계열 타임라인 중간중간에 구멍(Hole)을 뚫어 검증 셋으로 빼내는 방식**을 도입합니다. 실제 테스트 셋이 훈련 셋 중간에 듬성듬성 이빨 빠진 형태로 존재하는 것을 완벽히 시뮬레이션하기 위함입니다.
+2. **Target-Specific Blending**: 7개 타겟에 대해 하나의 동일한 앙상블 가중치를 쓰지 않고, 각 타겟별로 가장 강한 모델(예: Q2는 XGBoost 100%, S3는 CatBoost 100%)을 독립적으로 조합하여 Log-Loss를 극단적으로 낮춥니다.
+3. **Anchor Stacking (베이스 OOF 피처화)**: 단일로 가장 성능이 뛰어난 모델(예: LSTM)의 OOF 예측 확률과 로짓(Logit) 값을 버리지 않고, 두 번째 스테이지의 트리 모델(LightGBM, XGBoost)의 **입력 피처(Feature)**로 재사용하여 앙상블의 시너지를 폭발시킵니다.
+4. **LGBM + XGBoost 앙상블 추가**: 트리 성장 방식이 다른 Leaf-wise(LightGBM)와 Level-wise(XGBoost) 모델을 모두 학습시켜 과적합되는 방향의 다양성(Diversity)을 챙깁니다.
+
 ---
 
 ## 3. 🤖 Operational Guidelines (에이전트 및 HITL 작업 지침)

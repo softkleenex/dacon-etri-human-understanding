@@ -79,18 +79,14 @@ class DLTrainer:
         
         logger.info(f"Training {model_name} with {self.n_splits}-fold CV. Sequence modeling: {use_sequence}")
         
-        from sklearn.model_selection import StratifiedKFold
-        # Use StratifiedKFold without shuffle to do a time-series split for each user,
-        # because the test set contains the exact same users (just future days).
-        skf = StratifiedKFold(n_splits=self.n_splits, shuffle=False)
-        
-        y_proxy = df_train[id_col]
+        from src.utils.validation import make_subject_hole_folds
+        cv_folds = make_subject_hole_folds(df_train, n_folds=self.n_splits)
         
         oof_preds = {t: np.zeros(len(df_train)) for t in self.targets}
         trained_models = []
         fold_processors = [] # Store imputers and scalers per fold
         
-        for fold, (train_idx, val_idx) in enumerate(skf.split(df_train, y_proxy)):
+        for fold, (train_idx, val_idx) in enumerate(cv_folds):
             logger.info(f"--- Fold {fold+1}/{self.n_splits} ---")
             
             # Prevent data leakage: Fit Imputer and Scaler ONLY on train_idx
