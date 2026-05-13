@@ -91,11 +91,24 @@ def create_daily_features(sensor_data_dict: dict[str, pd.DataFrame]) -> pd.DataF
             df["hr_max"] = df["heart_rate"].apply(lambda x: process_hr_stat(x, 'max'))
             df["hr_min"] = df["heart_rate"].apply(lambda x: process_hr_stat(x, 'min'))
             df["hr_rmssd"] = df["heart_rate"].apply(process_hr_rmssd)
+            
+            # Extract hour for circadian features
+            df["hour"] = pd.to_datetime(df["timestamp"]).dt.hour
+            df["is_night"] = df["hour"].isin([2, 3, 4, 5])
+            df["is_day"] = df["hour"].isin([10, 11, 12, 13, 14, 15, 16])
+            
+            # Create a pivot-like aggregation but since we groupby [subject_id, date], we can just do it in two passes
+            # Actually, the simplest way is to create columns that are only non-null when is_night/day
+            df["hr_night"] = df["hr_mean"].where(df["is_night"])
+            df["hr_day"] = df["hr_mean"].where(df["is_day"])
+            
             agg_dict = {
                 "hr_mean": ["mean", "std"],
                 "hr_max": ["max"],
                 "hr_min": ["min"],
-                "hr_rmssd": ["mean", "max"]
+                "hr_rmssd": ["mean", "max"],
+                "hr_night": ["mean"],
+                "hr_day": ["mean"]
             }
         elif sensor_name in ["ch2025_mLight", "ch2025_wLight"]:
             # Usually has lux or similar light intensity
@@ -153,7 +166,19 @@ def create_daily_features(sensor_data_dict: dict[str, pd.DataFrame]) -> pd.DataF
             agg_dict = {"ble_devices": ["sum", "mean", "max"]}
         elif sensor_name == "ch2025_mWifi":
             df["wifi_devices"] = df["m_wifi"].apply(lambda x: len(x) if isinstance(x, (list, np.ndarray)) else 0)
+            
+            # Extract list of unique bssids per row
+            df["bssid_set"] = df["m_wifi"].apply(lambda x: set([i.get('bssid') for i in x if isinstance(i, dict) and 'bssid' in i]) if isinstance(x, (list, np.ndarray)) else set())
+            
             agg_dict = {"wifi_devices": ["sum", "mean", "max"]}
+            
+            # We need to custom aggregate bssid_set using a union
+            def set_union(series):
+                res = set()
+                for s in series:
+                    res.update(s)
+                return res
+            agg_dict["bssid_set"] = [set_union]
         elif sensor_name == "ch2025_mGps":
             df["gps_records"] = df["m_gps"].apply(lambda x: len(x) if isinstance(x, (list, np.ndarray)) else 0)
             agg_dict = {"gps_records": ["sum", "mean"]}

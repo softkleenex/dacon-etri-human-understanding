@@ -56,10 +56,10 @@ def validate_submission(sub_df: pd.DataFrame, sample_sub_df: pd.DataFrame) -> bo
         
     return is_valid
 
-def make_subject_hole_folds(train: pd.DataFrame, n_folds: int = 5) -> list:
+def make_subject_timeseries_folds(train: pd.DataFrame, n_folds: int = 5) -> list:
     """
-    Subject 내에서 시간적 홀(hole)을 만드는 CV 전략
-    Train/Test가 인터리빙(섞여)된 구조를 시뮬레이션
+    Subject 내에서 엄격한 TimeSeries 분할을 수행하는 CV 전략
+    미래 데이터를 참조하여 과거를 예측하는 누수(Look-ahead bias) 원천 차단
 
     Args:
         train: 훈련 데이터프레임
@@ -68,39 +68,31 @@ def make_subject_hole_folds(train: pd.DataFrame, n_folds: int = 5) -> list:
     Returns:
         (train_idx, valid_idx) 튜플 리스트
     """
-    all_indices = train.index.to_numpy()
-    result = []
-
-    # 각 Subject별 시간순 정렬 후 chunk 분할
-    block_count = max(n_folds * 2, 4)  # 홀 수를 위해 2배
-    by_subject = {}
+    from sklearn.model_selection import TimeSeriesSplit
+    result = [([], []) for _ in range(n_folds)]
     
     sort_col = "sleep_date" if "sleep_date" in train.columns else "date"
     id_col = "subject_id" if "subject_id" in train.columns else "user_id"
 
+    tscv = TimeSeriesSplit(n_splits=n_folds)
+
     for subject_id, group in train.sort_values([id_col, sort_col]).groupby(id_col, sort=False):
         indices = group.index.to_numpy()
-        # 동일 크기로 분할
-        chunks = [chunk for chunk in np.array_split(indices, block_count) if len(chunk)]
-        by_subject[str(subject_id)] = chunks
-
-    # 각 fold에 대해 두 개의 홀 생성 (early + late)
-    for fold_id in range(n_folds):
-        valid_parts = []
-
-        for chunks in by_subject.values():
-            # fold_id: early hole, fold_id + n_folds: late hole
-            for hole_id in (fold_id, fold_id + n_folds):
-                if hole_id < len(chunks):
-                    valid_parts.append(chunks[hole_id])
-
-        if not valid_parts:
+        
+        # If a user has too few records, just put them all in train for later folds
+        if len(indices) < n_folds + 1:
+            for fold_idx in range(n_folds):
+                result[fold_idx][0].extend(indices)
             continue
+            
+        for fold_idx, (t_idx, v_idx) in enumerate(tscv.split(indices)):
+            result[fold_idx][0].extend(indices[t_idx])
+            result[fold_idx][1].extend(indices[v_idx])
 
-        valid_idx = np.concatenate(valid_parts)
-        train_idx = np.setdiff1d(all_indices, valid_idx, assume_unique=False)
+    # Convert lists to numpy arrays
+    final_result = []
+    for t_idx, v_idx in result:
+        if len(t_idx) > 0 and len(v_idx) > 0:
+            final_result.append((np.array(t_idx), np.array(v_idx)))
 
-        if len(train_idx) and len(valid_idx):
-            result.append((train_idx, valid_idx))
-
-    return result
+    return final_result

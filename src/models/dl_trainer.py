@@ -74,13 +74,13 @@ class DLTrainer:
         
         # 3. K-Fold Training
         model_name = self.cfg.model.get("name", "dl_mlp")
-        use_sequence = model_name == "dl_lstm"
+        use_sequence = model_name in ["dl_lstm", "dl_transformer"]
         seq_len = self.cfg.model.get("seq_len", 7)
         
         logger.info(f"Training {model_name} with {self.n_splits}-fold CV. Sequence modeling: {use_sequence}")
         
-        from src.utils.validation import make_subject_hole_folds
-        cv_folds = make_subject_hole_folds(df_train, n_folds=self.n_splits)
+        from src.utils.validation import make_subject_timeseries_folds
+        cv_folds = make_subject_timeseries_folds(df_train, n_folds=self.n_splits)
         
         oof_preds = {t: np.zeros(len(df_train)) for t in self.targets}
         trained_models = []
@@ -127,14 +127,24 @@ class DLTrainer:
             )
             
             if use_sequence:
-                from src.models.dl_models import MultiTaskLSTM
-                model = MultiTaskLSTM(
-                    input_dim=len(numeric_cols),
-                    hidden_dim=self.cfg.model.get("hidden_dim", 128),
-                    num_layers=self.cfg.model.get("num_layers", 2),
-                    lr=self.cfg.model.get("lr", 1e-3)
-                )
-                model_class = MultiTaskLSTM
+                if model_name == "dl_transformer":
+                    from src.models.dl_models import MultiTaskTransformer
+                    model = MultiTaskTransformer(
+                        input_dim=len(numeric_cols),
+                        hidden_dim=self.cfg.model.get("hidden_dim", 128),
+                        num_layers=self.cfg.model.get("num_layers", 2),
+                        lr=self.cfg.model.get("lr", 1e-3)
+                    )
+                    model_class = MultiTaskTransformer
+                else:
+                    from src.models.dl_models import MultiTaskLSTM
+                    model = MultiTaskLSTM(
+                        input_dim=len(numeric_cols),
+                        hidden_dim=self.cfg.model.get("hidden_dim", 128),
+                        num_layers=self.cfg.model.get("num_layers", 2),
+                        lr=self.cfg.model.get("lr", 1e-3)
+                    )
+                    model_class = MultiTaskLSTM
             else:
                 from src.models.dl_models import MultiTaskMLP
                 model = MultiTaskMLP(
@@ -315,3 +325,4 @@ class DLTrainer:
                 json.dump(OmegaConf.to_container(self.cfg, resolve=True), f, indent=4)
             
         logger.info("Deep Learning Pipeline Completed.")
+        return avg_score

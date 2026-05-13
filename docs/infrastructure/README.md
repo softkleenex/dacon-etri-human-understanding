@@ -16,6 +16,7 @@
 ### 🛠 활용 도구 (Tools & Libraries)
 - **[`deep_learning/guide.md`](deep_learning/guide.md)**: PyTorch Lightning 기반의 시계열 LSTM(Temporal Attention) 멀티태스크 아키텍처 및 데이터로더 매뉴얼.
 - **[`automation/guide.md`](automation/guide.md)**: 훈련 대기 봇, 이륙 전 점검(Pre-flight), 지능형 앙상블 등 에이전트의 완전 자율 워크플로우를 보조하는 스크립트 매뉴얼.
+- **[`automation/cv_lb_gap_workflow.md`](automation/cv_lb_gap_workflow.md)**: 로컬 검증 점수(CV)와 퍼블릭 리더보드(LB) 간의 점수 격차를 분석하고 오버피팅을 방지하는 모니터링 가이드.
 - **[`gemini/guide.md`](gemini/guide.md)**: 에이전트를 조종하여 자율 진화(Self-Evolving) 워크플로우를 가동하는 프롬프트 작성 및 루프 활용법.
 - **[`wandb/guide.md`](wandb/guide.md)**: 훈련 스크립트에 파이썬 코드를 심어 실시간으로 학습 곡선을 모니터링하는 법.
 - **[`optuna/guide.md`](optuna/guide.md)**: 조기 종료(Early Pruning)와 SQLite 이어서 튜닝하기를 결합한 베이지안 파라미터 탐색법.

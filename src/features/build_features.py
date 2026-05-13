@@ -31,8 +31,18 @@ def handle_missing_values(df: pd.DataFrame) -> pd.DataFrame:
     # Interpolate time-series like data if applicable, then ffill
     # Only apply to numeric columns. STRICT LEAKAGE PREVENTION: limit_direction="forward"
     numeric_cols = df_copy.select_dtypes(include=[np.number]).columns
-    df_copy[numeric_cols] = df_copy[numeric_cols].interpolate(method="linear", limit_direction="forward")
-    df_copy[numeric_cols] = df_copy[numeric_cols].ffill().fillna(0) # fillna(0) for leading NaNs
+    id_col = "subject_id" if "subject_id" in df_copy.columns else "user_id"
+    
+    if id_col in df_copy.columns:
+        df_copy[numeric_cols] = df_copy.groupby(id_col)[numeric_cols].transform(
+            lambda x: x.interpolate(method="linear", limit_direction="forward")
+        )
+        df_copy[numeric_cols] = df_copy.groupby(id_col)[numeric_cols].transform(
+            lambda x: x.ffill().fillna(0)
+        )
+    else:
+        df_copy[numeric_cols] = df_copy[numeric_cols].interpolate(method="linear", limit_direction="forward")
+        df_copy[numeric_cols] = df_copy[numeric_cols].ffill().fillna(0) # fillna(0) for leading NaNs
     return df_copy
 
 
@@ -52,6 +62,31 @@ def add_cross_sensor_features(df: pd.DataFrame) -> pd.DataFrame:
     if light_col and 'ch2025_mScreenStatus_m_screen_use_mean' in df_copy.columns:
         # Screen use when ambient light is low (nighttime screen use)
         df_copy['night_screen_proxy'] = df_copy['ch2025_mScreenStatus_m_screen_use_mean'] / (df_copy[light_col] + 1.0)
+        
+    # 3. Circadian Rhythm: HR Dip Ratio (Night / Day)
+    hr_night_col = next((c for c in df_copy.columns if 'hr_night_mean' in c), None)
+    hr_day_col = next((c for c in df_copy.columns if 'hr_day_mean' in c), None)
+    if hr_night_col and hr_day_col:
+        df_copy['hr_dip_ratio'] = df_copy[hr_night_col] / (df_copy[hr_day_col] + 1.0)
+        
+    # 4. Routine Stability (Wifi BSSID Jaccard Similarity)
+    id_col = "subject_id" if "subject_id" in df_copy.columns else "user_id"
+    bssid_col = next((c for c in df_copy.columns if 'bssid_set' in c), None)
+    if bssid_col:
+        # Calculate jaccard similarity with previous day for each user
+        df_copy['bssid_set_lag1'] = df_copy.groupby(id_col)[bssid_col].shift(1)
+        
+        def calc_jaccard(row):
+            set1 = row[bssid_col]
+            set2 = row['bssid_set_lag1']
+            if isinstance(set1, set) and isinstance(set2, set) and (len(set1) > 0 or len(set2) > 0):
+                intersection = len(set1.intersection(set2))
+                union = len(set1.union(set2))
+                return intersection / union
+            return 0.0
+            
+        df_copy['routine_stability_jaccard'] = df_copy.apply(calc_jaccard, axis=1)
+        df_copy = df_copy.drop(columns=[bssid_col, 'bssid_set_lag1'], errors='ignore')
         
     return df_copy
 
@@ -87,7 +122,7 @@ def apply_personalized_normalization(df: pd.DataFrame, user_col: str, feature_co
     return df_copy
 
 
-def add_rolling_features(df: pd.DataFrame, user_col: str, date_col: str, windows: list = [3, 7]) -> pd.DataFrame:
+def add_rolling_features(df: pd.DataFrame, user_col: str, date_col: str, windows: list = [3, 7, 14]) -> pd.DataFrame:
     """
     Adds rolling mean, std, and lag features per user to capture temporal dependencies.
     """

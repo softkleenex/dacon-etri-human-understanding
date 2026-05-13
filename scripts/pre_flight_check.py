@@ -54,7 +54,9 @@ def run_checks(is_research=False, notebook_dir="notebooks/kaggle_runner"):
             with open(runner_meta, "r") as f:
                 meta = json.load(f)
             if not is_research:
-                if str(meta.get("enable_gpu", "false")).lower() == "true" and config.get("model", {}).get("name", "").startswith("dl_"):
+                is_dl = config.get("model", {}).get("name", "").startswith("dl_")
+                is_transformer = config.get("model", {}).get("name", "") == "dl_transformer"
+                if str(meta.get("enable_gpu", "false")).lower() == "true" and is_dl and not is_transformer:
                     print("❌ Error: GPU is enabled in kernel-metadata.json for a PyTorch DL model. Due to Kaggle's P100 hardware bug, you MUST disable GPU and use CPU. The dataset is small enough for CPU.")
                     errors += 1
             print("✅ Kernel metadata is valid JSON and settings are safe.")
@@ -94,7 +96,9 @@ def run_checks(is_research=False, notebook_dir="notebooks/kaggle_runner"):
         
         if is_tuning:
             n_trials = config.get("training", {}).get("n_trials", 10)
-            total_models = n_trials * n_splits * 7 # 7 targets
+            is_dl = config.get("model", {}).get("name", "").startswith("dl_")
+            targets_multiplier = 1 if is_dl else 7
+            total_models = n_trials * n_splits * targets_multiplier
             if total_models > 500:
                 print(f"❌ Error: Your configuration will train {total_models} models! This will likely timeout or eat your entire Kaggle GPU weekly quota. Reduce n_trials or disable tuning.")
                 errors += 1

@@ -28,22 +28,23 @@ features:
   numeric_cols: []
 
 model:
-  name: "dl_lstm"
+  name: "dl_transformer"
   seq_len: 14
   epochs: 50
-  batch_size: 64
-  lr: 0.001
-  hidden_dim: 128
-  num_layers: 2
+  batch_size: 32
+  lr: 0.000864
+  hidden_dim: 64
+  num_layers: 1
+  dropout: 0.456
   params: {}
 
 training:
   seed: 42
   n_splits: 5
   tune_hyperparameters: false
-  n_trials: 50
+  n_trials: 30
   target_col: "target"
   metric: "logloss"
   use_wandb: false
   wandb_project: "dacon-etri-human-understanding"
-  run_name: "kaggle_dl_lstm_attention_seq14_v1"
+  run_name: "kaggle_dl_transformer_optuna_v1"

@@ -64,8 +64,8 @@ def train_simple_models():
     # ANCHOR STACKING (Base OOF Injection)
     # =========================================================
     # We will use the best LSTM model's OOF predictions as features
-    lstm_oof_path = 'submissions/oof_local_full_cv_test_score0.6302.csv'
-    lstm_sub_path = 'submissions/submission_local_full_cv_test_score0.6302.csv'
+    lstm_oof_path = 'submissions/oof_local_transformer_cv_score0.6200.csv'
+    lstm_sub_path = 'submissions/submission_local_transformer_cv_score0.6200.csv'
     
     base_feature_cols = []
     if os.path.exists(lstm_oof_path):
@@ -90,9 +90,9 @@ def train_simple_models():
         logger.info(f"Added {len(base_feature_cols)} anchor features.")
 
     # 4. K-Fold Training with Extreme Regularization
-    from src.utils.validation import make_subject_hole_folds
+    from src.utils.validation import make_subject_timeseries_folds
     n_splits = 5
-    cv_folds = make_subject_hole_folds(df_train, n_folds=n_splits)
+    cv_folds = make_subject_timeseries_folds(df_train, n_folds=n_splits)
     
     target_cv_scores = []
     

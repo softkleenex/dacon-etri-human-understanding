@@ -46,7 +46,7 @@ run-local:
 build-kaggle-dataset:
 	@mkdir -p $(KAGGLE_DATASET_DIR)
 	@rm -rf $(KAGGLE_DATASET_DIR)/*
-	@zip -r $(KAGGLE_DATASET_DIR)/source.zip src conf pyproject.toml README.md
+	@zip -r $(KAGGLE_DATASET_DIR)/source.zip src conf scripts pyproject.toml README.md
 	@if [ -f dataset-metadata.json ]; then cp dataset-metadata.json $(KAGGLE_DATASET_DIR)/; fi
 	@echo "Packaged project files into $(KAGGLE_DATASET_DIR)/"
 

@@ -120,16 +120,29 @@ for dir_name in ['processed_dir', 'model_dir', 'output_dir']:
         nbf.v4.new_code_cell("""from omegaconf import OmegaConf
 from src.models.trainer import Trainer
 from src.models.dl_trainer import DLTrainer
+import sys
+from pathlib import Path
 
 # Since config is a dict, we can convert it to DictConfig
 cfg = OmegaConf.create(config)
 
-if cfg.model.get("name", "").startswith("dl_"):
+is_dl = cfg.model.get("name", "").startswith("dl_")
+is_tuning = cfg.training.get("tune_hyperparameters", False)
+
+if is_dl and is_tuning:
+    print("Running Massive DL Hyperparameter Tuning with Optuna...")
+    # Add scripts to path so we can import the tuning script
+    scripts_dir = str(Path(CODE_DATASET_PATH) / 'scripts' if is_kaggle else Path(PROJECT_ROOT) / 'scripts')
+    if scripts_dir not in sys.path:
+        sys.path.append(scripts_dir)
+    import tune_dl_optuna
+    tune_dl_optuna.main()
+elif is_dl:
     trainer = DLTrainer(cfg)
+    trainer.run()
 else:
     trainer = Trainer(cfg)
-    
-trainer.run()
+    trainer.run()
 
 print("Pipeline executed successfully!")"""),
     ]

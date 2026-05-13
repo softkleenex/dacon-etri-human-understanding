@@ -188,9 +188,18 @@ class MultiTaskLSTM(pl.LightningModule):
         super().__init__()
         self.save_hyperparameters()
         
+        # 1D CNN Block for local feature extraction
+        cnn_out_dim = 64
+        self.cnn = nn.Sequential(
+            nn.Conv1d(in_channels=input_dim, out_channels=cnn_out_dim, kernel_size=3, padding=1),
+            nn.BatchNorm1d(cnn_out_dim),
+            nn.ReLU(),
+            nn.Dropout(dropout)
+        )
+        
         lstm_hidden = hidden_dim // 2
         self.lstm = nn.LSTM(
-            input_size=input_dim, 
+            input_size=cnn_out_dim, 
             hidden_size=lstm_hidden, 
             num_layers=num_layers, 
             batch_first=True,
@@ -236,7 +245,14 @@ class MultiTaskLSTM(pl.LightningModule):
 
     def forward(self, x, padding_mask=None, user_id=None):
         # x shape: (batch_size, seq_len, input_dim)
-        lstm_out, (hn, cn) = self.lstm(x)
+        
+        # CNN expects (batch_size, channels, seq_len)
+        x_cnn = x.transpose(1, 2)
+        cnn_out = self.cnn(x_cnn)
+        # Back to (batch_size, seq_len, channels)
+        cnn_out = cnn_out.transpose(1, 2)
+        
+        lstm_out, (hn, cn) = self.lstm(cnn_out)
         lstm_out = self.layer_norm(lstm_out)
         
         # Apply temporal attention to weight the sequence days
@@ -365,3 +381,119 @@ class MultiTaskLSTM(pl.LightningModule):
                 "monitor": "val_loss",
             },
         }
+
+import math
+
+class PositionalEncoding(nn.Module):
+    def __init__(self, d_model: int, dropout: float = 0.1, max_len: int = 5000):
+        super().__init__()
+        self.dropout = nn.Dropout(p=dropout)
+
+        position = torch.arange(max_len).unsqueeze(1)
+        div_term = torch.exp(torch.arange(0, d_model, 2) * (-math.log(10000.0) / d_model))
+        pe = torch.zeros(max_len, 1, d_model)
+        pe[:, 0, 0::2] = torch.sin(position * div_term)
+        pe[:, 0, 1::2] = torch.cos(position * div_term)
+        self.register_buffer('pe', pe)
+
+    def forward(self, x):
+        x = x + self.pe[:x.size(0)]
+        return self.dropout(x)
+
+class MultiTaskTransformer(MultiTaskLSTM):
+    def __init__(self, input_dim: int, hidden_dim: int = 128, num_layers: int = 2, dropout: float = 0.3, lr: float = 1e-3, weight_decay: float = 1e-5, num_users: int = 100, user_embed_dim: int = 16):
+        super().__init__(input_dim=input_dim, hidden_dim=hidden_dim, num_layers=num_layers, dropout=dropout, lr=lr, weight_decay=weight_decay, num_users=num_users, user_embed_dim=user_embed_dim)
+        
+        self.cnn = nn.Sequential(
+            nn.Conv1d(in_channels=input_dim, out_channels=hidden_dim, kernel_size=3, padding=1),
+            nn.BatchNorm1d(hidden_dim),
+            nn.ReLU(),
+            nn.Dropout(dropout)
+        )
+        
+        self.pos_encoder = PositionalEncoding(hidden_dim, dropout)
+        
+        encoder_layers = nn.TransformerEncoderLayer(
+            d_model=hidden_dim, 
+            nhead=4, 
+            dim_feedforward=hidden_dim*4, 
+            dropout=dropout, 
+            batch_first=True
+        )
+        self.transformer_encoder = nn.TransformerEncoder(encoder_layers, num_layers=num_layers)
+        
+        self.attention = TemporalAttention(hidden_dim)
+        
+        self.user_embedding = nn.Embedding(num_users, user_embed_dim)
+        
+        self.shared_fc = nn.Sequential(
+            nn.Linear(hidden_dim + user_embed_dim, 256),
+            nn.BatchNorm1d(256),
+            nn.ReLU(),
+            nn.Dropout(dropout),
+            nn.Linear(256, 128),
+            nn.BatchNorm1d(128),
+            nn.ReLU(),
+            nn.Dropout(dropout)
+        )
+        
+        self.targets = ["Q1", "Q2", "Q3", "S1", "S2", "S3", "S4"]
+        
+        self.heads = nn.ModuleDict({
+            target: nn.Sequential(
+                nn.Linear(128, 64),
+                nn.ReLU(),
+                ResidualBlock(64),
+                nn.Linear(64, 32),
+                nn.ReLU(),
+                nn.Linear(32, 1)
+            ) for target in self.targets
+        })
+        
+        self.criterion = nn.BCEWithLogitsLoss(reduction='none')
+        self.validation_step_outputs = []
+        
+        self.lr = lr
+        self.weight_decay = weight_decay
+
+    def configure_optimizers(self):
+        optimizer = torch.optim.AdamW(self.parameters(), lr=self.lr, weight_decay=self.weight_decay)
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, T_0=10, T_mult=2, eta_min=1e-6)
+        return {
+            "optimizer": optimizer,
+            "lr_scheduler": {
+                "scheduler": scheduler,
+                "monitor": "val_loss",
+            },
+        }
+
+    def forward(self, x, padding_mask=None, user_id=None):
+        x_cnn = x.transpose(1, 2)
+        cnn_out = self.cnn(x_cnn)
+        cnn_out = cnn_out.transpose(1, 2)
+        
+        if padding_mask is not None:
+            src_key_padding_mask = ~padding_mask
+        else:
+            src_key_padding_mask = None
+            
+        cnn_out = cnn_out.transpose(0, 1)
+        cnn_out = self.pos_encoder(cnn_out)
+        cnn_out = cnn_out.transpose(0, 1)
+        
+        trans_out = self.transformer_encoder(cnn_out, src_key_padding_mask=src_key_padding_mask)
+        
+        context = self.attention(trans_out, padding_mask)
+        
+        if user_id is not None:
+            user_id = torch.clamp(user_id, 0, self.user_embedding.num_embeddings - 1)
+            user_emb = self.user_embedding(user_id) 
+            context = torch.cat([context, user_emb], dim=1)
+        else:
+            dummy_emb = torch.zeros(context.size(0), self.user_embedding.embedding_dim, device=context.device)
+            context = torch.cat([context, dummy_emb], dim=1)
+            
+        shared_rep = self.shared_fc(context)
+        
+        logits = {target: self.heads[target](shared_rep).squeeze(-1) for target in self.targets}
+        return logits
