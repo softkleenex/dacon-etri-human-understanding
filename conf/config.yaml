@@ -1,0 +1,49 @@
+defaults:
+  - _self_
+
+# Set to "kaggle" when running on Kaggle/Dacon cloud
+env: "local"
+
+paths:
+  local:
+    data_dir: "data"
+    processed_dir: "data/processed"
+    model_dir: "models"
+    output_dir: "submissions"
+    src_dir: "src"
+    conf_dir: "conf"
+  kaggle:
+    data_dir: "/kaggle/input/dacon-etri-human-understanding"
+    processed_dir: "/kaggle/working/processed"
+    model_dir: "/kaggle/working/models"
+    output_dir: "/kaggle/working/submissions"
+    # Assuming code is uploaded as a dataset named 'dacon-etri-human-base'
+    src_dir: "/kaggle/input/dacon-etri-human-base/src"
+    conf_dir: "/kaggle/input/dacon-etri-human-base/conf"
+
+features:
+  use_scaling: true
+  use_imputation: true
+  categorical_cols: []
+  numeric_cols: []
+
+model:
+  name: "dl_lstm"
+  seq_len: 14
+  epochs: 50
+  batch_size: 64
+  lr: 0.001
+  hidden_dim: 128
+  num_layers: 2
+  params: {}
+
+training:
+  seed: 42
+  n_splits: 5
+  tune_hyperparameters: false
+  n_trials: 50
+  target_col: "target"
+  metric: "logloss"
+  use_wandb: false
+  wandb_project: "dacon-etri-human-understanding"
+  run_name: "kaggle_dl_lstm_attention_seq14_v1"

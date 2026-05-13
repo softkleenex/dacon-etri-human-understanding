@@ -1,40 +1,76 @@
-# Dacon Base Template
+# DACON ETRI Human Understanding AI Paper Challenge
 
-This is a generic baseline repository for Dacon (and Kaggle) competitions. It provides a standardized directory structure, linting, formatting, and essential data science libraries to quickly start any new competition.
+This repository contains the codebase and workspace for the **ETRI Human Understanding AI Paper Challenge**. The competition focuses on predicting user sleep quality, fatigue, stress, and objective sleep metrics using multimodal lifelog data collected from smartphones and smartwatches.
 
-## Directory Structure
+## 🎯 Overview
 
-- `_inbox/`: 사용자(User)와 에이전트(Agent) 간의 소통 창구. 이미지나 임시 문서를 올려두는 Dropzone.
-- `data/`: Store datasets here. `raw/` for unmodified original data, `processed/` for cleaned/engineered data.
+- **Objective:** Predict 7 targets (Q1~Q3: Sleep Quality, Fatigue, Stress; S1~S4: Sleep Metrics) using multimodal lifelog data.
+- **Task Type:** Multi-task Binary Classification (0 or 1 for each metric) optimized for **Average Log-Loss**.
+- **Data Source:** Smartphone ('m' prefix) and Smartwatch ('w' prefix) sensor/usage logs over 700 days, with 450 days of labels.
+
+## 🧠 Core Architecture
+
+To achieve the highly competitive 0.5 Log-Loss target, this project employs advanced multi-track modeling:
+1. **Machine Learning Pipeline (`CatBoost` + `Optuna`)**: Uses GroupKFold cross-validation and Bayesian optimization (via Optuna) to find the best tree-based hyperparameters while avoiding data leakage.
+2. **Deep Learning Pipeline (`PyTorch Lightning`)**: Implements a `MultiTaskLSTM` with a **Temporal Attention Layer** to capture longitudinal patterns across days, outputting to 7 task-specific heads.
+3. **Advanced Feature Engineering**: Incorporates Cross-Sensor interactions (e.g., HR vs Activity), Ambient Sound parsing, App Usage Bag-of-Words, and Time-Series Rolling/Lag windows.
+
+## 🗂️ Directory Structure
+
+- `data/`: Raw and processed dataset storage.
 - `docs/`: Project documentation, strategy notes, and planning.
-  - `MASTER_PLAN.md`: 대회 전반의 목표와 운영 지침.
-  - `competition_info/`: 대회 공식 개요, 규칙, 평가 산식 등 정보 저장소.
-  - `DATA_DICTIONARY.md`: 피처 명세 및 EDA 발견점 기록 템플릿.
-  - `SUBMISSION_HISTORY.md`: 리더보드 제출 결과 및 실험 실패 기록부.
-  - `infrastructure/`: 도구별 세부 활용 매뉴얼.
-- `models/`: Saved models and weights.
-- `notebooks/`: Jupyter notebooks for EDA and experimentation.
-- `scripts/`: Executable scripts for training, inference, and submission orchestration.
-- `src/`: Reusable source code (data loading, feature engineering, modeling, utilities).
-- `submissions/`: Output CSV files for competition submission.
-- `tests/`: Unit tests.
+- `models/`: Checkpoints for PyTorch models and CatBoost models.
+- `notebooks/kaggle_runner/`: Jupyter notebook runner pushed to Kaggle for cloud GPU training.
+- `references/`: Official competition rules, metric descriptions, and our Data Dictionary.
+- `scripts/`: Executable scripts for automation (`auto_wait_submit.py`, `ensemble.py`, `pre_flight_check.py`).
+- `src/`: Reusable source code (PyTorch DataLoaders, Feature Engineering, Lightning Trainers, Utilities).
+- `submissions/`: Output CSV predictions, `submission_log.csv`, and JSON metadata files.
 
-## Setup
+## 🚀 Setup & Installation
 
-1. **Install Dependencies:**
+1. **Create Virtual Environment & Install Dependencies:**
    ```bash
    make install
    ```
+   *Note: This automatically installs all pip dependencies and the local Dacon API package from backup.*
 
 2. **Environment Variables:**
-   Copy `.env.example` to `.env` and fill in necessary keys (like Kaggle token, etc.).
+   Ensure `DACON_TOKEN` and `DACON_TEAMNAME` are exported in your shell for API submissions.
+
+## ☁️ Kaggle Cloud Workflow & Automation
+
+We leverage Kaggle's free GPU (P100/T4) for heavy model training and tuning. This workflow is completely hardened with **pre-flight checks** and **automated submission bots**.
+
+1. **Push Source Code to Kaggle Dataset:**
+   Zips the `src` and `conf` folders and uploads them. **Pre-flight checks** run automatically to ensure valid configurations and paths.
    ```bash
-   cp .env.example .env
+   make kaggle-push-code
    ```
-   *Note: `DACON_TOKEN`, `DACON_TEAMNAME`, `WANDB_API_KEY`, and `HF_TOKEN` are configured globally in `~/.zshrc` and do not need to be set in the `.env` file per project.*
 
-## Development
+2. **Push and Run Notebook:**
+   Pushes the execution notebook to Kaggle and starts the GPU training.
+   ```bash
+   make kaggle-push-notebook
+   ```
 
-- **Format Code:** `make format`
-- **Lint Code:** `make lint`
-- **Run Tests:** `make test`
+3. **Background Auto-Submission Bot:**
+   Run the background watcher. It will ping Kaggle every 60 seconds, download the resulting CSV, and automatically submit it to the Dacon leaderboard with proper metadata.
+   ```bash
+   python scripts/auto_wait_submit.py &
+   ```
+
+## 🤝 Ensembling & Validation
+
+- **Safety Checks:** All predictions pass through a strict `clip_probabilities` function (in `src/utils/validation.py`) to prevent infinite Log-Loss penalties.
+- **Auto Ensembling:**
+  Easily combine the top-K performing models (extracted automatically by score in the filename).
+  ```bash
+  make ensemble
+  ```
+
+## 📖 Key Documentation
+- [Master Plan](docs/MASTER_PLAN.md)
+- [Data Dictionary](references/DATA_DICTIONARY.md)
+- [Submission History](docs/SUBMISSION_HISTORY.md)
+- [Kaggle Environment & Troubleshooting](docs/infrastructure/cloud_env/guide.md)
+- [Pipeline Automation Guide](docs/infrastructure/automation/guide.md)

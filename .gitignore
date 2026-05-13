@@ -2,21 +2,42 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
 # Data directories (Absolutely DO NOT commit data)
-data/raw/*
-!data/raw/.gitkeep
-data/processed/*
-!data/processed/.gitkeep
-data/external/*
-!data/external/.gitkeep
+/data/raw/*
+!/data/raw/.gitkeep
+/data/processed/*
+!/data/processed/.gitkeep
+/data/external/*
+!/data/external/.gitkeep
 
 # Models and Submissions
-models/*
-!models/.gitkeep
-submissions/*
-!submissions/.gitkeep
-!submissions/submission_log.csv
+/models/*
+!/models/.gitkeep
+/submissions/*
+!/submissions/.gitkeep
+!/submissions/submission_log.csv
 
 # Environments
 .env
@@ -24,11 +45,26 @@ submissions/*
 env/
 venv/
 ENV/
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
 .pytest_cache/
 .ruff_cache/
 
 # Jupyter Notebooks
 .ipynb_checkpoints
+profile_default/
+ipython_config.py
 
 # DVC (Data Version Control)
 /data/**/*.dvc
@@ -46,6 +82,10 @@ kaggle.json
 .DS_Store
 .DS_Store?
 ._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 logs/
 *.log
 experiment_history.json

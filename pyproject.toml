@@ -1,3 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dacon-etri-human-understanding"
+version = "0.1.0"
+description = "DACON ETRI Human Understanding AI Paper Challenge"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "seaborn",
+    "scikit-learn",
+    "scipy",
+    "lightgbm",
+    "xgboost",
+    "catboost",
+    "torch",
+    "torchvision",
+    "jupyterlab",
+    "tqdm",
+    "pyarrow",
+    "fastparquet",
+    "kaggle",
+    "wandb",
+    "optuna",
+    "huggingface_hub",
+    "polars",
+    "pytorch-lightning",
+    "ruff",
+    "pytest",
+    "python-dotenv",
+    "hydra-core",
+    "dacon_submit_api",
+    "nbformat",
+    "joblib"
+]
+
 [tool.ruff]
 line-length = 120
 target-version = "py310"
@@ -23,3 +64,6 @@ quote-style = "double"
 indent-style = "space"
 skip-magic-trailing-comma = false
 line-ending = "auto"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]

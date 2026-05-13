@@ -11,11 +11,17 @@ __pycache__/
 
 # 2. 대용량 데이터 및 모델 가중치
 # 에이전트는 데이터의 메타데이터(컬럼명 등)는 스크립트를 실행해서 파악해야지, CSV 원본을 읽게 두면 안 됩니다.
-data/raw/
-data/processed/
-data/external/
-models/
-submissions/
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/external/*
+!data/external/.gitkeep
+/models/*
+!/models/.gitkeep
+
+# submissions 폴더 자체를 막지 않고, 제출용 예측 파일만 무시합니다.
+/submissions/submission_*.csv
 
 # 3. 바이너리 및 로그 파일
 *.pt
@@ -24,9 +30,10 @@ submissions/
 *.safetensors
 *.zip
 *.tar
-*.csv
+# 모든 csv를 무시하지 않고 데이터 폴더 위주로만 제한했으므로 *.csv 글로벌 차단 해제
+# 대신 로그나 캐시 등만 무시
 *.parquet
-*.log
+# *.log
 logs/
 optuna_study.db
 

@@ -18,10 +18,23 @@ echo $DACON_TOKEN
 echo $DACON_TEAMNAME
 ```
 
-> **사전 패키지 설치 필요**: DACON에서 제공하는 `dacon_submit_api` 휠(whl) 파일이 설치되어 있어야 합니다. (대회 홈페이지에서 다운로드 후 `pip install` 진행)
+> **사전 패키지 설치 필요**: DACON에서 제공하는 `dacon_submit_api` 휠(whl) 파일이 설치되어 있어야 합니다. 새로운 가상 환경을 구성할 때마다 터미널에 아래 명령어를 입력하여 로컬에 영구 백업된 파일로 손쉽게 설치하세요.
+> ```bash
+> pip install ~/sysp/dacon_api/dacon_submit_api-0.0.4-py3-none-any.whl
+> ```
 
-### 2. 실전 파이썬 자동 제출 스니펫
-대회의 성격(일반 CSV 제출 vs 코드 파일 제출)에 따라 사용하는 함수가 다릅니다. 추론 스크립트의 맨 마지막에 아래 로직을 덧붙여 파이프라인을 완성하세요.
+### 2. 실전 파이썬 자동 제출 스니펫 및 Makefile 활용
+대회의 성격(일반 CSV 제출 vs 코드 파일 제출)에 따라 사용하는 함수가 다릅니다. 이 템플릿에서는 **`make dacon-submit`** 명령어를 제공하여, 스크립트 작성 없이도 터미널에서 즉각적인 파일 제출이 가능합니다.
+
+```bash
+# 터미널에서 아래 명령을 실행하면 경로와 메모를 묻는 프롬프트가 나타납니다.
+make dacon-submit
+# 프롬프트 예시:
+# Enter submission file path: submissions/xgb_fold5_ensemble.csv
+# Enter submission message: Auto-submitted via baseline
+```
+
+추론 스크립트의 맨 마지막에 파이썬 로직을 덧붙여 파이프라인을 완전 자동화하려면 아래 코드를 참고하세요.
 
 ```python
 import os
@@ -48,17 +61,17 @@ def submit_to_dacon(filepath: str, competition_id: str, submission_type: str = "
     # 2. DACON API 호출 (제출 방식에 따른 분기)
     if submission_type == "general":
         result = dacon_submit_api.post_submission_file(
-            filepath=filepath, 
+            file_path=filepath, 
             token=dacon_token, 
-            competition_id=competition_id, 
+            cpt_id=competition_id, 
             team_name=team_name, 
             memo=memo
         )
     elif submission_type == "code":
         result = dacon_submit_api.post_code_submission_file(
-            filepath=filepath, 
+            file_path=filepath, 
             token=dacon_token, 
-            competition_id=competition_id, 
+            cpt_id=competition_id, 
             team_name=team_name, 
             memo=memo
         )
@@ -72,10 +85,10 @@ def submit_to_dacon(filepath: str, competition_id: str, submission_type: str = "
         print(f"❌ 제출 실패: {result.get('detail')}")
 
 # 사용 예시 (일반 결과물 제출)
-# submit_to_dacon("submissions/xgb_fold5_ensemble.csv", "235831", submission_type="general")
+# submit_to_dacon("submissions/xgb_fold5_ensemble.csv", "236690", submission_type="general")
 
 # 사용 예시 (코드 제출 대회용)
-# submit_to_dacon("submissions/my_code_submission.zip", "235831", submission_type="code")
+# submit_to_dacon("submissions/my_code_submission.zip", "236690", submission_type="code")
 ```
 
 ## ⚠️ 실전 주의 사항

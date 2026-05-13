@@ -14,11 +14,13 @@
 - **[`cloud_env/guide.md`](cloud_env/guide.md)**: 딥러닝 훈련을 위해 무료 T4 GPU 클라우드(Kaggle 커널)로 무거운 연산을 오프로딩(Off-loading)하는 전략. (기존 Kaggle CLI 매뉴얼 통합됨)
 
 ### 🛠 활용 도구 (Tools & Libraries)
+- **[`deep_learning/guide.md`](deep_learning/guide.md)**: PyTorch Lightning 기반의 시계열 LSTM(Temporal Attention) 멀티태스크 아키텍처 및 데이터로더 매뉴얼.
+- **[`automation/guide.md`](automation/guide.md)**: 훈련 대기 봇, 이륙 전 점검(Pre-flight), 지능형 앙상블 등 에이전트의 완전 자율 워크플로우를 보조하는 스크립트 매뉴얼.
 - **[`gemini/guide.md`](gemini/guide.md)**: 에이전트를 조종하여 자율 진화(Self-Evolving) 워크플로우를 가동하는 프롬프트 작성 및 루프 활용법.
 - **[`wandb/guide.md`](wandb/guide.md)**: 훈련 스크립트에 파이썬 코드를 심어 실시간으로 학습 곡선을 모니터링하는 법.
 - **[`optuna/guide.md`](optuna/guide.md)**: 조기 종료(Early Pruning)와 SQLite 이어서 튜닝하기를 결합한 베이지안 파라미터 탐색법.
 - **[`huggingface/guide.md`](huggingface/guide.md)**: 최신 SOTA 시계열/비전 논문 가중치를 즉각적으로 내 코드에 수혈하는 방법.
-- **[`data_processing/guide.md`](data_processing/guide.md)**: Polars의 고속 병렬 처리와 PyTorch Lightning의 1줄 MLOps 연동법 등 확장 라이브러리 사용법.
+- **[`data_processing/guide.md`](data_processing/guide.md)**: 데이터 누수(Data Leakage) 원천 차단 및 MLOps 확장 라이브러리 활용법.
 - **[`aihub/guide.md`](aihub/guide.md)**: 대회 성능 한계를 돌파하기 위한 날씨/지리 외부 데이터 결합 전략.
 - **[`daconapi/guide.md`](daconapi/guide.md)**: 추론이 끝난 최종 CSV 파일을 DACON 리더보드에 스크립트로 자동 제출하는 방법.
 
