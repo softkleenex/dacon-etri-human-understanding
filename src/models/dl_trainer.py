@@ -83,11 +83,15 @@ class DLTrainer:
         cv_folds = make_subject_timeseries_folds(df_train, n_folds=self.n_splits)
         
         oof_preds = {t: np.zeros(len(df_train)) for t in self.targets}
+        has_prediction = np.zeros(len(df_train), dtype=bool)
         trained_models = []
         fold_processors = [] # Store imputers and scalers per fold
         
         for fold, (train_idx, val_idx) in enumerate(cv_folds):
             logger.info(f"--- Fold {fold+1}/{self.n_splits} ---")
+            
+            # Record that these indices received a validation prediction
+            has_prediction[val_idx] = True
             
             # Prevent data leakage: Fit Imputer and Scaler ONLY on train_idx
             df_fold = df_train.copy()
@@ -288,10 +292,14 @@ class DLTrainer:
             # Calculate OOF Log-Loss
             oof_scores = []
             for t in self.targets:
-                mask_t = df_train[t].notna()
+                mask_t = df_train[t].notna() & has_prediction
                 if mask_t.sum() > 0:
-                    y_true = df_train.loc[mask_t, t]
+                    y_true = df_train[t][mask_t].values
                     y_pred = oof_preds[t][mask_t]
+
+                    # Double check to prevent 0.0 or 1.0 from crashing log_loss just in case
+                    y_pred = np.clip(y_pred, 1e-15, 1 - 1e-15)
+
                     t_score = log_loss(y_true, y_pred)
                     oof_scores.append(t_score)
             

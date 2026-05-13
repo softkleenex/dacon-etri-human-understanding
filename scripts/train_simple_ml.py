@@ -64,8 +64,8 @@ def train_simple_models():
     # ANCHOR STACKING (Base OOF Injection)
     # =========================================================
     # We will use the best LSTM model's OOF predictions as features
-    lstm_oof_path = 'submissions/oof_local_transformer_cv_score0.6200.csv'
-    lstm_sub_path = 'submissions/submission_local_transformer_cv_score0.6200.csv'
+    lstm_oof_path = 'submissions/oof_local_transformer_cv_score0.6207.csv'
+    lstm_sub_path = 'submissions/submission_local_transformer_cv_score0.6207.csv'
     
     base_feature_cols = []
     if os.path.exists(lstm_oof_path):
@@ -102,12 +102,14 @@ def train_simple_models():
     
     for target in targets:
         y = df_train[target]
-        valid_idx = y.notna()
+        has_prediction = np.zeros(len(df_train), dtype=bool)
         
         # We only evaluate on rows where target is not nan
         oof_preds = np.zeros(len(df_train))
         
         for fold, (train_idx, val_idx) in enumerate(cv_folds):
+            has_prediction[val_idx] = True
+            
             # Safe Imputation INSIDE the fold loop
             fold_mean = df_train.iloc[train_idx][numeric_cols].mean()
             
@@ -144,6 +146,7 @@ def train_simple_models():
                 oof_preds[val_idx[val_mask]] = preds[val_mask]
                 
         # Calculate score for this target
+        valid_idx = y.notna() & has_prediction
         target_score = log_loss(y[valid_idx], oof_preds[valid_idx])
         logger.info(f"Target {target} CV Log-Loss: {target_score:.4f}")
         target_cv_scores.append(target_score)
