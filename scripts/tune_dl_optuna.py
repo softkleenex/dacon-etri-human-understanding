@@ -12,7 +12,8 @@ from src.utils.logger import get_logger
 
 logger = get_logger(__name__)
 
-def objective(trial):
+def objective(trial, preloaded_train, preloaded_test):
+    import os
     # Load base config robustly
     conf_path = Path('conf/config.yaml')
     if not conf_path.exists():
@@ -51,27 +52,8 @@ def objective(trial):
     
     try:
         trainer = DLTrainer(cfg)
-        trainer.run()
-        
-        # Read the OOF logloss from the generated file or we need to extract it.
-        # Since DLTrainer doesn't return the score directly, let's parse the CSV or assume we can intercept it.
-        # Wait, the best way is to modify DLTrainer.run() to return the avg_score!
-        # I will do that via a replace call next.
-        
-        # For now, let's read the latest oof file
-        import glob
-        import pandas as pd
-        from sklearn.metrics import log_loss
-        import numpy as np
-        
-        # The trainer saves oof_optuna_trial_X_scoreY.csv
-        oof_files = glob.glob(f"submissions/oof_optuna_trial_{trial.number}_score*.csv")
-        if oof_files:
-            # Parse score from filename
-            score_str = oof_files[0].split('_score')[-1].replace('.csv', '')
-            return float(score_str)
-        else:
-            return 1.0 # Penalty for failure
+        score = trainer.run(preloaded_train, preloaded_test)
+        return score
             
     except Exception as e:
         logger.error(f"Trial {trial.number} failed: {e}")
@@ -80,17 +62,38 @@ def objective(trial):
 def main():
     logger.info("Starting Massive Kaggle GPU Optuna Tuning for CNN-Transformer...")
     
+    # Pre-load and pre-engineer data to avoid doing it inside the study loop
+    logger.info("Pre-loading and pre-engineering metrics and sensor data...")
+    conf_path = Path('conf/config.yaml')
+    with open(conf_path, 'r') as f:
+        base_config = yaml.safe_load(f)
+    base_cfg = OmegaConf.create(base_config)
+    temp_trainer = DLTrainer(base_cfg)
+    preloaded_train, preloaded_test = temp_trainer.prepare_data()
+    logger.info("Successfully pre-loaded and cached dataset!")
+    
     # Create study
     os.makedirs('submissions', exist_ok=True)
+    os.makedirs('checks', exist_ok=True)
     db_path = f"sqlite:///submissions/dl_optuna_study.db"
     study = optuna.create_study(direction='minimize', study_name='dl_transformer_tuning', storage=db_path, load_if_exists=True)
     
     # Run optimization
-    study.optimize(objective, n_trials=30)
+    study.optimize(lambda trial: objective(trial, preloaded_train, preloaded_test), n_trials=15)
     
     logger.info("Tuning Complete!")
     logger.info(f"Best Score: {study.best_value}")
     logger.info(f"Best Params: {study.best_params}")
+
+    # Save to json file
+    import json
+    opt_path = Path("checks/dl_model_opt_hyperparams.json")
+    with open(opt_path, "w") as f:
+        json.dump({
+            "best_params": study.best_params,
+            "best_score": study.best_value
+        }, f, indent=4)
+    logger.info(f"Saved best parameters to {opt_path}")
 
 if __name__ == "__main__":
     main()
