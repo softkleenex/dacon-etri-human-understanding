@@ -1,6 +1,7 @@
 import os
 import sys
 import warnings
+import json
 from pathlib import Path
 
 import lightgbm as lgb
@@ -86,13 +87,13 @@ ALL_BASE_FEATURES = CORE_FEATURES + CIRCADIAN_SEASONAL_FEATURES + WINDOW_PAIR_FE
 
 # Best Laplace Hyperparameters discovered by AgentGA Optuna Evolver
 BEST_LAPLACE_PARAMS = {
-    'Q1': {'half_life': 1.7617920093818988, 'prior_weight': 0.5806134931769096, 'm_smooth': 32.13976283360438},
-    'Q2': {'half_life': 6.764748507172517, 'prior_weight': 0.42638074353735894, 'm_smooth': 18.952477341412223},
-    'Q3': {'half_life': 1.0132235989421328, 'prior_weight': 0.5189342034344457, 'm_smooth': 4.941469880043686},
-    'S1': {'half_life': 3.0, 'prior_weight': 0.2, 'm_smooth': 10.0},
-    'S2': {'half_life': 3.0, 'prior_weight': 0.2, 'm_smooth': 10.0},
-    'S3': {'half_life': 3.0, 'prior_weight': 0.2, 'm_smooth': 10.0},
-    'S4': {'half_life': 3.0, 'prior_weight': 0.2, 'm_smooth': 10.0}
+    'Q1': {'half_life': 1.85441978, 'prior_weight': 0.58061349, 'm_smooth': 34.67560606},
+    'Q2': {'half_life': 6.53547913, 'prior_weight': 0.36399036, 'm_smooth': 19.62722876},
+    'Q3': {'half_life': 1.01322360, 'prior_weight': 0.36254896, 'm_smooth': 4.94146988},
+    'S1': {'half_life': 3.00000000, 'prior_weight': 0.28334039, 'm_smooth': 12.93186334},
+    'S2': {'half_life': 3.00000000, 'prior_weight': 0.22395933, 'm_smooth': 10.00000000},
+    'S3': {'half_life': 3.00000000, 'prior_weight': 0.21492520, 'm_smooth': 8.21466671},
+    'S4': {'half_life': 3.31398694, 'prior_weight': 0.20914030, 'm_smooth': 14.75008804}
 }
 
 # Target-specific feature selection bounds (Pearson + Collinearity)
@@ -340,6 +341,17 @@ def apply_robust_directives(df_train_fold, df_test_fold, tr_idx, target, id_col,
 
 def run_clean_ultimate_pipeline_v32():
     logger.info("Initializing SOTA-v32 Curated Feature Pipeline with Window-Pair Interactions & Strict Pearson-Collinearity Pruning...")
+
+    # Load optimized base model hyperparameters
+    opt_hyperparams = {}
+    opt_path = Path("checks/base_model_opt_hyperparams.json")
+    if opt_path.exists():
+        try:
+            with open(opt_path, "r") as f:
+                opt_hyperparams = json.load(f)
+            logger.info("Successfully loaded optimized base model hyperparameters from checks/base_model_opt_hyperparams.json")
+        except Exception as e:
+            logger.error(f"Failed to load optimized hyperparameters: {e}")
 
     # 1. Load Data
     data_loader = DataLoader(data_dir="data")
@@ -608,19 +620,81 @@ def run_clean_ultimate_pipeline_v32():
             X_te = df_test_fold[active_cols].fillna(0.5)
 
             # Model 1. CatBoost
-            cat_model = CatBoostClassifier(iterations=250, depth=3, learning_rate=0.02, l2_leaf_reg=20.0, random_state=42, verbose=0, thread_count=2)
+            cat_params = {
+                'iterations': 250,
+                'depth': 3,
+                'learning_rate': 0.02,
+                'l2_leaf_reg': 20.0,
+                'random_state': 42,
+                'verbose': 0,
+                'thread_count': 2
+            }
+            # Model 2. LightGBM
+            lgb_params = {
+                'n_estimators': 150,
+                'max_depth': 3,
+                'learning_rate': 0.02,
+                'min_child_samples': 10,
+                'reg_alpha': 5.0,
+                'reg_lambda': 5.0,
+                'random_state': 42,
+                'verbose': -1,
+                'n_jobs': 2
+            }
+            # Model 3. XGBoost
+            xgb_params = {
+                'n_estimators': 150,
+                'max_depth': 3,
+                'learning_rate': 0.02,
+                'reg_alpha': 5.0,
+                'reg_lambda': 5.0,
+                'random_state': 42,
+                'eval_metric': "logloss",
+                'n_jobs': 2
+            }
+
+            if target in opt_hyperparams:
+                best_info = opt_hyperparams[target].get("best_params", {})
+                model_type = best_info.get("model_type")
+                if model_type == "catboost":
+                    cat_params['depth'] = int(best_info.get('cat_depth', cat_params['depth']))
+                    cat_params['learning_rate'] = float(best_info.get('cat_learning_rate', cat_params['learning_rate']))
+                    cat_params['l2_leaf_reg'] = float(best_info.get('cat_l2_leaf_reg', cat_params['l2_leaf_reg']))
+                    cat_params['iterations'] = int(best_info.get('cat_iterations', cat_params['iterations']))
+                elif model_type == "lgbm":
+                    lgb_params['max_depth'] = int(best_info.get('lgb_max_depth', lgb_params['max_depth']))
+                    if 'lgb_num_leaves' in best_info:
+                        lgb_params['num_leaves'] = int(best_info['lgb_num_leaves'])
+                    lgb_params['learning_rate'] = float(best_info.get('lgb_learning_rate', lgb_params['learning_rate']))
+                    lgb_params['reg_alpha'] = float(best_info.get('lgb_reg_alpha', lgb_params['reg_alpha']))
+                    lgb_params['reg_lambda'] = float(best_info.get('lgb_reg_lambda', lgb_params['reg_lambda']))
+                    lgb_params['min_child_samples'] = int(best_info.get('lgb_min_child_samples', lgb_params['min_child_samples']))
+                    lgb_params['n_estimators'] = int(best_info.get('lgb_n_estimators', lgb_params['n_estimators']))
+                elif model_type == "xgb":
+                    xgb_params['max_depth'] = int(best_info.get('xgb_max_depth', xgb_params['max_depth']))
+                    xgb_params['learning_rate'] = float(best_info.get('xgb_learning_rate', xgb_params['learning_rate']))
+                    xgb_params['reg_alpha'] = float(best_info.get('xgb_reg_alpha', xgb_params['reg_alpha']))
+                    xgb_params['reg_lambda'] = float(best_info.get('xgb_reg_lambda', xgb_params['reg_lambda']))
+                    if 'xgb_subsample' in best_info:
+                        xgb_params['subsample'] = float(best_info['xgb_subsample'])
+                    if 'xgb_colsample_bytree' in best_info:
+                        xgb_params['colsample_bytree'] = float(best_info['xgb_colsample_bytree'])
+                    xgb_params['n_estimators'] = int(best_info.get('xgb_n_estimators', xgb_params['n_estimators']))
+
+            # Model 1. CatBoost
+            cat_model = CatBoostClassifier(**cat_params)
             cat_model.fit(X_tr, y_tr)
             oof_preds_cat[va_idx, t_global_idx] = cat_model.predict_proba(X_va)[:, 1]
             test_preds_cat[:, t_global_idx] += cat_model.predict_proba(X_te)[:, 1] / n_splits
 
             # Model 2. LightGBM
-            lgb_model = lgb.LGBMClassifier(n_estimators=150, max_depth=3, learning_rate=0.02, min_child_samples=10, reg_alpha=5.0, reg_lambda=5.0, random_state=42, verbose=-1, n_jobs=2)
+            lgb_model = lgb.LGBMClassifier(**lgb_params)
             lgb_model.fit(X_tr, y_tr)
             oof_preds_lgb[va_idx, t_global_idx] = lgb_model.predict_proba(X_va)[:, 1]
             test_preds_lgb[:, t_global_idx] += lgb_model.predict_proba(X_te)[:, 1] / n_splits
 
             # Model 3. XGBoost
-            xgb_model = xgb.XGBClassifier(n_estimators=150, max_depth=3, learning_rate=0.02, reg_alpha=5.0, reg_lambda=5.0, random_state=42, eval_metric="logloss", n_jobs=2)
+            xgb_model = xgb.XGBClassifier(**xgb_params)
             xgb_model.fit(X_tr, y_tr)
             oof_preds_xgb[va_idx, t_global_idx] = xgb_model.predict_proba(X_va)[:, 1]
             test_preds_xgb[:, t_global_idx] += xgb_model.predict_proba(X_te)[:, 1] / n_splits
