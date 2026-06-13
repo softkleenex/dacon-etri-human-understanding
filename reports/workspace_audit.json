@@ -8,13 +8,6 @@
       "recommendation": "Keep only champion artifacts locally; move old runs to external storage or ignored archives."
     },
     {
-      "severity": "medium",
-      "area": "artifacts",
-      "title": "Submissions directory is bloated",
-      "detail": "submissions/ is 1.5GB.",
-      "recommendation": "Retain top submissions plus metadata; move embeddings/OOFs to an experiments artifact directory."
-    },
-    {
       "severity": "high",
       "area": "submissions",
       "title": "Historical submitted rows lack real public LB scores",
@@ -30,18 +23,22 @@
     }
   ],
   "stats": {
-    "git_status_entries": 0,
-    "git_status_by_code": {},
+    "git_status_entries": 30,
+    "git_status_by_code": {
+      "M": 16,
+      "D": 3,
+      "??": 11
+    },
     "size_data": "2.8GB",
     "size_models": "9.0GB",
-    "size_submissions": "1.5GB",
+    "size_submissions": "7.3MB",
     "size_lightning_logs": "0B",
     "size_checkpoints": "0B",
     "size_scratch": "0B",
     "size_notebooks": "4.3MB",
-    "size_src": "307.8KB",
-    "size_scripts": "440.1KB",
-    "size_docs": "181.4KB",
+    "size_src": "156.5KB",
+    "size_scripts": "471.2KB",
+    "size_docs": "181.6KB",
     "tracked_generated_files": 0,
     "make_targets": [
       "KAGGLE_DATASET_DIR",
@@ -50,6 +47,7 @@
       "build-kaggle-dataset",
       "cleanup-manifest",
       "dacon-submit",
+      "docs-audit",
       "ensemble",
       "format",
       "help",
@@ -65,6 +63,8 @@
       "lint",
       "normalize-submissions",
       "run-local",
+      "structure-audit",
+      "submissions-audit",
       "test"
     ],
     "referenced_missing_make_targets": [],

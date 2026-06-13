@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-Found **4 issues**: 0 critical, 2 high, 2 medium.
+Found **3 issues**: 0 critical, 2 high, 1 medium.
 
 ## Issues
 
@@ -30,25 +30,17 @@ Found **4 issues**: 0 critical, 2 high, 2 medium.
 
 - Recommendation: Keep only champion artifacts locally; move old runs to external storage or ignored archives.
 
-### 4. [MEDIUM] Submissions directory is bloated
-
-- Area: `artifacts`
-
-- Detail: submissions/ is 1.5GB.
-
-- Recommendation: Retain top submissions plus metadata; move embeddings/OOFs to an experiments artifact directory.
-
 ## Key Stats
 
-- `git_status_by_code`: `{}`
+- `git_status_by_code`: `{"M": 16, "D": 3, "??": 11}`
 
-- `git_status_entries`: `0`
+- `git_status_entries`: `30`
 
 - `largest_cv_lb_gaps`: `[{"id": "9", "file": "submission_id_009_score0.6258.csv", "local": "0.6258", "public": "0.8208847151", "gap": 0.195085}, {"id": "74", "file": "submission_id_074_score0.5986.csv", "local": "0.5986", "public": "0.7436431908", "gap": 0.145043}, {"id": "73", "file": "submission_id_073_score0.6022.csv", "local": "0.6022", "public": "0.7454473391", "gap": 0.143247}, {"id": "10", "file": "submission_id_010_score0.5972.csv", "local": "0.5972", "public": "0.6301928255", "gap": 0.032993}, {"id": "16", "file": "submission_id_016_score0.5875.csv", "local": "0.5875", "public": "0.6184828015", "gap": 0.030983}, {"id": "11", "file": "submission_id_011_score0.5909.csv", "local": "0.5909", "public": "0.6208484881", "gap": 0.029948}, {"id": "7", "file": "submission_id_007_score0.5921.csv", "local": "0.5921", "public": "0.6166592444", "gap": 0.024559}, {"id": "76", "file": "submission_id_076_score0.5996.csv", "local": "0.599611", "public": "0.6241517536", "gap": 0.024541}]`
 
 - `logged_files_missing`: `0`
 
-- `make_targets`: `["KAGGLE_DATASET_DIR", "LINT_PATHS", "audit", "build-kaggle-dataset", "cleanup-manifest", "dacon-submit", "ensemble", "format", "help", "install", "jupyter", "kaggle-init-code", "kaggle-init-notebook", "kaggle-pull-output", "kaggle-push-code", "kaggle-push-notebook", "kaggle-push-only", "kaggle-wait-and-pull", "lint", "normalize-submissions", "run-local", "test"]`
+- `make_targets`: `["KAGGLE_DATASET_DIR", "LINT_PATHS", "audit", "build-kaggle-dataset", "cleanup-manifest", "dacon-submit", "docs-audit", "ensemble", "format", "help", "install", "jupyter", "kaggle-init-code", "kaggle-init-notebook", "kaggle-pull-output", "kaggle-push-code", "kaggle-push-notebook", "kaggle-push-only", "kaggle-wait-and-pull", "lint", "normalize-submissions", "run-local", "structure-audit", "submissions-audit", "test"]`
 
 - `missing_markdown_links`: `[]`
 
@@ -60,7 +52,7 @@ Found **4 issues**: 0 critical, 2 high, 2 medium.
 
 - `size_data`: `2.8GB`
 
-- `size_docs`: `181.4KB`
+- `size_docs`: `181.6KB`
 
 - `size_lightning_logs`: `0B`
 
@@ -70,11 +62,11 @@ Found **4 issues**: 0 critical, 2 high, 2 medium.
 
 - `size_scratch`: `0B`
 
-- `size_scripts`: `440.1KB`
+- `size_scripts`: `471.2KB`
 
-- `size_src`: `307.8KB`
+- `size_src`: `156.5KB`
 
-- `size_submissions`: `1.5GB`
+- `size_submissions`: `7.3MB`
 
 - `submission_rows`: `93`
 

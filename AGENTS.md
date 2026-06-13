@@ -9,10 +9,11 @@ This Python ML competition repo keeps reusable code in `src/`: `src/data/` for l
 - `make lint`: run Ruff checks without modifying files.
 - `make test`: run `pytest tests/ -v` with `PYTHONPATH=.`.
 - `make jupyter`: start JupyterLab from the project virtualenv.
-- `make run-local`: execute the local notebook-generation/training pipeline.
+- `make run-local`: execute the heavy local SOTA training/stacking pipeline.
 - `make build-kaggle-dataset` / `make kaggle-push-code`: package and push source/config/data to Kaggle.
 - `make ensemble`: combine safe submission candidates via `scripts/ensemble.py`.
 - `make audit`: inspect workspace health before trusted submissions.
+- `make docs-audit`: verify documentation, command, and submission-record consistency.
 - `make normalize-submissions`: refresh submission status/risk columns and blacklist risky files.
 
 ## Coding Style & Naming Conventions
@@ -26,3 +27,6 @@ History uses Conventional Commit-style prefixes: `feat:`, `fix:`, `docs:`, `chor
 
 ## Security & Configuration Tips
 Do not commit `.env`, DACON/Kaggle tokens, private data, or large artifacts. Use environment variables such as `DACON_TOKEN` and `DACON_TEAMNAME` for submissions. Run `scripts/pre_flight_check.py` before Kaggle pushes or leaderboard-facing submissions.
+
+## Root document roles
+Keep root documentation minimal. `README.md` is the overview, `AGENTS.md` is the canonical agent/contributor operating guide, `CONTRIBUTING.md` is the human collaboration guide, and `CHANGELOG.md` is release history. See `docs/ROOT_DOCUMENTS.md`.

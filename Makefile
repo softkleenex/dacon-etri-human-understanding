@@ -1,4 +1,4 @@
-.PHONY: help install lint format test audit normalize-submissions cleanup-manifest run-local build-kaggle-dataset kaggle-init-code kaggle-push-code kaggle-init-notebook kaggle-push-notebook kaggle-push-only kaggle-pull-output dacon-submit ensemble
+.PHONY: help install lint format test audit docs-audit submissions-audit structure-audit normalize-submissions cleanup-manifest run-local build-kaggle-dataset kaggle-init-code kaggle-push-code kaggle-init-notebook kaggle-push-notebook kaggle-push-only kaggle-pull-output dacon-submit ensemble
 
 KAGGLE_DATASET_DIR := build/kaggle_dataset
 KAGGLE_NOTEBOOK_DIR ?= notebooks/kaggle_runner
@@ -14,9 +14,12 @@ help:
 	@echo "  make format            - Run Ruff formatter"
 	@echo "  make test              - Run Pytest"
 	@echo "  make audit             - Audit workspace health and experiment hygiene"
+	@echo "  make docs-audit        - Audit docs, commands, and submission record integrity"
+	@echo "  make submissions-audit - Audit submission artifacts and log integrity"
+	@echo "  make structure-audit   - Audit recursive repository structure"
 	@echo "  make normalize-submissions - Normalize submission log and blacklist risky files"
 	@echo "  make cleanup-manifest  - Summarize intended cleanup vs review-required changes"
-	@echo "  make run-local         - Run local training and submission pipeline"
+	@echo "  make run-local         - Run full local SOTA training/stacking pipeline (heavy)"
 	@echo "  make build-kaggle-dataset - Package source code for Kaggle Dataset"
 	@echo "  make kaggle-init-code  - Initialize Kaggle dataset metadata"
 	@echo "  make kaggle-push-code  - Push packaged source code to Kaggle"
@@ -31,7 +34,7 @@ install:
 	@echo "Installing Dacon API from global backup..."
 	.venv/bin/pip install ~/sysp/dacon_api/dacon_submit_api-0.0.4-py3-none-any.whl
 
-LINT_PATHS := src tests scripts/audit_competition_workspace.py scripts/ensemble.py scripts/normalize_submission_log.py scripts/workspace_cleanup_manifest.py scripts/convert_pdfs_to_markdown.py
+LINT_PATHS := src tests scripts/audit_competition_workspace.py scripts/ensemble.py scripts/normalize_submission_log.py scripts/workspace_cleanup_manifest.py scripts/convert_pdfs_to_markdown.py scripts/audit_docs_records.py scripts/audit_repository_structure.py scripts/audit_submissions.py
 
 lint:
 	.venv/bin/ruff check $(LINT_PATHS)
@@ -44,7 +47,19 @@ test:
 	PYTHONPATH=. .venv/bin/pytest tests/ -v
 
 audit:
-	python3 scripts/audit_competition_workspace.py
+	.venv/bin/python scripts/audit_competition_workspace.py
+	.venv/bin/python scripts/audit_docs_records.py
+	.venv/bin/python scripts/audit_submissions.py
+	.venv/bin/python scripts/audit_repository_structure.py
+
+docs-audit:
+	.venv/bin/python scripts/audit_docs_records.py
+
+submissions-audit:
+	.venv/bin/python scripts/audit_submissions.py
+
+structure-audit:
+	.venv/bin/python scripts/audit_repository_structure.py
 
 normalize-submissions:
 	.venv/bin/python scripts/normalize_submission_log.py --update-canonical
@@ -56,7 +71,7 @@ jupyter:
 	.venv/bin/jupyter lab
 
 run-local:
-	.venv/bin/python notebooks/generate_notebooks.py
+	.venv/bin/python scripts/run_full_sota_pipeline.py
 
 build-kaggle-dataset:
 	@mkdir -p $(KAGGLE_DATASET_DIR)

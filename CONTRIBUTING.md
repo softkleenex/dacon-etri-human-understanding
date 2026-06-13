@@ -4,8 +4,8 @@
 팀원 및 협업자(AI 에이전트 포함)가 코드베이스를 일관되고 깨끗하게 유지하기 위한 규칙을 정의합니다.
 
 ## 1. 이슈 및 태스크 관리
-- 새로운 아이디어, 버그 리포트, 데이터 탐색(EDA) 결과 등은 문서화하여 `docs/` 또는 `references/`에 기록하거나 이슈로 관리합니다.
-- 실험 아이디어는 `docs/SUBMISSION_HISTORY.md`의 실험 기록 템플릿에 맞추어 관리합니다.
+- 새로운 아이디어, 버그 리포트, 데이터 탐색(EDA) 결과 등은 문서화하여 `docs/`에 기록하거나 이슈로 관리합니다.
+- 실험 아이디어는 `submissions/submission_log.csv` 및 `reports/submission_log_normalized.csv`의 실험 기록 템플릿에 맞추어 관리합니다.
 
 ## 2. 브랜치 전략
 - `main` 브랜치는 항상 동작 가능하고 안정적인 코드를 유지합니다.
@@ -19,6 +19,7 @@
 make format  # 코드 포맷팅
 make lint    # 코드 린팅
 make test    # 유닛 테스트 실행
+make audit   # 워크스페이스/문서/기록 무결성 점검
 ```
 
 - 타입 힌팅(Type Hinting)을 적극적으로 사용합니다.
@@ -30,6 +31,6 @@ make test    # 유닛 테스트 실행
 
 ## 5. Pull Request (PR) 가이드
 1. 브랜치를 생성하고 작업을 진행합니다.
-2. `make format`, `make lint`, `make test`를 모두 통과하는지 확인합니다.
+2. `make format`, `make lint`, `make test`, `make audit`를 모두 통과하는지 확인합니다.
 3. PR 본문에는 **변경 사항**, **해결한 문제**, **관련된 실험/이슈**를 명확히 작성합니다.
 4. 필요시, Kaggle 커널에서의 테스트 결과나 로컬 CV 점수 변화를 첨부합니다.

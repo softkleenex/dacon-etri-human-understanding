@@ -21,8 +21,8 @@ To achieve the highly competitive 0.5 Log-Loss target, this project employs adva
 - `docs/`: Project documentation, strategy notes, and planning.
 - `models/`: Checkpoints for PyTorch models and CatBoost models.
 - `notebooks/kaggle_runner/`: Jupyter notebook runner pushed to Kaggle for cloud GPU training.
-- `references/`: Official competition rules, metric descriptions, and our Data Dictionary.
-- `scripts/`: Executable scripts for automation (`auto_wait_submit.py`, `ensemble.py`, `pre_flight_check.py`).
+- `docs/competition/`: Official competition rules, metric descriptions, and the data dictionary.
+- `scripts/`: Executable automation (`pre_flight_check.py`, `ensemble.py`, `normalize_submission_log.py`, audit utilities).
 - `src/`: Reusable source code (PyTorch DataLoaders, Feature Engineering, Lightning Trainers, Utilities).
 - `submissions/`: Output CSV predictions, `submission_log.csv`, and JSON metadata files.
 
@@ -53,10 +53,15 @@ We leverage Kaggle's free GPU (P100/T4) for heavy model training and tuning. Thi
    make kaggle-push-notebook
    ```
 
-3. **Background Auto-Submission Bot:**
-   Run the background watcher. It will ping Kaggle every 60 seconds, download the resulting CSV, and automatically submit it to the Dacon leaderboard with proper metadata.
+3. **Pull, normalize, and submit deliberately:**
+   Pull Kaggle outputs, refresh submission metadata, build a safe ensemble, then submit only after reviewing the generated file.
    ```bash
-   python scripts/auto_wait_submit.py &
+   make kaggle-wait-and-pull
+   make normalize-submissions
+   make ensemble
+   make docs-audit
+   make audit
+   make dacon-submit SUB_PATH=submissions/submission_ensemble_latest.csv SUB_MEMO="reviewed safe ensemble"
    ```
 
 ## 🤝 Ensembling & Validation
@@ -69,8 +74,9 @@ We leverage Kaggle's free GPU (P100/T4) for heavy model training and tuning. Thi
   ```
 
 ## 📖 Key Documentation
+- [Root Document Roles](docs/ROOT_DOCUMENTS.md)
 - [Master Plan](docs/MASTER_PLAN.md)
 - [Data Dictionary](docs/competition/DATA_DICTIONARY.md)
-- [Submission History](submissions/submission_log.csv)
+- [Submission Log](submissions/submission_log.csv)
 - [Kaggle Environment & Troubleshooting](docs/infrastructure/cloud_env/guide.md)
 - [Pipeline Automation Guide](docs/infrastructure/automation/guide.md)
