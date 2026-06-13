@@ -31,3 +31,10 @@ Temporary handoff area for experiments. Move anything worth preserving to `repor
 ## Clean-room rule
 
 Before starting a new competition session, `data/raw/` may remain populated, `data/external/` should contain only reviewed lightweight auxiliary sources, and `data/processed/` should be empty except `.gitkeep`.
+
+## Per-directory guides
+
+- [Raw current-competition data](raw/README.md)
+- [External auxiliary data](external/README.md)
+- [Processed regenerable caches](processed/README.md)
+- [Interim scratch data](interim/README.md)
