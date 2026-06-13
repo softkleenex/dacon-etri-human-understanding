@@ -24,9 +24,9 @@ Found **2 issues**: 0 critical, 2 high, 0 medium.
 
 ## Key Stats
 
-- `git_status_by_code`: `{"M": 1}`
+- `git_status_by_code`: `{"M": 6}`
 
-- `git_status_entries`: `1`
+- `git_status_entries`: `6`
 
 - `largest_cv_lb_gaps`: `[{"id": "9", "file": "submission_id_009_score0.6258.csv", "local": "0.6258", "public": "0.8208847151", "gap": 0.195085}, {"id": "74", "file": "submission_id_074_score0.5986.csv", "local": "0.5986", "public": "0.7436431908", "gap": 0.145043}, {"id": "73", "file": "submission_id_073_score0.6022.csv", "local": "0.6022", "public": "0.7454473391", "gap": 0.143247}, {"id": "10", "file": "submission_id_010_score0.5972.csv", "local": "0.5972", "public": "0.6301928255", "gap": 0.032993}, {"id": "16", "file": "submission_id_016_score0.5875.csv", "local": "0.5875", "public": "0.6184828015", "gap": 0.030983}, {"id": "11", "file": "submission_id_011_score0.5909.csv", "local": "0.5909", "public": "0.6208484881", "gap": 0.029948}, {"id": "7", "file": "submission_id_007_score0.5921.csv", "local": "0.5921", "public": "0.6166592444", "gap": 0.024559}, {"id": "76", "file": "submission_id_076_score0.5996.csv", "local": "0.599611", "public": "0.6241517536", "gap": 0.024541}]`
 
@@ -54,7 +54,7 @@ Found **2 issues**: 0 critical, 2 high, 0 medium.
 
 - `size_scratch`: `0B`
 
-- `size_scripts`: `471.2KB`
+- `size_scripts`: `471.4KB`
 
 - `size_src`: `156.5KB`
 

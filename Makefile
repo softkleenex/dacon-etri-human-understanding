@@ -1,5 +1,6 @@
 .PHONY: help install lint format test audit docs-audit submissions-audit structure-audit normalize-submissions cleanup-manifest run-local build-kaggle-dataset kaggle-init-code kaggle-push-code kaggle-init-notebook kaggle-push-notebook kaggle-push-only kaggle-pull-output dacon-submit ensemble
 
+KAGGLE ?= .venv/bin/kaggle
 KAGGLE_DATASET_DIR := build/kaggle_dataset
 KAGGLE_NOTEBOOK_DIR ?= notebooks/kaggle_runner
 KAGGLE_SLUG ?= softkleenex/dacon-etri-human-runner
@@ -81,18 +82,18 @@ build-kaggle-dataset:
 	@echo "Packaged project files into $(KAGGLE_DATASET_DIR)/"
 
 kaggle-init-code: build-kaggle-dataset
-	kaggle datasets init -p $(KAGGLE_DATASET_DIR)
+	$(KAGGLE) datasets init -p $(KAGGLE_DATASET_DIR)
 	cp $(KAGGLE_DATASET_DIR)/dataset-metadata.json ./
 	@echo "Created dataset-metadata.json. Please edit it in the root directory and then run 'make kaggle-push-code'."
 
 kaggle-push-code: build-kaggle-dataset
 	@if [ ! -f dataset-metadata.json ]; then echo "Error: dataset-metadata.json not found in root. Run make kaggle-init-code first."; exit 1; fi
 	@.venv/bin/python scripts/pre_flight_check.py
-	kaggle datasets version -p $(KAGGLE_DATASET_DIR) -m "Update source code"
+	$(KAGGLE) datasets version -p $(KAGGLE_DATASET_DIR) -m "Update source code"
 
 kaggle-init-notebook:
 	@mkdir -p $(KAGGLE_NOTEBOOK_DIR)
-	kaggle kernels init -p $(KAGGLE_NOTEBOOK_DIR)
+	$(KAGGLE) kernels init -p $(KAGGLE_NOTEBOOK_DIR)
 	@echo "Created kernel-metadata.json in $(KAGGLE_NOTEBOOK_DIR). Please edit it and then run 'make kaggle-push-notebook'."
 
 kaggle-push-notebook: kaggle-push-only
@@ -103,21 +104,21 @@ kaggle-push-only:
 	@sed -i '' -e "s|\"enable_gpu\": [a-zA-Z]*|\"enable_gpu\": false|" $(KAGGLE_NOTEBOOK_DIR)/kernel-metadata.json
 	@sed -i '' -e "s|\"enable_tpu\": [a-zA-Z]*|\"enable_tpu\": true|" $(KAGGLE_NOTEBOOK_DIR)/kernel-metadata.json
 	@.venv/bin/python scripts/pre_flight_check.py --notebook_dir $(KAGGLE_NOTEBOOK_DIR) --research
-	kaggle kernels push -p $(KAGGLE_NOTEBOOK_DIR)
+	$(KAGGLE) kernels push -p $(KAGGLE_NOTEBOOK_DIR)
 	@echo "Kernel $(KAGGLE_SLUG) pushed successfully on Kaggle with 🚀 TPU ENABLED (GPU disabled)!"
 
 kaggle-pull-output:
-	kaggle kernels output $(KAGGLE_SLUG) -p $(PULL_DIR) --force
+	$(KAGGLE) kernels output $(KAGGLE_SLUG) -p $(PULL_DIR) --force
 	@echo "Downloaded outputs to $(PULL_DIR) directory."
 
 kaggle-wait-and-pull:
 	@echo "Waiting for Kaggle kernel $(KAGGLE_SLUG) to finish..."
-	@while [ "$$(kaggle kernels status $(KAGGLE_SLUG) | grep -c 'RUNNING')" -gt 0 ]; do \
+	@while [ "$$($(KAGGLE) kernels status $(KAGGLE_SLUG) | grep -c 'RUNNING')" -gt 0 ]; do \
 		echo "Kernel is still running... sleeping for 60 seconds."; \
 		sleep 60; \
 	done; \
 	echo "Kernel finished. Pulling output..."; \
-	kaggle kernels output $(KAGGLE_SLUG) -p $(PULL_DIR)
+	$(KAGGLE) kernels output $(KAGGLE_SLUG) -p $(PULL_DIR)
 	@echo "Downloaded outputs to $(PULL_DIR) directory."
 
 ensemble:
