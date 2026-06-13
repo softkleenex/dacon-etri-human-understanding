@@ -23,14 +23,14 @@ Rules:
 - Record any external-data feature usage in `submissions/submission_log.csv` notes.
 
 ### `processed/` — regenerable caches
-This directory should normally contain only `.gitkeep` in a clean workspace. Files such as `df_train_raw.parquet`, `df_test_raw.parquet`, preloaded caches, or embedding caches are generated artifacts. Rebuild them from `raw/` via the training/feature scripts instead of treating them as source data.
+This directory should normally contain only `.gitkeep` and `README.md` in a clean workspace. Files such as `df_train_raw.parquet`, `df_test_raw.parquet`, preloaded caches, or embedding caches are generated artifacts. Rebuild them from `raw/` via the training/feature scripts instead of treating them as source data.
 
 ### `interim/`
 Temporary handoff area for experiments. Move anything worth preserving to `reports/`, `submissions/`, or `artifacts/` with a manifest.
 
 ## Clean-room rule
 
-Before starting a new competition session, `data/raw/` may remain populated, `data/external/` should contain only reviewed lightweight auxiliary sources, and `data/processed/` should be empty except `.gitkeep`.
+Before starting a new competition session, `data/raw/` may remain populated, `data/external/` should contain only reviewed lightweight auxiliary sources, and `data/processed/` should be empty except `.gitkeep` and `README.md`.
 
 ## Per-directory guides
 

@@ -2,7 +2,7 @@
 
 This directory is for regenerable feature caches and intermediate training tables.
 
-In a clean workspace it should contain only `.gitkeep` and this README. Files such as these are generated artifacts, not source data:
+In a clean workspace it should contain only `.gitkeep` and this README; all data tables here are disposable caches. Files such as these are generated artifacts, not source data:
 
 - `df_train_raw.parquet`
 - `df_test_raw.parquet`

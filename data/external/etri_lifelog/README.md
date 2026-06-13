@@ -1,4 +1,4 @@
-# External Data
+# ETRI Lifelog External Data
 
 This directory contains same-institution but non-current-period ETRI lifelog data. It is potentially useful, but it is not equivalent to the current DACON challenge data.
 
@@ -22,9 +22,9 @@ External data uses older 2019–2020 participants (`user01` etc. or numeric IDs)
 
 Use as auxiliary reference only:
 
-- Good for priors: sleep-score ranges, survey scale behavior, broad sleep/condition relationships.
+- Good for priors: sleep-score ranges, survey scale behavior, broad sleep/condition relationships from older ETRI cohorts.
 - Good for feature ideas: duration, wake count, heart-rate, caffeine/alcohol, AM/PM survey separation.
-- Risky for direct training: subject IDs, dates, target definitions, and collection protocols differ.
+- Risky for direct training: subject IDs, dates, target definitions, devices, and collection protocols differ from the current 2024 challenge data.
 - Do not concatenate with current train rows unless a validation note proves it improves leak-free CV.
 
 Any submission using external-derived features must mention it in `submissions/submission_log.csv` notes.

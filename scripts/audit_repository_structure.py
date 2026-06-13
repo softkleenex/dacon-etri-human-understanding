@@ -308,7 +308,15 @@ def audit_tracked_ignored_patterns() -> list[Finding]:
     tracked_generated = sorted(
         p
         for p in tracked
-        if p not in {"data/raw/.gitkeep", "data/processed/.gitkeep", "data/interim/.gitkeep", "models/.gitkeep"}
+        if p not in {
+            "data/raw/.gitkeep",
+            "data/raw/README.md",
+            "data/processed/.gitkeep",
+            "data/processed/README.md",
+            "data/interim/.gitkeep",
+            "data/interim/README.md",
+            "models/.gitkeep",
+        }
         and p.startswith((
             "data/raw/",
             "data/processed/",
