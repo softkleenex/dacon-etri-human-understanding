@@ -1,28 +1,33 @@
-# 📂 데이터 폴더 매뉴얼 (Data Directory Manual)
+# Data Directory Manual
 
-이 폴더(`data/`)는 대회에서 사용되는 모든 입력(Input) 및 전처리된 중간 산출물(Processed) 데이터를 격리하여 관리하는 핵심 저장소입니다.
+`data/` contains local competition inputs and regenerable intermediate datasets. Data files are ignored by Git; only directory markers and this guide are tracked.
 
-## 🎯 폴더의 목적 및 형상 관리 원칙
-1. **격리 (Isolation)**: 코드(`src/`)와 데이터(`data/`)를 명확히 분리하여, 코드는 가볍게 유지하고 데이터는 용량에 구애받지 않고 관리합니다.
-2. **Git 추적 절대 금지**: 데이터 파일(`.csv`, `.parquet`, `.zip` 등)은 용량이 수십 GB에 달할 수 있으므로, **이 폴더 하위의 모든 데이터 파일은 `.gitignore`에 의해 Git 저장소에 커밋되지 않습니다.** 
-3. **DVC(Data Version Control) 연동 권장**: 데이터의 변경 이력(어떤 시점의 데이터를 사용했는지)을 추적하려면 Git 대신 DVC(`dvc add data/raw/...`)를 활용하여 메타데이터 포인터만 Git으로 관리하세요.
+## Directory roles
 
-## 📂 폴더 구조 (Structure)
+### `raw/` — current competition source data
+Keep the official DACON/ETRI competition inputs here and treat them as read-only. In this workspace that includes:
 
-확장성과 유지보수성을 위해 데이터를 3가지 계층으로 분리하여 관리합니다.
+- `ch2025_data_items/`: official sensor parquet files used by the current challenge.
+- `ch2026_metrics_train.csv`: training labels/metrics.
+- `ch2026_submission_sample.csv`: required submission schema.
+- `ch2026_metrics_description*.md`: converted metric descriptions.
 
-### 1. `raw/` (절대 불변의 원본 데이터)
-- **용도**: Dacon 홈페이지나 ETRI 데이터셋에서 최초로 다운로드 받은 원본 데이터(`ch2025_data_items/` 하위의 12개 센서 Parquet 파일들, `ch2026_metrics_train.csv` 등).
-- **규칙**: **이 폴더 안의 데이터는 어떠한 파이썬 스크립트에서도 덮어쓰기(Overwrite)가 금지됩니다.** 오직 읽기(Read-Only) 용도로만 접근해야 합니다.
+Do not overwrite or edit files in `raw/`. If a source file is replaced, document why before running experiments.
 
-### 2. `external/` (외부 보조 데이터)
-- **용도**: 대회 데이터 외에 AI Hub(`aihubshell`), 공공 데이터 포털, 기상청 등에서 합법적으로 수집한 외부 보조 데이터를 저장합니다.
-- **가이드**: 외부 데이터를 활용하는 전략은 👉 **[AI Hub 연동 가이드](../docs/infrastructure/aihub/guide.md)**를 참고하세요.
+### `external/` — auxiliary same-institution / other-period data
+Use this only for data not directly supplied as the current competition input, such as older ETRI lifelog summaries from 2018–2020. These files may be useful for priors or feature ideas, but they must be treated as auxiliary data with leakage risk.
 
-### 3. `processed/` (가공 완료된 파생 데이터)
-- **용도**: `src/features.py`나 전처리 스크립트에 의해 결측치가 채워지고 파생 변수가 추가된 중간/최종 학습용 데이터셋입니다.
-- **규칙**: 모델 훈련 직전에 항상 이 폴더의 데이터(`train_processed.parquet` 등)를 로드하여 속도를 높입니다. CSV 대신 I/O 속도가 압도적으로 빠른 **Parquet** 포맷 사용을 강력히 권장합니다.
+Rules:
+- Do not mix external rows into train/test without an explicit validation note.
+- Keep bulky extracted external sensor dumps in `artifacts/external_data_archive/` unless a reviewed pipeline needs them.
+- Record any external-data feature usage in `submissions/submission_log.csv` notes.
 
----
-> 💡 **Gemini CLI (AI Agent) 참고 사항**
-> 에이전트는 `.geminiignore` 규칙에 의해 이 폴더 하위의 원본 파일(CSV 등)을 직접 열어보지 않습니다. 에이전트에게 데이터의 형태를 알려주려면, 에이전트 스스로 `df.head()` 나 `df.info()`를 출력하는 파이썬 스크립트를 작성하고 실행시켜 그 로그를 읽도록 유도하세요.
+### `processed/` — regenerable caches
+This directory should normally contain only `.gitkeep` in a clean workspace. Files such as `df_train_raw.parquet`, `df_test_raw.parquet`, preloaded caches, or embedding caches are generated artifacts. Rebuild them from `raw/` via the training/feature scripts instead of treating them as source data.
+
+### `interim/`
+Temporary handoff area for experiments. Move anything worth preserving to `reports/`, `submissions/`, or `artifacts/` with a manifest.
+
+## Clean-room rule
+
+Before starting a new competition session, `data/raw/` may remain populated, `data/external/` should contain only reviewed lightweight auxiliary sources, and `data/processed/` should be empty except `.gitkeep`.
