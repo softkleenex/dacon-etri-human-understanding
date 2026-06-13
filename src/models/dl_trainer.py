@@ -1,4 +1,5 @@
 import os
+
 import numpy as np
 import pandas as pd
 import pytorch_lightning as pl
@@ -8,6 +9,7 @@ from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint
 from pytorch_lightning.loggers import WandbLogger
 from sklearn.impute import KNNImputer
 from sklearn.metrics import log_loss
+from sklearn.preprocessing import StandardScaler
 
 from src.data.data_loader import DataLoader
 from src.data.dl_data_module import DaconDataModule
@@ -17,8 +19,6 @@ from src.utils.logger import get_logger
 from src.utils.validation import clip_probabilities, validate_submission
 
 logger = get_logger(__name__)
-
-from sklearn.preprocessing import StandardScaler
 
 
 class DLTrainer:
@@ -35,6 +35,7 @@ class DLTrainer:
 
     def prepare_data(self):
         import os
+
         cache_train_path = os.path.join(self.data_dir, "processed", "df_train_preloaded_cache.parquet")
         cache_test_path = os.path.join(self.data_dir, "processed", "df_test_preloaded_cache.parquet")
 
@@ -61,37 +62,39 @@ class DLTrainer:
         # 2. Engineer Features
         if sample_sub_df is not None:
             df_test_raw = build_training_dataset(sample_sub_df, sensor_data_dict)
-            df_train_raw['is_test'] = 0
-            df_test_raw['is_test'] = 1
+            df_train_raw["is_test"] = 0
+            df_test_raw["is_test"] = 1
             df_all_raw = pd.concat([df_train_raw, df_test_raw], ignore_index=True)
             df_all = engineer_features(df_all_raw)
 
             # Inject HF Chronos Embeddings into df_all
             import os
-            hf_emb_path = 'data/processed/hf_chronos_embeddings.csv'
+
+            hf_emb_path = "data/processed/hf_chronos_embeddings.csv"
             if os.path.exists(hf_emb_path):
                 logger.info(f"Applying HF Chronos Embeddings from {hf_emb_path}...")
                 id_col_temp = "subject_id" if "subject_id" in df_all.columns else "user_id"
                 hf_emb_df = pd.read_csv(hf_emb_path)
-                hf_emb_df['date'] = pd.to_datetime(hf_emb_df['date']).dt.date
-                df_all['date'] = pd.to_datetime(df_all['date']).dt.date
-                df_all = pd.merge(df_all, hf_emb_df, on=[id_col_temp, 'date'], how='left')
+                hf_emb_df["date"] = pd.to_datetime(hf_emb_df["date"]).dt.date
+                df_all["date"] = pd.to_datetime(df_all["date"]).dt.date
+                df_all = pd.merge(df_all, hf_emb_df, on=[id_col_temp, "date"], how="left")
 
-            df_train = df_all[df_all['is_test'] == 0].drop(columns=['is_test']).copy().reset_index(drop=True)
-            df_test = df_all[df_all['is_test'] == 1].drop(columns=['is_test']).copy().reset_index(drop=True)
+            df_train = df_all[df_all["is_test"] == 0].drop(columns=["is_test"]).copy().reset_index(drop=True)
+            df_test = df_all[df_all["is_test"] == 1].drop(columns=["is_test"]).copy().reset_index(drop=True)
         else:
             df_train = engineer_features(df_train_raw)
 
             # Inject HF Chronos Embeddings into df_train
             import os
-            hf_emb_path = 'data/processed/hf_chronos_embeddings.csv'
+
+            hf_emb_path = "data/processed/hf_chronos_embeddings.csv"
             if os.path.exists(hf_emb_path):
                 logger.info(f"Applying HF Chronos Embeddings from {hf_emb_path}...")
                 id_col_temp = "subject_id" if "subject_id" in df_train.columns else "user_id"
                 hf_emb_df = pd.read_csv(hf_emb_path)
-                hf_emb_df['date'] = pd.to_datetime(hf_emb_df['date']).dt.date
-                df_train['date'] = pd.to_datetime(df_train['date']).dt.date
-                df_train = pd.merge(df_train, hf_emb_df, on=[id_col_temp, 'date'], how='left')
+                hf_emb_df["date"] = pd.to_datetime(hf_emb_df["date"]).dt.date
+                df_train["date"] = pd.to_datetime(df_train["date"]).dt.date
+                df_train = pd.merge(df_train, hf_emb_df, on=[id_col_temp, "date"], how="left")
 
             df_test = None
 
@@ -134,15 +137,16 @@ class DLTrainer:
         logger.info(f"Training {model_name} with {self.n_splits}-fold CV. Sequence modeling: {use_sequence}")
 
         from src.utils.validation import make_subject_timeseries_folds
+
         cv_folds = make_subject_timeseries_folds(df_train, n_folds=self.n_splits)
 
         oof_preds = {t: np.full(len(df_train), np.nan) for t in self.targets}
         has_prediction = np.zeros(len(df_train), dtype=bool)
         trained_models = []
-        fold_processors = [] # Store imputers and scalers per fold
+        fold_processors = []  # Store imputers and scalers per fold
 
         for fold, (train_idx, val_idx) in enumerate(cv_folds):
-            logger.info(f"--- Fold {fold+1}/{self.n_splits} ---")
+            logger.info(f"--- Fold {fold + 1}/{self.n_splits} ---")
 
             # Record that these indices received a validation prediction
             has_prediction[val_idx] = True
@@ -181,34 +185,37 @@ class DLTrainer:
                 feature_cols=numeric_cols,
                 batch_size=self.cfg.model.get("batch_size", 64),
                 use_sequence=use_sequence,
-                seq_len=seq_len
+                seq_len=seq_len,
             )
 
             if use_sequence:
                 if model_name == "dl_transformer":
                     from src.models.dl_models import MultiTaskTransformer
+
                     model = MultiTaskTransformer(
                         input_dim=len(numeric_cols),
                         hidden_dim=self.cfg.model.get("hidden_dim", 128),
                         num_layers=self.cfg.model.get("num_layers", 2),
-                        lr=self.cfg.model.get("lr", 1e-3)
+                        lr=self.cfg.model.get("lr", 1e-3),
                     )
                     model_class = MultiTaskTransformer
                 else:
                     from src.models.dl_models import MultiTaskLSTM
+
                     model = MultiTaskLSTM(
                         input_dim=len(numeric_cols),
                         hidden_dim=self.cfg.model.get("hidden_dim", 128),
                         num_layers=self.cfg.model.get("num_layers", 2),
-                        lr=self.cfg.model.get("lr", 1e-3)
+                        lr=self.cfg.model.get("lr", 1e-3),
                     )
                     model_class = MultiTaskLSTM
             else:
                 from src.models.dl_models import MultiTaskMLP
+
                 model = MultiTaskMLP(
                     input_dim=len(numeric_cols),
                     hidden_dims=self.cfg.model.get("hidden_dims", [256, 128, 64]),
-                    lr=self.cfg.model.get("lr", 1e-3)
+                    lr=self.cfg.model.get("lr", 1e-3),
                 )
                 model_class = MultiTaskMLP
 
@@ -218,16 +225,14 @@ class DLTrainer:
                 save_top_k=1,
                 verbose=False,
                 monitor="val_logloss_mean",
-                mode="min"
+                mode="min",
             )
 
-            early_stop_callback = EarlyStopping(
-                monitor="val_logloss_mean",
-                patience=7,
-                mode="min"
-            )
+            early_stop_callback = EarlyStopping(monitor="val_logloss_mean", patience=7, mode="min")
 
-            tb_logger = WandbLogger(project=self.cfg.training.get("wandb_project", "dacon-etri")) if self.use_wandb else True
+            tb_logger = (
+                WandbLogger(project=self.cfg.training.get("wandb_project", "dacon-etri")) if self.use_wandb else True
+            )
 
             logger.info(f"Setting max_epochs to: {self.cfg.model.get('epochs', 50)}")
             trainer = pl.Trainer(
@@ -236,7 +241,7 @@ class DLTrainer:
                 logger=tb_logger,
                 accelerator="auto",
                 devices=1,
-                enable_progress_bar=False
+                enable_progress_bar=False,
             )
             logger.info(f"Trainer max_epochs is actually: {trainer.max_epochs}")
 
@@ -276,14 +281,14 @@ class DLTrainer:
 
             # Save User Embeddings for ML models
             try:
-                if hasattr(best_model, 'user_embedding'):
+                if hasattr(best_model, "user_embedding"):
                     run_name = self.cfg.get("training", {}).get("run_name", "dl_baseline")
                     emb_weights = best_model.user_embedding.weight.detach().cpu().numpy()
-                    emb_df = pd.DataFrame(emb_weights, columns=[f'user_emb_{i}' for i in range(emb_weights.shape[1])])
+                    emb_df = pd.DataFrame(emb_weights, columns=[f"user_emb_{i}" for i in range(emb_weights.shape[1])])
                     # We need to map back to original subject_ids.
                     # Our data module does: user_codes = df[id_col].str.extract(r'(\d+)')[0].astype(int).values - 1
                     # So row i corresponds to id{i+1:02d}
-                    emb_df['subject_id'] = [f'id{i+1:02d}' for i in range(len(emb_df))]
+                    emb_df["subject_id"] = [f"id{i + 1:02d}" for i in range(len(emb_df))]
 
                     emb_path = os.path.join(self.output_dir, f"user_embeddings_{run_name}.csv")
                     emb_df.to_csv(emb_path, index=False)
@@ -365,16 +370,21 @@ class DLTrainer:
 
             if use_sequence:
                 from src.data.dl_data_module import MultiTaskSequenceDataset
+
                 test_dataset = MultiTaskSequenceDataset(df_test_full, numeric_cols, self.targets, seq_len=seq_len)
             else:
                 from src.data.dl_data_module import MultiTaskDataset
+
                 test_dataset = MultiTaskDataset(df_test_full, numeric_cols, self.targets)
 
             import sys
 
             from torch.utils.data import DataLoader as TorchDataLoader
-            num_workers = 0 if sys.platform == 'win32' or torch.backends.mps.is_available() else 4
-            test_loader = TorchDataLoader(test_dataset, batch_size=self.cfg.model.get("batch_size", 64), shuffle=False, num_workers=num_workers)
+
+            num_workers = 0 if sys.platform == "win32" or torch.backends.mps.is_available() else 4
+            test_loader = TorchDataLoader(
+                test_dataset, batch_size=self.cfg.model.get("batch_size", 64), shuffle=False, num_workers=num_workers
+            )
 
             # Aggregate predictions over all 5 folds
             submission = sample_sub_df.copy()
@@ -424,8 +434,9 @@ class DLTrainer:
             import json
 
             from omegaconf import OmegaConf
+
             meta_path = os.path.join(self.output_dir, f"submission_{run_name}_score{avg_score:.4f}_meta.json")
-            with open(meta_path, 'w') as f:
+            with open(meta_path, "w") as f:
                 json.dump(OmegaConf.to_container(self.cfg, resolve=True), f, indent=4)
 
         logger.info("Deep Learning Pipeline Completed.")

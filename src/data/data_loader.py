@@ -10,13 +10,15 @@ logger = get_logger()
 class DataLoader:
     def __init__(self, data_dir: str = "data"):
         self.data_dir = Path(data_dir)
-        
-        # In Kaggle, the dataset was uploaded directly from data/raw, so 'raw' folder doesn't exist
-        if (self.data_dir / "raw").exists():
+
+        # In Kaggle, the dataset may be uploaded directly from data/raw, so a real
+        # existing data_dir without raw/ is treated as flat. For normal local paths
+        # (including not-yet-created test dirs), keep the documented data/raw layout.
+        if (self.data_dir / "raw").exists() or not self.data_dir.exists():
             self.raw_dir = self.data_dir / "raw"
         else:
             self.raw_dir = self.data_dir
-            
+
         self.processed_dir = self.data_dir / "processed"
         self.items_dir = self.raw_dir / "ch2025_data_items"
 

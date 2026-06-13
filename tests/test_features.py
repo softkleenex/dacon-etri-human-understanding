@@ -18,11 +18,11 @@ def test_aggregate_time_series():
     assert df_agg.iloc[0]["val"] == 2.0  # Mean of 1.0 and 3.0
     assert df_agg.iloc[1]["val"] == 5.0
 
+
 def test_aggregate_time_series_no_time_col():
     df = pd.DataFrame({"val": [1.0, 3.0, 5.0]})
     df_agg = aggregate_time_series(df, time_col="time", agg_col="val", freq="D")
     assert len(df_agg) == 3
-
 
 
 def test_handle_missing_values():

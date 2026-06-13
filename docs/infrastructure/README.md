@@ -22,7 +22,7 @@
 - **[`optuna/guide.md`](optuna/guide.md)**: 조기 종료(Early Pruning)와 SQLite 이어서 튜닝하기를 결합한 베이지안 파라미터 탐색법.
 - **[`huggingface/guide.md`](huggingface/guide.md)**: 최신 SOTA 시계열/비전 논문 가중치를 즉각적으로 내 코드에 수혈하는 방법.
 - **[`data_processing/guide.md`](data_processing/guide.md)**: 데이터 누수(Data Leakage) 원천 차단 및 MLOps 확장 라이브러리 활용법.
-- **[`aihub/guide.md`](aihub/guide.md)**: 대회 성능 한계를 돌파하기 위한 날씨/지리 외부 데이터 결합 전략.
+- **[`etri/guide.md`](etri/guide.md)**: 대회 성능 한계를 돌파하기 위한 날씨/지리 외부 데이터 결합 전략.
 - **[`daconapi/guide.md`](daconapi/guide.md)**: 추론이 끝난 최종 CSV 파일을 DACON 리더보드에 스크립트로 자동 제출하는 방법.
 
 ---

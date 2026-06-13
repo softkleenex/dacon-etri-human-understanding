@@ -1,9 +1,10 @@
-import os
-import sys
-import yaml
-import json
 import argparse
+import json
+import sys
 from pathlib import Path
+
+import yaml
+
 
 def run_checks(is_research=False, notebook_dir="notebooks/kaggle_runner"):
     print(f"Starting Pre-Flight Checks for Kaggle Deployment (Research Mode: {is_research}, Notebook Dir: {notebook_dir})...")
@@ -16,16 +17,16 @@ def run_checks(is_research=False, notebook_dir="notebooks/kaggle_runner"):
         errors += 1
     else:
         try:
-            with open(conf_path, "r") as f:
+            with open(conf_path) as f:
                 config = yaml.safe_load(f)
             print("✅ Config file loaded successfully.")
-            
+
             # Check metrics only if it's a submission run
             if not is_research:
                 if config.get("training", {}).get("metric") != "logloss":
                     print("❌ Error: Competition metric should be 'logloss'.")
                     errors += 1
-                
+
         except Exception as e:
             print(f"❌ Error reading config: {e}")
             errors += 1
@@ -37,7 +38,7 @@ def run_checks(is_research=False, notebook_dir="notebooks/kaggle_runner"):
         errors += 1
     else:
         try:
-            with open(meta_path, "r") as f:
+            with open(meta_path) as f:
                 json.load(f)
             print("✅ Dataset metadata is valid JSON.")
         except Exception as e:
@@ -51,7 +52,7 @@ def run_checks(is_research=False, notebook_dir="notebooks/kaggle_runner"):
         errors += 1
     else:
         try:
-            with open(runner_meta, "r") as f:
+            with open(runner_meta) as f:
                 meta = json.load(f)
             if not is_research:
                 is_dl = config.get("model", {}).get("name", "").startswith("dl_")
@@ -67,18 +68,18 @@ def run_checks(is_research=False, notebook_dir="notebooks/kaggle_runner"):
     # 4. Check for Data Loader robustness
     dl_path = Path("src/data/data_loader.py")
     if dl_path.exists():
-        with open(dl_path, "r") as f:
+        with open(dl_path) as f:
             content = f.read()
             if "(self.data_dir / \"raw\").exists()" not in content:
                 print("❌ Error: data_loader.py does not seem to handle Kaggle's flattened directory structure.")
                 errors += 1
             else:
                 print("✅ Data Loader has path fallback logic.")
-    
+
     # 5. Check Notebook Generation logic
     gen_path = Path("notebooks/generate_notebooks.py")
     if gen_path.exists():
-        with open(gen_path, "r") as f:
+        with open(gen_path) as f:
             content = f.read()
             if "!pip install" not in content or "omegaconf" not in content or "pytorch-lightning" not in content:
                 print("❌ Error: generate_notebooks.py is missing !pip install for required dependencies (like omegaconf or pytorch-lightning).")
@@ -88,12 +89,12 @@ def run_checks(is_research=False, notebook_dir="notebooks/kaggle_runner"):
                 errors += 1
             else:
                 print("✅ Notebook generation includes dependency installation and P100 GPU fix.")
-                
+
     # 6. Compute Quota & Runtime Safety Check
     if not is_research:
         is_tuning = config.get("training", {}).get("tune_hyperparameters", False)
         n_splits = config.get("training", {}).get("n_splits", 5)
-        
+
         if is_tuning:
             n_trials = config.get("training", {}).get("n_trials", 10)
             is_dl = config.get("model", {}).get("name", "").startswith("dl_")
@@ -106,7 +107,37 @@ def run_checks(is_research=False, notebook_dir="notebooks/kaggle_runner"):
                 print(f"✅ Compute quota check passed. Total tuning models to train: {total_models}")
         else:
             print("✅ No hyperparameter tuning. Compute time is safe.")
-        
+
+        # 7. Check for Single Holdout Anchor Stacking Conflict
+        if n_splits == 1:
+            try:
+                with open("scripts/train_simple_ml.py") as f:
+                    content = f.read()
+                    if "lstm_oof_path = None" not in content and "lstm_oof_path = sorted" in content:
+                        print("❌ Error: Anchor Stacking is enabled while n_splits=1. This causes massive Concept Drift due to missing OOF predictions in the train set. Disable Anchor Stacking.")
+                        errors += 1
+                    else:
+                        print("✅ Anchor Stacking is safely configured for Single Holdout.")
+            except FileNotFoundError:
+                pass
+
+        # 8. Strict Python Syntax Check
+        import glob
+        import py_compile
+        syntax_errors = 0
+        for py_file in glob.glob("scripts/*.py") + glob.glob("src/**/*.py", recursive=True):
+            try:
+                py_compile.compile(py_file, doraise=True)
+            except py_compile.PyCompileError as e:
+                print(f"❌ Syntax Error found in {py_file}:\n{e}")
+                syntax_errors += 1
+
+        if syntax_errors > 0:
+            errors += syntax_errors
+            print(f"❌ Found {syntax_errors} Python syntax errors. Fix them before pushing!")
+        else:
+            print("✅ All Python files passed strict syntax compilation check.")
+
     if errors > 0:
         print(f"\n🚨 Pre-flight checks failed with {errors} errors. Please fix before pushing to Kaggle.")
         sys.exit(1)
@@ -118,5 +149,5 @@ if __name__ == "__main__":
     parser.add_argument("--research", action="store_true", help="Skip competition specific strict checks for research notebooks.")
     parser.add_argument("--notebook_dir", type=str, default="notebooks/kaggle_runner", help="Path to the notebook directory being pushed.")
     args = parser.parse_args()
-    
+
     run_checks(is_research=args.research, notebook_dir=args.notebook_dir)

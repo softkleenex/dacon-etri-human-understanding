@@ -1,4 +1,4 @@
-.PHONY: help install lint format test run-local build-kaggle-dataset kaggle-init-code kaggle-push-code kaggle-init-notebook kaggle-push-notebook kaggle-pull-output dacon-submit
+.PHONY: help install lint format test audit normalize-submissions cleanup-manifest run-local build-kaggle-dataset kaggle-init-code kaggle-push-code kaggle-init-notebook kaggle-push-notebook kaggle-push-only kaggle-pull-output dacon-submit ensemble
 
 KAGGLE_DATASET_DIR := build/kaggle_dataset
 KAGGLE_NOTEBOOK_DIR ?= notebooks/kaggle_runner
@@ -13,11 +13,15 @@ help:
 	@echo "  make lint              - Run Ruff linter"
 	@echo "  make format            - Run Ruff formatter"
 	@echo "  make test              - Run Pytest"
+	@echo "  make audit             - Audit workspace health and experiment hygiene"
+	@echo "  make normalize-submissions - Normalize submission log and blacklist risky files"
+	@echo "  make cleanup-manifest  - Summarize intended cleanup vs review-required changes"
 	@echo "  make run-local         - Run local training and submission pipeline"
 	@echo "  make build-kaggle-dataset - Package source code for Kaggle Dataset"
 	@echo "  make kaggle-init-code  - Initialize Kaggle dataset metadata"
 	@echo "  make kaggle-push-code  - Push packaged source code to Kaggle"
-	@echo "  make kaggle-pull-output- Pull outputs from Kaggle notebook"
+	@echo "  make kaggle-push-notebook - Push Kaggle notebook/kernel metadata"
+	@echo "  make kaggle-pull-output - Pull outputs from Kaggle notebook"
 	@echo "  make dacon-submit      - Submit the prediction to Dacon"
 
 install:
@@ -27,15 +31,26 @@ install:
 	@echo "Installing Dacon API from global backup..."
 	.venv/bin/pip install ~/sysp/dacon_api/dacon_submit_api-0.0.4-py3-none-any.whl
 
+LINT_PATHS := src tests scripts/audit_competition_workspace.py scripts/ensemble.py scripts/normalize_submission_log.py scripts/workspace_cleanup_manifest.py scripts/convert_pdfs_to_markdown.py
+
 lint:
-	.venv/bin/ruff check .
+	.venv/bin/ruff check $(LINT_PATHS)
 
 format:
-	.venv/bin/ruff check --fix .
-	.venv/bin/ruff format .
+	.venv/bin/ruff check --fix $(LINT_PATHS)
+	.venv/bin/ruff format $(LINT_PATHS)
 
 test:
 	PYTHONPATH=. .venv/bin/pytest tests/ -v
+
+audit:
+	python3 scripts/audit_competition_workspace.py
+
+normalize-submissions:
+	.venv/bin/python scripts/normalize_submission_log.py --update-canonical
+
+cleanup-manifest:
+	python3 scripts/workspace_cleanup_manifest.py
 
 jupyter:
 	.venv/bin/jupyter lab
@@ -46,7 +61,7 @@ run-local:
 build-kaggle-dataset:
 	@mkdir -p $(KAGGLE_DATASET_DIR)
 	@rm -rf $(KAGGLE_DATASET_DIR)/*
-	@zip -r $(KAGGLE_DATASET_DIR)/source.zip src conf scripts pyproject.toml README.md
+	@zip -r $(KAGGLE_DATASET_DIR)/source.zip src conf scripts pyproject.toml README.md data/raw
 	@if [ -f dataset-metadata.json ]; then cp dataset-metadata.json $(KAGGLE_DATASET_DIR)/; fi
 	@echo "Packaged project files into $(KAGGLE_DATASET_DIR)/"
 
@@ -65,18 +80,16 @@ kaggle-init-notebook:
 	kaggle kernels init -p $(KAGGLE_NOTEBOOK_DIR)
 	@echo "Created kernel-metadata.json in $(KAGGLE_NOTEBOOK_DIR). Please edit it and then run 'make kaggle-push-notebook'."
 
-kaggle-push-notebook:
-	@if [ "$(AUTO_SUBMIT)" = "false" ]; then \
-		.venv/bin/python scripts/pre_flight_check.py --notebook_dir $(KAGGLE_NOTEBOOK_DIR) --research; \
-		kaggle kernels push -p $(KAGGLE_NOTEBOOK_DIR); \
-		echo "Waiting for Research Kaggle kernel to finish..."; \
-		.venv/bin/python -u scripts/kaggle_manager.py --slug $(KAGGLE_SLUG) --out_dir $(PULL_DIR); \
-	else \
-		.venv/bin/python scripts/pre_flight_check.py --notebook_dir $(KAGGLE_NOTEBOOK_DIR); \
-		kaggle kernels push -p $(KAGGLE_NOTEBOOK_DIR); \
-		echo "Waiting for Submission Kaggle kernel to finish..."; \
-		.venv/bin/python -u scripts/kaggle_manager.py --slug $(KAGGLE_SLUG) --out_dir $(PULL_DIR) --submit; \
-	fi
+kaggle-push-notebook: kaggle-push-only
+
+kaggle-push-only:
+	@sed -i '' -e "s|\"id\": \".*\"|\"id\": \"$(KAGGLE_SLUG)\"|" $(KAGGLE_NOTEBOOK_DIR)/kernel-metadata.json
+	@sed -i '' -e "s|\"title\": \".*\"|\"title\": \"$(shell echo $(KAGGLE_SLUG) | cut -d'/' -f2)\"|" $(KAGGLE_NOTEBOOK_DIR)/kernel-metadata.json
+	@sed -i '' -e "s|\"enable_gpu\": [a-zA-Z]*|\"enable_gpu\": false|" $(KAGGLE_NOTEBOOK_DIR)/kernel-metadata.json
+	@sed -i '' -e "s|\"enable_tpu\": [a-zA-Z]*|\"enable_tpu\": true|" $(KAGGLE_NOTEBOOK_DIR)/kernel-metadata.json
+	@.venv/bin/python scripts/pre_flight_check.py --notebook_dir $(KAGGLE_NOTEBOOK_DIR) --research
+	kaggle kernels push -p $(KAGGLE_NOTEBOOK_DIR)
+	@echo "Kernel $(KAGGLE_SLUG) pushed successfully on Kaggle with 🚀 TPU ENABLED (GPU disabled)!"
 
 kaggle-pull-output:
 	kaggle kernels output $(KAGGLE_SLUG) -p $(PULL_DIR) --force

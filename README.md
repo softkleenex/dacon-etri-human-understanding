@@ -70,7 +70,7 @@ We leverage Kaggle's free GPU (P100/T4) for heavy model training and tuning. Thi
 
 ## 📖 Key Documentation
 - [Master Plan](docs/MASTER_PLAN.md)
-- [Data Dictionary](references/DATA_DICTIONARY.md)
-- [Submission History](docs/SUBMISSION_HISTORY.md)
+- [Data Dictionary](docs/competition/DATA_DICTIONARY.md)
+- [Submission History](submissions/submission_log.csv)
 - [Kaggle Environment & Troubleshooting](docs/infrastructure/cloud_env/guide.md)
 - [Pipeline Automation Guide](docs/infrastructure/automation/guide.md)
