@@ -1,0 +1,147 @@
+{
+  "created_at_kst": "2026-06-23 20:01:06 UTC+09:00",
+  "diagnostic": "post_id341_operator_handoff_contract",
+  "purpose": "Consolidate the no-approval state and exact approved Kaggle no-submit sequence into one operator handoff contract.",
+  "inputs": {
+    "no_approval_frontier": "reports/post_id341_no_approval_frontier_20260619.json",
+    "prelaunch": "reports/post_id341_kaggle_prelaunch_readiness_gate_20260618.json",
+    "launch_approval_note": "reports/post_id341_kaggle_launch_approval_note_20260618.json",
+    "execution_packet": "reports/kaggle_upstream_execution_packet_post_id341_20260618.json",
+    "guarded_remote_contract": "reports/kaggle_guarded_remote_contract_audit_20260618.json",
+    "local_smoke_freshness": "reports/post_id341_local_smoke_freshness_gate_20260618.json",
+    "local_runner_smoke": "reports/post_id341_kaggle_runner_local_smoke_20260618.json",
+    "remote_next_action": "reports/post_id341_remote_next_action_decision_20260618.json",
+    "remote_artifact_threshold": "reports/post_id341_remote_artifact_review_threshold_20260618.json",
+    "runner_score_relevance": "reports/post_id341_runner_score_relevance_contract_20260618.json"
+  },
+  "report_status": {
+    "no_approval_frontier": {
+      "exists": true,
+      "parse_ok": true
+    },
+    "prelaunch": {
+      "exists": true,
+      "parse_ok": true
+    },
+    "launch_approval_note": {
+      "exists": true,
+      "parse_ok": true
+    },
+    "execution_packet": {
+      "exists": true,
+      "parse_ok": true
+    },
+    "guarded_remote_contract": {
+      "exists": true,
+      "parse_ok": true
+    },
+    "local_smoke_freshness": {
+      "exists": true,
+      "parse_ok": true
+    },
+    "local_runner_smoke": {
+      "exists": true,
+      "parse_ok": true
+    },
+    "remote_next_action": {
+      "exists": true,
+      "parse_ok": true
+    },
+    "remote_artifact_threshold": {
+      "exists": true,
+      "parse_ok": true
+    },
+    "runner_score_relevance": {
+      "exists": true,
+      "parse_ok": true
+    }
+  },
+  "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+  "local_preapproval_commands": [
+    "make kaggle-approval-contract-test",
+    "make kaggle-upstream-prelaunch-local"
+  ],
+  "preferred_local_ready_wrappers": [
+    "make kaggle-upstream-ready-local"
+  ],
+  "approval_required_commands": [
+    "ALLOW_KAGGLE_REMOTE=true make kaggle-push-upstream-patch-dataset",
+    "ALLOW_KAGGLE_REMOTE=true make kaggle-check-base-dataset-files",
+    "ALLOW_KAGGLE_REMOTE=true make kaggle-check-upstream-patch-dataset-files",
+    "ALLOW_KAGGLE_REMOTE=true make kaggle-push-upstream-rebuild-runner",
+    "ALLOW_KAGGLE_REMOTE=true make kaggle-kernel-status-upstream-rebuild",
+    "ALLOW_KAGGLE_REMOTE=true make kaggle-wait-and-pull-upstream-rebuild-output",
+    "make kaggle-review-upstream-rebuild-output"
+  ],
+  "sequence_checks": {
+    "local_preapproval_matches_expected": true,
+    "preferred_local_ready_wrapper_present": true,
+    "approval_required_matches_expected": true,
+    "packet_required_matches_expected": true,
+    "approval_and_packet_sequences_match": true,
+    "network_steps_are_guarded": true,
+    "local_review_step_is_not_guarded": true,
+    "guarded_audit_sequences_pass": true,
+    "guarded_audit_local_preapproval_pass": true,
+    "guarded_audit_threshold_contract_pass": true,
+    "guarded_audit_handoff_contract_pass": true
+  },
+  "state_checks": {
+    "no_approval_frontier_ready": true,
+    "all_local_no_approval_score_routes_closed": true,
+    "no_approval_score_route_exists_false": true,
+    "only_score_relevant_route_matches": true,
+    "prelaunch_ready": true,
+    "prelaunch_requires_approval": true,
+    "approval_note_ready": true,
+    "execution_packet_ready": true,
+    "guarded_remote_contract_pass": true,
+    "local_smoke_fresh": true,
+    "local_smoke_rerun_not_required": true,
+    "local_runner_smoke_passed": true,
+    "remote_outputs_pending": true,
+    "remote_artifact_review_closed_until_outputs": true,
+    "runner_score_relevance_pass": true
+  },
+  "artifact_boundary_checks": {
+    "submission_log_exists": true,
+    "manual_probe_row_ok": true,
+    "no_report_allows_actions": true,
+    "manual_probe_matches_frontier": true,
+    "manual_probe_is_not_public_058_evidence": true
+  },
+  "submission_log_snapshot": {
+    "exists": true,
+    "rows": 342,
+    "max_id": 342,
+    "manual_probe_row_count": 1,
+    "manual_probe_row_ok": true
+  },
+  "manual_probe_if_user_spends_submission": null,
+  "primary_score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+  "decision": {
+    "operator_handoff_ready": true,
+    "safe_wait_state_without_user_action": true,
+    "requires_exact_approval_phrase": true,
+    "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+    "local_preapproval_required_before_network": true,
+    "score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+    "manual_probe_if_user_spends_submission": null,
+    "manual_probe_is_public_058_evidence": false,
+    "remote_outputs_pending": true,
+    "artifact_review_open": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Wait for the exact approval phrase before any Kaggle network command. If approved, run local preapproval checks, then only the registered no-submit command sequence, and stop at local output review gates."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

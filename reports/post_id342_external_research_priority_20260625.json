@@ -1,0 +1,1553 @@
+{
+  "created_at_kst": "2026-06-25 18:00:55 UTC+09:00",
+  "decision": {
+    "create_runner_files_now": false,
+    "create_submission_artifact_now": false,
+    "dacon_submit_now": false,
+    "external_research_priority_ready": true,
+    "heavy_compute_allowed_now": false,
+    "mis_lstm_kaggle_allowed_now": false,
+    "modify_submission_log_now": false,
+    "next_action": "Keep execution closed. The validation-weighted pseudo-public audit and the first external solar/holiday and KMA ASOS weather gates are now closed, the approved KMA living-weather and AirKorea information APIs have been smoke-tested and do not provide a 2024 historical feature source, and the separate downloaded AirKorea 2024 context gate also opens no reviewable row. The historical ETRI sleep/survey prior supports Q2 fatigue coupling but opens no direct Q3/S3/S4 feature route. The cross-source split audit finds no reviewable target, the focused S3 phone/GPS interaction remains far from review thresholds, and the final-day independent sweep opens no Public-0.58 review row; next, define a materially different Q3/S3/S4 source hypothesis before any Kaggle, artifact, or DACON action.",
+    "push_kaggle_now": false,
+    "research_priority_updated": true,
+    "run_kaggle_now": false,
+    "same_family_heavy_rerun_allowed": false,
+    "top_priority_route": "materially_new_external_source_hypothesis"
+  },
+  "diagnostic": "post_id342_external_research_priority",
+  "external_sources": [
+    {
+      "implication": "The remaining route should model day-state and sleep-transition context jointly.",
+      "key": "etri_lifelog_2024",
+      "source_type": "dataset_paper",
+      "takeaway": "ETRI 2024 is explicitly built around passive 24-hour sensing from smartphones, smartwatches, sleep sensors, and self-reports for sleep quality and stress prediction.",
+      "title": "Understanding Human Daily Experience Through Continuous Sensing: ETRI Lifelog Dataset 2024",
+      "url": "https://arxiv.org/html/2508.03698v1"
+    },
+    {
+      "implication": "A future runner should preserve all 12 modalities and their missingness patterns.",
+      "key": "dacon_data_page",
+      "source_type": "competition_page",
+      "takeaway": "The official data page lists 12 public lifelog streams and frames the task as sleep health, fatigue, and stress prediction from daily-life records.",
+      "title": "The 4th ETRI Human Understanding AI Paper Challenge data page",
+      "url": "https://dacon.io/en/competitions/official/236468/data"
+    },
+    {
+      "implication": "Image layout is useful as a representation prior, but local ID342 smokes say it is not enough alone.",
+      "key": "pixleepflow",
+      "source_type": "etri_competition_method",
+      "takeaway": "PixleepFlow treats synchronized lifelog streams as composite images and targets sleep/stress jointly, reinforcing the need for cross-channel state representations.",
+      "title": "PixleepFlow: A Pixel-Based Lifelog Framework for Predicting Sleep Quality and Stress Level",
+      "url": "https://arxiv.org/html/2502.17469v2"
+    },
+    {
+      "implication": "A future image/sequence attempt should not replay stacked single images; it needs block-level temporal aggregation plus discrete-event handling and uncertainty checks.",
+      "key": "mis_lstm",
+      "source_type": "etri_competition_method",
+      "takeaway": "MIS-LSTM partitions continuous sensor streams into multi-hour blocks, renders them as multi-channel images, encodes sparse discrete events separately with 1D-CNN, then aggregates block embeddings with LSTM.",
+      "title": "MIS-LSTM: Multichannel Image-Sequence LSTM for Sleep Quality and Stress Prediction",
+      "url": "https://arxiv.org/abs/2509.11232"
+    },
+    {
+      "implication": "The next design should use cross-modal alignment/fusion with explicit robustness checks.",
+      "key": "multi_modal_ts_survey",
+      "source_type": "survey",
+      "takeaway": "The survey emphasizes modality heterogeneity, alignment, noise, and missing modalities as central multi-modal time-series challenges.",
+      "title": "Multi-modal Time Series Analysis: A Tutorial and Survey",
+      "url": "https://arxiv.org/html/2503.13709v1"
+    },
+    {
+      "implication": "This is a strong template for phone/watch/sleep-context modality dropout and fusion.",
+      "key": "crossl",
+      "source_type": "method_paper",
+      "takeaway": "CroSSL masks modality-specific latent embeddings and aggregates them into a global representation, while handling missing modalities without negative-pair sampling.",
+      "title": "CroSSL: Cross-modal Self-Supervised Learning for Time-series through Latent Masking",
+      "url": "https://arxiv.org/abs/2307.16847"
+    },
+    {
+      "implication": "Missingness should be a first-class token, not a preprocessing nuisance to fill away.",
+      "key": "lsm2_aim",
+      "source_type": "method_paper",
+      "takeaway": "LSM-2/AIM learns directly from inherited real-world missingness plus artificial masks instead of requiring explicit imputation.",
+      "title": "LSM-2: Learning from Incomplete Wearable Sensor Data",
+      "url": "https://arxiv.org/html/2506.05321v1"
+    },
+    {
+      "implication": "Use 30-minute to multi-hour windows as semantic units instead of minute-level reconstruction only.",
+      "key": "time_mae",
+      "source_type": "method_paper",
+      "takeaway": "TimeMAE raises masked modeling from individual points to sub-series semantic units, reducing cost and improving label-scarce transfer.",
+      "title": "TimeMAE: Self-Supervised Representations of Time Series with Decoupled Masked Autoencoders",
+      "url": "https://arxiv.org/html/2303.00320v4"
+    },
+    {
+      "implication": "Subject-day neighborhoods are plausible, but validation must prevent date/subject leakage.",
+      "key": "tnc",
+      "source_type": "method_paper",
+      "takeaway": "TNC learns representations for non-stationary time series by contrasting local temporal neighborhoods against non-neighboring windows.",
+      "title": "Unsupervised Representation Learning for Time Series with Temporal Neighborhood Coding",
+      "url": "https://arxiv.org/abs/2106.00750"
+    },
+    {
+      "implication": "Use as a secondary objective only after missingness-aware cross-modal masking is fixed.",
+      "key": "ts2vec",
+      "source_type": "method_paper",
+      "takeaway": "TS2Vec learns hierarchical timestamp and subsequence representations through contrastive learning.",
+      "title": "TS2Vec: Towards Universal Representation of Time Series",
+      "url": "https://arxiv.org/abs/2106.10466"
+    }
+  ],
+  "forbidden_actions_now": {
+    "create_predictions": false,
+    "create_submission_artifact": false,
+    "fit_embedding": false,
+    "modify_submission_log": false,
+    "pull_kaggle_output": false,
+    "push_kaggle": false,
+    "read_raw_parquet_payloads": false,
+    "run_kaggle": false,
+    "submit_dacon": false,
+    "train_model": false,
+    "write_feature_matrix": false,
+    "write_token_cache": false
+  },
+  "input_reports": {
+    "airkorea_2024_context": {
+      "decision": {
+        "airkorea_2024_context_gate_pass": false,
+        "airkorea_cache_available": true,
+        "best_candidate": "airkorea_selected_station_s4_hgb_l7_w0.025",
+        "best_family": "airkorea_selected_station",
+        "best_gap_to_public_055": 0.046056064509662265,
+        "best_max_delta": 0.0008191504115554471,
+        "best_mean_delta": -0.00019031173236392363,
+        "best_projected_public_proxy": 0.5960560645096623,
+        "best_target": "S4",
+        "best_wins": 3,
+        "create_submission_artifact_now": false,
+        "dacon_gate_pass_count": 0,
+        "dacon_submit_now": false,
+        "local_gate_pass_count": 0,
+        "missing_failed_frontier_refs": [],
+        "modify_submission_log_now": false,
+        "next_action": "Promote nothing unless a row clears the Public-0.58 review proxy and a separate artifact contract. This gate is external-source evidence only.",
+        "push_kaggle_now": false,
+        "review_gate_pass_count": 0,
+        "reviewed_candidates": 216,
+        "run_kaggle_now": false
+      },
+      "diagnostic": "post_id342_airkorea_2024_context_gate",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_airkorea_2024_context_gate_20260625.json"
+    },
+    "airkorea_2024_hourly_audit": {
+      "decision": {
+        "airkorea_2024_zip_available": true,
+        "competition_window_coverage_ok": true,
+        "create_feature_matrix_now": false,
+        "create_submission_artifact_now": false,
+        "dacon_submit_now": false,
+        "modify_submission_log_now": false,
+        "next_action": "Run a report-only ID342 gate over Daejeon AirKorea hourly/daily features. Do not create submission artifacts unless that gate clears the Public-0.58 review proxy and failed-frontier checks.",
+        "normalized_daejeon_hourly_cache_created": true,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "zip_moved_to_ignored_external_weather": true
+      },
+      "diagnostic": "airkorea_2024_hourly_zip_audit",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/airkorea_2024_hourly_zip_audit_20260625.json"
+    },
+    "cross_source_split_stability": {
+      "decision": {
+        "best_public_proxy_by_focus_target": {
+          "Q3": 0.5960900282010555,
+          "S3": 0.5960490627707759,
+          "S4": 0.5957634650000451
+        },
+        "context_targets": [
+          "S2"
+        ],
+        "create_submission_artifact_now": false,
+        "cross_source_split_stability_gate_pass": false,
+        "dacon_submit_meaningful_now": false,
+        "dacon_submit_now": false,
+        "extracted_candidate_row_count": 128,
+        "focus_targets": [
+          "Q3",
+          "S3",
+          "S4"
+        ],
+        "input_reports_parse": true,
+        "modify_submission_log_now": false,
+        "next_action": "Keep this as negative meta-evidence and design guidance only. S3 has a tiny stable phone/GPS micro-alignment, but its best proxy remains around the ID342 public band; S4 aligns mostly on test-neighbor holdouts and conflicts on LOSO. No target reaches a Public-0.58 review proxy, so do not create artifacts, Kaggle runs, submission-log rows, or DACON submissions.",
+        "push_kaggle_now": false,
+        "representative_row_count": 13,
+        "review_signal_targets": [],
+        "run_kaggle_now": false,
+        "stable_alignment_targets": [
+          "S3"
+        ],
+        "target_statuses": {
+          "Q3": "no_cross_source_alignment",
+          "S3": "stable_alignment_but_proxy_too_weak",
+          "S4": "mixed_unstable_alignment"
+        },
+        "test_neighbor_only_targets": []
+      },
+      "diagnostic": "post_id342_cross_source_split_stability_audit",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_cross_source_split_stability_audit_20260625.json"
+    },
+    "domain_token_contract": {
+      "decision": {
+        "create_runner_files_now": false,
+        "create_submission_artifact_now": false,
+        "dacon_submit_now": false,
+        "domain_token_contract_ready": true,
+        "fit_embedding_now": false,
+        "heavy_approval_phrase": "Self-supervised subject-state heavy compute no-submit 실행 승인",
+        "modify_submission_log_now": false,
+        "next_action": "Use this contract to implement the no-submit runner only after exact heavy approval.",
+        "primary_score_targets": [
+          "Q3",
+          "S3"
+        ],
+        "push_kaggle_now": false,
+        "read_raw_parquet_payloads_now": false,
+        "requires_exact_heavy_compute_approval": true,
+        "run_kaggle_now": false,
+        "secondary_sanity_target": "Q2",
+        "target_focus": [
+          "Q2",
+          "Q3",
+          "S3"
+        ],
+        "write_feature_matrix_now": false,
+        "write_token_cache_now": false
+      },
+      "diagnostic": "post_id342_subject_state_domain_token_contract",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_subject_state_domain_token_contract_20260624.json"
+    },
+    "external_etri_sleep_survey_prior": {
+      "decision": {
+        "create_submission_artifact_now": false,
+        "dacon_submit_now": false,
+        "direct_2026_feature_route_available": false,
+        "direct_external_concat_allowed": false,
+        "external_etri_prior_analysis_complete": true,
+        "external_prior_gate_pass": false,
+        "external_rows_paired_2020_pm_to_next_sleep": 523,
+        "external_users_paired_2020": 22,
+        "gap_to_public_055": 0.046083251899999955,
+        "modify_submission_log_now": false,
+        "next_action": "Use the external ETRI sleep/survey files as domain prior only. Q2 fatigue has a coherent next-sleep coupling, but Q3 stress does not support a simple sleep-quality proxy and no direct 2026 feature route is opened. Do not create artifacts, Kaggle runs, or DACON submissions from this prior.",
+        "projected_public_proxy": 0.5960832519,
+        "push_kaggle_now": false,
+        "q2_fatigue_sleep_coupling_supported": true,
+        "q3_stress_sleep_coupling_supported": false,
+        "run_kaggle_now": false
+      },
+      "diagnostic": "post_id342_external_etri_sleep_survey_prior",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_external_etri_sleep_survey_prior_20260625.json"
+    },
+    "final_day_independent_signal": {
+      "decision": {
+        "best_candidate": "s4_sleep_solar_joint_s4_lr_c0_10_w0.05",
+        "best_family": "s4_sleep_solar_joint",
+        "best_gap_to_public_055": 0.045795612892230886,
+        "best_max_delta": 0.0002665825066514582,
+        "best_mean_delta": -0.0020134730543838186,
+        "best_projected_public_proxy": 0.5957956128922309,
+        "best_target": "S4",
+        "best_wins": 4,
+        "create_submission_artifact_now": false,
+        "dacon_gate_pass_count": 0,
+        "dacon_submit_meaningful_now": false,
+        "dacon_submit_now": false,
+        "final_day_independent_signal_gate_pass": false,
+        "local_gate_pass_count": 4,
+        "modify_submission_log_now": false,
+        "next_action": "Promote nothing unless a future row clears the Public-0.58 review proxy. Current final-day local signals remain too small for artifact creation, Kaggle escalation, or DACON submission.",
+        "push_kaggle_now": false,
+        "review_gate_pass_count": 0,
+        "reviewed_candidates": 40,
+        "run_kaggle_now": false,
+        "target_summary": {
+          "Q3": {
+            "best_row": {
+              "config": "q3s3s4_compact_joint_state_q3_lr_c0_03_w0.005",
+              "dacon_gate_pass": false,
+              "failed_direction_corr": {
+                "actual_test_band_holdout": {
+                  "id287": null,
+                  "id329": null
+                },
+                "loso_10": {
+                  "id287": -0.2664885793240835,
+                  "id329": 0.25792186467847517
+                },
+                "subject_hole_5": {
+                  "id287": -0.25339557978814936,
+                  "id329": 0.2057089493903406
+                },
+                "test_boundary_neighbor2_holdout": {
+                  "id287": null,
+                  "id329": null
+                },
+                "test_boundary_neighbor5_holdout": {
+                  "id287": null,
+                  "id329": null
+                }
+              },
+              "family_name": "q3s3s4_compact_joint_state",
+              "feature_count": 216,
+              "gap_to_public_055": 0.04612856449274061,
+              "local_gate_pass": false,
+              "max_delta": 0.0005164557712353801,
+              "max_failed_direction_corr": 0.25792186467847517,
+              "mean_delta": 0.00031718814918446636,
+              "min_delta": 0.00019048491443229842,
+              "model_spec": {
+                "c_value": 0.03,
+                "kind": "lr",
+                "max_leaf_nodes": null,
+                "name": "lr_c0_03"
+              },
+              "projected_public_proxy": 0.5961285644927407,
+              "review_gate_pass": false,
+              "split_deltas": {
+                "actual_test_band_holdout": 0.0005164557712353801,
+                "loso_10": 0.00026999817523909453,
+                "subject_hole_5": 0.00019048491443229842,
+                "test_boundary_neighbor2_holdout": 0.0003641002700032203,
+                "test_boundary_neighbor5_holdout": 0.0002449016150123384
+              },
+              "target": "Q3",
+              "valid_rows_by_split": {
+                "actual_test_band_holdout": 98,
+                "loso_10": 450,
+                "subject_hole_5": 450,
+                "test_boundary_neighbor2_holdout": 82,
+                "test_boundary_neighbor5_holdout": 172
+              },
+              "weight": 0.005,
+              "wins": 0
+            },
+            "dacon_gate_pass_count": 0,
+            "local_gate_pass_count": 0,
+            "review_gate_pass_count": 0
+          },
+          "S3": {
+            "best_row": {
+              "config": "s3_phone_gps_temporal_deviation_s3_lr_c0_10_w0.025",
+              "dacon_gate_pass": false,
+              "failed_direction_corr": {
+                "actual_test_band_holdout": {
+                  "id287": null,
+                  "id329": null
+                },
+                "loso_10": {
+                  "id287": -0.14954068076911492,
+                  "id329": -0.18735310189533258
+                },
+                "subject_hole_5": {
+                  "id287": -0.021652735666468973,
+                  "id329": -0.05903090223678931
+                },
+                "test_boundary_neighbor2_holdout": {
+                  "id287": null,
+                  "id329": null
+                },
+                "test_boundary_neighbor5_holdout": {
+                  "id287": null,
+                  "id329": null
+                }
+              },
+              "family_name": "s3_phone_gps_temporal_deviation",
+              "feature_count": 208,
+              "gap_to_public_055": 0.04607086998366905,
+              "local_gate_pass": false,
+              "max_delta": 0.0013700242436390786,
+              "max_failed_direction_corr": -0.021652735666468973,
+              "mean_delta": -8.66734143165182e-05,
+              "min_delta": -0.0015500061888272798,
+              "model_spec": {
+                "c_value": 0.1,
+                "kind": "lr",
+                "max_leaf_nodes": null,
+                "name": "lr_c0_10"
+              },
+              "projected_public_proxy": 0.5960708699836691,
+              "review_gate_pass": false,
+              "split_deltas": {
+                "actual_test_band_holdout": 0.0013700242436390786,
+                "loso_10": 0.000867601219938896,
+                "subject_hole_5": -0.0010637775136129735,
+                "test_boundary_neighbor2_holdout": -5.720883272031241e-05,
+                "test_boundary_neighbor5_holdout": -0.0015500061888272798
+              },
+              "target": "S3",
+              "valid_rows_by_split": {
+                "actual_test_band_holdout": 98,
+                "loso_10": 450,
+                "subject_hole_5": 450,
+                "test_boundary_neighbor2_holdout": 82,
+                "test_boundary_neighbor5_holdout": 172
+              },
+              "weight": 0.025,
+              "wins": 3
+            },
+            "dacon_gate_pass_count": 0,
+            "local_gate_pass_count": 0,
+            "review_gate_pass_count": 0
+          },
+          "S4": {
+            "best_row": {
+              "config": "s4_sleep_solar_joint_s4_lr_c0_10_w0.05",
+              "dacon_gate_pass": false,
+              "failed_direction_corr": {
+                "actual_test_band_holdout": {
+                  "id287": null,
+                  "id329": null
+                },
+                "loso_10": {
+                  "id287": -0.17017500055377913,
+                  "id329": 0.121658329004402
+                },
+                "subject_hole_5": {
+                  "id287": -0.05441219716055445,
+                  "id329": 0.18949999021218042
+                },
+                "test_boundary_neighbor2_holdout": {
+                  "id287": null,
+                  "id329": null
+                },
+                "test_boundary_neighbor5_holdout": {
+                  "id287": null,
+                  "id329": null
+                }
+              },
+              "family_name": "s4_sleep_solar_joint",
+              "feature_count": 216,
+              "gap_to_public_055": 0.045795612892230886,
+              "local_gate_pass": true,
+              "max_delta": 0.0002665825066514582,
+              "max_failed_direction_corr": 0.18949999021218042,
+              "mean_delta": -0.0020134730543838186,
+              "min_delta": -0.004037163809655131,
+              "model_spec": {
+                "c_value": 0.1,
+                "kind": "lr",
+                "max_leaf_nodes": null,
+                "name": "lr_c0_10"
+              },
+              "projected_public_proxy": 0.5957956128922309,
+              "review_gate_pass": false,
+              "split_deltas": {
+                "actual_test_band_holdout": -0.004037163809655131,
+                "loso_10": -0.0002174285594329639,
+                "subject_hole_5": 0.0002665825066514582,
+                "test_boundary_neighbor2_holdout": -0.003390084038396357,
+                "test_boundary_neighbor5_holdout": -0.0026892713710860994
+              },
+              "target": "S4",
+              "valid_rows_by_split": {
+                "actual_test_band_holdout": 98,
+                "loso_10": 450,
+                "subject_hole_5": 450,
+                "test_boundary_neighbor2_holdout": 82,
+                "test_boundary_neighbor5_holdout": 172
+              },
+              "weight": 0.05,
+              "wins": 4
+            },
+            "dacon_gate_pass_count": 0,
+            "local_gate_pass_count": 4,
+            "review_gate_pass_count": 0
+          }
+        }
+      },
+      "diagnostic": "post_id342_final_day_independent_signal_sweep",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_final_day_independent_signal_sweep_20260625.json"
+    },
+    "heavy_success_thresholds": {
+      "decision": {
+        "artifact_review_threshold_public_proxy": 0.58,
+        "create_runner_files_now": false,
+        "create_submission_artifact_now": false,
+        "dacon_candidate_threshold_public_proxy": 0.55,
+        "dacon_submit_now": false,
+        "fit_embedding_now": false,
+        "heavy_approval_phrase": "Self-supervised subject-state heavy compute no-submit 실행 승인",
+        "heavy_success_threshold_contract_ready": true,
+        "modify_submission_log_now": false,
+        "next_action": "Use these thresholds to review a future approved no-submit heavy run; do not execute now.",
+        "push_kaggle_now": false,
+        "read_raw_parquet_payloads_now": false,
+        "requires_exact_heavy_compute_approval": true,
+        "run_kaggle_now": false,
+        "write_feature_matrix_now": false,
+        "write_token_cache_now": false
+      },
+      "diagnostic": "post_id342_subject_state_heavy_success_thresholds",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_subject_state_heavy_success_thresholds_20260624.json"
+    },
+    "kma_weather_context": {
+      "decision": {
+        "best_candidate": "kma_weather_precip_pressure_s4_lr_c0_10_w0.05",
+        "best_family": "kma_weather_precip_pressure",
+        "best_gap_to_public_055": 0.046006236431684555,
+        "best_max_delta": 0.0005154992083421517,
+        "best_mean_delta": -0.0005391082782077117,
+        "best_projected_public_proxy": 0.5960062364316846,
+        "best_target": "S4",
+        "best_wins": 2,
+        "create_submission_artifact_now": false,
+        "dacon_gate_pass_count": 0,
+        "dacon_submit_now": false,
+        "local_gate_pass_count": 0,
+        "missing_failed_frontier_refs": [],
+        "modify_submission_log_now": false,
+        "next_action": "Promote nothing unless a row clears the Public-0.58 review proxy and a separate artifact contract. This gate is weather-source evidence only.",
+        "push_kaggle_now": false,
+        "review_gate_pass_count": 0,
+        "reviewed_candidates": 144,
+        "run_kaggle_now": false,
+        "weather_cache_available": true,
+        "weather_context_gate_pass": false
+      },
+      "diagnostic": "post_id342_kma_weather_context_gate",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_kma_weather_context_gate_20260625.json"
+    },
+    "mis_lstm_block_sequence": {
+      "decision": {
+        "create_feature_matrix": false,
+        "create_submission_artifact": false,
+        "estimated_all_target_delta_vs_id342": -0.0002097641747783882,
+        "final_mis_lstm_block_sequence_gate_pass": false,
+        "gap_to_public_055_after_proxy": 0.045873487725221596,
+        "max_selected_target_delta_vs_id342": 0.0007151461504283363,
+        "mis_lstm_block_sequence_has_signal": true,
+        "modify_submission_log": false,
+        "next_action": "If this gate fails, do not launch a MIS-LSTM Kaggle runner. If it passes, run a separate no-submit artifact/runner contract review before any remote execution.",
+        "partial_signal_targets": [
+          "S3"
+        ],
+        "projected_public_proxy_from_id342": 0.5958734877252216,
+        "public_055_evidence": false,
+        "push_kaggle_now": false,
+        "q3_selected": false,
+        "run_kaggle_now": false,
+        "s3_selected": false,
+        "s4_selected": true,
+        "selected_targets": [
+          "S4"
+        ],
+        "submit_now": false,
+        "target_delta_sum_vs_id342": -0.0014683492234487173
+      },
+      "diagnostic": "post_id342_mis_lstm_block_sequence_feasibility_gate",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_mis_lstm_block_sequence_feasibility_gate_20260625.json"
+    },
+    "missingness_subject_state_intake": {
+      "decision": {
+        "artifact_review_allowed": false,
+        "best_projected_public_proxy": 0.5961011961387227,
+        "dacon_candidate_signal": false,
+        "gap_to_public_055": 0.046101196138722655,
+        "mean_modality_key_coverage": 0.9769047619047618,
+        "next_action": "Use this as no-submit research evidence only. Open artifact review only if artifact_review_allowed is true; DACON still requires exact file/memo approval.",
+        "output_present": true,
+        "raw_rows_read": 6122179,
+        "remote_intake_ready": true,
+        "stable_gate_pass_count": 0,
+        "unexpected_submission_like_artifacts_present": false
+      },
+      "diagnostic": "post_id342_missingness_subject_state_remote_intake",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_missingness_subject_state_remote_intake_20260624.json"
+    },
+    "morning_closeout": {
+      "decision": {
+        "create_runner_files_now": false,
+        "create_submission_artifact_now": false,
+        "dacon_submit_meaningful_now": false,
+        "dacon_submit_now": false,
+        "goal_achieved": false,
+        "kaggle_cli_blocker_now": false,
+        "kaggle_waiting_now": false,
+        "modify_submission_log_now": false,
+        "morning_closeout_ready": true,
+        "next_action": "No DACON/Kaggle action now. The only score-relevant execution path is the exact-approved self-supervised subject-state no-submit heavy route.",
+        "public_055_reached": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false
+      },
+      "diagnostic": "post_id342_morning_closeout",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_morning_closeout_20260624.json"
+    },
+    "public_data_api_smoke": {
+      "decision": {
+        "airkorea_api_access_working": true,
+        "airkorea_approved_info_api_2024_historical_feature_source_available": false,
+        "all_three_service_families_requested": [
+          "kma_asos",
+          "kma_life",
+          "airkorea"
+        ],
+        "all_three_service_families_smoke_checked": true,
+        "create_model_features_now": false,
+        "create_submission_artifact_now": false,
+        "dacon_submit_now": false,
+        "feature_usability": {
+          "airkorea_2024_reason": "The approved ArpltnInforInqireSvc smoke covers real-time/forecast/recent station terms only. It does not expose a date-bounded 2024 historical query in these endpoints.",
+          "airkorea_2024_training_window_usable_from_this_api": false,
+          "airkorea_realtime_available": true,
+          "airkorea_station_recent_3month_available": true,
+          "kma_asos_historical_2024_usable": true,
+          "kma_life_historical_2024_usable_from_smoke": false
+        },
+        "kma_asos_2024_historical_feature_source_available": true,
+        "kma_life_2024_historical_feature_source_available": false,
+        "modify_submission_log_now": false,
+        "next_action": "Use KMA ASOS as the only confirmed 2024 historical source from this smoke. Treat KMA living-weather and AirKorea ArpltnInforInqireSvc as report-only unless a separate historical/statistics source is approved and passes a local ID342 gate.",
+        "non_asos_approved_api_2024_historical_feature_source_available": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "service_summary": {
+          "airkorea": {
+            "all_success": true,
+            "calls": 5,
+            "historical_probe_calls": 1,
+            "historical_probe_successes_with_items": 1,
+            "successes": 5
+          },
+          "kma_asos": {
+            "all_success": true,
+            "calls": 1,
+            "historical_probe_calls": 1,
+            "historical_probe_successes_with_items": 1,
+            "successes": 1
+          },
+          "kma_life": {
+            "all_success": false,
+            "calls": 3,
+            "historical_probe_calls": 1,
+            "historical_probe_successes_with_items": 0,
+            "successes": 2
+          }
+        }
+      },
+      "diagnostic": "public_data_weather_air_api_smoke",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/public_data_weather_air_api_smoke_20260625.json"
+    },
+    "public_gap_penalty_proxy": {
+      "decision": {
+        "best_credible_shape_candidate": {
+          "filename": "base_oof_id_342_id178_id221_featuresim_shrink050_cv0.534000.csv",
+          "id": 342,
+          "legacy_public_guided_family": false,
+          "local_loss": 0.5340000057700848,
+          "penalty_proxy_gap_to_public055": 0.046318744866502115,
+          "penalty_proxy_projection": 0.5963187448665022,
+          "stable_shape_label": "stable_public_shape_envelope"
+        },
+        "best_penalty_proxy_candidate": {
+          "filename": "base_oof_id_304_post303_orthogonal_cap030_proj000_safe_cv0.532349.csv",
+          "id": 304,
+          "legacy_public_guided_family": false,
+          "local_loss": 0.5323491003495411,
+          "penalty_proxy_gap_to_public055": 0.04466783944595831,
+          "penalty_proxy_projection": 0.5946678394459584,
+          "stable_shape_label": "outside_stable_target_move_envelope"
+        },
+        "create_submission_artifact": false,
+        "credible_public055_penalty_proxy_pass_count": 0,
+        "dacon_submit_now": false,
+        "global_penalty_weights": {
+          "extreme_probability_rate": 0.0,
+          "max_abs_delta_vs_id342": 0.0,
+          "max_abs_mean_rate_shift": 0.0,
+          "max_target_mean_abs_delta_vs_id342": 0.0,
+          "mean_abs_delta_vs_id342": 0.15875648055627628
+        },
+        "modify_submission_log": false,
+        "next_action": "Use the penalty proxy as a stricter review lens, not as a candidate generator. If no credible Public-0.55 row appears, continue with validation redesign or a materially new source; do not submit the local-frontier rows that only pass before shape penalties.",
+        "oof_files_scanned": 247,
+        "penalty_proxy_loo_error": {
+          "mae": 0.10625828050414168,
+          "rmse": 0.28875376380071227
+        },
+        "penalty_proxy_pairwise_agreement": 1.0,
+        "penalty_proxy_scored_error": {
+          "mae": 0.07676241097163351,
+          "rmse": 0.20705032113860766
+        },
+        "public055_penalty_proxy_pass_count": 0,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "scan_errors": 0,
+        "scored_rows": 8,
+        "stable_gap_loo_error": {
+          "mae": 0.03194482177540838,
+          "rmse": 0.08123338069700455
+        },
+        "stable_gap_median": 0.06231873909641733,
+        "stable_gap_pairwise_agreement": 0.5357142857142857,
+        "stable_gap_scored_error": {
+          "mae": 0.0317682020505318,
+          "rmse": 0.08123212239626286
+        },
+        "validation_redesign_gate_pass": false
+      },
+      "diagnostic": "post_id342_public_gap_penalty_proxy_redesign",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_public_gap_penalty_proxy_redesign_20260625.json"
+    },
+    "raw_schema_contract": {
+      "decision": {
+        "create_submission_artifact_now": false,
+        "dacon_submit_now": false,
+        "domain_token_contract_ready": true,
+        "fit_embedding_now": false,
+        "heavy_approval_phrase": "Self-supervised subject-state heavy compute no-submit 실행 승인",
+        "metadata_only_read": true,
+        "modify_submission_log_now": false,
+        "next_action": "Raw schemas match the domain-token contract; implement no-submit tokenization only after exact approval.",
+        "primary_score_targets": [
+          "Q3",
+          "S3"
+        ],
+        "push_kaggle_now": false,
+        "raw_payload_rows_read": 0,
+        "raw_schema_contract_ready": true,
+        "read_raw_parquet_payloads_now": false,
+        "requires_exact_heavy_compute_approval": true,
+        "run_kaggle_now": false,
+        "secondary_sanity_target": "Q2",
+        "target_focus": [
+          "Q2",
+          "Q3",
+          "S3"
+        ],
+        "write_feature_matrix_now": false,
+        "write_token_cache_now": false
+      },
+      "diagnostic": "post_id342_subject_state_raw_schema_contract",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_subject_state_raw_schema_contract_20260624.json"
+    },
+    "remaining_route_synthesis": {
+      "decision": {
+        "airkorea_2024_best_candidate": "airkorea_selected_station_s4_hgb_l7_w0.025",
+        "airkorea_2024_best_projected_public_proxy": 0.5960560645096623,
+        "airkorea_2024_best_target": "S4",
+        "airkorea_2024_competition_window_coverage_ok": true,
+        "airkorea_2024_context_gate_pass": false,
+        "airkorea_2024_gate_pending": false,
+        "airkorea_2024_historical_archive_available": true,
+        "airkorea_2024_review_gate_pass_count": 0,
+        "airkorea_api_access_working": true,
+        "airkorea_approved_api_2024_historical_feature_source_available": false,
+        "all_registered_routes_closed": true,
+        "closed_route_count": 32,
+        "create_submission_artifact_now": false,
+        "cross_source_best_public_proxy_by_focus_target": {
+          "Q3": 0.5960900282010555,
+          "S3": 0.5960490627707759,
+          "S4": 0.5957634650000451
+        },
+        "cross_source_review_signal_targets": [],
+        "cross_source_split_stability_gate_pass": false,
+        "cross_source_stable_alignment_targets": [
+          "S3"
+        ],
+        "cross_source_target_statuses": {
+          "Q3": "no_cross_source_alignment",
+          "S3": "stable_alignment_but_proxy_too_weak",
+          "S4": "mixed_unstable_alignment"
+        },
+        "current_public_anchor_id": 342,
+        "current_public_score": 0.5960832519,
+        "dacon_submit_meaningful_now": false,
+        "dacon_submit_now": false,
+        "deferred_route_count": 0,
+        "external_etri_direct_2026_feature_route_available": false,
+        "external_etri_prior_gate_pass": false,
+        "external_etri_q2_fatigue_sleep_coupling_supported": true,
+        "external_etri_q3_stress_sleep_coupling_supported": false,
+        "final_day_best_candidate": "s4_sleep_solar_joint_s4_lr_c0_10_w0.05",
+        "final_day_best_projected_public_proxy": 0.5957956128922309,
+        "final_day_independent_signal_gate_pass": false,
+        "final_day_local_gate_pass_count": 4,
+        "final_day_review_gate_pass_count": 0,
+        "gap_to_public_055": 0.046083251899999955,
+        "kaggle_upstream_complete_no_wait_state": true,
+        "kma_life_2024_historical_feature_source_available": false,
+        "kma_weather_best_candidate": "kma_weather_precip_pressure_s4_lr_c0_10_w0.05",
+        "kma_weather_best_projected_public_proxy": 0.5960062364316846,
+        "kma_weather_best_target": "S4",
+        "kma_weather_context_gate_pass": false,
+        "kma_weather_review_gate_pass_count": 0,
+        "mis_lstm_projected_public_proxy": 0.5958734877252216,
+        "mis_lstm_selected_targets": [
+          "S4"
+        ],
+        "missing_or_review_route_count": 0,
+        "missingness_best_projected_public_proxy": 0.5961011961387227,
+        "missingness_stable_gate_pass_count": 0,
+        "modify_submission_log_now": false,
+        "next_score_relevant_action": "All registered post-ID342 same-family, existing-source, sleep-proxy, raw sequence, and heavy subject-state routes are closed, the validation-weighted pseudo-public audit opens no current candidate route, the first external solar/holiday prior gate is unstable, the KMA ASOS weather context gate finds only a tiny S4 signal near Public 0.596, the approved KMA living-weather and AirKorea information APIs do not expose a 2024 historical feature source, and the separate downloaded AirKorea 2024 gate also opens no Public-0.58 review row. Historical ETRI sleep/survey priors support Q2 fatigue-to-sleep coupling, but not a direct Q3/S3/S4 feature route. The cross-source split audit finds only a too-small S3 micro-alignment, a focused S3 phone/GPS interaction gate remains near Public 0.596, and the final-day independent-source sweep opens no Public-0.58 review row. Do not submit or launch another same-family Kaggle run; the next score work must use a materially different Q3/S3/S4 source mechanism.",
+        "non_asos_approved_api_2024_historical_feature_source_available": false,
+        "penalty_proxy_best_candidate": {
+          "filename": "base_oof_id_304_post303_orthogonal_cap030_proj000_safe_cv0.532349.csv",
+          "id": 304,
+          "legacy_public_guided_family": false,
+          "local_loss": 0.5323491003495411,
+          "penalty_proxy_gap_to_public055": 0.04466783944595831,
+          "penalty_proxy_projection": 0.5946678394459584,
+          "stable_shape_label": "outside_stable_target_move_envelope"
+        },
+        "penalty_proxy_credible_public055_pass_count": 0,
+        "probability_submission_contract_confirmed": true,
+        "public_data_api_all_three_checked": true,
+        "push_kaggle_now": false,
+        "remote_promotable_evidence": false,
+        "route_count": 32,
+        "run_kaggle_now": false,
+        "s3_phone_gps_best_candidate": "s3_phone_gps_selected_concat_s3_lr_c0_20_w0.05",
+        "s3_phone_gps_best_projected_public_proxy": 0.5958495488259661,
+        "s3_phone_gps_interaction_gate_pass": false,
+        "s3_phone_gps_local_gate_pass_count": 0,
+        "sequence_event_projected_public_proxy": 0.5960468853717344,
+        "sequence_event_selected_targets": [
+          "S4"
+        ],
+        "solar_seasonal_holiday_best_row": {
+          "config": "solar_holiday_interaction_S4_lr_c0_08_w0.05",
+          "eligible": false,
+          "family_name": "solar_holiday_interaction",
+          "feature_count": 7,
+          "max_delta": 0.0012387505466900928,
+          "mean_delta": -0.0022385082996842164,
+          "min_delta": -0.006761661354929394,
+          "model_spec": {
+            "c_value": 0.08,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_08"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.6662503032551268,
+            "loso_10": 0.5916290514500427,
+            "subject_hole_5": 0.5916290514500426,
+            "test_boundary_neighbor2_holdout": 0.6423364488565984,
+            "test_boundary_neighbor5_holdout": 0.6110680903135726
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.006761661354929394,
+            "loso_10": 0.0012387505466900928,
+            "subject_hole_5": 0.0009731518247615423,
+            "test_boundary_neighbor2_holdout": -0.005343554239813919,
+            "test_boundary_neighbor5_holdout": -0.0012992282751294049
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.6594886419001974,
+            "loso_10": 0.5928678019967328,
+            "subject_hole_5": 0.5926022032748042,
+            "test_boundary_neighbor2_holdout": 0.6369928946167844,
+            "test_boundary_neighbor5_holdout": 0.6097688620384432
+          },
+          "target": "S4",
+          "valid_rows_by_split": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.05,
+          "wins": 3
+        },
+        "solar_seasonal_holiday_gate_pass": false,
+        "solar_seasonal_holiday_selected_targets": [],
+        "stable_envelope_best_projected_public": 0.5663627987353779,
+        "target_public_score": 0.55,
+        "target_reallocation_best_projected_public": 0.5661666874281543,
+        "validation_weighted_best_credible_shape_candidate": {
+          "credible_weighted_public055_pass": false,
+          "credible_weighted_review058_pass": false,
+          "filename": "base_oof_id_342_id178_id221_featuresim_shrink050_cv0.534000.csv",
+          "id": 342,
+          "legacy_public_guided_family": false,
+          "local_loss": 0.5340000057700848,
+          "public_minus_local": 0.062083246129915226,
+          "public_score": 0.5960832519,
+          "shape_excess_feature_count": 0,
+          "shape_excess_score": 0.0,
+          "stable_shape_label": "stable_public_shape_envelope",
+          "weighted_gap_to_public055": 0.046211531998891164,
+          "weighted_gap_to_review058": 0.01621153199889125,
+          "weighted_pseudo_loss": 0.5369768796564851,
+          "weighted_public055_pass": false,
+          "weighted_public_projection": 0.5962115319988912,
+          "weighted_review058_pass": false
+        },
+        "validation_weighted_credible_public055_pass_count": 0,
+        "validation_weighted_credible_review058_pass_count": 0,
+        "validation_weighted_gate_pass": false
+      },
+      "diagnostic": "post_id342_remaining_route_synthesis",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_remaining_route_synthesis_20260625.json"
+    },
+    "s3_phone_gps_interaction": {
+      "decision": {
+        "artifact_review_allowed": false,
+        "best_candidate": "s3_phone_gps_selected_concat_s3_lr_c0_20_w0.05",
+        "best_gap_to_public_055": 0.045849548825966036,
+        "best_interaction_candidate": "s3_phone_gps_interaction_s3_lr_c0_20_w0.05",
+        "best_interaction_mean_delta_target_vs_id342": -0.0007915367247414262,
+        "best_interaction_wins_vs_id342": 2,
+        "best_primary_max_delta_target_vs_id342": -6.899287685285804e-05,
+        "best_primary_mean_delta_target_vs_id342": -0.001635921518237382,
+        "best_primary_wins_vs_id342": 5,
+        "best_projected_public_proxy": 0.5958495488259661,
+        "best_source": "s3_phone_gps_selected_concat",
+        "create_submission_artifact": false,
+        "local_gate_pass_count": 0,
+        "modify_submission_log": false,
+        "public_055_evidence": false,
+        "push_kaggle_now": false,
+        "reason": "Focused phone/GPS S3 interaction is still far from the Public-0.55/review threshold. Treat it as design evidence only, not as a candidate route.",
+        "reviewed_candidates": 60,
+        "reviewed_split_rows": 300,
+        "run_kaggle_now": false,
+        "s3_phone_gps_interaction_gate_pass": false,
+        "submit_now": false
+      },
+      "diagnostic": "post_id342_s3_phone_gps_interaction_gate",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_s3_phone_gps_interaction_gate_20260625.json"
+    },
+    "self_supervised_research_packet": {
+      "decision": {
+        "create_submission_artifact_now": false,
+        "current_public_anchor_id": 342,
+        "current_public_score": 0.5960832519,
+        "dacon_submit_now": false,
+        "dedicated_heavy_runner_required": true,
+        "existing_upstream_runner_is_sufficient_for_heavy_execution": false,
+        "gap_to_public_055": 0.046083251899999955,
+        "heavy_approval_phrase": "Self-supervised subject-state heavy compute no-submit 실행 승인",
+        "heavy_compute_allowed_now": false,
+        "heavy_route_is_only_non_closed_route": true,
+        "kaggle_upstream_approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+        "kaggle_upstream_approval_phrase_is_not_enough": true,
+        "lightweight_pca_pass_count": 0,
+        "modify_submission_log_now": false,
+        "next_action": "Do not execute heavy compute yet. If the exact heavy approval phrase is provided later, refresh the heavy-compute contract first, then run only no-submit label-free stages.",
+        "post_id341_design_ready": true,
+        "post_id342_closed_routes": 11,
+        "post_id342_heavy_contract_ready": true,
+        "post_id342_missing_or_review_routes": 0,
+        "post_id342_route_count": 12,
+        "push_kaggle_now": false,
+        "remote_promotable_evidence": false,
+        "requires_exact_heavy_compute_approval": true,
+        "research_packet_ready": true,
+        "run_kaggle_now": false,
+        "target_public_score": 0.55
+      },
+      "diagnostic": "post_id342_self_supervised_route_research_packet",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_self_supervised_route_research_packet_20260624.json"
+    },
+    "sequence_hr_light_event": {
+      "decision": {
+        "all_focus_targets_selected": false,
+        "create_feature_matrix": false,
+        "create_submission_artifact": false,
+        "estimated_all_target_delta_vs_id342": -3.636652826551425e-05,
+        "final_sequence_hr_light_event_gate_pass": false,
+        "gap_to_public_055_after_proxy": 0.0460468853717344,
+        "max_selected_target_delta_vs_id342": 0.0006954379111837605,
+        "modify_submission_log": false,
+        "next_action": "If this gate fails, close local raw HR/light/screen event reconstruction as an immediate ID342 overlay route. If it passes but remains far above Public 0.55, keep it report-only and pivot to validation/public-gap redesign before any artifact.",
+        "partial_signal_targets": [
+          "S3"
+        ],
+        "projected_public_proxy_from_id342": 0.5960468853717344,
+        "public_055_evidence": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "s3_selected": false,
+        "s4_selected": true,
+        "selected_targets": [
+          "S4"
+        ],
+        "sequence_hr_light_event_has_s4s3_signal": true,
+        "submit_now": false,
+        "target_delta_sum_vs_id342": -0.00025456569785859974
+      },
+      "diagnostic": "post_id342_sequence_hr_light_event_gate",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_sequence_hr_light_event_gate_20260625.json"
+    },
+    "solar_seasonal_holiday_prior": {
+      "decision": {
+        "best_row": {
+          "config": "solar_holiday_interaction_S4_lr_c0_08_w0.05",
+          "eligible": false,
+          "family_name": "solar_holiday_interaction",
+          "feature_count": 7,
+          "max_delta": 0.0012387505466900928,
+          "mean_delta": -0.0022385082996842164,
+          "min_delta": -0.006761661354929394,
+          "model_spec": {
+            "c_value": 0.08,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_08"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.6662503032551268,
+            "loso_10": 0.5916290514500427,
+            "subject_hole_5": 0.5916290514500426,
+            "test_boundary_neighbor2_holdout": 0.6423364488565984,
+            "test_boundary_neighbor5_holdout": 0.6110680903135726
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.006761661354929394,
+            "loso_10": 0.0012387505466900928,
+            "subject_hole_5": 0.0009731518247615423,
+            "test_boundary_neighbor2_holdout": -0.005343554239813919,
+            "test_boundary_neighbor5_holdout": -0.0012992282751294049
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.6594886419001974,
+            "loso_10": 0.5928678019967328,
+            "subject_hole_5": 0.5926022032748042,
+            "test_boundary_neighbor2_holdout": 0.6369928946167844,
+            "test_boundary_neighbor5_holdout": 0.6097688620384432
+          },
+          "target": "S4",
+          "valid_rows_by_split": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.05,
+          "wins": 3
+        },
+        "create_submission_artifact": false,
+        "eligible_row_count": 0,
+        "estimated_all_target_delta_vs_id342": 0.0,
+        "gap_to_public_055_after_proxy": 0.046083251899999955,
+        "modify_submission_log": false,
+        "next_action": "Treat solar/seasonal/holiday priors as report-only domain evidence. Do not create artifacts, Kaggle runs, or DACON submissions unless a future independent gate produces a Public-0.55 plausible row.",
+        "projected_public_proxy_from_id342": 0.5960832519,
+        "public_055_evidence": false,
+        "push_kaggle_now": false,
+        "q3_selected": false,
+        "run_kaggle_now": false,
+        "s3_selected": false,
+        "s4_selected": false,
+        "selected_targets": [],
+        "solar_seasonal_holiday_prior_gate_pass": false,
+        "submit_now": false
+      },
+      "diagnostic": "post_id342_solar_seasonal_holiday_prior_gate",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_solar_seasonal_holiday_prior_gate_20260625.json"
+    },
+    "validation_weighted_pseudo_public": {
+      "decision": {
+        "anchor_weighted_public_projection": 0.5962115319988912,
+        "best_credible_shape_candidate": {
+          "credible_weighted_public055_pass": false,
+          "credible_weighted_review058_pass": false,
+          "filename": "base_oof_id_342_id178_id221_featuresim_shrink050_cv0.534000.csv",
+          "id": 342,
+          "legacy_public_guided_family": false,
+          "local_loss": 0.5340000057700848,
+          "public_minus_local": 0.062083246129915226,
+          "public_score": 0.5960832519,
+          "shape_excess_feature_count": 0,
+          "shape_excess_score": 0.0,
+          "stable_shape_label": "stable_public_shape_envelope",
+          "weighted_gap_to_public055": 0.046211531998891164,
+          "weighted_gap_to_review058": 0.01621153199889125,
+          "weighted_pseudo_loss": 0.5369768796564851,
+          "weighted_public055_pass": false,
+          "weighted_public_projection": 0.5962115319988912,
+          "weighted_review058_pass": false
+        },
+        "best_weighted_candidate": {
+          "credible_weighted_public055_pass": false,
+          "credible_weighted_review058_pass": false,
+          "filename": "base_oof_id_313_post307_aggbudget_cap120_lam000_frontierstress_cv0.488205.csv",
+          "id": 313,
+          "legacy_public_guided_family": true,
+          "local_loss": 0.48820485321258417,
+          "shape_excess_feature_count": 5,
+          "shape_excess_score": 0.4087356472013949,
+          "stable_shape_label": "legacy_public_guided_family",
+          "weighted_gap_to_public055": 0.008898896082971786,
+          "weighted_gap_to_review058": -0.02110110391702813,
+          "weighted_pseudo_loss": 0.4907560600824433,
+          "weighted_public055_pass": false,
+          "weighted_public_projection": 0.5588988960829718,
+          "weighted_review058_pass": true
+        },
+        "config_count": 15,
+        "create_submission_artifact": false,
+        "credible_weighted_public055_pass_count": 0,
+        "credible_weighted_review058_pass_count": 0,
+        "dacon_submit_now": false,
+        "modify_submission_log": false,
+        "next_action": "Use the primary validation-weighted lens as a stricter audit lens only. If it finds no credible Public-0.55 or Public-0.58 stable-shape row, close this validation-redesign branch for candidate creation and require a materially new source hypothesis.",
+        "oof_files_scanned": 247,
+        "primary_config": {
+          "all_loo_error": {
+            "mae": 0.055200346353653576,
+            "max_abs_error": 0.4220263575245654,
+            "rmse": 0.14930518111115004
+          },
+          "all_scored_metrics": {
+            "best_by_public": 342,
+            "best_by_score": 329,
+            "n": 8,
+            "pairwise_agreement": 0.7857142857142857,
+            "pearson": 0.9783553885725574,
+            "public_order": [
+              342,
+              339,
+              338,
+              337,
+              340,
+              178,
+              329,
+              287
+            ],
+            "rank_mae": 1.5,
+            "score_order": [
+              329,
+              342,
+              339,
+              338,
+              337,
+              340,
+              178,
+              287
+            ],
+            "spearman": 0.5000000000000001,
+            "top1_match": false
+          },
+          "config_name": "full_oof__id342_target_bottleneck",
+          "failed_loo_error": {
+            "mae": 0.21852350236892915,
+            "max_abs_error": 0.4220263575245654,
+            "rmse": 0.29860665287980315
+          },
+          "failed_separation_margin": -0.014237111438459293,
+          "lens_group": "full_oof",
+          "recent_slate_projection_order": [
+            342,
+            339,
+            338
+          ],
+          "review_lens_pass": false,
+          "shape_penalty_scale": 0.021794486776762892,
+          "stable_gap": 0.0592346523424061,
+          "stable_loo_error": {
+            "mae": 0.0007592943485617195,
+            "max_abs_error": 0.0013663282395302012,
+            "rmse": 0.0008593180346463769
+          },
+          "stable_metrics": {
+            "best_by_public": 342,
+            "best_by_score": 342,
+            "n": 6,
+            "pairwise_agreement": 1.0,
+            "pearson": 0.9290692457405911,
+            "public_order": [
+              342,
+              339,
+              338,
+              337,
+              340,
+              178
+            ],
+            "rank_mae": 0.0,
+            "score_order": [
+              342,
+              339,
+              338,
+              337,
+              340,
+              178
+            ],
+            "spearman": 1.0,
+            "top1_match": true
+          },
+          "target_weight_mode": "id342_target_bottleneck",
+          "target_weights": {
+            "Q1": 0.14602677153722013,
+            "Q2": 0.14756784193973757,
+            "Q3": 0.15067573520588606,
+            "S1": 0.1248375809268905,
+            "S2": 0.1415465050616989,
+            "S3": 0.13107134246680838,
+            "S4": 0.1582742228617584
+          }
+        },
+        "push_kaggle_now": false,
+        "review_lens_pass_count": 0,
+        "run_kaggle_now": false,
+        "scan_errors": 0,
+        "scored_rows": 8,
+        "validation_weighted_pseudo_public_gate_pass": false,
+        "weighted_public055_pass_count": 0,
+        "weighted_review058_pass_count": 22
+      },
+      "diagnostic": "post_id342_validation_weighted_pseudo_public_split_audit",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_validation_weighted_pseudo_public_split_audit_20260625.json"
+    }
+  },
+  "method_candidates": [
+    {
+      "execution_shape": "Write a fresh source-hypothesis packet that names a new modality interaction or external-derived feature family, defines a local gate, and blocks artifacts unless the gate beats ID342 and survives stable-shape/failed-frontier checks.",
+      "fit": "highest_after_validation_audit_closed",
+      "priority": 1,
+      "research_support": [
+        "etri_lifelog_2024",
+        "dacon_data_page",
+        "lsm2_aim",
+        "crossl",
+        "time_mae"
+      ],
+      "risk": "The bar is high: small local overlays and same-family heavy reruns have repeatedly compressed near Public 0.596.",
+      "route": "materially_new_external_source_hypothesis",
+      "why": "The registered OOF shelf, raw sleep/event routes, block-sequence proxy, and validation-weighted audit all fail to open even a credible Public-0.58 review row."
+    },
+    {
+      "execution_shape": "Keep as negative source evidence; do not escalate to artifacts or Kaggle.",
+      "fit": "completed_closed",
+      "priority": 3,
+      "research_support": [
+        "etri_lifelog_2024",
+        "dacon_data_page"
+      ],
+      "risk": "The S4 mean delta is tempting but loses subject/generalization stability.",
+      "route": "solar_seasonal_holiday_prior",
+      "why": "External date-derived Seoul/Korea photoperiod, season, and holiday proximity features produced only unstable S4 movement and no eligible Q3/S3/S4 row."
+    },
+    {
+      "execution_shape": "Keep as negative source evidence; do not create artifacts, Kaggle runs, or DACON submissions.",
+      "fit": "completed_closed",
+      "priority": 4,
+      "research_support": [
+        "etri_lifelog_2024",
+        "dacon_data_page"
+      ],
+      "risk": "The small S4 movement is date-structured and failed frontier-correlation checks.",
+      "route": "airkorea_2024_historical_gate",
+      "why": "The downloaded 2024 AirKorea archive provides a true historical external source with full Daejeon hourly coverage, but its ID342 gate opens no local or Public-0.58 review row."
+    },
+    {
+      "execution_shape": "Keep KMA living-weather and approved AirKorea information endpoints report-only.",
+      "fit": "completed_closed",
+      "priority": 4,
+      "research_support": [
+        "etri_lifelog_2024",
+        "dacon_data_page"
+      ],
+      "risk": "Recent/realtime air-quality data cannot be backfilled into the 2024 train/test window without a separate source.",
+      "route": "approved_public_data_api_feasibility",
+      "why": "KMA living-weather and AirKorea information endpoints are reachable, but the smoke does not expose a date-bounded 2024 historical source beyond KMA ASOS."
+    },
+    {
+      "execution_shape": "Keep as domain-prior evidence; do not create artifacts, Kaggle runs, or DACON submissions.",
+      "fit": "completed_closed",
+      "priority": 4,
+      "research_support": [
+        "etri_lifelog_2024",
+        "dacon_data_page"
+      ],
+      "risk": "Directly concatenating historical users or survey/sleep labels would not match the 2026 feature contract.",
+      "route": "external_etri_sleep_survey_prior",
+      "why": "Historical ETRI sleep/survey files provide direct PM fatigue/stress and sleep metrics, but the audit supports Q2 fatigue coupling only and opens no direct Q3/S3/S4 2026 feature route."
+    },
+    {
+      "execution_shape": "Keep as negative weather-source evidence; do not escalate to artifacts or Kaggle.",
+      "fit": "completed_closed",
+      "priority": 4,
+      "research_support": [
+        "etri_lifelog_2024",
+        "dacon_data_page"
+      ],
+      "risk": "Weather is strongly date-structured and can mimic failed frontier/date movement if overweighted.",
+      "route": "kma_asos_weather_context",
+      "why": "Historical Daejeon ASOS hourly weather provides true external observation data, but the first ID342 gate finds only a small unstable S4 signal and no Public-0.58 review row."
+    },
+    {
+      "execution_shape": "Keep as a guardrail for future candidates, not as a candidate-generation route.",
+      "fit": "completed_closed",
+      "priority": 4,
+      "research_support": [
+        "etri_lifelog_2024",
+        "dacon_data_page"
+      ],
+      "risk": "Failed-frontier rows still look locally attractive, so this lens must stay paired with shape penalties.",
+      "route": "validation_weighted_pseudo_public_split",
+      "why": "The audit evaluated target-weighted full/subject-hole/LOSO/test-neighbor lenses and found no credible Public-0.55 or Public-0.58 stable-shape row."
+    },
+    {
+      "execution_shape": "Only revisit with a truly sequence-aware model or target-specific loss after validation weighting is repaired.",
+      "fit": "high_but_local_and_validation_gates_failed",
+      "priority": 5,
+      "research_support": [
+        "mis_lstm",
+        "pixleepflow",
+        "etri_lifelog_2024",
+        "dacon_data_page"
+      ],
+      "risk": "Do not launch Kaggle from the current local proxy, which failed Q3/S3 and projected only 0.5959.",
+      "route": "mis_lstm_multichannel_block_sequence_v2",
+      "why": "The first local block-sequence proxy found only S4. A second attempt must change the representation, not simply rerun the same block aggregates."
+    },
+    {
+      "execution_shape": "Only revisit if the design changes materially: block-temporal tokens, target-specific downstream gates, and explicit Public-0.55 promotion thresholds before remote execution.",
+      "fit": "high_but_already_failed_once",
+      "priority": 6,
+      "research_support": [
+        "etri_lifelog_2024",
+        "dacon_data_page",
+        "lsm2_aim",
+        "crossl",
+        "multi_modal_ts_survey"
+      ],
+      "risk": "Same-family missingness/subject-state reruns are closed unless the local feasibility story changes.",
+      "route": "aim_cross_modal_masked_subject_state_v2",
+      "why": "AIM/CroSSL still matches incomplete lifelog data, but the post-ID342 subject-state and missingness runs did not open a supervised gate."
+    },
+    {
+      "execution_shape": "Build 30-minute, 2-hour, evening, and sleep-transition tokens; reconstruct masked semantic units with visible/masked decoupling.",
+      "fit": "high",
+      "priority": 7,
+      "research_support": [
+        "time_mae",
+        "etri_lifelog_2024",
+        "pixleepflow"
+      ],
+      "risk": "Can collapse into another generic sequence summary unless cross-modal missingness is retained.",
+      "route": "time_mae_semantic_window_subject_state",
+      "why": "The dataset is label-scarce and long-horizon; semantic sub-series windows are more relevant than point loss."
+    },
+    {
+      "execution_shape": "Use small modality-specific encoders, latent masks, and a global aggregator; downstream uses frozen embeddings plus low-capacity fold-internal heads.",
+      "fit": "high",
+      "priority": 8,
+      "research_support": [
+        "crossl",
+        "multi_modal_ts_survey",
+        "dacon_data_page"
+      ],
+      "risk": "May be too small to close a 0.046 public gap unless paired with AIM-style inherited masking.",
+      "route": "crossl_latent_modality_dropout",
+      "why": "The raw streams have natural missing modalities and different sampling frequencies."
+    },
+    {
+      "execution_shape": "Contrast same-subject nearby windows against distant windows without labels or public-score donors.",
+      "fit": "medium",
+      "priority": 9,
+      "research_support": [
+        "tnc"
+      ],
+      "risk": "High leakage risk if neighborhoods are not fold- and date-safe; not a standalone first route.",
+      "route": "tnc_subject_temporal_neighborhood",
+      "why": "Q3/S3 are state-transition targets, so local temporal smoothness is plausible."
+    },
+    {
+      "execution_shape": "Train contextual encoders on synchronized sequences and aggregate target-specific windows.",
+      "fit": "medium",
+      "priority": 10,
+      "research_support": [
+        "ts2vec"
+      ],
+      "risk": "Less directly matched to missing modality and cross-device behavior than AIM/CroSSL.",
+      "route": "ts2vec_hierarchical_context",
+      "why": "Hierarchical timestamp/subsequence embeddings are broadly useful for irregular lifelog windows."
+    },
+    {
+      "execution_shape": "Use only as a visualization/channel-layout prior inside a stronger masked model.",
+      "fit": "low_as_standalone",
+      "priority": 11,
+      "research_support": [
+        "pixleepflow"
+      ],
+      "risk": "Do not launch another image-only or random-conv route from current evidence.",
+      "route": "pixleepflow_image_layout_only",
+      "why": "Image conversion is domain-relevant, but local sequence-image and tiny CNN gates did not open Q3/S3."
+    }
+  ],
+  "no_dacon_submission_made": true,
+  "no_embedding_fit": true,
+  "no_feature_matrix_created": true,
+  "no_kaggle_output_pull_made": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_raw_payload_read": true,
+  "no_submission_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "prerequisites": {
+    "airkorea_2024_historical_archive_ready": true,
+    "airkorea_2024_historical_gate_already_failed": true,
+    "approved_non_asos_public_data_api_historical_route_closed": true,
+    "approved_public_data_api_smoke_checked": true,
+    "cross_source_split_stability_route_already_failed": true,
+    "domain_contract_ready": true,
+    "execution_closed_now": true,
+    "external_etri_sleep_survey_prior_already_failed": true,
+    "final_day_independent_signal_route_already_failed": true,
+    "goal_not_achieved": true,
+    "id342_anchor_current": true,
+    "input_reports_parse": true,
+    "kma_weather_context_route_already_failed": true,
+    "mis_lstm_block_route_already_failed": true,
+    "missingness_route_already_failed": true,
+    "public_gap_penalty_closed": true,
+    "raw_payload_not_read": true,
+    "raw_schema_contract_ready": true,
+    "registered_routes_closed": true,
+    "s3_phone_gps_interaction_route_already_failed": true,
+    "sequence_event_route_already_failed": true,
+    "solar_seasonal_holiday_route_already_failed": true,
+    "success_thresholds_ready": true,
+    "validation_weighted_route_already_failed": true
+  },
+  "purpose": "Refresh external/source research priorities after all registered post-ID342 routes closed.",
+  "recommended_next_route": {
+    "dacon_candidate_threshold_public_proxy": 0.55,
+    "name": "materially_new_external_source_hypothesis",
+    "priority_components": [
+      "new source mechanism rather than another weather/air-quality date prior",
+      "avoid simple Q3-from-sleep coupling because external ETRI prior did not support it",
+      "target-specific Q3/S3/S4 local gate before artifacts",
+      "validation-weighted pseudo-public and stable-shape review",
+      "failed-frontier exclusion and leave-one-out stress checks"
+    ],
+    "review_threshold_public_proxy": 0.58
+  },
+  "report_only": true,
+  "research_implications": [
+    {
+      "action": "Do not spend DACON on alpha, temperature, target-swap, or image-only variants.",
+      "evidence": "ID342 is still +0.0460832519 from Public 0.55 after 32 registered routes closed.",
+      "finding": "The large public gap is representation-sized, not calibration-sized."
+    },
+    {
+      "action": "Do not rerun AIM/CroSSL-style missingness unless the architecture and local gate materially change.",
+      "evidence": "The post-ID342 missingness subject-state no-submit route scanned all raw rows and passed 0 stable rows.",
+      "finding": "Missingness remains important, but the first missingness-heavy execution did not transfer."
+    },
+    {
+      "action": "Do not launch a Kaggle runner from this route; repair validation or change the representation materially.",
+      "evidence": "The local MIS-LSTM-style block proxy found only S4 and failed Q3/S3.",
+      "finding": "Temporal block structure has been locally tested and is not sufficient by itself."
+    },
+    {
+      "action": "Use it to reject future shelf rows; do not rerun it as another candidate scan.",
+      "evidence": "The validation-weighted pseudo-public audit found 0 credible Public-0.55 rows and 0 credible Public-0.58 review rows.",
+      "finding": "Validation weighting is useful as a guardrail but does not create a candidate route."
+    },
+    {
+      "action": "Do not promote the external-calendar prior; require a different source mechanism.",
+      "evidence": "Solar/seasonal/Korean-holiday priors move S4 locally in 3/5 lenses but pass 0 stable rows.",
+      "finding": "The first external date-derived source is not stable enough."
+    },
+    {
+      "action": "Keep KMA weather as negative external-source evidence unless a new source changes the mechanism.",
+      "evidence": "The ASOS weather gate finds a best S4 pressure/precipitation row near Public 0.596006 with 0 review passes.",
+      "finding": "Historical KMA weather is available but not strong enough."
+    },
+    {
+      "action": "Do not build features from these approved endpoints; require a separate historical/statistics source.",
+      "evidence": "The public-data smoke verifies KMA living-weather current forecasts and AirKorea current/recent endpoints, but KMA living-weather rejects 2024 history and AirKorea station 3MONTH returns recent 2026 data.",
+      "finding": "The approved non-ASOS public-data APIs do not cover the 2024 feature window."
+    },
+    {
+      "action": "Do not promote air-quality features; require a materially different Q3/S3/S4 source mechanism.",
+      "evidence": "The archive audit finds 13 Daejeon stations and all 4,200 expected timestamps, but the ID342 AirKorea gate has 0 local/review/DACON passes and best proxy 0.596056065.",
+      "finding": "The separate downloaded AirKorea 2024 historical source is valid but too weak."
+    },
+    {
+      "action": "Use this as a warning against simple Q3-from-sleep coupling; do not promote or launch from it.",
+      "evidence": "The 2020 PM-to-next-sleep audit pairs 523 rows. Lower fatigue aligns with shorter sleep latency and lower WASO, but lower stress does not align with better sleep outcomes and no direct 2026 feature route is available.",
+      "finding": "Historical ETRI sleep/survey priors do not rescue Q3."
+    },
+    {
+      "action": "Use the S3 alignment as design hint only; do not create artifacts or launch Kaggle from it.",
+      "evidence": "S3 has a phone/GPS stable micro-alignment, but its best proxy remains near 0.596; S4 conflicts on LOSO.",
+      "finding": "Cross-source weak-signal alignment is too small to promote."
+    },
+    {
+      "action": "Do not submit the micro-signal; require a materially larger S3/S4 source before promotion.",
+      "evidence": "The best S3 phone/GPS concat row wins 5/5 splits, but still projects only to 0.595849549.",
+      "finding": "Focused S3 phone/GPS interactions improve local stability but not public distance."
+    },
+    {
+      "action": "Keep submission closed unless a future row clears the Public-0.58 review proxy.",
+      "evidence": "The best S4 sleep-solar row wins 4/5 with mean delta -0.002013473, but projects only to 0.595795613.",
+      "finding": "The final-day independent sweep found a local S4 signal but no reviewable candidate."
+    },
+    {
+      "action": "Use image layout only with block-sequence aggregation and discrete-event handling.",
+      "evidence": "PixleepFlow supports synchronized sensor images, but local ID342 image/CNN smokes did not pass.",
+      "finding": "Image-style layouts are useful as priors but not sufficient."
+    }
+  ],
+  "score_state": {
+    "best_public_anchor_id": 342,
+    "best_public_score": 0.5960832519,
+    "closed_route_count": 32,
+    "gap_to_public_055": 0.046083251899999955,
+    "route_count": 32,
+    "target_public_score": 0.55
+  }
+}

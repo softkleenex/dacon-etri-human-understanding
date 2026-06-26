@@ -1,0 +1,732 @@
+{
+  "created_at_kst": "2026-06-19 06:16:59 UTC+09:00",
+  "diagnostic": "post_id341_gps_path_topology_model_smoke",
+  "purpose": "Run a lightweight fold-internal no-submit model smoke on the registered GPS path-topology feature matrix, comparing Q3/S3 only against ID178/ID341 OOF anchors.",
+  "source_family": "gps_path_topology_sequence_v1",
+  "target_focus": [
+    "Q3",
+    "S3"
+  ],
+  "inputs": {
+    "feature_matrix": "data/processed/post_id341_gps_path_topology_features_v1.parquet",
+    "schema_report": "reports/post_id341_gps_path_topology_features_v1_schema.json",
+    "feature_matrix_smoke_contract": "reports/post_id341_gps_path_topology_feature_matrix_smoke_contract_20260619.json"
+  },
+  "contract": {
+    "schema_report": {
+      "path": "reports/post_id341_gps_path_topology_features_v1_schema.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 15011,
+      "decision": {
+        "feature_matrix_materialized": true,
+        "matrix_written_now": true,
+        "source_family": "gps_path_topology_sequence_v1",
+        "target_focus": [
+          "Q3",
+          "S3"
+        ],
+        "allowed_boundary_passed": true,
+        "contract_passed": true,
+        "row_count": 700,
+        "feature_column_count": 32,
+        "public_058_evidence": false,
+        "score_route_opened": false,
+        "train_model_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_local_allowed_step": "validate_feature_matrix_then_stop_or_wait_for_explicit_kaggle_approval",
+        "next_action": "Feature matrix is registered as non-score infrastructure only. Do not create ID342, train a model, submit to DACON, or run Kaggle from this artifact without a separate approved contract."
+      },
+      "error": null
+    },
+    "smoke_contract_report": {
+      "path": "reports/post_id341_gps_path_topology_feature_matrix_smoke_contract_20260619.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 75595,
+      "decision": {
+        "feature_matrix_smoke_contract_ready": true,
+        "source_family": "gps_path_topology_sequence_v1",
+        "target_focus": [
+          "Q3",
+          "S3"
+        ],
+        "feature_matrix_write_allowed_now": false,
+        "feature_matrix_write_allowed_next_under_contract": false,
+        "feature_matrix_already_materialized_under_contract": true,
+        "allowed_future_matrix_path": "data/processed/post_id341_gps_path_topology_features_v1.parquet",
+        "allowed_future_schema_report_path": "reports/post_id341_gps_path_topology_features_v1_schema.json",
+        "public_058_evidence": false,
+        "score_route_opened": false,
+        "train_model_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_local_allowed_step": "validate_gps_feature_matrix_then_stop_no_model_no_submission",
+        "next_action": "The registered GPS feature matrix already exists and passed schema validation. Stop here unless a separate model/submission contract is opened."
+      },
+      "error": null
+    },
+    "checks": {
+      "schema_exists_and_parse_ok": true,
+      "smoke_contract_exists_and_parse_ok": true,
+      "matrix_materialized": true,
+      "schema_source_family_matches": true,
+      "schema_target_focus_matches": true,
+      "schema_boundary_passed": true,
+      "schema_score_actions_closed": true,
+      "smoke_contract_materialized_state": true,
+      "smoke_contract_actions_closed": true,
+      "matrix_path_exists": true
+    },
+    "contract_ready_for_model_smoke": true
+  },
+  "feature_metadata": {
+    "matrix_path": "data/processed/post_id341_gps_path_topology_features_v1.parquet",
+    "aligned_train_rows": 450,
+    "feature_columns": 32,
+    "feature_column_names": [
+      "gps_rows",
+      "gps_payload_points",
+      "gps_coordinate_payload_rows",
+      "gps_active_hours",
+      "gps_evening_rows_18_23",
+      "gps_night_rows_00_05",
+      "gps_gap_count_gt15m",
+      "gps_longest_gap_minutes",
+      "gps_observed_span_minutes",
+      "gps_speed_p50",
+      "gps_speed_p90",
+      "gps_speed_max",
+      "gps_low_speed_payload_share",
+      "gps_high_speed_payload_share",
+      "gps_lat_span",
+      "gps_lon_span",
+      "gps_bbox_area_proxy",
+      "gps_payload_quality_flag",
+      "activity_rows",
+      "activity_active_code_count",
+      "activity_top_code_share",
+      "activity_late_rows_18_23",
+      "wifi_rows",
+      "wifi_token_count_capped64",
+      "wifi_top_token_share",
+      "wifi_payload_points",
+      "ble_rows",
+      "ble_token_count_capped64",
+      "ble_top_token_share",
+      "ble_payload_points",
+      "place_context_rows",
+      "place_context_token_count_capped128"
+    ],
+    "missing_rate": 0.0,
+    "forbidden_feature_columns": [],
+    "test_rows_present_but_unused_for_model_smoke": 250
+  },
+  "config": {
+    "model_specs": [
+      {
+        "name": "lr_c0_02",
+        "kind": "lr",
+        "c_value": 0.02
+      },
+      {
+        "name": "lr_c0_08",
+        "kind": "lr",
+        "c_value": 0.08
+      },
+      {
+        "name": "lr_c0_20",
+        "kind": "lr",
+        "c_value": 0.2
+      }
+    ],
+    "split_names": [
+      "subject_hole_5",
+      "actual_test_band_holdout",
+      "test_boundary_neighbor2_holdout",
+      "test_boundary_neighbor5_holdout",
+      "loso_10"
+    ],
+    "blend_weights": [
+      0.005,
+      0.01,
+      0.025,
+      0.05
+    ],
+    "config_win_floor": 4,
+    "config_mean_delta_ceiling": -5e-05,
+    "config_max_delta_ceiling": 0.00075
+  },
+  "anchor_rows": [
+    {
+      "target": "Q3",
+      "split_name": "subject_hole_5",
+      "id178_loss": 0.5670897848363183,
+      "id341_loss": 0.5670897848363183
+    },
+    {
+      "target": "Q3",
+      "split_name": "actual_test_band_holdout",
+      "id178_loss": 0.5093012241642778,
+      "id341_loss": 0.5093012241642778
+    },
+    {
+      "target": "Q3",
+      "split_name": "test_boundary_neighbor2_holdout",
+      "id178_loss": 0.6063358711638827,
+      "id341_loss": 0.6063358711638827
+    },
+    {
+      "target": "Q3",
+      "split_name": "test_boundary_neighbor5_holdout",
+      "id178_loss": 0.5827662249897018,
+      "id341_loss": 0.5827662249897018
+    },
+    {
+      "target": "Q3",
+      "split_name": "loso_10",
+      "id178_loss": 0.5670897848363183,
+      "id341_loss": 0.5670897848363183
+    },
+    {
+      "target": "S3",
+      "split_name": "subject_hole_5",
+      "id178_loss": 0.49089303890027697,
+      "id341_loss": 0.49089303890027697
+    },
+    {
+      "target": "S3",
+      "split_name": "actual_test_band_holdout",
+      "id178_loss": 0.47199996150799395,
+      "id341_loss": 0.47199996150799395
+    },
+    {
+      "target": "S3",
+      "split_name": "test_boundary_neighbor2_holdout",
+      "id178_loss": 0.5069499097612542,
+      "id341_loss": 0.5069499097612542
+    },
+    {
+      "target": "S3",
+      "split_name": "test_boundary_neighbor5_holdout",
+      "id178_loss": 0.5128937130660507,
+      "id341_loss": 0.5128937130660507
+    },
+    {
+      "target": "S3",
+      "split_name": "loso_10",
+      "id178_loss": 0.4908930389002769,
+      "id341_loss": 0.4908930389002769
+    }
+  ],
+  "selected_target_configs": {},
+  "top_rows_by_target": {
+    "Q3": [
+      {
+        "target": "Q3",
+        "candidate": "blend_id178_gps_topology_lr_c0_02_w0.005",
+        "model_spec": {
+          "name": "lr_c0_02",
+          "kind": "lr",
+          "c_value": 0.02
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0002941927596475935,
+        "min_delta_vs_id341": 0.00013694438589706426,
+        "max_delta_vs_id341": 0.0005935565630760253,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00019403253059413483,
+          "actual_test_band_holdout": 0.0005935565630760253,
+          "test_boundary_neighbor2_holdout": 0.0003449254202823049,
+          "test_boundary_neighbor5_holdout": 0.00020150489838843821,
+          "loso_10": 0.00013694438589706426
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5672838173669125,
+          "actual_test_band_holdout": 0.5098947807273538,
+          "test_boundary_neighbor2_holdout": 0.606680796584165,
+          "test_boundary_neighbor5_holdout": 0.5829677298880902,
+          "loso_10": 0.5672267292222154
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id341_gps_topology_lr_c0_02_w0.005",
+        "model_spec": {
+          "name": "lr_c0_02",
+          "kind": "lr",
+          "c_value": 0.02
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0002941927596475935,
+        "min_delta_vs_id341": 0.00013694438589706426,
+        "max_delta_vs_id341": 0.0005935565630760253,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00019403253059413483,
+          "actual_test_band_holdout": 0.0005935565630760253,
+          "test_boundary_neighbor2_holdout": 0.0003449254202823049,
+          "test_boundary_neighbor5_holdout": 0.00020150489838843821,
+          "loso_10": 0.00013694438589706426
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5672838173669125,
+          "actual_test_band_holdout": 0.5098947807273538,
+          "test_boundary_neighbor2_holdout": 0.606680796584165,
+          "test_boundary_neighbor5_holdout": 0.5829677298880902,
+          "loso_10": 0.5672267292222154
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id178_gps_topology_lr_c0_08_w0.005",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.000337779001378169,
+        "min_delta_vs_id341": 0.00016598621754926324,
+        "max_delta_vs_id341": 0.0005759877792992363,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00024063578065702806,
+          "actual_test_band_holdout": 0.0005759877792992363,
+          "test_boundary_neighbor2_holdout": 0.00045278780247626216,
+          "test_boundary_neighbor5_holdout": 0.0002534974269090551,
+          "loso_10": 0.00016598621754926324
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5673304206169754,
+          "actual_test_band_holdout": 0.509877211943577,
+          "test_boundary_neighbor2_holdout": 0.6067886589663589,
+          "test_boundary_neighbor5_holdout": 0.5830197224166108,
+          "loso_10": 0.5672557710538676
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id341_gps_topology_lr_c0_08_w0.005",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.000337779001378169,
+        "min_delta_vs_id341": 0.00016598621754926324,
+        "max_delta_vs_id341": 0.0005759877792992363,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00024063578065702806,
+          "actual_test_band_holdout": 0.0005759877792992363,
+          "test_boundary_neighbor2_holdout": 0.00045278780247626216,
+          "test_boundary_neighbor5_holdout": 0.0002534974269090551,
+          "loso_10": 0.00016598621754926324
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5673304206169754,
+          "actual_test_band_holdout": 0.509877211943577,
+          "test_boundary_neighbor2_holdout": 0.6067886589663589,
+          "test_boundary_neighbor5_holdout": 0.5830197224166108,
+          "loso_10": 0.5672557710538676
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id178_gps_topology_lr_c0_20_w0.005",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00035913421036481985,
+        "min_delta_vs_id341": 0.00018244735070382934,
+        "max_delta_vs_id341": 0.0005667331232488415,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00026679740523416484,
+          "actual_test_band_holdout": 0.0005667331232488415,
+          "test_boundary_neighbor2_holdout": 0.0004976334744699606,
+          "test_boundary_neighbor5_holdout": 0.0002820596981673029,
+          "loso_10": 0.00018244735070382934
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5673565822415525,
+          "actual_test_band_holdout": 0.5098679572875267,
+          "test_boundary_neighbor2_holdout": 0.6068335046383526,
+          "test_boundary_neighbor5_holdout": 0.5830482846878691,
+          "loso_10": 0.5672722321870222
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id341_gps_topology_lr_c0_20_w0.005",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00035913421036481985,
+        "min_delta_vs_id341": 0.00018244735070382934,
+        "max_delta_vs_id341": 0.0005667331232488415,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00026679740523416484,
+          "actual_test_band_holdout": 0.0005667331232488415,
+          "test_boundary_neighbor2_holdout": 0.0004976334744699606,
+          "test_boundary_neighbor5_holdout": 0.0002820596981673029,
+          "loso_10": 0.00018244735070382934
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5673565822415525,
+          "actual_test_band_holdout": 0.5098679572875267,
+          "test_boundary_neighbor2_holdout": 0.6068335046383526,
+          "test_boundary_neighbor5_holdout": 0.5830482846878691,
+          "loso_10": 0.5672722321870222
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id178_gps_topology_lr_c0_02_w0.01",
+        "model_spec": {
+          "name": "lr_c0_02",
+          "kind": "lr",
+          "c_value": 0.02
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0005938796885374131,
+        "min_delta_vs_id341": 0.00028026559659388717,
+        "max_delta_vs_id341": 0.0011908575507927344,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0003933349454732227,
+          "actual_test_band_holdout": 0.0011908575507927344,
+          "test_boundary_neighbor2_holdout": 0.000695310197381116,
+          "test_boundary_neighbor5_holdout": 0.00040963015244610546,
+          "loso_10": 0.00028026559659388717
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5674831197817916,
+          "actual_test_band_holdout": 0.5104920817150705,
+          "test_boundary_neighbor2_holdout": 0.6070311813612638,
+          "test_boundary_neighbor5_holdout": 0.5831758551421479,
+          "loso_10": 0.5673700504329122
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id341_gps_topology_lr_c0_02_w0.01",
+        "model_spec": {
+          "name": "lr_c0_02",
+          "kind": "lr",
+          "c_value": 0.02
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0005938796885374131,
+        "min_delta_vs_id341": 0.00028026559659388717,
+        "max_delta_vs_id341": 0.0011908575507927344,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0003933349454732227,
+          "actual_test_band_holdout": 0.0011908575507927344,
+          "test_boundary_neighbor2_holdout": 0.000695310197381116,
+          "test_boundary_neighbor5_holdout": 0.00040963015244610546,
+          "loso_10": 0.00028026559659388717
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5674831197817916,
+          "actual_test_band_holdout": 0.5104920817150705,
+          "test_boundary_neighbor2_holdout": 0.6070311813612638,
+          "test_boundary_neighbor5_holdout": 0.5831758551421479,
+          "loso_10": 0.5673700504329122
+        }
+      }
+    ],
+    "S3": [
+      {
+        "target": "S3",
+        "candidate": "blend_id178_gps_topology_lr_c0_20_w0.01",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -7.601430855189717e-05,
+        "min_delta_vs_id341": -0.00023944870904535343,
+        "max_delta_vs_id341": 1.8778486694404073e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.00011834448576419909,
+          "actual_test_band_holdout": 1.1173524870566887e-05,
+          "test_boundary_neighbor2_holdout": 1.8778486694404073e-05,
+          "test_boundary_neighbor5_holdout": -0.00023944870904535343,
+          "loso_10": -5.223035951490429e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.49077469441451277,
+          "actual_test_band_holdout": 0.4720111350328645,
+          "test_boundary_neighbor2_holdout": 0.5069686882479486,
+          "test_boundary_neighbor5_holdout": 0.5126542643570053,
+          "loso_10": 0.490840808540762
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id341_gps_topology_lr_c0_20_w0.01",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -7.601430855189717e-05,
+        "min_delta_vs_id341": -0.00023944870904535343,
+        "max_delta_vs_id341": 1.8778486694404073e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.00011834448576419909,
+          "actual_test_band_holdout": 1.1173524870566887e-05,
+          "test_boundary_neighbor2_holdout": 1.8778486694404073e-05,
+          "test_boundary_neighbor5_holdout": -0.00023944870904535343,
+          "loso_10": -5.223035951490429e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.49077469441451277,
+          "actual_test_band_holdout": 0.4720111350328645,
+          "test_boundary_neighbor2_holdout": 0.5069686882479486,
+          "test_boundary_neighbor5_holdout": 0.5126542643570053,
+          "loso_10": 0.490840808540762
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id178_gps_topology_lr_c0_20_w0.005",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -4.3289213761077414e-05,
+        "min_delta_vs_id341": -0.00012606748100685294,
+        "max_delta_vs_id341": 7.69114431709017e-06,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -6.247070275927635e-05,
+          "actual_test_band_holdout": 3.622531433877807e-06,
+          "test_boundary_neighbor2_holdout": 7.69114431709017e-06,
+          "test_boundary_neighbor5_holdout": -0.00012606748100685294,
+          "loso_10": -3.922156079022576e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4908305681975177,
+          "actual_test_band_holdout": 0.4720035840394278,
+          "test_boundary_neighbor2_holdout": 0.5069576009055713,
+          "test_boundary_neighbor5_holdout": 0.5127676455850438,
+          "loso_10": 0.4908538173394867
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id341_gps_topology_lr_c0_20_w0.005",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -4.3289213761077414e-05,
+        "min_delta_vs_id341": -0.00012606748100685294,
+        "max_delta_vs_id341": 7.69114431709017e-06,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -6.247070275927635e-05,
+          "actual_test_band_holdout": 3.622531433877807e-06,
+          "test_boundary_neighbor2_holdout": 7.69114431709017e-06,
+          "test_boundary_neighbor5_holdout": -0.00012606748100685294,
+          "loso_10": -3.922156079022576e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4908305681975177,
+          "actual_test_band_holdout": 0.4720035840394278,
+          "test_boundary_neighbor2_holdout": 0.5069576009055713,
+          "test_boundary_neighbor5_holdout": 0.5127676455850438,
+          "loso_10": 0.4908538173394867
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id178_gps_topology_lr_c0_08_w0.005",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -2.134411027299166e-06,
+        "min_delta_vs_id341": -8.889871799899751e-05,
+        "max_delta_vs_id341": 9.3909234145928e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -4.346234647045755e-05,
+          "actual_test_band_holdout": 9.3909234145928e-05,
+          "test_boundary_neighbor2_holdout": 3.65436274213371e-05,
+          "test_boundary_neighbor5_holdout": -8.889871799899751e-05,
+          "loso_10": -8.763852234305869e-06
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4908495765538065,
+          "actual_test_band_holdout": 0.4720938707421399,
+          "test_boundary_neighbor2_holdout": 0.5069864533886755,
+          "test_boundary_neighbor5_holdout": 0.5128048143480517,
+          "loso_10": 0.4908842750480426
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id341_gps_topology_lr_c0_08_w0.005",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -2.134411027299166e-06,
+        "min_delta_vs_id341": -8.889871799899751e-05,
+        "max_delta_vs_id341": 9.3909234145928e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -4.346234647045755e-05,
+          "actual_test_band_holdout": 9.3909234145928e-05,
+          "test_boundary_neighbor2_holdout": 3.65436274213371e-05,
+          "test_boundary_neighbor5_holdout": -8.889871799899751e-05,
+          "loso_10": -8.763852234305869e-06
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4908495765538065,
+          "actual_test_band_holdout": 0.4720938707421399,
+          "test_boundary_neighbor2_holdout": 0.5069864533886755,
+          "test_boundary_neighbor5_holdout": 0.5128048143480517,
+          "loso_10": 0.4908842750480426
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id178_gps_topology_lr_c0_20_w0.025",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "anchor": "id178",
+        "weight": 0.025,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": -0.00011557335875895802,
+        "min_delta_vs_id341": -0.000508296023091992,
+        "max_delta_vs_id341": 7.222058698808098e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.00024858915669140336,
+          "actual_test_band_holdout": 5.7036867947446446e-05,
+          "test_boundary_neighbor2_holdout": 7.222058698808098e-05,
+          "test_boundary_neighbor5_holdout": -0.000508296023091992,
+          "loso_10": 4.976093105307777e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.49064444974358556,
+          "actual_test_band_holdout": 0.4720569983759414,
+          "test_boundary_neighbor2_holdout": 0.5070221303482423,
+          "test_boundary_neighbor5_holdout": 0.5123854170429587,
+          "loso_10": 0.49094279983133
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id341_gps_topology_lr_c0_20_w0.025",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "anchor": "id341",
+        "weight": 0.025,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": -0.00011557335875895802,
+        "min_delta_vs_id341": -0.000508296023091992,
+        "max_delta_vs_id341": 7.222058698808098e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.00024858915669140336,
+          "actual_test_band_holdout": 5.7036867947446446e-05,
+          "test_boundary_neighbor2_holdout": 7.222058698808098e-05,
+          "test_boundary_neighbor5_holdout": -0.000508296023091992,
+          "loso_10": 4.976093105307777e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.49064444974358556,
+          "actual_test_band_holdout": 0.4720569983759414,
+          "test_boundary_neighbor2_holdout": 0.5070221303482423,
+          "test_boundary_neighbor5_holdout": 0.5123854170429587,
+          "loso_10": 0.49094279983133
+        }
+      }
+    ]
+  },
+  "scan_row_count": 270,
+  "decision": {
+    "model_smoke_completed": true,
+    "source_family": "gps_path_topology_sequence_v1",
+    "target_focus": [
+      "Q3",
+      "S3"
+    ],
+    "selected_targets": [],
+    "any_gps_topology_signal_found": false,
+    "all_focus_targets_covered": false,
+    "public_058_evidence": false,
+    "score_route_opened": false,
+    "next_local_allowed_step": "close_gps_topology_model_smoke",
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "If selected targets exist, run a no-artifact geometry gate before any artifact contract. Otherwise close the GPS topology local model lane and return to the explicit-approved upstream route."
+  },
+  "safety_contract": {
+    "in_memory_models_trained": true,
+    "persisted_model_created": false,
+    "full_test_predictions_created": false,
+    "submission_csv_created": false,
+    "base_prediction_artifact_created": false,
+    "notebook_history_artifact_created": false,
+    "submission_log_modified": false,
+    "kaggle_run_executed": false,
+    "dacon_submission_executed": false,
+    "uses_target_labels_for_training_only_inside_cv": true,
+    "uses_oof_predictions_as_baseline_only": true,
+    "uses_public_scores": false
+  }
+}

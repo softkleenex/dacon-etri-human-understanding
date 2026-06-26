@@ -1,0 +1,197 @@
+{
+  "created_at_kst": "2026-06-23 22:59:03 UTC+09:00",
+  "diagnostic": "dacon_three_slot_slate_20260623",
+  "purpose": "Exact-path/memo policy for the user-approved 3-slot DACON slate. This report validates artifacts and can be used as DACON_SUBMIT_POLICY_REPORT, but it does not submit anything.",
+  "public_context": {
+    "id178_public": 0.6014113009,
+    "id337_public": 0.6006206286219425,
+    "id340_public": 0.601379175253277,
+    "id329_public": 0.6017908577,
+    "id287_public": 0.6698787318,
+    "recent_public_band_floor": 0.6006206286219425,
+    "target_public": 0.58,
+    "combined_public_058_gate_pass_exists": false
+  },
+  "decision": {
+    "submission_spend_policy_ready": true,
+    "score_improvement_submission_recommended": true,
+    "public_sanity_probe_recommended_by_default": true,
+    "public_sanity_probe_if_user_insists_id": 338,
+    "public_sanity_probe_if_user_insists_file": "submission_id_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861_unsubmitted.csv",
+    "allowed_dacon_submit_now": true,
+    "allowed_kaggle_network_now": false,
+    "allowed_new_submission_artifact_now": false,
+    "public_058_plausible_candidate_exists": false,
+    "requires_exact_dacon_csv_approval": true,
+    "max_submission_slots": 3,
+    "primary_next_action": "Submit the three files one by one only after exact SUB_PATH/SUB_MEMO approval. Stop immediately on day_max_count, API failure, or unexpected public deterioration."
+  },
+  "slate_items": [
+    {
+      "slot": 1,
+      "id": 338,
+      "file": "submission_id_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861_unsubmitted.csv",
+      "path": "submissions/submission_id_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861_unsubmitted.csv",
+      "memo": "20260623 slate 1/3 id338 id179 s1 randomconv safety probe",
+      "role": "conservative_anchor_variant",
+      "rationale": "Tests whether the ID179 tempered anchor plus the same low-movement S1 source improves on ID337.",
+      "domain_read": "S1 is a sleep-quality/sleep-state target where the random-conv temporal sequence source was the only recent remotely reproduced signal. This slot keeps all non-S1 targets anchored.",
+      "errors": [],
+      "ready_for_exact_approval": true,
+      "csv_shape": [
+        250,
+        10
+      ],
+      "csv_columns": [
+        "subject_id",
+        "sleep_date",
+        "lifelog_date",
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "csv_na_total": 0,
+      "target_min": 0.0484174604505683,
+      "target_max": 0.9790607617940928,
+      "sha256": "4a477f5b1e2ad1f3dc319682ed2a0a952abc4f08caa266f2dd5dbf8fbdd0e08d",
+      "local_cv": 0.537861,
+      "status_clean": "generated_unsubmitted",
+      "notebook": "notebooks/history/submission_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861_unsubmitted.ipynb",
+      "metadata": "reports/experiment_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861_unsubmitted.json",
+      "decision_note": "reports/decision_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861_unsubmitted.md",
+      "base_oof": "artifacts/base_predictions/base_oof_id_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861.csv",
+      "base_test": "artifacts/base_predictions/base_test_id_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861.csv",
+      "transfer_joint": {
+        "family": "sequence_anchor_family",
+        "proxy_public_risk": 0.605301522567564,
+        "transfer_risk_tier": "recent_sequence_probe_unsubmitted",
+        "joint_risk_tier": "low_joint_warning",
+        "joint_warning_count": 0,
+        "mean_delta_vs_178": 0.004659634641585283,
+        "max_delta_vs_178": 0.07398893560112152,
+        "projection_failed": 0.0005493210964588477,
+        "combined_tier": "joint_safe_but_transfer_blocked",
+        "block_reasons": [
+          "transfer_proxy_above_public_058_gate",
+          "transfer_tier:recent_sequence_probe_unsubmitted"
+        ]
+      }
+    },
+    {
+      "slot": 2,
+      "id": 342,
+      "file": "submission_id_342_id178_id221_featuresim_shrink050_cv0.534000_unsubmitted.csv",
+      "path": "submissions/submission_id_342_id178_id221_featuresim_shrink050_cv0.534000_unsubmitted.csv",
+      "memo": "20260623 slate 2/3 id342 id178 id221 featuresim shrink050 independent probe",
+      "role": "independent_feature_similarity_probe",
+      "rationale": "Uses the unconsumed ID221 strict-feature/feature-similarity family, shrunk 50% toward ID178 to keep max movement below 0.10.",
+      "domain_read": "Feature-similarity is a non-sequence behavioral/source-family probe: it tests whether subject/day covariate similarity transfers where recent sequence micro-probes compressed near public 0.60.",
+      "errors": [],
+      "ready_for_exact_approval": true,
+      "csv_shape": [
+        250,
+        10
+      ],
+      "csv_columns": [
+        "subject_id",
+        "sleep_date",
+        "lifelog_date",
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "csv_na_total": 0,
+      "target_min": 0.0533064688900735,
+      "target_max": 0.9741572523370966,
+      "sha256": "02f622e1e9c6825727a5d1cdc482fd505f6f7086c92def5fbb43c4198e13b394",
+      "local_cv": 0.534,
+      "status_clean": "generated_unsubmitted",
+      "notebook": "notebooks/history/submission_342_id178_id221_featuresim_shrink050_cv0.534000_unsubmitted.ipynb",
+      "metadata": "reports/experiment_342_id178_id221_featuresim_shrink050_cv0.534000_unsubmitted.json",
+      "decision_note": "reports/decision_342_id178_id221_featuresim_shrink050_cv0.534000_unsubmitted.md",
+      "base_oof": "artifacts/base_predictions/base_oof_id_342_id178_id221_featuresim_shrink050_cv0.534000.csv",
+      "base_test": "artifacts/base_predictions/base_test_id_342_id178_id221_featuresim_shrink050_cv0.534000.csv",
+      "transfer_joint": {
+        "family": "strict_feature_family",
+        "proxy_public_risk": 0.6099422256322338,
+        "transfer_risk_tier": "diagnostic_only",
+        "joint_risk_tier": "low_joint_warning",
+        "joint_warning_count": 0,
+        "mean_delta_vs_178": 0.01846343829423115,
+        "max_delta_vs_178": 0.0939105089419684,
+        "projection_failed": -0.005082285503973114,
+        "combined_tier": "joint_safe_but_transfer_blocked",
+        "block_reasons": [
+          "transfer_proxy_above_public_058_gate",
+          "transfer_tier:diagnostic_only"
+        ]
+      }
+    },
+    {
+      "slot": 3,
+      "id": 339,
+      "file": "submission_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.csv",
+      "path": "submissions/submission_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.csv",
+      "memo": "20260623 slate 3/3 id339 q123 seqsum id337 s1 information probe",
+      "role": "informative_sequence_summary_probe",
+      "rationale": "More informative but higher-movement Q1/Q2/Q3 sequence-summary probe with ID337 S1; useful if the first two slots do not move public below the 0.60 band.",
+      "domain_read": "Q targets are subjective condition/routine responses. The sequence-summary source summarizes daily sensor trajectories, so this slot probes whether broader temporal shape helps those subjective labels.",
+      "errors": [],
+      "ready_for_exact_approval": true,
+      "csv_shape": [
+        250,
+        10
+      ],
+      "csv_columns": [
+        "subject_id",
+        "sleep_date",
+        "lifelog_date",
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "csv_na_total": 0,
+      "target_min": 0.0484174604505683,
+      "target_max": 0.9788310768291706,
+      "sha256": "b108e7a63f99384a11f2c80bea1b49a9450c78284638c50eef70fe4b9274abdf",
+      "local_cv": 0.536441,
+      "status_clean": "generated_unsubmitted",
+      "notebook": "notebooks/history/submission_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.ipynb",
+      "metadata": "reports/experiment_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.json",
+      "decision_note": "reports/decision_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.md",
+      "base_oof": "artifacts/base_predictions/base_oof_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441.csv",
+      "base_test": "artifacts/base_predictions/base_test_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441.csv",
+      "transfer_joint": {
+        "family": "sequence_anchor_family",
+        "proxy_public_risk": 0.608258781502767,
+        "transfer_risk_tier": "recent_sequence_probe_unsubmitted",
+        "joint_risk_tier": "low_joint_warning",
+        "joint_warning_count": 0,
+        "mean_delta_vs_178": 0.012602007839208288,
+        "max_delta_vs_178": 0.0970511427879002,
+        "projection_failed": -0.012001303036450464,
+        "combined_tier": "joint_safe_but_transfer_blocked",
+        "block_reasons": [
+          "transfer_proxy_above_public_058_gate",
+          "transfer_tier:recent_sequence_probe_unsubmitted"
+        ]
+      }
+    }
+  ],
+  "all_items_ready": true,
+  "no_dacon_submission_made": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_submission_artifact_created_by_this_report": true
+}

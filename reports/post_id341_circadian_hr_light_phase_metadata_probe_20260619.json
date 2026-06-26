@@ -1,0 +1,305 @@
+{
+  "created_at_kst": "2026-06-19 09:47:52 UTC+09:00",
+  "diagnostic": "post_id341_circadian_hr_light_phase_metadata_probe",
+  "report_only": true,
+  "queue_report": {
+    "path": "reports/post_id341_material_new_source_queue_20260619.json",
+    "exists": true,
+    "next_no_approval_step": "usage_semantic_burst_markov_v1",
+    "only_score_relevant_open_route": "explicit_approved_clean_upstream_id221_to_id226",
+    "circadian_queue_status": "closed_after_feature_matrix_and_model_smoke_no_signal",
+    "circadian_next_allowed_step": "closed_no_artifact"
+  },
+  "source_summaries": {
+    "wHr": {
+      "source": "wHr",
+      "file": "data/raw/ch2025_data_items/ch2025_wHr.parquet",
+      "purpose": "wearable autonomic/circadian recovery curve",
+      "rows": 382918,
+      "subjects": 10,
+      "subject_days": 636,
+      "timestamp_span": {
+        "min": "2024-06-03 14:28:00",
+        "max": "2024-11-19 15:37:00"
+      },
+      "coverage_by_split": {
+        "test": {
+          "expected_days": 250,
+          "covered_days": 245,
+          "coverage_rate": 0.98,
+          "median_rows": 593.5,
+          "p25_rows": 403.25,
+          "p75_rows": 758.75,
+          "median_hours": 13.0,
+          "days_with_at_least_12_hours": 151,
+          "days_with_at_least_18_hours": 29,
+          "rate_with_at_least_12_hours": 0.604,
+          "rate_with_at_least_18_hours": 0.116
+        },
+        "train": {
+          "expected_days": 450,
+          "covered_days": 391,
+          "coverage_rate": 0.8688888888888889,
+          "median_rows": 583.0,
+          "p25_rows": 367.0,
+          "p75_rows": 747.75,
+          "median_hours": 12.0,
+          "days_with_at_least_12_hours": 253,
+          "days_with_at_least_18_hours": 35,
+          "rate_with_at_least_12_hours": 0.5622222222222222,
+          "rate_with_at_least_18_hours": 0.07777777777777778
+        }
+      },
+      "phase_bin_presence_rate_by_split": {
+        "test": {
+          "night_00_05": 0.36,
+          "morning_06_11": 0.828,
+          "afternoon_12_17": 0.9,
+          "evening_18_23": 0.812
+        },
+        "train": {
+          "night_00_05": 0.3,
+          "morning_06_11": 0.7444444444444445,
+          "afternoon_12_17": 0.8266666666666667,
+          "evening_18_23": 0.7333333333333333
+        }
+      }
+    },
+    "wLight": {
+      "source": "wLight",
+      "file": "data/raw/ch2025_data_items/ch2025_wLight.parquet",
+      "purpose": "wearable light exposure phase and amplitude",
+      "rows": 633741,
+      "subjects": 10,
+      "subject_days": 664,
+      "timestamp_span": {
+        "min": "2024-06-03 14:28:00",
+        "max": "2024-11-19 23:59:00"
+      },
+      "coverage_by_split": {
+        "test": {
+          "expected_days": 250,
+          "covered_days": 250,
+          "coverage_rate": 1.0,
+          "median_rows": 997.5,
+          "p25_rows": 708.5,
+          "p75_rows": 1201.5,
+          "median_hours": 24.0,
+          "days_with_at_least_12_hours": 238,
+          "days_with_at_least_18_hours": 203,
+          "rate_with_at_least_12_hours": 0.952,
+          "rate_with_at_least_18_hours": 0.812
+        },
+        "train": {
+          "expected_days": 450,
+          "covered_days": 414,
+          "coverage_rate": 0.92,
+          "median_rows": 1004.0,
+          "p25_rows": 653.25,
+          "p75_rows": 1237.5,
+          "median_hours": 24.0,
+          "days_with_at_least_12_hours": 383,
+          "days_with_at_least_18_hours": 321,
+          "rate_with_at_least_12_hours": 0.8511111111111112,
+          "rate_with_at_least_18_hours": 0.7133333333333334
+        }
+      },
+      "phase_bin_presence_rate_by_split": {
+        "test": {
+          "night_00_05": 0.868,
+          "morning_06_11": 0.964,
+          "afternoon_12_17": 0.968,
+          "evening_18_23": 0.956
+        },
+        "train": {
+          "night_00_05": 0.7733333333333333,
+          "morning_06_11": 0.8644444444444445,
+          "afternoon_12_17": 0.8888888888888888,
+          "evening_18_23": 0.8666666666666667
+        }
+      }
+    },
+    "mLight": {
+      "source": "mLight",
+      "file": "data/raw/ch2025_data_items/ch2025_mLight.parquet",
+      "purpose": "phone light context and dark-window continuity",
+      "rows": 96258,
+      "subjects": 10,
+      "subject_days": 700,
+      "timestamp_span": {
+        "min": "2024-06-03 12:57:00",
+        "max": "2024-11-19 23:57:00"
+      },
+      "coverage_by_split": {
+        "test": {
+          "expected_days": 250,
+          "covered_days": 250,
+          "coverage_rate": 1.0,
+          "median_rows": 144.0,
+          "p25_rows": 142.25,
+          "p75_rows": 144.0,
+          "median_hours": 24.0,
+          "days_with_at_least_12_hours": 246,
+          "days_with_at_least_18_hours": 237,
+          "rate_with_at_least_12_hours": 0.984,
+          "rate_with_at_least_18_hours": 0.948
+        },
+        "train": {
+          "expected_days": 450,
+          "covered_days": 450,
+          "coverage_rate": 1.0,
+          "median_rows": 144.0,
+          "p25_rows": 141.0,
+          "p75_rows": 144.0,
+          "median_hours": 24.0,
+          "days_with_at_least_12_hours": 444,
+          "days_with_at_least_18_hours": 427,
+          "rate_with_at_least_12_hours": 0.9866666666666667,
+          "rate_with_at_least_18_hours": 0.9488888888888889
+        }
+      },
+      "phase_bin_presence_rate_by_split": {
+        "test": {
+          "night_00_05": 0.976,
+          "morning_06_11": 0.984,
+          "afternoon_12_17": 0.996,
+          "evening_18_23": 0.996
+        },
+        "train": {
+          "night_00_05": 0.9622222222222222,
+          "morning_06_11": 0.9822222222222222,
+          "afternoon_12_17": 0.9955555555555555,
+          "evening_18_23": 0.9955555555555555
+        }
+      }
+    },
+    "wPedo": {
+      "source": "wPedo",
+      "file": "data/raw/ch2025_data_items/ch2025_wPedo.parquet",
+      "purpose": "movement phase and rest/activity rhythm",
+      "rows": 748100,
+      "subjects": 10,
+      "subject_days": 653,
+      "timestamp_span": {
+        "min": "2024-06-03 14:15:00",
+        "max": "2024-11-19 23:59:00"
+      },
+      "coverage_by_split": {
+        "test": {
+          "expected_days": 250,
+          "covered_days": 249,
+          "coverage_rate": 0.996,
+          "median_rows": 1280.5,
+          "p25_rows": 1047.25,
+          "p75_rows": 1378.75,
+          "median_hours": 24.0,
+          "days_with_at_least_12_hours": 229,
+          "days_with_at_least_18_hours": 193,
+          "rate_with_at_least_12_hours": 0.916,
+          "rate_with_at_least_18_hours": 0.772
+        },
+        "train": {
+          "expected_days": 450,
+          "covered_days": 404,
+          "coverage_rate": 0.8977777777777778,
+          "median_rows": 1239.5,
+          "p25_rows": 818.75,
+          "p75_rows": 1345.0,
+          "median_hours": 23.0,
+          "days_with_at_least_12_hours": 378,
+          "days_with_at_least_18_hours": 305,
+          "rate_with_at_least_12_hours": 0.84,
+          "rate_with_at_least_18_hours": 0.6777777777777778
+        }
+      },
+      "phase_bin_presence_rate_by_split": {
+        "test": {
+          "night_00_05": 0.828,
+          "morning_06_11": 0.968,
+          "afternoon_12_17": 0.96,
+          "evening_18_23": 0.932
+        },
+        "train": {
+          "night_00_05": 0.7177777777777777,
+          "morning_06_11": 0.8511111111111112,
+          "afternoon_12_17": 0.8866666666666667,
+          "evening_18_23": 0.8444444444444444
+        }
+      }
+    }
+  },
+  "heart_rate_payload_summary": {
+    "rows": 382918,
+    "nonempty_payload_rate": 1.0,
+    "mean_readings_per_row": 52.211162703241946,
+    "median_readings_per_row": 59.0,
+    "p90_readings_per_row": 60.0
+  },
+  "phase_feasibility": {
+    "by_split": {
+      "test": {
+        "expected_days": 250,
+        "strong_phase_shape_days": 153,
+        "strict_phase_shape_days": 142,
+        "weak_phase_shape_days": 207,
+        "light_pedo_without_hr_days": 180,
+        "strong_phase_shape_rate": 0.612,
+        "strict_phase_shape_rate": 0.568,
+        "weak_phase_shape_rate": 0.828,
+        "light_pedo_without_hr_rate": 0.72,
+        "median_whr_hours": 13.0,
+        "median_wlight_hours": 24.0,
+        "median_mlight_hours": 24.0,
+        "median_wpedo_hours": 24.0
+      },
+      "train": {
+        "expected_days": 450,
+        "strong_phase_shape_days": 253,
+        "strict_phase_shape_days": 239,
+        "weak_phase_shape_days": 337,
+        "light_pedo_without_hr_days": 294,
+        "strong_phase_shape_rate": 0.5622222222222222,
+        "strict_phase_shape_rate": 0.5311111111111111,
+        "weak_phase_shape_rate": 0.7488888888888889,
+        "light_pedo_without_hr_rate": 0.6533333333333333,
+        "median_whr_hours": 12.0,
+        "median_wlight_hours": 24.0,
+        "median_mlight_hours": 24.0,
+        "median_wpedo_hours": 23.0
+      }
+    },
+    "subjects_with_half_days_strong_by_split": {
+      "test": 7,
+      "train": 7
+    }
+  },
+  "decision": {
+    "metadata_probe_passed": true,
+    "source_family": "circadian_hr_light_phase_shape_v1",
+    "target_focus": [
+      "Q3",
+      "S3",
+      "S2"
+    ],
+    "strong_phase_shape_train_rate": 0.5622222222222222,
+    "strong_phase_shape_test_rate": 0.612,
+    "weak_phase_shape_train_rate": 0.7488888888888889,
+    "weak_phase_shape_test_rate": 0.828,
+    "next_local_allowed_step": "report_only_feature_spec_no_model",
+    "train_model_now": false,
+    "public_058_evidence": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Circadian HR/light phase-shape metadata is feasible enough for a design spec, but this is not score evidence. Do not train or create ID342; only a report-only feature-spec step is allowed unless the exact Kaggle no-submit approval phrase is provided."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

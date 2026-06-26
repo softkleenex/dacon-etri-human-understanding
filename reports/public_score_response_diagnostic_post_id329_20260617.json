@@ -1,0 +1,45 @@
+{
+  "created_at_kst": "2026-06-17 00:48:31",
+  "diagnostic": "public_score_response_post_id329",
+  "submitted_candidate": {
+    "id": 329,
+    "dacon_submission_id": 1465639,
+    "submission_file": "submission_id_329_post328_combo4_cap080_budget050_practical_cv0.516718_unsubmitted.csv",
+    "submitted_at": "2026-06-17 00:45:07",
+    "local_cv": 0.5167183408136238,
+    "public_lb": 0.6017908577,
+    "gap": 0.08507251688637618,
+    "failed_projection_to_id287_direction": 0.04986929657152577,
+    "max_delta_vs_id178": 0.07919238997096245,
+    "mean_delta_vs_id178": 0.01937187874478487
+  },
+  "reference_points": [
+    {
+      "id": 178,
+      "local_cv": 0.5386377373903545,
+      "public_lb": 0.6014113009,
+      "gap": 0.06277356350964547,
+      "role": "confirmed_public_anchor"
+    },
+    {
+      "id": 287,
+      "local_cv": 0.378934,
+      "public_lb": 0.6698787318,
+      "gap": 0.2909447318,
+      "role": "confirmed_public_failure"
+    },
+    {
+      "id": 329,
+      "local_cv": 0.5167183408136238,
+      "public_lb": 0.6017908577,
+      "gap": 0.08507251688637618,
+      "role": "guarded_practical_probe"
+    }
+  ],
+  "conclusion": "The public distribution rejected the guarded local improvement: ID329 local improves ID178 by about 0.0219, but Public is +0.00038 worse. Local CV remains poorly calibrated for this family.",
+  "recommended_next_strategy": [
+    "Do not submit ID330/ID331 immediately; they are same-family, more movement, and likely not justified by ID329 feedback.",
+    "Re-rank candidates using both ID178 and ID329 as public anchors and ID287 as failed direction.",
+    "Search for candidates with low movement from the ID178/ID329 public-anchor subspace rather than only low projection to ID287."
+  ]
+}

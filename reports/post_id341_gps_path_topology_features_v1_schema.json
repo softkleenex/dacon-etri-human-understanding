@@ -1,0 +1,564 @@
+{
+  "created_at_kst": "2026-06-19 05:47:55 UTC+09:00",
+  "diagnostic": "post_id341_gps_path_topology_features_v1_schema",
+  "report_only": false,
+  "source_family": "gps_path_topology_sequence_v1",
+  "target_focus": [
+    "Q3",
+    "S3"
+  ],
+  "purpose": "Validate and register the single allowed no-model/no-submission GPS path-topology feature matrix.",
+  "inputs": {
+    "contract_report": "reports/post_id341_gps_path_topology_feature_matrix_smoke_contract_20260619.json",
+    "raw_feature_family": "mGps + mActivity + mWifi + mBle daily topology/context aggregates"
+  },
+  "artifact": {
+    "matrix_path": "data/processed/post_id341_gps_path_topology_features_v1.parquet",
+    "schema_report_path": "reports/post_id341_gps_path_topology_features_v1_schema.json",
+    "matrix_exists": true,
+    "matrix_size_bytes": 114472,
+    "matrix_sha256": "c3915ce60754f9da5395550644753cf9f35966a2a88357e459c3c33fb04a3ae9"
+  },
+  "contract_checks": {
+    "contract_report_parse_ok": true,
+    "contract_ready_or_already_materialized": true,
+    "source_family_matches": true,
+    "target_focus_matches": true,
+    "matrix_path_matches_contract": true,
+    "schema_path_matches_contract": true,
+    "row_bound_matches_contract": true,
+    "column_bound_matches_contract": true,
+    "no_model_allowed_by_contract": true,
+    "no_submission_allowed_by_contract": true,
+    "no_submission_log_allowed_by_contract": true,
+    "no_kaggle_allowed_by_contract": true,
+    "no_dacon_allowed_by_contract": true
+  },
+  "validation": {
+    "checks": {
+      "row_count_exact": true,
+      "row_alignment_exact": true,
+      "duplicate_keys_absent": true,
+      "train_rows_exact": true,
+      "test_rows_exact": true,
+      "key_columns_first": true,
+      "feature_columns_exact_declared_order": true,
+      "feature_column_count_bounded": true,
+      "no_target_or_prediction_columns": true,
+      "all_feature_columns_numeric_or_bool": true,
+      "no_missing_feature_values": true,
+      "all_feature_values_finite": true,
+      "split_values_expected": true,
+      "coverage_passes": true,
+      "cardinality_capped": true
+    },
+    "allowed_boundary_passed": true,
+    "row_alignment": {
+      "expected_rows": 700,
+      "dryrun_rows": 700,
+      "exact_key_alignment": true,
+      "duplicate_keys": 0,
+      "train_rows": 450,
+      "test_rows": 250
+    },
+    "coverage": {
+      "by_split": {
+        "test": {
+          "rows": 250,
+          "gps_topology_ready_rows": 234,
+          "gps_topology_ready_rate": 0.936,
+          "place_context_ready_rows": 246,
+          "place_context_ready_rate": 0.984,
+          "median_gps_rows": 1376.0,
+          "median_gps_payload_points": 13957.0
+        },
+        "train": {
+          "rows": 450,
+          "gps_topology_ready_rows": 420,
+          "gps_topology_ready_rate": 0.9333333333333333,
+          "place_context_ready_rows": 439,
+          "place_context_ready_rate": 0.9755555555555555,
+          "median_gps_rows": 1371.0,
+          "median_gps_payload_points": 12568.5
+        }
+      },
+      "overall_gps_topology_ready_rate": 0.9342857142857143,
+      "overall_place_context_ready_rate": 0.9785714285714285
+    },
+    "feature_columns": {
+      "feature_column_count": 32,
+      "max_allowed_first_matrix_columns": 64,
+      "within_first_matrix_bound": true,
+      "missing_declared_features": [],
+      "extra_features": [],
+      "features": [
+        "gps_rows",
+        "gps_payload_points",
+        "gps_coordinate_payload_rows",
+        "gps_active_hours",
+        "gps_evening_rows_18_23",
+        "gps_night_rows_00_05",
+        "gps_gap_count_gt15m",
+        "gps_longest_gap_minutes",
+        "gps_observed_span_minutes",
+        "gps_speed_p50",
+        "gps_speed_p90",
+        "gps_speed_max",
+        "gps_low_speed_payload_share",
+        "gps_high_speed_payload_share",
+        "gps_lat_span",
+        "gps_lon_span",
+        "gps_bbox_area_proxy",
+        "gps_payload_quality_flag",
+        "activity_rows",
+        "activity_active_code_count",
+        "activity_top_code_share",
+        "activity_late_rows_18_23",
+        "wifi_rows",
+        "wifi_token_count_capped64",
+        "wifi_top_token_share",
+        "wifi_payload_points",
+        "ble_rows",
+        "ble_token_count_capped64",
+        "ble_top_token_share",
+        "ble_payload_points",
+        "place_context_rows",
+        "place_context_token_count_capped128"
+      ]
+    },
+    "forbidden_columns": [],
+    "numeric_or_bool_feature_columns": [
+      "gps_rows",
+      "gps_payload_points",
+      "gps_coordinate_payload_rows",
+      "gps_active_hours",
+      "gps_evening_rows_18_23",
+      "gps_night_rows_00_05",
+      "gps_gap_count_gt15m",
+      "gps_longest_gap_minutes",
+      "gps_observed_span_minutes",
+      "gps_speed_p50",
+      "gps_speed_p90",
+      "gps_speed_max",
+      "gps_low_speed_payload_share",
+      "gps_high_speed_payload_share",
+      "gps_lat_span",
+      "gps_lon_span",
+      "gps_bbox_area_proxy",
+      "gps_payload_quality_flag",
+      "activity_rows",
+      "activity_active_code_count",
+      "activity_top_code_share",
+      "activity_late_rows_18_23",
+      "wifi_rows",
+      "wifi_token_count_capped64",
+      "wifi_top_token_share",
+      "wifi_payload_points",
+      "ble_rows",
+      "ble_token_count_capped64",
+      "ble_top_token_share",
+      "ble_payload_points",
+      "place_context_rows",
+      "place_context_token_count_capped128"
+    ],
+    "cardinality_bounds": {
+      "wifi_cardinality": {
+        "source": "mWifi",
+        "prefix": "wifi",
+        "cap": 64,
+        "subjects": 10,
+        "max_raw_tokens_per_subject": 24373,
+        "subjects_over_cap_before_capping": 10,
+        "max_tokens_after_capping": 64
+      },
+      "ble_cardinality": {
+        "source": "mBle",
+        "prefix": "ble",
+        "cap": 64,
+        "subjects": 10,
+        "max_raw_tokens_per_subject": 119814,
+        "subjects_over_cap_before_capping": 10,
+        "max_tokens_after_capping": 64
+      }
+    }
+  },
+  "schema": [
+    {
+      "name": "subject_id",
+      "dtype": "str",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 10
+    },
+    {
+      "name": "lifelog_date",
+      "dtype": "str",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 166
+    },
+    {
+      "name": "split",
+      "dtype": "str",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 2
+    },
+    {
+      "name": "gps_rows",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 327,
+      "min": 0.0,
+      "max": 1440.0,
+      "mean": 1143.73
+    },
+    {
+      "name": "gps_payload_points",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 647,
+      "min": 0.0,
+      "max": 22720.0,
+      "mean": 12209.902857142857
+    },
+    {
+      "name": "gps_coordinate_payload_rows",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 327,
+      "min": 0.0,
+      "max": 1440.0,
+      "mean": 1143.73
+    },
+    {
+      "name": "gps_active_hours",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 23,
+      "min": 0.0,
+      "max": 24.0,
+      "mean": 21.23857142857143
+    },
+    {
+      "name": "gps_evening_rows_18_23",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 183,
+      "min": 0.0,
+      "max": 360.0,
+      "mean": 283.79285714285714
+    },
+    {
+      "name": "gps_night_rows_00_05",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 154,
+      "min": 0.0,
+      "max": 360.0,
+      "mean": 273.93857142857144
+    },
+    {
+      "name": "gps_gap_count_gt15m",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 21,
+      "min": 0.0,
+      "max": 20.0,
+      "mean": 2.7185714285714284
+    },
+    {
+      "name": "gps_longest_gap_minutes",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 195,
+      "min": 0.0,
+      "max": 1008.0,
+      "mean": 69.47142857142858
+    },
+    {
+      "name": "gps_observed_span_minutes",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 106,
+      "min": 0.0,
+      "max": 1439.0,
+      "mean": 1314.9357142857143
+    },
+    {
+      "name": "gps_speed_p50",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 607,
+      "min": 0.0,
+      "max": 4.70355,
+      "mean": 0.1379185
+    },
+    {
+      "name": "gps_speed_p90",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 646,
+      "min": 0.0,
+      "max": 6.709390000000001,
+      "mean": 0.3102685214285715
+    },
+    {
+      "name": "gps_speed_max",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 659,
+      "min": 0.0,
+      "max": 246.7145,
+      "mean": 25.617115714285713
+    },
+    {
+      "name": "gps_low_speed_payload_share",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 642,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.6309043416474517
+    },
+    {
+      "name": "gps_high_speed_payload_share",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 569,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.058705025488214276
+    },
+    {
+      "name": "gps_lat_span",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 661,
+      "min": 0.0,
+      "max": 1.9935776,
+      "mean": 0.12258695371428571
+    },
+    {
+      "name": "gps_lon_span",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 661,
+      "min": 0.0,
+      "max": 2.457683,
+      "mean": 0.10703881614285714
+    },
+    {
+      "name": "gps_bbox_area_proxy",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 661,
+      "min": 0.0,
+      "max": 4.8995817767008,
+      "mean": 0.06179483895069328
+    },
+    {
+      "name": "gps_payload_quality_flag",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.9342857142857143
+    },
+    {
+      "name": "activity_rows",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 172,
+      "min": 390.0,
+      "max": 1440.0,
+      "mean": 1372.9457142857143
+    },
+    {
+      "name": "activity_active_code_count",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 6,
+      "min": 1.0,
+      "max": 6.0,
+      "mean": 3.892857142857143
+    },
+    {
+      "name": "activity_top_code_share",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 548,
+      "min": 0.40982456140350876,
+      "max": 1.0,
+      "mean": 0.8355242003707557
+    },
+    {
+      "name": "activity_late_rows_18_23",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 91,
+      "min": 0.0,
+      "max": 360.0,
+      "mean": 342.0985714285714
+    },
+    {
+      "name": "wifi_rows",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 99,
+      "min": 0.0,
+      "max": 144.0,
+      "mean": 109.05142857142857
+    },
+    {
+      "name": "wifi_token_count_capped64",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 34,
+      "min": 0.0,
+      "max": 64.0,
+      "mean": 59.77428571428572
+    },
+    {
+      "name": "wifi_top_token_share",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 666,
+      "min": 0.0,
+      "max": 0.16883116883116883,
+      "mean": 0.04418211433118394
+    },
+    {
+      "name": "wifi_payload_points",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 599,
+      "min": 0.0,
+      "max": 5413.0,
+      "mean": 1814.2942857142857
+    },
+    {
+      "name": "ble_rows",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 78,
+      "min": 0.0,
+      "max": 98.0,
+      "mean": 31.185714285714287
+    },
+    {
+      "name": "ble_token_count_capped64",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 36,
+      "min": 0.0,
+      "max": 64.0,
+      "mean": 57.575714285714284
+    },
+    {
+      "name": "ble_top_token_share",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 624,
+      "min": 0.0,
+      "max": 0.5,
+      "mean": 0.05871741853690957
+    },
+    {
+      "name": "ble_payload_points",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 505,
+      "min": 0.0,
+      "max": 3698.0,
+      "mean": 624.3628571428571
+    },
+    {
+      "name": "place_context_rows",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 144,
+      "min": 0.0,
+      "max": 242.0,
+      "mean": 140.23714285714286
+    },
+    {
+      "name": "place_context_token_count_capped128",
+      "dtype": "float64",
+      "non_null_count": 700,
+      "null_count": 0,
+      "unique_count": 62,
+      "min": 0.0,
+      "max": 128.0,
+      "mean": 117.35
+    }
+  ],
+  "decision": {
+    "feature_matrix_materialized": true,
+    "matrix_written_now": true,
+    "source_family": "gps_path_topology_sequence_v1",
+    "target_focus": [
+      "Q3",
+      "S3"
+    ],
+    "allowed_boundary_passed": true,
+    "contract_passed": true,
+    "row_count": 700,
+    "feature_column_count": 32,
+    "public_058_evidence": false,
+    "score_route_opened": false,
+    "train_model_now": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_local_allowed_step": "validate_feature_matrix_then_stop_or_wait_for_explicit_kaggle_approval",
+    "next_action": "Feature matrix is registered as non-score infrastructure only. Do not create ID342, train a model, submit to DACON, or run Kaggle from this artifact without a separate approved contract."
+  },
+  "safety_contract": {
+    "feature_matrix_written": true,
+    "predictions_created": false,
+    "submission_csv_created": false,
+    "submission_log_modified": false,
+    "base_prediction_artifact_created": false,
+    "notebook_history_artifact_created": false,
+    "model_trained": false,
+    "kaggle_run_executed": false,
+    "dacon_submission_executed": false,
+    "uses_target_labels": false,
+    "uses_oof_predictions": false,
+    "uses_public_scores": false
+  }
+}

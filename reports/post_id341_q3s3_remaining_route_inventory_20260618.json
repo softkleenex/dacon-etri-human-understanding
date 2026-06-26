@@ -1,0 +1,658 @@
+{
+  "created_at_kst": "2026-06-23 18:15:19 UTC+09:00",
+  "diagnostic": "post_id341_q3s3_remaining_route_inventory",
+  "purpose": "Consolidate post-ID341 Q3/S3 closures and open routes so closed local lanes are not repeatedly re-promoted as score candidates.",
+  "target_focus": [
+    "Q3",
+    "S3"
+  ],
+  "inputs": {
+    "negative_evidence_map": {
+      "path": "reports/post_id341_q3s3_negative_evidence_map_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "decision": {
+        "q3s3_negative_evidence_map_passed": true,
+        "target_focus": [
+          "Q3",
+          "S3"
+        ],
+        "closed_local_lane_count": 8,
+        "closed_optional_scout_count": 1,
+        "all_local_q3s3_lanes_closed": true,
+        "q3_s3_still_uncovered": true,
+        "public_058_evidence": false,
+        "local_artifact_allowed": false,
+        "primary_next_score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+        "requires_explicit_kaggle_approval": true,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Do not reopen closed local Q3/S3 lanes for artifact creation. The score-relevant path remains the explicit-approved clean ID221→ID226 no-submit upstream rebuild; without approval, only a materially new Q3/S3 source family should be tested."
+      }
+    },
+    "local_lane_closure": {
+      "path": "reports/post_id341_q3s3_local_lane_closure_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "decision": {
+        "local_q2_component_keep_as_context": true,
+        "q3_s3_uncovered_after_local_fallback": [
+          "Q3",
+          "S3"
+        ],
+        "local_fallback_closed_for_submission_artifact": true,
+        "local_artifact_allowed": false,
+        "public_058_evidence": false,
+        "primary_next_score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+        "requires_explicit_kaggle_approval": true,
+        "prelaunch_ready_for_explicit_approval": true,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Do not create a local submission artifact from Q2-only context. The next score-relevant path is the explicit-approved clean ID221→ID226 no-submit upstream rebuild; without that approval, only document new genuinely independent Q3/S3 hypotheses, not broader local tuning."
+      }
+    },
+    "fold_nested_sibling_bridge": {
+      "path": "reports/post_id341_q3s3_fold_nested_sibling_bridge_smoke_20260619.json",
+      "exists": true,
+      "parse_ok": true,
+      "decision": {
+        "fold_nested_sibling_smoke_completed": true,
+        "target_focus": [
+          "Q3",
+          "S3"
+        ],
+        "selected_targets": [],
+        "q3_signal_found": false,
+        "s3_signal_found": false,
+        "all_q3s3_targets_covered": false,
+        "best_proxy": 0.6015998637548345,
+        "beats_id178_public_anchor_proxy": false,
+        "public_058_evidence": false,
+        "local_artifact_allowed": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "If both Q3 and S3 are selected, feed this only into a no-artifact transfer/joint-risk gate. Otherwise keep sibling bridges as upstream design context and do not create ID342."
+      }
+    },
+    "gps_path_topology_model_smoke": {
+      "path": "reports/post_id341_gps_path_topology_model_smoke_20260619.json",
+      "exists": true,
+      "parse_ok": true,
+      "decision": {
+        "model_smoke_completed": true,
+        "source_family": "gps_path_topology_sequence_v1",
+        "target_focus": [
+          "Q3",
+          "S3"
+        ],
+        "selected_targets": [],
+        "any_gps_topology_signal_found": false,
+        "all_focus_targets_covered": false,
+        "public_058_evidence": false,
+        "score_route_opened": false,
+        "next_local_allowed_step": "close_gps_topology_model_smoke",
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "If selected targets exist, run a no-artifact geometry gate before any artifact contract. Otherwise close the GPS topology local model lane and return to the explicit-approved upstream route."
+      }
+    },
+    "external_public05917_residual": {
+      "path": "reports/post_id341_external_public05917_residual_audit_20260619.json",
+      "exists": true,
+      "parse_ok": true,
+      "decision": {
+        "audit_ready": true,
+        "residual_direct_notebook_route_exists": false,
+        "residual_direct_routes": [],
+        "public_058_evidence_present": false,
+        "q3_s3_still_uncovered": true,
+        "only_score_relevant_open_route": "explicit_approved_clean_upstream_id221_to_id226",
+        "prelaunch_ready_for_explicit_approval": true,
+        "operator_handoff_ready": true,
+        "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+        "transfer_gate_public_058_candidate_exists": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Do not reopen the external Public 0.5917 notebook as a direct local submission route. Keep its anchor/stability ideas as validation philosophy; the score-relevant route remains the explicit-approved no-submit Kaggle upstream rebuild."
+      }
+    },
+    "source_hypothesis_matrix": {
+      "path": "reports/post_id341_q2q3s3_source_hypothesis_matrix_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "decision": {
+        "q2q3s3_source_hypothesis_matrix_ready": true,
+        "all_focus_targets_missing_locally": true,
+        "all_focus_targets_have_historical_id226_signal": true,
+        "all_focus_targets_id226_win_all_folds_vs_341": true,
+        "processed_feature_coverage_sufficient_for_design": true,
+        "external_direct_concat_allowed": false,
+        "local_q2q3s3_artifact_promotable": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "requires_explicit_kaggle_approval": true,
+        "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+        "recommended_next_action": "Keep local ID342 closed. Use this matrix as the score-relevant design compass for the explicit-approved no-submit Kaggle upstream rebuild; only pulled reports that beat ID178 and pass Public-0.58 review gates may open a separate artifact-contract review."
+      }
+    },
+    "data_source_coverage": {
+      "path": "reports/post_id341_data_source_coverage_audit_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "decision": {
+        "data_source_coverage_audit_ready": true,
+        "all_major_sources_present": true,
+        "all_required_evidence_reports_present": true,
+        "upstream_runner_references_required_source_checks": true,
+        "data_source_coverage_ready": true,
+        "external_direct_concat_allowed": false,
+        "external_prior_reviewable": false,
+        "local_source_stack_closed_for_submission_artifact": true,
+        "public_058_local_cv_only_gate_passed": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Data/source coverage is accounted for locally. Do not concatenate external rows or create ID342; the next score-relevant step remains explicit-approved no-submit Kaggle/Linux upstream rebuild."
+      }
+    },
+    "manual_submission_probe_decision": {
+      "path": "reports/post_id341_manual_submission_probe_decision_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "decision": {
+        "manual_submission_probe_decision_ready": true,
+        "public_058_plausible_candidate_exists": false,
+        "default_action": "do_not_submit",
+        "submit_now": false,
+        "create_submission_artifact": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "lowest_risk_probe_id": 341,
+        "lowest_risk_probe_file": "submission_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.csv",
+        "lowest_risk_probe_artifact_contract_ready": false,
+        "lowest_proxy_focus_id": 340,
+        "lowest_proxy_focus_file": "submission_id_340_id178_q2_seqsum_lr_c03_w001_safety_cv0.538426_unsubmitted.csv",
+        "lowest_proxy_focus_not_recommended_reason": "ID340 has the lowest transfer proxy among the 337-341 focus probes, but ID341 is the safer manual sanity probe because it has much smaller movement from the confirmed ID178 public anchor.",
+        "lowest_local_cv_focus_id": 339,
+        "lowest_local_cv_focus_file": "submission_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.csv",
+        "lowest_local_cv_focus_not_recommended_reason": "ID339 has the lowest local CV among the 337-341 focus probes, but it moves much more from ID178 and has a worse transfer proxy; this is exactly the failure mode seen in ID287/ID329.",
+        "requires_explicit_user_approval_before_dacon_submit": true,
+        "recommended_primary_next_action": "Use the explicit-approved no-submit Kaggle/Linux upstream rebuild. The previous ID341/340/337 sanity probes have now shown only the 0.60 public band, so do not spend another DACON submission on the same micro-probe family.",
+        "kaggle_prelaunch_ready_for_explicit_approval": true
+      }
+    }
+  },
+  "raw_modality_rows": [
+    {
+      "modality": "mACStatus",
+      "purpose": "charging/sleep-boundary state",
+      "path": "data/raw/ch2025_data_items/ch2025_mACStatus.parquet",
+      "exists": true,
+      "readable": true,
+      "rows": 939896,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_charging"
+      ],
+      "column_count": 3,
+      "bytes": 4537839
+    },
+    {
+      "modality": "mActivity",
+      "purpose": "phone activity state",
+      "path": "data/raw/ch2025_data_items/ch2025_mActivity.parquet",
+      "exists": true,
+      "readable": true,
+      "rows": 961062,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_activity"
+      ],
+      "column_count": 3,
+      "bytes": 4642475
+    },
+    {
+      "modality": "mAmbience",
+      "purpose": "ambient semantic context",
+      "path": "data/raw/ch2025_data_items/ch2025_mAmbience.parquet",
+      "exists": true,
+      "readable": true,
+      "rows": 476577,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "element"
+      ],
+      "column_count": 3,
+      "bytes": 14842921
+    },
+    {
+      "modality": "mBle",
+      "purpose": "nearby-device/social novelty",
+      "path": "data/raw/ch2025_data_items/ch2025_mBle.parquet",
+      "exists": true,
+      "readable": true,
+      "rows": 21830,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "address",
+        "device_class",
+        "rssi"
+      ],
+      "column_count": 5,
+      "bytes": 4066339
+    },
+    {
+      "modality": "mGps",
+      "purpose": "place movement and route novelty",
+      "path": "data/raw/ch2025_data_items/ch2025_mGps.parquet",
+      "exists": true,
+      "readable": true,
+      "rows": 800611,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "altitude",
+        "latitude",
+        "longitude",
+        "speed"
+      ],
+      "column_count": 6,
+      "bytes": 71923967
+    },
+    {
+      "modality": "mLight",
+      "purpose": "phone-light sleep-boundary context",
+      "path": "data/raw/ch2025_data_items/ch2025_mLight.parquet",
+      "exists": true,
+      "readable": true,
+      "rows": 96258,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_light"
+      ],
+      "column_count": 3,
+      "bytes": 676980
+    },
+    {
+      "modality": "mScreenStatus",
+      "purpose": "screen-off/on transitions",
+      "path": "data/raw/ch2025_data_items/ch2025_mScreenStatus.parquet",
+      "exists": true,
+      "readable": true,
+      "rows": 939653,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_screen_use"
+      ],
+      "column_count": 3,
+      "bytes": 4570592
+    },
+    {
+      "modality": "mUsageStats",
+      "purpose": "app-use routine and category load",
+      "path": "data/raw/ch2025_data_items/ch2025_mUsageStats.parquet",
+      "exists": true,
+      "readable": true,
+      "rows": 45197,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "app_name",
+        "total_time"
+      ],
+      "column_count": 4,
+      "bytes": 1001239
+    },
+    {
+      "modality": "mWifi",
+      "purpose": "place/social novelty",
+      "path": "data/raw/ch2025_data_items/ch2025_mWifi.parquet",
+      "exists": true,
+      "readable": true,
+      "rows": 76336,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "bssid",
+        "rssi"
+      ],
+      "column_count": 4,
+      "bytes": 3983650
+    },
+    {
+      "modality": "wHr",
+      "purpose": "wearable physiology",
+      "path": "data/raw/ch2025_data_items/ch2025_wHr.parquet",
+      "exists": true,
+      "readable": true,
+      "rows": 382918,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "element"
+      ],
+      "column_count": 3,
+      "bytes": 10374973
+    },
+    {
+      "modality": "wLight",
+      "purpose": "wearable light exposure",
+      "path": "data/raw/ch2025_data_items/ch2025_wLight.parquet",
+      "exists": true,
+      "readable": true,
+      "rows": 633741,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "w_light"
+      ],
+      "column_count": 3,
+      "bytes": 3408602
+    },
+    {
+      "modality": "wPedo",
+      "purpose": "movement and step rhythm",
+      "path": "data/raw/ch2025_data_items/ch2025_wPedo.parquet",
+      "exists": true,
+      "readable": true,
+      "rows": 748100,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "step",
+        "step_frequency",
+        "running_step",
+        "walking_step",
+        "distance",
+        "speed",
+        "burned_calories"
+      ],
+      "column_count": 9,
+      "bytes": 4769326
+    }
+  ],
+  "processed_schema_summary": {
+    "train": {
+      "path": "data/processed/df_train_raw.parquet",
+      "exists": true,
+      "readable": true,
+      "rows": 450,
+      "column_count": 242
+    },
+    "test": {
+      "path": "data/processed/df_test_raw.parquet",
+      "exists": true,
+      "readable": true,
+      "rows": 250,
+      "column_count": 242
+    },
+    "train_targets_present": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "test_targets_present": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "shared_feature_count": 235
+  },
+  "closed_route_rows": [
+    {
+      "route": "physio_light_onset",
+      "status": "closed",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ],
+      "reason": "No selected Q3/S3 target from wearable/light/movement/onset features.",
+      "evidence_report": "reports/post_id341_q3s3_physio_light_onset_smoke_20260618.json",
+      "artifact_allowed": false
+    },
+    {
+      "route": "semantic_routine",
+      "status": "closed",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ],
+      "reason": "State/routine lane was structurally computable but selected no Q3/S3 target.",
+      "evidence_report": "reports/post_id341_q3s3_semantic_routine_lane_closure_20260618.json",
+      "artifact_allowed": false
+    },
+    {
+      "route": "calendar_sleep_prior",
+      "status": "closed",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ],
+      "reason": "Calendar, subject-progress, demographics, and materialized sleep-window summaries selected no target.",
+      "evidence_report": "reports/post_id341_q3s3_calendar_sleep_prior_smoke_20260618.json",
+      "artifact_allowed": false
+    },
+    {
+      "route": "subject_drift",
+      "status": "closed",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ],
+      "reason": "Subject residual drift is too weak for Q3/S3 and fails ID178/Public-0.58 promotion requirements.",
+      "evidence_report": "reports/post_id341_q3s3_subject_drift_gate_20260618.json",
+      "artifact_allowed": false
+    },
+    {
+      "route": "event_cadence",
+      "status": "closed",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ],
+      "reason": "Raw timestamp cadence, silence gaps, and inter-event intervals selected no Q3/S3 target.",
+      "evidence_report": "reports/post_id341_q3s3_event_cadence_smoke_20260618.json",
+      "artifact_allowed": false
+    },
+    {
+      "route": "place_social_novelty",
+      "status": "closed",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ],
+      "reason": "GPS/WiFi/BLE place-social novelty selected no Q3/S3 target and has no reviewable low-movement row.",
+      "evidence_report": "reports/place_social_novelty_smoke_fixedlist_post_id341_20260618.json",
+      "artifact_allowed": false
+    },
+    {
+      "route": "routine_stability_place_entropy",
+      "status": "closed",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ],
+      "reason": "Routine-stability/place-entropy selected no Q3/S3 target and has no proxy-below-anchor row.",
+      "evidence_report": "reports/routine_stability_place_entropy_smoke_post_id341_20260618.json",
+      "artifact_allowed": false
+    },
+    {
+      "route": "sensor_adherence_dropout",
+      "status": "closed",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ],
+      "reason": "Sensor-adherence/dropout selected no Q3/S3 target and is closed as a standalone local lane.",
+      "evidence_report": "reports/sensor_adherence_dropout_smoke_post_id341_20260618.json",
+      "artifact_allowed": false
+    },
+    {
+      "route": "cross_modal_disagreement_scout",
+      "status": "closed_scout",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ],
+      "reason": "Phone/watch cross-modal disagreement selected no Q3/S3 target; kept as optional scout evidence without changing the authoritative 8-lane prelaunch contract.",
+      "evidence_report": "reports/post_id341_q3s3_cross_modal_disagreement_smoke_20260618.json",
+      "artifact_allowed": false
+    },
+    {
+      "route": "q2_only_local_fallback",
+      "status": "closed_for_q3s3_score_route",
+      "target_focus": [
+        "Q2"
+      ],
+      "reason": "The local fallback leaves Q3/S3 uncovered and cannot justify a new artifact.",
+      "evidence_report": "reports/post_id341_q3s3_local_lane_closure_20260618.json",
+      "artifact_allowed": false
+    },
+    {
+      "route": "fold_nested_sibling_bridge",
+      "status": "closed_for_local_artifact",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ],
+      "reason": "Leakage-safe Q3<-Q2 and S3<-S2 nested sibling predictions selected no Q3/S3 target and provide no Public-0.58 evidence.",
+      "evidence_report": "reports/post_id341_q3s3_fold_nested_sibling_bridge_smoke_20260619.json",
+      "artifact_allowed": false
+    },
+    {
+      "route": "gps_path_topology_sequence_v1",
+      "status": "closed_after_model_smoke",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ],
+      "reason": "The raw GPS path-topology feature matrix is valid, but fold-internal model smoke selected no Q3/S3 target and opened no Public-0.58 score route.",
+      "evidence_report": "reports/post_id341_gps_path_topology_model_smoke_20260619.json",
+      "artifact_allowed": false
+    },
+    {
+      "route": "external_public05917_direct_replay",
+      "status": "closed_as_direct_route",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ],
+      "reason": "The external Public-0.5917 notebook remains useful as validation philosophy, but it lacks a reproducible direct route and still leaves Q3/S3 uncovered.",
+      "evidence_report": "reports/post_id341_external_public05917_residual_audit_20260619.json",
+      "artifact_allowed": false
+    }
+  ],
+  "open_or_blocked_route_rows": [
+    {
+      "route": "explicit_approved_clean_upstream_id221_to_id226",
+      "status": "open_but_requires_explicit_approval",
+      "score_relevant": true,
+      "target_focus": [
+        "Q2",
+        "Q3",
+        "S3"
+      ],
+      "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+      "reason": "Historical ID226-style upstream signal covers Q2/Q3/S3, while local post-ID341 lanes are closed. This is the only route that can move the missing targets without spending a DACON submission."
+    },
+    {
+      "route": "local_summary_or_combo_cascade",
+      "status": "closed",
+      "score_relevant": false,
+      "target_focus": [
+        "Q3",
+        "S3"
+      ],
+      "reason": "ID287 and ID329 showed that local-frontier/full-OOF or same-family combo candidates can look better locally while staying near or worse than the ID178 public anchor."
+    },
+    {
+      "route": "external_direct_row_concatenation",
+      "status": "blocked",
+      "score_relevant": false,
+      "target_focus": [
+        "Q3",
+        "S3"
+      ],
+      "reason": "External ETRI data is allowed as prior/context only; direct train-row concatenation remains blocked.",
+      "external_direct_concat_allowed": false
+    },
+    {
+      "route": "manual_id341_public_sanity_probe",
+      "status": "closed_after_id341_id340_id337_micro_probe_results",
+      "score_relevant": false,
+      "target_focus": [
+        "Q2"
+      ],
+      "submission_file": null,
+      "reason": "The ID341/340/337 sanity-probe family has already been spent and remained near 0.60, so it should not be repeated."
+    }
+  ],
+  "checks": {
+    "all_inputs_ready": true,
+    "all_raw_sources_readable": true,
+    "q3s3_local_lanes_closed": true,
+    "fold_nested_sibling_bridge_closed": true,
+    "gps_path_topology_model_lane_closed": true,
+    "external_public05917_direct_route_closed": true,
+    "local_no_approval_score_route_count": 0,
+    "open_score_route_count": 1
+  },
+  "decision": {
+    "q3s3_remaining_route_inventory_ready": true,
+    "target_focus": [
+      "Q3",
+      "S3"
+    ],
+    "q3_s3_still_uncovered": true,
+    "fold_nested_sibling_bridge_closed": true,
+    "gps_path_topology_model_lane_closed": true,
+    "external_public05917_direct_route_closed": true,
+    "local_no_approval_score_route_exists": false,
+    "only_score_relevant_open_route": "explicit_approved_clean_upstream_id221_to_id226",
+    "requires_explicit_kaggle_approval": true,
+    "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+    "manual_probe_if_user_spends_submission": null,
+    "manual_probe_family_status": "consumed_after_id341_id340_id337_public_micro_probe_slate",
+    "public_058_evidence": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Do not create a local ID342 from closed Q3/S3 lanes. The next score-relevant action is the explicit-approved no-submit Kaggle upstream rebuild; otherwise continue with report-only design/tests."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

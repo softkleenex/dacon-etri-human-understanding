@@ -1,0 +1,96 @@
+{
+  "created_at_kst": "2026-06-23 18:17:15 UTC+09:00",
+  "diagnostic": "post_id341_phone_wearable_discordance_feature_generation_dryrun",
+  "report_only": true,
+  "source_family": "phone_wearable_discordance_v1",
+  "target_focus": [
+    "Q2",
+    "Q3",
+    "S3"
+  ],
+  "input_reports": {
+    "feature_spec": {
+      "path": "reports/post_id341_phone_wearable_discordance_feature_spec_20260619.json",
+      "exists": true,
+      "parse_ok": true
+    },
+    "material_new_source_queue": {
+      "path": "reports/post_id341_material_new_source_queue_20260619.json",
+      "exists": true,
+      "parse_ok": true
+    }
+  },
+  "feature_frame_summary": {
+    "row_count": 700,
+    "train_rows": 450,
+    "test_rows": 250,
+    "column_count_including_keys": 89,
+    "feature_column_count": 85,
+    "expected_feature_column_count": 85,
+    "feature_columns_match_spec": true,
+    "duplicate_key_rows": 0,
+    "finite_all_values": true,
+    "nan_count": 0,
+    "feature_min": 0.0,
+    "feature_max": 24.0,
+    "zero_variance_feature_count": 0,
+    "nonzero_feature_count": 85
+  },
+  "checks": {
+    "spec_contract_ready": true,
+    "queue_contract_ready": true,
+    "frame_contract_ready": true,
+    "feature_count_within_bound": true,
+    "all_features_prefixed": true,
+    "no_feature_matrix_written": true,
+    "no_model_boundary": true
+  },
+  "feature_groups": {
+    "phone_rest_state": {
+      "metric_count": 4,
+      "windowed_feature_count": 20
+    },
+    "wearable_activation_state": {
+      "metric_count": 4,
+      "windowed_feature_count": 20
+    },
+    "discordance_state": {
+      "metric_count": 4,
+      "windowed_feature_count": 20
+    },
+    "transition_hysteresis": {
+      "metric_count": 3,
+      "windowed_feature_count": 15
+    }
+  },
+  "decision": {
+    "feature_generation_dryrun_passed": true,
+    "source_family": "phone_wearable_discordance_v1",
+    "target_focus": [
+      "Q2",
+      "Q3",
+      "S3"
+    ],
+    "selected_targets": [],
+    "feature_count": 85,
+    "public_058_evidence": false,
+    "score_route_opened": false,
+    "feature_matrix_allowed_now": false,
+    "train_model_now": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_local_allowed_step": "report_only_phone_wearable_discordance_feature_matrix_smoke_contract",
+    "next_action": "Dry run passed. A future no-approval step may only write a report-only feature-matrix smoke contract; do not write a feature matrix, train a model, create ID342, run Kaggle, or submit."
+  },
+  "no_feature_matrix_created": true,
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

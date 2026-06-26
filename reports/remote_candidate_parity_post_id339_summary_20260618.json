@@ -1,0 +1,62 @@
+{
+  "created_at_kst": "2026-06-18 03:05:27 UTC+09:00",
+  "source_json": "build/kaggle_outputs/candidate_parity_post_id339/kaggle_outputs/candidate_parity_post_id339_20260618.json",
+  "preserved_json": "reports/remote_candidate_parity_post_id339_20260618.json",
+  "preserved_raw_markdown": "reports/remote_candidate_parity_post_id339_raw_20260618.md",
+  "preserved_manifest": "reports/remote_candidate_parity_post_id339_manifest_20260618.json",
+  "environment": {
+    "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.6.1",
+    "scipy": "1.16.3"
+  },
+  "thresholds": {
+    "strict_review_max_abs_delta": 1e-06,
+    "strict_review_local_cv_delta": 1e-06,
+    "cross_platform_max_abs_delta": 3e-05,
+    "cross_platform_local_cv_delta": 1e-05,
+    "cross_platform_min_correlation": 0.999999
+  },
+  "all_strict_gate_recomputed_pass": false,
+  "all_cross_platform_gate_recomputed_pass": true,
+  "candidates": [
+    {
+      "candidate_id": 337,
+      "submission_file": "submission_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066_unsubmitted.csv",
+      "remote_strict_status": "fail",
+      "strict_gate_recomputed_pass": false,
+      "cross_platform_gate_recomputed_pass": true,
+      "max_abs_delta": 6.264472415584699e-06,
+      "local_cv_delta_abs": 4.2150473678059797e-07,
+      "min_correlation": 0.999999999998356,
+      "reference_local_cv": 0.538066,
+      "rebuilt_local_cv": 0.5380664215047368,
+      "oof_max_abs_delta": 6.264472415584699e-06,
+      "test_max_abs_delta": 1.4954881429884992e-06
+    },
+    {
+      "candidate_id": 339,
+      "submission_file": "submission_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.csv",
+      "remote_strict_status": "fail",
+      "strict_gate_recomputed_pass": false,
+      "cross_platform_gate_recomputed_pass": true,
+      "max_abs_delta": 2.24918324859269e-05,
+      "local_cv_delta_abs": 2.3371331636656834e-07,
+      "min_correlation": 0.9999999999944204,
+      "reference_local_cv": 0.536441,
+      "rebuilt_local_cv": 0.5364407662866836,
+      "oof_max_abs_delta": 1.6625235404743588e-05,
+      "test_max_abs_delta": 2.24918324859269e-05
+    }
+  ],
+  "decision": {
+    "dacon_submission_made": false,
+    "submission_artifact_created": false,
+    "interpretation": "Remote Kaggle CPU run failed the original 1e-6 strict max-delta gate, but passes a documented 3e-5 cross-platform tolerance gate with near-perfect correlation. This supports environment parity, not public-LB improvement.",
+    "submission_priority_after_parity": "ID337 remains the safer controlled public probe over ID339 if the user explicitly approves one exact CSV."
+  },
+  "preserved_log": "reports/remote_candidate_parity_post_id339_kaggle_log_20260618.jsonl"
+}

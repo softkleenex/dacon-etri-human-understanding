@@ -1,0 +1,2117 @@
+{
+  "created_at_kst": "2026-06-18 05:13:44 UTC+09:00",
+  "diagnostic": "post_id341_upstream_source_priority_matrix",
+  "purpose": "Prioritize the upstream rebuild after ID341 by comparing existing source artifacts on full OOF loss, frozen split stability, dependency role, and known public-failure test geometry.",
+  "reference_ids": {
+    "public_anchor": 178,
+    "current_control": 341,
+    "public_failure_ids": [
+      287,
+      329
+    ]
+  },
+  "source_records": [
+    {
+      "id": 221,
+      "layer": "upstream_model_layer",
+      "log_row_exists": true,
+      "submission_file": "submission_id_221_id218_public_feature_similarity_overlay_cv0.532990_unsubmitted.csv",
+      "model_description": "public feature-similarity overlay on ID218",
+      "local_cv": 0.53299,
+      "public_lb": null,
+      "status_clean": "generated_unsubmitted",
+      "artifact_exists": true,
+      "dependency_read": "root public-feature-similarity overlay; prerequisite for ID226/ID238 lineage",
+      "base_files": {
+        "oof": "artifacts/base_predictions/base_oof_id_221_id218_public_feature_similarity_overlay_cv0.532990.csv",
+        "test": "artifacts/base_predictions/base_test_id_221_id218_public_feature_similarity_overlay_cv0.532990.csv"
+      },
+      "full_oof": {
+        "loss": 0.5329901873426955,
+        "gain_vs_178": 0.0056475500476589335,
+        "gain_vs_341": 0.005593472581540415,
+        "target_loss": {
+          "Q1": 0.5440614992051677,
+          "Q2": 0.5501709205902863,
+          "Q3": 0.5622310325183602,
+          "S1": 0.4671174307200069,
+          "S2": 0.5288805546572832,
+          "S3": 0.48948937878683685,
+          "S4": 0.588980494920928
+        },
+        "target_delta_vs_178": {
+          "Q1": -0.007854219448678479,
+          "Q2": -0.006508414576138266,
+          "Q3": -0.0048587523179582925,
+          "S1": -0.004513016221633581,
+          "S2": -0.0006755780901908093,
+          "S3": -0.001403660113440064,
+          "S4": -0.013719209565573487
+        },
+        "target_delta_vs_341": {
+          "Q1": -0.007854219448678479,
+          "Q2": -0.006129872313308415,
+          "Q3": -0.0048587523179582925,
+          "S1": -0.004513016221633581,
+          "S2": -0.0006755780901908093,
+          "S3": -0.001403660113440064,
+          "S4": -0.013719209565573487
+        }
+      },
+      "frozen_split": {
+        "fold_wins_vs_178": 21,
+        "fold_wins_vs_341": 21,
+        "fold_count": 23,
+        "mean_fold_delta_vs_178": -0.00572360470708249,
+        "mean_fold_delta_vs_341": -0.005659308838811938,
+        "worst_fold_delta_vs_341": 0.0022890324953465657,
+        "split_summary": {
+          "subject_hole_5": {
+            "mean_loss": 0.532825685771346,
+            "mean_delta_vs_178": -0.005665741467594687,
+            "mean_delta_vs_341": -0.005611321413976156,
+            "max_delta_vs_341": -0.0017039140691379462
+          },
+          "subject_timeseries_5": {
+            "mean_loss": 0.5345184306373636,
+            "mean_delta_vs_178": -0.005228785614308984,
+            "mean_delta_vs_341": -0.005169376331538822,
+            "max_delta_vs_341": 0.0022890324953465657
+          },
+          "actual_test_band_holdout": {
+            "mean_loss": 0.5376585367500477,
+            "mean_delta_vs_178": -0.003945120115094514,
+            "mean_delta_vs_341": -0.0038059848845320987,
+            "max_delta_vs_341": -0.0038059848845320987
+          },
+          "test_boundary_neighbor2_holdout": {
+            "mean_loss": 0.5742078299762613,
+            "mean_delta_vs_178": -0.012082038494348302,
+            "mean_delta_vs_341": -0.011929348187836863,
+            "max_delta_vs_341": -0.011929348187836863
+          },
+          "test_boundary_neighbor5_holdout": {
+            "mean_loss": 0.5547816610995416,
+            "mean_delta_vs_178": -0.0032044940661155596,
+            "mean_delta_vs_341": -0.0031385857315223697,
+            "max_delta_vs_341": -0.0031385857315223697
+          },
+          "loso_10": {
+            "mean_loss": 0.5366708985551835,
+            "mean_delta_vs_178": -0.005793862017782053,
+            "mean_delta_vs_341": -0.005738669576120836,
+            "max_delta_vs_341": -0.0015471259194929088
+          }
+        }
+      },
+      "test_geometry": {
+        "mean_delta_vs_178": 0.0369268765884623,
+        "max_delta_vs_178": 0.1878210178839368,
+        "mean_delta_vs_341": 0.03681620648359179,
+        "max_delta_vs_341": 0.1878210178839368,
+        "projection_failed_id287": -0.010164571007946259,
+        "projection_gap_id329": 0.3438549058983569
+      },
+      "priority_read": {
+        "queue_rank": 1,
+        "recommended_action": "rebuild_clean_root_feature_similarity",
+        "reason": "ID221 is weaker than later calibration artifacts but is an upstream prerequisite for ID226/ID238.",
+        "risk_flags": [
+          "large_test_geometry_shift"
+        ],
+        "artifact_promotable": false
+      }
+    },
+    {
+      "id": 226,
+      "layer": "upstream_model_layer",
+      "log_row_exists": true,
+      "submission_file": "submission_id_226_id221_id172_targetwise_best_convex_frontier_cv0.491771_unsubmitted.csv",
+      "model_description": "Refined-anchor tempered extreme calibration blend probe",
+      "local_cv": 0.491771,
+      "public_lb": null,
+      "status_clean": "generated_unsubmitted",
+      "artifact_exists": true,
+      "dependency_read": "primary target-wise convex backbone; prerequisite for ID227/228/237 and downstream A1/B1",
+      "base_files": {
+        "oof": "artifacts/base_predictions/base_oof_id_226_id221_id172_targetwise_best_convex_frontier_cv0.491771.csv",
+        "test": "artifacts/base_predictions/base_test_id_226_id221_id172_targetwise_best_convex_frontier_cv0.491771.csv"
+      },
+      "full_oof": {
+        "loss": 0.4917706300324268,
+        "gain_vs_178": 0.04686710735792765,
+        "gain_vs_341": 0.04681302989180913,
+        "target_loss": {
+          "Q1": 0.4970131794492239,
+          "Q2": 0.4916851806889194,
+          "Q3": 0.5160143692946385,
+          "S1": 0.4334122972202147,
+          "S2": 0.4771671189923673,
+          "S3": 0.46511496294445753,
+          "S4": 0.5619873016371663
+        },
+        "target_delta_vs_178": {
+          "Q1": -0.054902539204622236,
+          "Q2": -0.06499415447750512,
+          "Q3": -0.051075415541679936,
+          "S1": -0.03821814972142579,
+          "S2": -0.05238901375510674,
+          "S3": -0.02577807595581938,
+          "S4": -0.040712402849335194
+        },
+        "target_delta_vs_341": {
+          "Q1": -0.054902539204622236,
+          "Q2": -0.06461561221467527,
+          "Q3": -0.051075415541679936,
+          "S1": -0.03821814972142579,
+          "S2": -0.05238901375510674,
+          "S3": -0.02577807595581938,
+          "S4": -0.040712402849335194
+        }
+      },
+      "frozen_split": {
+        "fold_wins_vs_178": 23,
+        "fold_wins_vs_341": 23,
+        "fold_count": 23,
+        "mean_fold_delta_vs_178": -0.04811521668232836,
+        "mean_fold_delta_vs_341": -0.04805092081405782,
+        "worst_fold_delta_vs_341": -0.024718751280781937,
+        "split_summary": {
+          "subject_hole_5": {
+            "mean_loss": 0.4915677003994305,
+            "mean_delta_vs_178": -0.04692372683951031,
+            "mean_delta_vs_341": -0.046869306785891775,
+            "max_delta_vs_341": -0.03764528382337906
+          },
+          "subject_timeseries_5": {
+            "mean_loss": 0.49248968634291207,
+            "mean_delta_vs_178": -0.04725752990876059,
+            "mean_delta_vs_341": -0.04719812062599042,
+            "max_delta_vs_341": -0.030397623896135373
+          },
+          "actual_test_band_holdout": {
+            "mean_loss": 0.499183134644205,
+            "mean_delta_vs_178": -0.04242052222093723,
+            "mean_delta_vs_341": -0.042281386990374814,
+            "max_delta_vs_341": -0.042281386990374814
+          },
+          "test_boundary_neighbor2_holdout": {
+            "mean_loss": 0.5191255243770051,
+            "mean_delta_vs_178": -0.0671643440936045,
+            "mean_delta_vs_341": -0.06701165378709306,
+            "max_delta_vs_341": -0.06701165378709306
+          },
+          "test_boundary_neighbor5_holdout": {
+            "mean_loss": 0.5068812437273718,
+            "mean_delta_vs_178": -0.05110491143828544,
+            "mean_delta_vs_341": -0.05103900310369225,
+            "max_delta_vs_341": -0.05103900310369225
+          },
+          "loso_10": {
+            "mean_loss": 0.4949593683530284,
+            "mean_delta_vs_178": -0.04750539221993707,
+            "mean_delta_vs_341": -0.04745019977827585,
+            "max_delta_vs_341": -0.024718751280781937
+          }
+        }
+      },
+      "test_geometry": {
+        "mean_delta_vs_178": 0.09758993507437998,
+        "max_delta_vs_178": 0.5358222167841642,
+        "mean_delta_vs_341": 0.09759591285484236,
+        "max_delta_vs_341": 0.5358222167841642,
+        "projection_failed_id287": 0.2994963457914821,
+        "projection_gap_id329": 2.368946920138171
+      },
+      "priority_read": {
+        "queue_rank": 2,
+        "recommended_action": "rebuild_primary_convex_backbone",
+        "reason": "ID226 carries the main reusable upstream signal and sits below ID227/228/237 and downstream A1/B1 artifacts.",
+        "risk_flags": [
+          "failed_direction_exposure",
+          "large_test_geometry_shift",
+          "local_gain_untrusted_until_rebuilt"
+        ],
+        "artifact_promotable": false
+      }
+    },
+    {
+      "id": 227,
+      "layer": "upstream_model_layer",
+      "log_row_exists": true,
+      "submission_file": "submission_id_227_id226_second_stage_iso_q160_ultra_frontier_cv0.464409_unsubmitted.csv",
+      "model_description": "Second-stage full-OOF calibration on ID226",
+      "local_cv": 0.464409,
+      "public_lb": null,
+      "status_clean": "generated_unsubmitted",
+      "artifact_exists": true,
+      "dependency_read": "second-stage full-OOF calibration derivative of ID226; replay only after clean ID226",
+      "base_files": {
+        "oof": "artifacts/base_predictions/base_oof_id_227_id226_second_stage_iso_q160_ultra_frontier_cv0.464409.csv",
+        "test": "artifacts/base_predictions/base_test_id_227_id226_second_stage_iso_q160_ultra_frontier_cv0.464409.csv"
+      },
+      "full_oof": {
+        "loss": 0.4644089469355674,
+        "gain_vs_178": 0.07422879045478709,
+        "gain_vs_341": 0.07417471298866857,
+        "target_loss": {
+          "Q1": 0.4896958306694157,
+          "Q2": 0.4850844308389994,
+          "Q3": 0.5122388676124219,
+          "S1": 0.42428876381732444,
+          "S2": 0.46951449485059027,
+          "S3": 0.46511496294445753,
+          "S4": 0.4049252778157629
+        },
+        "target_delta_vs_178": {
+          "Q1": -0.062219887984430455,
+          "Q2": -0.07159490432742516,
+          "Q3": -0.05485091722389657,
+          "S1": -0.047341683124316025,
+          "S2": -0.06004163789688377,
+          "S3": -0.02577807595581938,
+          "S4": -0.19777442667073858
+        },
+        "target_delta_vs_341": {
+          "Q1": -0.062219887984430455,
+          "Q2": -0.0712163620645953,
+          "Q3": -0.05485091722389657,
+          "S1": -0.047341683124316025,
+          "S2": -0.06004163789688377,
+          "S3": -0.02577807595581938,
+          "S4": -0.19777442667073858
+        }
+      },
+      "frozen_split": {
+        "fold_wins_vs_178": 23,
+        "fold_wins_vs_341": 23,
+        "fold_count": 23,
+        "mean_fold_delta_vs_178": -0.07564652358777602,
+        "mean_fold_delta_vs_341": -0.07558222771950548,
+        "worst_fold_delta_vs_341": -0.052392073574573206,
+        "split_summary": {
+          "subject_hole_5": {
+            "mean_loss": 0.4642704296187258,
+            "mean_delta_vs_178": -0.07422099762021492,
+            "mean_delta_vs_341": -0.07416657756659639,
+            "max_delta_vs_341": -0.06381486270348063
+          },
+          "subject_timeseries_5": {
+            "mean_loss": 0.4645585882667551,
+            "mean_delta_vs_178": -0.07518862798491752,
+            "mean_delta_vs_341": -0.07512921870214735,
+            "max_delta_vs_341": -0.052392073574573206
+          },
+          "actual_test_band_holdout": {
+            "mean_loss": 0.4680124327336853,
+            "mean_delta_vs_178": -0.07359122413145691,
+            "mean_delta_vs_341": -0.0734520889008945,
+            "max_delta_vs_341": -0.0734520889008945
+          },
+          "test_boundary_neighbor2_holdout": {
+            "mean_loss": 0.4904699651174401,
+            "mean_delta_vs_178": -0.09581990335316948,
+            "mean_delta_vs_341": -0.09566721304665804,
+            "max_delta_vs_341": -0.09566721304665804
+          },
+          "test_boundary_neighbor5_holdout": {
+            "mean_loss": 0.47934707954763983,
+            "mean_delta_vs_178": -0.07863907561801736,
+            "mean_delta_vs_341": -0.07857316728342417,
+            "max_delta_vs_341": -0.07857316728342417
+          },
+          "loso_10": {
+            "mean_loss": 0.4679875894339113,
+            "mean_delta_vs_178": -0.07447717113905425,
+            "mean_delta_vs_341": -0.07442197869739302,
+            "max_delta_vs_341": -0.06074834369500759
+          }
+        }
+      },
+      "test_geometry": {
+        "mean_delta_vs_178": 0.11841399341332372,
+        "max_delta_vs_178": 0.6086733645638833,
+        "mean_delta_vs_341": 0.11842192656238004,
+        "max_delta_vs_341": 0.6086733645638833,
+        "projection_failed_id287": 0.4970860267952054,
+        "projection_gap_id329": 2.9688522885698725
+      },
+      "priority_read": {
+        "queue_rank": 3,
+        "recommended_action": "replay_only_after_clean_226",
+        "reason": "This is an ID226 calibration derivative; rebuilding it before a clean ID226 would preserve the same full-OOF failure mode.",
+        "risk_flags": [
+          "failed_direction_exposure",
+          "large_test_geometry_shift",
+          "non_nested_or_public_gap_lineage",
+          "local_gain_untrusted_until_rebuilt"
+        ],
+        "artifact_promotable": false
+      }
+    },
+    {
+      "id": 228,
+      "layer": "upstream_model_layer",
+      "log_row_exists": true,
+      "submission_file": "submission_id_228_id226_second_stage_iso_only_tempered_frontier_cv0.482245_unsubmitted.csv",
+      "model_description": "Second-stage full-OOF calibration on ID226",
+      "local_cv": 0.482245,
+      "public_lb": null,
+      "status_clean": "generated_unsubmitted",
+      "artifact_exists": true,
+      "dependency_read": "second-stage full-OOF calibration derivative of ID226; replay only after clean ID226",
+      "base_files": {
+        "oof": "artifacts/base_predictions/base_oof_id_228_id226_second_stage_iso_only_tempered_frontier_cv0.482245.csv",
+        "test": "artifacts/base_predictions/base_test_id_228_id226_second_stage_iso_only_tempered_frontier_cv0.482245.csv"
+      },
+      "full_oof": {
+        "loss": 0.48224476927251697,
+        "gain_vs_178": 0.056392968117837505,
+        "gain_vs_341": 0.05633889065171899,
+        "target_loss": {
+          "Q1": 0.4896958306694157,
+          "Q2": 0.4850844308389994,
+          "Q3": 0.5122388676124219,
+          "S1": 0.42428876381732444,
+          "S2": 0.46951449485059027,
+          "S3": 0.46511496294445753,
+          "S4": 0.5297760341744101
+        },
+        "target_delta_vs_178": {
+          "Q1": -0.062219887984430455,
+          "Q2": -0.07159490432742516,
+          "Q3": -0.05485091722389657,
+          "S1": -0.047341683124316025,
+          "S2": -0.06004163789688377,
+          "S3": -0.02577807595581938,
+          "S4": -0.07292367031209135
+        },
+        "target_delta_vs_341": {
+          "Q1": -0.062219887984430455,
+          "Q2": -0.0712163620645953,
+          "Q3": -0.05485091722389657,
+          "S1": -0.047341683124316025,
+          "S2": -0.06004163789688377,
+          "S3": -0.02577807595581938,
+          "S4": -0.07292367031209135
+        }
+      },
+      "frozen_split": {
+        "fold_wins_vs_178": 23,
+        "fold_wins_vs_341": 23,
+        "fold_count": 23,
+        "mean_fold_delta_vs_178": -0.057180373524700505,
+        "mean_fold_delta_vs_341": -0.057116077656429946,
+        "worst_fold_delta_vs_341": -0.02549336312042605,
+        "split_summary": {
+          "subject_hole_5": {
+            "mean_loss": 0.4819695558571877,
+            "mean_delta_vs_178": -0.056521871381753075,
+            "mean_delta_vs_341": -0.05646745132813454,
+            "max_delta_vs_341": -0.04674212176549436
+          },
+          "subject_timeseries_5": {
+            "mean_loss": 0.48259710541922934,
+            "mean_delta_vs_178": -0.05715011083244326,
+            "mean_delta_vs_341": -0.05709070154967309,
+            "max_delta_vs_341": -0.04258352647286684
+          },
+          "actual_test_band_holdout": {
+            "mean_loss": 0.4927369381096153,
+            "mean_delta_vs_178": -0.04886671875552695,
+            "mean_delta_vs_341": -0.048727583524964535,
+            "max_delta_vs_341": -0.048727583524964535
+          },
+          "test_boundary_neighbor2_holdout": {
+            "mean_loss": 0.5156246721867693,
+            "mean_delta_vs_178": -0.07066519628384027,
+            "mean_delta_vs_341": -0.07051250597732883,
+            "max_delta_vs_341": -0.07051250597732883
+          },
+          "test_boundary_neighbor5_holdout": {
+            "mean_loss": 0.4998409549852526,
+            "mean_delta_vs_178": -0.05814520018040459,
+            "mean_delta_vs_341": -0.0580792918458114,
+            "max_delta_vs_341": -0.0580792918458114
+          },
+          "loso_10": {
+            "mean_loss": 0.48555360409522974,
+            "mean_delta_vs_178": -0.05691115647773583,
+            "mean_delta_vs_341": -0.056855964036074604,
+            "max_delta_vs_341": -0.02549336312042605
+          }
+        }
+      },
+      "test_geometry": {
+        "mean_delta_vs_178": 0.1086218640591805,
+        "max_delta_vs_178": 0.5774878834508308,
+        "mean_delta_vs_341": 0.10862979720823682,
+        "max_delta_vs_341": 0.5774878834508308,
+        "projection_failed_id287": 0.3934480673529689,
+        "projection_gap_id329": 2.271500967617599
+      },
+      "priority_read": {
+        "queue_rank": 3,
+        "recommended_action": "replay_only_after_clean_226",
+        "reason": "This is an ID226 calibration derivative; rebuilding it before a clean ID226 would preserve the same full-OOF failure mode.",
+        "risk_flags": [
+          "failed_direction_exposure",
+          "large_test_geometry_shift",
+          "non_nested_or_public_gap_lineage",
+          "local_gain_untrusted_until_rebuilt"
+        ],
+        "artifact_promotable": false
+      }
+    },
+    {
+      "id": 237,
+      "layer": "upstream_model_layer",
+      "log_row_exists": true,
+      "submission_file": "submission_id_237_id226_tempgrid_s4q160_frontier_cv0.466691_unsubmitted.csv",
+      "model_description": "Second-stage full-OOF calibration on ID226",
+      "local_cv": 0.466691,
+      "public_lb": null,
+      "status_clean": "generated_unsubmitted",
+      "artifact_exists": true,
+      "dependency_read": "temperature-grid/S4-q160 derivative of ID226; replay only after clean ID226",
+      "base_files": {
+        "oof": "artifacts/base_predictions/base_oof_id_237_id226_tempgrid_s4q160_frontier_cv0.466691.csv",
+        "test": "artifacts/base_predictions/base_test_id_237_id226_tempgrid_s4q160_frontier_cv0.466691.csv"
+      },
+      "full_oof": {
+        "loss": 0.4666910250880139,
+        "gain_vs_178": 0.07194671230234057,
+        "gain_vs_341": 0.07189263483622205,
+        "target_loss": {
+          "Q1": 0.49340355274943315,
+          "Q2": 0.4881218072099432,
+          "Q3": 0.5136262960315691,
+          "S1": 0.42842098046563215,
+          "S2": 0.47322429839929947,
+          "S3": 0.46511496294445753,
+          "S4": 0.4049252778157629
+        },
+        "target_delta_vs_178": {
+          "Q1": -0.058512165904412994,
+          "Q2": -0.06855752795648135,
+          "Q3": -0.05346348880474938,
+          "S1": -0.04320946647600832,
+          "S2": -0.05633183434817457,
+          "S3": -0.02577807595581938,
+          "S4": -0.19777442667073858
+        },
+        "target_delta_vs_341": {
+          "Q1": -0.058512165904412994,
+          "Q2": -0.0681789856936515,
+          "Q3": -0.05346348880474938,
+          "S1": -0.04320946647600832,
+          "S2": -0.05633183434817457,
+          "S3": -0.02577807595581938,
+          "S4": -0.19777442667073858
+        }
+      },
+      "frozen_split": {
+        "fold_wins_vs_178": 23,
+        "fold_wins_vs_341": 23,
+        "fold_count": 23,
+        "mean_fold_delta_vs_178": -0.0733250148221697,
+        "mean_fold_delta_vs_341": -0.07326071895389916,
+        "worst_fold_delta_vs_341": -0.05128200546716777,
+        "split_summary": {
+          "subject_hole_5": {
+            "mean_loss": 0.4665285223383283,
+            "mean_delta_vs_178": -0.07196290490061248,
+            "mean_delta_vs_341": -0.07190848484699394,
+            "max_delta_vs_341": -0.06124066883493934
+          },
+          "subject_timeseries_5": {
+            "mean_loss": 0.46680081279766866,
+            "mean_delta_vs_178": -0.07294640345400391,
+            "mean_delta_vs_341": -0.07288699417123376,
+            "max_delta_vs_341": -0.05128200546716777
+          },
+          "actual_test_band_holdout": {
+            "mean_loss": 0.47136120092861644,
+            "mean_delta_vs_178": -0.07024245593652578,
+            "mean_delta_vs_341": -0.07010332070596337,
+            "max_delta_vs_341": -0.07010332070596337
+          },
+          "test_boundary_neighbor2_holdout": {
+            "mean_loss": 0.4943451468288723,
+            "mean_delta_vs_178": -0.09194472164173728,
+            "mean_delta_vs_341": -0.09179203133522584,
+            "max_delta_vs_341": -0.09179203133522584
+          },
+          "test_boundary_neighbor5_holdout": {
+            "mean_loss": 0.48189151737489283,
+            "mean_delta_vs_178": -0.07609463779076436,
+            "mean_delta_vs_341": -0.07602872945617117,
+            "max_delta_vs_341": -0.07602872945617117
+          },
+          "loso_10": {
+            "mean_loss": 0.4701000621961861,
+            "mean_delta_vs_178": -0.07236469837677939,
+            "mean_delta_vs_341": -0.07230950593511817,
+            "max_delta_vs_341": -0.058155721890819134
+          }
+        }
+      },
+      "test_geometry": {
+        "mean_delta_vs_178": 0.11954612547783369,
+        "max_delta_vs_178": 0.6086733645638833,
+        "mean_delta_vs_341": 0.11955673893002164,
+        "max_delta_vs_341": 0.6086733645638833,
+        "projection_failed_id287": 0.5163650075074425,
+        "projection_gap_id329": 2.9100082459719183
+      },
+      "priority_read": {
+        "queue_rank": 3,
+        "recommended_action": "replay_only_after_clean_226",
+        "reason": "This is an ID226 calibration derivative; rebuilding it before a clean ID226 would preserve the same full-OOF failure mode.",
+        "risk_flags": [
+          "failed_direction_exposure",
+          "large_test_geometry_shift",
+          "non_nested_or_public_gap_lineage",
+          "local_gain_untrusted_until_rebuilt"
+        ],
+        "artifact_promotable": false
+      }
+    },
+    {
+      "id": 238,
+      "layer": "a1_replay_layer",
+      "log_row_exists": true,
+      "submission_file": "submission_id_238_id227_clean_anchor_logit_oracle_frontier_cv0.462365_unsubmitted.csv",
+      "model_description": "Target-wise pair logit blend probe",
+      "local_cv": 0.462365,
+      "public_lb": null,
+      "status_clean": "generated_unsubmitted",
+      "artifact_exists": true,
+      "dependency_read": "A1 pair/logit source depending on 221/226/227/228; not clean as a root",
+      "base_files": {
+        "oof": "artifacts/base_predictions/base_oof_id_238_id227_clean_anchor_logit_oracle_frontier_cv0.462365.csv",
+        "test": "artifacts/base_predictions/base_test_id_238_id227_clean_anchor_logit_oracle_frontier_cv0.462365.csv"
+      },
+      "full_oof": {
+        "loss": 0.4623650212416278,
+        "gain_vs_178": 0.07627271614872666,
+        "gain_vs_341": 0.07621863868260814,
+        "target_loss": {
+          "Q1": 0.48508528309933024,
+          "Q2": 0.4839051478957611,
+          "Q3": 0.5099195692796594,
+          "S1": 0.4230513346347287,
+          "S2": 0.4686692255162767,
+          "S3": 0.46511496294445753,
+          "S4": 0.4008096253211809
+        },
+        "target_delta_vs_178": {
+          "Q1": -0.0668304355545159,
+          "Q2": -0.07277418727066343,
+          "Q3": -0.05717021555665902,
+          "S1": -0.048579112306911754,
+          "S2": -0.06088690723119733,
+          "S3": -0.02577807595581938,
+          "S4": -0.20189007916532054
+        },
+        "target_delta_vs_341": {
+          "Q1": -0.0668304355545159,
+          "Q2": -0.07239564500783358,
+          "Q3": -0.05717021555665902,
+          "S1": -0.048579112306911754,
+          "S2": -0.06088690723119733,
+          "S3": -0.02577807595581938,
+          "S4": -0.20189007916532054
+        }
+      },
+      "frozen_split": {
+        "fold_wins_vs_178": 23,
+        "fold_wins_vs_341": 23,
+        "fold_count": 23,
+        "mean_fold_delta_vs_178": -0.07775611071085456,
+        "mean_fold_delta_vs_341": -0.077691814842584,
+        "worst_fold_delta_vs_341": -0.057077206316894,
+        "split_summary": {
+          "subject_hole_5": {
+            "mean_loss": 0.4621995892948239,
+            "mean_delta_vs_178": -0.07629183794411683,
+            "mean_delta_vs_341": -0.07623741789049829,
+            "max_delta_vs_341": -0.06516651784706212
+          },
+          "subject_timeseries_5": {
+            "mean_loss": 0.4622874450790004,
+            "mean_delta_vs_178": -0.07745977117267215,
+            "mean_delta_vs_341": -0.07740036188990199,
+            "max_delta_vs_341": -0.057077206316894
+          },
+          "actual_test_band_holdout": {
+            "mean_loss": 0.4645359757371653,
+            "mean_delta_vs_178": -0.0770676811279769,
+            "mean_delta_vs_341": -0.07692854589741449,
+            "max_delta_vs_341": -0.07692854589741449
+          },
+          "test_boundary_neighbor2_holdout": {
+            "mean_loss": 0.4890124627721818,
+            "mean_delta_vs_178": -0.0972774056984278,
+            "mean_delta_vs_341": -0.09712471539191636,
+            "max_delta_vs_341": -0.09712471539191636
+          },
+          "test_boundary_neighbor5_holdout": {
+            "mean_loss": 0.47733134114697356,
+            "mean_delta_vs_178": -0.08065481401868363,
+            "mean_delta_vs_341": -0.08058890568409044,
+            "max_delta_vs_341": -0.08058890568409044
+          },
+          "loso_10": {
+            "mean_loss": 0.4660015005809034,
+            "mean_delta_vs_178": -0.07646325999206213,
+            "mean_delta_vs_341": -0.0764080675504009,
+            "max_delta_vs_341": -0.061685336753651954
+          }
+        }
+      },
+      "test_geometry": {
+        "mean_delta_vs_178": 0.10451036752307308,
+        "max_delta_vs_178": 0.5795866138806128,
+        "mean_delta_vs_341": 0.10451070940221995,
+        "max_delta_vs_341": 0.5795866138806128,
+        "projection_failed_id287": 0.46095313785806685,
+        "projection_gap_id329": 2.6137554684929767
+      },
+      "priority_read": {
+        "queue_rank": 4,
+        "recommended_action": "hold_until_clean_upstream_layer_exists",
+        "reason": "A1 artifacts have signal but depend on the upstream calibration chain; use them as replay targets, not roots.",
+        "risk_flags": [
+          "failed_direction_exposure",
+          "large_test_geometry_shift",
+          "non_nested_or_public_gap_lineage",
+          "local_gain_untrusted_until_rebuilt"
+        ],
+        "artifact_promotable": false
+      }
+    },
+    {
+      "id": 239,
+      "layer": "a1_replay_layer",
+      "log_row_exists": true,
+      "submission_file": "submission_id_239_id238_iso_recal_frontier_cv0.437967_unsubmitted.csv",
+      "model_description": "Second-stage full-OOF calibration on ID238",
+      "local_cv": 0.437967,
+      "public_lb": null,
+      "status_clean": "generated_unsubmitted",
+      "artifact_exists": true,
+      "dependency_read": "A1 recalibration on ID238; not clean as a root",
+      "base_files": {
+        "oof": "artifacts/base_predictions/base_oof_id_239_id238_iso_recal_frontier_cv0.437967.csv",
+        "test": "artifacts/base_predictions/base_test_id_239_id238_iso_recal_frontier_cv0.437967.csv"
+      },
+      "full_oof": {
+        "loss": 0.4379674200277118,
+        "gain_vs_178": 0.1006703173626427,
+        "gain_vs_341": 0.10061623989652418,
+        "target_loss": {
+          "Q1": 0.46480110410598796,
+          "Q2": 0.4655790700884887,
+          "Q3": 0.48394498921535856,
+          "S1": 0.40418833090600664,
+          "S2": 0.45099392304789454,
+          "S3": 0.46511496294445753,
+          "S4": 0.33114955988578887
+        },
+        "target_delta_vs_178": {
+          "Q1": -0.08711461454785818,
+          "Q2": -0.09110026507793584,
+          "Q3": -0.08314479562095989,
+          "S1": -0.06744211603563383,
+          "S2": -0.0785622096995795,
+          "S3": -0.02577807595581938,
+          "S4": -0.2715501446007126
+        },
+        "target_delta_vs_341": {
+          "Q1": -0.08711461454785818,
+          "Q2": -0.09072172281510599,
+          "Q3": -0.08314479562095989,
+          "S1": -0.06744211603563383,
+          "S2": -0.0785622096995795,
+          "S3": -0.02577807595581938,
+          "S4": -0.2715501446007126
+        }
+      },
+      "frozen_split": {
+        "fold_wins_vs_178": 23,
+        "fold_wins_vs_341": 23,
+        "fold_count": 23,
+        "mean_fold_delta_vs_178": -0.10183615242434663,
+        "mean_fold_delta_vs_341": -0.10177185655607608,
+        "worst_fold_delta_vs_341": -0.08252439932159567,
+        "split_summary": {
+          "subject_hole_5": {
+            "mean_loss": 0.437699308773247,
+            "mean_delta_vs_178": -0.1007921184656938,
+            "mean_delta_vs_341": -0.10073769841207528,
+            "max_delta_vs_341": -0.08252439932159567
+          },
+          "subject_timeseries_5": {
+            "mean_loss": 0.4376724438291787,
+            "mean_delta_vs_178": -0.10207477242249383,
+            "mean_delta_vs_341": -0.10201536313972367,
+            "max_delta_vs_341": -0.08375116665688026
+          },
+          "actual_test_band_holdout": {
+            "mean_loss": 0.4431974123465801,
+            "mean_delta_vs_178": -0.09840624451856211,
+            "mean_delta_vs_341": -0.0982671092879997,
+            "max_delta_vs_341": -0.0982671092879997
+          },
+          "test_boundary_neighbor2_holdout": {
+            "mean_loss": 0.46809945444682516,
+            "mean_delta_vs_178": -0.11819041402378444,
+            "mean_delta_vs_341": -0.118037723717273,
+            "max_delta_vs_341": -0.118037723717273
+          },
+          "test_boundary_neighbor5_holdout": {
+            "mean_loss": 0.4525514431494003,
+            "mean_delta_vs_178": -0.10543471201625687,
+            "mean_delta_vs_341": -0.10536880368166368,
+            "max_delta_vs_341": -0.10536880368166368
+          },
+          "loso_10": {
+            "mean_loss": 0.4418781924969224,
+            "mean_delta_vs_178": -0.10058656807604312,
+            "mean_delta_vs_341": -0.10053137563438189,
+            "max_delta_vs_341": -0.08559984286375849
+          }
+        }
+      },
+      "test_geometry": {
+        "mean_delta_vs_178": 0.12132633011581191,
+        "max_delta_vs_178": 0.7336723645638833,
+        "mean_delta_vs_341": 0.12131430434582328,
+        "max_delta_vs_341": 0.7336723645638833,
+        "projection_failed_id287": 0.6368556518592369,
+        "projection_gap_id329": 2.7650020808252216
+      },
+      "priority_read": {
+        "queue_rank": 4,
+        "recommended_action": "hold_until_clean_upstream_layer_exists",
+        "reason": "A1 artifacts have signal but depend on the upstream calibration chain; use them as replay targets, not roots.",
+        "risk_flags": [
+          "failed_direction_exposure",
+          "large_test_geometry_shift",
+          "non_nested_or_public_gap_lineage",
+          "local_gain_untrusted_until_rebuilt"
+        ],
+        "artifact_promotable": false
+      }
+    },
+    {
+      "id": 241,
+      "layer": "a1_replay_layer",
+      "log_row_exists": true,
+      "submission_file": "submission_id_241_id238_q160_s4iso_recal_frontier_cv0.383459_unsubmitted.csv",
+      "model_description": "Second-stage full-OOF calibration on ID238",
+      "local_cv": 0.383459,
+      "public_lb": null,
+      "status_clean": "generated_unsubmitted",
+      "artifact_exists": true,
+      "dependency_read": "A1 q160/S4 isotonic recalibration on ID238; not clean as a root",
+      "base_files": {
+        "oof": "artifacts/base_predictions/base_oof_id_241_id238_q160_s4iso_recal_frontier_cv0.383459.csv",
+        "test": "artifacts/base_predictions/base_test_id_241_id238_q160_s4iso_recal_frontier_cv0.383459.csv"
+      },
+      "full_oof": {
+        "loss": 0.3834593248651115,
+        "gain_vs_178": 0.155178412525243,
+        "gain_vs_341": 0.15512433505912449,
+        "target_loss": {
+          "Q1": 0.40935719858107533,
+          "Q2": 0.38116831229113896,
+          "Q3": 0.38681696469372034,
+          "S1": 0.3350342400480712,
+          "S2": 0.37557403561152797,
+          "S3": 0.46511496294445753,
+          "S4": 0.33114955988578887
+        },
+        "target_delta_vs_178": {
+          "Q1": -0.1425585200727708,
+          "Q2": -0.17551102287528558,
+          "Q3": -0.1802728201425981,
+          "S1": -0.13659620689356927,
+          "S2": -0.15398209713594607,
+          "S3": -0.02577807595581938,
+          "S4": -0.2715501446007126
+        },
+        "target_delta_vs_341": {
+          "Q1": -0.1425585200727708,
+          "Q2": -0.17513248061245573,
+          "Q3": -0.1802728201425981,
+          "S1": -0.13659620689356927,
+          "S2": -0.15398209713594607,
+          "S3": -0.02577807595581938,
+          "S4": -0.2715501446007126
+        }
+      },
+      "frozen_split": {
+        "fold_wins_vs_178": 23,
+        "fold_wins_vs_341": 23,
+        "fold_count": 23,
+        "mean_fold_delta_vs_178": -0.15656083598685083,
+        "mean_fold_delta_vs_341": -0.15649654011858033,
+        "worst_fold_delta_vs_341": -0.08554939213965551,
+        "split_summary": {
+          "subject_hole_5": {
+            "mean_loss": 0.38319482996732407,
+            "mean_delta_vs_178": -0.15529659727161665,
+            "mean_delta_vs_341": -0.15524217721799816,
+            "max_delta_vs_341": -0.12918661191934994
+          },
+          "subject_timeseries_5": {
+            "mean_loss": 0.38669210906472173,
+            "mean_delta_vs_178": -0.15305510718695087,
+            "mean_delta_vs_341": -0.15299569790418072,
+            "max_delta_vs_341": -0.12408010313924489
+          },
+          "actual_test_band_holdout": {
+            "mean_loss": 0.39076018124370154,
+            "mean_delta_vs_178": -0.15084347562144068,
+            "mean_delta_vs_341": -0.15070434039087827,
+            "max_delta_vs_341": -0.15070434039087827
+          },
+          "test_boundary_neighbor2_holdout": {
+            "mean_loss": 0.39702177403801947,
+            "mean_delta_vs_178": -0.18926809443259013,
+            "mean_delta_vs_341": -0.1891154041260787,
+            "max_delta_vs_341": -0.1891154041260787
+          },
+          "test_boundary_neighbor5_holdout": {
+            "mean_loss": 0.3953475485198767,
+            "mean_delta_vs_178": -0.1626386066457805,
+            "mean_delta_vs_341": -0.1625726983111873,
+            "max_delta_vs_341": -0.1625726983111873
+          },
+          "loso_10": {
+            "mean_loss": 0.3868257077024734,
+            "mean_delta_vs_178": -0.15563905287049212,
+            "mean_delta_vs_341": -0.15558386042883093,
+            "max_delta_vs_341": -0.08554939213965551
+          }
+        }
+      },
+      "test_geometry": {
+        "mean_delta_vs_178": 0.1619263044891273,
+        "max_delta_vs_178": 0.7336723645638833,
+        "mean_delta_vs_341": 0.16192634051523008,
+        "max_delta_vs_341": 0.7336723645638833,
+        "projection_failed_id287": 0.8454500785657774,
+        "projection_gap_id329": 5.430512389456124
+      },
+      "priority_read": {
+        "queue_rank": 4,
+        "recommended_action": "hold_until_clean_upstream_layer_exists",
+        "reason": "A1 artifacts have signal but depend on the upstream calibration chain; use them as replay targets, not roots.",
+        "risk_flags": [
+          "failed_direction_exposure",
+          "large_test_geometry_shift",
+          "non_nested_or_public_gap_lineage",
+          "local_gain_untrusted_until_rebuilt"
+        ],
+        "artifact_promotable": false
+      }
+    },
+    {
+      "id": 254,
+      "layer": "b1_replay_layer",
+      "log_row_exists": true,
+      "submission_file": "submission_id_254_id178_anchor_cap015_frontier_bridge_cv0.471985_unsubmitted.csv",
+      "model_description": "Confirmed-public-anchor delta-capped bridge probe",
+      "local_cv": 0.471985,
+      "public_lb": null,
+      "status_clean": "generated_unsubmitted",
+      "artifact_exists": true,
+      "dependency_read": "B1 bridge artifact with high non-nested dependencies; not clean as a root",
+      "base_files": {
+        "oof": "artifacts/base_predictions/base_oof_id_254_id178_anchor_cap015_frontier_bridge_cv0.471985.csv",
+        "test": "artifacts/base_predictions/base_test_id_254_id178_anchor_cap015_frontier_bridge_cv0.471985.csv"
+      },
+      "full_oof": {
+        "loss": 0.4719845178698597,
+        "gain_vs_178": 0.0666532195204948,
+        "gain_vs_341": 0.06659914205437628,
+        "target_loss": {
+          "Q1": 0.47595277080567217,
+          "Q2": 0.47403046739896887,
+          "Q3": 0.4826885404133353,
+          "S1": 0.4085860992411415,
+          "S2": 0.466047628739814,
+          "S3": 0.46706283604177684,
+          "S4": 0.529523282448309
+        },
+        "target_delta_vs_178": {
+          "Q1": -0.07596294784817398,
+          "Q2": -0.08264886776745567,
+          "Q3": -0.08440124442298313,
+          "S1": -0.06304434770049899,
+          "S2": -0.06350850400766006,
+          "S3": -0.02383020285850007,
+          "S4": -0.07317642203819241
+        },
+        "target_delta_vs_341": {
+          "Q1": -0.07596294784817398,
+          "Q2": -0.08227032550462582,
+          "Q3": -0.08440124442298313,
+          "S1": -0.06304434770049899,
+          "S2": -0.06350850400766006,
+          "S3": -0.02383020285850007,
+          "S4": -0.07317642203819241
+        }
+      },
+      "frozen_split": {
+        "fold_wins_vs_178": 23,
+        "fold_wins_vs_341": 23,
+        "fold_count": 23,
+        "mean_fold_delta_vs_178": -0.06699759999531218,
+        "mean_fold_delta_vs_341": -0.06693330412704164,
+        "worst_fold_delta_vs_341": -0.04717508056986558,
+        "split_summary": {
+          "subject_hole_5": {
+            "mean_loss": 0.4717822268279349,
+            "mean_delta_vs_178": -0.0667092004110059,
+            "mean_delta_vs_341": -0.06665478035738738,
+            "max_delta_vs_341": -0.060982246877532564
+          },
+          "subject_timeseries_5": {
+            "mean_loss": 0.47275196403026654,
+            "mean_delta_vs_178": -0.06699525222140601,
+            "mean_delta_vs_341": -0.06693584293863585,
+            "max_delta_vs_341": -0.060893506894822924
+          },
+          "actual_test_band_holdout": {
+            "mean_loss": 0.4748841966732761,
+            "mean_delta_vs_178": -0.06671946019186614,
+            "mean_delta_vs_341": -0.06658032496130373,
+            "max_delta_vs_341": -0.06658032496130373
+          },
+          "test_boundary_neighbor2_holdout": {
+            "mean_loss": 0.5164453123704206,
+            "mean_delta_vs_178": -0.06984455610018903,
+            "mean_delta_vs_341": -0.06969186579367759,
+            "max_delta_vs_341": -0.06969186579367759
+          },
+          "test_boundary_neighbor5_holdout": {
+            "mean_loss": 0.4895499097763067,
+            "mean_delta_vs_178": -0.0684362453893505,
+            "mean_delta_vs_341": -0.06837033705475731,
+            "max_delta_vs_341": -0.06837033705475731
+          },
+          "loso_10": {
+            "mean_loss": 0.47572253306809403,
+            "mean_delta_vs_178": -0.06674222750487149,
+            "mean_delta_vs_341": -0.06668703506321028,
+            "max_delta_vs_341": -0.04717508056986558
+          }
+        }
+      },
+      "test_geometry": {
+        "mean_delta_vs_178": 0.04398748854484188,
+        "max_delta_vs_178": 0.14673447291277664,
+        "mean_delta_vs_341": 0.04398725718446601,
+        "max_delta_vs_341": 0.14673447291277664,
+        "projection_failed_id287": 0.3383208574962444,
+        "projection_gap_id329": 0.9220550967089024
+      },
+      "priority_read": {
+        "queue_rank": 5,
+        "recommended_action": "dependency_audit_only_for_now",
+        "reason": "B1 artifacts trace to high/non-nested dependencies and should wait until A1/upstream sources are rebuilt.",
+        "risk_flags": [
+          "failed_direction_exposure",
+          "non_nested_or_public_gap_lineage",
+          "local_gain_untrusted_until_rebuilt"
+        ],
+        "artifact_promotable": false
+      }
+    },
+    {
+      "id": 255,
+      "layer": "b1_replay_layer",
+      "log_row_exists": true,
+      "submission_file": "submission_id_255_id178_anchor_fine_cap012_frontier_bridge_cv0.469816_unsubmitted.csv",
+      "model_description": "Confirmed-public-anchor delta-capped bridge probe",
+      "local_cv": 0.469816,
+      "public_lb": null,
+      "status_clean": "generated_unsubmitted",
+      "artifact_exists": true,
+      "dependency_read": "B1 bridge artifact with q240/high non-nested dependencies; not clean as a root",
+      "base_files": {
+        "oof": "artifacts/base_predictions/base_oof_id_255_id178_anchor_fine_cap012_frontier_bridge_cv0.469816.csv",
+        "test": "artifacts/base_predictions/base_test_id_255_id178_anchor_fine_cap012_frontier_bridge_cv0.469816.csv"
+      },
+      "full_oof": {
+        "loss": 0.46981644018967833,
+        "gain_vs_178": 0.06882129720067615,
+        "gain_vs_341": 0.06876721973455763,
+        "target_loss": {
+          "Q1": 0.47197775587448354,
+          "Q2": 0.47425923683881493,
+          "Q3": 0.4747463227665519,
+          "S1": 0.4038808291709307,
+          "S2": 0.45238960459239996,
+          "S3": 0.47600837135217183,
+          "S4": 0.5354529607323957
+        },
+        "target_delta_vs_178": {
+          "Q1": -0.0799379627793626,
+          "Q2": -0.0824200983276096,
+          "Q3": -0.09234346206976657,
+          "S1": -0.06774961777070976,
+          "S2": -0.07716652815507408,
+          "S3": -0.01488466754810508,
+          "S4": -0.06724674375410578
+        },
+        "target_delta_vs_341": {
+          "Q1": -0.0799379627793626,
+          "Q2": -0.08204155606477975,
+          "Q3": -0.09234346206976657,
+          "S1": -0.06774961777070976,
+          "S2": -0.07716652815507408,
+          "S3": -0.01488466754810508,
+          "S4": -0.06724674375410578
+        }
+      },
+      "frozen_split": {
+        "fold_wins_vs_178": 23,
+        "fold_wins_vs_341": 23,
+        "fold_count": 23,
+        "mean_fold_delta_vs_178": -0.06895723439183238,
+        "mean_fold_delta_vs_341": -0.06889293852356183,
+        "worst_fold_delta_vs_341": -0.04388244158976984,
+        "split_summary": {
+          "subject_hole_5": {
+            "mean_loss": 0.46959160109152853,
+            "mean_delta_vs_178": -0.06889982614741222,
+            "mean_delta_vs_341": -0.06884540609379368,
+            "max_delta_vs_341": -0.06328823241966147
+          },
+          "subject_timeseries_5": {
+            "mean_loss": 0.4708367238065079,
+            "mean_delta_vs_178": -0.0689104924451647,
+            "mean_delta_vs_341": -0.06885108316239454,
+            "max_delta_vs_341": -0.06259950151269889
+          },
+          "actual_test_band_holdout": {
+            "mean_loss": 0.47490713839108417,
+            "mean_delta_vs_178": -0.06669651847405805,
+            "mean_delta_vs_341": -0.06655738324349564,
+            "max_delta_vs_341": -0.06655738324349564
+          },
+          "test_boundary_neighbor2_holdout": {
+            "mean_loss": 0.5156980509053382,
+            "mean_delta_vs_178": -0.07059181756527144,
+            "mean_delta_vs_341": -0.07043912725876,
+            "max_delta_vs_341": -0.07043912725876
+          },
+          "test_boundary_neighbor5_holdout": {
+            "mean_loss": 0.4875846953710739,
+            "mean_delta_vs_178": -0.07040145979458329,
+            "mean_delta_vs_341": -0.0703355514599901,
+            "max_delta_vs_341": -0.0703355514599901
+          },
+          "loso_10": {
+            "mean_loss": 0.4735372603514308,
+            "mean_delta_vs_178": -0.06892750022153474,
+            "mean_delta_vs_341": -0.0688723077798735,
+            "max_delta_vs_341": -0.04388244158976984
+          }
+        }
+      },
+      "test_geometry": {
+        "mean_delta_vs_178": 0.04499897888057087,
+        "max_delta_vs_178": 0.11523349976491132,
+        "mean_delta_vs_341": 0.045002719310689145,
+        "max_delta_vs_341": 0.11523349976491132,
+        "projection_failed_id287": 0.3764500661439354,
+        "projection_gap_id329": 0.7458589567186538
+      },
+      "priority_read": {
+        "queue_rank": 5,
+        "recommended_action": "dependency_audit_only_for_now",
+        "reason": "B1 artifacts trace to high/non-nested dependencies and should wait until A1/upstream sources are rebuilt.",
+        "risk_flags": [
+          "failed_direction_exposure",
+          "non_nested_or_public_gap_lineage",
+          "local_gain_untrusted_until_rebuilt"
+        ],
+        "artifact_promotable": false
+      }
+    },
+    {
+      "id": 256,
+      "layer": "b1_replay_layer",
+      "log_row_exists": true,
+      "submission_file": "submission_id_256_id178_anchor_fine_cap014_frontier_bridge_cv0.464121_unsubmitted.csv",
+      "model_description": "Confirmed-public-anchor delta-capped bridge probe",
+      "local_cv": 0.464121,
+      "public_lb": null,
+      "status_clean": "generated_unsubmitted",
+      "artifact_exists": true,
+      "dependency_read": "B1 bridge artifact with q240/high non-nested dependencies; not clean as a root",
+      "base_files": {
+        "oof": "artifacts/base_predictions/base_oof_id_256_id178_anchor_fine_cap014_frontier_bridge_cv0.464121.csv",
+        "test": "artifacts/base_predictions/base_test_id_256_id178_anchor_fine_cap014_frontier_bridge_cv0.464121.csv"
+      },
+      "full_oof": {
+        "loss": 0.4641210627902079,
+        "gain_vs_178": 0.0745166746001466,
+        "gain_vs_341": 0.07446259713402809,
+        "target_loss": {
+          "Q1": 0.4646734633920662,
+          "Q2": 0.46665034120588406,
+          "Q3": 0.46518735306739784,
+          "S1": 0.3971074714417916,
+          "S2": 0.44823094501751104,
+          "S3": 0.47236338700074215,
+          "S4": 0.5346344784060625
+        },
+        "target_delta_vs_178": {
+          "Q1": -0.08724225526177992,
+          "Q2": -0.09002899396054048,
+          "Q3": -0.10190243176892061,
+          "S1": -0.07452297549984888,
+          "S2": -0.081325187729963,
+          "S3": -0.01852965189953476,
+          "S4": -0.06806522608043897
+        },
+        "target_delta_vs_341": {
+          "Q1": -0.08724225526177992,
+          "Q2": -0.08965045169771063,
+          "Q3": -0.10190243176892061,
+          "S1": -0.07452297549984888,
+          "S2": -0.081325187729963,
+          "S3": -0.01852965189953476,
+          "S4": -0.06806522608043897
+        }
+      },
+      "frozen_split": {
+        "fold_wins_vs_178": 23,
+        "fold_wins_vs_341": 23,
+        "fold_count": 23,
+        "mean_fold_delta_vs_178": -0.07484897071744047,
+        "mean_fold_delta_vs_341": -0.07478467484916992,
+        "worst_fold_delta_vs_341": -0.049490291539630527,
+        "split_summary": {
+          "subject_hole_5": {
+            "mean_loss": 0.46393962722429116,
+            "mean_delta_vs_178": -0.0745518000146496,
+            "mean_delta_vs_341": -0.07449737996103108,
+            "max_delta_vs_341": -0.06799717757865098
+          },
+          "subject_timeseries_5": {
+            "mean_loss": 0.46525212118608134,
+            "mean_delta_vs_178": -0.07449509506559117,
+            "mean_delta_vs_341": -0.074435685782821,
+            "max_delta_vs_341": -0.06681101438677661
+          },
+          "actual_test_band_holdout": {
+            "mean_loss": 0.46791546949680296,
+            "mean_delta_vs_178": -0.07368818736833926,
+            "mean_delta_vs_341": -0.07354905213777685,
+            "max_delta_vs_341": -0.07354905213777685
+          },
+          "test_boundary_neighbor2_holdout": {
+            "mean_loss": 0.5080036838585349,
+            "mean_delta_vs_178": -0.0782861846120747,
+            "mean_delta_vs_341": -0.07813349430556327,
+            "max_delta_vs_341": -0.07813349430556327
+          },
+          "test_boundary_neighbor5_holdout": {
+            "mean_loss": 0.4809526885714884,
+            "mean_delta_vs_178": -0.07703346659416882,
+            "mean_delta_vs_341": -0.07696755825957563,
+            "max_delta_vs_341": -0.07696755825957563
+          },
+          "loso_10": {
+            "mean_loss": 0.4677363593204311,
+            "mean_delta_vs_178": -0.07472840125253441,
+            "mean_delta_vs_341": -0.0746732088108732,
+            "max_delta_vs_341": -0.049490291539630527
+          }
+        }
+      },
+      "test_geometry": {
+        "mean_delta_vs_178": 0.04894616632515484,
+        "max_delta_vs_178": 0.13177056629173817,
+        "mean_delta_vs_341": 0.04894863649931073,
+        "max_delta_vs_341": 0.13177056629173817,
+        "projection_failed_id287": 0.38653068931426643,
+        "projection_gap_id329": 1.0026091215012745
+      },
+      "priority_read": {
+        "queue_rank": 5,
+        "recommended_action": "dependency_audit_only_for_now",
+        "reason": "B1 artifacts trace to high/non-nested dependencies and should wait until A1/upstream sources are rebuilt.",
+        "risk_flags": [
+          "failed_direction_exposure",
+          "non_nested_or_public_gap_lineage",
+          "local_gain_untrusted_until_rebuilt"
+        ],
+        "artifact_promotable": false
+      }
+    },
+    {
+      "id": 257,
+      "layer": "b1_replay_layer",
+      "log_row_exists": true,
+      "submission_file": "submission_id_257_id178_anchor_fine_cap018_frontier_bridge_cv0.433079_unsubmitted.csv",
+      "model_description": "Confirmed-public-anchor delta-capped bridge probe",
+      "local_cv": 0.433079,
+      "public_lb": null,
+      "status_clean": "generated_unsubmitted",
+      "artifact_exists": true,
+      "dependency_read": "B1 bridge artifact with q240/high non-nested dependencies; not clean as a root",
+      "base_files": {
+        "oof": "artifacts/base_predictions/base_oof_id_257_id178_anchor_fine_cap018_frontier_bridge_cv0.433079.csv",
+        "test": "artifacts/base_predictions/base_test_id_257_id178_anchor_fine_cap018_frontier_bridge_cv0.433079.csv"
+      },
+      "full_oof": {
+        "loss": 0.43307930451753546,
+        "gain_vs_178": 0.10555843287281902,
+        "gain_vs_341": 0.1055043554067005,
+        "target_loss": {
+          "Q1": 0.42880300087778056,
+          "Q2": 0.42955318483802557,
+          "Q3": 0.4244522209365624,
+          "S1": 0.3672710325274285,
+          "S2": 0.4104502608311454,
+          "S3": 0.46706283604177684,
+          "S4": 0.5039625955700288
+        },
+        "target_delta_vs_178": {
+          "Q1": -0.12311271777606558,
+          "Q2": -0.12712615032839897,
+          "Q3": -0.14263756389975607,
+          "S1": -0.10435941441421198,
+          "S2": -0.11910587191632865,
+          "S3": -0.02383020285850007,
+          "S4": -0.0987371089164727
+        },
+        "target_delta_vs_341": {
+          "Q1": -0.12311271777606558,
+          "Q2": -0.12674760806556912,
+          "Q3": -0.14263756389975607,
+          "S1": -0.10435941441421198,
+          "S2": -0.11910587191632865,
+          "S3": -0.02383020285850007,
+          "S4": -0.0987371089164727
+        }
+      },
+      "frozen_split": {
+        "fold_wins_vs_178": 23,
+        "fold_wins_vs_341": 23,
+        "fold_count": 23,
+        "mean_fold_delta_vs_178": -0.10575193127450933,
+        "mean_fold_delta_vs_341": -0.10568763540623878,
+        "worst_fold_delta_vs_341": -0.06751773641020153,
+        "split_summary": {
+          "subject_hole_5": {
+            "mean_loss": 0.4327977964645129,
+            "mean_delta_vs_178": -0.10569363077442787,
+            "mean_delta_vs_341": -0.10563921072080933,
+            "max_delta_vs_341": -0.0977492724328406
+          },
+          "subject_timeseries_5": {
+            "mean_loss": 0.43405155619346314,
+            "mean_delta_vs_178": -0.10569566005820948,
+            "mean_delta_vs_341": -0.10563625077543932,
+            "max_delta_vs_341": -0.09645603560523036
+          },
+          "actual_test_band_holdout": {
+            "mean_loss": 0.4395546376626469,
+            "mean_delta_vs_178": -0.10204901920249532,
+            "mean_delta_vs_341": -0.1019098839719329,
+            "max_delta_vs_341": -0.1019098839719329
+          },
+          "test_boundary_neighbor2_holdout": {
+            "mean_loss": 0.4781955983420869,
+            "mean_delta_vs_178": -0.10809427012852268,
+            "mean_delta_vs_341": -0.10794157982201125,
+            "max_delta_vs_341": -0.10794157982201125
+          },
+          "test_boundary_neighbor5_holdout": {
+            "mean_loss": 0.450120190311158,
+            "mean_delta_vs_178": -0.10786596485449917,
+            "mean_delta_vs_341": -0.10780005651990598,
+            "max_delta_vs_341": -0.10780005651990598
+          },
+          "loso_10": {
+            "mean_loss": 0.43673088947646443,
+            "mean_delta_vs_178": -0.10573387109650109,
+            "mean_delta_vs_341": -0.10567867865483989,
+            "max_delta_vs_341": -0.06751773641020153
+          }
+        }
+      },
+      "test_geometry": {
+        "mean_delta_vs_178": 0.07150313194783528,
+        "max_delta_vs_178": 0.17619511984289737,
+        "mean_delta_vs_341": 0.0715062637013178,
+        "max_delta_vs_341": 0.17677508531466468,
+        "projection_failed_id287": 0.6075084564513036,
+        "projection_gap_id329": 1.2203499819800183
+      },
+      "priority_read": {
+        "queue_rank": 5,
+        "recommended_action": "dependency_audit_only_for_now",
+        "reason": "B1 artifacts trace to high/non-nested dependencies and should wait until A1/upstream sources are rebuilt.",
+        "risk_flags": [
+          "failed_direction_exposure",
+          "large_test_geometry_shift",
+          "non_nested_or_public_gap_lineage",
+          "local_gain_untrusted_until_rebuilt"
+        ],
+        "artifact_promotable": false
+      }
+    },
+    {
+      "id": 258,
+      "layer": "b1_replay_layer",
+      "log_row_exists": true,
+      "submission_file": "submission_id_258_id178_anchor_clean_cap016_frontier_bridge_cv0.457647_unsubmitted.csv",
+      "model_description": "Confirmed-public-anchor delta-capped bridge probe",
+      "local_cv": 0.457647,
+      "public_lb": null,
+      "status_clean": "generated_unsubmitted",
+      "artifact_exists": true,
+      "dependency_read": "B1 bridge artifact with high non-nested dependencies; not clean as a root",
+      "base_files": {
+        "oof": "artifacts/base_predictions/base_oof_id_258_id178_anchor_clean_cap016_frontier_bridge_cv0.457647.csv",
+        "test": "artifacts/base_predictions/base_test_id_258_id178_anchor_clean_cap016_frontier_bridge_cv0.457647.csv"
+      },
+      "full_oof": {
+        "loss": 0.4576465985681844,
+        "gain_vs_178": 0.08099113882217007,
+        "gain_vs_341": 0.08093706135605155,
+        "target_loss": {
+          "Q1": 0.4545665338233286,
+          "Q2": 0.46370074921370863,
+          "Q3": 0.45879544407448924,
+          "S1": 0.3908531363820077,
+          "S2": 0.4480592756397654,
+          "S3": 0.46706283604177684,
+          "S4": 0.520488214802214
+        },
+        "target_delta_vs_178": {
+          "Q1": -0.09734918483051752,
+          "Q2": -0.09297858595271591,
+          "Q3": -0.1082943407618292,
+          "S1": -0.08077731055963278,
+          "S2": -0.08149685710770865,
+          "S3": -0.02383020285850007,
+          "S4": -0.08221148968428749
+        },
+        "target_delta_vs_341": {
+          "Q1": -0.09734918483051752,
+          "Q2": -0.09260004368988606,
+          "Q3": -0.1082943407618292,
+          "S1": -0.08077731055963278,
+          "S2": -0.08149685710770865,
+          "S3": -0.02383020285850007,
+          "S4": -0.08221148968428749
+        }
+      },
+      "frozen_split": {
+        "fold_wins_vs_178": 23,
+        "fold_wins_vs_341": 23,
+        "fold_count": 23,
+        "mean_fold_delta_vs_178": -0.0811584552561836,
+        "mean_fold_delta_vs_341": -0.08109415938791305,
+        "worst_fold_delta_vs_341": -0.0551111775087062,
+        "split_summary": {
+          "subject_hole_5": {
+            "mean_loss": 0.4573895782274279,
+            "mean_delta_vs_178": -0.08110184901151293,
+            "mean_delta_vs_341": -0.08104742895789441,
+            "max_delta_vs_341": -0.0744682041456427
+          },
+          "subject_timeseries_5": {
+            "mean_loss": 0.4585669933250047,
+            "mean_delta_vs_178": -0.08118022292666782,
+            "mean_delta_vs_341": -0.08112081364389766,
+            "max_delta_vs_341": -0.07511103292819687
+          },
+          "actual_test_band_holdout": {
+            "mean_loss": 0.46296768989918163,
+            "mean_delta_vs_178": -0.07863596696596059,
+            "mean_delta_vs_341": -0.07849683173539818,
+            "max_delta_vs_341": -0.07849683173539818
+          },
+          "test_boundary_neighbor2_holdout": {
+            "mean_loss": 0.5035897173547031,
+            "mean_delta_vs_178": -0.08270015111590645,
+            "mean_delta_vs_341": -0.08254746080939501,
+            "max_delta_vs_341": -0.08254746080939501
+          },
+          "test_boundary_neighbor5_holdout": {
+            "mean_loss": 0.4753299616695688,
+            "mean_delta_vs_178": -0.08265619349608838,
+            "mean_delta_vs_341": -0.08259028516149519,
+            "max_delta_vs_341": -0.08259028516149519
+          },
+          "loso_10": {
+            "mean_loss": 0.4613405806106291,
+            "mean_delta_vs_178": -0.08112417996233635,
+            "mean_delta_vs_341": -0.08106898752067512,
+            "max_delta_vs_341": -0.0551111775087062
+          }
+        }
+      },
+      "test_geometry": {
+        "mean_delta_vs_178": 0.05298499478570383,
+        "max_delta_vs_178": 0.15945234026798055,
+        "mean_delta_vs_341": 0.05298500365509066,
+        "max_delta_vs_341": 0.15960098970331732,
+        "projection_failed_id287": 0.439740653909143,
+        "projection_gap_id329": 0.9941646602606453
+      },
+      "priority_read": {
+        "queue_rank": 5,
+        "recommended_action": "dependency_audit_only_for_now",
+        "reason": "B1 artifacts trace to high/non-nested dependencies and should wait until A1/upstream sources are rebuilt.",
+        "risk_flags": [
+          "failed_direction_exposure",
+          "non_nested_or_public_gap_lineage",
+          "local_gain_untrusted_until_rebuilt"
+        ],
+        "artifact_promotable": false
+      }
+    },
+    {
+      "id": 266,
+      "layer": "b1_replay_layer",
+      "log_row_exists": true,
+      "submission_file": "submission_id_266_id178_direct_lite_fine_cap015_blend_cv0.457894_unsubmitted.csv",
+      "model_description": "Target-wise pair logit blend probe",
+      "local_cv": 0.457894,
+      "public_lb": null,
+      "status_clean": "generated_unsubmitted",
+      "artifact_exists": true,
+      "dependency_read": "B1 pair blend on contaminated B1 sources; not clean as a root",
+      "base_files": {
+        "oof": "artifacts/base_predictions/base_oof_id_266_id178_direct_lite_fine_cap015_blend_cv0.457894.csv",
+        "test": "artifacts/base_predictions/base_test_id_266_id178_direct_lite_fine_cap015_blend_cv0.457894.csv"
+      },
+      "full_oof": {
+        "loss": 0.45789444039842836,
+        "gain_vs_178": 0.08074329699192612,
+        "gain_vs_341": 0.0806892195258076,
+        "target_loss": {
+          "Q1": 0.4545665338233286,
+          "Q2": 0.46543564202541626,
+          "Q3": 0.45879544407448924,
+          "S1": 0.3908531363820077,
+          "S2": 0.4480592756397654,
+          "S3": 0.46706283604177684,
+          "S4": 0.520488214802214
+        },
+        "target_delta_vs_178": {
+          "Q1": -0.09734918483051752,
+          "Q2": -0.09124369314100828,
+          "Q3": -0.1082943407618292,
+          "S1": -0.08077731055963278,
+          "S2": -0.08149685710770865,
+          "S3": -0.02383020285850007,
+          "S4": -0.08221148968428749
+        },
+        "target_delta_vs_341": {
+          "Q1": -0.09734918483051752,
+          "Q2": -0.09086515087817842,
+          "Q3": -0.1082943407618292,
+          "S1": -0.08077731055963278,
+          "S2": -0.08149685710770865,
+          "S3": -0.02383020285850007,
+          "S4": -0.08221148968428749
+        }
+      },
+      "frozen_split": {
+        "fold_wins_vs_178": 23,
+        "fold_wins_vs_341": 23,
+        "fold_count": 23,
+        "mean_fold_delta_vs_178": -0.08089308827060272,
+        "mean_fold_delta_vs_341": -0.08082879240233218,
+        "worst_fold_delta_vs_341": -0.054919029971092326,
+        "split_summary": {
+          "subject_hole_5": {
+            "mean_loss": 0.45763667651338713,
+            "mean_delta_vs_178": -0.08085475072555368,
+            "mean_delta_vs_341": -0.08080033067193515,
+            "max_delta_vs_341": -0.07415415831345246
+          },
+          "subject_timeseries_5": {
+            "mean_loss": 0.4588486319786583,
+            "mean_delta_vs_178": -0.08089858427301425,
+            "mean_delta_vs_341": -0.0808391749902441,
+            "max_delta_vs_341": -0.07495728515257483
+          },
+          "actual_test_band_holdout": {
+            "mean_loss": 0.46328995512361754,
+            "mean_delta_vs_178": -0.07831370174152469,
+            "mean_delta_vs_341": -0.07817456651096227,
+            "max_delta_vs_341": -0.07817456651096227
+          },
+          "test_boundary_neighbor2_holdout": {
+            "mean_loss": 0.5039389865339089,
+            "mean_delta_vs_178": -0.0823508819367007,
+            "mean_delta_vs_341": -0.08219819163018927,
+            "max_delta_vs_341": -0.08219819163018927
+          },
+          "test_boundary_neighbor5_holdout": {
+            "mean_loss": 0.47560844118351586,
+            "mean_delta_vs_178": -0.08237771398214133,
+            "mean_delta_vs_341": -0.08231180564754814,
+            "max_delta_vs_341": -0.08231180564754814
+          },
+          "loso_10": {
+            "mean_loss": 0.4615915548158999,
+            "mean_delta_vs_178": -0.08087320575706564,
+            "mean_delta_vs_341": -0.0808180133154044,
+            "max_delta_vs_341": -0.054919029971092326
+          }
+        }
+      },
+      "test_geometry": {
+        "mean_delta_vs_178": 0.05278840353251385,
+        "max_delta_vs_178": 0.1498089164580117,
+        "mean_delta_vs_341": 0.0527887865657866,
+        "max_delta_vs_341": 0.15003921391827796,
+        "projection_failed_id287": 0.4386206771290523,
+        "projection_gap_id329": 0.9801059505575491
+      },
+      "priority_read": {
+        "queue_rank": 5,
+        "recommended_action": "dependency_audit_only_for_now",
+        "reason": "B1 artifacts trace to high/non-nested dependencies and should wait until A1/upstream sources are rebuilt.",
+        "risk_flags": [
+          "failed_direction_exposure",
+          "non_nested_or_public_gap_lineage",
+          "local_gain_untrusted_until_rebuilt"
+        ],
+        "artifact_promotable": false
+      }
+    },
+    {
+      "id": 178,
+      "layer": "public_anchor_layer",
+      "log_row_exists": true,
+      "submission_file": "submission_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638_unsubmitted.csv",
+      "model_description": "Multiseed random-conv sequence overlay on ID173",
+      "local_cv": 0.538638,
+      "public_lb": 0.6014113009,
+      "status_clean": "cv_lb_gap_risk",
+      "artifact_exists": true,
+      "dependency_read": "public_anchor_reference",
+      "base_files": {
+        "oof": "artifacts/base_predictions/base_oof_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638.csv",
+        "test": "artifacts/base_predictions/base_test_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638.csv"
+      },
+      "full_oof": {
+        "loss": 0.5386377373903545,
+        "gain_vs_178": 0.0,
+        "gain_vs_341": -5.407746611851838e-05,
+        "target_loss": {
+          "Q1": 0.5519157186538461,
+          "Q2": 0.5566793351664245,
+          "Q3": 0.5670897848363184,
+          "S1": 0.47163044694164047,
+          "S2": 0.529556132747474,
+          "S3": 0.4908930389002769,
+          "S4": 0.6026997044865015
+        },
+        "target_delta_vs_178": {
+          "Q1": 0.0,
+          "Q2": 0.0,
+          "Q3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "target_delta_vs_341": {
+          "Q1": 0.0,
+          "Q2": 0.0003785422628298507,
+          "Q3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      },
+      "frozen_split": {
+        "fold_wins_vs_178": 0,
+        "fold_wins_vs_341": 4,
+        "fold_count": 23,
+        "mean_fold_delta_vs_178": 0.0,
+        "mean_fold_delta_vs_341": 6.429586827055132e-05,
+        "worst_fold_delta_vs_341": 0.00017148857865834088,
+        "split_summary": {
+          "subject_hole_5": {
+            "mean_loss": 0.5384914272389407,
+            "mean_delta_vs_178": 0.0,
+            "mean_delta_vs_341": 5.4420053618531304e-05,
+            "max_delta_vs_341": 9.771850565787332e-05
+          },
+          "subject_timeseries_5": {
+            "mean_loss": 0.5397472162516725,
+            "mean_delta_vs_178": 0.0,
+            "mean_delta_vs_341": 5.9409282770161995e-05,
+            "max_delta_vs_341": 0.00016555383558347625
+          },
+          "actual_test_band_holdout": {
+            "mean_loss": 0.5416036568651422,
+            "mean_delta_vs_178": 0.0,
+            "mean_delta_vs_341": 0.00013913523056241495,
+            "max_delta_vs_341": 0.00013913523056241495
+          },
+          "test_boundary_neighbor2_holdout": {
+            "mean_loss": 0.5862898684706096,
+            "mean_delta_vs_178": 0.0,
+            "mean_delta_vs_341": 0.00015269030651143822,
+            "max_delta_vs_341": 0.00015269030651143822
+          },
+          "test_boundary_neighbor5_holdout": {
+            "mean_loss": 0.5579861551656572,
+            "mean_delta_vs_178": 0.0,
+            "mean_delta_vs_341": 6.59083345931899e-05,
+            "max_delta_vs_341": 6.59083345931899e-05
+          },
+          "loso_10": {
+            "mean_loss": 0.5424647605729654,
+            "mean_delta_vs_178": 0.0,
+            "mean_delta_vs_341": 5.519244166121706e-05,
+            "max_delta_vs_341": 0.00017148857865834088
+          }
+        }
+      },
+      "test_geometry": {
+        "mean_delta_vs_178": 0.0,
+        "max_delta_vs_178": 0.0,
+        "mean_delta_vs_341": 0.00012350930467326245,
+        "max_delta_vs_341": 0.002025444883233418,
+        "projection_failed_id287": 0.0,
+        "projection_gap_id329": 0.0
+      },
+      "priority_read": {
+        "queue_rank": 9,
+        "recommended_action": "reference_only",
+        "reason": "Anchor/failure/control row.",
+        "risk_flags": [],
+        "artifact_promotable": false
+      }
+    },
+    {
+      "id": 287,
+      "layer": "public_anchor_layer",
+      "log_row_exists": true,
+      "submission_file": "submission_id_287_post285_base282_fixedtemp_balanced_cv0.378934_unsubmitted.csv",
+      "model_description": "Second-stage full-OOF calibration on ID282",
+      "local_cv": 0.378934,
+      "public_lb": 0.6698787318,
+      "status_clean": "cv_lb_gap_risk",
+      "artifact_exists": true,
+      "dependency_read": "known public-collapse calibration artifact",
+      "base_files": {
+        "oof": "artifacts/base_predictions/base_oof_id_287_post285_base282_fixedtemp_balanced_cv0.378934.csv",
+        "test": "artifacts/base_predictions/base_test_id_287_post285_base282_fixedtemp_balanced_cv0.378934.csv"
+      },
+      "full_oof": {
+        "loss": 0.3789340585237949,
+        "gain_vs_178": 0.15970367886655956,
+        "gain_vs_341": 0.15964960140044104,
+        "target_loss": {
+          "Q1": 0.37307756945358955,
+          "Q2": 0.3584253108519325,
+          "Q3": 0.34648948108780625,
+          "S1": 0.30202031842869803,
+          "S2": 0.3499983624379614,
+          "S3": 0.46839594363393644,
+          "S4": 0.45413142377264054
+        },
+        "target_delta_vs_178": {
+          "Q1": -0.1788381492002566,
+          "Q2": -0.19825402431449202,
+          "Q3": -0.2206003037485122,
+          "S1": -0.16961012851294244,
+          "S2": -0.17955777030951264,
+          "S3": -0.022497095266340472,
+          "S4": -0.1485682807138609
+        },
+        "target_delta_vs_341": {
+          "Q1": -0.1788381492002566,
+          "Q2": -0.19787548205166217,
+          "Q3": -0.2206003037485122,
+          "S1": -0.16961012851294244,
+          "S2": -0.17955777030951264,
+          "S3": -0.022497095266340472,
+          "S4": -0.1485682807138609
+        }
+      },
+      "frozen_split": {
+        "fold_wins_vs_178": 23,
+        "fold_wins_vs_341": 23,
+        "fold_count": 23,
+        "mean_fold_delta_vs_178": -0.15952750682738676,
+        "mean_fold_delta_vs_341": -0.15946321095911623,
+        "worst_fold_delta_vs_341": -0.10012797922340153,
+        "split_summary": {
+          "subject_hole_5": {
+            "mean_loss": 0.378581250787973,
+            "mean_delta_vs_178": -0.15991017645096767,
+            "mean_delta_vs_341": -0.15985575639734914,
+            "max_delta_vs_341": -0.14898651387273926
+          },
+          "subject_timeseries_5": {
+            "mean_loss": 0.3802387881701203,
+            "mean_delta_vs_178": -0.15950842808155224,
+            "mean_delta_vs_341": -0.15944901879878207,
+            "max_delta_vs_341": -0.14641378330016563
+          },
+          "actual_test_band_holdout": {
+            "mean_loss": 0.38942823088480577,
+            "mean_delta_vs_178": -0.15217542598033645,
+            "mean_delta_vs_341": -0.15203629074977404,
+            "max_delta_vs_341": -0.15203629074977404
+          },
+          "test_boundary_neighbor2_holdout": {
+            "mean_loss": 0.426040309560831,
+            "mean_delta_vs_178": -0.1602495589097786,
+            "mean_delta_vs_341": -0.16009686860326716,
+            "max_delta_vs_341": -0.16009686860326716
+          },
+          "test_boundary_neighbor5_holdout": {
+            "mean_loss": 0.3967470635102223,
+            "mean_delta_vs_178": -0.16123909165543487,
+            "mean_delta_vs_341": -0.16117318332084168,
+            "max_delta_vs_341": -0.16117318332084168
+          },
+          "loso_10": {
+            "mean_loss": 0.38262720479079093,
+            "mean_delta_vs_178": -0.15983755578217457,
+            "mean_delta_vs_341": -0.15978236334051332,
+            "max_delta_vs_341": -0.10012797922340153
+          }
+        }
+      },
+      "test_geometry": {
+        "mean_delta_vs_178": 0.11535341335144111,
+        "max_delta_vs_178": 0.2984604478621476,
+        "mean_delta_vs_341": 0.11536667952032316,
+        "max_delta_vs_341": 0.2984604478621476,
+        "projection_failed_id287": 1.0,
+        "projection_gap_id329": 1.797414218747412
+      },
+      "priority_read": {
+        "queue_rank": 9,
+        "recommended_action": "reference_only",
+        "reason": "Anchor/failure/control row.",
+        "risk_flags": [
+          "failed_direction_exposure",
+          "large_test_geometry_shift",
+          "non_nested_or_public_gap_lineage",
+          "local_gain_untrusted_until_rebuilt"
+        ],
+        "artifact_promotable": false
+      }
+    },
+    {
+      "id": 329,
+      "layer": "public_anchor_layer",
+      "log_row_exists": true,
+      "submission_file": "submission_id_329_post328_combo4_cap080_budget050_practical_cv0.516718_unsubmitted.csv",
+      "model_description": "Aggregate failed-direction budget recovery probe",
+      "local_cv": 0.516718,
+      "public_lb": 0.6017908577,
+      "status_clean": "cv_lb_gap_risk",
+      "artifact_exists": true,
+      "dependency_read": "known public-gap aggregate combo artifact",
+      "base_files": {
+        "oof": "artifacts/base_predictions/base_oof_id_329_post328_combo4_cap080_budget050_practical_cv0.516718.csv",
+        "test": "artifacts/base_predictions/base_test_id_329_post328_combo4_cap080_budget050_practical_cv0.516718.csv"
+      },
+      "full_oof": {
+        "loss": 0.5167183408136238,
+        "gain_vs_178": 0.0219193965767307,
+        "gain_vs_341": 0.02186531911061218,
+        "target_loss": {
+          "Q1": 0.506029974406928,
+          "Q2": 0.534042810824549,
+          "Q3": 0.5456638999462302,
+          "S1": 0.4512124123615499,
+          "S2": 0.5181285105616267,
+          "S3": 0.4839698564343467,
+          "S4": 0.5779809211601361
+        },
+        "target_delta_vs_178": {
+          "Q1": -0.04588574424691816,
+          "Q2": -0.022636524341875575,
+          "Q3": -0.02142588489008823,
+          "S1": -0.02041803458009056,
+          "S2": -0.011427622185847364,
+          "S3": -0.006923182465930211,
+          "S4": -0.024718783326365346
+        },
+        "target_delta_vs_341": {
+          "Q1": -0.04588574424691816,
+          "Q2": -0.022257982079045724,
+          "Q3": -0.02142588489008823,
+          "S1": -0.02041803458009056,
+          "S2": -0.011427622185847364,
+          "S3": -0.006923182465930211,
+          "S4": -0.024718783326365346
+        }
+      },
+      "frozen_split": {
+        "fold_wins_vs_178": 23,
+        "fold_wins_vs_341": 23,
+        "fold_count": 23,
+        "mean_fold_delta_vs_178": -0.021817108072637124,
+        "mean_fold_delta_vs_341": -0.02175281220436657,
+        "worst_fold_delta_vs_341": -0.011799357841938862,
+        "split_summary": {
+          "subject_hole_5": {
+            "mean_loss": 0.5166429855470721,
+            "mean_delta_vs_178": -0.021848441691868725,
+            "mean_delta_vs_341": -0.021794021638250193,
+            "max_delta_vs_341": -0.019055597809542357
+          },
+          "subject_timeseries_5": {
+            "mean_loss": 0.5196714883969141,
+            "mean_delta_vs_178": -0.02007572785475843,
+            "mean_delta_vs_341": -0.020016318571988267,
+            "max_delta_vs_341": -0.011799357841938862
+          },
+          "actual_test_band_holdout": {
+            "mean_loss": 0.5204988796615169,
+            "mean_delta_vs_178": -0.021104777203625358,
+            "mean_delta_vs_341": -0.020965641973062943,
+            "max_delta_vs_341": -0.020965641973062943
+          },
+          "test_boundary_neighbor2_holdout": {
+            "mean_loss": 0.5580583103744946,
+            "mean_delta_vs_178": -0.028231558096114995,
+            "mean_delta_vs_341": -0.028078867789603557,
+            "max_delta_vs_341": -0.028078867789603557
+          },
+          "test_boundary_neighbor5_holdout": {
+            "mean_loss": 0.5356374817620893,
+            "mean_delta_vs_178": -0.022348673403567942,
+            "mean_delta_vs_341": -0.022282765068974753,
+            "max_delta_vs_341": -0.022282765068974753
+          },
+          "loso_10": {
+            "mean_loss": 0.5204159976495445,
+            "mean_delta_vs_178": -0.02204876292342097,
+            "mean_delta_vs_341": -0.021993570481759754,
+            "max_delta_vs_341": -0.01952467181600115
+          }
+        }
+      },
+      "test_geometry": {
+        "mean_delta_vs_178": 0.019371878744784868,
+        "max_delta_vs_178": 0.07919238997096245,
+        "mean_delta_vs_341": 0.01935938199400993,
+        "max_delta_vs_341": 0.07919238997096245,
+        "projection_failed_id287": 0.049869296571525785,
+        "projection_gap_id329": 1.0
+      },
+      "priority_read": {
+        "queue_rank": 9,
+        "recommended_action": "reference_only",
+        "reason": "Anchor/failure/control row.",
+        "risk_flags": [
+          "non_nested_or_public_gap_lineage"
+        ],
+        "artifact_promotable": false
+      }
+    },
+    {
+      "id": 341,
+      "layer": "public_anchor_layer",
+      "log_row_exists": true,
+      "submission_file": "submission_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.csv",
+      "model_description": "ID178 Q2-only seq-summary lr_c0_3 w0.0025",
+      "local_cv": 0.538584,
+      "public_lb": null,
+      "status_clean": "generated_unsubmitted",
+      "artifact_exists": true,
+      "dependency_read": "current generated-unsubmitted ID178-neighborhood control",
+      "base_files": {
+        "oof": "artifacts/base_predictions/base_oof_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584.csv",
+        "test": "artifacts/base_predictions/base_test_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584.csv"
+      },
+      "full_oof": {
+        "loss": 0.538583659924236,
+        "gain_vs_178": 5.407746611851838e-05,
+        "gain_vs_341": 0.0,
+        "target_loss": {
+          "Q1": 0.5519157186538461,
+          "Q2": 0.5563007929035947,
+          "Q3": 0.5670897848363184,
+          "S1": 0.47163044694164047,
+          "S2": 0.529556132747474,
+          "S3": 0.4908930389002769,
+          "S4": 0.6026997044865015
+        },
+        "target_delta_vs_178": {
+          "Q1": 0.0,
+          "Q2": -0.0003785422628298507,
+          "Q3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "target_delta_vs_341": {
+          "Q1": 0.0,
+          "Q2": 0.0,
+          "Q3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      },
+      "frozen_split": {
+        "fold_wins_vs_178": 19,
+        "fold_wins_vs_341": 0,
+        "fold_count": 23,
+        "mean_fold_delta_vs_178": -6.429586827055132e-05,
+        "mean_fold_delta_vs_341": 0.0,
+        "worst_fold_delta_vs_341": 0.0,
+        "split_summary": {
+          "subject_hole_5": {
+            "mean_loss": 0.5384370071853222,
+            "mean_delta_vs_178": -5.4420053618531304e-05,
+            "mean_delta_vs_341": 0.0,
+            "max_delta_vs_341": 0.0
+          },
+          "subject_timeseries_5": {
+            "mean_loss": 0.5396878069689025,
+            "mean_delta_vs_178": -5.9409282770161995e-05,
+            "mean_delta_vs_341": 0.0,
+            "max_delta_vs_341": 0.0
+          },
+          "actual_test_band_holdout": {
+            "mean_loss": 0.5414645216345798,
+            "mean_delta_vs_178": -0.00013913523056241495,
+            "mean_delta_vs_341": 0.0,
+            "max_delta_vs_341": 0.0
+          },
+          "test_boundary_neighbor2_holdout": {
+            "mean_loss": 0.5861371781640982,
+            "mean_delta_vs_178": -0.00015269030651143822,
+            "mean_delta_vs_341": 0.0,
+            "max_delta_vs_341": 0.0
+          },
+          "test_boundary_neighbor5_holdout": {
+            "mean_loss": 0.557920246831064,
+            "mean_delta_vs_178": -6.59083345931899e-05,
+            "mean_delta_vs_341": 0.0,
+            "max_delta_vs_341": 0.0
+          },
+          "loso_10": {
+            "mean_loss": 0.5424095681313041,
+            "mean_delta_vs_178": -5.519244166121706e-05,
+            "mean_delta_vs_341": 0.0,
+            "max_delta_vs_341": 0.0
+          }
+        }
+      },
+      "test_geometry": {
+        "mean_delta_vs_178": 0.00012350930467326245,
+        "max_delta_vs_178": 0.002025444883233418,
+        "mean_delta_vs_341": 0.0,
+        "max_delta_vs_341": 0.0,
+        "projection_failed_id287": -8.472344459233602e-05,
+        "projection_gap_id329": 0.0007528140532012479
+      },
+      "priority_read": {
+        "queue_rank": 9,
+        "recommended_action": "reference_only",
+        "reason": "Anchor/failure/control row.",
+        "risk_flags": [],
+        "artifact_promotable": false
+      }
+    }
+  ],
+  "first_rebuild_queue": [
+    {
+      "id": 221,
+      "queue_rank": 1,
+      "recommended_action": "rebuild_clean_root_feature_similarity",
+      "gain_vs_178": 0.0056475500476589335,
+      "fold_wins_vs_341": 21,
+      "projection_failed_id287": -0.010164571007946259,
+      "reason": "ID221 is weaker than later calibration artifacts but is an upstream prerequisite for ID226/ID238."
+    },
+    {
+      "id": 226,
+      "queue_rank": 2,
+      "recommended_action": "rebuild_primary_convex_backbone",
+      "gain_vs_178": 0.04686710735792765,
+      "fold_wins_vs_341": 23,
+      "projection_failed_id287": 0.2994963457914821,
+      "reason": "ID226 carries the main reusable upstream signal and sits below ID227/228/237 and downstream A1/B1 artifacts."
+    },
+    {
+      "id": 227,
+      "queue_rank": 3,
+      "recommended_action": "replay_only_after_clean_226",
+      "gain_vs_178": 0.07422879045478709,
+      "fold_wins_vs_341": 23,
+      "projection_failed_id287": 0.4970860267952054,
+      "reason": "This is an ID226 calibration derivative; rebuilding it before a clean ID226 would preserve the same full-OOF failure mode."
+    },
+    {
+      "id": 237,
+      "queue_rank": 3,
+      "recommended_action": "replay_only_after_clean_226",
+      "gain_vs_178": 0.07194671230234057,
+      "fold_wins_vs_341": 23,
+      "projection_failed_id287": 0.5163650075074425,
+      "reason": "This is an ID226 calibration derivative; rebuilding it before a clean ID226 would preserve the same full-OOF failure mode."
+    },
+    {
+      "id": 228,
+      "queue_rank": 3,
+      "recommended_action": "replay_only_after_clean_226",
+      "gain_vs_178": 0.056392968117837505,
+      "fold_wins_vs_341": 23,
+      "projection_failed_id287": 0.3934480673529689,
+      "reason": "This is an ID226 calibration derivative; rebuilding it before a clean ID226 would preserve the same full-OOF failure mode."
+    }
+  ],
+  "decision": {
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_heavy_rebuild_now": false,
+    "any_existing_artifact_promotable": false,
+    "first_rebuild_focus": [
+      "ID221 clean feature-similarity root",
+      "ID226 clean target-wise convex backbone"
+    ],
+    "hold_until_clean_backbone": [
+      "ID227",
+      "ID228",
+      "ID237",
+      "ID238",
+      "ID239",
+      "ID241"
+    ],
+    "next_action": "Use this matrix to extend the Kaggle upstream runner with report-first ID221/ID226 clean rebuild design. Do not create ID342 or replay A1/B1 artifacts until a clean upstream backbone exists and passes transfer gates."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_submission_log_row_created": true,
+  "no_dacon_submission_made": true
+}

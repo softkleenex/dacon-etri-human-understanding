@@ -1,0 +1,70 @@
+{
+  "created_at": "2026-06-16",
+  "purpose": "Review after ID206 wavelet/spectral sequence overlay.",
+  "id206": {
+    "base_id": 203,
+    "local_cv_before": 0.5359801333026634,
+    "local_cv_after": 0.5357639123296409,
+    "modified_targets": [
+      "Q3",
+      "S2",
+      "S4"
+    ],
+    "target_scores_after": {
+      "Q1": 0.5482579081715612,
+      "Q2": 0.5506886916995475,
+      "Q3": 0.5628770675141632,
+      "S1": 0.4677372079771736,
+      "S2": 0.5295161847284966,
+      "S3": 0.4905526802245998,
+      "S4": 0.6007176459919449
+    },
+    "selected_configs": {
+      "Q1": {
+        "kind": "base"
+      },
+      "Q2": {
+        "kind": "base"
+      },
+      "Q3": {
+        "kind": "blend",
+        "feature_set": "wavelet_spectral",
+        "model": "lr_c0_1",
+        "weight": 0.05
+      },
+      "S1": {
+        "kind": "base"
+      },
+      "S2": {
+        "kind": "blend",
+        "feature_set": "wavelet_spectral",
+        "model": "lr_c0_3",
+        "weight": 0.005
+      },
+      "S3": {
+        "kind": "base"
+      },
+      "S4": {
+        "kind": "blend",
+        "feature_set": "wavelet_spectral",
+        "model": "lr_c0_3",
+        "weight": 0.05
+      }
+    },
+    "diagnostic_report": "reports/id203_wavelet_spectral_sequence_diagnostic_20260616.json",
+    "submission_file": "submission_id_206_id203_wavelet_spectral_sequence_overlay_cv0.535764_unsubmitted.csv"
+  },
+  "negative_diagnostics": {
+    "id203_smartphone_light_compact": "reports/id203_smartphone_light_compact_diagnostic_20260616.json",
+    "id203_stability_selected_raw": "reports/id203_stability_selected_raw_overlay_diagnostic_20260616.json",
+    "id203_sequence_summary": "reports/id203_sequence_summary_embedding_diagnostic_20260616.json",
+    "interpretation": "These reruns produced either base-only selections or approximately one-micro-point improvements, so they were not promoted."
+  },
+  "robustness": {
+    "diagnostic_report": "reports/id178_id206_split_robustness_diagnostic_20260616.json",
+    "id203_robustness_score": 0.5688389618569121,
+    "id206_robustness_score": 0.5687597721582598,
+    "interpretation": "ID206 slightly improves the same robustness formula versus ID203, but this remains an OOF fragility lens rather than public proof."
+  },
+  "warning": "ID206 is a small clean-branch local improvement only. Public 0.55 remains unproven without DACON submission."
+}

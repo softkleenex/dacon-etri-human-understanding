@@ -1,0 +1,583 @@
+{
+  "calls": [
+    {
+      "cache_path": null,
+      "description": "KMA ASOS hourly historical observation smoke for Daejeon station 133.",
+      "endpoint": "https://apis.data.go.kr/1360000/AsosHourlyInfoService",
+      "function": "/getWthrDataList",
+      "historical_probe": true,
+      "http_status": 200,
+      "item_columns": [
+        "clfmAbbrCd",
+        "dc10LmcsCa",
+        "dc10Tca",
+        "dmstMtphNo",
+        "dsnw",
+        "gndSttCd",
+        "hm",
+        "hmQcflg",
+        "hr3Fhsc",
+        "icsr",
+        "lcsCh",
+        "m005Te",
+        "m01Te",
+        "m02Te",
+        "m03Te",
+        "pa",
+        "paQcflg",
+        "ps",
+        "psQcflg",
+        "pv",
+        "rn",
+        "rnQcflg",
+        "rnum",
+        "ss",
+        "ssQcflg",
+        "stnId",
+        "stnNm",
+        "ta",
+        "taQcflg",
+        "td",
+        "tm",
+        "ts",
+        "tsQcflg",
+        "vs",
+        "wd",
+        "wdQcflg",
+        "ws",
+        "wsQcflg"
+      ],
+      "item_count": 24,
+      "item_time_values": {
+        "tm": {
+          "max": "2024-06-01 23:00",
+          "min": "2024-06-01 00:00",
+          "sample": [
+            "2024-06-01 00:00",
+            "2024-06-01 01:00",
+            "2024-06-01 02:00"
+          ]
+        }
+      },
+      "params_without_secret": {
+        "dataCd": "ASOS",
+        "dataType": "JSON",
+        "dateCd": "HR",
+        "endDt": "20240601",
+        "endHh": "23",
+        "numOfRows": 24,
+        "pageNo": 1,
+        "startDt": "20240601",
+        "startHh": "00",
+        "stnIds": "133"
+      },
+      "parse_error": null,
+      "raw_bytes": 12425,
+      "raw_cache_written": false,
+      "request_made": true,
+      "result_code": "00",
+      "result_msg": "NORMAL_SERVICE",
+      "service": "kma_asos",
+      "service_key_env": "KMA_ASOS_SERVICE_KEY",
+      "service_key_value_stored": false,
+      "success": true,
+      "total_count": 24
+    },
+    {
+      "cache_path": null,
+      "description": "KMA living-weather UV index forecast smoke for Daejeon area.",
+      "endpoint": "https://apis.data.go.kr/1360000/LivingWthrIdxServiceV5",
+      "function": "/getUVIdxV5",
+      "historical_probe": false,
+      "http_status": 200,
+      "item_columns": [
+        "areaNo",
+        "code",
+        "date",
+        "h0",
+        "h12",
+        "h15",
+        "h18",
+        "h21",
+        "h24",
+        "h27",
+        "h3",
+        "h30",
+        "h33",
+        "h36",
+        "h39",
+        "h42",
+        "h45",
+        "h48",
+        "h51",
+        "h54",
+        "h57",
+        "h6",
+        "h60",
+        "h63",
+        "h66",
+        "h69",
+        "h72",
+        "h75",
+        "h9"
+      ],
+      "item_count": 1,
+      "item_time_values": {
+        "date": {
+          "max": "2026062515",
+          "min": "2026062515",
+          "sample": [
+            "2026062515"
+          ]
+        },
+        "h0": {
+          "max": "5",
+          "min": "5",
+          "sample": [
+            "5"
+          ]
+        }
+      },
+      "params_without_secret": {
+        "areaNo": "3017000000",
+        "dataType": "JSON",
+        "numOfRows": 10,
+        "pageNo": 1,
+        "time": "2026062515"
+      },
+      "parse_error": null,
+      "raw_bytes": 469,
+      "raw_cache_written": false,
+      "request_made": true,
+      "result_code": "00",
+      "result_msg": "NORMAL_SERVICE",
+      "service": "kma_life",
+      "service_key_env": "KMA_LIFE_INDEX_SERVICE_KEY",
+      "service_key_value_stored": false,
+      "success": true,
+      "total_count": 1
+    },
+    {
+      "cache_path": null,
+      "description": "KMA living-weather air-diffusion forecast smoke for Daejeon area.",
+      "endpoint": "https://apis.data.go.kr/1360000/LivingWthrIdxServiceV5",
+      "function": "/getAirDiffusionIdxV5",
+      "historical_probe": false,
+      "http_status": 200,
+      "item_columns": [
+        "areaNo",
+        "code",
+        "date",
+        "h12",
+        "h15",
+        "h18",
+        "h21",
+        "h24",
+        "h27",
+        "h3",
+        "h30",
+        "h33",
+        "h36",
+        "h39",
+        "h42",
+        "h45",
+        "h48",
+        "h51",
+        "h54",
+        "h57",
+        "h6",
+        "h60",
+        "h63",
+        "h66",
+        "h69",
+        "h72",
+        "h75",
+        "h78",
+        "h9"
+      ],
+      "item_count": 1,
+      "item_time_values": {
+        "date": {
+          "max": "2026062515",
+          "min": "2026062515",
+          "sample": [
+            "2026062515"
+          ]
+        }
+      },
+      "params_without_secret": {
+        "areaNo": "3017000000",
+        "dataType": "JSON",
+        "numOfRows": 10,
+        "pageNo": 1,
+        "time": "2026062515"
+      },
+      "parse_error": null,
+      "raw_bytes": 485,
+      "raw_cache_written": false,
+      "request_made": true,
+      "result_code": "00",
+      "result_msg": "NORMAL_SERVICE",
+      "service": "kma_life",
+      "service_key_env": "KMA_LIFE_INDEX_SERVICE_KEY",
+      "service_key_value_stored": false,
+      "success": true,
+      "total_count": 1
+    },
+    {
+      "cache_path": null,
+      "description": "KMA living-weather UV historical-window probe for 2024-06-01.",
+      "endpoint": "https://apis.data.go.kr/1360000/LivingWthrIdxServiceV5",
+      "function": "/getUVIdxV5",
+      "historical_probe": true,
+      "http_status": 200,
+      "item_columns": [],
+      "item_count": 0,
+      "item_time_values": {},
+      "params_without_secret": {
+        "areaNo": "3017000000",
+        "dataType": "JSON",
+        "numOfRows": 10,
+        "pageNo": 1,
+        "time": "2024060106"
+      },
+      "parse_error": null,
+      "raw_bytes": 103,
+      "raw_cache_written": false,
+      "request_made": true,
+      "result_code": "99",
+      "result_msg": "최근 1일 간의 자료만 제공합니다.",
+      "service": "kma_life",
+      "service_key_env": "KMA_LIFE_INDEX_SERVICE_KEY",
+      "service_key_value_stored": false,
+      "success": false,
+      "total_count": null
+    },
+    {
+      "cache_path": null,
+      "description": "AirKorea province real-time measurement smoke for Daejeon.",
+      "endpoint": "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc",
+      "function": "/getCtprvnRltmMesureDnsty",
+      "historical_probe": false,
+      "http_status": 200,
+      "item_columns": [
+        "coFlag",
+        "coGrade",
+        "coValue",
+        "dataTime",
+        "khaiGrade",
+        "khaiValue",
+        "no2Flag",
+        "no2Grade",
+        "no2Value",
+        "o3Flag",
+        "o3Grade",
+        "o3Value",
+        "pm10Flag",
+        "pm10Grade",
+        "pm10Value",
+        "pm25Flag",
+        "pm25Grade",
+        "pm25Value",
+        "sidoName",
+        "so2Flag",
+        "so2Grade",
+        "so2Value",
+        "stationName"
+      ],
+      "item_count": 15,
+      "item_time_values": {
+        "dataTime": {
+          "max": "2026-06-25 17:00",
+          "min": "2026-06-25 17:00",
+          "sample": [
+            "2026-06-25 17:00",
+            "2026-06-25 17:00",
+            "2026-06-25 17:00"
+          ]
+        }
+      },
+      "params_without_secret": {
+        "numOfRows": 100,
+        "pageNo": 1,
+        "returnType": "json",
+        "sidoName": "대전",
+        "ver": "1.0"
+      },
+      "parse_error": null,
+      "raw_bytes": 6198,
+      "raw_cache_written": false,
+      "request_made": true,
+      "result_code": "00",
+      "result_msg": "NORMAL_CODE",
+      "service": "airkorea",
+      "service_key_env": "AIRKOREA_SERVICE_KEY",
+      "service_key_value_stored": false,
+      "success": true,
+      "total_count": 15
+    },
+    {
+      "cache_path": null,
+      "description": "AirKorea station measurement smoke for a Daejeon station and largest exposed term.",
+      "endpoint": "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc",
+      "function": "/getMsrstnAcctoRltmMesureDnsty",
+      "historical_probe": true,
+      "http_status": 200,
+      "item_columns": [
+        "coFlag",
+        "coGrade",
+        "coValue",
+        "dataTime",
+        "khaiGrade",
+        "khaiValue",
+        "no2Flag",
+        "no2Grade",
+        "no2Value",
+        "o3Flag",
+        "o3Grade",
+        "o3Value",
+        "pm10Flag",
+        "pm10Grade",
+        "pm10Value",
+        "pm25Flag",
+        "pm25Grade",
+        "pm25Value",
+        "so2Flag",
+        "so2Grade",
+        "so2Value"
+      ],
+      "item_count": 1000,
+      "item_time_values": {
+        "dataTime": {
+          "max": "2026-06-25 17:00",
+          "min": "2026-05-14 23:00",
+          "sample": [
+            "2026-06-25 17:00",
+            "2026-06-25 16:00",
+            "2026-06-25 15:00"
+          ]
+        }
+      },
+      "params_without_secret": {
+        "dataTerm": "3MONTH",
+        "numOfRows": 1000,
+        "pageNo": 1,
+        "returnType": "json",
+        "stationName": "둔산동",
+        "ver": "1.0"
+      },
+      "parse_error": null,
+      "raw_bytes": 352276,
+      "raw_cache_written": false,
+      "request_made": true,
+      "result_code": "00",
+      "result_msg": "NORMAL_CODE",
+      "service": "airkorea",
+      "service_key_env": "AIRKOREA_SERVICE_KEY",
+      "service_key_value_stored": false,
+      "success": true,
+      "total_count": 2190
+    },
+    {
+      "cache_path": null,
+      "description": "AirKorea fine-dust forecast-dispatch smoke.",
+      "endpoint": "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc",
+      "function": "/getMinuDustFrcstDspth",
+      "historical_probe": false,
+      "http_status": 200,
+      "item_columns": [
+        "actionKnack",
+        "dataTime",
+        "imageUrl1",
+        "imageUrl2",
+        "imageUrl3",
+        "imageUrl4",
+        "imageUrl5",
+        "imageUrl6",
+        "informCause",
+        "informCode",
+        "informData",
+        "informGrade",
+        "informOverall"
+      ],
+      "item_count": 4,
+      "item_time_values": {
+        "dataTime": {
+          "max": "2026-06-25 11시 발표",
+          "min": "2026-06-25 05시 발표",
+          "sample": [
+            "2026-06-25 11시 발표",
+            "2026-06-25 11시 발표",
+            "2026-06-25 05시 발표"
+          ]
+        },
+        "informData": {
+          "max": "2026-06-26",
+          "min": "2026-06-25",
+          "sample": [
+            "2026-06-25",
+            "2026-06-26",
+            "2026-06-25"
+          ]
+        }
+      },
+      "params_without_secret": {
+        "informCode": "PM10",
+        "numOfRows": 10,
+        "pageNo": 1,
+        "returnType": "json",
+        "searchDate": "2026-06-25"
+      },
+      "parse_error": null,
+      "raw_bytes": 4247,
+      "raw_cache_written": false,
+      "request_made": true,
+      "result_code": "00",
+      "result_msg": "NORMAL_CODE",
+      "service": "airkorea",
+      "service_key_env": "AIRKOREA_SERVICE_KEY",
+      "service_key_value_stored": false,
+      "success": true,
+      "total_count": 4
+    },
+    {
+      "cache_path": null,
+      "description": "AirKorea weekly fine-dust forecast-dispatch smoke.",
+      "endpoint": "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc",
+      "function": "/getMinuDustWeekFrcstDspth",
+      "historical_probe": false,
+      "http_status": 200,
+      "item_columns": [],
+      "item_count": 0,
+      "item_time_values": {},
+      "params_without_secret": {
+        "numOfRows": 10,
+        "pageNo": 1,
+        "returnType": "json",
+        "searchDate": "2026-06-25"
+      },
+      "parse_error": null,
+      "raw_bytes": 130,
+      "raw_cache_written": false,
+      "request_made": true,
+      "result_code": "00",
+      "result_msg": "NORMAL_CODE",
+      "service": "airkorea",
+      "service_key_env": "AIRKOREA_SERVICE_KEY",
+      "service_key_value_stored": false,
+      "success": true,
+      "total_count": 0
+    },
+    {
+      "cache_path": null,
+      "description": "AirKorea bad-or-worse CAI station-list smoke.",
+      "endpoint": "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc",
+      "function": "/getUnityAirEnvrnIdexSnstiveAboveMsrstnList",
+      "historical_probe": false,
+      "http_status": 200,
+      "item_columns": [],
+      "item_count": 0,
+      "item_time_values": {},
+      "params_without_secret": {
+        "numOfRows": 10,
+        "pageNo": 1,
+        "returnType": "json"
+      },
+      "parse_error": null,
+      "raw_bytes": 130,
+      "raw_cache_written": false,
+      "request_made": true,
+      "result_code": "00",
+      "result_msg": "NORMAL_CODE",
+      "service": "airkorea",
+      "service_key_env": "AIRKOREA_SERVICE_KEY",
+      "service_key_value_stored": false,
+      "success": true,
+      "total_count": 0
+    }
+  ],
+  "created_at_kst": "2026-06-25 17:14:29 UTC+09:00",
+  "decision": {
+    "airkorea_api_access_working": true,
+    "airkorea_approved_info_api_2024_historical_feature_source_available": false,
+    "all_three_service_families_requested": [
+      "kma_asos",
+      "kma_life",
+      "airkorea"
+    ],
+    "all_three_service_families_smoke_checked": true,
+    "create_model_features_now": false,
+    "create_submission_artifact_now": false,
+    "dacon_submit_now": false,
+    "feature_usability": {
+      "airkorea_2024_reason": "The approved ArpltnInforInqireSvc smoke covers real-time/forecast/recent station terms only. It does not expose a date-bounded 2024 historical query in these endpoints.",
+      "airkorea_2024_training_window_usable_from_this_api": false,
+      "airkorea_realtime_available": true,
+      "airkorea_station_recent_3month_available": true,
+      "kma_asos_historical_2024_usable": true,
+      "kma_life_historical_2024_usable_from_smoke": false
+    },
+    "kma_asos_2024_historical_feature_source_available": true,
+    "kma_life_2024_historical_feature_source_available": false,
+    "modify_submission_log_now": false,
+    "next_action": "Use KMA ASOS as the only confirmed 2024 historical source from this smoke. Treat KMA living-weather and AirKorea ArpltnInforInqireSvc as report-only unless a separate historical/statistics source is approved and passes a local ID342 gate.",
+    "non_asos_approved_api_2024_historical_feature_source_available": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "service_summary": {
+      "airkorea": {
+        "all_success": true,
+        "calls": 5,
+        "historical_probe_calls": 1,
+        "historical_probe_successes_with_items": 1,
+        "successes": 5
+      },
+      "kma_asos": {
+        "all_success": true,
+        "calls": 1,
+        "historical_probe_calls": 1,
+        "historical_probe_successes_with_items": 1,
+        "successes": 1
+      },
+      "kma_life": {
+        "all_success": false,
+        "calls": 3,
+        "historical_probe_calls": 1,
+        "historical_probe_successes_with_items": 0,
+        "successes": 2
+      }
+    }
+  },
+  "diagnostic": "public_data_weather_air_api_smoke",
+  "no_base_prediction_artifact_created": true,
+  "no_dacon_submission_made": true,
+  "no_feature_matrix_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_prediction_file_created": true,
+  "no_submission_created": true,
+  "no_submission_log_row_created": true,
+  "purpose": "Verify the three approved public-data API service families with real calls while keeping keys out of tracked files.",
+  "raw_cache_policy": {
+    "cache_dir": null,
+    "default": "Raw API payload caches are not retained; the report keeps only summary metadata.",
+    "keep_raw_cache": false
+  },
+  "secret_handling": {
+    "cache_files_store_secret_values": null,
+    "env_names": {
+      "airkorea": [
+        "AIRKOREA_SERVICE_KEY",
+        "PUBLIC_DATA_SERVICE_KEY"
+      ],
+      "kma_asos": [
+        "KMA_ASOS_SERVICE_KEY",
+        "PUBLIC_DATA_SERVICE_KEY"
+      ],
+      "kma_life": [
+        "KMA_LIFE_INDEX_SERVICE_KEY",
+        "PUBLIC_DATA_SERVICE_KEY"
+      ]
+    },
+    "service_key_values_stored": false
+  }
+}

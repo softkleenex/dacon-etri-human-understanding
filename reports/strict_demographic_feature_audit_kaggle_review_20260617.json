@@ -1,0 +1,78 @@
+{
+  "created_at_kst": "2026-06-17 10:20:30 UTC+09:00",
+  "artifact": "strict_demographic_feature_audit_kaggle_review",
+  "source_raw_report": "reports/strict_demographic_feature_audit_kaggle_20260617.json",
+  "source_smoke_report": "reports/strict_demographic_feature_audit_smoke_20260617.json",
+  "kaggle_kernel": "softkleenex/dacon-etri-demographic-audit",
+  "no_dacon_submission_made": true,
+  "public_058_plausible": false,
+  "promote_submission_candidate": false,
+  "reason": "Demographic/static features improve the subject-hole diagnostic but fail the stricter leave-one-subject-out stress test; the signal is not robust enough to justify a Public 0.58 expectation.",
+  "full_audit": {
+    "n_estimators": 240,
+    "subject_hole_best": {
+      "candidate": "compact_plus_demo__extratrees_d5_l8",
+      "model": "extratrees_d5_l8",
+      "overall": 0.616852761720297,
+      "n_features": 17
+    },
+    "subject_hole_delta_vs_base_no_demo_extratrees": -0.007042180532524478,
+    "subject_hole_delta_vs_compact_covariates_extratrees": -0.017906473620544427,
+    "loso_best": {
+      "candidate": "compact_covariates__logreg_l2_c020",
+      "model": "logreg_l2_c020",
+      "overall": 0.6697699382818963,
+      "n_features": 7
+    },
+    "loso_base_no_demo_extratrees": {
+      "candidate": "base_no_demo__extratrees_d5_l8",
+      "overall": 0.670114535990342
+    },
+    "loso_base_plus_demo_extratrees": {
+      "candidate": "base_plus_demo__extratrees_d5_l8",
+      "overall": 0.6722710882117074,
+      "delta_vs_base_no_demo_extratrees": 0.0021565522213654598
+    },
+    "loso_compact_plus_demo_extratrees": {
+      "candidate": "compact_plus_demo__extratrees_d5_l8",
+      "overall": 0.6972665492003085,
+      "delta_vs_loso_best": 0.027496610918412157
+    },
+    "subject_hole_demo_wins": [
+      "Q1",
+      "Q2",
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "loso_demo_wins": [
+      "Q2",
+      "Q3",
+      "S2",
+      "S4"
+    ]
+  },
+  "smoke_consistency": {
+    "smoke_n_estimators": 40,
+    "smoke_subject_hole_best": "compact_plus_demo__extratrees_d5_l8",
+    "full_subject_hole_best": "compact_plus_demo__extratrees_d5_l8",
+    "smoke_loso_best": "compact_covariates__logreg_l2_c020",
+    "full_loso_best": "compact_covariates__logreg_l2_c020",
+    "interpretation": "Kaggle full audit preserves the local smoke conclusion; increasing n_estimators does not turn demographics into a robust cross-subject signal."
+  },
+  "decision": {
+    "submission_allowed_now": false,
+    "candidate_family_status": "hypothesis_only",
+    "next_allowed_experiments": [
+      "target-specific demographic gating only inside fold-safe validation",
+      "compare candidate errors against ID178/ID329/ID287 anchor geometry before any CSV promotion",
+      "search non-same-family signals that explain ID329 non-improvement rather than stacking more constrained combos"
+    ],
+    "blocked_actions_without_user_approval": [
+      "DACON submission",
+      "promoting demographic candidate as next public probe",
+      "mass cleanup or archive of dirty tree artifacts"
+    ]
+  }
+}

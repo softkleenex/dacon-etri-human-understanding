@@ -1,0 +1,180 @@
+{
+  "allowed_output_locations_after_explicit_heavy_approval": [
+    "build/self_supervised_subject_state_embedding_v1/",
+    "artifacts/self_supervised_subject_state_embedding_v1/",
+    "reports/post_id342_self_supervised_*"
+  ],
+  "approval_phrases": {
+    "kaggle_upstream_rebuild_no_submit_not_sufficient": "Kaggle upstream rebuild no-submit \uc2e4\ud589 \uc2b9\uc778",
+    "self_supervised_heavy_compute_no_submit": "Self-supervised subject-state heavy compute no-submit \uc2e4\ud589 \uc2b9\uc778"
+  },
+  "bounded_heavy_plan": [
+    {
+      "after_exact_heavy_approval": "refresh_this_contract_with_approval_phrase",
+      "allowed_now": false,
+      "guard": "The Kaggle upstream approval phrase does not authorize this route.",
+      "stage": "approval_boundary"
+    },
+    {
+      "after_exact_heavy_approval": "write_or_refresh no-submit runner spec only",
+      "allowed_now": false,
+      "guard": "The existing upstream rebuild runner is not an embedding-training runner.",
+      "stage": "dedicated_runner_spec"
+    },
+    {
+      "after_exact_heavy_approval": "fixed vocabularies and timestamp bins only",
+      "allowed_now": false,
+      "guard": "No target-guided token selection, no public-score feedback, no OOF residual tuning.",
+      "stage": "label_free_tokenization"
+    },
+    {
+      "after_exact_heavy_approval": "masked reconstruction or contrastive objective only",
+      "allowed_now": false,
+      "guard": "No target labels, no submission CSV, no leaderboard-informed early stopping.",
+      "stage": "self_supervised_pretraining"
+    },
+    {
+      "after_exact_heavy_approval": "subject-hole fold-internal smoke report only",
+      "allowed_now": false,
+      "guard": "Outer validation rows cannot influence embedding choice, calibration, or blending.",
+      "stage": "fold_internal_downstream_smoke"
+    },
+    {
+      "after_exact_heavy_approval": "still blocked",
+      "allowed_now": false,
+      "guard": "Requires a separate future artifact contract and exact CSV approval.",
+      "stage": "submission_artifact_review"
+    }
+  ],
+  "context_reports": {
+    "design": {
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id341_self_supervised_subject_state_embedding_design_20260619.json"
+    },
+    "docs_audit": {
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/docs_records_audit.json"
+    },
+    "goal_state_audit": {
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_goal_state_audit_20260624.json"
+    },
+    "remaining_route_synthesis": {
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_remaining_route_synthesis_20260624.json"
+    },
+    "research_packet": {
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_self_supervised_route_research_packet_20260624.json"
+    }
+  },
+  "created_at_kst": "2026-06-24 09:04:23 UTC+09:00",
+  "decision": {
+    "approval_phrase": "Self-supervised subject-state heavy compute no-submit \uc2e4\ud589 \uc2b9\uc778",
+    "approval_phrase_received": false,
+    "create_new_submission_id": false,
+    "create_submission_artifact": false,
+    "current_kaggle_upstream_approval_phrase_only_applies_to_upstream_rebuild": true,
+    "dedicated_heavy_runner_required": true,
+    "existing_upstream_runner_is_sufficient_for_heavy_execution": false,
+    "feature_matrix_allowed_now": false,
+    "heavy_compute_allowed_now": false,
+    "kaggle_upstream_approval_phrase": "Kaggle upstream rebuild no-submit \uc2e4\ud589 \uc2b9\uc778",
+    "local_no_approval_allowed": false,
+    "modify_submission_log": false,
+    "next_action": "Contract is ready for an approval request, but execution remains blocked. After the exact heavy phrase, refresh this contract with the phrase and only then prepare a dedicated no-submit runner.",
+    "post_id342_heavy_compute_contract_ready": true,
+    "push_kaggle_now": false,
+    "requires_explicit_heavy_compute_approval": true,
+    "run_kaggle_now": false,
+    "score_route_opened": false,
+    "source_family": "self_supervised_subject_state_embedding_v1",
+    "submit_now": false,
+    "target_focus": [
+      "Q2",
+      "Q3",
+      "S3"
+    ],
+    "train_model_now": false
+  },
+  "diagnostic": "post_id342_self_supervised_heavy_compute_contract",
+  "forbidden_actions_now": {
+    "create_new_submission_id": false,
+    "create_submission_artifact": false,
+    "fit_embedding_now": false,
+    "modify_submission_log": false,
+    "push_kaggle_now": false,
+    "read_full_raw_streams_now": false,
+    "run_kaggle_now": false,
+    "submit_now": false,
+    "train_downstream_model_now": false,
+    "write_feature_matrix_now": false,
+    "write_oof_or_test_predictions_now": false
+  },
+  "no_dacon_submission_made": true,
+  "no_feature_matrix_created": true,
+  "no_full_raw_stream_read": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "prerequisites": {
+    "design_report_ready": true,
+    "docs_audit_clean": true,
+    "goal_audit_ready": true,
+    "post_id342_synthesis_ready": true,
+    "raw_manifest_ready": true,
+    "raw_manifest_summary": {
+      "all_streams_have_subject_and_timestamp": true,
+      "expected_raw_modality_count": 12,
+      "raw_modality_count": 12,
+      "total_raw_rows": 6122179,
+      "total_raw_size_mb": 122.832
+    },
+    "research_packet_ready": true,
+    "row_contract_ready": true,
+    "row_contract_summary": {
+      "official_test_rows": 250,
+      "official_train_rows": 450,
+      "processed_test_rows": 250,
+      "processed_train_rows": 450,
+      "row_contract_exact": true
+    },
+    "submission_log_ready_for_post_id342_anchor": true,
+    "submission_log_status": {
+      "exists": true,
+      "generated_unsubmitted_after_anchor": [
+        343,
+        344
+      ],
+      "has_id342_row": true,
+      "id342_public_score": 0.5960832519,
+      "id342_row_count": 1,
+      "id342_scored_anchor_ok": true,
+      "id342_submission_files": [
+        "submission_id_342_id178_id221_featuresim_shrink050_cv0.534000_unsubmitted.csv"
+      ],
+      "ids_are_unique": true,
+      "log_ready_for_future_unique_id": true,
+      "max_id": 344,
+      "next_numeric_id_if_later_authorized": 345,
+      "parse_ok": true,
+      "path": "submissions/submission_log.csv",
+      "rows": 344
+    }
+  },
+  "purpose": "Refresh the heavy-compute approval boundary after ID342 became the scored public anchor.",
+  "report_only": true,
+  "source_family": "self_supervised_subject_state_embedding_v1",
+  "target_focus": [
+    "Q2",
+    "Q3",
+    "S3"
+  ]
+}

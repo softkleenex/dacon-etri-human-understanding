@@ -1,0 +1,72 @@
+{
+  "report": "kaggle_sequence_source_runner_post_id335",
+  "created_utc": "2026-06-17T14:41:35.876220+00:00",
+  "purpose": "Prepare a report-only Kaggle runner for post-ID335 S1 random-conv sequence source diagnostics.",
+  "runner_dir": "notebooks/kaggle_sequence_source_runner",
+  "notebook": "notebooks/kaggle_sequence_source_runner/Sequence_Source_Post_ID335_Runner.ipynb",
+  "kernel_metadata": "notebooks/kaggle_sequence_source_runner/kernel-metadata.json",
+  "kaggle_slug": "softkleenex/dacon-etri-sequence-source-post-id335",
+  "make_targets": [
+    "make kaggle-push-sequence-source-runner",
+    "make kaggle-pull-sequence-source-output"
+  ],
+  "status": "pushed_completed_pulled_summarized",
+  "submission_policy": "No DACON submission, submission CSV, notebook/history artifact, base prediction artifact, or submission-log row is created by this runner.",
+  "jobs": [
+    {
+      "base_id": 173,
+      "n_kernels": 512,
+      "seed": 45501,
+      "output": "reports/id173_random_conv_sequence_post_id335_s1_nk512_seed45501_20260617.json"
+    },
+    {
+      "base_id": 173,
+      "n_kernels": 512,
+      "seed": 45502,
+      "output": "reports/id173_random_conv_sequence_post_id335_s1_nk512_seed45502_20260617.json"
+    },
+    {
+      "base_id": 173,
+      "n_kernels": 768,
+      "seed": 45601,
+      "output": "reports/id173_random_conv_sequence_post_id335_s1_nk768_seed45601_20260617.json"
+    },
+    {
+      "base_id": 173,
+      "n_kernels": 768,
+      "seed": 45602,
+      "output": "reports/id173_random_conv_sequence_post_id335_s1_nk768_seed45602_20260617.json"
+    },
+    {
+      "base_id": 173,
+      "n_kernels": 1024,
+      "seed": 45701,
+      "output": "reports/id173_random_conv_sequence_post_id335_s1_nk1024_seed45701_20260617.json"
+    },
+    {
+      "base_id": 173,
+      "n_kernels": 1024,
+      "seed": 45702,
+      "output": "reports/id173_random_conv_sequence_post_id335_s1_nk1024_seed45702_20260617.json"
+    }
+  ],
+  "review_gate_after_pull": [
+    "Compare targetwise_best_mean against the ID173/178/179 sequence anchor family.",
+    "Reject if gains are concentrated in movement-heavy targets without robustness support.",
+    "Promote only after a separate decision note and unique artifact contract are created."
+  ],
+  "updated_utc": "2026-06-17T15:16:35.258200+00:00",
+  "kaggle_kernel_status": "KernelWorkerStatus.COMPLETE",
+  "kaggle_output_dir": "artifacts/kaggle_outputs/sequence_source_post_id335",
+  "remote_summary_json": "reports/kaggle_sequence_source_remote_summary_post_id335_20260617.json",
+  "remote_summary_md": "reports/kaggle_sequence_source_remote_summary_post_id335_20260617.md",
+  "best_remote_diagnostic": {
+    "base_id": 173,
+    "n_kernels": 512,
+    "seed": 45502,
+    "base_mean": 0.5452533618305857,
+    "targetwise_best_mean": 0.5428882500874725,
+    "improvement_vs_base": 0.0023651117431131574,
+    "main_signal": "S1 improvement +0.010855, with smaller Q1/S4 improvements."
+  }
+}

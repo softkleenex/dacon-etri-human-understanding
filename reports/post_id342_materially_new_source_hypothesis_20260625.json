@@ -1,0 +1,919 @@
+{
+  "closed_route_status": {
+    "all_reports_parse": true,
+    "closed_route_count": 32,
+    "current_public_anchor_id": 342,
+    "current_public_score": 0.5960832519,
+    "dacon_submit_now": false,
+    "external_priority_ready": true,
+    "registered_routes_closed": true,
+    "route_count": 32,
+    "run_kaggle_now": false,
+    "same_family_heavy_rerun_allowed": false
+  },
+  "created_at_kst": "2026-06-25 22:27:44 UTC+09:00",
+  "decision": {
+    "create_feature_matrix_now": false,
+    "create_submission_artifact_now": false,
+    "hypothesis_packet_ready": true,
+    "modify_submission_log_now": false,
+    "next_action": "If paper-deadline work is stable, implement only the bounded dry-run for q3_app_name_stress_lexicon_v1; stop before artifacts unless the target gate clears.",
+    "push_kaggle_now": false,
+    "route_count": 3,
+    "run_kaggle_now": false,
+    "score_candidate_now": false,
+    "submit_dacon_now": false,
+    "top_route": "q3_app_name_stress_lexicon_v1"
+  },
+  "diagnostic": "post_id342_materially_new_source_hypothesis",
+  "do_not_repeat": [
+    "alpha/temperature/subject-prior calibration without independent signal",
+    "weather, air-quality, solar, and holiday date priors",
+    "same-family missingness or subject-state heavy reruns without a changed local gate",
+    "image-only or generic sequence-summary reruns",
+    "tiny S3/S4 micro-overlays near Public 0.596"
+  ],
+  "no_dacon_submission_made": true,
+  "no_feature_matrix_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_raw_payload_full_scan": true,
+  "no_submission_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "processed_novelty_token_hits": {
+    "home_anchor": [],
+    "raw_app_name_lexicon": [],
+    "subject_quota": []
+  },
+  "processed_schema_inventory": [
+    {
+      "column_count": 51,
+      "columns": [
+        "subject_id",
+        "lifelog_date",
+        "split",
+        "phase_strong_day_flag",
+        "phase_weak_day_flag",
+        "whr_rows",
+        "whr_hours",
+        "wlight_hours",
+        "mlight_hours",
+        "wpedo_hours",
+        "phase_missing_source_count",
+        "hr_night_median",
+        "hr_morning_median",
+        "hr_afternoon_median",
+        "hr_evening_median",
+        "hr_day_night_amplitude",
+        "hr_morning_rise_slope",
+        "hr_evening_decay_slope",
+        "hr_curve_roughness",
+        "hr_rest_window_low_quantile",
+        "hr_high_load_minutes_proxy",
+        "wlight_first_nonzero_hour",
+        "wlight_last_nonzero_hour",
+        "wlight_morning_exposure_sum",
+        "wlight_afternoon_exposure_sum",
+        "wlight_evening_exposure_sum",
+        "wlight_night_exposure_sum",
+        "wlight_day_night_contrast",
+        "wlight_evening_delay_ratio",
+        "mlight_dark_minutes_proxy",
+        "mlight_longest_dark_gap_hours",
+        "mlight_night_light_burst_count",
+        "mlight_evening_light_share",
+        "mlight_morning_light_share",
+        "mlight_wearable_light_disagreement",
+        "steps_morning_sum",
+        "steps_afternoon_sum",
+        "steps_evening_sum",
+        "steps_night_sum",
+        "first_active_hour",
+        "last_active_hour",
+        "activity_fragmentation_count",
+        "late_activity_ratio",
+        "rest_window_length_proxy",
+        "activity_phase_centroid_hour",
+        "hr_light_phase_lag_proxy",
+        "activity_light_phase_lag_proxy",
+        "night_light_with_high_hr_minutes_proxy",
+        "evening_activity_with_bright_light_proxy",
+        "morning_light_without_activity_proxy",
+        "strong_phase_cross_modal_consistency_score"
+      ],
+      "exists": true,
+      "feature_count_excluding_keys": 47,
+      "novelty_token_hits": {
+        "home_anchor": [],
+        "raw_app_name_lexicon": [],
+        "subject_quota": []
+      },
+      "path": "data/processed/post_id341_circadian_hr_light_phase_features_v1.parquet",
+      "rows": 700
+    },
+    {
+      "column_count": 35,
+      "columns": [
+        "subject_id",
+        "lifelog_date",
+        "split",
+        "gps_rows",
+        "gps_payload_points",
+        "gps_coordinate_payload_rows",
+        "gps_active_hours",
+        "gps_evening_rows_18_23",
+        "gps_night_rows_00_05",
+        "gps_gap_count_gt15m",
+        "gps_longest_gap_minutes",
+        "gps_observed_span_minutes",
+        "gps_speed_p50",
+        "gps_speed_p90",
+        "gps_speed_max",
+        "gps_low_speed_payload_share",
+        "gps_high_speed_payload_share",
+        "gps_lat_span",
+        "gps_lon_span",
+        "gps_bbox_area_proxy",
+        "gps_payload_quality_flag",
+        "activity_rows",
+        "activity_active_code_count",
+        "activity_top_code_share",
+        "activity_late_rows_18_23",
+        "wifi_rows",
+        "wifi_token_count_capped64",
+        "wifi_top_token_share",
+        "wifi_payload_points",
+        "ble_rows",
+        "ble_token_count_capped64",
+        "ble_top_token_share",
+        "ble_payload_points",
+        "place_context_rows",
+        "place_context_token_count_capped128"
+      ],
+      "exists": true,
+      "feature_count_excluding_keys": 31,
+      "novelty_token_hits": {
+        "home_anchor": [],
+        "raw_app_name_lexicon": [],
+        "subject_quota": []
+      },
+      "path": "data/processed/post_id341_gps_path_topology_features_v1.parquet",
+      "rows": 700
+    },
+    {
+      "column_count": 89,
+      "columns": [
+        "subject_id",
+        "sleep_date",
+        "lifelog_date",
+        "split",
+        "pwd_early_morning_phone_rest_state_screen_off_rate",
+        "pwd_early_morning_phone_rest_state_charging_rate",
+        "pwd_early_morning_phone_rest_state_phone_still_rate",
+        "pwd_early_morning_phone_rest_state_screen_off_charging_bins",
+        "pwd_early_morning_wearable_activation_state_step_active_rate",
+        "pwd_early_morning_wearable_activation_state_step_sum_log1p",
+        "pwd_early_morning_wearable_activation_state_hr_observed_rate",
+        "pwd_early_morning_wearable_activation_state_wearable_light_log1p",
+        "pwd_early_morning_discordance_state_screen_off_step_active_bins",
+        "pwd_early_morning_discordance_state_charging_step_active_bins",
+        "pwd_early_morning_discordance_state_phone_rest_wearable_active_bins",
+        "pwd_early_morning_discordance_state_phone_dark_wearable_light_bins",
+        "pwd_early_morning_transition_hysteresis_last_phone_active_hour",
+        "pwd_early_morning_transition_hysteresis_first_wearable_active_hour_after_phone_rest",
+        "pwd_early_morning_transition_hysteresis_wearable_after_phone_rest_gap_hours",
+        "pwd_morning_phone_rest_state_screen_off_rate",
+        "pwd_morning_phone_rest_state_charging_rate",
+        "pwd_morning_phone_rest_state_phone_still_rate",
+        "pwd_morning_phone_rest_state_screen_off_charging_bins",
+        "pwd_morning_wearable_activation_state_step_active_rate",
+        "pwd_morning_wearable_activation_state_step_sum_log1p",
+        "pwd_morning_wearable_activation_state_hr_observed_rate",
+        "pwd_morning_wearable_activation_state_wearable_light_log1p",
+        "pwd_morning_discordance_state_screen_off_step_active_bins",
+        "pwd_morning_discordance_state_charging_step_active_bins",
+        "pwd_morning_discordance_state_phone_rest_wearable_active_bins",
+        "pwd_morning_discordance_state_phone_dark_wearable_light_bins",
+        "pwd_morning_transition_hysteresis_last_phone_active_hour",
+        "pwd_morning_transition_hysteresis_first_wearable_active_hour_after_phone_rest",
+        "pwd_morning_transition_hysteresis_wearable_after_phone_rest_gap_hours",
+        "pwd_daytime_phone_rest_state_screen_off_rate",
+        "pwd_daytime_phone_rest_state_charging_rate",
+        "pwd_daytime_phone_rest_state_phone_still_rate",
+        "pwd_daytime_phone_rest_state_screen_off_charging_bins",
+        "pwd_daytime_wearable_activation_state_step_active_rate",
+        "pwd_daytime_wearable_activation_state_step_sum_log1p",
+        "pwd_daytime_wearable_activation_state_hr_observed_rate",
+        "pwd_daytime_wearable_activation_state_wearable_light_log1p",
+        "pwd_daytime_discordance_state_screen_off_step_active_bins",
+        "pwd_daytime_discordance_state_charging_step_active_bins",
+        "pwd_daytime_discordance_state_phone_rest_wearable_active_bins",
+        "pwd_daytime_discordance_state_phone_dark_wearable_light_bins",
+        "pwd_daytime_transition_hysteresis_last_phone_active_hour",
+        "pwd_daytime_transition_hysteresis_first_wearable_active_hour_after_phone_rest",
+        "pwd_daytime_transition_hysteresis_wearable_after_phone_rest_gap_hours",
+        "pwd_evening_phone_rest_state_screen_off_rate",
+        "pwd_evening_phone_rest_state_charging_rate",
+        "pwd_evening_phone_rest_state_phone_still_rate",
+        "pwd_evening_phone_rest_state_screen_off_charging_bins",
+        "pwd_evening_wearable_activation_state_step_active_rate",
+        "pwd_evening_wearable_activation_state_step_sum_log1p",
+        "pwd_evening_wearable_activation_state_hr_observed_rate",
+        "pwd_evening_wearable_activation_state_wearable_light_log1p",
+        "pwd_evening_discordance_state_screen_off_step_active_bins",
+        "pwd_evening_discordance_state_charging_step_active_bins",
+        "pwd_evening_discordance_state_phone_rest_wearable_active_bins",
+        "pwd_evening_discordance_state_phone_dark_wearable_light_bins",
+        "pwd_evening_transition_hysteresis_last_phone_active_hour",
+        "pwd_evening_transition_hysteresis_first_wearable_active_hour_after_phone_rest",
+        "pwd_evening_transition_hysteresis_wearable_after_phone_rest_gap_hours",
+        "pwd_late_evening_phone_rest_state_screen_off_rate",
+        "pwd_late_evening_phone_rest_state_charging_rate",
+        "pwd_late_evening_phone_rest_state_phone_still_rate",
+        "pwd_late_evening_phone_rest_state_screen_off_charging_bins",
+        "pwd_late_evening_wearable_activation_state_step_active_rate",
+        "pwd_late_evening_wearable_activation_state_step_sum_log1p",
+        "pwd_late_evening_wearable_activation_state_hr_observed_rate",
+        "pwd_late_evening_wearable_activation_state_wearable_light_log1p",
+        "pwd_late_evening_discordance_state_screen_off_step_active_bins",
+        "pwd_late_evening_discordance_state_charging_step_active_bins",
+        "pwd_late_evening_discordance_state_phone_rest_wearable_active_bins",
+        "pwd_late_evening_discordance_state_phone_dark_wearable_light_bins",
+        "pwd_late_evening_transition_hysteresis_last_phone_active_hour",
+        "pwd_late_evening_transition_hysteresis_first_wearable_active_hour_after_phone_rest",
+        "pwd_late_evening_transition_hysteresis_wearable_after_phone_rest_gap_hours",
+        "pwd_global_day_source_coverage_index",
+        "pwd_global_phone_rest_total_hour_bins",
+        "pwd_global_wearable_active_total_hour_bins",
+        "pwd_global_discordance_total_hour_bins",
+        "pwd_global_discordance_to_phone_rest_ratio",
+        "pwd_global_late_discordance_share",
+        "pwd_global_first_discordance_hour",
+        "pwd_global_last_discordance_hour",
+        "pwd_global_max_contiguous_discordance_hours",
+        "pwd_global_source_missingness_guard_count"
+      ],
+      "exists": true,
+      "feature_count_excluding_keys": 85,
+      "novelty_token_hits": {
+        "home_anchor": [],
+        "raw_app_name_lexicon": [],
+        "subject_quota": []
+      },
+      "path": "data/processed/post_id341_phone_wearable_discordance_features_v1.parquet",
+      "rows": 700
+    },
+    {
+      "column_count": 84,
+      "columns": [
+        "subject_id",
+        "sleep_date",
+        "lifelog_date",
+        "split",
+        "proxamb_all_day_wifi_proximity_richness_wifi_bins",
+        "proxamb_all_day_wifi_proximity_richness_wifi_devices_sum",
+        "proxamb_all_day_wifi_proximity_richness_wifi_strong_sum",
+        "proxamb_all_day_ble_proximity_richness_ble_bins",
+        "proxamb_all_day_ble_proximity_richness_ble_devices_sum",
+        "proxamb_all_day_ble_proximity_richness_ble_strong_sum",
+        "proxamb_all_day_ambience_social_place_speech_max",
+        "proxamb_all_day_ambience_social_place_speech_mean",
+        "proxamb_all_day_ambience_social_place_crowd_max",
+        "proxamb_all_day_ambience_social_place_place_max",
+        "proxamb_all_day_ambience_social_place_vehicle_music_max",
+        "proxamb_all_day_cross_sensor_cooccurrence_proximity_social_bins",
+        "proxamb_all_day_cross_sensor_cooccurrence_proximity_place_bins",
+        "proxamb_all_day_cross_sensor_cooccurrence_screen_proximity_bins",
+        "proxamb_all_day_cross_sensor_cooccurrence_social_screen_proximity_bins",
+        "proxamb_morning_wifi_proximity_richness_wifi_bins",
+        "proxamb_morning_wifi_proximity_richness_wifi_devices_sum",
+        "proxamb_morning_wifi_proximity_richness_wifi_strong_sum",
+        "proxamb_morning_ble_proximity_richness_ble_bins",
+        "proxamb_morning_ble_proximity_richness_ble_devices_sum",
+        "proxamb_morning_ble_proximity_richness_ble_strong_sum",
+        "proxamb_morning_ambience_social_place_speech_max",
+        "proxamb_morning_ambience_social_place_speech_mean",
+        "proxamb_morning_ambience_social_place_crowd_max",
+        "proxamb_morning_ambience_social_place_place_max",
+        "proxamb_morning_ambience_social_place_vehicle_music_max",
+        "proxamb_morning_cross_sensor_cooccurrence_proximity_social_bins",
+        "proxamb_morning_cross_sensor_cooccurrence_proximity_place_bins",
+        "proxamb_morning_cross_sensor_cooccurrence_screen_proximity_bins",
+        "proxamb_morning_cross_sensor_cooccurrence_social_screen_proximity_bins",
+        "proxamb_afternoon_wifi_proximity_richness_wifi_bins",
+        "proxamb_afternoon_wifi_proximity_richness_wifi_devices_sum",
+        "proxamb_afternoon_wifi_proximity_richness_wifi_strong_sum",
+        "proxamb_afternoon_ble_proximity_richness_ble_bins",
+        "proxamb_afternoon_ble_proximity_richness_ble_devices_sum",
+        "proxamb_afternoon_ble_proximity_richness_ble_strong_sum",
+        "proxamb_afternoon_ambience_social_place_speech_max",
+        "proxamb_afternoon_ambience_social_place_speech_mean",
+        "proxamb_afternoon_ambience_social_place_crowd_max",
+        "proxamb_afternoon_ambience_social_place_place_max",
+        "proxamb_afternoon_ambience_social_place_vehicle_music_max",
+        "proxamb_afternoon_cross_sensor_cooccurrence_proximity_social_bins",
+        "proxamb_afternoon_cross_sensor_cooccurrence_proximity_place_bins",
+        "proxamb_afternoon_cross_sensor_cooccurrence_screen_proximity_bins",
+        "proxamb_afternoon_cross_sensor_cooccurrence_social_screen_proximity_bins",
+        "proxamb_evening_wifi_proximity_richness_wifi_bins",
+        "proxamb_evening_wifi_proximity_richness_wifi_devices_sum",
+        "proxamb_evening_wifi_proximity_richness_wifi_strong_sum",
+        "proxamb_evening_ble_proximity_richness_ble_bins",
+        "proxamb_evening_ble_proximity_richness_ble_devices_sum",
+        "proxamb_evening_ble_proximity_richness_ble_strong_sum",
+        "proxamb_evening_ambience_social_place_speech_max",
+        "proxamb_evening_ambience_social_place_speech_mean",
+        "proxamb_evening_ambience_social_place_crowd_max",
+        "proxamb_evening_ambience_social_place_place_max",
+        "proxamb_evening_ambience_social_place_vehicle_music_max",
+        "proxamb_evening_cross_sensor_cooccurrence_proximity_social_bins",
+        "proxamb_evening_cross_sensor_cooccurrence_proximity_place_bins",
+        "proxamb_evening_cross_sensor_cooccurrence_screen_proximity_bins",
+        "proxamb_evening_cross_sensor_cooccurrence_social_screen_proximity_bins",
+        "proxamb_late_wifi_proximity_richness_wifi_bins",
+        "proxamb_late_wifi_proximity_richness_wifi_devices_sum",
+        "proxamb_late_wifi_proximity_richness_wifi_strong_sum",
+        "proxamb_late_ble_proximity_richness_ble_bins",
+        "proxamb_late_ble_proximity_richness_ble_devices_sum",
+        "proxamb_late_ble_proximity_richness_ble_strong_sum",
+        "proxamb_late_ambience_social_place_speech_max",
+        "proxamb_late_ambience_social_place_speech_mean",
+        "proxamb_late_ambience_social_place_crowd_max",
+        "proxamb_late_ambience_social_place_place_max",
+        "proxamb_late_ambience_social_place_vehicle_music_max",
+        "proxamb_late_cross_sensor_cooccurrence_proximity_social_bins",
+        "proxamb_late_cross_sensor_cooccurrence_proximity_place_bins",
+        "proxamb_late_cross_sensor_cooccurrence_screen_proximity_bins",
+        "proxamb_late_cross_sensor_cooccurrence_social_screen_proximity_bins",
+        "proxamb_global_wifi_day_covered_flag",
+        "proxamb_global_ble_day_covered_flag",
+        "proxamb_global_ambience_day_covered_flag",
+        "proxamb_global_proximity_social_bin_ratio",
+        "proxamb_global_late_to_evening_social_cooccur_ratio"
+      ],
+      "exists": true,
+      "feature_count_excluding_keys": 80,
+      "novelty_token_hits": {
+        "home_anchor": [],
+        "raw_app_name_lexicon": [],
+        "subject_quota": []
+      },
+      "path": "data/processed/post_id341_proximity_ambience_cooccurrence_features_v1.parquet",
+      "rows": 700
+    },
+    {
+      "column_count": 80,
+      "columns": [
+        "subject_id",
+        "lifelog_date",
+        "split",
+        "usage_row_count",
+        "usage_payload_row_rate",
+        "usage_missing_flag",
+        "screen_match_rate_5min",
+        "screen_missing_flag",
+        "ambience_match_rate_10min",
+        "source_coverage_score",
+        "usage_rows_total",
+        "usage_rows_evening",
+        "usage_rows_late",
+        "payload_event_count_total",
+        "usage_total_time_sum",
+        "usage_total_time_evening_sum",
+        "usage_total_time_late_sum",
+        "session_count",
+        "session_rows_median",
+        "session_rows_p90",
+        "max_session_rows",
+        "multi_category_session_count",
+        "evening_burst_rows_ge3",
+        "late_reactivation_rows_ge1",
+        "category_time_share_communication",
+        "category_time_share_media_search",
+        "category_time_share_finance_shop",
+        "category_time_share_system_home",
+        "category_time_share_routine_health",
+        "category_time_share_mobility_context",
+        "category_time_share_other",
+        "category_row_presence_count_communication",
+        "category_row_presence_count_media_search",
+        "category_row_presence_count_finance_shop",
+        "category_row_presence_count_system_home",
+        "category_row_presence_count_routine_health",
+        "category_row_presence_count_mobility_context",
+        "category_row_presence_count_other",
+        "category_dominant_count_communication",
+        "category_dominant_count_media_search",
+        "category_dominant_count_finance_shop",
+        "category_dominant_count_system_home",
+        "category_dominant_count_routine_health",
+        "category_dominant_count_mobility_context",
+        "category_dominant_count_other",
+        "transition_count",
+        "unique_transition_pair_count",
+        "transition_entropy",
+        "evening_transition_count",
+        "evening_unique_transition_pair_count",
+        "self_transition_rate",
+        "top_pair_concentration",
+        "rare_pair_count",
+        "category_switch_rate",
+        "markov_surprise_vs_subject_baseline",
+        "screen_on_at_usage_rate",
+        "screen_state_change_count_near_usage",
+        "screen_on_burst_count",
+        "screen_off_burst_count",
+        "late_screen_on_usage_rate",
+        "evening_screen_on_usage_rate",
+        "usage_after_screen_on_count",
+        "usage_before_screen_off_count",
+        "screen_coupling_missing_rate",
+        "screen_reactivation_after_idle_count",
+        "ambience_events_near_burst_count",
+        "ambience_unique_element_count_near_burst",
+        "quiet_high_switching_flag",
+        "noisy_late_reactivation_flag",
+        "ambience_missing_rate_near_usage",
+        "ambience_evening_context_count",
+        "ambience_late_context_count",
+        "ambience_guard_conflict_score",
+        "rolling_7d_burst_count_z",
+        "rolling_7d_late_reactivation_z",
+        "rolling_7d_transition_entropy_z",
+        "rolling_7d_screen_on_rate_z",
+        "subject_history_day_count",
+        "subject_history_missing_flag",
+        "subject_relative_usage_intensity_rank"
+      ],
+      "exists": true,
+      "feature_count_excluding_keys": 76,
+      "novelty_token_hits": {
+        "home_anchor": [],
+        "raw_app_name_lexicon": [],
+        "subject_quota": []
+      },
+      "path": "data/processed/post_id341_usage_semantic_burst_markov_features_v1.parquet",
+      "rows": 700
+    }
+  ],
+  "proposed_routes": [
+    {
+      "domain_link": "Q3 is subjective pre-sleep stress relative to the subject average. Late app mix, communication bursts, finance/workload apps, and rapid app switching are plausible stress proxies.",
+      "gate": {
+        "dacon_public_proxy_max": 0.55,
+        "failed_frontier_corr_abs_max": 0.2,
+        "local_targets": [
+          "Q3"
+        ],
+        "mean_delta_target_vs_id342_max": -0.002,
+        "must_beat_id342_on_primary_splits": "at least 4/5",
+        "review_public_proxy_max": 0.58
+      },
+      "minimum_dryrun": [
+        "Predeclare a small Korean/English app-name lexicon into stress/work/finance/social/media/routine buckets.",
+        "Emit only aggregate counts, time shares, late-evening bursts, and entropy; do not persist raw app names.",
+        "Join mScreenStatus and mAmbience only for late-screen-on and speech/noise context."
+      ],
+      "novelty_evidence": {
+        "processed_raw_app_name_lexicon_hits": [],
+        "required_for_novelty": "empty or lexicon-only aggregates absent from existing processed matrices"
+      },
+      "primary_targets": [
+        "Q3"
+      ],
+      "priority": 1,
+      "route": "q3_app_name_stress_lexicon_v1",
+      "secondary_targets": [
+        "Q2"
+      ],
+      "source_modalities": [
+        "mUsageStats",
+        "mScreenStatus",
+        "mAmbience"
+      ],
+      "stop_conditions": [
+        "If the lexicon route only improves Q2 or only produces calibration movement, close it.",
+        "If raw names are needed in artifacts, stop and redesign into non-secret aggregates.",
+        "If gains vanish under subject-hole or LOSO splits, do not create a submission CSV."
+      ],
+      "why_materially_new": "Existing usage features keep seven coarse categories and Markov/session summaries; processed matrices contain no raw app-name lexicon or stress-specific lexical aggregates."
+    },
+    {
+      "domain_link": "S3/S4 are sleep-onset latency and wakefulness-after-sleep-onset. Late return home, unstable night-place anchors, and in-bed phone activity are plausible onset/fragmentation precursors.",
+      "gate": {
+        "dacon_public_proxy_max": 0.55,
+        "failed_frontier_corr_abs_max": 0.2,
+        "local_targets": [
+          "S3",
+          "S4"
+        ],
+        "mean_delta_target_vs_id342_max": -0.002,
+        "must_beat_id342_on_primary_splits": "at least 4/5 for one focus target",
+        "review_public_proxy_max": 0.58
+      },
+      "minimum_dryrun": [
+        "Infer a subject-level night-home anchor from recurring late-night WiFi/BLE/GPS observations.",
+        "Build daily last-home-arrival, late-away-from-home, night anchor stability, and screen-after-return features.",
+        "Use only train/test public raw sensor timing; no labels or target leakage in anchor construction."
+      ],
+      "novelty_evidence": {
+        "processed_home_anchor_hits": [],
+        "required_for_novelty": "home-anchor and home-return aggregates absent from existing processed matrices"
+      },
+      "primary_targets": [
+        "S3",
+        "S4"
+      ],
+      "priority": 2,
+      "route": "s3_s4_home_return_sleep_boundary_v1",
+      "secondary_targets": [
+        "Q3"
+      ],
+      "source_modalities": [
+        "mWifi",
+        "mBle",
+        "mGps",
+        "mScreenStatus",
+        "mACStatus"
+      ],
+      "stop_conditions": [
+        "If anchor coverage is below 85 percent of rows, close or restrict to report-only.",
+        "If movement is only S4 weather/date-like movement, do not promote.",
+        "If gains are only test-neighbor split wins and fail LOSO, do not create artifacts."
+      ],
+      "why_materially_new": "Existing GPS/proximity features count tokens and activity windows, but do not explicitly infer a subject-specific night-home anchor, last-home-arrival time, or home-stability deviation."
+    },
+    {
+      "domain_link": "Q targets are binarized relative to a subject's own experimental-period average, so a pure static subject prior is not enough; any usable constraint must rank days within subject and calendar.",
+      "gate": {
+        "dacon_public_proxy_max": 0.55,
+        "failed_frontier_corr_abs_max": 0.15,
+        "local_targets": [
+          "Q3"
+        ],
+        "mean_delta_target_vs_id342_max": -0.003,
+        "must_beat_id342_on_primary_splits": "at least 5/5 because this is a calibration-like route",
+        "review_public_proxy_max": 0.58
+      },
+      "minimum_dryrun": [
+        "Audit whether Q label rates by subject are stable enough to justify any quota model.",
+        "Use independent raw-signal Q scores as ranks before any quota transform.",
+        "Reject static mean forcing; it is already closed by the subject-prior gate."
+      ],
+      "novelty_evidence": {
+        "processed_subject_quota_hits": [],
+        "required_for_novelty": "rank/quota constraint absent from existing processed matrices"
+      },
+      "primary_targets": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ],
+      "priority": 3,
+      "route": "q_target_rank_quota_constraint_v1",
+      "secondary_targets": [],
+      "source_modalities": [
+        "metrics calendar",
+        "OOF/test prediction shelf"
+      ],
+      "stop_conditions": [
+        "If the route resembles subject-prior calibration, close it immediately.",
+        "If no independent rank score exists, do not run a quota transform.",
+        "If it changes only prediction mean without target-wise loss gain, do not promote."
+      ],
+      "why_materially_new": "Subject-prior calibration failed; this route is only distinct if it uses within-subject rank/order constraints plus independent raw-signal scores, not a direct push toward train subject means."
+    }
+  ],
+  "purpose": "Define non-repeated Q3/S3/S4 source mechanisms after registered post-ID342 routes closed.",
+  "raw_schema_inventory": [
+    {
+      "column_count": 3,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_charging"
+      ],
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_mACStatus.parquet",
+      "role": "charging and phone-at-rest proxy",
+      "rows": 939896
+    },
+    {
+      "column_count": 3,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_activity"
+      ],
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_mActivity.parquet",
+      "role": "phone activity classifier",
+      "rows": 961062
+    },
+    {
+      "column_count": 3,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_ambience"
+      ],
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_mAmbience.parquet",
+      "role": "audio scene tags such as speech, music, vehicle, place",
+      "rows": 476577
+    },
+    {
+      "column_count": 3,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_ble"
+      ],
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_mBle.parquet",
+      "role": "nearby device recurrence and proximity density",
+      "rows": 21830
+    },
+    {
+      "column_count": 3,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_gps"
+      ],
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_mGps.parquet",
+      "role": "mobility, stationarity, approximate path geometry",
+      "rows": 800611
+    },
+    {
+      "column_count": 3,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_light"
+      ],
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_mLight.parquet",
+      "role": "phone light exposure",
+      "rows": 96258
+    },
+    {
+      "column_count": 3,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_screen_use"
+      ],
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_mScreenStatus.parquet",
+      "role": "screen on/off and phone-use timing",
+      "rows": 939653
+    },
+    {
+      "column_count": 3,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_usage_stats"
+      ],
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_mUsageStats.parquet",
+      "role": "app names, total app time, session mix",
+      "rows": 45197
+    },
+    {
+      "column_count": 3,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_wifi"
+      ],
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_mWifi.parquet",
+      "role": "recurring proximity tokens usable for place anchors",
+      "rows": 76336
+    },
+    {
+      "column_count": 3,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "heart_rate"
+      ],
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_wHr.parquet",
+      "role": "wearable heart-rate state",
+      "rows": 382918
+    },
+    {
+      "column_count": 3,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "w_light"
+      ],
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_wLight.parquet",
+      "role": "wearable light exposure",
+      "rows": 633741
+    },
+    {
+      "column_count": 9,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "step",
+        "step_frequency",
+        "running_step",
+        "walking_step",
+        "distance",
+        "speed",
+        "burned_calories"
+      ],
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_wPedo.parquet",
+      "role": "steps, speed, activity intensity",
+      "rows": 748100
+    }
+  ],
+  "report_only": true,
+  "score_state": {
+    "current_public_anchor_id": 342,
+    "current_public_score": 0.5960832519,
+    "gap_to_public_055": 0.046083251899999955,
+    "target_public_score": 0.55
+  },
+  "target_distribution_summary": {
+    "subject_target_means": [
+      {
+        "Q1": 0.439024,
+        "Q2": 0.560976,
+        "Q3": 0.585366,
+        "S1": 0.634146,
+        "S2": 0.585366,
+        "S3": 0.853659,
+        "S4": 0.487805,
+        "subject_id": "id01"
+      },
+      {
+        "Q1": 0.541667,
+        "Q2": 0.666667,
+        "Q3": 0.729167,
+        "S1": 0.875,
+        "S2": 0.916667,
+        "S3": 0.895833,
+        "S4": 0.75,
+        "subject_id": "id02"
+      },
+      {
+        "Q1": 0.848485,
+        "Q2": 0.818182,
+        "Q3": 0.727273,
+        "S1": 0.818182,
+        "S2": 0.515152,
+        "S3": 0.484848,
+        "S4": 0.151515,
+        "subject_id": "id03"
+      },
+      {
+        "Q1": 0.561404,
+        "Q2": 0.491228,
+        "Q3": 0.77193,
+        "S1": 0.754386,
+        "S2": 0.701754,
+        "S3": 0.54386,
+        "S4": 0.508772,
+        "subject_id": "id04"
+      },
+      {
+        "Q1": 0.613636,
+        "Q2": 0.431818,
+        "Q3": 0.681818,
+        "S1": 0.477273,
+        "S2": 0.25,
+        "S3": 0.136364,
+        "S4": 0.409091,
+        "subject_id": "id05"
+      },
+      {
+        "Q1": 0.145833,
+        "Q2": 0.395833,
+        "Q3": 0.5,
+        "S1": 0.9375,
+        "S2": 0.916667,
+        "S3": 0.958333,
+        "S4": 0.854167,
+        "subject_id": "id06"
+      },
+      {
+        "Q1": 0.510204,
+        "Q2": 0.510204,
+        "Q3": 0.510204,
+        "S1": 0.795918,
+        "S2": 0.714286,
+        "S3": 0.795918,
+        "S4": 0.469388,
+        "subject_id": "id07"
+      },
+      {
+        "Q1": 0.410714,
+        "Q2": 0.785714,
+        "Q3": 0.446429,
+        "S1": 0.446429,
+        "S2": 0.607143,
+        "S3": 0.660714,
+        "S4": 0.607143,
+        "subject_id": "id08"
+      },
+      {
+        "Q1": 0.512195,
+        "Q2": 0.439024,
+        "Q3": 0.439024,
+        "S1": 0.560976,
+        "S2": 0.780488,
+        "S3": 0.707317,
+        "S4": 0.585366,
+        "subject_id": "id09"
+      },
+      {
+        "Q1": 0.484848,
+        "Q2": 0.545455,
+        "Q3": 0.636364,
+        "S1": 0.484848,
+        "S2": 0.363636,
+        "S3": 0.484848,
+        "S4": 0.666667,
+        "subject_id": "id10"
+      }
+    ],
+    "target_counts": {
+      "Q1": {
+        "0": 227,
+        "1": 223
+      },
+      "Q2": {
+        "0": 197,
+        "1": 253
+      },
+      "Q3": {
+        "0": 180,
+        "1": 270
+      },
+      "S1": {
+        "0": 143,
+        "1": 307
+      },
+      "S2": {
+        "0": 157,
+        "1": 293
+      },
+      "S3": {
+        "0": 152,
+        "1": 298
+      },
+      "S4": {
+        "0": 198,
+        "1": 252
+      }
+    },
+    "target_means": {
+      "Q1": 0.4955555555555556,
+      "Q2": 0.5622222222222222,
+      "Q3": 0.6,
+      "S1": 0.6822222222222222,
+      "S2": 0.6511111111111111,
+      "S3": 0.6622222222222223,
+      "S4": 0.56
+    },
+    "test_date_max": "2024-11-19",
+    "test_date_min": "2024-07-06",
+    "test_rows": 250,
+    "test_rows_per_subject": {
+      "25%": 21.25,
+      "50%": 25.5,
+      "75%": 27.0,
+      "count": 10.0,
+      "max": 32.0,
+      "mean": 25.0,
+      "min": 19.0,
+      "std": 4.268749
+    },
+    "test_subjects": 10,
+    "train_date_max": "2024-11-14",
+    "train_date_min": "2024-06-03",
+    "train_rows": 450,
+    "train_rows_per_subject": {
+      "25%": 41.0,
+      "50%": 46.0,
+      "75%": 48.75,
+      "count": 10.0,
+      "max": 57.0,
+      "mean": 45.0,
+      "min": 33.0,
+      "std": 8.299933
+    },
+    "train_subjects": 10
+  }
+}

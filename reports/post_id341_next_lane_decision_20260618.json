@@ -1,0 +1,35 @@
+{
+  "created_at_kst": "2026-06-18 03:55:59 UTC+09:00",
+  "diagnostic": "post_id341_next_lane_decision",
+  "inputs": [
+    "reports/post_id340_micro_sequence_target_scan_20260618.json",
+    "reports/id341_q2_seqsum_w00025_public_risk_gate_20260618.json",
+    "reports/a1_bridge_source_rebuild_priority_post_id338_20260618.md",
+    "reports/fold_internal_second_stage_calibration_post_id335_20260617.md"
+  ],
+  "current_best_control_artifact": {
+    "id": 341,
+    "file": "submissions/submission_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.csv",
+    "local_cv": 0.538583659924236,
+    "proxy": 0.6038297835283394,
+    "read": "Lowest-risk sequence-summary micro-control so far, but almost an ID178 clone and not Public 0.58 evidence."
+  },
+  "submission_decision": {
+    "submit_now": false,
+    "public_058_plausible_candidate_exists": false,
+    "requires_user_approval_for_any_dacon_submit": true,
+    "if_forced_probe": "ID341 is now the lowest-movement sequence-summary sanity probe; ID337 remains the S1-signal probe. Neither is a Public 0.58 claim."
+  },
+  "modeling_decision": {
+    "do_not_continue": [
+      "same-family full-OOF/local-CV cascades",
+      "direct use of ID239/241 q240-free artifacts as clean sources",
+      "Mac/M4 environment blame loop for current public-local gap"
+    ],
+    "next_primary_lane": "A1_q240_free_source_layer_rebuild",
+    "next_primary_step": "Rebuild or simulate ID238-like source choice and conservative ID238 calibration inside frozen outer folds before replaying cap0.30 bridge selection.",
+    "why": "Selector-level A1 signal survives, but fold-internal calibration shows ID239/241-style full-OOF calibration collapses badly unless rebuilt more cleanly."
+  },
+  "no_submission_created_by_this_decision": true,
+  "no_dacon_submission_made": true
+}

@@ -1,0 +1,615 @@
+{
+  "created_at_kst": "2026-06-24 03:25:23 UTC+09:00",
+  "diagnostic": "post_id342_tiny_temporal_cnn_q3s3_smoke",
+  "purpose": "Minimal local temporal-CNN proxy for ID342-aware Q3/S3 raw sequence signal.",
+  "sleep_boundary_smoke_report": "reports/post_id342_sleep_boundary_q3s3_rescue_smoke_20260624.json",
+  "anchor_oof": "base_oof_id_342_id178_id221_featuresim_shrink050_cv0.534000.csv; base_test_id_342_id178_id221_featuresim_shrink050_cv0.534000.csv",
+  "feature_contract": {
+    "source": "44 half-hour multi-channel raw-sensor tensor plus label-free calendar/progress features",
+    "research_read": "This is the smallest local proxy for multi-channel image/sequence lifelog models: it keeps the time axis intact and lets a tiny Conv1d encoder learn local temporal motifs.",
+    "metadata": {
+      "sequence_rows": 809,
+      "n_train_rows": 450,
+      "n_channels": 68,
+      "n_bins": 44,
+      "n_calendar_features": 8,
+      "calendar_features": [
+        "calendar_dow_sin",
+        "calendar_dow_cos",
+        "calendar_is_weekend",
+        "calendar_month_sin",
+        "calendar_month_cos",
+        "calendar_subject_day_progress",
+        "calendar_subject_reverse_progress",
+        "calendar_subject_rank_pct"
+      ],
+      "sequence_value_channels": 34,
+      "sequence_total_channels": 68
+    }
+  },
+  "validation": {
+    "device": "cpu",
+    "primary_splits": [
+      "subject_hole_5",
+      "actual_test_band_holdout",
+      "test_boundary_neighbor2_holdout",
+      "test_boundary_neighbor5_holdout",
+      "loso_10"
+    ],
+    "model_specs": [
+      {
+        "name": "tinycnn_c18_e55_seed34201",
+        "channels": 18,
+        "hidden": 16,
+        "dropout": 0.15,
+        "lr": 0.006,
+        "weight_decay": 0.01,
+        "epochs": 55,
+        "batch_size": 64,
+        "seed": 34201
+      }
+    ],
+    "blend_weights": [
+      0.005,
+      0.01,
+      0.02,
+      0.03,
+      0.05
+    ],
+    "target_win_floor": 4,
+    "target_mean_delta_ceiling": -5e-05,
+    "target_max_delta_ceiling": 0.00075
+  },
+  "target_reports": {
+    "Q3": {
+      "target": "Q3",
+      "best": {
+        "target": "Q3",
+        "config": "Q3_id342_tiny_temporal_cnn_tinycnn_c18_e55_seed34201_w0.005",
+        "model_spec": {
+          "name": "tinycnn_c18_e55_seed34201",
+          "channels": 18,
+          "hidden": 16,
+          "dropout": 0.15,
+          "lr": 0.006,
+          "weight_decay": 0.01,
+          "epochs": 55,
+          "batch_size": 64,
+          "seed": 34201
+        },
+        "weight": 0.005,
+        "wins": 0,
+        "mean_delta": 0.00027518011884779535,
+        "max_delta": 0.0005767373076138727,
+        "min_delta": 5.142753274678391e-05,
+        "split_deltas": {
+          "subject_hole_5": 0.0002739733262174804,
+          "actual_test_band_holdout": 0.0005767373076138727,
+          "test_boundary_neighbor2_holdout": 5.142753274678391e-05,
+          "test_boundary_neighbor5_holdout": 0.00022558369969805092,
+          "loso_10": 0.00024817872796278895
+        },
+        "split_losses": {
+          "subject_hole_5": 0.563499877611702,
+          "actual_test_band_holdout": 0.5151255878769379,
+          "test_boundary_neighbor2_holdout": 0.6064377142306273,
+          "test_boundary_neighbor5_holdout": 0.5836008935640724,
+          "loso_10": 0.5634740830134473
+        },
+        "split_anchor_losses": {
+          "subject_hole_5": 0.5632259042854845,
+          "actual_test_band_holdout": 0.514548850569324,
+          "test_boundary_neighbor2_holdout": 0.6063862866978805,
+          "test_boundary_neighbor5_holdout": 0.5833753098643744,
+          "loso_10": 0.5632259042854845
+        },
+        "eligible": false
+      },
+      "eligible_count": 0,
+      "selected": null,
+      "top_rows": [
+        {
+          "target": "Q3",
+          "config": "Q3_id342_tiny_temporal_cnn_tinycnn_c18_e55_seed34201_w0.005",
+          "model_spec": {
+            "name": "tinycnn_c18_e55_seed34201",
+            "channels": 18,
+            "hidden": 16,
+            "dropout": 0.15,
+            "lr": 0.006,
+            "weight_decay": 0.01,
+            "epochs": 55,
+            "batch_size": 64,
+            "seed": 34201
+          },
+          "weight": 0.005,
+          "wins": 0,
+          "mean_delta": 0.00027518011884779535,
+          "max_delta": 0.0005767373076138727,
+          "min_delta": 5.142753274678391e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.0002739733262174804,
+            "actual_test_band_holdout": 0.0005767373076138727,
+            "test_boundary_neighbor2_holdout": 5.142753274678391e-05,
+            "test_boundary_neighbor5_holdout": 0.00022558369969805092,
+            "loso_10": 0.00024817872796278895
+          },
+          "split_losses": {
+            "subject_hole_5": 0.563499877611702,
+            "actual_test_band_holdout": 0.5151255878769379,
+            "test_boundary_neighbor2_holdout": 0.6064377142306273,
+            "test_boundary_neighbor5_holdout": 0.5836008935640724,
+            "loso_10": 0.5634740830134473
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_tiny_temporal_cnn_tinycnn_c18_e55_seed34201_w0.01",
+          "model_spec": {
+            "name": "tinycnn_c18_e55_seed34201",
+            "channels": 18,
+            "hidden": 16,
+            "dropout": 0.15,
+            "lr": 0.006,
+            "weight_decay": 0.01,
+            "epochs": 55,
+            "batch_size": 64,
+            "seed": 34201
+          },
+          "weight": 0.01,
+          "wins": 0,
+          "mean_delta": 0.0005610137315112285,
+          "max_delta": 0.0011634885783786686,
+          "min_delta": 0.0001164198506115044,
+          "split_deltas": {
+            "subject_hole_5": 0.0005589002656445352,
+            "actual_test_band_holdout": 0.0011634885783786686,
+            "test_boundary_neighbor2_holdout": 0.0001164198506115044,
+            "test_boundary_neighbor5_holdout": 0.0004620789123616076,
+            "loso_10": 0.0005041810505598265
+          },
+          "split_losses": {
+            "subject_hole_5": 0.563784804551129,
+            "actual_test_band_holdout": 0.5157123391477026,
+            "test_boundary_neighbor2_holdout": 0.606502706548492,
+            "test_boundary_neighbor5_holdout": 0.583837388776736,
+            "loso_10": 0.5637300853360443
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_tiny_temporal_cnn_tinycnn_c18_e55_seed34201_w0.02",
+          "model_spec": {
+            "name": "tinycnn_c18_e55_seed34201",
+            "channels": 18,
+            "hidden": 16,
+            "dropout": 0.15,
+            "lr": 0.006,
+            "weight_decay": 0.01,
+            "epochs": 55,
+            "batch_size": 64,
+            "seed": 34201
+          },
+          "weight": 0.02,
+          "wins": 0,
+          "mean_delta": 0.0011641947420560684,
+          "max_delta": 0.0023669983239146264,
+          "min_delta": 0.00028591509009734395,
+          "split_deltas": {
+            "subject_hole_5": 0.001161294686622405,
+            "actual_test_band_holdout": 0.0023669983239146264,
+            "test_boundary_neighbor2_holdout": 0.00028591509009734395,
+            "test_boundary_neighbor5_holdout": 0.0009672756348255707,
+            "loso_10": 0.0010394899748203956
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5643871989721069,
+            "actual_test_band_holdout": 0.5169158488932386,
+            "test_boundary_neighbor2_holdout": 0.6066722017879779,
+            "test_boundary_neighbor5_holdout": 0.5843425854991999,
+            "loso_10": 0.5642653942603049
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_tiny_temporal_cnn_tinycnn_c18_e55_seed34201_w0.03",
+          "model_spec": {
+            "name": "tinycnn_c18_e55_seed34201",
+            "channels": 18,
+            "hidden": 16,
+            "dropout": 0.15,
+            "lr": 0.006,
+            "weight_decay": 0.01,
+            "epochs": 55,
+            "batch_size": 64,
+            "seed": 34201
+          },
+          "weight": 0.03,
+          "wins": 0,
+          "mean_delta": 0.0018087192812282105,
+          "max_delta": 0.003610480129421334,
+          "min_delta": 0.0005063033425750652,
+          "split_deltas": {
+            "subject_hole_5": 0.0018065876900247302,
+            "actual_test_band_holdout": 0.003610480129421334,
+            "test_boundary_neighbor2_holdout": 0.0005063033425750652,
+            "test_boundary_neighbor5_holdout": 0.001514610172369646,
+            "loso_10": 0.001605615071750277
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5650324919755092,
+            "actual_test_band_holdout": 0.5181593306987453,
+            "test_boundary_neighbor2_holdout": 0.6068925900404556,
+            "test_boundary_neighbor5_holdout": 0.584889920036744,
+            "loso_10": 0.5648315193572347
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_tiny_temporal_cnn_tinycnn_c18_e55_seed34201_w0.05",
+          "model_spec": {
+            "name": "tinycnn_c18_e55_seed34201",
+            "channels": 18,
+            "hidden": 16,
+            "dropout": 0.15,
+            "lr": 0.006,
+            "weight_decay": 0.01,
+            "epochs": 55,
+            "batch_size": 64,
+            "seed": 34201
+          },
+          "weight": 0.05,
+          "wins": 0,
+          "mean_delta": 0.003219000434517905,
+          "max_delta": 0.00621732068131553,
+          "min_delta": 0.001092316582202324,
+          "split_deltas": {
+            "subject_hole_5": 0.0032238187343655023,
+            "actual_test_band_holdout": 0.00621732068131553,
+            "test_boundary_neighbor2_holdout": 0.001092316582202324,
+            "test_boundary_neighbor5_holdout": 0.002732319209960532,
+            "loso_10": 0.0028292269647456347
+          },
+          "split_losses": {
+            "subject_hole_5": 0.56644972301985,
+            "actual_test_band_holdout": 0.5207661712506395,
+            "test_boundary_neighbor2_holdout": 0.6074786032800829,
+            "test_boundary_neighbor5_holdout": 0.5861076290743349,
+            "loso_10": 0.5660551312502301
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        }
+      ]
+    },
+    "S3": {
+      "target": "S3",
+      "best": {
+        "target": "S3",
+        "config": "S3_id342_tiny_temporal_cnn_tinycnn_c18_e55_seed34201_w0.005",
+        "model_spec": {
+          "name": "tinycnn_c18_e55_seed34201",
+          "channels": 18,
+          "hidden": 16,
+          "dropout": 0.15,
+          "lr": 0.006,
+          "weight_decay": 0.01,
+          "epochs": 55,
+          "batch_size": 64,
+          "seed": 34201
+        },
+        "weight": 0.005,
+        "wins": 2,
+        "mean_delta": 1.1515899073877289e-05,
+        "max_delta": 0.0002952074595153342,
+        "min_delta": -0.00031389827953076654,
+        "split_deltas": {
+          "subject_hole_5": 7.16833028505115e-05,
+          "actual_test_band_holdout": 0.0002952074595153342,
+          "test_boundary_neighbor2_holdout": -0.00031389827953076654,
+          "test_boundary_neighbor5_holdout": 0.00014067648331628213,
+          "loso_10": -0.00013608947078197486
+        },
+        "split_losses": {
+          "subject_hole_5": 0.49001636673782956,
+          "actual_test_band_holdout": 0.4719052584875063,
+          "test_boundary_neighbor2_holdout": 0.5050046107458598,
+          "test_boundary_neighbor5_holdout": 0.5119159072288244,
+          "loso_10": 0.489808593964197
+        },
+        "split_anchor_losses": {
+          "subject_hole_5": 0.48994468343497904,
+          "actual_test_band_holdout": 0.471610051027991,
+          "test_boundary_neighbor2_holdout": 0.5053185090253905,
+          "test_boundary_neighbor5_holdout": 0.5117752307455081,
+          "loso_10": 0.489944683434979
+        },
+        "eligible": false
+      },
+      "eligible_count": 0,
+      "selected": null,
+      "top_rows": [
+        {
+          "target": "S3",
+          "config": "S3_id342_tiny_temporal_cnn_tinycnn_c18_e55_seed34201_w0.005",
+          "model_spec": {
+            "name": "tinycnn_c18_e55_seed34201",
+            "channels": 18,
+            "hidden": 16,
+            "dropout": 0.15,
+            "lr": 0.006,
+            "weight_decay": 0.01,
+            "epochs": 55,
+            "batch_size": 64,
+            "seed": 34201
+          },
+          "weight": 0.005,
+          "wins": 2,
+          "mean_delta": 1.1515899073877289e-05,
+          "max_delta": 0.0002952074595153342,
+          "min_delta": -0.00031389827953076654,
+          "split_deltas": {
+            "subject_hole_5": 7.16833028505115e-05,
+            "actual_test_band_holdout": 0.0002952074595153342,
+            "test_boundary_neighbor2_holdout": -0.00031389827953076654,
+            "test_boundary_neighbor5_holdout": 0.00014067648331628213,
+            "loso_10": -0.00013608947078197486
+          },
+          "split_losses": {
+            "subject_hole_5": 0.49001636673782956,
+            "actual_test_band_holdout": 0.4719052584875063,
+            "test_boundary_neighbor2_holdout": 0.5050046107458598,
+            "test_boundary_neighbor5_holdout": 0.5119159072288244,
+            "loso_10": 0.489808593964197
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_tiny_temporal_cnn_tinycnn_c18_e55_seed34201_w0.01",
+          "model_spec": {
+            "name": "tinycnn_c18_e55_seed34201",
+            "channels": 18,
+            "hidden": 16,
+            "dropout": 0.15,
+            "lr": 0.006,
+            "weight_decay": 0.01,
+            "epochs": 55,
+            "batch_size": 64,
+            "seed": 34201
+          },
+          "weight": 0.01,
+          "wins": 2,
+          "mean_delta": 3.6556922558539376e-05,
+          "max_delta": 0.0005993715374094655,
+          "min_delta": -0.0006182867567474659,
+          "split_deltas": {
+            "subject_hole_5": 0.00015199575901503337,
+            "actual_test_band_holdout": 0.0005993715374094655,
+            "test_boundary_neighbor2_holdout": -0.0006182867567474659,
+            "test_boundary_neighbor5_holdout": 0.0002932033731876116,
+            "loso_10": -0.00024349930007194764
+          },
+          "split_losses": {
+            "subject_hole_5": 0.4900966791939941,
+            "actual_test_band_holdout": 0.47220942256540044,
+            "test_boundary_neighbor2_holdout": 0.5047002222686431,
+            "test_boundary_neighbor5_holdout": 0.5120684341186957,
+            "loso_10": 0.48970118413490704
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_tiny_temporal_cnn_tinycnn_c18_e55_seed34201_w0.02",
+          "model_spec": {
+            "name": "tinycnn_c18_e55_seed34201",
+            "channels": 18,
+            "hidden": 16,
+            "dropout": 0.15,
+            "lr": 0.006,
+            "weight_decay": 0.01,
+            "epochs": 55,
+            "batch_size": 64,
+            "seed": 34201
+          },
+          "weight": 0.02,
+          "wins": 2,
+          "mean_delta": 0.0001254864260944566,
+          "max_delta": 0.0012342049433652358,
+          "min_delta": -0.001198967876181345,
+          "split_deltas": {
+            "subject_hole_5": 0.00033826073197879003,
+            "actual_test_band_holdout": 0.0012342049433652358,
+            "test_boundary_neighbor2_holdout": -0.001198967876181345,
+            "test_boundary_neighbor5_holdout": 0.0006333148098295327,
+            "loso_10": -0.0003793804785199306
+          },
+          "split_losses": {
+            "subject_hole_5": 0.49028294416695783,
+            "actual_test_band_holdout": 0.4728442559713562,
+            "test_boundary_neighbor2_holdout": 0.5041195411492092,
+            "test_boundary_neighbor5_holdout": 0.5124085455553377,
+            "loso_10": 0.48956530295645906
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_tiny_temporal_cnn_tinycnn_c18_e55_seed34201_w0.03",
+          "model_spec": {
+            "name": "tinycnn_c18_e55_seed34201",
+            "channels": 18,
+            "hidden": 16,
+            "dropout": 0.15,
+            "lr": 0.006,
+            "weight_decay": 0.01,
+            "epochs": 55,
+            "batch_size": 64,
+            "seed": 34201
+          },
+          "weight": 0.03,
+          "wins": 2,
+          "mean_delta": 0.0002638949371744803,
+          "max_delta": 0.001903810896546121,
+          "min_delta": -0.0017428682735616263,
+          "split_deltas": {
+            "subject_hole_5": 0.000558336811943283,
+            "actual_test_band_holdout": 0.001903810896546121,
+            "test_boundary_neighbor2_holdout": -0.0017428682735616263,
+            "test_boundary_neighbor5_holdout": 0.0010194123441055192,
+            "loso_10": -0.00041921709316089517
+          },
+          "split_losses": {
+            "subject_hole_5": 0.4905030202469223,
+            "actual_test_band_holdout": 0.4735138619245371,
+            "test_boundary_neighbor2_holdout": 0.5035756407518289,
+            "test_boundary_neighbor5_holdout": 0.5127946430896136,
+            "loso_10": 0.4895254663418181
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_tiny_temporal_cnn_tinycnn_c18_e55_seed34201_w0.05",
+          "model_spec": {
+            "name": "tinycnn_c18_e55_seed34201",
+            "channels": 18,
+            "hidden": 16,
+            "dropout": 0.15,
+            "lr": 0.006,
+            "weight_decay": 0.01,
+            "epochs": 55,
+            "batch_size": 64,
+            "seed": 34201
+          },
+          "weight": 0.05,
+          "wins": 2,
+          "mean_delta": 0.0006807155121928088,
+          "max_delta": 0.0033448761345651334,
+          "min_delta": -0.0027233150699933484,
+          "split_deltas": {
+            "subject_hole_5": 0.0010983593354489951,
+            "actual_test_band_holdout": 0.0033448761345651334,
+            "test_boundary_neighbor2_holdout": -0.0027233150699933484,
+            "test_boundary_neighbor5_holdout": 0.0019263546500443152,
+            "loso_10": -0.00024269748910105138
+          },
+          "split_losses": {
+            "subject_hole_5": 0.49104304277042804,
+            "actual_test_band_holdout": 0.4749549271625561,
+            "test_boundary_neighbor2_holdout": 0.5025951939553972,
+            "test_boundary_neighbor5_holdout": 0.5137015853955524,
+            "loso_10": 0.48970198594587794
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        }
+      ]
+    }
+  },
+  "partial_signal_rows": {
+    "Q3": [],
+    "S3": []
+  },
+  "decision": {
+    "selected_targets": [],
+    "q3_selected": false,
+    "s3_selected": false,
+    "all_focus_targets_selected": false,
+    "mean_primary_delta_vs_id342": 0.0,
+    "max_primary_delta_vs_id342": 0.0,
+    "projected_public_proxy_from_id342": 0.5960832519,
+    "gap_to_public_055_after_proxy": 0.046083251899999955,
+    "tiny_temporal_cnn_has_q3s3_signal": false,
+    "partial_signal_targets": [],
+    "q3_partial_signal_unstable": false,
+    "s3_partial_signal_unstable": false,
+    "final_tiny_temporal_cnn_gate_pass": false,
+    "public_055_evidence": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "If this local neural proxy fails, do not launch a Kaggle no-submit run for the same architecture. If it passes, use Kaggle only for parity/review evidence."
+  },
+  "in_memory_validation_predictions_only": true,
+  "no_prediction_file_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_dacon_submission_made": true
+}

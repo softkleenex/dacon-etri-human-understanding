@@ -1,0 +1,190 @@
+{
+  "created_at": "2026-06-16",
+  "purpose": "Candidate-tier manifest after ID221 clean update and ID222/ID223 bridge carry-forward.",
+  "ground_truth_warning": {
+    "id178_public_lb": 0.6014113009,
+    "meaning": "ID221/222/223 improve local lenses only. Public 0.55 remains unproven without DACON submission."
+  },
+  "current_cleaner_branch": {
+    "candidate_ids": [
+      221,
+      218,
+      215,
+      212,
+      209,
+      206,
+      203,
+      200,
+      198,
+      193,
+      191,
+      179
+    ],
+    "preferred_order": [
+      221,
+      218,
+      215,
+      212,
+      209,
+      206,
+      203,
+      200,
+      198,
+      193,
+      191,
+      179
+    ],
+    "interpretation": "ID221 is current preferred clean branch."
+  },
+  "current_moderate_bridge": {
+    "candidate_ids": [
+      222,
+      219,
+      216,
+      213,
+      210,
+      207,
+      204,
+      201,
+      199,
+      194,
+      223,
+      217,
+      220,
+      214,
+      211,
+      208,
+      205,
+      202,
+      195,
+      192,
+      181,
+      182,
+      180
+    ],
+    "preferred_order": [
+      222,
+      219,
+      216,
+      213,
+      210,
+      207,
+      204,
+      201,
+      199,
+      194,
+      223,
+      217,
+      220,
+      214,
+      211,
+      208,
+      205,
+      202,
+      195,
+      192,
+      181,
+      182,
+      180
+    ],
+    "interpretation": "ID222 is preferred moderate-low bridge; ID223 is the lowest moderate bridge frontier but more aggressive."
+  },
+  "tiers": {
+    "cleaner_anchor_like": {
+      "candidate_ids": [
+        221,
+        218,
+        215,
+        212,
+        209,
+        206,
+        203,
+        200,
+        198,
+        193,
+        191,
+        179
+      ]
+    },
+    "moderate_low_counterprobe": {
+      "candidate_ids": [
+        222,
+        219,
+        216,
+        213,
+        210,
+        207,
+        204,
+        201,
+        199,
+        194
+      ]
+    },
+    "moderate_counterprobe": {
+      "candidate_ids": [
+        223,
+        217,
+        220,
+        214,
+        211,
+        208,
+        205,
+        202,
+        195,
+        192,
+        181,
+        182,
+        180
+      ]
+    },
+    "bold_counterprobe": {
+      "candidate_ids": [
+        196,
+        197,
+        183,
+        184,
+        185
+      ]
+    },
+    "extreme_counterprobe_only": {
+      "candidate_ids": [
+        186,
+        187,
+        188,
+        189,
+        172
+      ]
+    }
+  },
+  "id221_review": {
+    "preferred_id": 221,
+    "local_cv": 0.5329901873426955,
+    "robustness_score": 0.5648106632093344,
+    "interpretation": "Best current clean/non-ID172 local branch; public-structure selected, not nested Subject-Hole proof."
+  },
+  "id222_review": {
+    "submission_file": "submission_id_222_id221_targetwise_delta06_id172_extreme_probe_cv0.521966_unsubmitted.csv",
+    "local_cv": 0.521965845839045,
+    "robustness_score": 0.5531997445683329,
+    "delta_vs_id219": {
+      "overall": -0.000908471531052446,
+      "robustness_score": -0.0006787748988481557
+    },
+    "interpretation": "Slightly better than ID219 on local and robustness, but inherits ID172 non-nested calibration risk."
+  },
+  "id223_review": {
+    "submission_file": "submission_id_223_id221_targetwise_delta08_id172_extreme_probe_cv0.518724_unsubmitted.csv",
+    "local_cv": 0.5187238603355875,
+    "robustness_score": 0.5498163794251036,
+    "delta_vs_id220": {
+      "overall": -0.0008374534865263072,
+      "robustness_score": -0.000626011375346458
+    },
+    "interpretation": "New lowest moderate bridge robustness/local frontier after ID220, but inherits ID172 risk and should be treated as a counterprobe."
+  },
+  "supporting_reports": {
+    "bridge_review": "reports/post_id223_bridge_review_20260616.json",
+    "robustness": "reports/id178_id223_split_robustness_diagnostic_20260616.json",
+    "id221_review": "reports/public_feature_similarity_review_post_id221_20260616.json"
+  }
+}

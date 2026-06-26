@@ -1,0 +1,373 @@
+{
+  "created_at_kst": "2026-06-23 18:07:54 UTC+09:00",
+  "diagnostic": "post_id341_q2q3s3_source_hypothesis_matrix",
+  "purpose": "Convert the post-ID341 Q2/Q3/S3 gap into target-specific source hypotheses and fail-fast rules before any new model artifact, Kaggle run, or DACON submission is allowed.",
+  "inputs": {
+    "missing_inventory": "reports/post_id341_missing_target_signal_inventory_20260618.json",
+    "target_gap": "reports/post_id341_target_gap_budget_20260618.json",
+    "upstream_priority": "reports/post_id341_upstream_source_priority_matrix_20260618.json",
+    "data_coverage": "reports/post_id341_data_source_coverage_audit_20260618.json",
+    "phase2_plan": "reports/phase2_raw_multimodal_execution_plan_post_id341_20260618.json",
+    "public_gap": "reports/post_id341_public_local_gap_diagnosis_20260618.json",
+    "processed_train": "data/processed/df_train_raw.parquet",
+    "metrics_description": "data/raw/ch2026_metrics_description_ko.md",
+    "paper_note": "docs/domain/etri_lifelog_2024_paper.md"
+  },
+  "constants": {
+    "focus_targets": [
+      "Q2",
+      "Q3",
+      "S3"
+    ],
+    "id178_public": 0.6014113009,
+    "public_058_review_cutoff": 0.59,
+    "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인"
+  },
+  "processed_schema": {
+    "column_count": 242,
+    "targets_present": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ]
+  },
+  "target_gap_budget": {
+    "strict_selected_targets": [
+      "Q1",
+      "S4"
+    ],
+    "watch_selected_targets": [
+      "Q1",
+      "S1",
+      "S2",
+      "S4"
+    ],
+    "strict_projected_proxy_from_id341": 0.6029073697931898,
+    "watch_projected_proxy_from_id341": 0.6022557378490278,
+    "additional_sum_delta_needed_to_beat_id178": -0.010472482252329041,
+    "additional_sum_delta_needed_for_public_058": -0.09035158855232887,
+    "required_sum_target_delta_to_beat_id178": -0.016929378200000733,
+    "required_sum_target_delta_for_public_058": -0.09680848450000057
+  },
+  "public_gap_stop_rule": {
+    "available": true,
+    "recent_gap_floor": 0.062554629,
+    "recent_gap_stress": 0.085072858,
+    "local_cv_needed_for_public_058_recent_floor": 0.517445,
+    "local_cv_needed_for_public_058_recent_stress": 0.494927,
+    "any_watch_candidate_passes_public_058_recent_floor_proxy": false,
+    "create_submission_artifact": false,
+    "submit_now": false
+  },
+  "data_source_summary": {
+    "available": true,
+    "data_source_coverage_ready": true,
+    "all_major_sources_present": true,
+    "external_direct_concat_allowed": false,
+    "raw_rows_by_modality": {},
+    "external_rows_by_file": {}
+  },
+  "phase2_plan_summary": {
+    "available": true,
+    "phase2_raw_multimodal_plan_ready": true,
+    "recommended_first_block": "A_q1_s4_sleep_residual_bridge",
+    "block_order": [],
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false
+  },
+  "target_source_matrix": {
+    "Q2": {
+      "target": "Q2",
+      "definition": "pre-sleep subjective physical fatigue; 1 means lower/better fatigue than the subject mean",
+      "label_risk": "individual-mean survey binarization makes subject-baseline leakage and temporal drift especially dangerous",
+      "paper_baseline_hint": "The reference paper reports mUsageStats+DW as a strong Q2 baseline family.",
+      "first_hypothesis": "evening/late app-load and recovery burden before sleep",
+      "raw_sources": [
+        "mUsageStats",
+        "wHr",
+        "wPedo",
+        "mActivity",
+        "mScreenStatus",
+        "mLight",
+        "wLight"
+      ],
+      "source_row_counts": {
+        "mUsageStats": null,
+        "wHr": null,
+        "wPedo": null,
+        "mActivity": null,
+        "mScreenStatus": null,
+        "mLight": null,
+        "wLight": null
+      },
+      "processed_feature_coverage": {
+        "match_count": 73,
+        "examples": [
+          "act_presleep_active",
+          "ch2025_mUsageStats_app_camera_sum",
+          "ch2025_mUsageStats_app_chrome_sum",
+          "ch2025_mUsageStats_app_gallery_sum",
+          "ch2025_mUsageStats_app_game_sum",
+          "ch2025_mUsageStats_app_instagram_sum",
+          "ch2025_mUsageStats_app_kakao_sum",
+          "ch2025_mUsageStats_app_music_sum",
+          "ch2025_mUsageStats_app_naver_sum",
+          "ch2025_mUsageStats_app_netflix_sum",
+          "ch2025_mUsageStats_app_tiktok_sum",
+          "ch2025_mUsageStats_app_youtube_sum",
+          "ch2025_mUsageStats_num_apps_max",
+          "ch2025_mUsageStats_num_apps_mean",
+          "ch2025_mUsageStats_total_usage_time_mean",
+          "ch2025_mUsageStats_total_usage_time_sum",
+          "ch2025_wHr_hr_day_mean",
+          "ch2025_wHr_hr_max_max",
+          "ch2025_wHr_hr_mean_mean",
+          "ch2025_wHr_hr_mean_std",
+          "ch2025_wHr_hr_min_min",
+          "ch2025_wHr_hr_night_mean",
+          "ch2025_wHr_hr_rmssd_max",
+          "ch2025_wHr_hr_rmssd_mean"
+        ]
+      },
+      "external_value": "ETRI 2018-2020 survey fatigue scales may help as a proxy task, but direct row concatenation is blocked.",
+      "fail_fast_rule": "stop if Q2 does not win at least 4/5 primary splits with negative mean delta vs ID341",
+      "local_inventory": {
+        "local_status": "missing",
+        "local_selected_row_count": 0,
+        "best_local_row": null,
+        "recommended_action": "route_to_clean_id221_then_id226_no_submit_upstream_rebuild"
+      },
+      "clean_root_id221": {
+        "id": 221,
+        "local_cv": 0.53299,
+        "action": null,
+        "status_clean": "generated_unsubmitted",
+        "target_delta_vs_178": -0.006508414576138266,
+        "target_delta_vs_341": -0.006129872313308415,
+        "fold_wins_vs_341": 21,
+        "fold_count": 23,
+        "max_delta_vs_341_test": null
+      },
+      "clean_backbone_id226": {
+        "id": 226,
+        "local_cv": 0.491771,
+        "action": null,
+        "status_clean": "generated_unsubmitted",
+        "target_delta_vs_178": -0.06499415447750512,
+        "target_delta_vs_341": -0.06461561221467527,
+        "fold_wins_vs_341": 23,
+        "fold_count": 23,
+        "max_delta_vs_341_test": null
+      },
+      "id226_has_negative_target_delta_vs_178": true,
+      "id226_all_folds_win_vs_341": true,
+      "recommended_route": "clean ID221 root -> clean ID226 target-wise backbone -> output-intake gate -> separate artifact review"
+    },
+    "Q3": {
+      "target": "Q3",
+      "definition": "pre-sleep subjective stress; 1 means lower/better stress than the subject mean",
+      "label_risk": "stress is survey-relative and can look good under full-OOF calibration while failing public transfer",
+      "paper_baseline_hint": "The reference paper shows wPedo+mUsageStats+DW as a strong Q3 combination.",
+      "first_hypothesis": "social/routine novelty plus evening app and activity load",
+      "raw_sources": [
+        "mUsageStats",
+        "mWifi",
+        "mBle",
+        "mGps",
+        "mAmbience",
+        "wPedo",
+        "mActivity",
+        "wHr"
+      ],
+      "source_row_counts": {
+        "mUsageStats": null,
+        "mWifi": null,
+        "mBle": null,
+        "mGps": null,
+        "mAmbience": null,
+        "wPedo": null,
+        "mActivity": null,
+        "wHr": null
+      },
+      "processed_feature_coverage": {
+        "match_count": 108,
+        "examples": [
+          "act_0_ratio",
+          "act_3_ratio",
+          "act_4_ratio",
+          "act_7_ratio",
+          "act_8_ratio",
+          "act_active_ratio",
+          "act_aftn_active",
+          "act_aftn_still",
+          "act_eve_active",
+          "act_eve_still",
+          "act_morn_active",
+          "act_morn_still",
+          "act_n_records",
+          "act_night_active",
+          "act_night_still",
+          "act_presleep_active",
+          "act_still_ratio",
+          "amb_music_mean",
+          "amb_n_records",
+          "amb_silence_mean",
+          "amb_speech_mean",
+          "ble_n_scans",
+          "ble_n_unique",
+          "ch2025_mAmbience_ambience_changes_mean"
+        ]
+      },
+      "external_value": "External survey stress/fatigue scales are useful only as priors or pretraining labels, not as direct DACON rows.",
+      "fail_fast_rule": "stop if the source increases joint-distribution risk or cannot beat ID341 in at least 4/5 primary splits",
+      "local_inventory": {
+        "local_status": "missing",
+        "local_selected_row_count": 0,
+        "best_local_row": null,
+        "recommended_action": "route_to_clean_id221_then_id226_no_submit_upstream_rebuild"
+      },
+      "clean_root_id221": {
+        "id": 221,
+        "local_cv": 0.53299,
+        "action": null,
+        "status_clean": "generated_unsubmitted",
+        "target_delta_vs_178": -0.0048587523179582925,
+        "target_delta_vs_341": -0.0048587523179582925,
+        "fold_wins_vs_341": 21,
+        "fold_count": 23,
+        "max_delta_vs_341_test": null
+      },
+      "clean_backbone_id226": {
+        "id": 226,
+        "local_cv": 0.491771,
+        "action": null,
+        "status_clean": "generated_unsubmitted",
+        "target_delta_vs_178": -0.051075415541679936,
+        "target_delta_vs_341": -0.051075415541679936,
+        "fold_wins_vs_341": 23,
+        "fold_count": 23,
+        "max_delta_vs_341_test": null
+      },
+      "id226_has_negative_target_delta_vs_178": true,
+      "id226_all_folds_win_vs_341": true,
+      "recommended_route": "clean ID221 root -> clean ID226 target-wise backbone -> output-intake gate -> separate artifact review"
+    },
+    "S3": {
+      "target": "S3",
+      "definition": "objective sleep onset latency guideline adherence; 1 means acceptable sleep-onset latency",
+      "label_risk": "sensor-derived onset labels are likely driven by evening boundary timing, missingness, and sleep-window alignment",
+      "paper_baseline_hint": "The reference paper reports strong S3 signal from wPedo+DW and mLight+DW families.",
+      "first_hypothesis": "pre-sleep quiet/dark transition and physiological settling before sleep",
+      "raw_sources": [
+        "mScreenStatus",
+        "mActivity",
+        "mACStatus",
+        "mLight",
+        "wLight",
+        "wHr",
+        "wPedo"
+      ],
+      "source_row_counts": {
+        "mScreenStatus": null,
+        "mActivity": null,
+        "mACStatus": null,
+        "mLight": null,
+        "wLight": null,
+        "wHr": null,
+        "wPedo": null
+      },
+      "processed_feature_coverage": {
+        "match_count": 53,
+        "examples": [
+          "ac_night_charging",
+          "ac_presleep_charging",
+          "act_night_active",
+          "act_night_still",
+          "act_presleep_active",
+          "mlight_dark_ratio",
+          "mlight_night_mean",
+          "screen_night_on",
+          "screen_night_ratio",
+          "screen_presleep_on",
+          "screen_presleep_ratio",
+          "slp_act_active_ratio",
+          "slp_act_n_records",
+          "slp_act_still_ratio",
+          "slp_hr_awake_ratio",
+          "slp_hr_deep_ratio",
+          "slp_hr_early_mean",
+          "slp_hr_late_mean",
+          "slp_hr_light_ratio",
+          "slp_hr_max",
+          "slp_hr_mean",
+          "slp_hr_median",
+          "slp_hr_mid_mean",
+          "slp_hr_min"
+        ]
+      },
+      "external_value": "External sleep logs can inform onset/efficiency priors, but the current local gate forbids direct concat.",
+      "fail_fast_rule": "stop if S3 cannot produce a low-movement all-primary improvement; do not borrow Q1/S4 sleep quality movement",
+      "local_inventory": {
+        "local_status": "missing",
+        "local_selected_row_count": 0,
+        "best_local_row": null,
+        "recommended_action": "route_to_clean_id221_then_id226_no_submit_upstream_rebuild"
+      },
+      "clean_root_id221": {
+        "id": 221,
+        "local_cv": 0.53299,
+        "action": null,
+        "status_clean": "generated_unsubmitted",
+        "target_delta_vs_178": -0.001403660113440064,
+        "target_delta_vs_341": -0.001403660113440064,
+        "fold_wins_vs_341": 21,
+        "fold_count": 23,
+        "max_delta_vs_341_test": null
+      },
+      "clean_backbone_id226": {
+        "id": 226,
+        "local_cv": 0.491771,
+        "action": null,
+        "status_clean": "generated_unsubmitted",
+        "target_delta_vs_178": -0.02577807595581938,
+        "target_delta_vs_341": -0.02577807595581938,
+        "fold_wins_vs_341": 23,
+        "fold_count": 23,
+        "max_delta_vs_341_test": null
+      },
+      "id226_has_negative_target_delta_vs_178": true,
+      "id226_all_folds_win_vs_341": true,
+      "recommended_route": "clean ID221 root -> clean ID226 target-wise backbone -> output-intake gate -> separate artifact review"
+    }
+  },
+  "decision": {
+    "q2q3s3_source_hypothesis_matrix_ready": true,
+    "all_focus_targets_missing_locally": true,
+    "all_focus_targets_have_historical_id226_signal": true,
+    "all_focus_targets_id226_win_all_folds_vs_341": true,
+    "processed_feature_coverage_sufficient_for_design": true,
+    "external_direct_concat_allowed": false,
+    "local_q2q3s3_artifact_promotable": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "requires_explicit_kaggle_approval": true,
+    "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+    "recommended_next_action": "Keep local ID342 closed. Use this matrix as the score-relevant design compass for the explicit-approved no-submit Kaggle upstream rebuild; only pulled reports that beat ID178 and pass Public-0.58 review gates may open a separate artifact-contract review."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

@@ -1,0 +1,373 @@
+{
+  "created_at_kst": "2026-06-17 21:59:13 UTC+09:00",
+  "diagnostic": "id178_sequence_target_rollback_post_id329",
+  "source_robustness_report": "/Volumes/samsd/workspace_v2/dacon/dacon-etri-human-understanding/reports/random_conv_sequence_robustness_post_id329_20260617.json",
+  "source_files": {
+    "id173": {
+      "oof": "artifacts/base_predictions/base_oof_id_173_id169_s4_hourly_sequence_overlay_cv0.545253.csv",
+      "test": "artifacts/base_predictions/base_test_id_173_id169_s4_hourly_sequence_overlay_cv0.545253.csv",
+      "slug": "id169_s4_hourly_sequence_overlay_cv0.545253"
+    },
+    "id178": {
+      "oof": "artifacts/base_predictions/base_oof_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638.csv",
+      "test": "artifacts/base_predictions/base_test_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638.csv",
+      "slug": "id173_fine_highc_random_conv_sequence_overlay_cv0.538638"
+    },
+    "id287": {
+      "oof": "artifacts/base_predictions/base_oof_id_287_post285_base282_fixedtemp_balanced_cv0.378934.csv",
+      "test": "artifacts/base_predictions/base_test_id_287_post285_base282_fixedtemp_balanced_cv0.378934.csv",
+      "slug": "post285_base282_fixedtemp_balanced_cv0.378934"
+    },
+    "id329": {
+      "oof": "artifacts/base_predictions/base_oof_id_329_post328_combo4_cap080_budget050_practical_cv0.516718.csv",
+      "test": "artifacts/base_predictions/base_test_id_329_post328_combo4_cap080_budget050_practical_cv0.516718.csv",
+      "slug": "post328_combo4_cap080_budget050_practical_cv0.516718"
+    }
+  },
+  "ranked_variants": [
+    {
+      "variant": "rollback_s1_s4",
+      "rationale": "Keep only the targets that are positive or neutral across stricter stress checks.",
+      "keep_sequence_targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S2"
+      ],
+      "reverted_to_id173_targets": [
+        "S1",
+        "S3",
+        "S4"
+      ],
+      "oof_loss": 0.5403472787174195,
+      "oof_per_target": {
+        "Q1": 0.5519157186538461,
+        "Q2": 0.5566793351664245,
+        "Q3": 0.5670897848363184,
+        "S1": 0.4774829202961419,
+        "S2": 0.529556132747474,
+        "S3": 0.4908930389002769,
+        "S4": 0.6088140204214548
+      },
+      "robustness": {
+        "strategy_scores": {
+          "subject_hole_5": {
+            "mean_loss": 0.5432342356458312,
+            "base_mean": 0.5452533618305857,
+            "improvement_vs_base": 0.002019126184754527,
+            "per_target": {
+              "Q1": 0.5580639245625404,
+              "Q2": 0.5659734237440801,
+              "Q3": 0.5689776120477771,
+              "S1": 0.4774829202961419,
+              "S2": 0.5324347095485475,
+              "S3": 0.4908930389002769,
+              "S4": 0.6088140204214548
+            }
+          },
+          "leave_one_subject_out_10": {
+            "mean_loss": 0.5438177584211213,
+            "base_mean": 0.5452533618305857,
+            "improvement_vs_base": 0.0014356034094643588,
+            "per_target": {
+              "Q1": 0.5633855164564855,
+              "Q2": 0.5593095194563047,
+              "Q3": 0.5714312121102783,
+              "S1": 0.4774829202961419,
+              "S2": 0.5354080813069072,
+              "S3": 0.4908930389002769,
+              "S4": 0.6088140204214548
+            }
+          },
+          "test_boundary_neighbor_holdout": {
+            "mean_loss": 0.6332609263838378,
+            "base_mean": 0.6452411774614143,
+            "improvement_vs_base": 0.011980251077576498,
+            "per_target": {
+              "Q1": 0.5116131604574077,
+              "Q2": 0.4702010802180389,
+              "Q3": 0.7161565508085708,
+              "S1": 0.5466290442783966,
+              "S2": 0.8422781934233715,
+              "S3": 0.6235624898839651,
+              "S4": 0.7223859656171139
+            }
+          }
+        },
+        "mean_across_stress_strategies": 0.5734376401502634,
+        "min_improvement_vs_base": 0.0014356034094643588
+      },
+      "geometry": {
+        "mean_abs_delta_vs_id178": 0.010289745148010603,
+        "max_abs_delta_vs_id178": 0.11912031993699335,
+        "rmse_vs_id178": 0.0231823963352176,
+        "mean_abs_delta_vs_id329": 0.025242222073081792,
+        "max_abs_delta_vs_id329": 0.16039821693910883,
+        "projection_to_id287_failed_direction": 0.003942981518549397,
+        "prediction_mean": 0.6037452910546361,
+        "prediction_std": 0.2198520515852337
+      },
+      "verdict": "reviewable_hypothesis_only"
+    },
+    {
+      "variant": "rollback_s1",
+      "rationale": "Revert S1 because LOSO and boundary stress dislike the S1 sequence overlay.",
+      "keep_sequence_targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S2",
+        "S4"
+      ],
+      "reverted_to_id173_targets": [
+        "S1",
+        "S3"
+      ],
+      "oof_loss": 0.5394738050124261,
+      "oof_per_target": {
+        "Q1": 0.5519157186538461,
+        "Q2": 0.5566793351664245,
+        "Q3": 0.5670897848363184,
+        "S1": 0.4774829202961419,
+        "S2": 0.529556132747474,
+        "S3": 0.4908930389002769,
+        "S4": 0.6026997044865015
+      },
+      "robustness": {
+        "strategy_scores": {
+          "subject_hole_5": {
+            "mean_loss": 0.5427095599616576,
+            "base_mean": 0.5452533618305857,
+            "improvement_vs_base": 0.0025438018689281083,
+            "per_target": {
+              "Q1": 0.5580639245625404,
+              "Q2": 0.5659734237440801,
+              "Q3": 0.5689776120477771,
+              "S1": 0.4774829202961419,
+              "S2": 0.5324347095485475,
+              "S3": 0.4908930389002769,
+              "S4": 0.6051412906322392
+            }
+          },
+          "leave_one_subject_out_10": {
+            "mean_loss": 0.5434037152135666,
+            "base_mean": 0.5452533618305857,
+            "improvement_vs_base": 0.0018496466170191406,
+            "per_target": {
+              "Q1": 0.5633855164564855,
+              "Q2": 0.5593095194563047,
+              "Q3": 0.5714312121102783,
+              "S1": 0.4774829202961419,
+              "S2": 0.5354080813069072,
+              "S3": 0.4908930389002769,
+              "S4": 0.6059157179685718
+            }
+          },
+          "test_boundary_neighbor_holdout": {
+            "mean_loss": 0.636910043991365,
+            "base_mean": 0.6452411774614143,
+            "improvement_vs_base": 0.008331133470049323,
+            "per_target": {
+              "Q1": 0.5116131604574077,
+              "Q2": 0.4702010802180389,
+              "Q3": 0.7161565508085708,
+              "S1": 0.5466290442783966,
+              "S2": 0.8422781934233715,
+              "S3": 0.6235624898839651,
+              "S4": 0.7479297888698047
+            }
+          }
+        },
+        "mean_across_stress_strategies": 0.574341106388863,
+        "min_improvement_vs_base": 0.0018496466170191406
+      },
+      "geometry": {
+        "mean_abs_delta_vs_id178": 0.004494873036040513,
+        "max_abs_delta_vs_id178": 0.11194917233304491,
+        "rmse_vs_id178": 0.014896938380279756,
+        "mean_abs_delta_vs_id329": 0.02203709637464421,
+        "max_abs_delta_vs_id329": 0.16039821693910883,
+        "projection_to_id287_failed_direction": 0.002435900862764457,
+        "prediction_mean": 0.6046104136556673,
+        "prediction_std": 0.2195689149578222
+      },
+      "verdict": "reviewable_hypothesis_only"
+    },
+    {
+      "variant": "rollback_s4",
+      "rationale": "Revert S4 because boundary stress dislikes the S4 sequence overlay.",
+      "keep_sequence_targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2"
+      ],
+      "reverted_to_id173_targets": [
+        "S3",
+        "S4"
+      ],
+      "oof_loss": 0.5395112110953478,
+      "oof_per_target": {
+        "Q1": 0.5519157186538461,
+        "Q2": 0.5566793351664245,
+        "Q3": 0.5670897848363184,
+        "S1": 0.47163044694164047,
+        "S2": 0.529556132747474,
+        "S3": 0.4908930389002769,
+        "S4": 0.6088140204214548
+      },
+      "robustness": {
+        "strategy_scores": {
+          "subject_hole_5": {
+            "mean_loss": 0.5424617749588425,
+            "base_mean": 0.5452533618305857,
+            "improvement_vs_base": 0.00279158687174319,
+            "per_target": {
+              "Q1": 0.5580639245625404,
+              "Q2": 0.5659734237440801,
+              "Q3": 0.5689776120477771,
+              "S1": 0.47207569548722095,
+              "S2": 0.5324347095485475,
+              "S3": 0.4908930389002769,
+              "S4": 0.6088140204214548
+            }
+          },
+          "leave_one_subject_out_10": {
+            "mean_loss": 0.5445292760587597,
+            "base_mean": 0.5452533618305857,
+            "improvement_vs_base": 0.000724085771826033,
+            "per_target": {
+              "Q1": 0.5633855164564855,
+              "Q2": 0.5593095194563047,
+              "Q3": 0.5714312121102783,
+              "S1": 0.48246354375961004,
+              "S2": 0.5354080813069072,
+              "S3": 0.4908930389002769,
+              "S4": 0.6088140204214548
+            }
+          },
+          "test_boundary_neighbor_holdout": {
+            "mean_loss": 0.6390549614925197,
+            "base_mean": 0.6452411774614143,
+            "improvement_vs_base": 0.006186215968894571,
+            "per_target": {
+              "Q1": 0.5116131604574077,
+              "Q2": 0.4702010802180389,
+              "Q3": 0.7161565508085708,
+              "S1": 0.5871872900391696,
+              "S2": 0.8422781934233715,
+              "S3": 0.6235624898839651,
+              "S4": 0.7223859656171139
+            }
+          }
+        },
+        "mean_across_stress_strategies": 0.5753486708367074,
+        "min_improvement_vs_base": 0.000724085771826033
+      },
+      "geometry": {
+        "mean_abs_delta_vs_id178": 0.005794872111970091,
+        "max_abs_delta_vs_id178": 0.11912031993699335,
+        "rmse_vs_id178": 0.01776245272301262,
+        "mean_abs_delta_vs_id329": 0.02257700444322245,
+        "max_abs_delta_vs_id329": 0.13473744373946883,
+        "projection_to_id287_failed_direction": 0.0015070806557849403,
+        "prediction_mean": 0.6031070755573535,
+        "prediction_std": 0.21947146642684093
+      },
+      "verdict": "reviewable_hypothesis_only"
+    },
+    {
+      "variant": "id178_keep_all",
+      "rationale": "Original ID178 selected sequence overlay.",
+      "keep_sequence_targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2",
+        "S4"
+      ],
+      "reverted_to_id173_targets": [
+        "S3"
+      ],
+      "oof_loss": 0.5386377373903545,
+      "oof_per_target": {
+        "Q1": 0.5519157186538461,
+        "Q2": 0.5566793351664245,
+        "Q3": 0.5670897848363184,
+        "S1": 0.47163044694164047,
+        "S2": 0.529556132747474,
+        "S3": 0.4908930389002769,
+        "S4": 0.6026997044865015
+      },
+      "robustness": {
+        "strategy_scores": {
+          "subject_hole_5": {
+            "mean_loss": 0.5419370992746689,
+            "base_mean": 0.5452533618305857,
+            "improvement_vs_base": 0.0033162625559167713,
+            "per_target": {
+              "Q1": 0.5580639245625404,
+              "Q2": 0.5659734237440801,
+              "Q3": 0.5689776120477771,
+              "S1": 0.47207569548722095,
+              "S2": 0.5324347095485475,
+              "S3": 0.4908930389002769,
+              "S4": 0.6051412906322392
+            }
+          },
+          "leave_one_subject_out_10": {
+            "mean_loss": 0.5441152328512049,
+            "base_mean": 0.5452533618305857,
+            "improvement_vs_base": 0.0011381289793808147,
+            "per_target": {
+              "Q1": 0.5633855164564855,
+              "Q2": 0.5593095194563047,
+              "Q3": 0.5714312121102783,
+              "S1": 0.48246354375961004,
+              "S2": 0.5354080813069072,
+              "S3": 0.4908930389002769,
+              "S4": 0.6059157179685718
+            }
+          },
+          "test_boundary_neighbor_holdout": {
+            "mean_loss": 0.6427040791000468,
+            "base_mean": 0.6452411774614143,
+            "improvement_vs_base": 0.002537098361367507,
+            "per_target": {
+              "Q1": 0.5116131604574077,
+              "Q2": 0.4702010802180389,
+              "Q3": 0.7161565508085708,
+              "S1": 0.5871872900391696,
+              "S2": 0.8422781934233715,
+              "S3": 0.6235624898839651,
+              "S4": 0.7479297888698047
+            }
+          }
+        },
+        "mean_across_stress_strategies": 0.5762521370753069,
+        "min_improvement_vs_base": 0.0011381289793808147
+      },
+      "geometry": {
+        "mean_abs_delta_vs_id178": 0.0,
+        "max_abs_delta_vs_id178": 0.0,
+        "rmse_vs_id178": 0.0,
+        "mean_abs_delta_vs_id329": 0.019371878744784868,
+        "max_abs_delta_vs_id329": 0.07919238997096245,
+        "projection_to_id287_failed_direction": 0.0,
+        "prediction_mean": 0.6039721981583849,
+        "prediction_std": 0.21919035716556767
+      },
+      "verdict": "confirmed_anchor_reference"
+    }
+  ],
+  "decision": {
+    "promote_submission_candidate": false,
+    "public_058_plausible": false,
+    "public_060_probe_hypothesis": "rollback_s1_s4",
+    "reason": "Target rollback improves stress consistency, but it is same-family with ID178 and needs a full artifact contract plus explicit approval before any public probe."
+  },
+  "no_submission_created": true,
+  "no_dacon_submission_made": true
+}

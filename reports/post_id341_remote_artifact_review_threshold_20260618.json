@@ -1,0 +1,153 @@
+{
+  "created_at_kst": "2026-06-23 18:17:38 UTC+09:00",
+  "diagnostic": "post_id341_remote_artifact_review_threshold",
+  "purpose": "Apply the strict Public 0.58 artifact-review threshold to pulled no-submit remote evidence.",
+  "inputs": {
+    "remote_summary": {
+      "path": "reports/post_id341_kaggle_remote_result_summary_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 2563,
+      "decision": {
+        "output_pending": true,
+        "artifact_contract_review_allowed_by_intake": false,
+        "remote_summary_reviewable": false,
+        "public_058_evidence_present": false,
+        "beats_id178_public_anchor_evidence_present": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Outputs are pending; run approved Kaggle no-submit path before summarizing remote evidence."
+      },
+      "error": null
+    },
+    "remote_next_action": {
+      "path": "reports/post_id341_remote_next_action_decision_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 3491,
+      "decision": {
+        "remote_next_action_ready": true,
+        "output_pending": true,
+        "allow_separate_artifact_contract_review": false,
+        "close_remote_lane_for_artifact_creation": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Wait for an explicitly approved Kaggle no-submit run and pulled outputs; do not create artifacts."
+      },
+      "error": null
+    },
+    "public_local_gap": {
+      "path": "reports/post_id341_public_local_gap_diagnosis_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 10741,
+      "decision": {
+        "public_local_gap_diagnosis_ready": true,
+        "mac_m4_environment_primary_explanation": false,
+        "any_watch_candidate_passes_public_058_recent_floor_proxy": false,
+        "any_watch_candidate_passes_public_058_recent_stress_proxy": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "local_cv_needed_for_public_058_recent_floor": 0.517445,
+        "local_cv_needed_for_public_058_recent_stress": 0.494927,
+        "next_action": "Do not promote local CV-only candidates. The next score-relevant move remains the explicit-approved no-submit Kaggle/Linux upstream rebuild, followed by a separate Public-0.58 artifact-contract review only if pulled reports are safe, beat the current confirmed public anchor band, and show min_proxy <= 0.58; ID178-only improvement above 0.58 is a lead, not ID342."
+      },
+      "error": null
+    },
+    "data_source_coverage": {
+      "path": "reports/post_id341_data_source_coverage_audit_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 21538,
+      "decision": {
+        "data_source_coverage_audit_ready": true,
+        "all_major_sources_present": true,
+        "all_required_evidence_reports_present": true,
+        "upstream_runner_references_required_source_checks": true,
+        "data_source_coverage_ready": true,
+        "external_direct_concat_allowed": false,
+        "external_prior_reviewable": false,
+        "local_source_stack_closed_for_submission_artifact": true,
+        "public_058_local_cv_only_gate_passed": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Data/source coverage is accounted for locally. Do not concatenate external rows or create ID342; the next score-relevant step remains explicit-approved no-submit Kaggle/Linux upstream rebuild."
+      },
+      "error": null
+    },
+    "prelaunch": {
+      "path": "reports/post_id341_kaggle_prelaunch_readiness_gate_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 39421,
+      "decision": {
+        "prelaunch_ready_for_explicit_approval": true,
+        "requires_explicit_user_approval": true,
+        "execute_kaggle_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "artifact_contract_review_allowed": false,
+        "next_action": "Await explicit approval of the exact command sequence, then run the no-submit Kaggle/Linux parity path."
+      },
+      "error": null
+    }
+  },
+  "thresholds": {
+    "public_058_target": 0.58,
+    "id178_public_anchor": 0.6014113009
+  },
+  "best_proxy": {
+    "filename": null,
+    "min_proxy": null,
+    "delta_vs_public_058": null,
+    "delta_vs_id178_public": null,
+    "selected_targets": null
+  },
+  "evidence_flags": {
+    "output_pending": true,
+    "parse_or_missing_problem": false,
+    "forbidden_problem": false,
+    "public_gap_ready": true,
+    "data_coverage_ready": true,
+    "external_concat_blocked": true,
+    "local_source_stack_closed": true,
+    "prelaunch_ready_or_pending_safe": true,
+    "next_allows_review": false,
+    "summary_public_058_evidence_present": false,
+    "summary_beats_id178_evidence_present": false,
+    "proxy_le_public_058": false,
+    "proxy_lt_id178_public": false,
+    "selected_targets_present": false,
+    "public_058_signal_consistency_problem": false,
+    "id178_improvement_only": false
+  },
+  "decision": {
+    "threshold_gate_ready": true,
+    "output_pending": true,
+    "allow_public_058_artifact_contract_review": false,
+    "record_id178_improvement_lead_only": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Wait for approved no-submit Kaggle outputs; no artifact review can open yet."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

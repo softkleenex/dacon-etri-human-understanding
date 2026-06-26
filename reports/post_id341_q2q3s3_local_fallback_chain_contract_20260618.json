@@ -1,0 +1,253 @@
+{
+  "created_at_kst": "2026-06-23 18:15:19 UTC+09:00",
+  "diagnostic": "post_id341_q2q3s3_local_fallback_chain_contract",
+  "purpose": "Verify that the Q2/Q3/S3 local fallback chain remains context-only: Q2 has a small low-movement lead, Q3/S3 remain uncovered, and no Public-0.58 artifact review or submission artifact is allowed.",
+  "inputs": {
+    "source_route": {
+      "path": "reports/post_id341_q2q3s3_source_route_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 5827,
+      "decision": {
+        "primary_score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+        "fallback_no_approval_route": "local_or_kaggle_q2q3s3_env_social_routine_v2_design",
+        "missing_targets": [
+          "Q2",
+          "Q3",
+          "S3"
+        ],
+        "local_q2q3s3_artifact_allowed": false,
+        "more_q1_s4_tuning_allowed": false,
+        "remote_no_submit_prelaunch_ready": true,
+        "requires_explicit_user_approval": true,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "If the user gives the exact Kaggle approval phrase, run the guarded no-submit upstream rebuild. Without approval, only design/report a materially different Q2/Q3/S3-first env-social-routine source; do not create ID342 or tune Q1/S4 further."
+      },
+      "error": null
+    },
+    "env_social_routine_v2_design": {
+      "path": "reports/post_id341_q2q3s3_env_social_routine_v2_design_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 13367,
+      "decision": {
+        "design_ready": true,
+        "target_focus": [
+          "Q2",
+          "Q3",
+          "S3"
+        ],
+        "next_local_allowed_step": "feature_generation_metadata_smoke_only",
+        "next_kaggle_allowed_step": "only_after_explicit_no_submit_approval",
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "train_model_now": false,
+        "next_action": "Implement only a Q2/Q3/S3 env-social-routine feature-generation smoke next, or run the approved clean upstream rebuild if the user gives the exact Kaggle no-submit approval phrase. Do not create a submission artifact from this design."
+      },
+      "error": null
+    },
+    "feature_generation_metadata_smoke": {
+      "path": "reports/post_id341_q2q3s3_feature_generation_metadata_smoke_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 7413,
+      "decision": {
+        "metadata_smoke_passed": true,
+        "target_focus": [
+          "Q2",
+          "Q3",
+          "S3"
+        ],
+        "expected_rows_ok": true,
+        "block_coverage_ok": true,
+        "leakage_guard_ok": true,
+        "next_local_allowed_step": "fold_internal_q2q3s3_model_smoke_only",
+        "train_model_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "If this metadata smoke passes, the next safe step is a fold-internal Q2/Q3/S3-only model smoke against ID178/ID341 anchors; still no submission artifact without a separate promotion gate."
+      },
+      "error": null
+    },
+    "fold_internal_model_smoke": {
+      "path": "reports/post_id341_q2q3s3_fold_internal_model_smoke_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 34428,
+      "decision": {
+        "model_smoke_completed": true,
+        "target_focus": [
+          "Q2",
+          "Q3",
+          "S3"
+        ],
+        "selected_targets": [
+          "Q2"
+        ],
+        "any_q2q3s3_signal_found": true,
+        "all_q2q3s3_targets_covered": false,
+        "public_058_evidence": false,
+        "next_local_allowed_step": "combined_no_artifact_geometry_gate",
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "If selected targets exist, run a combined no-artifact geometry gate; otherwise close this local fallback and return to the explicit-approved upstream rebuild path."
+      },
+      "error": null
+    },
+    "q2_lead_geometry_gate": {
+      "path": "reports/post_id341_q2q3s3_q2_lead_geometry_gate_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 32049,
+      "decision": {
+        "q2_config_available": true,
+        "reviewable_low_movement_candidate_exists": true,
+        "best_reviewable_scale": 0.25,
+        "best_proxy": 0.6019107525231998,
+        "best_proxy_scale": 0.25,
+        "public_058_plausible": false,
+        "q3_s3_still_uncovered": true,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Keep the Q2 lead as context only unless a later independent Q3/S3 source appears or the explicit-approved upstream rebuild confirms broader missing-target coverage."
+      },
+      "error": null
+    },
+    "paper_family_fold_smoke": {
+      "path": "reports/post_id341_q2q3s3_paper_family_fold_smoke_20260619.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 40124,
+      "decision": {
+        "paper_family_smoke_completed": true,
+        "target_focus": [
+          "Q2",
+          "Q3",
+          "S3"
+        ],
+        "selected_targets": [],
+        "selected_q3s3_targets": [],
+        "any_paper_family_signal_found": false,
+        "q3s3_covered_by_paper_family": false,
+        "all_q2q3s3_targets_covered": false,
+        "public_058_evidence": false,
+        "next_local_allowed_step": "close_paper_family_local_lane",
+        "manual_probe_if_spending_submission": null,
+        "manual_probe_family_status": "consumed_after_id341_id340_id337_public_micro_probe_slate",
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "If Q3/S3 is selected, run a no-artifact geometry gate; otherwise keep the score-relevant route at the explicit-approved clean ID221→ID226 upstream rebuild."
+      },
+      "error": null
+    },
+    "q3s3_local_lane_closure": {
+      "path": "reports/post_id341_q3s3_local_lane_closure_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 2734,
+      "decision": {
+        "local_q2_component_keep_as_context": true,
+        "q3_s3_uncovered_after_local_fallback": [
+          "Q3",
+          "S3"
+        ],
+        "local_fallback_closed_for_submission_artifact": true,
+        "local_artifact_allowed": false,
+        "public_058_evidence": false,
+        "primary_next_score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+        "requires_explicit_kaggle_approval": true,
+        "prelaunch_ready_for_explicit_approval": true,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Do not create a local submission artifact from Q2-only context. The next score-relevant path is the explicit-approved clean ID221→ID226 no-submit upstream rebuild; without that approval, only document new genuinely independent Q3/S3 hypotheses, not broader local tuning."
+      },
+      "error": null
+    },
+    "q3s3_negative_evidence_map": {
+      "path": "reports/post_id341_q3s3_negative_evidence_map_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 6115,
+      "decision": {
+        "q3s3_negative_evidence_map_passed": true,
+        "target_focus": [
+          "Q3",
+          "S3"
+        ],
+        "closed_local_lane_count": 8,
+        "closed_optional_scout_count": 1,
+        "all_local_q3s3_lanes_closed": true,
+        "q3_s3_still_uncovered": true,
+        "public_058_evidence": false,
+        "local_artifact_allowed": false,
+        "primary_next_score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+        "requires_explicit_kaggle_approval": true,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Do not reopen closed local Q3/S3 lanes for artifact creation. The score-relevant path remains the explicit-approved clean ID221→ID226 no-submit upstream rebuild; without approval, only a materially new Q3/S3 source family should be tested."
+      },
+      "error": null
+    }
+  },
+  "checks": {
+    "parse_contract": true,
+    "route_contract": true,
+    "design_contract": true,
+    "feature_metadata_contract": true,
+    "fold_internal_contract": true,
+    "q2_geometry_contract": true,
+    "paper_family_contract": true,
+    "q3s3_closure_contract": true,
+    "q3s3_negative_evidence_contract": true,
+    "no_forbidden_decisions": true
+  },
+  "decision": {
+    "local_fallback_chain_contract_pass": true,
+    "primary_score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+    "fallback_no_approval_route": "local_or_kaggle_q2q3s3_env_social_routine_v2_design",
+    "missing_targets": [
+      "Q2",
+      "Q3",
+      "S3"
+    ],
+    "selected_local_context_targets": [
+      "Q2"
+    ],
+    "q3_s3_still_uncovered": true,
+    "local_q2_lead_context_only": true,
+    "public_058_evidence": false,
+    "local_artifact_allowed": false,
+    "requires_explicit_kaggle_approval": true,
+    "execute_kaggle_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "next_action": "Keep the Q2 local lead as context only; pursue the explicit-approved clean ID221→ID226 upstream rebuild for Q2/Q3/S3 coverage, or design a materially different Q3/S3 source without creating ID342."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

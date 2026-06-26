@@ -1,0 +1,79 @@
+{
+  "created_at_kst": "2026-06-18 01:02:12 UTC+09:00",
+  "scope": "safe temporary cleanup and document hygiene after ID336 generation",
+  "actions": [
+    "Deleted local cache/build debris: .ruff_cache, .pytest_cache, .mypy_cache, non-venv __pycache__, non-venv .DS_Store, build/.",
+    "Formatted and import-sorted scripts/diagnose_id336_s1_weight_sensitivity.py, but did not execute the diagnostic.",
+    "Updated scripts/workspace_cleanup_manifest.py so ID336 decision/diagnostic files are classified intentionally.",
+    "Regenerated workspace cleanup manifest and audit reports.",
+    "Did not delete, move, or submit any DACON-facing submission artifact.",
+    "Did not bulk-archive reports/scripts because many are experiment evidence and require explicit promotion/archive decisions."
+  ],
+  "preserved_contract_artifacts": {
+    "submission_csv": "submissions/submission_id_336_id178_s1_seed45502_randomconv_overlay_cv0.537663_unsubmitted.csv",
+    "history_notebook": "notebooks/history/submission_336_id178_s1_seed45502_randomconv_overlay_cv0.537663_unsubmitted.ipynb",
+    "decision_report": "reports/decision_336_id178_s1_seed45502_randomconv_overlay_cv0.537663_unsubmitted.md",
+    "metadata_report": "reports/experiment_336_id178_s1_seed45502_randomconv_overlay_cv0.537663_unsubmitted.json",
+    "base_oof": "artifacts/base_predictions/base_oof_id_336_id178_s1_seed45502_randomconv_overlay_cv0.537663.csv",
+    "base_test": "artifacts/base_predictions/base_test_id_336_id178_s1_seed45502_randomconv_overlay_cv0.537663.csv",
+    "submission_log": "submissions/submission_log.csv"
+  },
+  "authoritative_current_docs": [
+    "docs/WORKFLOW_REVIEW.md",
+    "docs/PUBLIC_055_PLAN.md",
+    "docs/VALIDATION_REDESIGN_POST_ID329_20260617.md",
+    "docs/EXPERIMENT_OPERATIONS.md",
+    "reports/decision_336_id178_s1_seed45502_randomconv_overlay_cv0.537663_unsubmitted.md",
+    "reports/id336_s1_only_public_risk_gate_20260618.md",
+    "reports/post_id336_public_anchor_rerank_20260618.md",
+    "reports/sequence_anchor_probe_decision_post_id335_20260618.md"
+  ],
+  "audit_outcomes": {
+    "docs_audit": {
+      "path": "reports/docs_records_audit.md",
+      "findings_hint": "see report",
+      "status": "pass, no findings in command output"
+    },
+    "artifact_contract_audit": {
+      "path": "reports/experiment_artifacts_audit.md",
+      "strict_blockers_hint": [],
+      "status": "pass, strict blockers 0; legacy low findings remain"
+    },
+    "submissions_audit": {
+      "path": "reports/submissions_audit.md",
+      "status": "pass with known risk-labelled rows finding"
+    },
+    "structure_audit": {
+      "path": "reports/repository_structure_audit.md",
+      "status": "pass with only local .env low finding after cache deletion"
+    }
+  },
+  "dirty_tree_after_cleanup": {
+    "total_status_entries": 903,
+    "status_kinds": {
+      " M": 26,
+      "??": 877
+    },
+    "by_top_level": {
+      "reports": 759,
+      "scripts": 114,
+      "docs": 10,
+      "notebooks": 5,
+      "src": 5,
+      "tests": 4,
+      ".gitignore": 1,
+      "AGENTS.md": 1,
+      "CHANGELOG.md": 1,
+      "Makefile": 1,
+      "README.md": 1,
+      "submissions": 1
+    },
+    "workspace_cleanup_manifest_summary": {
+      "intended": 50,
+      "generated_untracked": 0,
+      "review_required": 853
+    },
+    "note": "Large untracked report/script volume remains intentionally unmodified; use workspace_cleanup_manifest for review boundaries."
+  },
+  "no_submission_created_or_sent": true
+}

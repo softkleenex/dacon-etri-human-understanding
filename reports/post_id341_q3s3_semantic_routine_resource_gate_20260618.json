@@ -1,0 +1,192 @@
+{
+  "created_at_kst": "2026-06-23 18:07:40 UTC+09:00",
+  "diagnostic": "post_id341_q3s3_semantic_routine_resource_gate",
+  "purpose": "Decide whether the semantic-routine v2 lane may run a small local fold-internal model smoke without creating artifacts or overloading local memory.",
+  "inputs": {
+    "metadata_smoke": {
+      "path": "reports/post_id341_q3s3_semantic_routine_metadata_smoke_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 14677,
+      "decision": {
+        "metadata_smoke_passed": true,
+        "target_focus": [
+          "Q3",
+          "S3"
+        ],
+        "q3_ready_sources": [
+          "mUsageStats",
+          "mWifi",
+          "mBle",
+          "mGps",
+          "mAmbience"
+        ],
+        "s3_ready_sources": [
+          "mScreenStatus",
+          "mActivity",
+          "mACStatus",
+          "mLight",
+          "wLight",
+          "wPedo"
+        ],
+        "selected_targets": [],
+        "public_058_evidence": false,
+        "next_local_allowed_step": "resource_gated_fold_internal_semantic_routine_model_smoke_only",
+        "requires_resource_gate_before_model_smoke": true,
+        "requires_explicit_kaggle_approval_for_heavy_execution": true,
+        "execute_kaggle_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "next_action": "Metadata/cardinality smoke passed. The next step may only be a no-artifact resource-gated fold-internal model smoke; do not create ID342 or any submission artifacts."
+      },
+      "error": null
+    }
+  },
+  "environment": {
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "python": "3.14.3",
+    "mac_m4_environment_primary_explanation": false
+  },
+  "raw_file_sizes": {
+    "mUsageStats": {
+      "path": "data/raw/ch2025_data_items/ch2025_mUsageStats.parquet",
+      "exists": true,
+      "bytes": 1001239,
+      "total_rows": 45197,
+      "sample_rows": 4096
+    },
+    "mWifi": {
+      "path": "data/raw/ch2025_data_items/ch2025_mWifi.parquet",
+      "exists": true,
+      "bytes": 3983650,
+      "total_rows": 76336,
+      "sample_rows": 4096
+    },
+    "mBle": {
+      "path": "data/raw/ch2025_data_items/ch2025_mBle.parquet",
+      "exists": true,
+      "bytes": 4066339,
+      "total_rows": 21830,
+      "sample_rows": 4096
+    },
+    "mGps": {
+      "path": "data/raw/ch2025_data_items/ch2025_mGps.parquet",
+      "exists": true,
+      "bytes": 71923967,
+      "total_rows": 800611,
+      "sample_rows": 4096
+    },
+    "mAmbience": {
+      "path": "data/raw/ch2025_data_items/ch2025_mAmbience.parquet",
+      "exists": true,
+      "bytes": 14842921,
+      "total_rows": 476577,
+      "sample_rows": 4096
+    },
+    "mScreenStatus": {
+      "path": "data/raw/ch2025_data_items/ch2025_mScreenStatus.parquet",
+      "exists": true,
+      "bytes": 4570592,
+      "total_rows": 939653,
+      "sample_rows": 4096
+    },
+    "mActivity": {
+      "path": "data/raw/ch2025_data_items/ch2025_mActivity.parquet",
+      "exists": true,
+      "bytes": 4642475,
+      "total_rows": 961062,
+      "sample_rows": 4096
+    },
+    "mACStatus": {
+      "path": "data/raw/ch2025_data_items/ch2025_mACStatus.parquet",
+      "exists": true,
+      "bytes": 4537839,
+      "total_rows": 939896,
+      "sample_rows": 4096
+    },
+    "mLight": {
+      "path": "data/raw/ch2025_data_items/ch2025_mLight.parquet",
+      "exists": true,
+      "bytes": 676980,
+      "total_rows": 96258,
+      "sample_rows": 4096
+    },
+    "wLight": {
+      "path": "data/raw/ch2025_data_items/ch2025_wLight.parquet",
+      "exists": true,
+      "bytes": 3408602,
+      "total_rows": 633741,
+      "sample_rows": 4096
+    },
+    "wPedo": {
+      "path": "data/raw/ch2025_data_items/ch2025_wPedo.parquet",
+      "exists": true,
+      "bytes": 4769326,
+      "total_rows": 748100,
+      "sample_rows": 4096
+    },
+    "wHr": {
+      "path": "data/raw/ch2025_data_items/ch2025_wHr.parquet",
+      "exists": true,
+      "bytes": 10374973,
+      "total_rows": 382918,
+      "sample_rows": 4096
+    }
+  },
+  "resource_budget": {
+    "total_raw_bytes": 128798903,
+    "total_raw_mebibytes": 122.832,
+    "local_raw_bytes_soft_limit": 268435456,
+    "local_raw_mebibytes_soft_limit": 256.0,
+    "largest_source": "mGps"
+  },
+  "plan_constraints": {
+    "stream_raw_sources_one_at_a_time": true,
+    "build_daily_700_row_feature_frame_only": true,
+    "do_not_export_raw_identifiers_or_coordinates": true,
+    "do_not_one_hot_raw_app_wifi_ble_ids": true,
+    "max_engineered_feature_columns": 64,
+    "max_model_smoke_targets": 2,
+    "max_model_specs": 2,
+    "max_blend_weights": 4,
+    "expected_daily_rows": 700
+  },
+  "checks": {
+    "metadata_smoke_ready": true,
+    "raw_size_within_local_soft_limit": true,
+    "streaming_constraints_required": true,
+    "feature_width_limited": true,
+    "model_grid_limited": true,
+    "no_artifact_actions": true
+  },
+  "decision": {
+    "resource_gate_passed": true,
+    "local_no_artifact_model_smoke_allowed": true,
+    "target_focus": [
+      "Q3",
+      "S3"
+    ],
+    "selected_targets": [],
+    "public_058_evidence": false,
+    "next_local_allowed_step": "fold_internal_semantic_routine_model_smoke_only",
+    "kaggle_heavy_execution_recommended": false,
+    "requires_explicit_kaggle_approval_for_remote_execution": true,
+    "execute_kaggle_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "next_action": "Local no-artifact fold-internal model smoke is allowed only under the listed streaming/width/grid constraints. Do not create ID342 or any submission artifact."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

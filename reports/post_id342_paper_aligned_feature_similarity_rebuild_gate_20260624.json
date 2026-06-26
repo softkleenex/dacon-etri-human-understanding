@@ -1,0 +1,886 @@
+{
+  "created_at_kst": "2026-06-24 03:52:30 UTC+09:00",
+  "diagnostic": "post_id342_paper_aligned_feature_similarity_rebuild_gate",
+  "purpose": "Test a target-wise paper-aligned feature-similarity rebuild on top of ID342 before any artifact/Kaggle consideration.",
+  "research_priors": [
+    {
+      "source": "DACON 4th ETRI Human Understanding AI Paper Challenge data page",
+      "url": "https://dacon.io/en/competitions/official/236468/data",
+      "read": "The competition data items include smartphone charge/activity/ambience/BLE/GPS/light/screen/app/Wi-Fi plus smartwatch HR/light/steps; Q3 is pre-sleep stress and S3 is SOL guideline adherence."
+    },
+    {
+      "source": "ETRI Lifelog Dataset 2024 paper",
+      "url": "https://arxiv.org/abs/2508.03698",
+      "read": "The paper reports that Q1 and S3 baseline performance was strongest with 3-hour step-count features, while Q2 and Q3 were strongest with daily mobile app usage; demographics/weekday helped all targets."
+    }
+  ],
+  "target_family_map": {
+    "Q1": [
+      "move_gps",
+      "date_time"
+    ],
+    "Q2": [
+      "screen_app",
+      "date_time"
+    ],
+    "Q3": [
+      "screen_app",
+      "date_time"
+    ],
+    "S1": [],
+    "S2": [],
+    "S3": [
+      "move_gps",
+      "date_time",
+      "light_hr"
+    ],
+    "S4": [
+      "light_hr",
+      "move_gps",
+      "date_time"
+    ]
+  },
+  "grid": {
+    "k_values": [
+      1
+    ],
+    "date_weights": [
+      0.0,
+      0.03
+    ],
+    "blend_weights": [
+      0.01,
+      0.03
+    ],
+    "evaluated_split_names": [
+      "subject_hole_5",
+      "actual_test_band_holdout",
+      "test_boundary_neighbor2_holdout",
+      "test_boundary_neighbor5_holdout",
+      "loso_10"
+    ],
+    "note": "Fast gate: S1/S2 remain ID342 base; evaluation uses the frozen primary split names after the full grid was too slow locally."
+  },
+  "references": {
+    "base_anchor_id": 342,
+    "historical_feature_similarity_id": 221,
+    "previous_public_anchor_id": 178,
+    "failed_frontier_id": 287,
+    "gap_probe_id": 329
+  },
+  "full_oof": {
+    "candidate_loss": 0.5346485146954765,
+    "id342_loss": 0.5340000057700848,
+    "delta_vs_id342": 0.0006485089253916998,
+    "delta_vs_id178": -0.003989222694878003,
+    "delta_vs_id221": 0.0016583273527809306
+  },
+  "split_summary": {
+    "by_split": {
+      "subject_hole_5": {
+        "mean_loss": 0.5346566283422796,
+        "delta_vs_id178": -0.0038347988966611845,
+        "delta_vs_id221": 0.0018309425709335026,
+        "delta_vs_id342": 0.0008080893859242711,
+        "delta_vs_id287": 0.1560753775543065,
+        "delta_vs_id329": 0.018013642795207542
+      },
+      "actual_test_band_holdout": {
+        "mean_loss": 0.5377137599144888,
+        "delta_vs_id178": -0.0038898969506534486,
+        "delta_vs_id221": 5.522316444106501e-05,
+        "delta_vs_id342": -4.07410393423735e-05,
+        "delta_vs_id287": 0.148285529029683,
+        "delta_vs_id329": 0.01721488025297191
+      },
+      "test_boundary_neighbor2_holdout": {
+        "mean_loss": 0.5797483594945856,
+        "delta_vs_id178": -0.006541508976024013,
+        "delta_vs_id221": 0.005540529518324289,
+        "delta_vs_id342": 0.0017571509536128405,
+        "delta_vs_id287": 0.1537080499337546,
+        "delta_vs_id329": 0.021690049120090982
+      },
+      "test_boundary_neighbor5_holdout": {
+        "mean_loss": 0.5539970605168356,
+        "delta_vs_id178": -0.003989094648821578,
+        "delta_vs_id221": -0.0007846005827060187,
+        "delta_vs_id342": -0.0005193803404180963,
+        "delta_vs_id287": 0.1572499970066133,
+        "delta_vs_id329": 0.018359578754746364
+      },
+      "loso_10": {
+        "mean_loss": 0.5383719739198856,
+        "delta_vs_id178": -0.004092786653079866,
+        "delta_vs_id221": 0.001701075364702187,
+        "delta_vs_id342": 0.0006307717479258956,
+        "delta_vs_id287": 0.15574476912909468,
+        "delta_vs_id329": 0.017955976270341106
+      }
+    },
+    "primary_delta_vs_id342": {
+      "wins": 2,
+      "mean": 0.0005271781415405075,
+      "max": 0.0017571509536128405
+    }
+  },
+  "target_summary": {
+    "Q1": {
+      "loss": 0.5458480779042368,
+      "delta_vs_id178": -0.006067640749609304,
+      "delta_vs_id221": 0.0017865786990691745,
+      "delta_vs_id342": 0.0,
+      "delta_vs_id287": 0.1727705084506473,
+      "delta_vs_id329": 0.039818103497308854
+    },
+    "Q2": {
+      "loss": 0.5531168771436216,
+      "delta_vs_id178": -0.0035624580228029723,
+      "delta_vs_id221": 0.002945956553335294,
+      "delta_vs_id342": 0.00150827801252984,
+      "delta_vs_id287": 0.19469156629168904,
+      "delta_vs_id329": 0.019074066319072602
+    },
+    "Q3": {
+      "loss": 0.5645037676252357,
+      "delta_vs_id178": -0.0025860172110827584,
+      "delta_vs_id221": 0.002272735106875534,
+      "delta_vs_id342": 0.0012778633397512174,
+      "delta_vs_id287": 0.21801428653742944,
+      "delta_vs_id329": 0.018839867679005473
+    },
+    "S1": {
+      "loss": 0.46664288254698066,
+      "delta_vs_id178": -0.004987564394659805,
+      "delta_vs_id221": -0.00047454817302622354,
+      "delta_vs_id342": 0.0,
+      "delta_vs_id287": 0.16462256411828263,
+      "delta_vs_id329": 0.015430470185430756
+    },
+    "S2": {
+      "loss": 0.5291008416377779,
+      "delta_vs_id178": -0.00045529110969610986,
+      "delta_vs_id221": 0.00022028698049469941,
+      "delta_vs_id342": 0.0,
+      "delta_vs_id287": 0.17910247919981653,
+      "delta_vs_id329": 0.010972331076151254
+    },
+    "S3": {
+      "loss": 0.490571371158864,
+      "delta_vs_id178": -0.000321667741412901,
+      "delta_vs_id221": 0.001081992372027163,
+      "delta_vs_id342": 0.0006266877238849666,
+      "delta_vs_id287": 0.02217542752492757,
+      "delta_vs_id329": 0.00660151472451731
+    },
+    "S4": {
+      "loss": 0.5927557848516184,
+      "delta_vs_id178": -0.009943919634883058,
+      "delta_vs_id221": 0.0037752899306904286,
+      "delta_vs_id342": 0.0011267334015756525,
+      "delta_vs_id287": 0.13862436107897785,
+      "delta_vs_id329": 0.014774863691482287
+    }
+  },
+  "selection_summary": {
+    "selected_counts": {
+      "base": 59,
+      "date_time_k1_dw0_w0.03": 29,
+      "date_time_k1_dw0.03_w0.03": 9,
+      "move_gps_k1_dw0_w0.03": 8,
+      "screen_app_k1_dw0.03_w0.03": 3,
+      "move_gps_k1_dw0.03_w0.03": 3,
+      "move_gps_k1_dw0_w0.01": 3,
+      "date_time_k1_dw0_w0.01": 3,
+      "light_hr_k1_dw0_w0.03": 2,
+      "screen_app_k1_dw0.03_w0.01": 2,
+      "light_hr_k1_dw0.03_w0.03": 1,
+      "date_time_k1_dw0.03_w0.01": 1,
+      "screen_app_k1_dw0_w0.03": 1,
+      "screen_app_k1_dw0_w0.01": 1,
+      "light_hr_k1_dw0_w0.01": 1
+    },
+    "selected_by_target": {
+      "Q1": {
+        "base": 15,
+        "move_gps_k1_dw0.03_w0.03": 2,
+        "move_gps_k1_dw0_w0.03": 1
+      },
+      "Q2": {
+        "date_time_k1_dw0_w0.03": 8,
+        "screen_app_k1_dw0.03_w0.01": 2,
+        "screen_app_k1_dw0.03_w0.03": 2,
+        "base": 1,
+        "date_time_k1_dw0.03_w0.03": 1,
+        "date_time_k1_dw0.03_w0.01": 1,
+        "screen_app_k1_dw0_w0.03": 1,
+        "screen_app_k1_dw0_w0.01": 1,
+        "date_time_k1_dw0_w0.01": 1
+      },
+      "Q3": {
+        "date_time_k1_dw0_w0.03": 13,
+        "date_time_k1_dw0_w0.01": 2,
+        "screen_app_k1_dw0.03_w0.03": 1,
+        "date_time_k1_dw0.03_w0.03": 1,
+        "base": 1
+      },
+      "S1": {
+        "base": 18
+      },
+      "S2": {
+        "base": 18
+      },
+      "S3": {
+        "move_gps_k1_dw0_w0.03": 7,
+        "base": 4,
+        "move_gps_k1_dw0_w0.01": 3,
+        "light_hr_k1_dw0_w0.03": 2,
+        "move_gps_k1_dw0.03_w0.03": 1,
+        "light_hr_k1_dw0_w0.01": 1
+      },
+      "S4": {
+        "date_time_k1_dw0_w0.03": 8,
+        "date_time_k1_dw0.03_w0.03": 7,
+        "base": 2,
+        "light_hr_k1_dw0.03_w0.03": 1
+      }
+    },
+    "full_train_test_selection": {
+      "Q1": {
+        "selected": {
+          "name": "base",
+          "kind": "base"
+        },
+        "inner_top": [
+          {
+            "name": "base",
+            "loss": 0.5458480779042368,
+            "delta_vs_base": 0.0,
+            "config": {
+              "name": "base",
+              "kind": "base"
+            }
+          },
+          {
+            "name": "date_time_k1_dw0.03_w0.01",
+            "loss": 0.5463213528550526,
+            "delta_vs_base": 0.00047327495081572746,
+            "config": {
+              "name": "date_time_k1_dw0.03_w0.01",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "move_gps_k1_dw0_w0.01",
+            "loss": 0.5463564070671947,
+            "delta_vs_base": 0.0005083291629578435,
+            "config": {
+              "name": "move_gps_k1_dw0_w0.01",
+              "family": "move_gps",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "move_gps_k1_dw0.03_w0.01",
+            "loss": 0.5465389153340192,
+            "delta_vs_base": 0.0006908374297823761,
+            "config": {
+              "name": "move_gps_k1_dw0.03_w0.01",
+              "family": "move_gps",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "date_time_k1_dw0_w0.01",
+            "loss": 0.5468672529987526,
+            "delta_vs_base": 0.0010191750945157674,
+            "config": {
+              "name": "date_time_k1_dw0_w0.01",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "date_time_k1_dw0.03_w0.03",
+            "loss": 0.5475663444388015,
+            "delta_vs_base": 0.0017182665345646386,
+            "config": {
+              "name": "date_time_k1_dw0.03_w0.03",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.03,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "move_gps_k1_dw0_w0.03",
+            "loss": 0.5476459168816706,
+            "delta_vs_base": 0.0017978389774337966,
+            "config": {
+              "name": "move_gps_k1_dw0_w0.03",
+              "family": "move_gps",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.03,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "move_gps_k1_dw0.03_w0.03",
+            "loss": 0.5481799955920322,
+            "delta_vs_base": 0.002331917687795393,
+            "config": {
+              "name": "move_gps_k1_dw0.03_w0.03",
+              "family": "move_gps",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.03,
+              "prior": "paper_aligned"
+            }
+          }
+        ]
+      },
+      "Q2": {
+        "selected": {
+          "name": "screen_app_k1_dw0.03_w0.01",
+          "family": "screen_app",
+          "k": 1,
+          "date_weight": 0.03,
+          "blend_weight": 0.01,
+          "prior": "paper_aligned"
+        },
+        "inner_top": [
+          {
+            "name": "screen_app_k1_dw0.03_w0.01",
+            "loss": 0.5515480626967406,
+            "delta_vs_base": -6.053643435111056e-05,
+            "config": {
+              "name": "screen_app_k1_dw0.03_w0.01",
+              "family": "screen_app",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "date_time_k1_dw0_w0.01",
+            "loss": 0.5515763084633452,
+            "delta_vs_base": -3.2290667746570634e-05,
+            "config": {
+              "name": "date_time_k1_dw0_w0.01",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "base",
+            "loss": 0.5516085991310917,
+            "delta_vs_base": 0.0,
+            "config": {
+              "name": "base",
+              "kind": "base"
+            }
+          },
+          {
+            "name": "screen_app_k1_dw0_w0.01",
+            "loss": 0.5516497654656466,
+            "delta_vs_base": 4.116633455486518e-05,
+            "config": {
+              "name": "screen_app_k1_dw0_w0.01",
+              "family": "screen_app",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "screen_app_k1_dw0.03_w0.03",
+            "loss": 0.5517825614252926,
+            "delta_vs_base": 0.00017396229420085785,
+            "config": {
+              "name": "screen_app_k1_dw0.03_w0.03",
+              "family": "screen_app",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.03,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "date_time_k1_dw0.03_w0.01",
+            "loss": 0.551873157129974,
+            "delta_vs_base": 0.0002645579988822533,
+            "config": {
+              "name": "date_time_k1_dw0.03_w0.01",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "date_time_k1_dw0_w0.03",
+            "loss": 0.5518842041597789,
+            "delta_vs_base": 0.00027560502868717585,
+            "config": {
+              "name": "date_time_k1_dw0_w0.03",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.03,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "screen_app_k1_dw0_w0.03",
+            "loss": 0.5520742495427033,
+            "delta_vs_base": 0.0004656504116116178,
+            "config": {
+              "name": "screen_app_k1_dw0_w0.03",
+              "family": "screen_app",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.03,
+              "prior": "paper_aligned"
+            }
+          }
+        ]
+      },
+      "Q3": {
+        "selected": {
+          "name": "date_time_k1_dw0_w0.03",
+          "family": "date_time",
+          "k": 1,
+          "date_weight": 0.0,
+          "blend_weight": 0.03,
+          "prior": "paper_aligned"
+        },
+        "inner_top": [
+          {
+            "name": "date_time_k1_dw0_w0.03",
+            "loss": 0.5625306036827882,
+            "delta_vs_base": -0.0006953006026962916,
+            "config": {
+              "name": "date_time_k1_dw0_w0.03",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.03,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "date_time_k1_dw0_w0.01",
+            "loss": 0.5628655148035638,
+            "delta_vs_base": -0.00036038948192063103,
+            "config": {
+              "name": "date_time_k1_dw0_w0.01",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "date_time_k1_dw0.03_w0.01",
+            "loss": 0.5630359503216668,
+            "delta_vs_base": -0.0001899539638177128,
+            "config": {
+              "name": "date_time_k1_dw0.03_w0.01",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "date_time_k1_dw0.03_w0.03",
+            "loss": 0.563060433599561,
+            "delta_vs_base": -0.00016547068592343006,
+            "config": {
+              "name": "date_time_k1_dw0.03_w0.03",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.03,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "base",
+            "loss": 0.5632259042854845,
+            "delta_vs_base": 0.0,
+            "config": {
+              "name": "base",
+              "kind": "base"
+            }
+          },
+          {
+            "name": "screen_app_k1_dw0.03_w0.01",
+            "loss": 0.5632388284788925,
+            "delta_vs_base": 1.2924193408037077e-05,
+            "config": {
+              "name": "screen_app_k1_dw0.03_w0.01",
+              "family": "screen_app",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "screen_app_k1_dw0.03_w0.03",
+            "loss": 0.5635837101361852,
+            "delta_vs_base": 0.0003578058507007764,
+            "config": {
+              "name": "screen_app_k1_dw0.03_w0.03",
+              "family": "screen_app",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.03,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "screen_app_k1_dw0_w0.01",
+            "loss": 0.5636938050785032,
+            "delta_vs_base": 0.00046790079301872733,
+            "config": {
+              "name": "screen_app_k1_dw0_w0.01",
+              "family": "screen_app",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          }
+        ]
+      },
+      "S1": {
+        "selected": {
+          "name": "base",
+          "kind": "base"
+        },
+        "inner_top": [
+          {
+            "name": "base",
+            "loss": 0.46664288254698066,
+            "delta_vs_base": 0.0,
+            "config": {
+              "name": "base",
+              "kind": "base"
+            }
+          }
+        ]
+      },
+      "S2": {
+        "selected": {
+          "name": "base",
+          "kind": "base"
+        },
+        "inner_top": [
+          {
+            "name": "base",
+            "loss": 0.5291008416377779,
+            "delta_vs_base": 0.0,
+            "config": {
+              "name": "base",
+              "kind": "base"
+            }
+          }
+        ]
+      },
+      "S3": {
+        "selected": {
+          "name": "move_gps_k1_dw0_w0.01",
+          "family": "move_gps",
+          "k": 1,
+          "date_weight": 0.0,
+          "blend_weight": 0.01,
+          "prior": "paper_aligned"
+        },
+        "inner_top": [
+          {
+            "name": "move_gps_k1_dw0_w0.01",
+            "loss": 0.4898166380790379,
+            "delta_vs_base": -0.00012804535594113098,
+            "config": {
+              "name": "move_gps_k1_dw0_w0.01",
+              "family": "move_gps",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "move_gps_k1_dw0_w0.03",
+            "loss": 0.48981723504011115,
+            "delta_vs_base": -0.0001274483948678906,
+            "config": {
+              "name": "move_gps_k1_dw0_w0.03",
+              "family": "move_gps",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.03,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "base",
+            "loss": 0.48994468343497904,
+            "delta_vs_base": 0.0,
+            "config": {
+              "name": "base",
+              "kind": "base"
+            }
+          },
+          {
+            "name": "move_gps_k1_dw0.03_w0.01",
+            "loss": 0.4900325210492506,
+            "delta_vs_base": 8.783761427155756e-05,
+            "config": {
+              "name": "move_gps_k1_dw0.03_w0.01",
+              "family": "move_gps",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "light_hr_k1_dw0.03_w0.01",
+            "loss": 0.4903140109448802,
+            "delta_vs_base": 0.0003693275099011517,
+            "config": {
+              "name": "light_hr_k1_dw0.03_w0.01",
+              "family": "light_hr",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "light_hr_k1_dw0_w0.01",
+            "loss": 0.49039539889160866,
+            "delta_vs_base": 0.00045071545662961343,
+            "config": {
+              "name": "light_hr_k1_dw0_w0.01",
+              "family": "light_hr",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "move_gps_k1_dw0.03_w0.03",
+            "loss": 0.49046468675693566,
+            "delta_vs_base": 0.0005200033219566191,
+            "config": {
+              "name": "move_gps_k1_dw0.03_w0.03",
+              "family": "move_gps",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.03,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "date_time_k1_dw0_w0.01",
+            "loss": 0.49087791863305774,
+            "delta_vs_base": 0.0009332351980786968,
+            "config": {
+              "name": "date_time_k1_dw0_w0.01",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          }
+        ]
+      },
+      "S4": {
+        "selected": {
+          "name": "date_time_k1_dw0.03_w0.03",
+          "family": "date_time",
+          "k": 1,
+          "date_weight": 0.03,
+          "blend_weight": 0.03,
+          "prior": "paper_aligned"
+        },
+        "inner_top": [
+          {
+            "name": "date_time_k1_dw0.03_w0.03",
+            "loss": 0.5894334201247524,
+            "delta_vs_base": -0.002195631325290326,
+            "config": {
+              "name": "date_time_k1_dw0.03_w0.03",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.03,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "date_time_k1_dw0_w0.03",
+            "loss": 0.5894874440507614,
+            "delta_vs_base": -0.0021416073992813756,
+            "config": {
+              "name": "date_time_k1_dw0_w0.03",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.03,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "date_time_k1_dw0.03_w0.01",
+            "loss": 0.5907967112879184,
+            "delta_vs_base": -0.000832340162124301,
+            "config": {
+              "name": "date_time_k1_dw0.03_w0.01",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "date_time_k1_dw0_w0.01",
+            "loss": 0.5908098216173888,
+            "delta_vs_base": -0.0008192298326539227,
+            "config": {
+              "name": "date_time_k1_dw0_w0.01",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "base",
+            "loss": 0.5916290514500427,
+            "delta_vs_base": 0.0,
+            "config": {
+              "name": "base",
+              "kind": "base"
+            }
+          },
+          {
+            "name": "move_gps_k1_dw0_w0.01",
+            "loss": 0.5919370038463835,
+            "delta_vs_base": 0.00030795239634073823,
+            "config": {
+              "name": "move_gps_k1_dw0_w0.01",
+              "family": "move_gps",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "light_hr_k1_dw0.03_w0.01",
+            "loss": 0.5919569980877144,
+            "delta_vs_base": 0.0003279466376716611,
+            "config": {
+              "name": "light_hr_k1_dw0.03_w0.01",
+              "family": "light_hr",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          },
+          {
+            "name": "move_gps_k1_dw0.03_w0.01",
+            "loss": 0.5919856488935317,
+            "delta_vs_base": 0.0003565974434889263,
+            "config": {
+              "name": "move_gps_k1_dw0.03_w0.01",
+              "family": "move_gps",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.01,
+              "prior": "paper_aligned"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "test_geometry": {
+    "mean_abs_delta_vs_id342": 0.004837756379306719,
+    "max_abs_delta_vs_id342": 0.026574739156889918,
+    "per_target_mean_abs_delta_vs_id342": {
+      "Q1": 0.0,
+      "Q2": 0.0042423282659571696,
+      "Q3": 0.013007245133549627,
+      "S1": 0.0,
+      "S2": 0.0,
+      "S3": 0.003573871549593132,
+      "S4": 0.013040849706047108
+    },
+    "projection_onto_id287_failed_direction": -0.002953682681194855,
+    "projection_onto_id329_gap_direction": 0.22092822775037407
+  },
+  "public_proxy": {
+    "id342_public": 0.5960832519,
+    "projected_public_proxy": 0.5967317608253917,
+    "gap_to_public_055": 0.046731760825391655
+  },
+  "decision": {
+    "paper_aligned_feature_similarity_gate_pass": false,
+    "checks": {
+      "primary_wins_vs_id342": false,
+      "primary_mean_delta_material": false,
+      "primary_worst_delta_not_positive": false,
+      "public_proxy_low_enough": false,
+      "public_055_gap_low_enough": false,
+      "test_mean_movement_vs_id342_within_ceiling": true,
+      "test_max_movement_vs_id342_within_ceiling": true
+    },
+    "artifact_review_allowed": false,
+    "create_submission_artifact": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "submit_now": false,
+    "reason": "The paper-aligned feature-similarity rebuild does not clear the strict ID342/Public-0.55 gate."
+  },
+  "no_prediction_file_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

@@ -1,0 +1,610 @@
+{
+  "created_at_kst": "2026-06-24 09:26:45 UTC+09:00",
+  "decision": {
+    "create_submission_artifact_now": false,
+    "dacon_submit_now": false,
+    "domain_token_contract_ready": true,
+    "fit_embedding_now": false,
+    "heavy_approval_phrase": "Self-supervised subject-state heavy compute no-submit \uc2e4\ud589 \uc2b9\uc778",
+    "metadata_only_read": true,
+    "modify_submission_log_now": false,
+    "next_action": "Raw schemas match the domain-token contract; implement no-submit tokenization only after exact approval.",
+    "primary_score_targets": [
+      "Q3",
+      "S3"
+    ],
+    "push_kaggle_now": false,
+    "raw_payload_rows_read": 0,
+    "raw_schema_contract_ready": true,
+    "read_raw_parquet_payloads_now": false,
+    "requires_exact_heavy_compute_approval": true,
+    "run_kaggle_now": false,
+    "secondary_sanity_target": "Q2",
+    "target_focus": [
+      "Q2",
+      "Q3",
+      "S3"
+    ],
+    "write_feature_matrix_now": false,
+    "write_token_cache_now": false
+  },
+  "diagnostic": "post_id342_subject_state_raw_schema_contract",
+  "forbidden_actions_now": {
+    "create_predictions": false,
+    "create_submission_artifact": false,
+    "fit_embedding": false,
+    "modify_submission_log": false,
+    "push_kaggle": false,
+    "read_parquet_row_payloads": false,
+    "run_kaggle": false,
+    "submit_dacon": false,
+    "train_downstream_model": false,
+    "write_feature_matrix": false,
+    "write_token_cache": false
+  },
+  "input_reports": {
+    "domain_token_contract": {
+      "decision": {
+        "create_runner_files_now": false,
+        "create_submission_artifact_now": false,
+        "dacon_submit_now": false,
+        "domain_token_contract_ready": true,
+        "fit_embedding_now": false,
+        "heavy_approval_phrase": "Self-supervised subject-state heavy compute no-submit \uc2e4\ud589 \uc2b9\uc778",
+        "modify_submission_log_now": false,
+        "next_action": "Use this contract to implement the no-submit runner only after exact heavy approval.",
+        "primary_score_targets": [
+          "Q3",
+          "S3"
+        ],
+        "push_kaggle_now": false,
+        "read_raw_parquet_payloads_now": false,
+        "requires_exact_heavy_compute_approval": true,
+        "run_kaggle_now": false,
+        "secondary_sanity_target": "Q2",
+        "target_focus": [
+          "Q2",
+          "Q3",
+          "S3"
+        ],
+        "write_feature_matrix_now": false,
+        "write_token_cache_now": false
+      },
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_subject_state_domain_token_contract_20260624.json"
+    }
+  },
+  "no_dacon_submission_made": true,
+  "no_embedding_fit": true,
+  "no_feature_matrix_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_parquet_payload_rows_read": true,
+  "no_prediction_created": true,
+  "no_submission_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_token_cache_created": true,
+  "purpose": "Validate raw parquet schema metadata for the post-ID342 subject-state heavy route.",
+  "raw_schema_rows": [
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_charging"
+      ],
+      "exists": true,
+      "extra_columns": [],
+      "metadata_ok": true,
+      "missing_columns": [],
+      "modality": "mACStatus",
+      "path": "data/raw/ch2025_data_items/ch2025_mACStatus.parquet",
+      "required_columns": [
+        "subject_id",
+        "timestamp",
+        "m_charging"
+      ],
+      "row_count_metadata": 939896,
+      "row_group_count_metadata": 1,
+      "schema_fields": {
+        "m_charging": {
+          "nullable": true,
+          "type": "int64"
+        },
+        "subject_id": {
+          "nullable": true,
+          "type": "string"
+        },
+        "timestamp": {
+          "nullable": true,
+          "type": "timestamp[ns]"
+        }
+      },
+      "schema_ok": true,
+      "token_role": "charge_bedside_routine",
+      "value_columns": [
+        "m_charging"
+      ]
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_activity"
+      ],
+      "exists": true,
+      "extra_columns": [],
+      "metadata_ok": true,
+      "missing_columns": [],
+      "modality": "mActivity",
+      "path": "data/raw/ch2025_data_items/ch2025_mActivity.parquet",
+      "required_columns": [
+        "subject_id",
+        "timestamp",
+        "m_activity"
+      ],
+      "row_count_metadata": 961062,
+      "row_group_count_metadata": 1,
+      "schema_fields": {
+        "m_activity": {
+          "nullable": true,
+          "type": "int64"
+        },
+        "subject_id": {
+          "nullable": true,
+          "type": "string"
+        },
+        "timestamp": {
+          "nullable": true,
+          "type": "timestamp[ns]"
+        }
+      },
+      "schema_ok": true,
+      "token_role": "phone_activity_state",
+      "value_columns": [
+        "m_activity"
+      ]
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_ambience"
+      ],
+      "exists": true,
+      "extra_columns": [],
+      "metadata_ok": true,
+      "missing_columns": [],
+      "modality": "mAmbience",
+      "path": "data/raw/ch2025_data_items/ch2025_mAmbience.parquet",
+      "required_columns": [
+        "subject_id",
+        "timestamp",
+        "m_ambience"
+      ],
+      "row_count_metadata": 476577,
+      "row_group_count_metadata": 1,
+      "schema_fields": {
+        "m_ambience": {
+          "nullable": true,
+          "type": "list<element: list<element: string>>"
+        },
+        "subject_id": {
+          "nullable": true,
+          "type": "string"
+        },
+        "timestamp": {
+          "nullable": true,
+          "type": "timestamp[ns]"
+        }
+      },
+      "schema_ok": true,
+      "token_role": "ambient_sound_context",
+      "value_columns": [
+        "m_ambience"
+      ]
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_ble"
+      ],
+      "exists": true,
+      "extra_columns": [],
+      "metadata_ok": true,
+      "missing_columns": [],
+      "modality": "mBle",
+      "path": "data/raw/ch2025_data_items/ch2025_mBle.parquet",
+      "required_columns": [
+        "subject_id",
+        "timestamp",
+        "m_ble"
+      ],
+      "row_count_metadata": 21830,
+      "row_group_count_metadata": 1,
+      "schema_fields": {
+        "m_ble": {
+          "nullable": true,
+          "type": "list<element: struct<address: string, device_class: string, rssi: int64>>"
+        },
+        "subject_id": {
+          "nullable": true,
+          "type": "string"
+        },
+        "timestamp": {
+          "nullable": true,
+          "type": "timestamp[ns]"
+        }
+      },
+      "schema_ok": true,
+      "token_role": "near_device_social_context",
+      "value_columns": [
+        "m_ble"
+      ]
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_gps"
+      ],
+      "exists": true,
+      "extra_columns": [],
+      "metadata_ok": true,
+      "missing_columns": [],
+      "modality": "mGps",
+      "path": "data/raw/ch2025_data_items/ch2025_mGps.parquet",
+      "required_columns": [
+        "subject_id",
+        "timestamp",
+        "m_gps"
+      ],
+      "row_count_metadata": 800611,
+      "row_group_count_metadata": 1,
+      "schema_fields": {
+        "m_gps": {
+          "nullable": true,
+          "type": "list<element: struct<altitude: double, latitude: double, longitude: double, speed: double>>"
+        },
+        "subject_id": {
+          "nullable": true,
+          "type": "string"
+        },
+        "timestamp": {
+          "nullable": true,
+          "type": "timestamp[ns]"
+        }
+      },
+      "schema_ok": true,
+      "token_role": "mobility_place_routine",
+      "value_columns": [
+        "m_gps"
+      ]
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_light"
+      ],
+      "exists": true,
+      "extra_columns": [],
+      "metadata_ok": true,
+      "missing_columns": [],
+      "modality": "mLight",
+      "path": "data/raw/ch2025_data_items/ch2025_mLight.parquet",
+      "required_columns": [
+        "subject_id",
+        "timestamp",
+        "m_light"
+      ],
+      "row_count_metadata": 96258,
+      "row_group_count_metadata": 1,
+      "schema_fields": {
+        "m_light": {
+          "nullable": true,
+          "type": "double"
+        },
+        "subject_id": {
+          "nullable": true,
+          "type": "string"
+        },
+        "timestamp": {
+          "nullable": true,
+          "type": "timestamp[ns]"
+        }
+      },
+      "schema_ok": true,
+      "token_role": "phone_light_context",
+      "value_columns": [
+        "m_light"
+      ]
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_screen_use"
+      ],
+      "exists": true,
+      "extra_columns": [],
+      "metadata_ok": true,
+      "missing_columns": [],
+      "modality": "mScreenStatus",
+      "path": "data/raw/ch2025_data_items/ch2025_mScreenStatus.parquet",
+      "required_columns": [
+        "subject_id",
+        "timestamp",
+        "m_screen_use"
+      ],
+      "row_count_metadata": 939653,
+      "row_group_count_metadata": 1,
+      "schema_fields": {
+        "m_screen_use": {
+          "nullable": true,
+          "type": "int64"
+        },
+        "subject_id": {
+          "nullable": true,
+          "type": "string"
+        },
+        "timestamp": {
+          "nullable": true,
+          "type": "timestamp[ns]"
+        }
+      },
+      "schema_ok": true,
+      "token_role": "sleep_boundary_phone_use",
+      "value_columns": [
+        "m_screen_use"
+      ]
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_usage_stats"
+      ],
+      "exists": true,
+      "extra_columns": [],
+      "metadata_ok": true,
+      "missing_columns": [],
+      "modality": "mUsageStats",
+      "path": "data/raw/ch2025_data_items/ch2025_mUsageStats.parquet",
+      "required_columns": [
+        "subject_id",
+        "timestamp",
+        "m_usage_stats"
+      ],
+      "row_count_metadata": 45197,
+      "row_group_count_metadata": 1,
+      "schema_fields": {
+        "m_usage_stats": {
+          "nullable": true,
+          "type": "list<element: struct<app_name: string, total_time: int64>>"
+        },
+        "subject_id": {
+          "nullable": true,
+          "type": "string"
+        },
+        "timestamp": {
+          "nullable": true,
+          "type": "timestamp[ns]"
+        }
+      },
+      "schema_ok": true,
+      "token_role": "phone_app_load",
+      "value_columns": [
+        "m_usage_stats"
+      ]
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_wifi"
+      ],
+      "exists": true,
+      "extra_columns": [],
+      "metadata_ok": true,
+      "missing_columns": [],
+      "modality": "mWifi",
+      "path": "data/raw/ch2025_data_items/ch2025_mWifi.parquet",
+      "required_columns": [
+        "subject_id",
+        "timestamp",
+        "m_wifi"
+      ],
+      "row_count_metadata": 76336,
+      "row_group_count_metadata": 1,
+      "schema_fields": {
+        "m_wifi": {
+          "nullable": true,
+          "type": "list<element: struct<bssid: string, rssi: int64>>"
+        },
+        "subject_id": {
+          "nullable": true,
+          "type": "string"
+        },
+        "timestamp": {
+          "nullable": true,
+          "type": "timestamp[ns]"
+        }
+      },
+      "schema_ok": true,
+      "token_role": "place_stability",
+      "value_columns": [
+        "m_wifi"
+      ]
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "heart_rate"
+      ],
+      "exists": true,
+      "extra_columns": [],
+      "metadata_ok": true,
+      "missing_columns": [],
+      "modality": "wHr",
+      "path": "data/raw/ch2025_data_items/ch2025_wHr.parquet",
+      "required_columns": [
+        "subject_id",
+        "timestamp",
+        "heart_rate"
+      ],
+      "row_count_metadata": 382918,
+      "row_group_count_metadata": 1,
+      "schema_fields": {
+        "heart_rate": {
+          "nullable": true,
+          "type": "list<element: int64>"
+        },
+        "subject_id": {
+          "nullable": true,
+          "type": "string"
+        },
+        "timestamp": {
+          "nullable": true,
+          "type": "timestamp[ns]"
+        }
+      },
+      "schema_ok": true,
+      "token_role": "wearable_recovery_arousal",
+      "value_columns": [
+        "heart_rate"
+      ]
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "w_light"
+      ],
+      "exists": true,
+      "extra_columns": [],
+      "metadata_ok": true,
+      "missing_columns": [],
+      "modality": "wLight",
+      "path": "data/raw/ch2025_data_items/ch2025_wLight.parquet",
+      "required_columns": [
+        "subject_id",
+        "timestamp",
+        "w_light"
+      ],
+      "row_count_metadata": 633741,
+      "row_group_count_metadata": 1,
+      "schema_fields": {
+        "subject_id": {
+          "nullable": true,
+          "type": "string"
+        },
+        "timestamp": {
+          "nullable": true,
+          "type": "timestamp[ns]"
+        },
+        "w_light": {
+          "nullable": true,
+          "type": "double"
+        }
+      },
+      "schema_ok": true,
+      "token_role": "watch_light_context",
+      "value_columns": [
+        "w_light"
+      ]
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "step",
+        "step_frequency",
+        "running_step",
+        "walking_step",
+        "distance",
+        "speed",
+        "burned_calories"
+      ],
+      "exists": true,
+      "extra_columns": [],
+      "metadata_ok": true,
+      "missing_columns": [],
+      "modality": "wPedo",
+      "path": "data/raw/ch2025_data_items/ch2025_wPedo.parquet",
+      "required_columns": [
+        "subject_id",
+        "timestamp",
+        "step",
+        "step_frequency",
+        "running_step",
+        "walking_step",
+        "distance",
+        "speed",
+        "burned_calories"
+      ],
+      "row_count_metadata": 748100,
+      "row_group_count_metadata": 1,
+      "schema_fields": {
+        "burned_calories": {
+          "nullable": true,
+          "type": "double"
+        },
+        "distance": {
+          "nullable": true,
+          "type": "double"
+        },
+        "running_step": {
+          "nullable": true,
+          "type": "int64"
+        },
+        "speed": {
+          "nullable": true,
+          "type": "double"
+        },
+        "step": {
+          "nullable": true,
+          "type": "int64"
+        },
+        "step_frequency": {
+          "nullable": true,
+          "type": "double"
+        },
+        "subject_id": {
+          "nullable": true,
+          "type": "string"
+        },
+        "timestamp": {
+          "nullable": true,
+          "type": "timestamp[ns]"
+        },
+        "walking_step": {
+          "nullable": true,
+          "type": "int64"
+        }
+      },
+      "schema_ok": true,
+      "token_role": "wearable_exertion_inactivity",
+      "value_columns": [
+        "step",
+        "step_frequency",
+        "running_step",
+        "walking_step",
+        "distance",
+        "speed",
+        "burned_calories"
+      ]
+    }
+  ],
+  "report_only": true,
+  "schema_summary": {
+    "expected_modality_count": 12,
+    "metadata_only_read": true,
+    "missing_files": [],
+    "present_modality_count": 12,
+    "schema_failures": [],
+    "schema_ok_count": 12,
+    "total_rows_from_metadata_only": 6122179
+  }
+}

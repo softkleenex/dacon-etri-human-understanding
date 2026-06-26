@@ -1,0 +1,382 @@
+{
+  "created_at": "2026-06-16",
+  "purpose": "Heuristic ranking of candidate submissions after the ID178 public failure. Lower is better, but this is a risk-control ranking, not a leaderboard prediction.",
+  "known_public_anchor": {
+    "id178_local_cv": 0.5386377373903545,
+    "id178_public_lb": 0.6014113009,
+    "id178_observed_gap": 0.06277356350964547,
+    "id085_observed_gap_approx": 0.02519
+  },
+  "heuristic": {
+    "base_gap": 0.025,
+    "tier_penalty": {
+      "low_delta": 0.01,
+      "moderate_delta": 0.02,
+      "high_delta": 0.035,
+      "extreme_delta": 0.055
+    },
+    "extreme_penalty_formula": "max(0, max_delta_vs_id179 - 0.03) * 0.18 + mean_delta_vs_id179 * 0.20 for ID180+",
+    "warning": "This intentionally penalizes non-nested extreme calibration exposure. It should guide probe choice, not replace DACON validation."
+  },
+  "rank_by_local_cv": [
+    {
+      "id": 188,
+      "local_cv": 0.49809426432801496,
+      "public_lb_observed": null,
+      "risk_tier": "extreme_delta",
+      "max_delta_vs_id179": 0.29995205028405375,
+      "mean_delta_vs_id179": 0.07493460625955296,
+      "heuristic_public_risk_score": 0.6416725546310553,
+      "gap_added_by_heuristic": 0.14357829030304037,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 187,
+      "local_cv": 0.5016326344680796,
+      "public_lb_observed": null,
+      "risk_tier": "extreme_delta",
+      "max_delta_vs_id179": 0.24996004190337817,
+      "mean_delta_vs_id179": 0.06352745292449008,
+      "heuristic_public_risk_score": 0.6339309325955857,
+      "gap_added_by_heuristic": 0.13229829812750615,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 186,
+      "local_cv": 0.5061622460739131,
+      "public_lb_observed": null,
+      "risk_tier": "extreme_delta",
+      "max_delta_vs_id179": 0.19996803352270254,
+      "mean_delta_vs_id179": 0.052087045075128874,
+      "heuristic_public_risk_score": 0.6271739011230254,
+      "gap_added_by_heuristic": 0.12101165504911227,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 185,
+      "local_cv": 0.5125398900518174,
+      "public_lb_observed": null,
+      "risk_tier": "high_delta",
+      "max_delta_vs_id179": 0.1499760251420268,
+      "mean_delta_vs_id179": 0.038726073796812775,
+      "heuristic_public_risk_score": 0.6018807893367448,
+      "gap_added_by_heuristic": 0.08934089928492739,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 184,
+      "local_cv": 0.5164994726823283,
+      "public_lb_observed": null,
+      "risk_tier": "high_delta",
+      "max_delta_vs_id179": 0.11996938442138594,
+      "mean_delta_vs_id179": 0.03152014851280149,
+      "heuristic_public_risk_score": 0.5989979915807382,
+      "gap_added_by_heuristic": 0.08249851889840987,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 183,
+      "local_cv": 0.5196112992801366,
+      "public_lb_observed": null,
+      "risk_tier": "high_delta",
+      "max_delta_vs_id179": 0.09998401676135127,
+      "mean_delta_vs_id179": 0.026247711269087436,
+      "heuristic_public_risk_score": 0.5974579645509974,
+      "gap_added_by_heuristic": 0.07784666527086082,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 182,
+      "local_cv": 0.5229092047988855,
+      "public_lb_observed": null,
+      "risk_tier": "moderate_delta",
+      "max_delta_vs_id179": 0.079994135518553,
+      "mean_delta_vs_id179": 0.020992940385221412,
+      "heuristic_public_risk_score": 0.5811067372692693,
+      "gap_added_by_heuristic": 0.05819753247038384,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 181,
+      "local_cv": 0.5264300186730232,
+      "public_lb_observed": null,
+      "risk_tier": "moderate_delta",
+      "max_delta_vs_id179": 0.059984692210692914,
+      "mean_delta_vs_id179": 0.015717200295625587,
+      "heuristic_public_risk_score": 0.5799707033300731,
+      "gap_added_by_heuristic": 0.053540684657049864,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 180,
+      "local_cv": 0.5295786811315188,
+      "public_lb_observed": null,
+      "risk_tier": "moderate_delta",
+      "max_delta_vs_id179": 0.05905607320161621,
+      "mean_delta_vs_id179": 0.011140869818056679,
+      "heuristic_public_risk_score": 0.5820369482714212,
+      "gap_added_by_heuristic": 0.052458267139902315,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 179,
+      "local_cv": 0.5382899278463247,
+      "public_lb_observed": null,
+      "risk_tier": "low_delta",
+      "max_delta_vs_id179": 0.0,
+      "mean_delta_vs_id179": 0.0,
+      "heuristic_public_risk_score": 0.5732899278463247,
+      "gap_added_by_heuristic": 0.03500000000000003,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 178,
+      "local_cv": 0.5386377373903545,
+      "public_lb_observed": 0.6014113009,
+      "risk_tier": "moderate_delta",
+      "max_delta_vs_id179": 0.05182432489492261,
+      "mean_delta_vs_id179": 0.003990813769578516,
+      "heuristic_public_risk_score": 0.6014113009,
+      "gap_added_by_heuristic": 0.06277356350964547,
+      "explanation": "actual_public_observed"
+    },
+    {
+      "id": 177,
+      "local_cv": 0.5406069144235259,
+      "public_lb_observed": null,
+      "risk_tier": "moderate_delta",
+      "max_delta_vs_id179": 0.07541646519348888,
+      "mean_delta_vs_id179": 0.014603254697691123,
+      "heuristic_public_risk_score": 0.585606914423526,
+      "gap_added_by_heuristic": 0.04500000000000004,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 176,
+      "local_cv": 0.5422702236285123,
+      "public_lb_observed": null,
+      "risk_tier": "high_delta",
+      "max_delta_vs_id179": 0.1387058438227501,
+      "mean_delta_vs_id179": 0.022726175599297148,
+      "heuristic_public_risk_score": 0.6022702236285123,
+      "gap_added_by_heuristic": 0.06000000000000005,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 175,
+      "local_cv": 0.543336389452942,
+      "public_lb_observed": null,
+      "risk_tier": "high_delta",
+      "max_delta_vs_id179": 0.1387058438227501,
+      "mean_delta_vs_id179": 0.02689236028177876,
+      "heuristic_public_risk_score": 0.6033363894529421,
+      "gap_added_by_heuristic": 0.06000000000000005,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 174,
+      "local_cv": 0.5434311444984721,
+      "public_lb_observed": null,
+      "risk_tier": "high_delta",
+      "max_delta_vs_id179": 0.1387058438227501,
+      "mean_delta_vs_id179": 0.027299220435905904,
+      "heuristic_public_risk_score": 0.6034311444984721,
+      "gap_added_by_heuristic": 0.06000000000000005,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 173,
+      "local_cv": 0.5452533618305857,
+      "public_lb_observed": null,
+      "risk_tier": "high_delta",
+      "max_delta_vs_id179": 0.1394205046894067,
+      "mean_delta_vs_id179": 0.03186779529027325,
+      "heuristic_public_risk_score": 0.6052533618305858,
+      "gap_added_by_heuristic": 0.06000000000000005,
+      "explanation": "heuristic_not_claim"
+    }
+  ],
+  "rank_by_heuristic_public_risk_score": [
+    {
+      "id": 179,
+      "local_cv": 0.5382899278463247,
+      "public_lb_observed": null,
+      "risk_tier": "low_delta",
+      "max_delta_vs_id179": 0.0,
+      "mean_delta_vs_id179": 0.0,
+      "heuristic_public_risk_score": 0.5732899278463247,
+      "gap_added_by_heuristic": 0.03500000000000003,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 181,
+      "local_cv": 0.5264300186730232,
+      "public_lb_observed": null,
+      "risk_tier": "moderate_delta",
+      "max_delta_vs_id179": 0.059984692210692914,
+      "mean_delta_vs_id179": 0.015717200295625587,
+      "heuristic_public_risk_score": 0.5799707033300731,
+      "gap_added_by_heuristic": 0.053540684657049864,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 182,
+      "local_cv": 0.5229092047988855,
+      "public_lb_observed": null,
+      "risk_tier": "moderate_delta",
+      "max_delta_vs_id179": 0.079994135518553,
+      "mean_delta_vs_id179": 0.020992940385221412,
+      "heuristic_public_risk_score": 0.5811067372692693,
+      "gap_added_by_heuristic": 0.05819753247038384,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 180,
+      "local_cv": 0.5295786811315188,
+      "public_lb_observed": null,
+      "risk_tier": "moderate_delta",
+      "max_delta_vs_id179": 0.05905607320161621,
+      "mean_delta_vs_id179": 0.011140869818056679,
+      "heuristic_public_risk_score": 0.5820369482714212,
+      "gap_added_by_heuristic": 0.052458267139902315,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 177,
+      "local_cv": 0.5406069144235259,
+      "public_lb_observed": null,
+      "risk_tier": "moderate_delta",
+      "max_delta_vs_id179": 0.07541646519348888,
+      "mean_delta_vs_id179": 0.014603254697691123,
+      "heuristic_public_risk_score": 0.585606914423526,
+      "gap_added_by_heuristic": 0.04500000000000004,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 183,
+      "local_cv": 0.5196112992801366,
+      "public_lb_observed": null,
+      "risk_tier": "high_delta",
+      "max_delta_vs_id179": 0.09998401676135127,
+      "mean_delta_vs_id179": 0.026247711269087436,
+      "heuristic_public_risk_score": 0.5974579645509974,
+      "gap_added_by_heuristic": 0.07784666527086082,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 184,
+      "local_cv": 0.5164994726823283,
+      "public_lb_observed": null,
+      "risk_tier": "high_delta",
+      "max_delta_vs_id179": 0.11996938442138594,
+      "mean_delta_vs_id179": 0.03152014851280149,
+      "heuristic_public_risk_score": 0.5989979915807382,
+      "gap_added_by_heuristic": 0.08249851889840987,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 178,
+      "local_cv": 0.5386377373903545,
+      "public_lb_observed": 0.6014113009,
+      "risk_tier": "moderate_delta",
+      "max_delta_vs_id179": 0.05182432489492261,
+      "mean_delta_vs_id179": 0.003990813769578516,
+      "heuristic_public_risk_score": 0.6014113009,
+      "gap_added_by_heuristic": 0.06277356350964547,
+      "explanation": "actual_public_observed"
+    },
+    {
+      "id": 185,
+      "local_cv": 0.5125398900518174,
+      "public_lb_observed": null,
+      "risk_tier": "high_delta",
+      "max_delta_vs_id179": 0.1499760251420268,
+      "mean_delta_vs_id179": 0.038726073796812775,
+      "heuristic_public_risk_score": 0.6018807893367448,
+      "gap_added_by_heuristic": 0.08934089928492739,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 176,
+      "local_cv": 0.5422702236285123,
+      "public_lb_observed": null,
+      "risk_tier": "high_delta",
+      "max_delta_vs_id179": 0.1387058438227501,
+      "mean_delta_vs_id179": 0.022726175599297148,
+      "heuristic_public_risk_score": 0.6022702236285123,
+      "gap_added_by_heuristic": 0.06000000000000005,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 175,
+      "local_cv": 0.543336389452942,
+      "public_lb_observed": null,
+      "risk_tier": "high_delta",
+      "max_delta_vs_id179": 0.1387058438227501,
+      "mean_delta_vs_id179": 0.02689236028177876,
+      "heuristic_public_risk_score": 0.6033363894529421,
+      "gap_added_by_heuristic": 0.06000000000000005,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 174,
+      "local_cv": 0.5434311444984721,
+      "public_lb_observed": null,
+      "risk_tier": "high_delta",
+      "max_delta_vs_id179": 0.1387058438227501,
+      "mean_delta_vs_id179": 0.027299220435905904,
+      "heuristic_public_risk_score": 0.6034311444984721,
+      "gap_added_by_heuristic": 0.06000000000000005,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 173,
+      "local_cv": 0.5452533618305857,
+      "public_lb_observed": null,
+      "risk_tier": "high_delta",
+      "max_delta_vs_id179": 0.1394205046894067,
+      "mean_delta_vs_id179": 0.03186779529027325,
+      "heuristic_public_risk_score": 0.6052533618305858,
+      "gap_added_by_heuristic": 0.06000000000000005,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 186,
+      "local_cv": 0.5061622460739131,
+      "public_lb_observed": null,
+      "risk_tier": "extreme_delta",
+      "max_delta_vs_id179": 0.19996803352270254,
+      "mean_delta_vs_id179": 0.052087045075128874,
+      "heuristic_public_risk_score": 0.6271739011230254,
+      "gap_added_by_heuristic": 0.12101165504911227,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 187,
+      "local_cv": 0.5016326344680796,
+      "public_lb_observed": null,
+      "risk_tier": "extreme_delta",
+      "max_delta_vs_id179": 0.24996004190337817,
+      "mean_delta_vs_id179": 0.06352745292449008,
+      "heuristic_public_risk_score": 0.6339309325955857,
+      "gap_added_by_heuristic": 0.13229829812750615,
+      "explanation": "heuristic_not_claim"
+    },
+    {
+      "id": 188,
+      "local_cv": 0.49809426432801496,
+      "public_lb_observed": null,
+      "risk_tier": "extreme_delta",
+      "max_delta_vs_id179": 0.29995205028405375,
+      "mean_delta_vs_id179": 0.07493460625955296,
+      "heuristic_public_risk_score": 0.6416725546310553,
+      "gap_added_by_heuristic": 0.14357829030304037,
+      "explanation": "heuristic_not_claim"
+    }
+  ],
+  "recommendation": {
+    "safer_probe_if_submitting_one": "ID179 or a lower-delta ID180/ID181 style candidate, because ID178 already showed high local optimism.",
+    "bold_probe_if_accepting_high_risk": "ID183-ID185 range; ID188 crosses local 0.50 but is very close to ID172 extreme behavior.",
+    "do_not_claim": "Do not claim ID186-ID188 are public 0.55-ready without a real DACON result."
+  }
+}

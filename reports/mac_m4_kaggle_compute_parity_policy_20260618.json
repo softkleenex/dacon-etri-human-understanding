@@ -1,0 +1,39 @@
+{
+  "report": "mac_m4_kaggle_compute_parity_policy",
+  "created_at_kst": "2026-06-18 02:24:03 UTC+09:00",
+  "local_environment": {
+    "machine": "Apple M4 Pro / arm64",
+    "macos": "26.5.1 build 25F80",
+    "python": "3.14.3",
+    "tensorflow_importable": false,
+    "torch_version": "2.11.0",
+    "torch_mps_available": true,
+    "kaggle_cli_on_path": false,
+    "kaggle_credentials_visible": true,
+    "project_kaggle_cli_available": true,
+    "project_kaggle_cli_path": ".venv/bin/kaggle",
+    "project_kaggle_cli_version": "2.1.1"
+  },
+  "risk_read": {
+    "mac_m4_tensorflow_not_current_direct_cause_for_id339": true,
+    "reason": "ID339 and recent sequence-summary/random-conv candidates are sklearn/numpy-style diagnostics, not TensorFlow GPU training artifacts.",
+    "dl_artifact_policy": "Any TensorFlow/PyTorch/MPS-origin model artifact from local Mac must be treated as environment-risky until reproduced or parity-checked on Kaggle/CPU reference."
+  },
+  "parity_gate": {
+    "applies_to": [
+      "TensorFlow/Keras local training",
+      "PyTorch MPS local training",
+      "any GPU-dependent feature extractor or sequence/image embedding job"
+    ],
+    "minimum_checks": [
+      "same seed and data slice run locally and on Kaggle or CPU reference",
+      "record package versions and device list",
+      "compare OOF/test prediction correlation, max absolute delta, mean absolute delta, and per-target log-loss delta",
+      "promote only if prediction correlation >= 0.999 or max absolute delta is explainably tiny for deterministic code",
+      "if stochastic training is expected, require repeated-seed distribution overlap rather than a single lucky run"
+    ],
+    "promotion_rule": "No Mac-local DL artifact may become a submission candidate unless the parity report is attached to its metadata/decision note.",
+    "kaggle_cli_status": "Bare kaggle is not on PATH, but project CLI .venv/bin/kaggle works; Makefile already uses that path. Kaggle warns version 2.1.1 is older than 2.2.2; no upgrade performed."
+  },
+  "current_action": "Documentation/guardrail plus Kaggle status/output pull verification. No package installation, no Kaggle push, no DACON submission."
+}

@@ -8,7 +8,7 @@ Found **0 findings**: 0 critical, 0 high, 0 medium.
 
 ```json
 {
-  "submission_rows": 93,
+  "submission_rows": 344,
   "submission_columns": [
     "artifact_exists",
     "artifact_role",
@@ -21,6 +21,7 @@ Found **0 findings**: 0 critical, 0 high, 0 medium.
     "local_cv_score",
     "local_cv_score_num",
     "model_description",
+    "notebook_file",
     "notes",
     "public_lb_score",
     "public_lb_score_num",
@@ -30,7 +31,7 @@ Found **0 findings**: 0 critical, 0 high, 0 medium.
     "submission_file"
   ],
   "duplicate_ids": [],
-  "safe_for_default_ensemble_rows": 14,
+  "safe_for_default_ensemble_rows": 15,
   "blacklisted_safe_conflicts": []
 }
 ```

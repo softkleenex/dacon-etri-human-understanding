@@ -1,0 +1,279 @@
+{
+  "inputs": {
+    "submission_log": "submissions/submission_log.csv",
+    "candidate_parity_crossplatform_gate": "reports/candidate_parity_crossplatform_gate_post_id339_20260618.json",
+    "local_source_closure": "reports/post_id341_local_source_closure_synthesis_20260618.json"
+  },
+  "summary": {
+    "actual_public_rows": 25,
+    "recent_actual_public_rows_id_ge_85": 6,
+    "target_public": 0.58,
+    "best_actual_public": [
+      {
+        "id": 337,
+        "submission_file": "submission_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066_unsubmitted.csv",
+        "local_cv": 0.538066,
+        "public_lb": 0.600620629,
+        "public_minus_local": 0.062554629,
+        "status_clean": "cv_lb_gap_risk",
+        "model_description": "ID178 S1-only random-conv seed45502 overlay"
+      },
+      {
+        "id": 340,
+        "submission_file": "submission_id_340_id178_q2_seqsum_lr_c03_w001_safety_cv0.538426_unsubmitted.csv",
+        "local_cv": 0.538426,
+        "public_lb": 0.601379175,
+        "public_minus_local": 0.062953175,
+        "status_clean": "cv_lb_gap_risk",
+        "model_description": "ID178 Q2-only seq-summary lr_c0_3 w0.01"
+      },
+      {
+        "id": 178,
+        "submission_file": "submission_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638_unsubmitted.csv",
+        "local_cv": 0.538638,
+        "public_lb": 0.601411301,
+        "public_minus_local": 0.062773301,
+        "status_clean": "cv_lb_gap_risk",
+        "model_description": "Multiseed random-conv sequence overlay on ID173"
+      },
+      {
+        "id": 329,
+        "submission_file": "submission_id_329_post328_combo4_cap080_budget050_practical_cv0.516718_unsubmitted.csv",
+        "local_cv": 0.516718,
+        "public_lb": 0.601790858,
+        "public_minus_local": 0.085072858,
+        "status_clean": "cv_lb_gap_risk",
+        "model_description": "Aggregate failed-direction budget recovery probe"
+      },
+      {
+        "id": 6,
+        "submission_file": "submission_id_006_score0.5925.csv",
+        "local_cv": 0.5925,
+        "public_lb": 0.611675427,
+        "public_minus_local": 0.019175427,
+        "status_clean": "scored",
+        "model_description": "Optuna CNN-Transformer + CatBoost 45-Model Blending - CV 0.5925"
+      }
+    ],
+    "worst_transfer_gaps": [
+      {
+        "id": 287,
+        "submission_file": "submission_id_287_post285_base282_fixedtemp_balanced_cv0.378934_unsubmitted.csv",
+        "local_cv": 0.378934,
+        "public_lb": 0.669878732,
+        "public_minus_local": 0.290944732,
+        "status_clean": "cv_lb_gap_risk",
+        "model_description": "Second-stage full-OOF calibration on ID282"
+      },
+      {
+        "id": 9,
+        "submission_file": "submission_id_009_score0.6258.csv",
+        "local_cv": 0.6258,
+        "public_lb": 0.820884715,
+        "public_minus_local": 0.195084715,
+        "status_clean": "cv_lb_gap_risk",
+        "model_description": "Leak-Free Single Holdout Ensemble (LSTM+Cat+LGBM) - CV 0.6258"
+      },
+      {
+        "id": 74,
+        "submission_file": "submission_id_074_score0.5986.csv",
+        "local_cv": 0.5986,
+        "public_lb": 0.743643191,
+        "public_minus_local": 0.145043191,
+        "status_clean": "cv_lb_gap_risk",
+        "model_description": "Single-Model 10th Evolved Baseline CV 0.5986 edit"
+      },
+      {
+        "id": 73,
+        "submission_file": "submission_id_073_score0.6022.csv",
+        "local_cv": 0.6022,
+        "public_lb": 0.745447339,
+        "public_minus_local": 0.143247339,
+        "status_clean": "cv_lb_gap_risk",
+        "model_description": "Single-Model 9th Evolved Baseline CV 0.6022 edit"
+      },
+      {
+        "id": 329,
+        "submission_file": "submission_id_329_post328_combo4_cap080_budget050_practical_cv0.516718_unsubmitted.csv",
+        "local_cv": 0.516718,
+        "public_lb": 0.601790858,
+        "public_minus_local": 0.085072858,
+        "status_clean": "cv_lb_gap_risk",
+        "model_description": "Aggregate failed-direction budget recovery probe"
+      }
+    ]
+  },
+  "correlations": {
+    "all_actual_public": {
+      "n": 25,
+      "pearson": 0.212010244,
+      "spearman": 0.671538462,
+      "kendall": 0.553333333
+    },
+    "recent_actual_id_ge_85": {
+      "n": 6,
+      "pearson": -0.84312239,
+      "spearman": -0.2,
+      "kendall": -0.066666667
+    }
+  },
+  "gap_stats": {
+    "all_actual_public": {
+      "n": 25,
+      "min": -0.008311231,
+      "median": 0.024559244,
+      "p75": 0.062773301,
+      "p90": 0.14432485,
+      "max": 0.290944732,
+      "optimistic_gap_count": 23,
+      "severe_gap_count_ge_003": 10
+    },
+    "recent_actual_id_ge_85": {
+      "n": 6,
+      "min": 0.025189639,
+      "median": 0.062863238,
+      "p75": 0.079542937,
+      "p90": 0.188008795,
+      "max": 0.290944732,
+      "optimistic_gap_count": 6,
+      "severe_gap_count_ge_003": 5
+    }
+  },
+  "stress_references": {
+    "reference_ids": [
+      178,
+      329,
+      337,
+      340
+    ],
+    "available_reference_ids": [
+      178,
+      329,
+      337,
+      340
+    ],
+    "missing_reference_ids": [],
+    "reference_gaps": {
+      "id178_gap": 0.062773301,
+      "id329_gap": 0.085072858,
+      "id337_gap": 0.062554629,
+      "id340_gap": 0.062953175
+    },
+    "recent_gap_floor": 0.062554629,
+    "recent_gap_stress": 0.085072858,
+    "id178_public_anchor": 0.6014113009,
+    "local_cv_needed_for_public_058_recent_floor": 0.517445,
+    "local_cv_needed_for_public_058_recent_stress": 0.494927
+  },
+  "watch_candidates": [
+    {
+      "id": 342,
+      "submission_file": "submission_id_342_id178_id221_featuresim_shrink050_cv0.534000_unsubmitted.csv",
+      "local_cv": 0.534,
+      "recent_floor_proxy": 0.596555,
+      "recent_stress_proxy": 0.619073,
+      "passes_public_058_floor_proxy": false,
+      "passes_public_058_stress_proxy": false
+    },
+    {
+      "id": 339,
+      "submission_file": "submission_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.csv",
+      "local_cv": 0.536441,
+      "recent_floor_proxy": 0.598996,
+      "recent_stress_proxy": 0.621514,
+      "passes_public_058_floor_proxy": false,
+      "passes_public_058_stress_proxy": false
+    },
+    {
+      "id": 336,
+      "submission_file": "submission_id_336_id178_s1_seed45502_randomconv_overlay_cv0.537663_unsubmitted.csv",
+      "local_cv": 0.537663,
+      "recent_floor_proxy": 0.600218,
+      "recent_stress_proxy": 0.622736,
+      "passes_public_058_floor_proxy": false,
+      "passes_public_058_stress_proxy": false
+    },
+    {
+      "id": 338,
+      "submission_file": "submission_id_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861_unsubmitted.csv",
+      "local_cv": 0.537861,
+      "recent_floor_proxy": 0.600416,
+      "recent_stress_proxy": 0.622934,
+      "passes_public_058_floor_proxy": false,
+      "passes_public_058_stress_proxy": false
+    },
+    {
+      "id": 335,
+      "submission_file": "submission_id_335_id178_alpha_s4half_stressguard_cv0.539690_unsubmitted.csv",
+      "local_cv": 0.53969,
+      "recent_floor_proxy": 0.602245,
+      "recent_stress_proxy": 0.624763,
+      "passes_public_058_floor_proxy": false,
+      "passes_public_058_stress_proxy": false
+    },
+    {
+      "id": 334,
+      "submission_file": "submission_id_334_id178_rollback_s1_s4_sequence_stressguard_cv0.540347_unsubmitted.csv",
+      "local_cv": 0.540347,
+      "recent_floor_proxy": 0.602902,
+      "recent_stress_proxy": 0.62542,
+      "passes_public_058_floor_proxy": false,
+      "passes_public_058_stress_proxy": false
+    }
+  ],
+  "environment_snapshot": {
+    "tensorflow": null,
+    "tensorflow_macos": null,
+    "tensorflow_metal": null,
+    "torch": "2.11.0",
+    "lightgbm": "4.6.0",
+    "xgboost": "3.2.0",
+    "catboost": "1.2.10",
+    "scikit_learn": "1.8.0"
+  },
+  "supporting_reports": {
+    "candidate_parity_decision": {
+      "all_candidates_pass_review_gate": true,
+      "all_candidates_pass_cross_platform_gate": true,
+      "no_submission_created": true,
+      "no_dacon_submission_made": true,
+      "next_action": "Use the strict review gate for same-environment rebuilds and the cross-platform gate for Kaggle CPU or other architecture/package-version parity checks. Passing parity does not imply public-LB gain."
+    },
+    "local_source_closure_decision": {
+      "local_source_closure_synthesis_ready": true,
+      "local_no_approval_score_route_exists": false,
+      "only_score_relevant_open_route": "explicit_approved_clean_upstream_id221_to_id226",
+      "create_submission_artifact": false,
+      "modify_submission_log": false,
+      "create_id342_or_new_submission_id": false,
+      "submit_now": false,
+      "push_kaggle_now": false,
+      "run_kaggle_now": false,
+      "train_model_now": false,
+      "local_source_stack_closed_for_submission_artifact": true,
+      "any_local_lane_promotable": false,
+      "all_required_reports_present": true,
+      "kaggle_source_zip_selftest_ready": true,
+      "kaggle_upstream_packet_ready": true,
+      "recommended_next_lane": "report_first_upstream_rebuild_or_kaggle_linux_parity",
+      "requires_explicit_approval_for_kaggle": true,
+      "requires_exact_kaggle_approval_phrase": true,
+      "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+      "public_058_reviewable": false,
+      "next_action": "Do not create a local ID342 submission artifact. The only score-relevant next move is explicit-user-approved Kaggle/Linux report-first upstream rebuild/parity (`Kaggle upstream rebuild no-submit 실행 승인`), then local intake, remote summary, next-action, and Public-0.58 threshold gates. Only open a Public-0.58 artifact-contract review if the pulled reports are safe, beat the ID178 public-anchor proxy, and show min_proxy <= 0.58; ID178-only improvement above 0.58 is an improvement lead, not ID342."
+    }
+  },
+  "decision": {
+    "public_local_gap_diagnosis_ready": true,
+    "mac_m4_environment_primary_explanation": false,
+    "any_watch_candidate_passes_public_058_recent_floor_proxy": false,
+    "any_watch_candidate_passes_public_058_recent_stress_proxy": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "local_cv_needed_for_public_058_recent_floor": 0.517445,
+    "local_cv_needed_for_public_058_recent_stress": 0.494927,
+    "next_action": "Do not promote local CV-only candidates. The next score-relevant move remains the explicit-approved no-submit Kaggle/Linux upstream rebuild, followed by a separate Public-0.58 artifact-contract review only if pulled reports are safe, beat the current confirmed public anchor band, and show min_proxy <= 0.58; ID178-only improvement above 0.58 is a lead, not ID342."
+  }
+}

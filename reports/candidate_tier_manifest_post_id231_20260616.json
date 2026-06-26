@@ -1,0 +1,160 @@
+{
+  "created_at": "2026-06-16",
+  "purpose": "Candidate-tier manifest after ID231 outer-supported Q2 temperature probe.",
+  "ground_truth_warning": {
+    "id178_public_lb": 0.6014113009,
+    "meaning": "ID231 is a safer validation-repair probe, while ID228/230/227 remain unsubmitted full-OOF frontier candidates. Public 0.55 remains unproven without DACON submission."
+  },
+  "current_cleaner_branch": {
+    "candidate_ids": [
+      221,
+      218,
+      215,
+      212,
+      209,
+      206,
+      203,
+      200,
+      198,
+      193,
+      191,
+      179
+    ],
+    "preferred_order": [
+      221,
+      218,
+      215,
+      212,
+      209,
+      206,
+      203,
+      200,
+      198,
+      193,
+      191,
+      179
+    ],
+    "interpretation": "ID221 remains the preferred clean/non-ID172 branch."
+  },
+  "risk_adjusted_candidates": {
+    "preferred_clean": 221,
+    "least_reckless_bridge": 224,
+    "outer_supported_repair_probe": 231,
+    "least_aggressive_second_stage_margin": 228,
+    "raw_local_frontier": 227,
+    "interpretation": "Outer selection did not support broad second-stage calibration; ID231 is safest among calibration repairs but lacks score margin."
+  },
+  "tiers": {
+    "cleaner_anchor_like": {
+      "candidate_ids": [
+        221,
+        218,
+        215,
+        212,
+        209,
+        206,
+        203,
+        200,
+        198,
+        193,
+        191,
+        179
+      ]
+    },
+    "cap_limited_bridge_counterprobe": {
+      "candidate_ids": [
+        224,
+        222,
+        223
+      ]
+    },
+    "outer_supported_validation_repair": {
+      "candidate_ids": [
+        231
+      ]
+    },
+    "tempered_second_stage_frontier": {
+      "candidate_ids": [
+        228,
+        229,
+        230
+      ]
+    },
+    "ultra_risk_second_stage_frontier": {
+      "candidate_ids": [
+        227
+      ]
+    },
+    "high_risk_pre_second_stage_frontier": {
+      "candidate_ids": [
+        226,
+        225,
+        189,
+        172
+      ]
+    }
+  },
+  "candidate_reviews": {
+    "id221": {
+      "submission_file": "submission_id_221_id218_public_feature_similarity_overlay_cv0.532990_unsubmitted.csv",
+      "local_cv": 0.5329901873426955,
+      "robustness_score": 0.5648106632093344,
+      "strict_subject_hole_comparable": false,
+      "fold_nested_calibration": null,
+      "interpretation": "preferred clean branch"
+    },
+    "id224": {
+      "submission_file": "submission_id_224_id221_id172_cap015_convex_bridge_probe_cv0.509110_unsubmitted.csv",
+      "local_cv": 0.5091101948066463,
+      "robustness_score": 0.5398947558731595,
+      "strict_subject_hole_comparable": false,
+      "fold_nested_calibration": false,
+      "interpretation": "cap-limited convex bridge; less reckless ID172 counterprobe"
+    },
+    "id226": {
+      "submission_file": "submission_id_226_id221_id172_targetwise_best_convex_frontier_cv0.491771_unsubmitted.csv",
+      "local_cv": 0.4917706300324268,
+      "robustness_score": 0.5248703162276765,
+      "strict_subject_hole_comparable": false,
+      "fold_nested_calibration": false,
+      "interpretation": "pre-second-stage local frontier"
+    },
+    "id227": {
+      "submission_file": "submission_id_227_id226_second_stage_iso_q160_ultra_frontier_cv0.464409_unsubmitted.csv",
+      "local_cv": 0.4644089469355674,
+      "robustness_score": 0.49562725311298067,
+      "strict_subject_hole_comparable": false,
+      "fold_nested_calibration": false,
+      "interpretation": "raw local ultra-frontier; S4 q160, highest second-stage risk"
+    },
+    "id228": {
+      "submission_file": "submission_id_228_id226_second_stage_iso_only_tempered_frontier_cv0.482245_unsubmitted.csv",
+      "local_cv": 0.48224476927251697,
+      "robustness_score": 0.5138488604601581,
+      "strict_subject_hole_comparable": false,
+      "fold_nested_calibration": false,
+      "interpretation": "least aggressive broad second-stage candidate with nominal ID178-gap margin; outer diagnostic does not support broad promotion"
+    },
+    "id230": {
+      "submission_file": "submission_id_230_id226_second_stage_iso_s4q80_frontier_cv0.472703_unsubmitted.csv",
+      "local_cv": 0.47270299741054794,
+      "robustness_score": 0.5043997083985404,
+      "strict_subject_hole_comparable": false,
+      "fold_nested_calibration": false,
+      "interpretation": "aggressive second-stage candidate; S4 q80"
+    },
+    "id231": {
+      "submission_file": "submission_id_231_id226_outer_supported_q2_temp085_probe_cv0.491287_unsubmitted.csv",
+      "local_cv": 0.49128655457330045,
+      "robustness_score": 0.5243431352112053,
+      "strict_subject_hole_comparable": false,
+      "fold_nested_calibration": false,
+      "interpretation": "Q2-only temp shift with positive outer support; safest calibration-repair probe but small local gain"
+    }
+  },
+  "supporting_reports": {
+    "outer_calibration_selection": "reports/id226_outer_calibration_selection_diagnostic_20260616.json",
+    "post_id231_robustness": "reports/post_id231_outer_supported_q2_temp_robustness_20260616.json",
+    "post_id230_ladder": "reports/post_id230_second_stage_tempered_ladder_robustness_20260616.json"
+  }
+}

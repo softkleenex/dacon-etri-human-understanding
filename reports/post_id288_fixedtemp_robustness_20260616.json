@@ -1,0 +1,219 @@
+{
+  "created_at": "2026-06-16T19:05:24",
+  "purpose": "Robustness review for fixed-temperature IDs 286-288 promoted after post-ID285 scan.",
+  "source_scan": "reports/post285_temperature_only_fixed_scan_20260616.json",
+  "confirmed_public_anchor": {
+    "id": 178,
+    "local_cv": 0.538638,
+    "public_lb": 0.6014113009,
+    "observed_gap": 0.0627733009
+  },
+  "stability_veto_proxy": "local_cv + observed_id178_gap + 0.35*max(0,max_delta_vs_id178-0.15) + 0.20*max(0,max_delta_vs_base-0.10)",
+  "candidates": [
+    {
+      "id": 287,
+      "role": "balanced_fixed_temp_score_pressure",
+      "base_id": 282,
+      "submission_file": "submission_id_287_post285_base282_fixedtemp_balanced_cv0.378934_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_287_post285_base282_fixedtemp_balanced_cv0.378934_unsubmitted.ipynb",
+      "metadata_file": "reports/experiment_287_post285_base282_fixedtemp_balanced_cv0.378934_unsubmitted.json",
+      "local_cv": 0.378934,
+      "score_pressure_proxy": 0.4417073009,
+      "stability_veto_proxy": 0.49366845765175166,
+      "max_abs_delta_vs_id178": 0.2984604478621476,
+      "mean_abs_delta_vs_id178": 0.11535341335144111,
+      "max_abs_delta_vs_base": 0.04978102231611914,
+      "mean_abs_delta_vs_base": 0.026472585908679278,
+      "methods": {
+        "Q1": "temp_t0.85_s0.00",
+        "Q2": "temp_t0.80_s0.00",
+        "Q3": "temp_t0.80_s0.00",
+        "S1": "temp_t0.80_s0.00",
+        "S2": "temp_t0.80_s0.00",
+        "S3": "base",
+        "S4": "temp_t0.85_s0.00"
+      },
+      "target_scores": {
+        "Q1": 0.3730775694535896,
+        "Q2": 0.35842531085193263,
+        "Q3": 0.34648948108780625,
+        "S1": 0.30202031842869803,
+        "S2": 0.3499983624379614,
+        "S3": 0.46839594363393644,
+        "S4": 0.4541314237726406
+      },
+      "base_oof_file": "artifacts/base_predictions/base_oof_id_287_post285_base282_fixedtemp_balanced_cv0.378934.csv",
+      "base_test_file": "artifacts/base_predictions/base_test_id_287_post285_base282_fixedtemp_balanced_cv0.378934.csv",
+      "scan_row": {
+        "base_id": 282,
+        "cap_base": 0.06,
+        "cap_id178": 0.3,
+        "local_cv": 0.3789340585237949,
+        "score_pressure_proxy": 0.4417073594237949,
+        "stability_veto_proxy": 0.4936685161755466,
+        "max_delta_vs_base": 0.04978102231611914,
+        "max_delta_vs_id178": 0.2984604478621476,
+        "mean_delta_vs_id178": 0.11535341335144111,
+        "n_changed_targets": 6,
+        "methods": {
+          "Q1": "temp_t0.85_s0.00",
+          "Q2": "temp_t0.80_s0.00",
+          "Q3": "temp_t0.80_s0.00",
+          "S1": "temp_t0.80_s0.00",
+          "S2": "temp_t0.80_s0.00",
+          "S3": "base",
+          "S4": "temp_t0.85_s0.00"
+        },
+        "target_losses": {
+          "Q1": 0.3730775694535896,
+          "Q2": 0.35842531085193263,
+          "Q3": 0.34648948108780625,
+          "S1": 0.30202031842869803,
+          "S2": 0.3499983624379614,
+          "S3": 0.46839594363393644,
+          "S4": 0.4541314237726406
+        }
+      },
+      "caution": "Fixed temperature/shift transforms only; no fitted isotonic or quantile calibrator, but target-wise full-OOF selection remains non-nested."
+    },
+    {
+      "id": 286,
+      "role": "conservative_fixed_temp_guard",
+      "base_id": 280,
+      "submission_file": "submission_id_286_post285_base280_fixedtemp_guard_cv0.395368_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_286_post285_base280_fixedtemp_guard_cv0.395368_unsubmitted.ipynb",
+      "metadata_file": "reports/experiment_286_post285_base280_fixedtemp_guard_cv0.395368_unsubmitted.json",
+      "local_cv": 0.395368,
+      "score_pressure_proxy": 0.4581413009,
+      "stability_veto_proxy": 0.49650973661881814,
+      "max_abs_delta_vs_id178": 0.2596241020537661,
+      "mean_abs_delta_vs_id178": 0.10263647400899309,
+      "max_abs_delta_vs_base": 0.04186878322459239,
+      "mean_abs_delta_vs_base": 0.021335847630741235,
+      "methods": {
+        "Q1": "temp_t0.85_s0.00",
+        "Q2": "temp_t0.85_s-0.04",
+        "Q3": "temp_t0.85_s0.00",
+        "S1": "temp_t0.85_s0.00",
+        "S2": "temp_t0.85_s0.00",
+        "S3": "base",
+        "S4": "temp_t0.85_s0.00"
+      },
+      "target_scores": {
+        "Q1": 0.3876026589539705,
+        "Q2": 0.3813043636945411,
+        "Q3": 0.37172461923874467,
+        "S1": 0.3220146056605946,
+        "S2": 0.369368117800631,
+        "S3": 0.46839594363393644,
+        "S4": 0.46716519235556436
+      },
+      "base_oof_file": "artifacts/base_predictions/base_oof_id_286_post285_base280_fixedtemp_guard_cv0.395368.csv",
+      "base_test_file": "artifacts/base_predictions/base_test_id_286_post285_base280_fixedtemp_guard_cv0.395368.csv",
+      "scan_row": {
+        "base_id": 280,
+        "cap_base": 0.06,
+        "cap_id178": 0.26,
+        "local_cv": 0.39536792876256893,
+        "score_pressure_proxy": 0.4581412296625689,
+        "stability_veto_proxy": 0.4965096653813871,
+        "max_delta_vs_base": 0.041868783224592365,
+        "max_delta_vs_id178": 0.25962410205376607,
+        "mean_delta_vs_id178": 0.10263647400899309,
+        "n_changed_targets": 6,
+        "methods": {
+          "Q1": "temp_t0.85_s0.00",
+          "Q2": "temp_t0.85_s-0.04",
+          "Q3": "temp_t0.85_s0.00",
+          "S1": "temp_t0.85_s0.00",
+          "S2": "temp_t0.85_s0.00",
+          "S3": "base",
+          "S4": "temp_t0.85_s0.00"
+        },
+        "target_losses": {
+          "Q1": 0.3876026589539705,
+          "Q2": 0.3813043636945411,
+          "Q3": 0.37172461923874467,
+          "S1": 0.3220146056605946,
+          "S2": 0.369368117800631,
+          "S3": 0.46839594363393644,
+          "S4": 0.46716519235556436
+        }
+      },
+      "caution": "Fixed temperature/shift transforms only; no fitted isotonic or quantile calibrator, but target-wise full-OOF selection remains non-nested."
+    },
+    {
+      "id": 288,
+      "role": "frontier_fixed_temp_stress",
+      "base_id": 278,
+      "submission_file": "submission_id_288_post285_base278_fixedtemp_frontier_cv0.372773_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_288_post285_base278_fixedtemp_frontier_cv0.372773_unsubmitted.ipynb",
+      "metadata_file": "reports/experiment_288_post285_base278_fixedtemp_frontier_cv0.372773_unsubmitted.json",
+      "local_cv": 0.372773,
+      "score_pressure_proxy": 0.4355463009,
+      "stability_veto_proxy": 0.49859354865796895,
+      "max_abs_delta_vs_id178": 0.330134993594197,
+      "mean_abs_delta_vs_id178": 0.12249563157453497,
+      "max_abs_delta_vs_base": 0.05784983151029022,
+      "mean_abs_delta_vs_base": 0.028096465848991208,
+      "methods": {
+        "Q1": "temp_t0.80_s-0.06",
+        "Q2": "temp_t0.80_s-0.06",
+        "Q3": "temp_t0.80_s-0.06",
+        "S1": "temp_t0.80_s-0.06",
+        "S2": "temp_t0.80_s-0.06",
+        "S3": "base",
+        "S4": "temp_t0.80_s-0.06"
+      },
+      "target_scores": {
+        "Q1": 0.3727057130564353,
+        "Q2": 0.34888393853395183,
+        "Q3": 0.3369077174358863,
+        "S1": 0.29329045553644467,
+        "S2": 0.34222874126818925,
+        "S3": 0.46706283604177684,
+        "S4": 0.4483333088991374
+      },
+      "base_oof_file": "artifacts/base_predictions/base_oof_id_288_post285_base278_fixedtemp_frontier_cv0.372773.csv",
+      "base_test_file": "artifacts/base_predictions/base_test_id_288_post285_base278_fixedtemp_frontier_cv0.372773.csv",
+      "scan_row": {
+        "base_id": 278,
+        "cap_base": 0.06,
+        "cap_id178": 0.36,
+        "local_cv": 0.37277324439597453,
+        "score_pressure_proxy": 0.43554654529597453,
+        "stability_veto_proxy": 0.49859379305394347,
+        "max_delta_vs_base": 0.057849831510290134,
+        "max_delta_vs_id178": 0.33013499359419696,
+        "mean_delta_vs_id178": 0.122495631574535,
+        "n_changed_targets": 6,
+        "methods": {
+          "Q1": "temp_t0.80_s-0.06",
+          "Q2": "temp_t0.80_s-0.06",
+          "Q3": "temp_t0.80_s-0.06",
+          "S1": "temp_t0.80_s-0.06",
+          "S2": "temp_t0.80_s-0.06",
+          "S3": "base",
+          "S4": "temp_t0.80_s-0.06"
+        },
+        "target_losses": {
+          "Q1": 0.3727057130564353,
+          "Q2": 0.34888393853395183,
+          "Q3": 0.3369077174358863,
+          "S1": 0.29329045553644467,
+          "S2": 0.34222874126818925,
+          "S3": 0.46706283604177684,
+          "S4": 0.4483333088991374
+        }
+      },
+      "caution": "Fixed temperature/shift transforms only; no fitted isotonic or quantile calibrator, but target-wise full-OOF selection remains non-nested."
+    }
+  ],
+  "recommendation": {
+    "lead_for_next_non_submission_review": 287,
+    "safer_bridge": 286,
+    "frontier_stress": 288,
+    "rationale": "ID287 gives the best fixed-temp balance: local 0.378934 with small movement vs its base. ID286 is a safer bridge with lower ID178 movement. ID288 is a non-fitted frontier but still exceeds 0.33 max delta vs ID178."
+  },
+  "submission_policy": "No DACON submission was made. Explicit user approval required before DACON submit."
+}

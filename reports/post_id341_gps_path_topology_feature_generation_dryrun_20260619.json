@@ -1,0 +1,148 @@
+{
+  "created_at_kst": "2026-06-19 04:41:02 UTC+09:00",
+  "diagnostic": "post_id341_gps_path_topology_feature_generation_dryrun",
+  "report_only": true,
+  "source_family": "gps_path_topology_sequence_v1",
+  "inputs": {
+    "feature_spec_report": {
+      "path": "reports/post_id341_gps_path_topology_feature_spec_20260619.json",
+      "exists": true,
+      "feature_spec_ready": true,
+      "next_local_allowed_step": "report_only_feature_generation_dryrun"
+    },
+    "raw_sources": {
+      "mGps": "data/raw/ch2025_data_items/ch2025_mGps.parquet",
+      "mWifi": "data/raw/ch2025_data_items/ch2025_mWifi.parquet",
+      "mBle": "data/raw/ch2025_data_items/ch2025_mBle.parquet",
+      "mActivity": "data/raw/ch2025_data_items/ch2025_mActivity.parquet"
+    }
+  },
+  "row_alignment": {
+    "expected_rows": 700,
+    "dryrun_rows": 700,
+    "exact_key_alignment": true,
+    "duplicate_keys": 0,
+    "train_rows": 450,
+    "test_rows": 250
+  },
+  "coverage": {
+    "by_split": {
+      "test": {
+        "rows": 250,
+        "gps_topology_ready_rows": 234,
+        "gps_topology_ready_rate": 0.936,
+        "place_context_ready_rows": 246,
+        "place_context_ready_rate": 0.984,
+        "median_gps_rows": 1376.0,
+        "median_gps_payload_points": 13957.0
+      },
+      "train": {
+        "rows": 450,
+        "gps_topology_ready_rows": 420,
+        "gps_topology_ready_rate": 0.9333333333333333,
+        "place_context_ready_rows": 439,
+        "place_context_ready_rate": 0.9755555555555555,
+        "median_gps_rows": 1371.0,
+        "median_gps_payload_points": 12568.5
+      }
+    },
+    "overall_gps_topology_ready_rate": 0.9342857142857143,
+    "overall_place_context_ready_rate": 0.9785714285714285
+  },
+  "feature_columns": {
+    "feature_column_count": 32,
+    "max_allowed_first_matrix_columns": 64,
+    "within_first_matrix_bound": true,
+    "missing_declared_features": [],
+    "extra_features": [],
+    "features": [
+      "gps_rows",
+      "gps_payload_points",
+      "gps_coordinate_payload_rows",
+      "gps_active_hours",
+      "gps_evening_rows_18_23",
+      "gps_night_rows_00_05",
+      "gps_gap_count_gt15m",
+      "gps_longest_gap_minutes",
+      "gps_observed_span_minutes",
+      "gps_speed_p50",
+      "gps_speed_p90",
+      "gps_speed_max",
+      "gps_low_speed_payload_share",
+      "gps_high_speed_payload_share",
+      "gps_lat_span",
+      "gps_lon_span",
+      "gps_bbox_area_proxy",
+      "gps_payload_quality_flag",
+      "activity_rows",
+      "activity_active_code_count",
+      "activity_top_code_share",
+      "activity_late_rows_18_23",
+      "wifi_rows",
+      "wifi_token_count_capped64",
+      "wifi_top_token_share",
+      "wifi_payload_points",
+      "ble_rows",
+      "ble_token_count_capped64",
+      "ble_top_token_share",
+      "ble_payload_points",
+      "place_context_rows",
+      "place_context_token_count_capped128"
+    ]
+  },
+  "cardinality_bounds": {
+    "wifi_cardinality": {
+      "source": "mWifi",
+      "prefix": "wifi",
+      "cap": 64,
+      "subjects": 10,
+      "max_raw_tokens_per_subject": 24373,
+      "subjects_over_cap_before_capping": 10,
+      "max_tokens_after_capping": 64
+    },
+    "ble_cardinality": {
+      "source": "mBle",
+      "prefix": "ble",
+      "cap": 64,
+      "subjects": 10,
+      "max_raw_tokens_per_subject": 119814,
+      "subjects_over_cap_before_capping": 10,
+      "max_tokens_after_capping": 64
+    }
+  },
+  "safety_contract": {
+    "feature_matrix_written": false,
+    "feature_parquet_written": false,
+    "predictions_created": false,
+    "submission_csv_created": false,
+    "submission_log_modified": false,
+    "model_trained": false,
+    "kaggle_run_executed": false,
+    "dacon_submission_executed": false,
+    "uses_target_labels": false,
+    "uses_oof_predictions": false,
+    "uses_public_scores": false
+  },
+  "decision": {
+    "dryrun_passed": true,
+    "source_family": "gps_path_topology_sequence_v1",
+    "target_focus": [
+      "Q3",
+      "S3"
+    ],
+    "row_alignment_exact": true,
+    "feature_column_count": 32,
+    "feature_column_bound_passed": true,
+    "train_gps_topology_ready_rate": 0.9333333333333333,
+    "test_gps_topology_ready_rate": 0.936,
+    "public_058_evidence": false,
+    "feature_matrix_allowed_now": false,
+    "train_model_now": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_local_allowed_step": "feature_matrix_smoke_contract_or_kaggle_upstream_rebuild",
+    "next_action": "GPS topology can be materialized in memory with aligned rows and bounded columns, but this remains non-score evidence. Do not create ID342 or train locally; either write a separate feature-matrix smoke contract or use the explicit-approved clean upstream Kaggle rebuild for score-relevant work."
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "created_at": "2026-06-16",
+  "purpose": "Candidate-tier manifest after ID212 wide shapelet/motif cleaner update and ID213/ID214 bridge updates.",
+  "ground_truth_warning": {
+    "id178_public_lb": 0.6014113009,
+    "meaning": "ID212/213/214 improve local public-structure scores, but Public 0.55 remains unproven without DACON submission."
+  },
+  "current_cleaner_branch": {
+    "candidate_ids": [
+      212,
+      209,
+      206,
+      203,
+      200,
+      198,
+      193,
+      191,
+      179
+    ],
+    "preferred_order": [
+      212,
+      209,
+      206,
+      203,
+      200,
+      198,
+      193,
+      191,
+      179
+    ],
+    "interpretation": "ID212 is the current lowest cleaner/non-ID172-calibration branch."
+  },
+  "current_moderate_bridge": {
+    "candidate_ids": [
+      213,
+      210,
+      207,
+      204,
+      201,
+      199,
+      194,
+      214,
+      211,
+      208,
+      205,
+      202,
+      195,
+      192,
+      181,
+      182,
+      180
+    ],
+    "preferred_order": [
+      213,
+      210,
+      207,
+      204,
+      201,
+      199,
+      194,
+      214,
+      211,
+      208,
+      205,
+      202,
+      195,
+      192,
+      181,
+      182,
+      180
+    ],
+    "interpretation": "ID213 is now the preferred moderate-low delta06 bridge. ID214 is the stronger but riskier delta08 bridge and crosses local 0.52."
+  },
+  "tiers": {
+    "cleaner_anchor_like": {
+      "candidate_ids": [
+        212,
+        209,
+        206,
+        203,
+        200,
+        198,
+        193,
+        191,
+        179
+      ]
+    },
+    "moderate_low_counterprobe": {
+      "candidate_ids": [
+        213,
+        210,
+        207,
+        204,
+        201,
+        199,
+        194
+      ]
+    },
+    "moderate_counterprobe": {
+      "candidate_ids": [
+        214,
+        211,
+        208,
+        205,
+        202,
+        195,
+        192,
+        181,
+        182,
+        180
+      ]
+    },
+    "bold_counterprobe": {
+      "candidate_ids": [
+        196,
+        197,
+        183,
+        184,
+        185
+      ]
+    },
+    "extreme_counterprobe_only": {
+      "candidate_ids": [
+        186,
+        187,
+        188,
+        189,
+        172
+      ]
+    }
+  },
+  "id212_review": {
+    "base_id": 206,
+    "local_cv_before": 0.5357639123296409,
+    "local_cv_after": 0.5344686176174948,
+    "modified_targets": [
+      "Q1",
+      "S4"
+    ],
+    "selected_configs": {
+      "Q1": {
+        "kind": "blend",
+        "feature_set": "shapelet_motif",
+        "model": "lr_c0_1",
+        "weight": 0.03
+      },
+      "Q2": {
+        "kind": "base"
+      },
+      "Q3": {
+        "kind": "base"
+      },
+      "S1": {
+        "kind": "base"
+      },
+      "S2": {
+        "kind": "base"
+      },
+      "S3": {
+        "kind": "base"
+      },
+      "S4": {
+        "kind": "blend",
+        "feature_set": "shapelet_motif",
+        "model": "lr_c0_01",
+        "weight": 0.25
+      }
+    },
+    "target_scores_after": {
+      "Q1": 0.5480756209146977,
+      "Q2": 0.5506886916995475,
+      "Q3": 0.5628770675141632,
+      "S1": 0.4677372079771736,
+      "S2": 0.5295161847284966,
+      "S3": 0.4905526802245998,
+      "S4": 0.5918328702637847
+    },
+    "submission_file": "submission_id_212_id206_shapelet_motif_sequence_wide_weight_overlay_cv0.534469_unsubmitted.csv",
+    "diagnostic_report": "reports/id206_shapelet_motif_sequence_wide_weight_diagnostic_20260616.json"
+  },
+  "id213_review": {
+    "base_id": 212,
+    "extreme_id": 172,
+    "local_cv": 0.5232866958766459,
+    "comparison_id210_local_cv": 0.5233999532055247,
+    "submission_file": "submission_id_213_id212_targetwise_delta06_id172_extreme_probe_cv0.523287_unsubmitted.csv",
+    "interpretation": "Same delta06 target-wise clean weights as ID210, but with ID212 as clean anchor."
+  },
+  "id214_review": {
+    "base_id": 212,
+    "extreme_id": 172,
+    "local_cv": 0.5199816216938604,
+    "comparison_id211_local_cv": 0.5201055344856742,
+    "submission_file": "submission_id_214_id212_targetwise_delta08_id172_extreme_probe_cv0.519982_unsubmitted.csv",
+    "interpretation": "Same delta08 target-wise clean weights as ID211, but with ID212 as clean anchor."
+  },
+  "robustness": {
+    "diagnostic_report": "reports/id178_id214_split_robustness_diagnostic_20260616.json",
+    "id209_to_id212": {
+      "overall_before": 0.5345300685479047,
+      "overall_after": 0.5344686176174946,
+      "robust_before": 0.5670550739003832,
+      "robust_after": 0.5669941976205726
+    },
+    "id210_to_id213": {
+      "overall_before": 0.5233999532055247,
+      "overall_after": 0.5232866958766459,
+      "robust_before": 0.5553671568155721,
+      "robust_after": 0.5552224484643223
+    },
+    "id211_to_id214": {
+      "overall_before": 0.5201055344856742,
+      "overall_after": 0.5199816216938604,
+      "robust_before": 0.5519278522340688,
+      "robust_after": 0.551764906499453
+    }
+  },
+  "artifact_contracts": [
+    {
+      "id": 212,
+      "submission_file": "submission_id_212_id206_shapelet_motif_sequence_wide_weight_overlay_cv0.534469_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_212_id206_shapelet_motif_sequence_wide_weight_overlay_cv0.534469_unsubmitted.ipynb",
+      "report_file": "reports/experiment_212_id206_shapelet_motif_sequence_wide_weight_overlay_cv0.534469_unsubmitted.json",
+      "base_oof_file": "artifacts/base_predictions/base_oof_id_212_id206_shapelet_motif_sequence_wide_weight_overlay_cv0.534469.csv",
+      "base_test_file": "artifacts/base_predictions/base_test_id_212_id206_shapelet_motif_sequence_wide_weight_overlay_cv0.534469.csv",
+      "local_cv": 0.5344686176174948
+    },
+    {
+      "id": 213,
+      "submission_file": "submission_id_213_id212_targetwise_delta06_id172_extreme_probe_cv0.523287_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_213_id212_targetwise_delta06_id172_extreme_probe_cv0.523287_unsubmitted.ipynb",
+      "report_file": "reports/experiment_213_id212_targetwise_delta06_id172_extreme_probe_cv0.523287_unsubmitted.json",
+      "base_oof_file": "artifacts/base_predictions/base_oof_id_213_id212_targetwise_delta06_id172_extreme_probe_cv0.523287.csv",
+      "base_test_file": "artifacts/base_predictions/base_test_id_213_id212_targetwise_delta06_id172_extreme_probe_cv0.523287.csv",
+      "local_cv": 0.5232866958766459
+    },
+    {
+      "id": 214,
+      "submission_file": "submission_id_214_id212_targetwise_delta08_id172_extreme_probe_cv0.519982_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_214_id212_targetwise_delta08_id172_extreme_probe_cv0.519982_unsubmitted.ipynb",
+      "report_file": "reports/experiment_214_id212_targetwise_delta08_id172_extreme_probe_cv0.519982_unsubmitted.json",
+      "base_oof_file": "artifacts/base_predictions/base_oof_id_214_id212_targetwise_delta08_id172_extreme_probe_cv0.519982.csv",
+      "base_test_file": "artifacts/base_predictions/base_test_id_214_id212_targetwise_delta08_id172_extreme_probe_cv0.519982.csv",
+      "local_cv": 0.5199816216938604
+    }
+  ],
+  "recommended_next_actions": [
+    "Use ID212 as the clean reference for genuinely new non-extreme diagnostics.",
+    "Use ID213 as the preferred moderate-low bridge if discussing a counterprobe; ID214 is lower local but riskier.",
+    "Do not submit without explicit user approval."
+  ],
+  "supporting_reports": [
+    "reports/id206_shapelet_motif_sequence_wide_weight_diagnostic_20260616.json",
+    "reports/shapelet_motif_wide_weight_review_post_id214_20260616.json",
+    "reports/id178_id214_split_robustness_diagnostic_20260616.json",
+    "reports/candidate_tier_manifest_post_id214_20260616.json"
+  ]
+}

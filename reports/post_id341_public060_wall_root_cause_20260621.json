@@ -1,0 +1,183 @@
+{
+  "created_at_kst": "2026-06-21 16:54:45 UTC+09:00",
+  "diagnostic": "post_id341_public060_wall_root_cause",
+  "report_only": true,
+  "target_public": 0.58,
+  "public_wall": 0.6,
+  "inputs": {
+    "submission_log": "submissions/submission_log.csv",
+    "q3s3_inventory": "reports/post_id341_q3s3_remaining_route_inventory_20260618.json",
+    "q2_model_smoke": "reports/post_id341_q2q3s3_fold_internal_model_smoke_20260618.json",
+    "q2_geometry_gate": "reports/post_id341_q2q3s3_q2_lead_geometry_gate_20260618.json",
+    "public_local_gap": "reports/post_id341_public_local_gap_diagnosis_20260618.json",
+    "transfer_audit": "reports/post_id341_public_transfer_audit_20260618.json"
+  },
+  "public_rows_count": 25,
+  "best_public_rows": [
+    {
+      "id": 337,
+      "submission_file": "submission_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066_unsubmitted.csv",
+      "model_description": "ID178 S1-only random-conv seed45502 overlay",
+      "local_cv": 0.538066,
+      "public_lb": 0.600620628622,
+      "public_minus_local": 0.062554628622,
+      "status_clean": "cv_lb_gap_risk"
+    },
+    {
+      "id": 340,
+      "submission_file": "submission_id_340_id178_q2_seqsum_lr_c03_w001_safety_cv0.538426_unsubmitted.csv",
+      "model_description": "ID178 Q2-only seq-summary lr_c0_3 w0.01",
+      "local_cv": 0.538426,
+      "public_lb": 0.601379175253,
+      "public_minus_local": 0.062953175253,
+      "status_clean": "cv_lb_gap_risk"
+    },
+    {
+      "id": 178,
+      "submission_file": "submission_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638_unsubmitted.csv",
+      "model_description": "Multiseed random-conv sequence overlay on ID173",
+      "local_cv": 0.538638,
+      "public_lb": 0.6014113009,
+      "public_minus_local": 0.0627733009,
+      "status_clean": "cv_lb_gap_risk"
+    },
+    {
+      "id": 329,
+      "submission_file": "submission_id_329_post328_combo4_cap080_budget050_practical_cv0.516718_unsubmitted.csv",
+      "model_description": "Aggregate failed-direction budget recovery probe",
+      "local_cv": 0.516718,
+      "public_lb": 0.6017908577,
+      "public_minus_local": 0.0850728577,
+      "status_clean": "cv_lb_gap_risk"
+    },
+    {
+      "id": 287,
+      "missing": true
+    }
+  ],
+  "recent_micro_probe_band": {
+    "ids": [
+      178,
+      329,
+      337,
+      340
+    ],
+    "available_ids": [
+      178,
+      329,
+      337,
+      340
+    ],
+    "ready": true,
+    "best_recent_public_id": 337,
+    "best_recent_public": 0.600620628622,
+    "local_span": 0.02192,
+    "public_span": 0.001170229078,
+    "local_span_to_public_span_ratio": 18.731375,
+    "all_recent_public_near_060": true,
+    "rows": [
+      {
+        "id": 178,
+        "submission_file": "submission_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638_unsubmitted.csv",
+        "model_description": "Multiseed random-conv sequence overlay on ID173",
+        "local_cv": 0.538638,
+        "public_lb": 0.6014113009,
+        "public_minus_local": 0.0627733009,
+        "status_clean": "cv_lb_gap_risk"
+      },
+      {
+        "id": 329,
+        "submission_file": "submission_id_329_post328_combo4_cap080_budget050_practical_cv0.516718_unsubmitted.csv",
+        "model_description": "Aggregate failed-direction budget recovery probe",
+        "local_cv": 0.516718,
+        "public_lb": 0.6017908577,
+        "public_minus_local": 0.0850728577,
+        "status_clean": "cv_lb_gap_risk"
+      },
+      {
+        "id": 337,
+        "submission_file": "submission_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066_unsubmitted.csv",
+        "model_description": "ID178 S1-only random-conv seed45502 overlay",
+        "local_cv": 0.538066,
+        "public_lb": 0.600620628622,
+        "public_minus_local": 0.062554628622,
+        "status_clean": "cv_lb_gap_risk"
+      },
+      {
+        "id": 340,
+        "submission_file": "submission_id_340_id178_q2_seqsum_lr_c03_w001_safety_cv0.538426_unsubmitted.csv",
+        "model_description": "ID178 Q2-only seq-summary lr_c0_3 w0.01",
+        "local_cv": 0.538426,
+        "public_lb": 0.601379175253,
+        "public_minus_local": 0.062953175253,
+        "status_clean": "cv_lb_gap_risk"
+      }
+    ]
+  },
+  "collapse_evidence": {
+    "id": 287,
+    "exists": true,
+    "local_cv": 0.378934,
+    "public_lb": 0.6698787318,
+    "public_minus_local": 0.2909447318,
+    "catastrophic_local_public_mismatch": true
+  },
+  "target_gap_evidence": {
+    "q3_s3_still_uncovered": true,
+    "q2_only_signal_found": true,
+    "q2_best_proxy": 0.6019107525231998,
+    "q2_not_public_058": true,
+    "local_no_approval_score_route_exists": false,
+    "only_score_relevant_open_route": "explicit_approved_clean_upstream_id221_to_id226"
+  },
+  "cause_rows": [
+    {
+      "cause": "validation_surface_mismatch",
+      "evidence": "Recent local CV changes around ID178/337/340 span far more locally than publicly, while ID329/287 show lower local CV can fail to transfer.",
+      "active": true
+    },
+    {
+      "cause": "q3_s3_uncovered",
+      "evidence": "Remaining-route inventory keeps Q3/S3 uncovered and local no-approval score routes closed.",
+      "active": true
+    },
+    {
+      "cause": "q2_only_lead_insufficient",
+      "evidence": "The env/social/routine local smoke selected Q2 only; Q3/S3 stay empty and Q2 proxy remains above 0.60.",
+      "active": true
+    },
+    {
+      "cause": "leaderboard_probe_family_consumed",
+      "evidence": "ID341/340/337 micro-probes have already been spent and stayed near the 0.60 public band.",
+      "active": true
+    }
+  ],
+  "decision": {
+    "public060_wall_root_cause_ready": true,
+    "wall_explained_by_current_evidence": true,
+    "local_cv_only_candidate_path_closed": true,
+    "same_family_micro_probe_path_closed": true,
+    "q3s3_independent_signal_required": true,
+    "primary_score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+    "requires_exact_kaggle_approval": true,
+    "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+    "create_feature_matrix": false,
+    "train_model_now": false,
+    "create_submission_artifact": false,
+    "modify_submission_log": false,
+    "create_id342_or_new_submission_id": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Do not spend more DACON submissions or local micro-overlays. The next useful score work is either the exact-approved no-submit upstream rebuild, or a materially new Q3/S3 independent source that passes this wall diagnosis and the transfer gates before artifact review."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_feature_matrix_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

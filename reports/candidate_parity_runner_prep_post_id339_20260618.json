@@ -1,0 +1,46 @@
+{
+  "report": "candidate_parity_runner_prep_post_id339",
+  "created_at_kst": "2026-06-18 02:46:57 UTC+09:00",
+  "runner": {
+    "notebook_dir": "notebooks/kaggle_candidate_parity_runner",
+    "notebook": "notebooks/kaggle_candidate_parity_runner/Candidate_Parity_Post_ID339_Runner.ipynb",
+    "kernel_metadata": "notebooks/kaggle_candidate_parity_runner/kernel-metadata.json",
+    "slug": "softkleenex/dacon-etri-candidate-parity-post-id339",
+    "gpu": false,
+    "tpu": false,
+    "dataset_source": "softkleenex/dacon-etri-human-base"
+  },
+  "script": "scripts/diagnose_candidate_parity_post_id339.py",
+  "local_parity_report": "reports/candidate_parity_post_id339_20260618.json",
+  "local_parity_summary": [
+    {
+      "candidate_id": 337,
+      "status": "review_pass",
+      "local_cv_delta": 3.9655902306368063e-07,
+      "oof_max_abs_delta": 1.1102230246251565e-16,
+      "test_max_abs_delta": 1.1102230246251565e-16
+    },
+    {
+      "candidate_id": 339,
+      "status": "review_pass",
+      "local_cv_delta": -2.8104092786307433e-07,
+      "oof_max_abs_delta": 1.1102230246251565e-16,
+      "test_max_abs_delta": 1.1102230246251565e-16
+    }
+  ],
+  "preflight": {
+    "command": ".venv/bin/python scripts/pre_flight_check.py --notebook_dir notebooks/kaggle_candidate_parity_runner --research",
+    "passed": true
+  },
+  "make_targets": {
+    "push": "make kaggle-push-candidate-parity-runner",
+    "pull": "make kaggle-pull-candidate-parity-output"
+  },
+  "decision": {
+    "prepared": true,
+    "pushed_to_kaggle": false,
+    "dacon_submission_made": false,
+    "next_action": "If user approves remote verification, run make kaggle-push-code, make kaggle-push-candidate-parity-runner, then pull outputs after completion.",
+    "reason": "The local parity diagnostic passes for ID337 and ID339. The next validation step is environment-independent Kaggle CPU parity, not another broad model sweep."
+  }
+}

@@ -1,0 +1,3825 @@
+{
+  "anchor": {
+    "id": 342,
+    "public_score": 0.5960832519
+  },
+  "created_at_kst": "2026-06-25 02:04:57 UTC+09:00",
+  "decision": {
+    "all_focus_targets_selected": false,
+    "create_feature_matrix": false,
+    "create_submission_artifact": false,
+    "estimated_all_target_delta_vs_id342": -3.636652826551425e-05,
+    "final_sequence_hr_light_event_gate_pass": false,
+    "gap_to_public_055_after_proxy": 0.0460468853717344,
+    "max_selected_target_delta_vs_id342": 0.0006954379111837605,
+    "modify_submission_log": false,
+    "next_action": "If this gate fails, close local raw HR/light/screen event reconstruction as an immediate ID342 overlay route. If it passes but remains far above Public 0.55, keep it report-only and pivot to validation/public-gap redesign before any artifact.",
+    "partial_signal_targets": [
+      "S3"
+    ],
+    "projected_public_proxy_from_id342": 0.5960468853717344,
+    "public_055_evidence": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "s3_selected": false,
+    "s4_selected": true,
+    "selected_targets": [
+      "S4"
+    ],
+    "sequence_hr_light_event_has_s4s3_signal": true,
+    "submit_now": false,
+    "target_delta_sum_vs_id342": -0.00025456569785859974
+  },
+  "diagnostic": "post_id342_sequence_hr_light_event_gate",
+  "feature_contract": {
+    "domain_read": "S3 approximates sleep-onset latency via settling into no-screen, darkness, charging, stillness, and HR drop. S4 approximates WASO via post-onset HR spikes, light/screen/movement interruptions, and fragmented low-HR/dark/still runs. All features are label-free raw-sequence summaries.",
+    "feature_families": {
+      "all_sequence_events": {
+        "example_features": [
+          "est_seq_screen_screen_on_window_rows_delta_prev1",
+          "est_seq_screen_screen_off_window_rows_delta_prev1",
+          "est_seq_screen_screen_off_longest_run_minutes_delta_prev1",
+          "est_seq_screen_screen_on_window_rows_dev_past3",
+          "est_seq_screen_screen_on_window_rows",
+          "est_seq_screen_screen_off_window_rows_dev_past3",
+          "est_seq_screen_screen_off_window_rows",
+          "est_seq_screen_screen_on_window_rows_prev1",
+          "est_seq_screen_screen_off_window_rows_prev1",
+          "est_seq_hr_hr_rel_low_window_rows_delta_prev1",
+          "est_seq_screen_screen_off_longest_run_minutes",
+          "est_seq_screen_screen_off_longest_run_minutes_dev_past3"
+        ],
+        "feature_count": 640
+      },
+      "physio_light_events": {
+        "example_features": [
+          "est_seq_hr_hr_rel_low_window_rows_delta_prev1",
+          "est_seq_hr_hr_spike_window_rows_delta_prev1",
+          "est_seq_hr_hr_rel_low_window_rows",
+          "est_seq_hr_hr_rel_low_window_rows_prev1",
+          "est_seq_hr_hr_rel_low_window_rows_dev_past3",
+          "est_seq_wlight_wlight_bright_window_rows_delta_prev1",
+          "est_seq_wlight_wlight_dark_window_rows_delta_prev1",
+          "est_seq_hr_hr_spike_window_rows",
+          "est_seq_hr_hr_spike_window_rows_dev_past3",
+          "est_seq_hr_spike_after_low_count_delta_prev1",
+          "est_seq_hr_hr_spike_window_rows_prev1",
+          "est_seq_hr_spike_after_low_count_dev_past3"
+        ],
+        "feature_count": 271
+      },
+      "s3_onset_settling": {
+        "example_features": [
+          "est_seq_screen_screen_off_window_rows_delta_prev1",
+          "est_seq_screen_screen_off_longest_run_minutes_delta_prev1",
+          "est_seq_screen_screen_off_window_rows_dev_past3",
+          "est_seq_screen_screen_off_window_rows",
+          "est_seq_screen_screen_off_window_rows_prev1",
+          "est_seq_screen_screen_off_longest_run_minutes",
+          "est_seq_screen_screen_off_longest_run_minutes_dev_past3",
+          "est_seq_screen_screen_off_longest_run_minutes_prev1",
+          "est_seq_charge_charging_window_rows_delta_prev1",
+          "est_seq_pedo_rest_window_rows_delta_prev1",
+          "est_seq_screen_evening_screen_off_sum_delta_prev1",
+          "est_seq_wlight_wlight_dark_window_rows_delta_prev1"
+        ],
+        "feature_count": 295
+      },
+      "s4_waso_fragmentation": {
+        "example_features": [
+          "est_seq_screen_screen_on_window_rows_delta_prev1",
+          "est_seq_screen_screen_on_window_rows_dev_past3",
+          "est_seq_screen_screen_on_window_rows",
+          "est_seq_screen_screen_on_window_rows_prev1",
+          "est_seq_hr_hr_rel_low_window_rows_delta_prev1",
+          "est_seq_hr_hr_spike_window_rows_delta_prev1",
+          "est_seq_activity_activity_active_window_rows_delta_prev1",
+          "est_seq_hr_hr_rel_low_window_rows",
+          "est_seq_pedo_moving_window_rows_delta_prev1",
+          "est_seq_hr_hr_rel_low_window_rows_prev1",
+          "est_seq_hr_hr_rel_low_window_rows_dev_past3",
+          "est_seq_wlight_wlight_bright_window_rows_delta_prev1"
+        ],
+        "feature_count": 276
+      },
+      "screen_charge_inactivity": {
+        "example_features": [
+          "est_seq_screen_screen_on_window_rows_delta_prev1",
+          "est_seq_screen_screen_off_window_rows_delta_prev1",
+          "est_seq_screen_screen_off_longest_run_minutes_delta_prev1",
+          "est_seq_screen_screen_on_window_rows_dev_past3",
+          "est_seq_screen_screen_on_window_rows",
+          "est_seq_screen_screen_off_window_rows_dev_past3",
+          "est_seq_screen_screen_off_window_rows",
+          "est_seq_screen_screen_on_window_rows_prev1",
+          "est_seq_screen_screen_off_window_rows_prev1",
+          "est_seq_screen_screen_off_longest_run_minutes",
+          "est_seq_screen_screen_off_longest_run_minutes_dev_past3",
+          "est_seq_screen_screen_off_longest_run_minutes_prev1"
+        ],
+        "feature_count": 350
+      }
+    },
+    "feature_metadata": {
+      "max_event_feature_columns": 640,
+      "mean_missing_rate": 0.22245535714285714,
+      "numeric_feature_columns_before_rank": 807,
+      "numeric_feature_columns_used": 640,
+      "rows": 700,
+      "source_metadata": [
+        {
+          "feature_count": 149,
+          "raw_rows": 382918,
+          "source": "wHr",
+          "window_rows": 207154
+        },
+        {
+          "feature_count": 64,
+          "raw_rows": 633741,
+          "source": "wlight",
+          "window_rows": 439112
+        },
+        {
+          "feature_count": 64,
+          "raw_rows": 96258,
+          "source": "mlight",
+          "window_rows": 71697
+        },
+        {
+          "feature_count": 53,
+          "raw_rows": 939653,
+          "source": "mScreenStatus",
+          "window_rows": 700586
+        },
+        {
+          "feature_count": 22,
+          "raw_rows": 939896,
+          "source": "mACStatus",
+          "window_rows": 700957
+        },
+        {
+          "feature_count": 59,
+          "raw_rows": 961062,
+          "source": "mActivity",
+          "window_rows": 716397
+        },
+        {
+          "feature_count": 109,
+          "raw_rows": 748100,
+          "source": "wPedo",
+          "window_rows": 533547
+        }
+      ],
+      "test_rows": 250,
+      "train_rows": 450,
+      "window": {
+        "end_rel_hour": 36.0,
+        "start_rel_hour": 18.0
+      }
+    }
+  },
+  "no_base_prediction_artifact_created": true,
+  "no_dacon_submission": true,
+  "no_feature_matrix_created": true,
+  "no_kaggle_action": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_submission_log_row_created": true,
+  "purpose": "Test whether sequence-level HR/light/screen/charging/activity/step event proxies add stable S4/S3 signal beyond ID342 after direct raw sleep-event reconstruction proved unavailable.",
+  "target_reports": {
+    "S3": {
+      "best": {
+        "config": "s3_id342_sequence_hr_light_event_s4_waso_fragmentation_lr_c0_30_w0.01",
+        "direction_metrics": {
+          "actual_test_band_holdout": {
+            "failed_direction_corr": {
+              "id287": 0.004755979415745147,
+              "id329": -0.06958336793707884
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.47959183673469385,
+              "id329": 0.47959183673469385
+            },
+            "max_abs_movement_vs_id342": 0.008484327059199118,
+            "max_failed_direction_corr": 0.004755979415745147,
+            "mean_abs_movement_vs_id342": 0.0005617541697189532
+          },
+          "loso_10": {
+            "failed_direction_corr": {
+              "id287": -0.08143304664346208,
+              "id329": -0.18572670138808095
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.49333333333333335,
+              "id329": 0.4822222222222222
+            },
+            "max_abs_movement_vs_id342": 0.009546154417087171,
+            "max_failed_direction_corr": -0.08143304664346208,
+            "mean_abs_movement_vs_id342": 0.003352154319924589
+          },
+          "subject_hole_5": {
+            "failed_direction_corr": {
+              "id287": -0.013696798075209045,
+              "id329": -0.061330950584094365
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.5244444444444445,
+              "id329": 0.5133333333333333
+            },
+            "max_abs_movement_vs_id342": 0.00960029130645601,
+            "max_failed_direction_corr": -0.013696798075209045,
+            "mean_abs_movement_vs_id342": 0.002542231715469656
+          },
+          "test_boundary_neighbor2_holdout": {
+            "failed_direction_corr": {
+              "id287": -0.0037850265975092113,
+              "id329": -0.05860209462080832
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.5,
+              "id329": 0.524390243902439
+            },
+            "max_abs_movement_vs_id342": 0.009199503001053475,
+            "max_failed_direction_corr": -0.0037850265975092113,
+            "mean_abs_movement_vs_id342": 0.0005365579386169345
+          },
+          "test_boundary_neighbor5_holdout": {
+            "failed_direction_corr": {
+              "id287": 0.05823351546613376,
+              "id329": -0.016009277597308906
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.5116279069767442,
+              "id329": 0.48255813953488375
+            },
+            "max_abs_movement_vs_id342": 0.009036556340183743,
+            "max_failed_direction_corr": 0.05823351546613376,
+            "mean_abs_movement_vs_id342": 0.0011310533594707497
+          }
+        },
+        "eligible": false,
+        "feature_count": 276,
+        "feature_family": "s4_waso_fragmentation",
+        "max_delta": 0.00029455090806418394,
+        "max_failed_direction_corr": 0.05823351546613376,
+        "mean_delta": -4.933012731114239e-05,
+        "min_delta": -0.00032971937779546767,
+        "model_spec": {
+          "c_value": 0.3,
+          "kind": "lr",
+          "max_leaf_nodes": null,
+          "name": "lr_c0_30"
+        },
+        "split_anchor_losses": {
+          "actual_test_band_holdout": 0.471610051027991,
+          "loso_10": 0.489944683434979,
+          "subject_hole_5": 0.48994468343497904,
+          "test_boundary_neighbor2_holdout": 0.5053185090253905,
+          "test_boundary_neighbor5_holdout": 0.5117752307455081
+        },
+        "split_deltas": {
+          "actual_test_band_holdout": -0.00029186909828071705,
+          "loso_10": 0.00029455090806418394,
+          "subject_hole_5": 0.0002800827640352388,
+          "test_boundary_neighbor2_holdout": -0.00019969583257894996,
+          "test_boundary_neighbor5_holdout": -0.00032971937779546767
+        },
+        "split_losses": {
+          "actual_test_band_holdout": 0.47131818192971026,
+          "loso_10": 0.4902392343430432,
+          "subject_hole_5": 0.4902247661990143,
+          "test_boundary_neighbor2_holdout": 0.5051188131928116,
+          "test_boundary_neighbor5_holdout": 0.5114455113677127
+        },
+        "target": "S3",
+        "target_domain": "objective sleep onset latency guideline",
+        "valid_counts": {
+          "actual_test_band_holdout": 98,
+          "loso_10": 450,
+          "subject_hole_5": 450,
+          "test_boundary_neighbor2_holdout": 82,
+          "test_boundary_neighbor5_holdout": 172
+        },
+        "weight": 0.01,
+        "wins": 3
+      },
+      "domain": "objective sleep onset latency guideline",
+      "eligible_count": 0,
+      "partial_signal_rows": [
+        {
+          "config": "s3_id342_sequence_hr_light_event_s4_waso_fragmentation_lr_c0_30_w0.01",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.004755979415745147,
+                "id329": -0.06958336793707884
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47959183673469385,
+                "id329": 0.47959183673469385
+              },
+              "max_abs_movement_vs_id342": 0.008484327059199118,
+              "max_failed_direction_corr": 0.004755979415745147,
+              "mean_abs_movement_vs_id342": 0.0005617541697189532
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.08143304664346208,
+                "id329": -0.18572670138808095
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.49333333333333335,
+                "id329": 0.4822222222222222
+              },
+              "max_abs_movement_vs_id342": 0.009546154417087171,
+              "max_failed_direction_corr": -0.08143304664346208,
+              "mean_abs_movement_vs_id342": 0.003352154319924589
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.013696798075209045,
+                "id329": -0.061330950584094365
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5244444444444445,
+                "id329": 0.5133333333333333
+              },
+              "max_abs_movement_vs_id342": 0.00960029130645601,
+              "max_failed_direction_corr": -0.013696798075209045,
+              "mean_abs_movement_vs_id342": 0.002542231715469656
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.0037850265975092113,
+                "id329": -0.05860209462080832
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5,
+                "id329": 0.524390243902439
+              },
+              "max_abs_movement_vs_id342": 0.009199503001053475,
+              "max_failed_direction_corr": -0.0037850265975092113,
+              "mean_abs_movement_vs_id342": 0.0005365579386169345
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.05823351546613376,
+                "id329": -0.016009277597308906
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5116279069767442,
+                "id329": 0.48255813953488375
+              },
+              "max_abs_movement_vs_id342": 0.009036556340183743,
+              "max_failed_direction_corr": 0.05823351546613376,
+              "mean_abs_movement_vs_id342": 0.0011310533594707497
+            }
+          },
+          "eligible": false,
+          "feature_count": 276,
+          "feature_family": "s4_waso_fragmentation",
+          "max_delta": 0.00029455090806418394,
+          "max_failed_direction_corr": 0.05823351546613376,
+          "mean_delta": -4.933012731114239e-05,
+          "min_delta": -0.00032971937779546767,
+          "model_spec": {
+            "c_value": 0.3,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_30"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.00029186909828071705,
+            "loso_10": 0.00029455090806418394,
+            "subject_hole_5": 0.0002800827640352388,
+            "test_boundary_neighbor2_holdout": -0.00019969583257894996,
+            "test_boundary_neighbor5_holdout": -0.00032971937779546767
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.47131818192971026,
+            "loso_10": 0.4902392343430432,
+            "subject_hole_5": 0.4902247661990143,
+            "test_boundary_neighbor2_holdout": 0.5051188131928116,
+            "test_boundary_neighbor5_holdout": 0.5114455113677127
+          },
+          "target": "S3",
+          "target_domain": "objective sleep onset latency guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.01,
+          "wins": 3
+        },
+        {
+          "config": "s3_id342_sequence_hr_light_event_s4_waso_fragmentation_lr_c0_30_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.004755979415745713,
+                "id329": -0.06958336793707838
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47959183673469385,
+                "id329": 0.47959183673469385
+              },
+              "max_abs_movement_vs_id342": 0.004242163529599566,
+              "max_failed_direction_corr": 0.004755979415745713,
+              "mean_abs_movement_vs_id342": 0.00028087708485947536
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.08143304664346258,
+                "id329": -0.18572670138808098
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.49333333333333335,
+                "id329": 0.4822222222222222
+              },
+              "max_abs_movement_vs_id342": 0.004773077208543586,
+              "max_failed_direction_corr": -0.08143304664346258,
+              "mean_abs_movement_vs_id342": 0.0016760771599622958
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.013696798075209328,
+                "id329": -0.06133095058409399
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5244444444444445,
+                "id329": 0.5133333333333333
+              },
+              "max_abs_movement_vs_id342": 0.004800145653228061,
+              "max_failed_direction_corr": -0.013696798075209328,
+              "mean_abs_movement_vs_id342": 0.001271115857734827
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.003785026597508471,
+                "id329": -0.05860209462080807
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5,
+                "id329": 0.524390243902439
+              },
+              "max_abs_movement_vs_id342": 0.004599751500526744,
+              "max_failed_direction_corr": -0.003785026597508471,
+              "mean_abs_movement_vs_id342": 0.00026827896930846866
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.05823351546613459,
+                "id329": -0.01600927759730745
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5116279069767442,
+                "id329": 0.48255813953488375
+              },
+              "max_abs_movement_vs_id342": 0.004518278170091872,
+              "max_failed_direction_corr": 0.05823351546613459,
+              "mean_abs_movement_vs_id342": 0.0005655266797353747
+            }
+          },
+          "eligible": false,
+          "feature_count": 276,
+          "feature_family": "s4_waso_fragmentation",
+          "max_delta": 0.00013318329866723877,
+          "max_failed_direction_corr": 0.05823351546613459,
+          "mean_delta": -3.3688708149492984e-05,
+          "min_delta": -0.0001771087204377464,
+          "model_spec": {
+            "c_value": 0.3,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_30"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.00015065499071548194,
+            "loso_10": 0.00013318329866723877,
+            "subject_hole_5": 0.00013268909418789887,
+            "test_boundary_neighbor2_holdout": -0.00010655222244937423,
+            "test_boundary_neighbor5_holdout": -0.0001771087204377464
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.4714593960372755,
+            "loso_10": 0.49007786673364623,
+            "subject_hole_5": 0.49007737252916694,
+            "test_boundary_neighbor2_holdout": 0.5052119568029412,
+            "test_boundary_neighbor5_holdout": 0.5115981220250704
+          },
+          "target": "S3",
+          "target_domain": "objective sleep onset latency guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 3
+        },
+        {
+          "config": "s3_id342_sequence_hr_light_event_s4_waso_fragmentation_lr_c0_30_w0.02",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.004755979415746276,
+                "id329": -0.06958336793707817
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47959183673469385,
+                "id329": 0.47959183673469385
+              },
+              "max_abs_movement_vs_id342": 0.016968654118398235,
+              "max_failed_direction_corr": 0.004755979415746276,
+              "mean_abs_movement_vs_id342": 0.0011235083394379064
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.0814330466434622,
+                "id329": -0.18572670138808117
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.49333333333333335,
+                "id329": 0.4822222222222222
+              },
+              "max_abs_movement_vs_id342": 0.019092308834174454,
+              "max_failed_direction_corr": -0.0814330466434622,
+              "mean_abs_movement_vs_id342": 0.0067043086398491745
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.013696798075208929,
+                "id329": -0.06133095058409415
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5244444444444445,
+                "id329": 0.5133333333333333
+              },
+              "max_abs_movement_vs_id342": 0.01920058261291213,
+              "max_failed_direction_corr": -0.013696798075208929,
+              "mean_abs_movement_vs_id342": 0.005084463430939306
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.003785026597508079,
+                "id329": -0.05860209462080775
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5,
+                "id329": 0.524390243902439
+              },
+              "max_abs_movement_vs_id342": 0.01839900600210695,
+              "max_failed_direction_corr": -0.003785026597508079,
+              "mean_abs_movement_vs_id342": 0.0010731158772338699
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.05823351546613397,
+                "id329": -0.016009277597308982
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5116279069767442,
+                "id329": 0.48255813953488375
+              },
+              "max_abs_movement_vs_id342": 0.018073112680367487,
+              "max_failed_direction_corr": 0.05823351546613397,
+              "mean_abs_movement_vs_id342": 0.0022621067189414973
+            }
+          },
+          "eligible": false,
+          "feature_count": 276,
+          "feature_family": "s4_waso_fragmentation",
+          "max_delta": 0.0006968564100583996,
+          "max_failed_direction_corr": 0.05823351546613397,
+          "mean_delta": -2.8679557386357414e-05,
+          "min_delta": -0.000565300250435441,
+          "model_spec": {
+            "c_value": 0.3,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_30"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.0005461250446577859,
+            "loso_10": 0.0006968564100583996,
+            "subject_hole_5": 0.0006173487442436842,
+            "test_boundary_neighbor2_holdout": -0.00034617764614064406,
+            "test_boundary_neighbor5_holdout": -0.000565300250435441
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.4710639259833332,
+            "loso_10": 0.4906415398450374,
+            "subject_hole_5": 0.49056203217922273,
+            "test_boundary_neighbor2_holdout": 0.5049723313792499,
+            "test_boundary_neighbor5_holdout": 0.5112099304950727
+          },
+          "target": "S3",
+          "target_domain": "objective sleep onset latency guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.02,
+          "wins": 3
+        }
+      ],
+      "selected": null,
+      "target": "S3",
+      "top_rows": [
+        {
+          "config": "s3_id342_sequence_hr_light_event_s4_waso_fragmentation_lr_c0_30_w0.01",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.004755979415745147,
+                "id329": -0.06958336793707884
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47959183673469385,
+                "id329": 0.47959183673469385
+              },
+              "max_abs_movement_vs_id342": 0.008484327059199118,
+              "max_failed_direction_corr": 0.004755979415745147,
+              "mean_abs_movement_vs_id342": 0.0005617541697189532
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.08143304664346208,
+                "id329": -0.18572670138808095
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.49333333333333335,
+                "id329": 0.4822222222222222
+              },
+              "max_abs_movement_vs_id342": 0.009546154417087171,
+              "max_failed_direction_corr": -0.08143304664346208,
+              "mean_abs_movement_vs_id342": 0.003352154319924589
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.013696798075209045,
+                "id329": -0.061330950584094365
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5244444444444445,
+                "id329": 0.5133333333333333
+              },
+              "max_abs_movement_vs_id342": 0.00960029130645601,
+              "max_failed_direction_corr": -0.013696798075209045,
+              "mean_abs_movement_vs_id342": 0.002542231715469656
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.0037850265975092113,
+                "id329": -0.05860209462080832
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5,
+                "id329": 0.524390243902439
+              },
+              "max_abs_movement_vs_id342": 0.009199503001053475,
+              "max_failed_direction_corr": -0.0037850265975092113,
+              "mean_abs_movement_vs_id342": 0.0005365579386169345
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.05823351546613376,
+                "id329": -0.016009277597308906
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5116279069767442,
+                "id329": 0.48255813953488375
+              },
+              "max_abs_movement_vs_id342": 0.009036556340183743,
+              "max_failed_direction_corr": 0.05823351546613376,
+              "mean_abs_movement_vs_id342": 0.0011310533594707497
+            }
+          },
+          "eligible": false,
+          "feature_count": 276,
+          "feature_family": "s4_waso_fragmentation",
+          "max_delta": 0.00029455090806418394,
+          "max_failed_direction_corr": 0.05823351546613376,
+          "mean_delta": -4.933012731114239e-05,
+          "min_delta": -0.00032971937779546767,
+          "model_spec": {
+            "c_value": 0.3,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_30"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.00029186909828071705,
+            "loso_10": 0.00029455090806418394,
+            "subject_hole_5": 0.0002800827640352388,
+            "test_boundary_neighbor2_holdout": -0.00019969583257894996,
+            "test_boundary_neighbor5_holdout": -0.00032971937779546767
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.47131818192971026,
+            "loso_10": 0.4902392343430432,
+            "subject_hole_5": 0.4902247661990143,
+            "test_boundary_neighbor2_holdout": 0.5051188131928116,
+            "test_boundary_neighbor5_holdout": 0.5114455113677127
+          },
+          "target": "S3",
+          "target_domain": "objective sleep onset latency guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.01,
+          "wins": 3
+        },
+        {
+          "config": "s3_id342_sequence_hr_light_event_s4_waso_fragmentation_lr_c0_30_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.004755979415745713,
+                "id329": -0.06958336793707838
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47959183673469385,
+                "id329": 0.47959183673469385
+              },
+              "max_abs_movement_vs_id342": 0.004242163529599566,
+              "max_failed_direction_corr": 0.004755979415745713,
+              "mean_abs_movement_vs_id342": 0.00028087708485947536
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.08143304664346258,
+                "id329": -0.18572670138808098
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.49333333333333335,
+                "id329": 0.4822222222222222
+              },
+              "max_abs_movement_vs_id342": 0.004773077208543586,
+              "max_failed_direction_corr": -0.08143304664346258,
+              "mean_abs_movement_vs_id342": 0.0016760771599622958
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.013696798075209328,
+                "id329": -0.06133095058409399
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5244444444444445,
+                "id329": 0.5133333333333333
+              },
+              "max_abs_movement_vs_id342": 0.004800145653228061,
+              "max_failed_direction_corr": -0.013696798075209328,
+              "mean_abs_movement_vs_id342": 0.001271115857734827
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.003785026597508471,
+                "id329": -0.05860209462080807
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5,
+                "id329": 0.524390243902439
+              },
+              "max_abs_movement_vs_id342": 0.004599751500526744,
+              "max_failed_direction_corr": -0.003785026597508471,
+              "mean_abs_movement_vs_id342": 0.00026827896930846866
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.05823351546613459,
+                "id329": -0.01600927759730745
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5116279069767442,
+                "id329": 0.48255813953488375
+              },
+              "max_abs_movement_vs_id342": 0.004518278170091872,
+              "max_failed_direction_corr": 0.05823351546613459,
+              "mean_abs_movement_vs_id342": 0.0005655266797353747
+            }
+          },
+          "eligible": false,
+          "feature_count": 276,
+          "feature_family": "s4_waso_fragmentation",
+          "max_delta": 0.00013318329866723877,
+          "max_failed_direction_corr": 0.05823351546613459,
+          "mean_delta": -3.3688708149492984e-05,
+          "min_delta": -0.0001771087204377464,
+          "model_spec": {
+            "c_value": 0.3,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_30"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.00015065499071548194,
+            "loso_10": 0.00013318329866723877,
+            "subject_hole_5": 0.00013268909418789887,
+            "test_boundary_neighbor2_holdout": -0.00010655222244937423,
+            "test_boundary_neighbor5_holdout": -0.0001771087204377464
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.4714593960372755,
+            "loso_10": 0.49007786673364623,
+            "subject_hole_5": 0.49007737252916694,
+            "test_boundary_neighbor2_holdout": 0.5052119568029412,
+            "test_boundary_neighbor5_holdout": 0.5115981220250704
+          },
+          "target": "S3",
+          "target_domain": "objective sleep onset latency guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 3
+        },
+        {
+          "config": "s3_id342_sequence_hr_light_event_s4_waso_fragmentation_lr_c0_30_w0.02",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.004755979415746276,
+                "id329": -0.06958336793707817
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47959183673469385,
+                "id329": 0.47959183673469385
+              },
+              "max_abs_movement_vs_id342": 0.016968654118398235,
+              "max_failed_direction_corr": 0.004755979415746276,
+              "mean_abs_movement_vs_id342": 0.0011235083394379064
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.0814330466434622,
+                "id329": -0.18572670138808117
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.49333333333333335,
+                "id329": 0.4822222222222222
+              },
+              "max_abs_movement_vs_id342": 0.019092308834174454,
+              "max_failed_direction_corr": -0.0814330466434622,
+              "mean_abs_movement_vs_id342": 0.0067043086398491745
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.013696798075208929,
+                "id329": -0.06133095058409415
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5244444444444445,
+                "id329": 0.5133333333333333
+              },
+              "max_abs_movement_vs_id342": 0.01920058261291213,
+              "max_failed_direction_corr": -0.013696798075208929,
+              "mean_abs_movement_vs_id342": 0.005084463430939306
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.003785026597508079,
+                "id329": -0.05860209462080775
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5,
+                "id329": 0.524390243902439
+              },
+              "max_abs_movement_vs_id342": 0.01839900600210695,
+              "max_failed_direction_corr": -0.003785026597508079,
+              "mean_abs_movement_vs_id342": 0.0010731158772338699
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.05823351546613397,
+                "id329": -0.016009277597308982
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5116279069767442,
+                "id329": 0.48255813953488375
+              },
+              "max_abs_movement_vs_id342": 0.018073112680367487,
+              "max_failed_direction_corr": 0.05823351546613397,
+              "mean_abs_movement_vs_id342": 0.0022621067189414973
+            }
+          },
+          "eligible": false,
+          "feature_count": 276,
+          "feature_family": "s4_waso_fragmentation",
+          "max_delta": 0.0006968564100583996,
+          "max_failed_direction_corr": 0.05823351546613397,
+          "mean_delta": -2.8679557386357414e-05,
+          "min_delta": -0.000565300250435441,
+          "model_spec": {
+            "c_value": 0.3,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_30"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.0005461250446577859,
+            "loso_10": 0.0006968564100583996,
+            "subject_hole_5": 0.0006173487442436842,
+            "test_boundary_neighbor2_holdout": -0.00034617764614064406,
+            "test_boundary_neighbor5_holdout": -0.000565300250435441
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.4710639259833332,
+            "loso_10": 0.4906415398450374,
+            "subject_hole_5": 0.49056203217922273,
+            "test_boundary_neighbor2_holdout": 0.5049723313792499,
+            "test_boundary_neighbor5_holdout": 0.5112099304950727
+          },
+          "target": "S3",
+          "target_domain": "objective sleep onset latency guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.02,
+          "wins": 3
+        },
+        {
+          "config": "s3_id342_sequence_hr_light_event_s4_waso_fragmentation_lr_c0_10_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.00015665768353862093,
+                "id329": -0.0809907814422608
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4489795918367347,
+                "id329": 0.40816326530612246
+              },
+              "max_abs_movement_vs_id342": 0.0038932018241055744,
+              "max_failed_direction_corr": 0.00015665768353862093,
+              "mean_abs_movement_vs_id342": 0.00024989814599599695
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.10845257342755711,
+                "id329": -0.21076911145837315
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.45111111111111113,
+                "id329": 0.4577777777777778
+              },
+              "max_abs_movement_vs_id342": 0.004772272649536169,
+              "max_failed_direction_corr": -0.10845257342755711,
+              "mean_abs_movement_vs_id342": 0.0014938227815742343
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.023625418409890804,
+                "id329": -0.07883617622786429
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4911111111111111,
+                "id329": 0.48444444444444446
+              },
+              "max_abs_movement_vs_id342": 0.004800119356990873,
+              "max_failed_direction_corr": -0.023625418409890804,
+              "mean_abs_movement_vs_id342": 0.0011069949509126245
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.004376327375664755,
+                "id329": -0.06262434807665086
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47560975609756095,
+                "id329": 0.5
+              },
+              "max_abs_movement_vs_id342": 0.0043799698761343014,
+              "max_failed_direction_corr": -0.004376327375664755,
+              "mean_abs_movement_vs_id342": 0.00023261391406455354
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.04596558941145228,
+                "id329": -0.027197923818678416
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5058139534883721,
+                "id329": 0.45348837209302323
+              },
+              "max_abs_movement_vs_id342": 0.004505288704690358,
+              "max_failed_direction_corr": 0.04596558941145228,
+              "mean_abs_movement_vs_id342": 0.0004970848499939007
+            }
+          },
+          "eligible": false,
+          "feature_count": 276,
+          "feature_family": "s4_waso_fragmentation",
+          "max_delta": 0.00014916884951027276,
+          "max_failed_direction_corr": 0.04596558941145228,
+          "mean_delta": 3.103584479410282e-05,
+          "min_delta": -0.00023463792414457618,
+          "model_spec": {
+            "c_value": 0.1,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_10"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -1.0159252316455092e-05,
+            "loso_10": 0.00014916884951027276,
+            "subject_hole_5": 0.0001305428236956785,
+            "test_boundary_neighbor2_holdout": 0.00012026472722559411,
+            "test_boundary_neighbor5_holdout": -0.00023463792414457618
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.4715998917756745,
+            "loso_10": 0.49009385228448926,
+            "subject_hole_5": 0.4900752262586747,
+            "test_boundary_neighbor2_holdout": 0.5054387737526161,
+            "test_boundary_neighbor5_holdout": 0.5115405928213635
+          },
+          "target": "S3",
+          "target_domain": "objective sleep onset latency guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 2
+        },
+        {
+          "config": "s3_id342_sequence_hr_light_event_s4_waso_fragmentation_hgb_l7_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.02596536584615037,
+                "id329": -0.09842529627701613
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47959183673469385,
+                "id329": 0.3979591836734694
+              },
+              "max_abs_movement_vs_id342": 0.002314474816153378,
+              "max_failed_direction_corr": -0.02596536584615037,
+              "mean_abs_movement_vs_id342": 0.00018934678543279865
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.15257183981372502,
+                "id329": -0.2683972690342692
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4533333333333333,
+                "id329": 0.44222222222222224
+              },
+              "max_abs_movement_vs_id342": 0.004258893750086409,
+              "max_failed_direction_corr": -0.15257183981372502,
+              "mean_abs_movement_vs_id342": 0.0012090685527392953
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.048854525873201375,
+                "id329": -0.14350097612971555
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5044444444444445,
+                "id329": 0.4622222222222222
+              },
+              "max_abs_movement_vs_id342": 0.0032687733133136554,
+              "max_failed_direction_corr": -0.048854525873201375,
+              "mean_abs_movement_vs_id342": 0.0007875319677918349
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.022512577888818955,
+                "id329": -0.09017298707043174
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5121951219512195,
+                "id329": 0.4634146341463415
+              },
+              "max_abs_movement_vs_id342": 0.0024286673913366807,
+              "max_failed_direction_corr": -0.022512577888818955,
+              "mean_abs_movement_vs_id342": 0.00016547857261092893
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.02911518536885932,
+                "id329": -0.10654451030708229
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47674418604651164,
+                "id329": 0.48255813953488375
+              },
+              "max_abs_movement_vs_id342": 0.0028011751459051104,
+              "max_failed_direction_corr": -0.02911518536885932,
+              "mean_abs_movement_vs_id342": 0.00034279635304536717
+            }
+          },
+          "eligible": false,
+          "feature_count": 276,
+          "feature_family": "s4_waso_fragmentation",
+          "max_delta": 0.00015131000552831564,
+          "max_failed_direction_corr": -0.022512577888818955,
+          "mean_delta": 3.443086542902485e-05,
+          "min_delta": -7.568935884971761e-05,
+          "model_spec": {
+            "c_value": null,
+            "kind": "hgb",
+            "max_leaf_nodes": 7,
+            "name": "hgb_l7"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.00015131000552831564,
+            "loso_10": 7.820336172370546e-05,
+            "subject_hole_5": 6.088134052839589e-06,
+            "test_boundary_neighbor2_holdout": -7.568935884971761e-05,
+            "test_boundary_neighbor5_holdout": 1.2242184689981173e-05
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.4717613610335193,
+            "loso_10": 0.4900228867967027,
+            "subject_hole_5": 0.4899507715690319,
+            "test_boundary_neighbor2_holdout": 0.5052428196665408,
+            "test_boundary_neighbor5_holdout": 0.5117874729301981
+          },
+          "target": "S3",
+          "target_domain": "objective sleep onset latency guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 1
+        },
+        {
+          "config": "s3_id342_sequence_hr_light_event_s4_waso_fragmentation_lr_c0_30_w0.03",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.004755979415745312,
+                "id329": -0.06958336793707856
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47959183673469385,
+                "id329": 0.47959183673469385
+              },
+              "max_abs_movement_vs_id342": 0.025452981177597367,
+              "max_failed_direction_corr": 0.004755979415745312,
+              "mean_abs_movement_vs_id342": 0.0016852625091568587
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.08143304664346229,
+                "id329": -0.1857267013880811
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.49333333333333335,
+                "id329": 0.4822222222222222
+              },
+              "max_abs_movement_vs_id342": 0.028638463251261626,
+              "max_failed_direction_corr": -0.08143304664346229,
+              "mean_abs_movement_vs_id342": 0.010056462959773766
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.013696798075208983,
+                "id329": -0.06133095058409426
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5244444444444445,
+                "id329": 0.5133333333333333
+              },
+              "max_abs_movement_vs_id342": 0.028800873919368142,
+              "max_failed_direction_corr": -0.013696798075208983,
+              "mean_abs_movement_vs_id342": 0.0076266951464089615
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.0037850265975090574,
+                "id329": -0.058602094620808294
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5,
+                "id329": 0.524390243902439
+              },
+              "max_abs_movement_vs_id342": 0.027598509003160437,
+              "max_failed_direction_corr": -0.0037850265975090574,
+              "mean_abs_movement_vs_id342": 0.0016096738158508043
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.0582335154661334,
+                "id329": -0.01600927759730908
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5116279069767442,
+                "id329": 0.48255813953488375
+              },
+              "max_abs_movement_vs_id342": 0.02710966902055123,
+              "max_failed_direction_corr": 0.0582335154661334,
+              "mean_abs_movement_vs_id342": 0.0033931600784122473
+            }
+          },
+          "eligible": false,
+          "feature_count": 276,
+          "feature_family": "s4_waso_fragmentation",
+          "max_delta": 0.0011984949395888456,
+          "max_failed_direction_corr": 0.0582335154661334,
+          "mean_delta": 5.8141272955891665e-05,
+          "min_delta": -0.0007630487302033861,
+          "model_spec": {
+            "c_value": 0.3,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_30"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.0007630487302033861,
+            "loso_10": 0.0011984949395888456,
+            "subject_hole_5": 0.0010089679549522557,
+            "test_boundary_neighbor2_holdout": -0.00044023449067609466,
+            "test_boundary_neighbor5_holdout": -0.0007134733088821621
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.4708470022977876,
+            "loso_10": 0.49114317837456783,
+            "subject_hole_5": 0.4909536513899313,
+            "test_boundary_neighbor2_holdout": 0.5048782745347145,
+            "test_boundary_neighbor5_holdout": 0.511061757436626
+          },
+          "target": "S3",
+          "target_domain": "objective sleep onset latency guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.03,
+          "wins": 3
+        },
+        {
+          "config": "s3_id342_sequence_hr_light_event_s4_waso_fragmentation_hgb_l7_w0.01",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.025965365846149942,
+                "id329": -0.09842529627701602
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47959183673469385,
+                "id329": 0.3979591836734694
+              },
+              "max_abs_movement_vs_id342": 0.004628949632306756,
+              "max_failed_direction_corr": -0.025965365846149942,
+              "mean_abs_movement_vs_id342": 0.0003786935708655957
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.1525718398137239,
+                "id329": -0.26839726903426936
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4533333333333333,
+                "id329": 0.44222222222222224
+              },
+              "max_abs_movement_vs_id342": 0.008517787500172819,
+              "max_failed_direction_corr": -0.1525718398137239,
+              "mean_abs_movement_vs_id342": 0.002418137105478592
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.04885452587320316,
+                "id329": -0.14350097612971827
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5044444444444445,
+                "id329": 0.4622222222222222
+              },
+              "max_abs_movement_vs_id342": 0.006537546626627297,
+              "max_failed_direction_corr": -0.04885452587320316,
+              "mean_abs_movement_vs_id342": 0.001575063935583674
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.022512577888818445,
+                "id329": -0.09017298707043156
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5121951219512195,
+                "id329": 0.4634146341463415
+              },
+              "max_abs_movement_vs_id342": 0.0048573347826733615,
+              "max_failed_direction_corr": -0.022512577888818445,
+              "mean_abs_movement_vs_id342": 0.00033095714522185705
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.029115185368858595,
+                "id329": -0.1065445103070812
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47674418604651164,
+                "id329": 0.48255813953488375
+              },
+              "max_abs_movement_vs_id342": 0.005602350291810249,
+              "max_failed_direction_corr": -0.029115185368858595,
+              "mean_abs_movement_vs_id342": 0.0006855927060907336
+            }
+          },
+          "eligible": false,
+          "feature_count": 276,
+          "feature_family": "s4_waso_fragmentation",
+          "max_delta": 0.00030690834885627183,
+          "max_failed_direction_corr": -0.022512577888818445,
+          "mean_delta": 7.760202721626141e-05,
+          "min_delta": -0.00014494172396284366,
+          "model_spec": {
+            "c_value": null,
+            "kind": "hgb",
+            "max_leaf_nodes": 7,
+            "name": "hgb_l7"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.00030690834885627183,
+            "loso_10": 0.00017455286647788393,
+            "subject_hole_5": 1.8192928027183086e-05,
+            "test_boundary_neighbor2_holdout": -0.00014494172396284366,
+            "test_boundary_neighbor5_holdout": 3.3297716682811895e-05
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.47191695937684724,
+            "loso_10": 0.4901192363014569,
+            "subject_hole_5": 0.48996287636300623,
+            "test_boundary_neighbor2_holdout": 0.5051735673014277,
+            "test_boundary_neighbor5_holdout": 0.5118085284621909
+          },
+          "target": "S3",
+          "target_domain": "objective sleep onset latency guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.01,
+          "wins": 1
+        },
+        {
+          "config": "s3_id342_sequence_hr_light_event_s4_waso_fragmentation_lr_c0_10_w0.01",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.00015665768353814797,
+                "id329": -0.08099078144226127
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4489795918367347,
+                "id329": 0.40816326530612246
+              },
+              "max_abs_movement_vs_id342": 0.007786403648211149,
+              "max_failed_direction_corr": 0.00015665768353814797,
+              "mean_abs_movement_vs_id342": 0.000499796291991993
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.10845257342755754,
+                "id329": -0.21076911145837463
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.45111111111111113,
+                "id329": 0.4577777777777778
+              },
+              "max_abs_movement_vs_id342": 0.009544545299072227,
+              "max_failed_direction_corr": -0.10845257342755754,
+              "mean_abs_movement_vs_id342": 0.0029876455631484638
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.023625418409891664,
+                "id329": -0.07883617622786548
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4911111111111111,
+                "id329": 0.48444444444444446
+              },
+              "max_abs_movement_vs_id342": 0.009600238713981857,
+              "max_failed_direction_corr": -0.023625418409891664,
+              "mean_abs_movement_vs_id342": 0.0022139899018252503
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.004376327375665394,
+                "id329": -0.06262434807665235
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47560975609756095,
+                "id329": 0.5
+              },
+              "max_abs_movement_vs_id342": 0.008759939752268603,
+              "max_failed_direction_corr": -0.004376327375665394,
+              "mean_abs_movement_vs_id342": 0.00046522782812910665
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.04596558941145081,
+                "id329": -0.027197923818678985
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5058139534883721,
+                "id329": 0.45348837209302323
+              },
+              "max_abs_movement_vs_id342": 0.009010577409380716,
+              "max_failed_direction_corr": 0.04596558941145081,
+              "mean_abs_movement_vs_id342": 0.0009941696999878034
+            }
+          },
+          "eligible": false,
+          "feature_count": 276,
+          "feature_family": "s4_waso_fragmentation",
+          "max_delta": 0.0003200828950088441,
+          "max_failed_direction_corr": 0.04596558941145081,
+          "mean_delta": 7.828590807499314e-05,
+          "min_delta": -0.00043968902488311645,
+          "model_spec": {
+            "c_value": 0.1,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_10"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -1.373515224706301e-05,
+            "loso_10": 0.0003200828950088441,
+            "subject_hole_5": 0.00027511922175021963,
+            "test_boundary_neighbor2_holdout": 0.0002496516007460814,
+            "test_boundary_neighbor5_holdout": -0.00043968902488311645
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.4715963158757439,
+            "loso_10": 0.49026476632998783,
+            "subject_hole_5": 0.49021980265672926,
+            "test_boundary_neighbor2_holdout": 0.5055681606261366,
+            "test_boundary_neighbor5_holdout": 0.511335541720625
+          },
+          "target": "S3",
+          "target_domain": "objective sleep onset latency guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.01,
+          "wins": 2
+        },
+        {
+          "config": "s3_id342_sequence_hr_light_event_s4_waso_fragmentation_lr_c0_03_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.0020393791885511365,
+                "id329": -0.07888249776194577
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4489795918367347,
+                "id329": 0.40816326530612246
+              },
+              "max_abs_movement_vs_id342": 0.003818465416802197,
+              "max_failed_direction_corr": 0.0020393791885511365,
+              "mean_abs_movement_vs_id342": 0.00022579053872456172
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.1241599416937614,
+                "id329": -0.22865854236774466
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.44222222222222224,
+                "id329": 0.4444444444444444
+              },
+              "max_abs_movement_vs_id342": 0.004773626645091289,
+              "max_failed_direction_corr": -0.1241599416937614,
+              "mean_abs_movement_vs_id342": 0.0013291230300979478
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.04598170833753228,
+                "id329": -0.11503137707730465
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4711111111111111,
+                "id329": 0.4822222222222222
+              },
+              "max_abs_movement_vs_id342": 0.004799545502861768,
+              "max_failed_direction_corr": -0.04598170833753228,
+              "mean_abs_movement_vs_id342": 0.0009670907004932777
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.0031400705576670484,
+                "id329": -0.06361434811730164
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4268292682926829,
+                "id329": 0.45121951219512196
+              },
+              "max_abs_movement_vs_id342": 0.003886936429372878,
+              "max_failed_direction_corr": 0.0031400705576670484,
+              "mean_abs_movement_vs_id342": 0.0001969101272325943
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.04151043152418329,
+                "id329": -0.030653510057380855
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5290697674418605,
+                "id329": 0.46511627906976744
+              },
+              "max_abs_movement_vs_id342": 0.004350623613582294,
+              "max_failed_direction_corr": 0.04151043152418329,
+              "mean_abs_movement_vs_id342": 0.00043744672860306517
+            }
+          },
+          "eligible": false,
+          "feature_count": 276,
+          "feature_family": "s4_waso_fragmentation",
+          "max_delta": 0.000299952428378103,
+          "max_failed_direction_corr": 0.04151043152418329,
+          "mean_delta": 9.446066028879762e-05,
+          "min_delta": -0.0002090470280380341,
+          "model_spec": {
+            "c_value": 0.03,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_03"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.00013320445858050478,
+            "loso_10": 0.0001257751989427458,
+            "subject_hole_5": 0.00012241824358066866,
+            "test_boundary_neighbor2_holdout": 0.000299952428378103,
+            "test_boundary_neighbor5_holdout": -0.0002090470280380341
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.4717432554865715,
+            "loso_10": 0.49007045863392174,
+            "subject_hole_5": 0.4900671016785597,
+            "test_boundary_neighbor2_holdout": 0.5056184614537687,
+            "test_boundary_neighbor5_holdout": 0.5115661837174701
+          },
+          "target": "S3",
+          "target_domain": "objective sleep onset latency guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 1
+        },
+        {
+          "config": "s3_id342_sequence_hr_light_event_all_sequence_events_hgb_l7_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.04775675293445538,
+                "id329": -0.0001329866181937253
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5306122448979592,
+                "id329": 0.5306122448979592
+              },
+              "max_abs_movement_vs_id342": 0.002364250377445226,
+              "max_failed_direction_corr": 0.04775675293445538,
+              "mean_abs_movement_vs_id342": 0.00017577449621378535
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.17966843876566174,
+                "id329": -0.26271405050419633
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4311111111111111,
+                "id329": 0.43777777777777777
+              },
+              "max_abs_movement_vs_id342": 0.0044287428161497305,
+              "max_failed_direction_corr": -0.17966843876566174,
+              "mean_abs_movement_vs_id342": 0.0011237235455808547
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": 0.02125300444820825,
+                "id329": -0.08395418185532275
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.45555555555555555,
+                "id329": 0.4266666666666667
+              },
+              "max_abs_movement_vs_id342": 0.0030734174560460015,
+              "max_failed_direction_corr": 0.02125300444820825,
+              "mean_abs_movement_vs_id342": 0.0007260563102292947
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.02934868159203578,
+                "id329": -0.03354864603220655
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5,
+                "id329": 0.524390243902439
+              },
+              "max_abs_movement_vs_id342": 0.0026857187923177706,
+              "max_failed_direction_corr": 0.02934868159203578,
+              "mean_abs_movement_vs_id342": 0.0001486575045759431
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.1408641520991242,
+                "id329": 0.05931950911056608
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4941860465116279,
+                "id329": 0.5232558139534884
+              },
+              "max_abs_movement_vs_id342": 0.0027893282722121215,
+              "max_failed_direction_corr": 0.1408641520991242,
+              "mean_abs_movement_vs_id342": 0.0003017203962456267
+            }
+          },
+          "eligible": false,
+          "feature_count": 640,
+          "feature_family": "all_sequence_events",
+          "max_delta": 0.0002209070917409961,
+          "max_failed_direction_corr": 0.1408641520991242,
+          "mean_delta": 0.00011699078083635684,
+          "min_delta": -9.243684030690869e-05,
+          "model_spec": {
+            "c_value": null,
+            "kind": "hgb",
+            "max_leaf_nodes": 7,
+            "name": "hgb_l7"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.00010058479885860505,
+            "loso_10": 0.0002209070917409961,
+            "subject_hole_5": 0.00018838736433435255,
+            "test_boundary_neighbor2_holdout": 0.00016751148955473916,
+            "test_boundary_neighbor5_holdout": -9.243684030690869e-05
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.4717106358268496,
+            "loso_10": 0.49016559052672,
+            "subject_hole_5": 0.4901330707993134,
+            "test_boundary_neighbor2_holdout": 0.5054860205149453,
+            "test_boundary_neighbor5_holdout": 0.5116827939052012
+          },
+          "target": "S3",
+          "target_domain": "objective sleep onset latency guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 1
+        }
+      ]
+    },
+    "S4": {
+      "best": {
+        "config": "s4_id342_sequence_hr_light_event_s3_onset_settling_lr_c0_10_w0.01",
+        "direction_metrics": {
+          "actual_test_band_holdout": {
+            "failed_direction_corr": {
+              "id287": -0.0442446267695616,
+              "id329": -0.07557226072726615
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.5102040816326531,
+              "id329": 0.3979591836734694
+            },
+            "max_abs_movement_vs_id342": 0.006529623157775499,
+            "max_failed_direction_corr": -0.0442446267695616,
+            "mean_abs_movement_vs_id342": 0.0005228229359460855
+          },
+          "loso_10": {
+            "failed_direction_corr": {
+              "id287": -0.1333658232637598,
+              "id329": 0.04658904810348722
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.4777777777777778,
+              "id329": 0.5
+            },
+            "max_abs_movement_vs_id342": 0.00816454981020634,
+            "max_failed_direction_corr": 0.04658904810348722,
+            "mean_abs_movement_vs_id342": 0.002937235915850698
+          },
+          "subject_hole_5": {
+            "failed_direction_corr": {
+              "id287": 0.006575324100859898,
+              "id329": 0.127272251225027
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.5644444444444444,
+              "id329": 0.5155555555555555
+            },
+            "max_abs_movement_vs_id342": 0.00797558414588409,
+            "max_failed_direction_corr": 0.127272251225027,
+            "mean_abs_movement_vs_id342": 0.002484390722113217
+          },
+          "test_boundary_neighbor2_holdout": {
+            "failed_direction_corr": {
+              "id287": -0.002805231093109274,
+              "id329": 0.0682765590161934
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.5853658536585366,
+              "id329": 0.5487804878048781
+            },
+            "max_abs_movement_vs_id342": 0.008189807085482864,
+            "max_failed_direction_corr": 0.0682765590161934,
+            "mean_abs_movement_vs_id342": 0.00044633224141914495
+          },
+          "test_boundary_neighbor5_holdout": {
+            "failed_direction_corr": {
+              "id287": -0.09316403915952041,
+              "id329": -0.010076125447082923
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.436046511627907,
+              "id329": 0.47093023255813954
+            },
+            "max_abs_movement_vs_id342": 0.007922444758898889,
+            "max_failed_direction_corr": -0.010076125447082923,
+            "mean_abs_movement_vs_id342": 0.001064161101917843
+          }
+        },
+        "eligible": true,
+        "feature_count": 295,
+        "feature_family": "s3_onset_settling",
+        "max_delta": 0.0006954379111837605,
+        "max_failed_direction_corr": 0.127272251225027,
+        "mean_delta": -0.00025456569785859974,
+        "min_delta": -0.0006910042003375194,
+        "model_spec": {
+          "c_value": 0.1,
+          "kind": "lr",
+          "max_leaf_nodes": null,
+          "name": "lr_c0_10"
+        },
+        "split_anchor_losses": {
+          "actual_test_band_holdout": 0.6662503032551268,
+          "loso_10": 0.5916290514500427,
+          "subject_hole_5": 0.5916290514500426,
+          "test_boundary_neighbor2_holdout": 0.6423364488565984,
+          "test_boundary_neighbor5_holdout": 0.6110680903135726
+        },
+        "split_deltas": {
+          "actual_test_band_holdout": -0.0006910042003375194,
+          "loso_10": -0.00023072491023512498,
+          "subject_hole_5": -0.0005708599397767911,
+          "test_boundary_neighbor2_holdout": -0.0004756773501273237,
+          "test_boundary_neighbor5_holdout": 0.0006954379111837605
+        },
+        "split_losses": {
+          "actual_test_band_holdout": 0.6655592990547893,
+          "loso_10": 0.5913983265398076,
+          "subject_hole_5": 0.5910581915102658,
+          "test_boundary_neighbor2_holdout": 0.641860771506471,
+          "test_boundary_neighbor5_holdout": 0.6117635282247563
+        },
+        "target": "S4",
+        "target_domain": "objective WASO / wakefulness after sleep onset guideline",
+        "valid_counts": {
+          "actual_test_band_holdout": 98,
+          "loso_10": 450,
+          "subject_hole_5": 450,
+          "test_boundary_neighbor2_holdout": 82,
+          "test_boundary_neighbor5_holdout": 172
+        },
+        "weight": 0.01,
+        "wins": 4
+      },
+      "domain": "objective WASO / wakefulness after sleep onset guideline",
+      "eligible_count": 5,
+      "partial_signal_rows": [
+        {
+          "config": "s4_id342_sequence_hr_light_event_s3_onset_settling_lr_c0_10_w0.01",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.0442446267695616,
+                "id329": -0.07557226072726615
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5102040816326531,
+                "id329": 0.3979591836734694
+              },
+              "max_abs_movement_vs_id342": 0.006529623157775499,
+              "max_failed_direction_corr": -0.0442446267695616,
+              "mean_abs_movement_vs_id342": 0.0005228229359460855
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.1333658232637598,
+                "id329": 0.04658904810348722
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4777777777777778,
+                "id329": 0.5
+              },
+              "max_abs_movement_vs_id342": 0.00816454981020634,
+              "max_failed_direction_corr": 0.04658904810348722,
+              "mean_abs_movement_vs_id342": 0.002937235915850698
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": 0.006575324100859898,
+                "id329": 0.127272251225027
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5644444444444444,
+                "id329": 0.5155555555555555
+              },
+              "max_abs_movement_vs_id342": 0.00797558414588409,
+              "max_failed_direction_corr": 0.127272251225027,
+              "mean_abs_movement_vs_id342": 0.002484390722113217
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.002805231093109274,
+                "id329": 0.0682765590161934
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5853658536585366,
+                "id329": 0.5487804878048781
+              },
+              "max_abs_movement_vs_id342": 0.008189807085482864,
+              "max_failed_direction_corr": 0.0682765590161934,
+              "mean_abs_movement_vs_id342": 0.00044633224141914495
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.09316403915952041,
+                "id329": -0.010076125447082923
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.436046511627907,
+                "id329": 0.47093023255813954
+              },
+              "max_abs_movement_vs_id342": 0.007922444758898889,
+              "max_failed_direction_corr": -0.010076125447082923,
+              "mean_abs_movement_vs_id342": 0.001064161101917843
+            }
+          },
+          "eligible": true,
+          "feature_count": 295,
+          "feature_family": "s3_onset_settling",
+          "max_delta": 0.0006954379111837605,
+          "max_failed_direction_corr": 0.127272251225027,
+          "mean_delta": -0.00025456569785859974,
+          "min_delta": -0.0006910042003375194,
+          "model_spec": {
+            "c_value": 0.1,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_10"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.6662503032551268,
+            "loso_10": 0.5916290514500427,
+            "subject_hole_5": 0.5916290514500426,
+            "test_boundary_neighbor2_holdout": 0.6423364488565984,
+            "test_boundary_neighbor5_holdout": 0.6110680903135726
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.0006910042003375194,
+            "loso_10": -0.00023072491023512498,
+            "subject_hole_5": -0.0005708599397767911,
+            "test_boundary_neighbor2_holdout": -0.0004756773501273237,
+            "test_boundary_neighbor5_holdout": 0.0006954379111837605
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.6655592990547893,
+            "loso_10": 0.5913983265398076,
+            "subject_hole_5": 0.5910581915102658,
+            "test_boundary_neighbor2_holdout": 0.641860771506471,
+            "test_boundary_neighbor5_holdout": 0.6117635282247563
+          },
+          "target": "S4",
+          "target_domain": "objective WASO / wakefulness after sleep onset guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.01,
+          "wins": 4
+        },
+        {
+          "config": "s4_id342_sequence_hr_light_event_s3_onset_settling_lr_c0_30_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.023516902705636847,
+                "id329": -0.07092653255056926
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5102040816326531,
+                "id329": 0.3979591836734694
+              },
+              "max_abs_movement_vs_id342": 0.003460137721716383,
+              "max_failed_direction_corr": -0.023516902705636847,
+              "mean_abs_movement_vs_id342": 0.00030932255519539324
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.11184868096168404,
+                "id329": 0.0371062548264935
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.49777777777777776,
+                "id329": 0.5111111111111111
+              },
+              "max_abs_movement_vs_id342": 0.004222864909102314,
+              "max_failed_direction_corr": 0.0371062548264935,
+              "mean_abs_movement_vs_id342": 0.0017156759122453882
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": 0.02828564259326415,
+                "id329": 0.1315774633684484
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5688888888888889,
+                "id329": 0.5155555555555555
+              },
+              "max_abs_movement_vs_id342": 0.004081629778113521,
+              "max_failed_direction_corr": 0.1315774633684484,
+              "mean_abs_movement_vs_id342": 0.0015066265001064587
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.01538539520225219,
+                "id329": 0.07473751858191204
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.6097560975609756,
+                "id329": 0.573170731707317
+              },
+              "max_abs_movement_vs_id342": 0.004111213802959063,
+              "max_failed_direction_corr": 0.07473751858191204,
+              "mean_abs_movement_vs_id342": 0.0002751864318501682
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.06948077438968196,
+                "id329": -0.006776452619493725
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4883720930232558,
+                "id329": 0.46511627906976744
+              },
+              "max_abs_movement_vs_id342": 0.004087509429352765,
+              "max_failed_direction_corr": -0.006776452619493725,
+              "mean_abs_movement_vs_id342": 0.0006460334533867304
+            }
+          },
+          "eligible": true,
+          "feature_count": 295,
+          "feature_family": "s3_onset_settling",
+          "max_delta": 0.0003845436815416159,
+          "max_failed_direction_corr": 0.1315774633684484,
+          "mean_delta": -0.00019044352903387906,
+          "min_delta": -0.00043562167908883787,
+          "model_spec": {
+            "c_value": 0.3,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_30"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.6662503032551268,
+            "loso_10": 0.5916290514500427,
+            "subject_hole_5": 0.5916290514500426,
+            "test_boundary_neighbor2_holdout": 0.6423364488565984,
+            "test_boundary_neighbor5_holdout": 0.6110680903135726
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.0003815551485240043,
+            "loso_10": -0.0001173885587067991,
+            "subject_hole_5": -0.00043562167908883787,
+            "test_boundary_neighbor2_holdout": -0.00040219594039136997,
+            "test_boundary_neighbor5_holdout": 0.0003845436815416159
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.6658687481066028,
+            "loso_10": 0.5915116628913359,
+            "subject_hole_5": 0.5911934297709538,
+            "test_boundary_neighbor2_holdout": 0.641934252916207,
+            "test_boundary_neighbor5_holdout": 0.6114526339951142
+          },
+          "target": "S4",
+          "target_domain": "objective WASO / wakefulness after sleep onset guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 4
+        },
+        {
+          "config": "s4_id342_sequence_hr_light_event_s3_onset_settling_lr_c0_03_w0.01",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.07926931563737012,
+                "id329": -0.05748992674468993
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.45918367346938777,
+                "id329": 0.3673469387755102
+              },
+              "max_abs_movement_vs_id342": 0.005923882037394079,
+              "max_failed_direction_corr": -0.05748992674468993,
+              "mean_abs_movement_vs_id342": 0.00041243544331071074
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.18555855309995814,
+                "id329": 0.07535516313839219
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4266666666666667,
+                "id329": 0.52
+              },
+              "max_abs_movement_vs_id342": 0.007797852657947052,
+              "max_failed_direction_corr": 0.07535516313839219,
+              "mean_abs_movement_vs_id342": 0.002433787320918017
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.0496842519218645,
+                "id329": 0.13664635026504796
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5088888888888888,
+                "id329": 0.5088888888888888
+              },
+              "max_abs_movement_vs_id342": 0.0073142857081461565,
+              "max_failed_direction_corr": 0.13664635026504796,
+              "mean_abs_movement_vs_id342": 0.001929125268323481
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.04556934008090565,
+                "id329": 0.06974930653397766
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.573170731707317,
+                "id329": 0.5609756097560976
+              },
+              "max_abs_movement_vs_id342": 0.007868997318935839,
+              "max_failed_direction_corr": 0.06974930653397766,
+              "mean_abs_movement_vs_id342": 0.0003582860314561096
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.13126538349670486,
+                "id329": 0.009046760745308899
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4127906976744186,
+                "id329": 0.4941860465116279
+              },
+              "max_abs_movement_vs_id342": 0.0072079270578804255,
+              "max_failed_direction_corr": 0.009046760745308899,
+              "mean_abs_movement_vs_id342": 0.0008417042794047069
+            }
+          },
+          "eligible": true,
+          "feature_count": 295,
+          "feature_family": "s3_onset_settling",
+          "max_delta": 0.0005324189721702677,
+          "max_failed_direction_corr": 0.13664635026504796,
+          "mean_delta": -0.0001561620325008839,
+          "min_delta": -0.0006887847885058695,
+          "model_spec": {
+            "c_value": 0.03,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_03"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.6662503032551268,
+            "loso_10": 0.5916290514500427,
+            "subject_hole_5": 0.5916290514500426,
+            "test_boundary_neighbor2_holdout": 0.6423364488565984,
+            "test_boundary_neighbor5_holdout": 0.6110680903135726
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.0006887847885058695,
+            "loso_10": -0.0001167878088725871,
+            "subject_hole_5": -0.00028744097529531665,
+            "test_boundary_neighbor2_holdout": -0.00022021556200091386,
+            "test_boundary_neighbor5_holdout": 0.0005324189721702677
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.6655615184666209,
+            "loso_10": 0.5915122636411702,
+            "subject_hole_5": 0.5913416104747473,
+            "test_boundary_neighbor2_holdout": 0.6421162332945974,
+            "test_boundary_neighbor5_holdout": 0.6116005092857428
+          },
+          "target": "S4",
+          "target_domain": "objective WASO / wakefulness after sleep onset guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.01,
+          "wins": 4
+        },
+        {
+          "config": "s4_id342_sequence_hr_light_event_s3_onset_settling_lr_c0_10_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.04424462676956397,
+                "id329": -0.07557226072726704
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5102040816326531,
+                "id329": 0.3979591836734694
+              },
+              "max_abs_movement_vs_id342": 0.003264811578887805,
+              "max_failed_direction_corr": -0.04424462676956397,
+              "mean_abs_movement_vs_id342": 0.0002614114679730425
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.13336582326376087,
+                "id329": 0.046589048103488025
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4777777777777778,
+                "id329": 0.5
+              },
+              "max_abs_movement_vs_id342": 0.004082274905103156,
+              "max_failed_direction_corr": 0.046589048103488025,
+              "mean_abs_movement_vs_id342": 0.0014686179579253462
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": 0.006575324100859644,
+                "id329": 0.12727225122502758
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5644444444444444,
+                "id329": 0.5155555555555555
+              },
+              "max_abs_movement_vs_id342": 0.003987792072942059,
+              "max_failed_direction_corr": 0.12727225122502758,
+              "mean_abs_movement_vs_id342": 0.0012421953610566056
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.002805231093109721,
+                "id329": 0.068276559016194
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5853658536585366,
+                "id329": 0.5487804878048781
+              },
+              "max_abs_movement_vs_id342": 0.004094903542741418,
+              "max_failed_direction_corr": 0.068276559016194,
+              "mean_abs_movement_vs_id342": 0.00022316612070957207
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.09316403915952032,
+                "id329": -0.010076125447082616
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.436046511627907,
+                "id329": 0.47093023255813954
+              },
+              "max_abs_movement_vs_id342": 0.0039612223794494306,
+              "max_failed_direction_corr": -0.010076125447082616,
+              "mean_abs_movement_vs_id342": 0.000532080550958921
+            }
+          },
+          "eligible": true,
+          "feature_count": 295,
+          "feature_family": "s3_onset_settling",
+          "max_delta": 0.0003423975776329913,
+          "max_failed_direction_corr": 0.12727225122502758,
+          "mean_delta": -0.00013354978648352222,
+          "min_delta": -0.0003513158611289091,
+          "model_spec": {
+            "c_value": 0.1,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_10"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.6662503032551268,
+            "loso_10": 0.5916290514500427,
+            "subject_hole_5": 0.5916290514500426,
+            "test_boundary_neighbor2_holdout": 0.6423364488565984,
+            "test_boundary_neighbor5_holdout": 0.6110680903135726
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.0003513158611289091,
+            "loso_10": -0.00012353325006497773,
+            "subject_hole_5": -0.0002911285654414453,
+            "test_boundary_neighbor2_holdout": -0.0002441688334152703,
+            "test_boundary_neighbor5_holdout": 0.0003423975776329913
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.6658989873939979,
+            "loso_10": 0.5915055181999778,
+            "subject_hole_5": 0.5913379228846012,
+            "test_boundary_neighbor2_holdout": 0.6420922800231831,
+            "test_boundary_neighbor5_holdout": 0.6114104878912056
+          },
+          "target": "S4",
+          "target_domain": "objective WASO / wakefulness after sleep onset guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 4
+        },
+        {
+          "config": "s4_id342_sequence_hr_light_event_s3_onset_settling_lr_c0_03_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.07926931563737234,
+                "id329": -0.057489926744689404
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.45918367346938777,
+                "id329": 0.3673469387755102
+              },
+              "max_abs_movement_vs_id342": 0.002961941018697012,
+              "max_failed_direction_corr": -0.057489926744689404,
+              "mean_abs_movement_vs_id342": 0.00020621772165535285
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.18555855309995958,
+                "id329": 0.07535516313839352
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4266666666666667,
+                "id329": 0.52
+              },
+              "max_abs_movement_vs_id342": 0.00389892632897354,
+              "max_failed_direction_corr": 0.07535516313839352,
+              "mean_abs_movement_vs_id342": 0.0012168936604590108
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.049684251921865166,
+                "id329": 0.1366463502650506
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5088888888888888,
+                "id329": 0.5088888888888888
+              },
+              "max_abs_movement_vs_id342": 0.003657142854073092,
+              "max_failed_direction_corr": 0.1366463502650506,
+              "mean_abs_movement_vs_id342": 0.0009645626341617407
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.04556934008090564,
+                "id329": 0.0697493065339774
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.573170731707317,
+                "id329": 0.5609756097560976
+              },
+              "max_abs_movement_vs_id342": 0.0039344986594679054,
+              "max_failed_direction_corr": 0.0697493065339774,
+              "mean_abs_movement_vs_id342": 0.0001791430157280558
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.1312653834967047,
+                "id329": 0.009046760745310495
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4127906976744186,
+                "id329": 0.4941860465116279
+              },
+              "max_abs_movement_vs_id342": 0.0036039635289402128,
+              "max_failed_direction_corr": 0.009046760745310495,
+              "mean_abs_movement_vs_id342": 0.00042085213970235064
+            }
+          },
+          "eligible": true,
+          "feature_count": 295,
+          "feature_family": "s3_onset_settling",
+          "max_delta": 0.0002624811431665153,
+          "max_failed_direction_corr": 0.1366463502650506,
+          "mean_delta": -8.26009994102428e-05,
+          "min_delta": -0.000348865706880086,
+          "model_spec": {
+            "c_value": 0.03,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_03"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.6662503032551268,
+            "loso_10": 0.5916290514500427,
+            "subject_hole_5": 0.5916290514500426,
+            "test_boundary_neighbor2_holdout": 0.6423364488565984,
+            "test_boundary_neighbor5_holdout": 0.6110680903135726
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.000348865706880086,
+            "loso_10": -6.474754733432064e-05,
+            "subject_hole_5": -0.00014741228872872103,
+            "test_boundary_neighbor2_holdout": -0.00011446059727460156,
+            "test_boundary_neighbor5_holdout": 0.0002624811431665153
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.6659014375482467,
+            "loso_10": 0.5915643039027084,
+            "subject_hole_5": 0.5914816391613139,
+            "test_boundary_neighbor2_holdout": 0.6422219882593238,
+            "test_boundary_neighbor5_holdout": 0.6113305714567391
+          },
+          "target": "S4",
+          "target_domain": "objective WASO / wakefulness after sleep onset guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 4
+        }
+      ],
+      "selected": {
+        "config": "s4_id342_sequence_hr_light_event_s3_onset_settling_lr_c0_10_w0.01",
+        "direction_metrics": {
+          "actual_test_band_holdout": {
+            "failed_direction_corr": {
+              "id287": -0.0442446267695616,
+              "id329": -0.07557226072726615
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.5102040816326531,
+              "id329": 0.3979591836734694
+            },
+            "max_abs_movement_vs_id342": 0.006529623157775499,
+            "max_failed_direction_corr": -0.0442446267695616,
+            "mean_abs_movement_vs_id342": 0.0005228229359460855
+          },
+          "loso_10": {
+            "failed_direction_corr": {
+              "id287": -0.1333658232637598,
+              "id329": 0.04658904810348722
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.4777777777777778,
+              "id329": 0.5
+            },
+            "max_abs_movement_vs_id342": 0.00816454981020634,
+            "max_failed_direction_corr": 0.04658904810348722,
+            "mean_abs_movement_vs_id342": 0.002937235915850698
+          },
+          "subject_hole_5": {
+            "failed_direction_corr": {
+              "id287": 0.006575324100859898,
+              "id329": 0.127272251225027
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.5644444444444444,
+              "id329": 0.5155555555555555
+            },
+            "max_abs_movement_vs_id342": 0.00797558414588409,
+            "max_failed_direction_corr": 0.127272251225027,
+            "mean_abs_movement_vs_id342": 0.002484390722113217
+          },
+          "test_boundary_neighbor2_holdout": {
+            "failed_direction_corr": {
+              "id287": -0.002805231093109274,
+              "id329": 0.0682765590161934
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.5853658536585366,
+              "id329": 0.5487804878048781
+            },
+            "max_abs_movement_vs_id342": 0.008189807085482864,
+            "max_failed_direction_corr": 0.0682765590161934,
+            "mean_abs_movement_vs_id342": 0.00044633224141914495
+          },
+          "test_boundary_neighbor5_holdout": {
+            "failed_direction_corr": {
+              "id287": -0.09316403915952041,
+              "id329": -0.010076125447082923
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.436046511627907,
+              "id329": 0.47093023255813954
+            },
+            "max_abs_movement_vs_id342": 0.007922444758898889,
+            "max_failed_direction_corr": -0.010076125447082923,
+            "mean_abs_movement_vs_id342": 0.001064161101917843
+          }
+        },
+        "eligible": true,
+        "feature_count": 295,
+        "feature_family": "s3_onset_settling",
+        "max_delta": 0.0006954379111837605,
+        "max_failed_direction_corr": 0.127272251225027,
+        "mean_delta": -0.00025456569785859974,
+        "min_delta": -0.0006910042003375194,
+        "model_spec": {
+          "c_value": 0.1,
+          "kind": "lr",
+          "max_leaf_nodes": null,
+          "name": "lr_c0_10"
+        },
+        "split_anchor_losses": {
+          "actual_test_band_holdout": 0.6662503032551268,
+          "loso_10": 0.5916290514500427,
+          "subject_hole_5": 0.5916290514500426,
+          "test_boundary_neighbor2_holdout": 0.6423364488565984,
+          "test_boundary_neighbor5_holdout": 0.6110680903135726
+        },
+        "split_deltas": {
+          "actual_test_band_holdout": -0.0006910042003375194,
+          "loso_10": -0.00023072491023512498,
+          "subject_hole_5": -0.0005708599397767911,
+          "test_boundary_neighbor2_holdout": -0.0004756773501273237,
+          "test_boundary_neighbor5_holdout": 0.0006954379111837605
+        },
+        "split_losses": {
+          "actual_test_band_holdout": 0.6655592990547893,
+          "loso_10": 0.5913983265398076,
+          "subject_hole_5": 0.5910581915102658,
+          "test_boundary_neighbor2_holdout": 0.641860771506471,
+          "test_boundary_neighbor5_holdout": 0.6117635282247563
+        },
+        "target": "S4",
+        "target_domain": "objective WASO / wakefulness after sleep onset guideline",
+        "valid_counts": {
+          "actual_test_band_holdout": 98,
+          "loso_10": 450,
+          "subject_hole_5": 450,
+          "test_boundary_neighbor2_holdout": 82,
+          "test_boundary_neighbor5_holdout": 172
+        },
+        "weight": 0.01,
+        "wins": 4
+      },
+      "target": "S4",
+      "top_rows": [
+        {
+          "config": "s4_id342_sequence_hr_light_event_s3_onset_settling_lr_c0_10_w0.01",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.0442446267695616,
+                "id329": -0.07557226072726615
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5102040816326531,
+                "id329": 0.3979591836734694
+              },
+              "max_abs_movement_vs_id342": 0.006529623157775499,
+              "max_failed_direction_corr": -0.0442446267695616,
+              "mean_abs_movement_vs_id342": 0.0005228229359460855
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.1333658232637598,
+                "id329": 0.04658904810348722
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4777777777777778,
+                "id329": 0.5
+              },
+              "max_abs_movement_vs_id342": 0.00816454981020634,
+              "max_failed_direction_corr": 0.04658904810348722,
+              "mean_abs_movement_vs_id342": 0.002937235915850698
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": 0.006575324100859898,
+                "id329": 0.127272251225027
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5644444444444444,
+                "id329": 0.5155555555555555
+              },
+              "max_abs_movement_vs_id342": 0.00797558414588409,
+              "max_failed_direction_corr": 0.127272251225027,
+              "mean_abs_movement_vs_id342": 0.002484390722113217
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.002805231093109274,
+                "id329": 0.0682765590161934
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5853658536585366,
+                "id329": 0.5487804878048781
+              },
+              "max_abs_movement_vs_id342": 0.008189807085482864,
+              "max_failed_direction_corr": 0.0682765590161934,
+              "mean_abs_movement_vs_id342": 0.00044633224141914495
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.09316403915952041,
+                "id329": -0.010076125447082923
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.436046511627907,
+                "id329": 0.47093023255813954
+              },
+              "max_abs_movement_vs_id342": 0.007922444758898889,
+              "max_failed_direction_corr": -0.010076125447082923,
+              "mean_abs_movement_vs_id342": 0.001064161101917843
+            }
+          },
+          "eligible": true,
+          "feature_count": 295,
+          "feature_family": "s3_onset_settling",
+          "max_delta": 0.0006954379111837605,
+          "max_failed_direction_corr": 0.127272251225027,
+          "mean_delta": -0.00025456569785859974,
+          "min_delta": -0.0006910042003375194,
+          "model_spec": {
+            "c_value": 0.1,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_10"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.6662503032551268,
+            "loso_10": 0.5916290514500427,
+            "subject_hole_5": 0.5916290514500426,
+            "test_boundary_neighbor2_holdout": 0.6423364488565984,
+            "test_boundary_neighbor5_holdout": 0.6110680903135726
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.0006910042003375194,
+            "loso_10": -0.00023072491023512498,
+            "subject_hole_5": -0.0005708599397767911,
+            "test_boundary_neighbor2_holdout": -0.0004756773501273237,
+            "test_boundary_neighbor5_holdout": 0.0006954379111837605
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.6655592990547893,
+            "loso_10": 0.5913983265398076,
+            "subject_hole_5": 0.5910581915102658,
+            "test_boundary_neighbor2_holdout": 0.641860771506471,
+            "test_boundary_neighbor5_holdout": 0.6117635282247563
+          },
+          "target": "S4",
+          "target_domain": "objective WASO / wakefulness after sleep onset guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.01,
+          "wins": 4
+        },
+        {
+          "config": "s4_id342_sequence_hr_light_event_s3_onset_settling_lr_c0_30_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.023516902705636847,
+                "id329": -0.07092653255056926
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5102040816326531,
+                "id329": 0.3979591836734694
+              },
+              "max_abs_movement_vs_id342": 0.003460137721716383,
+              "max_failed_direction_corr": -0.023516902705636847,
+              "mean_abs_movement_vs_id342": 0.00030932255519539324
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.11184868096168404,
+                "id329": 0.0371062548264935
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.49777777777777776,
+                "id329": 0.5111111111111111
+              },
+              "max_abs_movement_vs_id342": 0.004222864909102314,
+              "max_failed_direction_corr": 0.0371062548264935,
+              "mean_abs_movement_vs_id342": 0.0017156759122453882
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": 0.02828564259326415,
+                "id329": 0.1315774633684484
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5688888888888889,
+                "id329": 0.5155555555555555
+              },
+              "max_abs_movement_vs_id342": 0.004081629778113521,
+              "max_failed_direction_corr": 0.1315774633684484,
+              "mean_abs_movement_vs_id342": 0.0015066265001064587
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.01538539520225219,
+                "id329": 0.07473751858191204
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.6097560975609756,
+                "id329": 0.573170731707317
+              },
+              "max_abs_movement_vs_id342": 0.004111213802959063,
+              "max_failed_direction_corr": 0.07473751858191204,
+              "mean_abs_movement_vs_id342": 0.0002751864318501682
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.06948077438968196,
+                "id329": -0.006776452619493725
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4883720930232558,
+                "id329": 0.46511627906976744
+              },
+              "max_abs_movement_vs_id342": 0.004087509429352765,
+              "max_failed_direction_corr": -0.006776452619493725,
+              "mean_abs_movement_vs_id342": 0.0006460334533867304
+            }
+          },
+          "eligible": true,
+          "feature_count": 295,
+          "feature_family": "s3_onset_settling",
+          "max_delta": 0.0003845436815416159,
+          "max_failed_direction_corr": 0.1315774633684484,
+          "mean_delta": -0.00019044352903387906,
+          "min_delta": -0.00043562167908883787,
+          "model_spec": {
+            "c_value": 0.3,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_30"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.6662503032551268,
+            "loso_10": 0.5916290514500427,
+            "subject_hole_5": 0.5916290514500426,
+            "test_boundary_neighbor2_holdout": 0.6423364488565984,
+            "test_boundary_neighbor5_holdout": 0.6110680903135726
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.0003815551485240043,
+            "loso_10": -0.0001173885587067991,
+            "subject_hole_5": -0.00043562167908883787,
+            "test_boundary_neighbor2_holdout": -0.00040219594039136997,
+            "test_boundary_neighbor5_holdout": 0.0003845436815416159
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.6658687481066028,
+            "loso_10": 0.5915116628913359,
+            "subject_hole_5": 0.5911934297709538,
+            "test_boundary_neighbor2_holdout": 0.641934252916207,
+            "test_boundary_neighbor5_holdout": 0.6114526339951142
+          },
+          "target": "S4",
+          "target_domain": "objective WASO / wakefulness after sleep onset guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 4
+        },
+        {
+          "config": "s4_id342_sequence_hr_light_event_s3_onset_settling_lr_c0_03_w0.01",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.07926931563737012,
+                "id329": -0.05748992674468993
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.45918367346938777,
+                "id329": 0.3673469387755102
+              },
+              "max_abs_movement_vs_id342": 0.005923882037394079,
+              "max_failed_direction_corr": -0.05748992674468993,
+              "mean_abs_movement_vs_id342": 0.00041243544331071074
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.18555855309995814,
+                "id329": 0.07535516313839219
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4266666666666667,
+                "id329": 0.52
+              },
+              "max_abs_movement_vs_id342": 0.007797852657947052,
+              "max_failed_direction_corr": 0.07535516313839219,
+              "mean_abs_movement_vs_id342": 0.002433787320918017
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.0496842519218645,
+                "id329": 0.13664635026504796
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5088888888888888,
+                "id329": 0.5088888888888888
+              },
+              "max_abs_movement_vs_id342": 0.0073142857081461565,
+              "max_failed_direction_corr": 0.13664635026504796,
+              "mean_abs_movement_vs_id342": 0.001929125268323481
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.04556934008090565,
+                "id329": 0.06974930653397766
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.573170731707317,
+                "id329": 0.5609756097560976
+              },
+              "max_abs_movement_vs_id342": 0.007868997318935839,
+              "max_failed_direction_corr": 0.06974930653397766,
+              "mean_abs_movement_vs_id342": 0.0003582860314561096
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.13126538349670486,
+                "id329": 0.009046760745308899
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4127906976744186,
+                "id329": 0.4941860465116279
+              },
+              "max_abs_movement_vs_id342": 0.0072079270578804255,
+              "max_failed_direction_corr": 0.009046760745308899,
+              "mean_abs_movement_vs_id342": 0.0008417042794047069
+            }
+          },
+          "eligible": true,
+          "feature_count": 295,
+          "feature_family": "s3_onset_settling",
+          "max_delta": 0.0005324189721702677,
+          "max_failed_direction_corr": 0.13664635026504796,
+          "mean_delta": -0.0001561620325008839,
+          "min_delta": -0.0006887847885058695,
+          "model_spec": {
+            "c_value": 0.03,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_03"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.6662503032551268,
+            "loso_10": 0.5916290514500427,
+            "subject_hole_5": 0.5916290514500426,
+            "test_boundary_neighbor2_holdout": 0.6423364488565984,
+            "test_boundary_neighbor5_holdout": 0.6110680903135726
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.0006887847885058695,
+            "loso_10": -0.0001167878088725871,
+            "subject_hole_5": -0.00028744097529531665,
+            "test_boundary_neighbor2_holdout": -0.00022021556200091386,
+            "test_boundary_neighbor5_holdout": 0.0005324189721702677
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.6655615184666209,
+            "loso_10": 0.5915122636411702,
+            "subject_hole_5": 0.5913416104747473,
+            "test_boundary_neighbor2_holdout": 0.6421162332945974,
+            "test_boundary_neighbor5_holdout": 0.6116005092857428
+          },
+          "target": "S4",
+          "target_domain": "objective WASO / wakefulness after sleep onset guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.01,
+          "wins": 4
+        },
+        {
+          "config": "s4_id342_sequence_hr_light_event_s3_onset_settling_lr_c0_10_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.04424462676956397,
+                "id329": -0.07557226072726704
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5102040816326531,
+                "id329": 0.3979591836734694
+              },
+              "max_abs_movement_vs_id342": 0.003264811578887805,
+              "max_failed_direction_corr": -0.04424462676956397,
+              "mean_abs_movement_vs_id342": 0.0002614114679730425
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.13336582326376087,
+                "id329": 0.046589048103488025
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4777777777777778,
+                "id329": 0.5
+              },
+              "max_abs_movement_vs_id342": 0.004082274905103156,
+              "max_failed_direction_corr": 0.046589048103488025,
+              "mean_abs_movement_vs_id342": 0.0014686179579253462
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": 0.006575324100859644,
+                "id329": 0.12727225122502758
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5644444444444444,
+                "id329": 0.5155555555555555
+              },
+              "max_abs_movement_vs_id342": 0.003987792072942059,
+              "max_failed_direction_corr": 0.12727225122502758,
+              "mean_abs_movement_vs_id342": 0.0012421953610566056
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.002805231093109721,
+                "id329": 0.068276559016194
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5853658536585366,
+                "id329": 0.5487804878048781
+              },
+              "max_abs_movement_vs_id342": 0.004094903542741418,
+              "max_failed_direction_corr": 0.068276559016194,
+              "mean_abs_movement_vs_id342": 0.00022316612070957207
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.09316403915952032,
+                "id329": -0.010076125447082616
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.436046511627907,
+                "id329": 0.47093023255813954
+              },
+              "max_abs_movement_vs_id342": 0.0039612223794494306,
+              "max_failed_direction_corr": -0.010076125447082616,
+              "mean_abs_movement_vs_id342": 0.000532080550958921
+            }
+          },
+          "eligible": true,
+          "feature_count": 295,
+          "feature_family": "s3_onset_settling",
+          "max_delta": 0.0003423975776329913,
+          "max_failed_direction_corr": 0.12727225122502758,
+          "mean_delta": -0.00013354978648352222,
+          "min_delta": -0.0003513158611289091,
+          "model_spec": {
+            "c_value": 0.1,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_10"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.6662503032551268,
+            "loso_10": 0.5916290514500427,
+            "subject_hole_5": 0.5916290514500426,
+            "test_boundary_neighbor2_holdout": 0.6423364488565984,
+            "test_boundary_neighbor5_holdout": 0.6110680903135726
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.0003513158611289091,
+            "loso_10": -0.00012353325006497773,
+            "subject_hole_5": -0.0002911285654414453,
+            "test_boundary_neighbor2_holdout": -0.0002441688334152703,
+            "test_boundary_neighbor5_holdout": 0.0003423975776329913
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.6658989873939979,
+            "loso_10": 0.5915055181999778,
+            "subject_hole_5": 0.5913379228846012,
+            "test_boundary_neighbor2_holdout": 0.6420922800231831,
+            "test_boundary_neighbor5_holdout": 0.6114104878912056
+          },
+          "target": "S4",
+          "target_domain": "objective WASO / wakefulness after sleep onset guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 4
+        },
+        {
+          "config": "s4_id342_sequence_hr_light_event_s3_onset_settling_lr_c0_03_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.07926931563737234,
+                "id329": -0.057489926744689404
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.45918367346938777,
+                "id329": 0.3673469387755102
+              },
+              "max_abs_movement_vs_id342": 0.002961941018697012,
+              "max_failed_direction_corr": -0.057489926744689404,
+              "mean_abs_movement_vs_id342": 0.00020621772165535285
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.18555855309995958,
+                "id329": 0.07535516313839352
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4266666666666667,
+                "id329": 0.52
+              },
+              "max_abs_movement_vs_id342": 0.00389892632897354,
+              "max_failed_direction_corr": 0.07535516313839352,
+              "mean_abs_movement_vs_id342": 0.0012168936604590108
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.049684251921865166,
+                "id329": 0.1366463502650506
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5088888888888888,
+                "id329": 0.5088888888888888
+              },
+              "max_abs_movement_vs_id342": 0.003657142854073092,
+              "max_failed_direction_corr": 0.1366463502650506,
+              "mean_abs_movement_vs_id342": 0.0009645626341617407
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.04556934008090564,
+                "id329": 0.0697493065339774
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.573170731707317,
+                "id329": 0.5609756097560976
+              },
+              "max_abs_movement_vs_id342": 0.0039344986594679054,
+              "max_failed_direction_corr": 0.0697493065339774,
+              "mean_abs_movement_vs_id342": 0.0001791430157280558
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.1312653834967047,
+                "id329": 0.009046760745310495
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4127906976744186,
+                "id329": 0.4941860465116279
+              },
+              "max_abs_movement_vs_id342": 0.0036039635289402128,
+              "max_failed_direction_corr": 0.009046760745310495,
+              "mean_abs_movement_vs_id342": 0.00042085213970235064
+            }
+          },
+          "eligible": true,
+          "feature_count": 295,
+          "feature_family": "s3_onset_settling",
+          "max_delta": 0.0002624811431665153,
+          "max_failed_direction_corr": 0.1366463502650506,
+          "mean_delta": -8.26009994102428e-05,
+          "min_delta": -0.000348865706880086,
+          "model_spec": {
+            "c_value": 0.03,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_03"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.6662503032551268,
+            "loso_10": 0.5916290514500427,
+            "subject_hole_5": 0.5916290514500426,
+            "test_boundary_neighbor2_holdout": 0.6423364488565984,
+            "test_boundary_neighbor5_holdout": 0.6110680903135726
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.000348865706880086,
+            "loso_10": -6.474754733432064e-05,
+            "subject_hole_5": -0.00014741228872872103,
+            "test_boundary_neighbor2_holdout": -0.00011446059727460156,
+            "test_boundary_neighbor5_holdout": 0.0002624811431665153
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.6659014375482467,
+            "loso_10": 0.5915643039027084,
+            "subject_hole_5": 0.5914816391613139,
+            "test_boundary_neighbor2_holdout": 0.6422219882593238,
+            "test_boundary_neighbor5_holdout": 0.6113305714567391
+          },
+          "target": "S4",
+          "target_domain": "objective WASO / wakefulness after sleep onset guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 4
+        },
+        {
+          "config": "s4_id342_sequence_hr_light_event_s3_onset_settling_lr_c0_30_w0.05",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.023516902705634536,
+                "id329": -0.07092653255056809
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5102040816326531,
+                "id329": 0.3979591836734694
+              },
+              "max_abs_movement_vs_id342": 0.03460137721716294,
+              "max_failed_direction_corr": -0.023516902705634536,
+              "mean_abs_movement_vs_id342": 0.003093225551953939
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.11184868096168342,
+                "id329": 0.037106254826493455
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.49777777777777776,
+                "id329": 0.5111111111111111
+              },
+              "max_abs_movement_vs_id342": 0.04222864909102306,
+              "max_failed_direction_corr": 0.037106254826493455,
+              "mean_abs_movement_vs_id342": 0.017156759122453867
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": 0.028285642593264205,
+                "id329": 0.13157746336844775
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5688888888888889,
+                "id329": 0.5155555555555555
+              },
+              "max_abs_movement_vs_id342": 0.040816297781135075,
+              "max_failed_direction_corr": 0.13157746336844775,
+              "mean_abs_movement_vs_id342": 0.015066265001064583
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.015385395202251302,
+                "id329": 0.07473751858191237
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.6097560975609756,
+                "id329": 0.573170731707317
+              },
+              "max_abs_movement_vs_id342": 0.04111213802959088,
+              "max_failed_direction_corr": 0.07473751858191237,
+              "mean_abs_movement_vs_id342": 0.002751864318501678
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.06948077438968132,
+                "id329": -0.006776452619494148
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4883720930232558,
+                "id329": 0.46511627906976744
+              },
+              "max_abs_movement_vs_id342": 0.04087509429352709,
+              "max_failed_direction_corr": -0.006776452619494148,
+              "mean_abs_movement_vs_id342": 0.006460334533867298
+            }
+          },
+          "eligible": false,
+          "feature_count": 295,
+          "feature_family": "s3_onset_settling",
+          "max_delta": 0.004483613996305036,
+          "max_failed_direction_corr": 0.13157746336844775,
+          "mean_delta": -0.0011894698943201386,
+          "min_delta": -0.003663322898460941,
+          "model_spec": {
+            "c_value": 0.3,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_30"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.6662503032551268,
+            "loso_10": 0.5916290514500427,
+            "subject_hole_5": 0.5916290514500426,
+            "test_boundary_neighbor2_holdout": 0.6423364488565984,
+            "test_boundary_neighbor5_holdout": 0.6110680903135726
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.0031735904207781385,
+            "loso_10": -0.00030935078352489764,
+            "subject_hole_5": -0.003663322898460941,
+            "test_boundary_neighbor2_holdout": -0.003284699365141752,
+            "test_boundary_neighbor5_holdout": 0.004483613996305036
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.6630767128343487,
+            "loso_10": 0.5913197006665178,
+            "subject_hole_5": 0.5879657285515817,
+            "test_boundary_neighbor2_holdout": 0.6390517494914566,
+            "test_boundary_neighbor5_holdout": 0.6155517043098776
+          },
+          "target": "S4",
+          "target_domain": "objective WASO / wakefulness after sleep onset guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.05,
+          "wins": 4
+        },
+        {
+          "config": "s4_id342_sequence_hr_light_event_s3_onset_settling_lr_c0_30_w0.03",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.023516902705635282,
+                "id329": -0.070926532550568
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5102040816326531,
+                "id329": 0.3979591836734694
+              },
+              "max_abs_movement_vs_id342": 0.020760826330297744,
+              "max_failed_direction_corr": -0.023516902705635282,
+              "mean_abs_movement_vs_id342": 0.001855935331172364
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.11184868096168377,
+                "id329": 0.03710625482649313
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.49777777777777776,
+                "id329": 0.5111111111111111
+              },
+              "max_abs_movement_vs_id342": 0.0253371894546138,
+              "max_failed_direction_corr": 0.03710625482649313,
+              "mean_abs_movement_vs_id342": 0.01029405547347232
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": 0.02828564259326395,
+                "id329": 0.1315774633684478
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5688888888888889,
+                "id329": 0.5155555555555555
+              },
+              "max_abs_movement_vs_id342": 0.024489778668681045,
+              "max_failed_direction_corr": 0.1315774633684478,
+              "mean_abs_movement_vs_id342": 0.009039759000638744
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.015385395202250397,
+                "id329": 0.07473751858191179
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.6097560975609756,
+                "id329": 0.573170731707317
+              },
+              "max_abs_movement_vs_id342": 0.024667282817754543,
+              "max_failed_direction_corr": 0.07473751858191179,
+              "mean_abs_movement_vs_id342": 0.0016511185911010074
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.06948077438968185,
+                "id329": -0.006776452619494305
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4883720930232558,
+                "id329": 0.46511627906976744
+              },
+              "max_abs_movement_vs_id342": 0.024525056576116255,
+              "max_failed_direction_corr": -0.006776452619494305,
+              "mean_abs_movement_vs_id342": 0.00387620072032038
+            }
+          },
+          "eligible": false,
+          "feature_count": 295,
+          "feature_family": "s3_onset_settling",
+          "max_delta": 0.0025202642900841177,
+          "max_failed_direction_corr": 0.1315774633684478,
+          "mean_delta": -0.0009014265233852292,
+          "min_delta": -0.002379405841307247,
+          "model_spec": {
+            "c_value": 0.3,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_30"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.6662503032551268,
+            "loso_10": 0.5916290514500427,
+            "subject_hole_5": 0.5916290514500426,
+            "test_boundary_neighbor2_holdout": 0.6423364488565984,
+            "test_boundary_neighbor5_holdout": 0.6110680903135726
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.00207322730276438,
+            "loso_10": -0.00041134995333269586,
+            "subject_hole_5": -0.002379405841307247,
+            "test_boundary_neighbor2_holdout": -0.0021634138096059408,
+            "test_boundary_neighbor5_holdout": 0.0025202642900841177
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.6641770759523624,
+            "loso_10": 0.59121770149671,
+            "subject_hole_5": 0.5892496456087354,
+            "test_boundary_neighbor2_holdout": 0.6401730350469924,
+            "test_boundary_neighbor5_holdout": 0.6135883546036567
+          },
+          "target": "S4",
+          "target_domain": "objective WASO / wakefulness after sleep onset guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.03,
+          "wins": 4
+        },
+        {
+          "config": "s4_id342_sequence_hr_light_event_s3_onset_settling_lr_c0_10_w0.05",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.04424462676956203,
+                "id329": -0.07557226072726587
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5102040816326531,
+                "id329": 0.3979591836734694
+              },
+              "max_abs_movement_vs_id342": 0.03264811578887794,
+              "max_failed_direction_corr": -0.04424462676956203,
+              "mean_abs_movement_vs_id342": 0.0026141146797304246
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.1333658232637604,
+                "id329": 0.04658904810348719
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4777777777777778,
+                "id329": 0.5
+              },
+              "max_abs_movement_vs_id342": 0.040822749051031754,
+              "max_failed_direction_corr": 0.04658904810348719,
+              "mean_abs_movement_vs_id342": 0.014686179579253476
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": 0.006575324100859445,
+                "id329": 0.12727225122502656
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5644444444444444,
+                "id329": 0.5155555555555555
+              },
+              "max_abs_movement_vs_id342": 0.03987792072942048,
+              "max_failed_direction_corr": 0.12727225122502656,
+              "mean_abs_movement_vs_id342": 0.01242195361056608
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.002805231093109138,
+                "id329": 0.06827655901619417
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5853658536585366,
+                "id329": 0.5487804878048781
+              },
+              "max_abs_movement_vs_id342": 0.040949035427414265,
+              "max_failed_direction_corr": 0.06827655901619417,
+              "mean_abs_movement_vs_id342": 0.002231661207095722
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.09316403915952028,
+                "id329": -0.010076125447082338
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.436046511627907,
+                "id329": 0.47093023255813954
+              },
+              "max_abs_movement_vs_id342": 0.03961222379449442,
+              "max_failed_direction_corr": -0.010076125447082338,
+              "mean_abs_movement_vs_id342": 0.005320805509589209
+            }
+          },
+          "eligible": false,
+          "feature_count": 295,
+          "feature_family": "s3_onset_settling",
+          "max_delta": 0.003900543939371448,
+          "max_failed_direction_corr": 0.12727225122502656,
+          "mean_delta": -0.0007863302449310439,
+          "min_delta": -0.0030012362453126773,
+          "model_spec": {
+            "c_value": 0.1,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_10"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.6662503032551268,
+            "loso_10": 0.5916290514500427,
+            "subject_hole_5": 0.5916290514500426,
+            "test_boundary_neighbor2_holdout": 0.6423364488565984,
+            "test_boundary_neighbor5_holdout": 0.6110680903135726
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.0030012362453126773,
+            "loso_10": -0.0005261258675752778,
+            "subject_hole_5": -0.0024123855331315003,
+            "test_boundary_neighbor2_holdout": -0.001892447518007212,
+            "test_boundary_neighbor5_holdout": 0.003900543939371448
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.6632490670098141,
+            "loso_10": 0.5911029255824675,
+            "subject_hole_5": 0.5892166659169111,
+            "test_boundary_neighbor2_holdout": 0.6404440013385911,
+            "test_boundary_neighbor5_holdout": 0.614968634252944
+          },
+          "target": "S4",
+          "target_domain": "objective WASO / wakefulness after sleep onset guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.05,
+          "wins": 4
+        },
+        {
+          "config": "s4_id342_sequence_hr_light_event_s3_onset_settling_lr_c0_30_w0.02",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.023516902705634325,
+                "id329": -0.07092653255056752
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5102040816326531,
+                "id329": 0.3979591836734694
+              },
+              "max_abs_movement_vs_id342": 0.0138405508868652,
+              "max_failed_direction_corr": -0.023516902705634325,
+              "mean_abs_movement_vs_id342": 0.0012372902207815756
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.11184868096168354,
+                "id329": 0.03710625482649329
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.49777777777777776,
+                "id329": 0.5111111111111111
+              },
+              "max_abs_movement_vs_id342": 0.0168914596364092,
+              "max_failed_direction_corr": 0.03710625482649329,
+              "mean_abs_movement_vs_id342": 0.006862703648981548
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": 0.028285642593264104,
+                "id329": 0.13157746336844786
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5688888888888889,
+                "id329": 0.5155555555555555
+              },
+              "max_abs_movement_vs_id342": 0.01632651911245403,
+              "max_failed_direction_corr": 0.13157746336844786,
+              "mean_abs_movement_vs_id342": 0.006026506000425833
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.015385395202251358,
+                "id329": 0.07473751858191242
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.6097560975609756,
+                "id329": 0.573170731707317
+              },
+              "max_abs_movement_vs_id342": 0.016444855211836362,
+              "max_failed_direction_corr": 0.07473751858191242,
+              "mean_abs_movement_vs_id342": 0.001100745727400672
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.06948077438968112,
+                "id329": -0.006776452619493879
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4883720930232558,
+                "id329": 0.46511627906976744
+              },
+              "max_abs_movement_vs_id342": 0.016350037717410837,
+              "max_failed_direction_corr": -0.006776452619493879,
+              "mean_abs_movement_vs_id342": 0.002584133813546916
+            }
+          },
+          "eligible": false,
+          "feature_count": 295,
+          "feature_family": "s3_onset_settling",
+          "max_delta": 0.001623448618240264,
+          "max_failed_direction_corr": 0.13157746336844786,
+          "mean_delta": -0.0006646358299680965,
+          "min_delta": -0.0016480199412595153,
+          "model_spec": {
+            "c_value": 0.3,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_30"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.6662503032551268,
+            "loso_10": 0.5916290514500427,
+            "subject_hole_5": 0.5916290514500426,
+            "test_boundary_neighbor2_holdout": 0.6423364488565984,
+            "test_boundary_neighbor5_holdout": 0.6110680903135726
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.0014393157517198496,
+            "loso_10": -0.0003513003190410702,
+            "subject_hole_5": -0.0016480199412595153,
+            "test_boundary_neighbor2_holdout": -0.0015079917560603118,
+            "test_boundary_neighbor5_holdout": 0.001623448618240264
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.664810987503407,
+            "loso_10": 0.5912777511310017,
+            "subject_hole_5": 0.5899810315087831,
+            "test_boundary_neighbor2_holdout": 0.640828457100538,
+            "test_boundary_neighbor5_holdout": 0.6126915389318128
+          },
+          "target": "S4",
+          "target_domain": "objective WASO / wakefulness after sleep onset guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.02,
+          "wins": 4
+        },
+        {
+          "config": "s4_id342_sequence_hr_light_event_s3_onset_settling_lr_c0_10_w0.03",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.04424462676956289,
+                "id329": -0.07557226072726612
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5102040816326531,
+                "id329": 0.3979591836734694
+              },
+              "max_abs_movement_vs_id342": 0.01958886947332672,
+              "max_failed_direction_corr": -0.04424462676956289,
+              "mean_abs_movement_vs_id342": 0.0015684688078382574
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.1333658232637608,
+                "id329": 0.04658904810348687
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4777777777777778,
+                "id329": 0.5
+              },
+              "max_abs_movement_vs_id342": 0.024493649430619047,
+              "max_failed_direction_corr": 0.04658904810348687,
+              "mean_abs_movement_vs_id342": 0.008811707747552081
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": 0.00657532410085933,
+                "id329": 0.12727225122502656
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5644444444444444,
+                "id329": 0.5155555555555555
+              },
+              "max_abs_movement_vs_id342": 0.02392675243765227,
+              "max_failed_direction_corr": 0.12727225122502656,
+              "mean_abs_movement_vs_id342": 0.007453172166339645
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.0028052310931098484,
+                "id329": 0.06827655901619371
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5853658536585366,
+                "id329": 0.5487804878048781
+              },
+              "max_abs_movement_vs_id342": 0.024569421256448565,
+              "max_failed_direction_corr": 0.06827655901619371,
+              "mean_abs_movement_vs_id342": 0.0013389967242574323
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.09316403915952066,
+                "id329": -0.010076125447082487
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.436046511627907,
+                "id329": 0.47093023255813954
+              },
+              "max_abs_movement_vs_id342": 0.02376733427669664,
+              "max_failed_direction_corr": -0.010076125447082487,
+              "mean_abs_movement_vs_id342": 0.0031924833057535244
+            }
+          },
+          "eligible": false,
+          "feature_count": 295,
+          "feature_family": "s3_onset_settling",
+          "max_delta": 0.002213590190789816,
+          "max_failed_direction_corr": 0.12727225122502656,
+          "mean_delta": -0.0006159229809222788,
+          "min_delta": -0.0019354718211834765,
+          "model_spec": {
+            "c_value": 0.1,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_10"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.6662503032551268,
+            "loso_10": 0.5916290514500427,
+            "subject_hole_5": 0.5916290514500426,
+            "test_boundary_neighbor2_holdout": 0.6423364488565984,
+            "test_boundary_neighbor5_holdout": 0.6110680903135726
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": -0.0019354718211834765,
+            "loso_10": -0.0005007111780411799,
+            "subject_hole_5": -0.001578279958393769,
+            "test_boundary_neighbor2_holdout": -0.0012787421377827846,
+            "test_boundary_neighbor5_holdout": 0.002213590190789816
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.6643148314339433,
+            "loso_10": 0.5911283402720016,
+            "subject_hole_5": 0.5900507714916489,
+            "test_boundary_neighbor2_holdout": 0.6410577067188156,
+            "test_boundary_neighbor5_holdout": 0.6132816805043624
+          },
+          "target": "S4",
+          "target_domain": "objective WASO / wakefulness after sleep onset guideline",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.03,
+          "wins": 4
+        }
+      ]
+    }
+  },
+  "validation": {
+    "blend_weights": [
+      0.005,
+      0.01,
+      0.02,
+      0.03,
+      0.05
+    ],
+    "failed_frontier_ids": [
+      287,
+      329
+    ],
+    "max_failed_direction_corr": 0.8,
+    "model_specs": [
+      {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      {
+        "c_value": 0.3,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_30"
+      },
+      {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      }
+    ],
+    "primary_splits": [
+      "subject_hole_5",
+      "actual_test_band_holdout",
+      "test_boundary_neighbor2_holdout",
+      "test_boundary_neighbor5_holdout",
+      "loso_10"
+    ],
+    "target_max_delta_ceiling": 0.00075,
+    "target_mean_delta_ceiling": -5e-05,
+    "target_win_floor": 4
+  }
+}

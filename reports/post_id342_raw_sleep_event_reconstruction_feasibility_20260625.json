@@ -1,0 +1,302 @@
+{
+  "created_at_kst": "2026-06-25 02:02:04 UTC+09:00",
+  "decision": {
+    "create_feature_matrix": false,
+    "create_submission_artifact": false,
+    "dacon_submit_now": false,
+    "direct_sleep_event_column_count": 0,
+    "direct_sleep_event_route_available": false,
+    "expected_sleep_proxy_files_present": 7,
+    "modify_submission_log": false,
+    "next_action": "The public raw files do not expose direct sleep-stage, SOL, or WASO event fields. Existing processed HR/light/screen proxies have also failed the S4/S3 gate. Do not run another processed-column overlay; either design a genuinely sequence-level HR/light event model with a new local gate, or prioritize validation/public-gap redesign.",
+    "processed_s4s3_eligible_rows": 0,
+    "processed_s4s3_gate_exists": true,
+    "processed_s4s3_selected_targets": [],
+    "proxy_modalities_available": 7,
+    "push_kaggle_now": false,
+    "raw_event_reconstruction_escalate_now": false,
+    "raw_files_scanned": 12,
+    "run_kaggle_now": false
+  },
+  "diagnostic": "post_id342_raw_sleep_event_reconstruction_feasibility",
+  "direct_sleep_event_hits": [],
+  "direct_sleep_event_tokens": [
+    "sleep_stage",
+    "stage",
+    "sleep_state",
+    "sol",
+    "sleep_onset",
+    "latency",
+    "waso",
+    "wake_after",
+    "wakefulness_after",
+    "sleep_start",
+    "sleep_end",
+    "bedtime",
+    "wake_time"
+  ],
+  "input_reports": {
+    "s4s3_sleep_fragmentation_gate": {
+      "exists": true,
+      "path": "reports/post_id342_s4s3_sleep_fragmentation_gate_20260625.json"
+    }
+  },
+  "no_base_prediction_artifact_created": true,
+  "no_dacon_submission": true,
+  "no_feature_matrix_created": true,
+  "no_kaggle_action": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_submission_log_row_created": true,
+  "proxy_modalities": [
+    {
+      "path": "data/raw/ch2025_data_items/ch2025_mACStatus.parquet",
+      "proxy_columns": [
+        "timestamp",
+        "m_charging"
+      ]
+    },
+    {
+      "path": "data/raw/ch2025_data_items/ch2025_mActivity.parquet",
+      "proxy_columns": [
+        "timestamp",
+        "m_activity"
+      ]
+    },
+    {
+      "path": "data/raw/ch2025_data_items/ch2025_mLight.parquet",
+      "proxy_columns": [
+        "timestamp",
+        "m_light"
+      ]
+    },
+    {
+      "path": "data/raw/ch2025_data_items/ch2025_mScreenStatus.parquet",
+      "proxy_columns": [
+        "timestamp",
+        "m_screen_use"
+      ]
+    },
+    {
+      "path": "data/raw/ch2025_data_items/ch2025_wHr.parquet",
+      "proxy_columns": [
+        "timestamp",
+        "heart_rate"
+      ]
+    },
+    {
+      "path": "data/raw/ch2025_data_items/ch2025_wLight.parquet",
+      "proxy_columns": [
+        "timestamp",
+        "w_light"
+      ]
+    },
+    {
+      "path": "data/raw/ch2025_data_items/ch2025_wPedo.parquet",
+      "proxy_columns": [
+        "timestamp",
+        "step",
+        "step_frequency",
+        "running_step",
+        "walking_step"
+      ]
+    }
+  ],
+  "proxy_tokens": [
+    "heart_rate",
+    "w_light",
+    "m_light",
+    "m_screen_use",
+    "m_charging",
+    "m_activity",
+    "step",
+    "timestamp"
+  ],
+  "purpose": "Audit raw schema support for direct S4 WASO / S3 SOL event reconstruction.",
+  "schema_rows": [
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_charging"
+      ],
+      "direct_sleep_event_columns": [],
+      "path": "data/raw/ch2025_data_items/ch2025_mACStatus.parquet",
+      "proxy_columns": [
+        "timestamp",
+        "m_charging"
+      ],
+      "role": "charging state; proxy for bedtime context",
+      "rows": 939896
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_activity"
+      ],
+      "direct_sleep_event_columns": [],
+      "path": "data/raw/ch2025_data_items/ch2025_mActivity.parquet",
+      "proxy_columns": [
+        "timestamp",
+        "m_activity"
+      ],
+      "role": "phone activity state; proxy for pre-sleep movement",
+      "rows": 961062
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_ambience"
+      ],
+      "direct_sleep_event_columns": [],
+      "path": "data/raw/ch2025_data_items/ch2025_mAmbience.parquet",
+      "proxy_columns": [
+        "timestamp"
+      ],
+      "role": "other raw modality",
+      "rows": 476577
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_ble"
+      ],
+      "direct_sleep_event_columns": [],
+      "path": "data/raw/ch2025_data_items/ch2025_mBle.parquet",
+      "proxy_columns": [
+        "timestamp"
+      ],
+      "role": "other raw modality",
+      "rows": 21830
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_gps"
+      ],
+      "direct_sleep_event_columns": [],
+      "path": "data/raw/ch2025_data_items/ch2025_mGps.parquet",
+      "proxy_columns": [
+        "timestamp"
+      ],
+      "role": "other raw modality",
+      "rows": 800611
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_light"
+      ],
+      "direct_sleep_event_columns": [],
+      "path": "data/raw/ch2025_data_items/ch2025_mLight.parquet",
+      "proxy_columns": [
+        "timestamp",
+        "m_light"
+      ],
+      "role": "phone light sequence; proxy for environment exposure",
+      "rows": 96258
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_screen_use"
+      ],
+      "direct_sleep_event_columns": [],
+      "path": "data/raw/ch2025_data_items/ch2025_mScreenStatus.parquet",
+      "proxy_columns": [
+        "timestamp",
+        "m_screen_use"
+      ],
+      "role": "phone screen on/off; proxy for pre-sleep usage",
+      "rows": 939653
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_usage_stats"
+      ],
+      "direct_sleep_event_columns": [],
+      "path": "data/raw/ch2025_data_items/ch2025_mUsageStats.parquet",
+      "proxy_columns": [
+        "timestamp"
+      ],
+      "role": "other raw modality",
+      "rows": 45197
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_wifi"
+      ],
+      "direct_sleep_event_columns": [],
+      "path": "data/raw/ch2025_data_items/ch2025_mWifi.parquet",
+      "proxy_columns": [
+        "timestamp"
+      ],
+      "role": "other raw modality",
+      "rows": 76336
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "heart_rate"
+      ],
+      "direct_sleep_event_columns": [],
+      "path": "data/raw/ch2025_data_items/ch2025_wHr.parquet",
+      "proxy_columns": [
+        "timestamp",
+        "heart_rate"
+      ],
+      "role": "wearable heart rate sequence; proxy for sleep depth/awake state only",
+      "rows": 382918
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "w_light"
+      ],
+      "direct_sleep_event_columns": [],
+      "path": "data/raw/ch2025_data_items/ch2025_wLight.parquet",
+      "proxy_columns": [
+        "timestamp",
+        "w_light"
+      ],
+      "role": "wearable light sequence; proxy for darkness/light exposure",
+      "rows": 633741
+    },
+    {
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "step",
+        "step_frequency",
+        "running_step",
+        "walking_step",
+        "distance",
+        "speed",
+        "burned_calories"
+      ],
+      "direct_sleep_event_columns": [],
+      "path": "data/raw/ch2025_data_items/ch2025_wPedo.parquet",
+      "proxy_columns": [
+        "timestamp",
+        "step",
+        "step_frequency",
+        "running_step",
+        "walking_step"
+      ],
+      "role": "wearable steps; proxy for rest/activity",
+      "rows": 748100
+    }
+  ]
+}

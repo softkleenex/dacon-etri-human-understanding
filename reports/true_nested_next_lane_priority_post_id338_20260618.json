@@ -1,0 +1,174 @@
+{
+  "created_at_kst": "2026-06-18 01:31:18 UTC+09:00",
+  "diagnostic": "true_nested_next_lane_priority",
+  "source_blueprint": "reports/true_nested_rebuild_blueprint_post_id335_20260617.json",
+  "ranked_lanes": [
+    {
+      "lane_id": "S1_controlled_probe_holdout",
+      "rank_group": "probe_only",
+      "evidence": {
+        "report": "reports/recent_s1_probe_stress_review_20260618.json",
+        "id337_local": 0.5380663965590231,
+        "id337_robust": 0.5637412562832483,
+        "id337_proxy": 0.6050222139833282,
+        "id338_local": 0.5378608934949831,
+        "id338_robust": 0.5636003422944078,
+        "id338_proxy": 0.6068330204668168
+      },
+      "signal": 0.015,
+      "dependency_risk": 0.01,
+      "rebuild_cost": 0.006,
+      "public_anchor_penalty": 0.008,
+      "why": "ID337 is the cleanest low-movement controlled probe, but the signal is tiny. This lane can spend public budget only with explicit approval; it will not repair validation.",
+      "next_step": "Keep ID337 as the exact safety-first probe candidate; do not submit automatically.",
+      "blocked_by": [
+        "Requires explicit user approval for exact CSV before DACON submission."
+      ],
+      "no_submit": true,
+      "priority_score": -0.009000000000000001
+    },
+    {
+      "lane_id": "A1_delta_capped_bridge_midrisk_rebuild",
+      "rank_group": "primary",
+      "evidence": {
+        "report": "reports/post_id249_targetwise_delta_capped_bridge_robustness_20260616.json",
+        "safe_reference_id": 247,
+        "safe_reference_local": 0.41552331381610536,
+        "safe_reference_robust": 0.4438588282569989,
+        "midrisk_reference_id": 248,
+        "midrisk_reference_local": 0.3917352223385758,
+        "midrisk_reference_robust": 0.42162752530037934,
+        "aggressive_reference_id": 249,
+        "aggressive_reference_local": 0.3744648393350977,
+        "aggressive_reference_robust": 0.40525499355518774
+      },
+      "signal": 0.082,
+      "dependency_risk": 0.045,
+      "rebuild_cost": 0.026,
+      "public_anchor_penalty": 0.026,
+      "why": "Delta-capped bridge has a smooth risk ladder: ID247/248 are safer than ID249. A nested bridge-choice rebuild can test whether the ladder survives without using full-OOF target choices.",
+      "next_step": "Replay capped bridge selection with caps around 0.15/0.20/0.30 inside outer folds, rejecting ID249-style aggressive movement unless it improves nested robust score and anchor geometry.",
+      "blocked_by": [
+        "Needs exact bridge family reconstruction from ID235/244-249 scripts."
+      ],
+      "no_submit": true,
+      "priority_score": -0.014999999999999993
+    },
+    {
+      "lane_id": "B1_pair_logit_direct_no_252_model_level_rebuild",
+      "rank_group": "primary",
+      "evidence": {
+        "report": "reports/fold_internal_pair_blend_rebuild_post_id335_20260617.json",
+        "dependency_audit": "reports/b1_pair_blend_source_dependency_audit_20260618.json",
+        "best_scenario": {
+          "name": "direct_no_252_cap022",
+          "source_ids": [
+            178,
+            254,
+            255,
+            256,
+            257,
+            258,
+            266
+          ],
+          "cap": 0.22,
+          "penalty": 0.01
+        },
+        "fold_internal_overall": 0.43384786466792663,
+        "fold_internal_robust": 0.457077130363167,
+        "worst_target": "S4",
+        "source_ids": [
+          178,
+          254,
+          255,
+          256,
+          257,
+          258,
+          266
+        ],
+        "direct_no_252_is_not_dependency_clean": true,
+        "hidden_extreme_ids": [
+          227,
+          228,
+          235,
+          239,
+          242,
+          243,
+          250,
+          251,
+          252
+        ]
+      },
+      "signal": 0.115,
+      "dependency_risk": 0.065,
+      "rebuild_cost": 0.045,
+      "public_anchor_penalty": 0.024,
+      "why": "Strong fold-internal pair/logit signal survives at the selector layer, but the dependency audit shows the source artifacts still trace into high/extreme full-OOF bridge/calibration chains.",
+      "next_step": "Do not reuse source IDs 254/255/256/257/258/266 as clean sources. First rebuild the bridge/source layers below them inside outer folds, then replay target-wise pair/logit selection report-only.",
+      "blocked_by": [
+        "B1 source artifacts are not dependency-clean; see b1_pair_blend_source_dependency_audit."
+      ],
+      "no_submit": true,
+      "priority_score": -0.018999999999999996
+    },
+    {
+      "lane_id": "C0_lower_layer_id238_safe_calibration",
+      "rank_group": "deprioritized",
+      "evidence": {
+        "report": "reports/id238_conservative_calibration_post_id335_20260617.json",
+        "avg_best_calibrated": 0.46068679480461777,
+        "avg_best_robust": 0.483327977761587
+      },
+      "signal": 0.01,
+      "dependency_risk": 0.02,
+      "rebuild_cost": 0.02,
+      "public_anchor_penalty": 0.018,
+      "why": "The lower ID238 layer has only tiny conservative temperature-shift salvage signal. This is useful for explaining why the ID242 chain is fragile, but not a high-upside next run.",
+      "next_step": "Do not prioritize unless the pair/bridge lanes fail or a stricter calibration baseline is needed.",
+      "blocked_by": [],
+      "no_submit": true,
+      "priority_score": -0.048
+    },
+    {
+      "lane_id": "C2_upper_second_stage_calibration_id242_chain",
+      "rank_group": "blocked",
+      "evidence": {
+        "report": "reports/fold_internal_second_stage_calibration_post_id335_20260617.json",
+        "avg_best_fold_internal": 0.2622030014257304,
+        "avg_best_robust": 0.3006241231483404,
+        "full_pair_with_252_overall": 0.3999200182061711,
+        "full_pair_with_252_robust": 0.4237604473438026,
+        "blueprint_sources": [
+          242,
+          243,
+          249,
+          252,
+          268,
+          276,
+          278
+        ]
+      },
+      "signal": 0.16,
+      "dependency_risk": 0.145,
+      "rebuild_cost": 0.045,
+      "public_anchor_penalty": 0.06,
+      "why": "The ID242/252 chain has enormous local signal, but it depends on extreme non-nested calibration. Lower-layer diagnostics show ID242-like calibration on ID238 collapses under fold-internal refitting.",
+      "next_step": "Keep blocked. Do not rebuild upper ID252 descendants until a lower-layer model-level source replaces the q240/isotonic full-OOF shortcut.",
+      "blocked_by": [
+        "ID242 lower-layer calibration is not validated.",
+        "ID287/ID329 public failures warn against local-frontier calibration."
+      ],
+      "no_submit": true,
+      "priority_score": -0.08999999999999998
+    }
+  ],
+  "decision": {
+    "primary_lane": "A1_delta_capped_bridge_midrisk_rebuild",
+    "create_submission_artifact": false,
+    "dacon_submission_made": false,
+    "public_058_plausible": false,
+    "reason": "The immediate execution lane is the mid-risk delta-capped bridge rebuild. The pair/logit selector signal remains the downstream map, but the B1 dependency audit shows its current sources still trace into high/extreme full-OOF bridge/calibration chains. Rebuild the bridge/source layer first, then replay pair/logit selection. Keep ID337 as a separate explicit-approval public probe candidate, not as validation repair."
+  },
+  "no_submission_created": true,
+  "no_dacon_submission_made": true
+}

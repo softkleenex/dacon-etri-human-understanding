@@ -1,0 +1,1149 @@
+{
+  "created_at_kst": "2026-06-18 06:54:14 UTC+09:00",
+  "diagnostic": "external_etri_prior_smoke_post_id341",
+  "purpose": "Estimate whether older ETRI 2019/2020 summary CSVs are useful as weak external priors around ID341 without concatenating external rows into current training.",
+  "external_inputs": [
+    "data/external/etri_lifelog/user_info_2019_2018_updated.csv",
+    "data/external/etri_lifelog/user_info_2020.csv",
+    "data/external/etri_lifelog/user_sleep_2019_2018.csv",
+    "data/external/etri_lifelog/user_sleep_2020.csv",
+    "data/external/etri_lifelog/user_survey_2019_2018.csv",
+    "data/external/etri_lifelog/user_survey_2020.csv"
+  ],
+  "external_label_mapping": {
+    "Q1": "survey sleep >= per-user mean",
+    "Q2": "2020 pmFatigue <= per-user mean",
+    "Q3": "pmStress <= per-user mean",
+    "S1": "total sleep duration in [7h, 9h]",
+    "S2": "sleep efficiency >= 0.85",
+    "S3": "2020 duration-to-sleep in [5m, 30m]; lower confidence because 2019 lacks SOL",
+    "S4": "wake duration/WASO <= 20m"
+  },
+  "prior_strategy": {
+    "group_levels": [
+      [
+        "gender",
+        "age_decade",
+        "is_weekend"
+      ],
+      [
+        "gender",
+        "age_decade"
+      ],
+      [
+        "age_decade",
+        "is_weekend"
+      ],
+      [
+        "gender",
+        "is_weekend"
+      ],
+      [
+        "gender"
+      ],
+      [
+        "age_decade"
+      ],
+      [
+        "is_weekend"
+      ]
+    ],
+    "min_count": 3,
+    "shrinkage_to_global": 20.0,
+    "blend_weights": [
+      0.005,
+      0.01,
+      0.02,
+      0.05,
+      0.1
+    ],
+    "candidate_groups": {
+      "Q_all": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ],
+      "S_sleep_external": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "all_external": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    }
+  },
+  "coverage": {
+    "external_long_rows": 6135,
+    "external_users": 42,
+    "external_targets_available": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "candidate_rows_scanned": 50
+  },
+  "external_target_prevalence": {
+    "Q1": {
+      "n": 937,
+      "mean": 0.5933831376734259
+    },
+    "Q2": {
+      "n": 615,
+      "mean": 0.5609756097560976
+    },
+    "Q3": {
+      "n": 899,
+      "mean": 0.46273637374860954
+    },
+    "S1": {
+      "n": 1023,
+      "mean": 0.14467253176930597
+    },
+    "S2": {
+      "n": 1023,
+      "mean": 0.696969696969697
+    },
+    "S3": {
+      "n": 615,
+      "mean": 0.6097560975609756
+    },
+    "S4": {
+      "n": 1023,
+      "mean": 0.3118279569892473
+    }
+  },
+  "current_train_target_prevalence": {
+    "Q1": 0.4955555555555556,
+    "Q2": 0.5622222222222222,
+    "Q3": 0.6,
+    "S1": 0.6822222222222222,
+    "S2": 0.6511111111111111,
+    "S3": 0.6622222222222223,
+    "S4": 0.56
+  },
+  "prior_target_metadata": {
+    "Q1": {
+      "n": 937,
+      "global_mean": 0.5933831376734259,
+      "cohort_counts": {
+        "survey_2019_2018": 322,
+        "survey_2020": 615
+      }
+    },
+    "Q2": {
+      "n": 615,
+      "global_mean": 0.5609756097560976,
+      "cohort_counts": {
+        "survey_2020": 615
+      }
+    },
+    "Q3": {
+      "n": 899,
+      "global_mean": 0.46273637374860954,
+      "cohort_counts": {
+        "survey_2019_2018": 284,
+        "survey_2020": 615
+      }
+    },
+    "S1": {
+      "n": 1023,
+      "global_mean": 0.14467253176930597,
+      "cohort_counts": {
+        "sleep_2019_2018": 408,
+        "sleep_2020": 615
+      }
+    },
+    "S2": {
+      "n": 1023,
+      "global_mean": 0.696969696969697,
+      "cohort_counts": {
+        "sleep_2019_2018": 408,
+        "sleep_2020": 615
+      }
+    },
+    "S3": {
+      "n": 615,
+      "global_mean": 0.6097560975609756,
+      "cohort_counts": {
+        "sleep_2020": 615
+      }
+    },
+    "S4": {
+      "n": 1023,
+      "global_mean": 0.3118279569892473,
+      "cohort_counts": {
+        "sleep_2019_2018": 408,
+        "sleep_2020": 615
+      }
+    }
+  },
+  "train_prior_usage": {
+    "Q1": {
+      "levels": {
+        "gender+age_decade+is_weekend": 358,
+        "gender+is_weekend": 92
+      },
+      "mean_support": 107.82222222222222
+    },
+    "Q2": {
+      "levels": {
+        "gender+age_decade+is_weekend": 358,
+        "gender+is_weekend": 92
+      },
+      "mean_support": 81.39111111111112
+    },
+    "Q3": {
+      "levels": {
+        "gender+age_decade+is_weekend": 358,
+        "gender+is_weekend": 92
+      },
+      "mean_support": 104.00888888888889
+    },
+    "S1": {
+      "levels": {
+        "gender+age_decade+is_weekend": 358,
+        "gender+is_weekend": 92
+      },
+      "mean_support": 116.45777777777778
+    },
+    "S2": {
+      "levels": {
+        "gender+age_decade+is_weekend": 358,
+        "gender+is_weekend": 92
+      },
+      "mean_support": 116.45777777777778
+    },
+    "S3": {
+      "levels": {
+        "gender+age_decade+is_weekend": 358,
+        "gender+is_weekend": 92
+      },
+      "mean_support": 82.06222222222222
+    },
+    "S4": {
+      "levels": {
+        "gender+age_decade+is_weekend": 358,
+        "gender+is_weekend": 92
+      },
+      "mean_support": 116.45777777777778
+    }
+  },
+  "test_prior_usage": {
+    "Q1": {
+      "levels": {
+        "gender+age_decade+is_weekend": 197,
+        "gender+is_weekend": 53
+      },
+      "mean_support": 106.752
+    },
+    "Q2": {
+      "levels": {
+        "gender+age_decade+is_weekend": 197,
+        "gender+is_weekend": 53
+      },
+      "mean_support": 81.832
+    },
+    "Q3": {
+      "levels": {
+        "gender+age_decade+is_weekend": 197,
+        "gender+is_weekend": 53
+      },
+      "mean_support": 103.196
+    },
+    "S1": {
+      "levels": {
+        "gender+age_decade+is_weekend": 197,
+        "gender+is_weekend": 53
+      },
+      "mean_support": 114.812
+    },
+    "S2": {
+      "levels": {
+        "gender+age_decade+is_weekend": 197,
+        "gender+is_weekend": 53
+      },
+      "mean_support": 114.812
+    },
+    "S3": {
+      "levels": {
+        "gender+age_decade+is_weekend": 197,
+        "gender+is_weekend": 53
+      },
+      "mean_support": 82.5
+    },
+    "S4": {
+      "levels": {
+        "gender+age_decade+is_weekend": 197,
+        "gender+is_weekend": 53
+      },
+      "mean_support": 114.812
+    }
+  },
+  "top_rows": [
+    {
+      "name": "Q1",
+      "targets": [
+        "Q1"
+      ],
+      "weight": 0.005,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385994547669425,
+      "proxy_public_risk": 0.6015706409350137,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0001507319704769655,
+      "max_delta_vs_341": 0.0028715240321718627,
+      "projection_failed": -0.0004993759707404216,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 1.579484270652909e-05,
+        "actual_test_band_holdout": -3.68129481025381e-05,
+        "test_boundary_neighbor2_holdout": -9.383485398617442e-05,
+        "test_boundary_neighbor5_holdout": -2.6775985979110573e-05,
+        "loso_10": 1.579484270652909e-05
+      }
+    },
+    {
+      "name": "S4",
+      "targets": [
+        "S4"
+      ],
+      "weight": 0.005,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385993377001959,
+      "proxy_public_risk": 0.6016049795145259,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00023556672860433937,
+      "max_delta_vs_341": 0.0031492787844824566,
+      "projection_failed": -0.0006650255011859394,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 1.5677775959899165e-05,
+        "actual_test_band_holdout": -9.900142196594963e-05,
+        "test_boundary_neighbor2_holdout": -2.765454098629938e-05,
+        "test_boundary_neighbor5_holdout": -1.5142525243594385e-05,
+        "loso_10": 1.5677775959788143e-05
+      }
+    },
+    {
+      "name": "Q1",
+      "targets": [
+        "Q1"
+      ],
+      "weight": 0.01,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.538618029957063,
+      "proxy_public_risk": 0.6017077492951863,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00030146394095393415,
+      "max_delta_vs_341": 0.005743048064343725,
+      "projection_failed": -0.0009140284968885216,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 3.4370032827024666e-05,
+        "actual_test_band_holdout": -6.602712244929698e-05,
+        "test_boundary_neighbor2_holdout": -0.00017863521383976178,
+        "test_boundary_neighbor5_holdout": -4.773735030194626e-05,
+        "loso_10": 3.4370032827024666e-05
+      }
+    },
+    {
+      "name": "S4",
+      "targets": [
+        "S4"
+      ],
+      "weight": 0.01,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5386175437783847,
+      "proxy_public_risk": 0.6017764264542105,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00047113345720867575,
+      "max_delta_vs_341": 0.006298557568964802,
+      "projection_failed": -0.0012453275577795288,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 3.3883854148708537e-05,
+        "actual_test_band_holdout": -0.00019368822765664095,
+        "test_boundary_neighbor2_holdout": -5.2306885615194254e-05,
+        "test_boundary_neighbor5_holdout": -2.724505877760297e-05,
+        "loso_10": 3.3883854148708537e-05
+      }
+    },
+    {
+      "name": "Q1",
+      "targets": [
+        "Q1"
+      ],
+      "weight": 0.02,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5386626647626975,
+      "proxy_public_risk": 0.6019819660155314,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0006029278819078693,
+      "max_delta_vs_341": 0.011486096128687465,
+      "projection_failed": -0.001743333549184699,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 7.900483846157158e-05,
+        "actual_test_band_holdout": -0.00010485883074595748,
+        "test_boundary_neighbor2_holdout": -0.00032496169640117145,
+        "test_boundary_neighbor5_holdout": -7.438820258720558e-05,
+        "loso_10": 7.900483846157158e-05
+      }
+    },
+    {
+      "name": "S4",
+      "targets": [
+        "S4"
+      ],
+      "weight": 0.02,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5386613727661282,
+      "proxy_public_risk": 0.6021193203335801,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0009422669144173544,
+      "max_delta_vs_341": 0.012597115137929604,
+      "projection_failed": -0.0024059316709667336,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 7.771284189228567e-05,
+        "actual_test_band_holdout": -0.00037064875663050945,
+        "test_boundary_neighbor2_holdout": -9.286462628366188e-05,
+        "test_boundary_neighbor5_holdout": -4.264227300876389e-05,
+        "loso_10": 7.771284189228567e-05
+      }
+    },
+    {
+      "name": "Q1",
+      "targets": [
+        "Q1"
+      ],
+      "weight": 0.05,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5388458343445899,
+      "proxy_public_risk": 0.6028046161765671,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0015073197047696693,
+      "max_delta_vs_341": 0.02871524032171864,
+      "projection_failed": -0.00423124870607324,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 0.00026217442035392224,
+        "actual_test_band_holdout": -0.00010275987417729393,
+        "test_boundary_neighbor2_holdout": -0.0006234672617303483,
+        "test_boundary_neighbor5_holdout": -5.880010259751156e-05,
+        "loso_10": 0.00026217442035392224
+      }
+    },
+    {
+      "name": "S4",
+      "targets": [
+        "S4"
+      ],
+      "weight": 0.05,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5388495901518723,
+      "proxy_public_risk": 0.6031480019716884,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0023556672860433852,
+      "max_delta_vs_341": 0.0314927878448239,
+      "projection_failed": -0.005887744010528326,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 0.000265930227636324,
+        "actual_test_band_holdout": -0.0008102907488518607,
+        "test_boundary_neighbor2_holdout": -0.00014861829604473353,
+        "test_boundary_neighbor5_holdout": -2.311617976014091e-05,
+        "loso_10": 0.000265930227636324
+      }
+    },
+    {
+      "name": "S2",
+      "targets": [
+        "S2"
+      ],
+      "weight": 0.005,
+      "primary_wins_vs_id341": 2,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5386071747979357,
+      "proxy_public_risk": 0.6015636731586781,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00012509086358086522,
+      "max_delta_vs_341": 0.0028941663988351907,
+      "projection_failed": -0.00042574879240772303,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 2.3514873699781447e-05,
+        "actual_test_band_holdout": -2.540713666165928e-05,
+        "test_boundary_neighbor2_holdout": -1.56259683720128e-05,
+        "test_boundary_neighbor5_holdout": 2.792284953589963e-06,
+        "loso_10": 2.3514873699781447e-05
+      }
+    },
+    {
+      "name": "S2",
+      "targets": [
+        "S2"
+      ],
+      "weight": 0.01,
+      "primary_wins_vs_id341": 2,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5386317187015893,
+      "proxy_public_risk": 0.6016938137425151,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00025018172716172903,
+      "max_delta_vs_341": 0.005788332797670437,
+      "projection_failed": -0.0007667741402231121,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 4.8058777353365834e-05,
+        "actual_test_band_holdout": -4.837853651440405e-05,
+        "test_boundary_neighbor2_holdout": -2.837960928914196e-05,
+        "test_boundary_neighbor5_holdout": 7.225614031991512e-06,
+        "loso_10": 4.805877735325481e-05
+      }
+    },
+    {
+      "name": "S2",
+      "targets": [
+        "S2"
+      ],
+      "weight": 0.02,
+      "primary_wins_vs_id341": 2,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5386837732529739,
+      "proxy_public_risk": 0.6019540949101891,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0005003634543234593,
+      "max_delta_vs_341": 0.011576665595340846,
+      "projection_failed": -0.0014488248358538903,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 0.00010011332873793855,
+        "actual_test_band_holdout": -8.748762582799774e-05,
+        "test_boundary_neighbor2_holdout": -4.5829618032899866e-05,
+        "test_boundary_neighbor5_holdout": 2.0743010838430997e-05,
+        "loso_10": 0.00010011332873793855
+      }
+    },
+    {
+      "name": "S2",
+      "targets": [
+        "S2"
+      ],
+      "weight": 0.05,
+      "primary_wins_vs_id341": 2,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5388618978575196,
+      "proxy_public_risk": 0.602734938413211,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0012509086358086477,
+      "max_delta_vs_341": 0.0289416639883521,
+      "projection_failed": -0.0034949769227462274,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 0.00027823793328363156,
+        "actual_test_band_holdout": -0.0001569867732257313,
+        "test_boundary_neighbor2_holdout": -4.17919513185927e-05,
+        "test_boundary_neighbor5_holdout": 9.455966102878133e-05,
+        "loso_10": 0.00027823793328363156
+      }
+    },
+    {
+      "name": "S4",
+      "targets": [
+        "S4"
+      ],
+      "weight": 0.1,
+      "primary_wins_vs_id341": 2,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5393390170986646,
+      "proxy_public_risk": 0.604862471368536,
+      "beats_id341_proxy": false,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.004711334572086761,
+      "max_delta_vs_341": 0.06298557568964769,
+      "projection_failed": -0.011690764576464287,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 0.0007553571744286502,
+        "actual_test_band_holdout": -0.0012791981423388998,
+        "test_boundary_neighbor2_holdout": -4.289167643301006e-05,
+        "test_boundary_neighbor5_holdout": 0.00020480490104413107,
+        "loso_10": 0.0007553571744286502
+      }
+    },
+    {
+      "name": "Q2",
+      "targets": [
+        "Q2"
+      ],
+      "weight": 0.005,
+      "primary_wins_vs_id341": 1,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5386166235354275,
+      "proxy_public_risk": 0.6015695017773837,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00012400079210995505,
+      "max_delta_vs_341": 0.0026235599209222527,
+      "projection_failed": -0.0003371612963370385,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 3.296361119153879e-05,
+        "actual_test_band_holdout": 9.565342712125613e-06,
+        "test_boundary_neighbor2_holdout": -2.464084687836543e-05,
+        "test_boundary_neighbor5_holdout": 1.5194514889071975e-05,
+        "loso_10": 3.296361119153879e-05
+      }
+    },
+    {
+      "name": "Q_all",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ],
+      "weight": 0.005,
+      "primary_wins_vs_id341": 1,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5386643222023504,
+      "proxy_public_risk": 0.6016746415803046,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00045929020143780177,
+      "max_delta_vs_341": 0.0030029749311479836,
+      "projection_failed": -0.0012898897510037093,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 8.06622781144295e-05,
+        "actual_test_band_holdout": 5.151160445471259e-05,
+        "test_boundary_neighbor2_holdout": -9.939072028208873e-05,
+        "test_boundary_neighbor5_holdout": 1.446917358050026e-05,
+        "loso_10": 8.06622781144295e-05
+      }
+    },
+    {
+      "name": "S1",
+      "targets": [
+        "S1"
+      ],
+      "weight": 0.005,
+      "primary_wins_vs_id341": 1,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385920687214821,
+      "proxy_public_risk": 0.6016856660777549,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0003833819469986302,
+      "max_delta_vs_341": 0.0042849662129442745,
+      "projection_failed": -0.0006921325984762797,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 8.408797246173272e-06,
+        "actual_test_band_holdout": 8.007308133106683e-05,
+        "test_boundary_neighbor2_holdout": -4.6985686692035955e-05,
+        "test_boundary_neighbor5_holdout": 7.644543619678146e-06,
+        "loso_10": 8.408797246173272e-06
+      }
+    },
+    {
+      "name": "Q2",
+      "targets": [
+        "Q2"
+      ],
+      "weight": 0.01,
+      "primary_wins_vs_id341": 1,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5386504399997781,
+      "proxy_public_risk": 0.6016869683526199,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00024800158421991005,
+      "max_delta_vs_341": 0.005247119841844519,
+      "projection_failed": -0.0005895991480817365,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 6.678007554217213e-05,
+        "actual_test_band_holdout": 2.00734886496301e-05,
+        "test_boundary_neighbor2_holdout": -4.789168354768503e-05,
+        "test_boundary_neighbor5_holdout": 3.13814721466521e-05,
+        "loso_10": 6.678007554217213e-05
+      }
+    },
+    {
+      "name": "S_sleep_external",
+      "targets": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "weight": 0.005,
+      "primary_wins_vs_id341": 1,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5386532291684359,
+      "proxy_public_risk": 0.6018388815846918,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0008941003034550402,
+      "max_delta_vs_341": 0.0042849662129442745,
+      "projection_failed": -0.0016303885684733684,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 6.956924419998511e-05,
+        "actual_test_band_holdout": 2.011323347850258e-05,
+        "test_boundary_neighbor2_holdout": -6.65145843264936e-05,
+        "test_boundary_neighbor5_holdout": 6.682670699031945e-07,
+        "loso_10": 6.956924419998511e-05
+      }
+    },
+    {
+      "name": "Q_all",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ],
+      "weight": 0.01,
+      "primary_wins_vs_id341": 1,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5387499578080391,
+      "proxy_public_risk": 0.6018972479584621,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0009185804028756058,
+      "max_delta_vs_341": 0.006005949862295967,
+      "projection_failed": -0.0024950560574150973,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 0.00016629788380317923,
+        "actual_test_band_holdout": 0.00011276728968523386,
+        "test_boundary_neighbor2_holdout": -0.0001869412005133242,
+        "test_boundary_neighbor5_holdout": 3.708684870251666e-05,
+        "loso_10": 0.00016629788380317923
+      }
+    },
+    {
+      "name": "Q2",
+      "targets": [
+        "Q2"
+      ],
+      "weight": 0.02,
+      "primary_wins_vs_id341": 1,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5387205912342887,
+      "proxy_public_risk": 0.6019249210409711,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0004960031684398185,
+      "max_delta_vs_341": 0.010494239683689038,
+      "projection_failed": -0.0010944748515711391,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 0.00013693131005276804,
+        "actual_test_band_holdout": 4.3873083508949584e-05,
+        "test_boundary_neighbor2_holdout": -9.033749153031234e-05,
+        "test_boundary_neighbor5_holdout": 6.666648900344185e-05,
+        "loso_10": 0.00013693131005287906
+      }
+    },
+    {
+      "name": "S1",
+      "targets": [
+        "S1"
+      ],
+      "weight": 0.01,
+      "primary_wins_vs_id341": 1,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5386180662159202,
+      "proxy_public_risk": 0.6019377995806688,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0007667638939972638,
+      "max_delta_vs_341": 0.00856993242588866,
+      "projection_failed": -0.0012995417523602054,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 3.440629168427467e-05,
+        "actual_test_band_holdout": 0.00016549712071478595,
+        "test_boundary_neighbor2_holdout": -8.596882348621548e-05,
+        "test_boundary_neighbor5_holdout": 2.165999043635125e-05,
+        "loso_10": 3.440629168427467e-05
+      }
+    },
+    {
+      "name": "all_external",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "weight": 0.005,
+      "primary_wins_vs_id341": 1,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5387338914465504,
+      "proxy_public_risk": 0.6019664640297105,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0013533905048928418,
+      "max_delta_vs_341": 0.0042849662129442745,
+      "projection_failed": -0.0028355548748847416,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 0.0001502315223144146,
+        "actual_test_band_holdout": 7.162483793321517e-05,
+        "test_boundary_neighbor2_holdout": -0.0001659053046084713,
+        "test_boundary_neighbor5_holdout": 1.51374406506255e-05,
+        "loso_10": 0.0001502315223143036
+      }
+    },
+    {
+      "name": "S_sleep_external",
+      "targets": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "weight": 0.01,
+      "primary_wins_vs_id341": 1,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5387457477185944,
+      "proxy_public_risk": 0.6022442305945427,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.001788200606910076,
+      "max_delta_vs_341": 0.00856993242588866,
+      "projection_failed": -0.003176053692354371,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 0.00016208779435844534,
+        "actual_test_band_holdout": 5.3178006219622986e-05,
+        "test_boundary_neighbor2_holdout": -0.0001178249403734899,
+        "test_boundary_neighbor5_holdout": 1.4615582279442485e-05,
+        "loso_10": 0.00016208779435844534
+      }
+    },
+    {
+      "name": "Q_all",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ],
+      "weight": 0.02,
+      "primary_wins_vs_id341": 1,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5389351832198582,
+      "proxy_public_risk": 0.6023557637664396,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0018371608057512086,
+      "max_delta_vs_341": 0.012011899724591935,
+      "projection_failed": -0.004905388670237845,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 0.00035152329562226914,
+        "actual_test_band_holdout": 0.00026121741393392295,
+        "test_boundary_neighbor2_holdout": -0.00033053050054387967,
+        "test_boundary_neighbor5_holdout": 0.00010446044980183533,
+        "loso_10": 0.00035152329562226914
+      }
+    },
+    {
+      "name": "S1",
+      "targets": [
+        "S1"
+      ],
+      "weight": 0.02,
+      "primary_wins_vs_id341": 1,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5387137859701243,
+      "proxy_public_risk": 0.6024420665864963,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0015335277879945253,
+      "max_delta_vs_341": 0.01713986485177743,
+      "projection_failed": -0.002514360060128077,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 0.00013012604588835686,
+        "actual_test_band_holdout": 0.0003519393559180406,
+        "test_boundary_neighbor2_holdout": -0.00014106177644357398,
+        "test_boundary_neighbor5_holdout": 6.80590725682384e-05,
+        "loso_10": 0.00013012604588835686
+      }
+    },
+    {
+      "name": "all_external",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "weight": 0.01,
+      "primary_wins_vs_id341": 1,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5389120456023976,
+      "proxy_public_risk": 0.6025075625120664,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0027067810097856815,
+      "max_delta_vs_341": 0.00856993242588866,
+      "projection_failed": -0.005586386305177132,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 0.00032838567816162456,
+        "actual_test_band_holdout": 0.00016594529590485685,
+        "test_boundary_neighbor2_holdout": -0.0003047661408868141,
+        "test_boundary_neighbor5_holdout": 5.1702430981959147e-05,
+        "loso_10": 0.00032838567816162456
+      }
+    },
+    {
+      "name": "Q2",
+      "targets": [
+        "Q2"
+      ],
+      "weight": 0.05,
+      "primary_wins_vs_id341": 1,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.538950532030625,
+      "proxy_public_risk": 0.6026430031032542,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.001240007921099548,
+      "max_delta_vs_341": 0.02623559920922261,
+      "projection_failed": -0.0026091019620393388,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 0.0003668721063890823,
+        "actual_test_band_holdout": 0.00013679482357953354,
+        "test_boundary_neighbor2_holdout": -0.00018707470616219357,
+        "test_boundary_neighbor5_holdout": 0.0001947340896020222,
+        "loso_10": 0.0003668721063890823
+      }
+    },
+    {
+      "name": "S_sleep_external",
+      "targets": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "weight": 0.02,
+      "primary_wins_vs_id341": 1,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5389900453320536,
+      "proxy_public_risk": 0.603054928614244,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0035764012138201576,
+      "max_delta_vs_341": 0.01713986485177743,
+      "projection_failed": -0.006267383940116425,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 0.0004063854078176776,
+        "actual_test_band_holdout": 0.00015667660354135027,
+        "test_boundary_neighbor2_holdout": -0.00017688146979855102,
+        "test_boundary_neighbor5_holdout": 8.065753903563344e-05,
+        "loso_10": 0.0004063854078176776
+      }
+    },
+    {
+      "name": "all_external",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "weight": 0.02,
+      "primary_wins_vs_id341": 1,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.539341568627676,
+      "proxy_public_risk": 0.6035927790146556,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.005413562019571366,
+      "max_delta_vs_341": 0.01713986485177743,
+      "projection_failed": -0.011088049165761933,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 0.0007579087034400578,
+        "actual_test_band_holdout": 0.0004178940174752732,
+        "test_boundary_neighbor2_holdout": -0.0005074119703423197,
+        "test_boundary_neighbor5_holdout": 0.0001851179888375798,
+        "loso_10": 0.0007579087034399468
+      }
+    },
+    {
+      "name": "Q_all",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ],
+      "weight": 0.05,
+      "primary_wins_vs_id341": 1,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5395900972871319,
+      "proxy_public_risk": 0.6037583932897763,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0045929020143780225,
+      "max_delta_vs_341": 0.030029749311479947,
+      "projection_failed": -0.012136386508706102,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 0.0010064373628959622,
+        "actual_test_band_holdout": 0.0008743616180697522,
+        "test_boundary_neighbor2_holdout": -0.0005578524333675894,
+        "test_boundary_neighbor5_holdout": 0.00045484568071563203,
+        "loso_10": 0.0010064373628959622
+      }
+    }
+  ],
+  "best_proxy_row": {
+    "name": "S2",
+    "targets": [
+      "S2"
+    ],
+    "weight": 0.005,
+    "primary_wins_vs_id341": 2,
+    "all_primary_splits_beat_id341": false,
+    "local_cv_subject_hole_5": 0.5386071747979357,
+    "proxy_public_risk": 0.6015636731586781,
+    "beats_id341_proxy": true,
+    "public_058_plausible": false,
+    "mean_delta_vs_341": 0.00012509086358086522,
+    "max_delta_vs_341": 0.0028941663988351907,
+    "projection_failed": -0.00042574879240772303,
+    "reviewable_low_movement_candidate": false,
+    "promotable_public_058_candidate": false,
+    "primary_deltas_vs_id341": {
+      "subject_hole_5": 2.3514873699781447e-05,
+      "actual_test_band_holdout": -2.540713666165928e-05,
+      "test_boundary_neighbor2_holdout": -1.56259683720128e-05,
+      "test_boundary_neighbor5_holdout": 2.792284953589963e-06,
+      "loso_10": 2.3514873699781447e-05
+    }
+  },
+  "best_local_row": {
+    "name": "S1",
+    "targets": [
+      "S1"
+    ],
+    "weight": 0.005,
+    "primary_wins_vs_id341": 1,
+    "all_primary_splits_beat_id341": false,
+    "local_cv_subject_hole_5": 0.5385920687214821,
+    "proxy_public_risk": 0.6016856660777549,
+    "beats_id341_proxy": true,
+    "public_058_plausible": false,
+    "mean_delta_vs_341": 0.0003833819469986302,
+    "max_delta_vs_341": 0.0042849662129442745,
+    "projection_failed": -0.0006921325984762797,
+    "reviewable_low_movement_candidate": false,
+    "promotable_public_058_candidate": false,
+    "primary_deltas_vs_id341": {
+      "subject_hole_5": 8.408797246173272e-06,
+      "actual_test_band_holdout": 8.007308133106683e-05,
+      "test_boundary_neighbor2_holdout": -4.6985686692035955e-05,
+      "test_boundary_neighbor5_holdout": 7.644543619678146e-06,
+      "loso_10": 8.408797246173272e-06
+    }
+  },
+  "reviewable_rows": [],
+  "promotable_rows": [],
+  "decision": {
+    "external_prior_reviewable_low_movement_candidate_exists": false,
+    "external_prior_promotable_public_058_candidate_exists": false,
+    "best_proxy": 0.6015636731586781,
+    "best_proxy_row_name": "S2",
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "next_action": "Use external ETRI data only as weak-prior/reference evidence unless a future source passes the combined transfer gate. Do not concatenate older external rows into current training without a separate leak-free proof."
+  },
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

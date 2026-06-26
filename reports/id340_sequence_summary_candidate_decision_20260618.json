@@ -1,0 +1,82 @@
+{
+  "created_at_kst": "2026-06-18 03:29:41 UTC+09:00",
+  "diagnostic": "id340_sequence_summary_candidate_decision",
+  "source_probe": "reports/id340_sequence_summary_split_probe_20260618.json",
+  "candidate_design": {
+    "name": "blend_id178_sequence_summary_lr_c0_3_w0.03",
+    "base": "ID178",
+    "source": "sequence_summary split-trained logistic regression C=0.3",
+    "fixed_blend_weight": 0.03,
+    "artifact_status": "not_created"
+  },
+  "split_rows": [
+    {
+      "split": "subject_hole_5",
+      "found": true,
+      "mean_loss": 0.5383460244918444,
+      "id178_loss": 0.5386377373903545,
+      "delta_vs_id178": -0.00029171289851004367,
+      "is_primary": true
+    },
+    {
+      "split": "subject_timeseries_5",
+      "found": true,
+      "mean_loss": 0.5401152092012809,
+      "id178_loss": 0.5397472162516725,
+      "delta_vs_id178": 0.0003679929496083201,
+      "is_primary": false
+    },
+    {
+      "split": "actual_test_band_holdout",
+      "found": true,
+      "mean_loss": 0.5400825804450898,
+      "id178_loss": 0.5416036568651422,
+      "delta_vs_id178": -0.0015210764200523919,
+      "is_primary": true
+    },
+    {
+      "split": "test_boundary_neighbor2_holdout",
+      "found": true,
+      "mean_loss": 0.5855804298120988,
+      "id178_loss": 0.5862898684706096,
+      "delta_vs_id178": -0.0007094386585108081,
+      "is_primary": true
+    },
+    {
+      "split": "test_boundary_neighbor5_holdout",
+      "found": true,
+      "mean_loss": 0.5578141431794029,
+      "id178_loss": 0.5579861551656572,
+      "delta_vs_id178": -0.0001720119862542724,
+      "is_primary": true
+    },
+    {
+      "split": "loso_10",
+      "found": true,
+      "mean_loss": 0.5382697024431664,
+      "id178_loss": 0.5386377373903545,
+      "delta_vs_id178": -0.0003680349471880673,
+      "is_primary": true
+    }
+  ],
+  "primary_gate_pass": true,
+  "nonprimary_cautions": [
+    {
+      "split": "subject_timeseries_5",
+      "found": true,
+      "mean_loss": 0.5401152092012809,
+      "id178_loss": 0.5397472162516725,
+      "delta_vs_id178": 0.0003679929496083201,
+      "is_primary": false
+    }
+  ],
+  "decision": {
+    "create_id340_now": false,
+    "submit_now": false,
+    "promote_to_full_artifact_contract_now": false,
+    "next_required_gate": "Generate a report-only full-train/test prediction geometry gate for this exact design, then check public-risk proxy and movement before artifact creation.",
+    "read": "Promising ID340 construction lead, not a submission candidate. Primary split gains are small but consistent; subject_timeseries is a caution."
+  },
+  "no_submission_created": true,
+  "no_dacon_submission_made": true
+}

@@ -1,0 +1,511 @@
+{
+  "created_at_kst": "2026-06-18 05:18:20 UTC+09:00",
+  "diagnostic": "post_id341_clean_backbone_rebuild_design",
+  "purpose": "Define the report-first clean ID221/ID226 rebuild contract before any Kaggle heavy run.",
+  "priority_report": "reports/post_id341_upstream_source_priority_matrix_20260618.json",
+  "data_readiness": {
+    "train_shape": [
+      450,
+      242
+    ],
+    "test_shape": [
+      250,
+      242
+    ],
+    "feature_count": 235,
+    "numeric_feature_count": 230,
+    "feature_group_counts": {
+      "activity": 25,
+      "ambience": 16,
+      "ble": 7,
+      "calendar": 4,
+      "demographic": 10,
+      "gps": 13,
+      "heart_rate": 38,
+      "id_calendar": 4,
+      "light": 33,
+      "other": 6,
+      "pedo": 27,
+      "screen": 17,
+      "usage": 27,
+      "wifi": 8
+    },
+    "all_null_numeric_count": 10,
+    "all_null_numeric_columns": [
+      "gps_mean_speed",
+      "gps_max_speed",
+      "gps_moving_ratio",
+      "gps_lat_std",
+      "gps_lon_std",
+      "wifi_mean_rssi",
+      "wifi_max_rssi",
+      "amb_music_mean",
+      "amb_speech_mean",
+      "amb_silence_mean"
+    ],
+    "high_missing_numeric_top": [
+      {
+        "column": "gps_mean_speed",
+        "train_missing": 1.0,
+        "test_missing": 1.0,
+        "group": "gps"
+      },
+      {
+        "column": "gps_max_speed",
+        "train_missing": 1.0,
+        "test_missing": 1.0,
+        "group": "gps"
+      },
+      {
+        "column": "gps_moving_ratio",
+        "train_missing": 1.0,
+        "test_missing": 1.0,
+        "group": "gps"
+      },
+      {
+        "column": "gps_lat_std",
+        "train_missing": 1.0,
+        "test_missing": 1.0,
+        "group": "gps"
+      },
+      {
+        "column": "gps_lon_std",
+        "train_missing": 1.0,
+        "test_missing": 1.0,
+        "group": "gps"
+      },
+      {
+        "column": "wifi_mean_rssi",
+        "train_missing": 1.0,
+        "test_missing": 1.0,
+        "group": "wifi"
+      },
+      {
+        "column": "wifi_max_rssi",
+        "train_missing": 1.0,
+        "test_missing": 1.0,
+        "group": "wifi"
+      },
+      {
+        "column": "amb_music_mean",
+        "train_missing": 1.0,
+        "test_missing": 1.0,
+        "group": "ambience"
+      },
+      {
+        "column": "amb_speech_mean",
+        "train_missing": 1.0,
+        "test_missing": 1.0,
+        "group": "ambience"
+      },
+      {
+        "column": "amb_silence_mean",
+        "train_missing": 1.0,
+        "test_missing": 1.0,
+        "group": "ambience"
+      },
+      {
+        "column": "slp_hr_mid_mean",
+        "train_missing": 0.86,
+        "test_missing": 0.824,
+        "group": "heart_rate"
+      },
+      {
+        "column": "slp_hr_early_mean",
+        "train_missing": 0.8244444444444444,
+        "test_missing": 0.82,
+        "group": "heart_rate"
+      },
+      {
+        "column": "ch2025_wHr_hr_night_mean",
+        "train_missing": 0.8,
+        "test_missing": 0.716,
+        "group": "heart_rate"
+      },
+      {
+        "column": "slp_hr_late_mean",
+        "train_missing": 0.5288888888888889,
+        "test_missing": 0.524,
+        "group": "heart_rate"
+      },
+      {
+        "column": "slp_hr_spike_count",
+        "train_missing": 0.4822222222222222,
+        "test_missing": 0.508,
+        "group": "heart_rate"
+      },
+      {
+        "column": "slp_hr_rmssd",
+        "train_missing": 0.4711111111111111,
+        "test_missing": 0.48,
+        "group": "heart_rate"
+      },
+      {
+        "column": "slp_hr_mean",
+        "train_missing": 0.45111111111111113,
+        "test_missing": 0.456,
+        "group": "heart_rate"
+      },
+      {
+        "column": "slp_hr_std",
+        "train_missing": 0.45111111111111113,
+        "test_missing": 0.456,
+        "group": "heart_rate"
+      },
+      {
+        "column": "slp_hr_min",
+        "train_missing": 0.45111111111111113,
+        "test_missing": 0.456,
+        "group": "heart_rate"
+      },
+      {
+        "column": "slp_hr_max",
+        "train_missing": 0.45111111111111113,
+        "test_missing": 0.456,
+        "group": "heart_rate"
+      },
+      {
+        "column": "slp_hr_median",
+        "train_missing": 0.45111111111111113,
+        "test_missing": 0.456,
+        "group": "heart_rate"
+      },
+      {
+        "column": "slp_hr_q25",
+        "train_missing": 0.45111111111111113,
+        "test_missing": 0.456,
+        "group": "heart_rate"
+      },
+      {
+        "column": "slp_hr_q75",
+        "train_missing": 0.45111111111111113,
+        "test_missing": 0.456,
+        "group": "heart_rate"
+      },
+      {
+        "column": "slp_hr_deep_ratio",
+        "train_missing": 0.45111111111111113,
+        "test_missing": 0.456,
+        "group": "heart_rate"
+      },
+      {
+        "column": "slp_hr_awake_ratio",
+        "train_missing": 0.45111111111111113,
+        "test_missing": 0.456,
+        "group": "heart_rate"
+      },
+      {
+        "column": "slp_hr_light_ratio",
+        "train_missing": 0.45111111111111113,
+        "test_missing": 0.456,
+        "group": "heart_rate"
+      },
+      {
+        "column": "slp_hr_n_records",
+        "train_missing": 0.45111111111111113,
+        "test_missing": 0.456,
+        "group": "heart_rate"
+      },
+      {
+        "column": "slp_hr_range",
+        "train_missing": 0.45111111111111113,
+        "test_missing": 0.456,
+        "group": "heart_rate"
+      }
+    ],
+    "target_prevalence": {
+      "Q1": 0.4955555555555556,
+      "Q2": 0.5622222222222222,
+      "Q3": 0.6,
+      "S1": 0.6822222222222222,
+      "S2": 0.6511111111111111,
+      "S3": 0.6622222222222223,
+      "S4": 0.56
+    }
+  },
+  "split_readiness": {
+    "exists": true,
+    "n_train_rows": 450,
+    "n_test_rows": 250,
+    "n_folds_total": 23,
+    "split_counts": {
+      "actual_test_band_holdout": 1,
+      "loso_10": 10,
+      "subject_hole_5": 5,
+      "subject_timeseries_5": 5,
+      "test_boundary_neighbor2_holdout": 1,
+      "test_boundary_neighbor5_holdout": 1
+    }
+  },
+  "source_metadata_reads": {
+    "id221": {
+      "method": "Target-wise public feature-similarity overlay on ID218",
+      "local_cv": 0.5329901873426955,
+      "base_source": "base_oof_id_218_id215_multi_signal_clean_overlay_cv0.534103.csv; base_test_id_218_id215_multi_signal_clean_overlay_cv0.534103.csv",
+      "extreme_source": null,
+      "selected_configs": {
+        "Q1": {
+          "name": "screen_app_k1_dw0_w0.07",
+          "family": "screen_app",
+          "k": 1,
+          "date_weight": 0.0,
+          "blend_weight": 0.07
+        },
+        "Q2": {
+          "name": "date_time_k1_dw0.1_w0.03",
+          "family": "date_time",
+          "k": 1,
+          "date_weight": 0.1,
+          "blend_weight": 0.03
+        },
+        "Q3": {
+          "name": "date_time_k1_dw0_w0.03",
+          "family": "date_time",
+          "k": 1,
+          "date_weight": 0.0,
+          "blend_weight": 0.03
+        },
+        "S1": {
+          "name": "date_time_k1_dw0.03_w0.02",
+          "family": "date_time",
+          "k": 1,
+          "date_weight": 0.03,
+          "blend_weight": 0.02
+        },
+        "S2": {
+          "name": "move_gps_k7_dw0.03_w0.07",
+          "family": "move_gps",
+          "k": 7,
+          "date_weight": 0.03,
+          "blend_weight": 0.07
+        },
+        "S3": {
+          "name": "screen_app_k1_dw0.03_w0.05",
+          "family": "screen_app",
+          "k": 1,
+          "date_weight": 0.03,
+          "blend_weight": 0.05
+        },
+        "S4": {
+          "name": "light_hr_k3_dw0.03_w0.07",
+          "family": "light_hr",
+          "k": 3,
+          "date_weight": 0.03,
+          "blend_weight": 0.07
+        }
+      },
+      "target_clean_weights": {},
+      "target_extreme_weights": {},
+      "target_detail_keys": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "validation_lens": "public_structure_interleaved_within_subject_blocked_cv",
+      "selection_contract": "ID218 predictions are blended target-wise with same-subject feature-similarity anchors selected from the listed public-structure grid report."
+    },
+    "id226": {
+      "method": "Refined-anchor tempered extreme-calibration public probe",
+      "local_cv": 0.4917706300324268,
+      "base_source": "base_oof_id_221_id218_public_feature_similarity_overlay_cv0.532990.csv; base_test_id_221_id218_public_feature_similarity_overlay_cv0.532990.csv",
+      "extreme_source": "base_oof_id_172_id163_targetwise_extreme_public_probe_cv0.492762.csv; base_test_id_172_id163_targetwise_extreme_public_probe_cv0.492762.csv",
+      "selected_configs": {},
+      "target_clean_weights": {
+        "Q1": 0.0,
+        "Q2": 0.0,
+        "Q3": 0.0,
+        "S1": 0.0,
+        "S2": 0.0,
+        "S3": 0.0,
+        "S4": 0.307
+      },
+      "target_extreme_weights": {
+        "Q1": 1.0,
+        "Q2": 1.0,
+        "Q3": 1.0,
+        "S1": 1.0,
+        "S2": 1.0,
+        "S3": 1.0,
+        "S4": 0.6930000000000001
+      },
+      "target_detail_keys": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "validation_lens": null,
+      "selection_contract": "All seven targets are fixed blends between ID221 and ID172. Default clean weight is 0.05; target overrides are {'Q1': 0.0, 'Q2': 0.0, 'Q3': 0.0, 'S1': 0.0, 'S2': 0.0, 'S3': 0.0, 'S4': 0.307}."
+    }
+  },
+  "target_priority_from_id226": [
+    {
+      "target": "Q2",
+      "id226_delta_vs_178": -0.06499415447750512,
+      "priority": "high"
+    },
+    {
+      "target": "Q1",
+      "id226_delta_vs_178": -0.054902539204622236,
+      "priority": "high"
+    },
+    {
+      "target": "S2",
+      "id226_delta_vs_178": -0.05238901375510674,
+      "priority": "high"
+    },
+    {
+      "target": "Q3",
+      "id226_delta_vs_178": -0.051075415541679936,
+      "priority": "high"
+    },
+    {
+      "target": "S4",
+      "id226_delta_vs_178": -0.040712402849335194,
+      "priority": "medium"
+    },
+    {
+      "target": "S1",
+      "id226_delta_vs_178": -0.03821814972142579,
+      "priority": "medium"
+    },
+    {
+      "target": "S3",
+      "id226_delta_vs_178": -0.02577807595581938,
+      "priority": "medium"
+    }
+  ],
+  "stage_contract": [
+    {
+      "stage": "clean_id221_feature_similarity_root",
+      "purpose": "Rebuild the ID221-like feature-similarity signal without public-LB or full-OOF target leakage.",
+      "inputs": [
+        "processed numeric features only, fitted inside each outer fold",
+        "feature families: date_time, screen_app, move_gps, light_hr, plus conservative calendar/demographic controls",
+        "train labels from training rows only for each frozen fold"
+      ],
+      "candidate_grid": {
+        "families": [
+          "date_time",
+          "screen_app",
+          "move_gps",
+          "light_hr"
+        ],
+        "k_values": [
+          1,
+          3,
+          7
+        ],
+        "date_weights": [
+          0.0,
+          0.03,
+          0.1
+        ],
+        "blend_weights": [
+          0.005,
+          0.01,
+          0.02,
+          0.03,
+          0.05,
+          0.07
+        ],
+        "imputation": "median/indicator fitted on training fold only",
+        "scaling": "standard/robust scaler fitted on training fold only for distance features"
+      },
+      "selection_rule": "Select per-target family/k/date/blend configs using only inner training-fold validation. Outer valid rows are score-only.",
+      "must_output": [
+        "clean_id221_oof.parquet",
+        "clean_id221_test.parquet",
+        "clean_id221_metrics.json/.md"
+      ],
+      "promotion_gate": "Must improve ID178 or ID341 on frozen primary lenses with low test-geometry movement; otherwise hold as diagnostic only."
+    },
+    {
+      "stage": "clean_id226_targetwise_convex_backbone",
+      "purpose": "Rebuild the ID226-like convex backbone without reusing the existing ID172 extreme full-OOF calibration artifact.",
+      "inputs": [
+        "clean ID221 source from the previous stage",
+        "strictly fold-internal calibrated source candidates trained/fitted inside each outer fold",
+        "optional conservative ID178 anchor for geometry stress comparison only, not as public-selected truth"
+      ],
+      "candidate_grid": {
+        "calibrator_families": [
+          "none",
+          "temperature",
+          "quantile_smooth",
+          "isotonic_minbin"
+        ],
+        "convex_weights_clean_id221": [
+          0.0,
+          0.05,
+          0.1,
+          0.2,
+          0.3,
+          0.5
+        ],
+        "convex_weights_calibrated_source": [
+          0.5,
+          0.7,
+          0.8,
+          0.9,
+          0.95,
+          1.0
+        ],
+        "min_bin_size": [
+          24,
+          32,
+          48
+        ],
+        "targets_first": [
+          "Q2",
+          "Q1",
+          "S2",
+          "Q3"
+        ]
+      },
+      "selection_rule": "For each target, fit calibrators and choose convex weights inside inner folds only. No target may use the same row for fitting a calibrator, selecting a weight, and reporting the outer score.",
+      "must_output": [
+        "clean_id226_oof.parquet",
+        "clean_id226_test.parquet",
+        "clean_id226_metrics.json/.md"
+      ],
+      "promotion_gate": "Must beat ID341 proxy after transfer-gate geometry before any local artifact contract is considered."
+    },
+    {
+      "stage": "hold_calibration_and_replay_layers",
+      "purpose": "Prevent the old failure mode from re-entering before a clean backbone exists.",
+      "inputs": [
+        "ID227/228/237",
+        "ID238/239/241",
+        "B1 254/255/256/257/258/266"
+      ],
+      "candidate_grid": {},
+      "selection_rule": "No replay or calibration derivative is allowed until clean ID221 and ID226 reports are green.",
+      "must_output": [
+        "hold_decision.json/.md"
+      ],
+      "promotion_gate": "Always no-submit at this stage."
+    }
+  ],
+  "decision": {
+    "clean_backbone_design_ready": true,
+    "first_heavy_compute_focus": "clean_id221_then_clean_id226",
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_heavy_rebuild_now": false,
+    "next_action": "If explicitly approved, push/run the CPU-only Kaggle runner in report-first mode. The next notebook revision after pulled green reports should implement only clean ID221/ID226 rebuild cells, not ID227/228/237 or A1/B1 replay."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_submission_log_row_created": true,
+  "no_dacon_submission_made": true
+}

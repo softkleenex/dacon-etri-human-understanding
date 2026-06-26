@@ -1,0 +1,194 @@
+{
+  "created_at_kst": "2026-06-23 18:08:23 UTC+09:00",
+  "diagnostic": "post_id341_q2q3s3_feature_generation_metadata_smoke",
+  "purpose": "Verify that the Q2/Q3/S3-first env/social/routine v2 feature lane can generate fold-safe, label-free metadata features for the 450 train and 250 test keys before any model training.",
+  "target_focus": [
+    "Q2",
+    "Q3",
+    "S3"
+  ],
+  "input_files": {
+    "train_keys": "data/raw/ch2026_metrics_train.csv",
+    "test_keys": "data/raw/ch2026_submission_sample.csv",
+    "raw_items_dir": "data/raw/ch2025_data_items"
+  },
+  "row_coverage": {
+    "total_rows": 700,
+    "train_rows": 450,
+    "test_rows": 250,
+    "expected_train_rows": 450,
+    "expected_test_rows": 250,
+    "expected_rows_ok": true,
+    "duplicate_key_rows": 0,
+    "subject_count": 10,
+    "date_min": "2024-06-03",
+    "date_max": "2024-11-19"
+  },
+  "source_metadata": {
+    "wifi": {
+      "source": "ch2025_mWifi.parquet",
+      "raw_rows": 76336,
+      "daily_rows": 792,
+      "observed_nested_items": 1270006,
+      "feature_columns": 15
+    },
+    "ble": {
+      "source": "ch2025_mBle.parquet",
+      "raw_rows": 21830,
+      "daily_rows": 754,
+      "observed_nested_items": 437054,
+      "feature_columns": 15
+    },
+    "usage": {
+      "source": "ch2025_mUsageStats.parquet",
+      "raw_rows": 45197,
+      "daily_rows": 800,
+      "observed_nested_items": 158426,
+      "feature_columns": 20
+    },
+    "gps": {
+      "source": "ch2025_mGps.parquet",
+      "raw_rows": 800611,
+      "daily_rows": 766,
+      "observed_nested_items": 8546932,
+      "feature_columns": 11,
+      "exact_lat_lon_means_exported": false
+    },
+    "screen": {
+      "source": "ch2025_mScreenStatus.parquet",
+      "raw_rows": 939653,
+      "daily_rows": 810,
+      "feature_columns": 9
+    },
+    "activity": {
+      "source": "ch2025_mActivity.parquet",
+      "raw_rows": 961062,
+      "daily_rows": 810,
+      "feature_columns": 14
+    },
+    "ambience": {
+      "source": "ch2025_mAmbience.parquet",
+      "raw_rows": 476577,
+      "daily_rows": 809,
+      "observed_nested_items": 4765770,
+      "feature_columns": 14
+    }
+  },
+  "feature_summary": {
+    "total_feature_columns": 494,
+    "raw_feature_columns": 247,
+    "missing_indicator_columns": 247,
+    "feature_count_ok": true,
+    "all_null_raw_feature_count": 0,
+    "all_null_raw_features_sample": [],
+    "duplicate_columns": [],
+    "block_summary": {
+      "routine_stability_clock_v2": {
+        "feature_columns": 376,
+        "raw_feature_columns": 188,
+        "train_any_nonnull_row_share": 0.9977777777777778,
+        "test_any_nonnull_row_share": 1.0,
+        "train_missing_mean": 0.04625295508274231,
+        "test_missing_mean": 0.029297872340425538,
+        "top_train_missing_features": {
+          "q2rs_roll_q2rs_screen_night_24_30_on_mean_prev_delta": 0.18888888888888888,
+          "q2rs_roll_q2rs_activity_night_24_30_nonzero_share_prev_delta": 0.18888888888888888,
+          "q2rs_roll_q2rs_screen_afternoon_12_18_on_mean_prev_delta": 0.18,
+          "q2rs_roll_q2rs_activity_night_24_30_nonzero_share_abs_roll3_delta": 0.18,
+          "q2rs_roll_q2rs_activity_afternoon_12_18_nonzero_share_prev_delta": 0.18,
+          "q2rs_roll_q2rs_screen_night_24_30_on_mean_abs_roll3_delta": 0.18,
+          "q2rs_roll_q2rs_activity_morning_30_36_nonzero_share_prev_delta": 0.17555555555555555,
+          "q2rs_roll_q2rs_screen_morning_30_36_on_mean_prev_delta": 0.17555555555555555,
+          "q2rs_roll_q2rs_activity_evening_18_24_nonzero_share_prev_delta": 0.17333333333333334,
+          "q2rs_roll_q2rs_screen_evening_18_24_on_mean_prev_delta": 0.17333333333333334
+        }
+      },
+      "place_social_novelty_v2": {
+        "feature_columns": 82,
+        "raw_feature_columns": 41,
+        "train_any_nonnull_row_share": 0.9777777777777777,
+        "test_any_nonnull_row_share": 0.988,
+        "train_missing_mean": 0.04926829268292683,
+        "test_missing_mean": 0.0424390243902439,
+        "top_train_missing_features": {
+          "q2ps_ble_top_share": 0.07111111111111111,
+          "q2ps_ble_new_share_roll7": 0.07111111111111111,
+          "q2ps_ble_strong_item_share": 0.07111111111111111,
+          "q2ps_ble_night_item_share": 0.07111111111111111,
+          "q2ps_ble_evening_item_share": 0.07111111111111111,
+          "q2ps_ble_new_share_prev": 0.07111111111111111,
+          "q2ps_ble_entropy": 0.07111111111111111,
+          "q2ps_ble_items_per_scan": 0.07111111111111111,
+          "q2ps_ble_unique_count": 0.07111111111111111,
+          "q2ps_ble_item_count": 0.07111111111111111
+        }
+      },
+      "ambient_load_recovery_context_v2": {
+        "feature_columns": 36,
+        "raw_feature_columns": 18,
+        "train_any_nonnull_row_share": 0.9977777777777778,
+        "test_any_nonnull_row_share": 1.0,
+        "train_missing_mean": 0.010123456790123457,
+        "test_missing_mean": 0.006666666666666666,
+        "top_train_missing_features": {
+          "q2al_context_outdoor_x_place_spread": 0.05333333333333334,
+          "q2al_context_vehicle_x_gps_moving": 0.05333333333333334,
+          "q2al_context_music_x_usage_total": 0.022222222222222223,
+          "q2al_context_speech_x_usage_night": 0.022222222222222223,
+          "q2al_ambience_item_count": 0.0022222222222222222,
+          "q2al_ambience_other_score_share": 0.0022222222222222222,
+          "q2al_ambience_quiet_score_share": 0.0022222222222222222,
+          "q2al_ambience_indoor_public_score_share": 0.0022222222222222222,
+          "q2al_ambience_outdoor_score_share": 0.0022222222222222222,
+          "q2al_ambience_record_count": 0.0022222222222222222
+        }
+      }
+    }
+  },
+  "leakage_guards": {
+    "forbidden_feature_tokens": [
+      "bssid",
+      "address",
+      "app_name"
+    ],
+    "forbidden_feature_columns": [],
+    "target_columns_present_in_feature_frame": [],
+    "direct_high_cardinality_identifier_columns_exported": false,
+    "exact_lat_lon_means_exported": false,
+    "uses_target_values": false,
+    "model_training_performed": false,
+    "fold_fit_required_for_future_encoders": true,
+    "future_training_contract": [
+      "fit any top-k/hash/category vocabulary inside each outer fold only",
+      "keep direct BSSID/address/app-name strings out of model columns",
+      "keep rolling/routine transforms target-free and row-date causal",
+      "validate first on subject_hole_5, actual_test_band_holdout, boundary-neighbor, and loso stress splits"
+    ],
+    "leakage_guard_ok": true
+  },
+  "decision": {
+    "metadata_smoke_passed": true,
+    "target_focus": [
+      "Q2",
+      "Q3",
+      "S3"
+    ],
+    "expected_rows_ok": true,
+    "block_coverage_ok": true,
+    "leakage_guard_ok": true,
+    "next_local_allowed_step": "fold_internal_q2q3s3_model_smoke_only",
+    "train_model_now": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "If this metadata smoke passes, the next safe step is a fold-internal Q2/Q3/S3-only model smoke against ID178/ID341 anchors; still no submission artifact without a separate promotion gate."
+  },
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_made": true,
+  "no_kaggle_run_made": true,
+  "no_dacon_submission_made": true
+}

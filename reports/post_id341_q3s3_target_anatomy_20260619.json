@@ -1,0 +1,215 @@
+{
+  "created_at_kst": "2026-06-19 00:44:30 UTC+09:00",
+  "diagnostic": "post_id341_q3s3_target_anatomy",
+  "purpose": "Inspect Q3/S3 label structure before reopening any post-ID341 local source-family work.",
+  "inputs": {
+    "train_metrics": "data/raw/ch2026_metrics_train.csv",
+    "negative_evidence_map": "reports/post_id341_q3s3_negative_evidence_map_20260618.json",
+    "fallback_chain": "reports/post_id341_q2q3s3_local_fallback_chain_contract_20260618.json",
+    "no_approval_frontier": "reports/post_id341_no_approval_frontier_20260619.json"
+  },
+  "dataset": {
+    "rows": 450,
+    "subjects": 10,
+    "date_min": "2024-06-03",
+    "date_max": "2024-11-14",
+    "missing_required_columns": []
+  },
+  "target_focus": [
+    "Q3",
+    "S3"
+  ],
+  "target_summaries": {
+    "Q3": {
+      "target": "Q3",
+      "positive_rate": 0.6,
+      "negative_rate": 0.4,
+      "constant_logloss_floor": 0.6730116670092565,
+      "class_balance_gap": 0.09999999999999998,
+      "subject_positive_rate_std": 0.11754043219559517,
+      "subject_positive_rate_min": 0.43902439024390244,
+      "subject_positive_rate_max": 0.7719298245614035,
+      "subject_positive_rate_range": 0.332905434317501,
+      "lag1": {
+        "pairs": 440,
+        "agreement_rate": 0.6522727272727272,
+        "positive_after_positive": 0.7137404580152672,
+        "positive_after_negative": 0.43820224719101125
+      }
+    },
+    "S3": {
+      "target": "S3",
+      "positive_rate": 0.6622222222222223,
+      "negative_rate": 0.33777777777777773,
+      "constant_logloss_floor": 0.6395504757704887,
+      "class_balance_gap": 0.16222222222222227,
+      "subject_positive_rate_std": 0.23479002330051527,
+      "subject_positive_rate_min": 0.13636363636363635,
+      "subject_positive_rate_max": 0.9583333333333334,
+      "subject_positive_rate_range": 0.821969696969697,
+      "lag1": {
+        "pairs": 440,
+        "agreement_rate": 0.6568181818181819,
+        "positive_after_positive": 0.7422680412371134,
+        "positive_after_negative": 0.5100671140939598
+      }
+    }
+  },
+  "same_day_correlations": {
+    "Q3": [
+      {
+        "target": "Q2",
+        "pearson_corr": 0.3401292217410808,
+        "joint_positive_rate": 0.42,
+        "Q2_positive_given_Q3_positive": 0.7,
+        "Q2_positive_given_Q3_negative": 0.35555555555555557
+      },
+      {
+        "target": "Q1",
+        "pearson_corr": 0.10161247780374835,
+        "joint_positive_rate": 0.32222222222222224,
+        "Q1_positive_given_Q3_positive": 0.5370370370370371,
+        "Q1_positive_given_Q3_negative": 0.43333333333333335
+      },
+      {
+        "target": "S1",
+        "pearson_corr": 0.06624698007546008,
+        "joint_positive_rate": 0.42444444444444446,
+        "S1_positive_given_Q3_positive": 0.7074074074074074,
+        "S1_positive_given_Q3_negative": 0.6444444444444445
+      },
+      {
+        "target": "S3",
+        "pearson_corr": -0.02685483476035347,
+        "joint_positive_rate": 0.39111111111111113,
+        "S3_positive_given_Q3_positive": 0.6518518518518519,
+        "S3_positive_given_Q3_negative": 0.6777777777777778
+      },
+      {
+        "target": "S4",
+        "pearson_corr": 0.007310574388442047,
+        "joint_positive_rate": 0.3377777777777778,
+        "S4_positive_given_Q3_positive": 0.562962962962963,
+        "S4_positive_given_Q3_negative": 0.5555555555555556
+      },
+      {
+        "target": "S2",
+        "pearson_corr": 0.0019034467795407716,
+        "joint_positive_rate": 0.39111111111111113,
+        "S2_positive_given_Q3_positive": 0.6518518518518519,
+        "S2_positive_given_Q3_negative": 0.65
+      }
+    ],
+    "S3": [
+      {
+        "target": "S2",
+        "pearson_corr": 0.39402250407091105,
+        "joint_positive_rate": 0.52,
+        "S2_positive_given_S3_positive": 0.785234899328859,
+        "S2_positive_given_S3_negative": 0.3881578947368421
+      },
+      {
+        "target": "Q1",
+        "pearson_corr": -0.11911987546652748,
+        "joint_positive_rate": 0.3,
+        "Q1_positive_given_S3_positive": 0.45302013422818793,
+        "Q1_positive_given_S3_negative": 0.5789473684210527
+      },
+      {
+        "target": "S1",
+        "pearson_corr": 0.11804531301889205,
+        "joint_positive_rate": 0.4777777777777778,
+        "S1_positive_given_S3_positive": 0.7214765100671141,
+        "S1_positive_given_S3_negative": 0.6052631578947368
+      },
+      {
+        "target": "S4",
+        "pearson_corr": 0.08632658492237366,
+        "joint_positive_rate": 0.39111111111111113,
+        "S4_positive_given_S3_positive": 0.5906040268456376,
+        "S4_positive_given_S3_negative": 0.5
+      },
+      {
+        "target": "Q2",
+        "pearson_corr": -0.0524895862517942,
+        "joint_positive_rate": 0.36,
+        "Q2_positive_given_S3_positive": 0.5436241610738255,
+        "Q2_positive_given_S3_negative": 0.5986842105263158
+      },
+      {
+        "target": "Q3",
+        "pearson_corr": -0.026854834760353493,
+        "joint_positive_rate": 0.39111111111111113,
+        "Q3_positive_given_S3_positive": 0.5906040268456376,
+        "Q3_positive_given_S3_negative": 0.618421052631579
+      }
+    ]
+  },
+  "anatomy_read": {
+    "q3_is_subjective_stress": true,
+    "s3_is_sleep_onset_latency_guideline": true,
+    "q3_positive_rate": 0.6,
+    "s3_positive_rate": 0.6622222222222223,
+    "q3_lag1_agreement_rate": 0.6522727272727272,
+    "s3_lag1_agreement_rate": 0.6568181818181819,
+    "q3_top_same_day_correlation": {
+      "target": "Q2",
+      "pearson_corr": 0.3401292217410808,
+      "joint_positive_rate": 0.42,
+      "Q2_positive_given_Q3_positive": 0.7,
+      "Q2_positive_given_Q3_negative": 0.35555555555555557
+    },
+    "s3_top_same_day_correlation": {
+      "target": "S2",
+      "pearson_corr": 0.39402250407091105,
+      "joint_positive_rate": 0.52,
+      "S2_positive_given_S3_positive": 0.785234899328859,
+      "S2_positive_given_S3_negative": 0.3881578947368421
+    }
+  },
+  "evidence_checks": {
+    "train_file_exists": true,
+    "required_columns_present": true,
+    "row_count_is_450": true,
+    "subject_count_is_10": true,
+    "q3s3_negative_map_closed": true,
+    "fallback_keeps_q2_context_only": true,
+    "frontier_has_no_no_approval_score_route": true
+  },
+  "implications": [
+    {
+      "target": "Q3",
+      "read": "Subjective stress is a relative-to-self evening questionnaire label; local metadata/routine lanes have not supplied enough Q3/S3 transfer evidence.",
+      "allowed_next_work": "Only a materially new stress-specific source design or the approved upstream rebuild; no artifact from current local sources."
+    },
+    {
+      "target": "S3",
+      "read": "S3 is objective sleep-onset-latency guideline adherence; closed lanes already tested light/onset, calendar, cadence, routine, place/social, dropout, and cross-modal disagreement views.",
+      "allowed_next_work": "A new S3 hypothesis must explain SOL directly and clear negative-map novelty before any model smoke."
+    }
+  ],
+  "decision": {
+    "q3s3_target_anatomy_ready": true,
+    "target_focus": [
+      "Q3",
+      "S3"
+    ],
+    "label_only_signal_is_artifact_candidate": false,
+    "current_local_sources_still_closed": true,
+    "q3_s3_still_uncovered": true,
+    "public_058_evidence": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Use this anatomy only to screen future Q3/S3 hypotheses. Do not create ID342 from label-only or closed-lane evidence; the score-relevant route remains the explicit-approved upstream rebuild."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

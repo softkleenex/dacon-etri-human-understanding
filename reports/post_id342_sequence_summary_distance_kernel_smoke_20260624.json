@@ -1,0 +1,1192 @@
+{
+  "created_at_kst": "2026-06-24 03:14:11 UTC+09:00",
+  "diagnostic": "post_id342_sequence_summary_distance_kernel_smoke",
+  "purpose": "Test ID342-aware Q3/S3 sequence-summary distance/kernel signal without creating artifacts.",
+  "raw_temporal_smoke_report": "reports/post_id342_raw_temporal_q3s3_sequence_image_smoke_20260624.json",
+  "anchor_oof": "base_oof_id_342_id178_id221_featuresim_shrink050_cv0.534000.csv; base_test_id_342_id178_id221_featuresim_shrink050_cv0.534000.csv",
+  "anchor_public": 0.5960832519,
+  "id342_local_score": {
+    "target_losses": {
+      "Q1": 0.5458480779042368,
+      "Q2": 0.5516085991310917,
+      "Q3": 0.5632259042854845,
+      "S1": 0.46664288254698066,
+      "S2": 0.5291008416377779,
+      "S3": 0.48994468343497904,
+      "S4": 0.5916290514500427
+    },
+    "mean_loss": 0.5340000057700848
+  },
+  "validation": {
+    "primary_splits": [
+      "subject_hole_5",
+      "actual_test_band_holdout",
+      "test_boundary_neighbor2_holdout",
+      "test_boundary_neighbor5_holdout",
+      "loso_10"
+    ],
+    "model_specs": [
+      {
+        "name": "lr_c0_03",
+        "kind": "lr",
+        "c_value": 0.03,
+        "max_leaf_nodes": null,
+        "k_neighbors": null,
+        "sigma_scale": null,
+        "temperature": null
+      },
+      {
+        "name": "lr_c0_10",
+        "kind": "lr",
+        "c_value": 0.1,
+        "max_leaf_nodes": null,
+        "k_neighbors": null,
+        "sigma_scale": null,
+        "temperature": null
+      },
+      {
+        "name": "lr_c0_30",
+        "kind": "lr",
+        "c_value": 0.3,
+        "max_leaf_nodes": null,
+        "k_neighbors": null,
+        "sigma_scale": null,
+        "temperature": null
+      },
+      {
+        "name": "hgb_l7",
+        "kind": "hgb",
+        "c_value": null,
+        "max_leaf_nodes": 7,
+        "k_neighbors": null,
+        "sigma_scale": null,
+        "temperature": null
+      },
+      {
+        "name": "rbf_k15_s0_7",
+        "kind": "rbf",
+        "c_value": null,
+        "max_leaf_nodes": null,
+        "k_neighbors": 15,
+        "sigma_scale": 0.7,
+        "temperature": null
+      },
+      {
+        "name": "rbf_k25_s1_0",
+        "kind": "rbf",
+        "c_value": null,
+        "max_leaf_nodes": null,
+        "k_neighbors": 25,
+        "sigma_scale": 1.0,
+        "temperature": null
+      },
+      {
+        "name": "proto_t1_0",
+        "kind": "prototype",
+        "c_value": null,
+        "max_leaf_nodes": null,
+        "k_neighbors": null,
+        "sigma_scale": null,
+        "temperature": 1.0
+      },
+      {
+        "name": "ssknn_k1",
+        "kind": "same_subject_knn",
+        "c_value": null,
+        "max_leaf_nodes": null,
+        "k_neighbors": 1,
+        "sigma_scale": null,
+        "temperature": null
+      },
+      {
+        "name": "ssknn_k3",
+        "kind": "same_subject_knn",
+        "c_value": null,
+        "max_leaf_nodes": null,
+        "k_neighbors": 3,
+        "sigma_scale": null,
+        "temperature": null
+      }
+    ],
+    "blend_weights": [
+      0.005,
+      0.01,
+      0.02,
+      0.03,
+      0.05,
+      0.07
+    ],
+    "target_win_floor": 4,
+    "target_mean_delta_ceiling": -5e-05,
+    "target_max_delta_ceiling": 0.00075
+  },
+  "feature_contract": {
+    "source": "44 half-hour raw-sensor sequence table plus label-free calendar/progress features",
+    "paper_domain_read": "Q3 stress is screened through activity, phone usage, screen state, ambience, and heart-rate shape; S3 sleep-onset-latency is screened through evening/pre-sleep light, movement, screen, charging, and heart-rate shape.",
+    "metadata": {
+      "sequence_rows": 809,
+      "sequence_value_channels": 34,
+      "sequence_total_channels": 68,
+      "sequence_summary_features": 2108,
+      "calendar_progress_features": 8,
+      "total_features": 2116,
+      "raw_sequence_table_features": 1496
+    },
+    "feature_families": {
+      "all": {
+        "feature_count": 1800,
+        "example_features": [
+          "activity_mean__first",
+          "activity_mean__last",
+          "activity_mean__tail_mean",
+          "active_mean__first",
+          "active_mean__q25",
+          "active_mean__last",
+          "still_mean__first",
+          "activity_mean__evening_minus_prebed",
+          "distance_sum__first",
+          "step_sum__first",
+          "active_mean__tail_mean",
+          "activity_mean__q75"
+        ]
+      },
+      "paper_core": {
+        "feature_count": 814,
+        "example_features": [
+          "distance_sum__mean",
+          "hr_max__mean",
+          "hr_mean__mean",
+          "hr_min__mean",
+          "pedo_speed_mean__mean",
+          "phone_light_log_max__mean",
+          "phone_light_log_mean__mean",
+          "step_freq_mean__mean",
+          "step_sum__mean",
+          "usage_app_count__mean",
+          "usage_total_log__mean",
+          "watch_light_log_max__mean"
+        ]
+      },
+      "q3_stress_activity_usage": {
+        "feature_count": 1248,
+        "example_features": [
+          "active_mean__mean",
+          "activity_mean__mean",
+          "amb_inside__mean",
+          "amb_music__mean",
+          "amb_outside__mean",
+          "amb_speech__mean",
+          "amb_vehicle__mean",
+          "distance_sum__mean",
+          "gps_speed_mean__mean",
+          "hr_max__mean",
+          "hr_mean__mean",
+          "hr_min__mean"
+        ]
+      },
+      "s3_sol_light_motion": {
+        "feature_count": 1062,
+        "example_features": [
+          "activity_mean__mean",
+          "charging_mean__mean",
+          "distance_sum__mean",
+          "gps_speed_mean__mean",
+          "hr_max__mean",
+          "hr_mean__mean",
+          "hr_min__mean",
+          "pedo_speed_mean__mean",
+          "phone_light_log_max__mean",
+          "phone_light_log_mean__mean",
+          "screen_mean__mean",
+          "screen_sum__mean"
+        ]
+      }
+    }
+  },
+  "target_reports": {
+    "Q3": {
+      "target": "Q3",
+      "anchor_primary_losses": {
+        "subject_hole_5": 0.5632259042854845,
+        "actual_test_band_holdout": 0.514548850569324,
+        "test_boundary_neighbor2_holdout": 0.6063862866978805,
+        "test_boundary_neighbor5_holdout": 0.5833753098643744,
+        "loso_10": 0.5632259042854845
+      },
+      "best": {
+        "target": "Q3",
+        "config": "Q3_id342_seqdist_q3_stress_activity_usage_hgb_l7_w0.005",
+        "feature_family": "q3_stress_activity_usage",
+        "feature_count": 1248,
+        "model_spec": {
+          "name": "hgb_l7",
+          "kind": "hgb",
+          "c_value": null,
+          "max_leaf_nodes": 7,
+          "k_neighbors": null,
+          "sigma_scale": null,
+          "temperature": null
+        },
+        "weight": 0.005,
+        "wins": 2,
+        "mean_delta": 5.5049111538996166e-05,
+        "max_delta": 0.0002336260895876574,
+        "min_delta": -0.00023552438484453209,
+        "split_deltas": {
+          "subject_hole_5": 8.355114284563925e-05,
+          "actual_test_band_holdout": 0.0002336260895876574,
+          "test_boundary_neighbor2_holdout": -0.00023552438484453209,
+          "test_boundary_neighbor5_holdout": -3.832319053198585e-05,
+          "loso_10": 0.0002319159006382021
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5633094554283301,
+          "actual_test_band_holdout": 0.5147824766589116,
+          "test_boundary_neighbor2_holdout": 0.606150762313036,
+          "test_boundary_neighbor5_holdout": 0.5833369866738424,
+          "loso_10": 0.5634578201861227
+        },
+        "split_anchor_losses": {
+          "subject_hole_5": 0.5632259042854845,
+          "actual_test_band_holdout": 0.514548850569324,
+          "test_boundary_neighbor2_holdout": 0.6063862866978805,
+          "test_boundary_neighbor5_holdout": 0.5833753098643744,
+          "loso_10": 0.5632259042854845
+        },
+        "eligible": false
+      },
+      "eligible_count": 0,
+      "selected": null,
+      "top_rows": [
+        {
+          "target": "Q3",
+          "config": "Q3_id342_seqdist_q3_stress_activity_usage_hgb_l7_w0.005",
+          "feature_family": "q3_stress_activity_usage",
+          "feature_count": 1248,
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_leaf_nodes": 7,
+            "k_neighbors": null,
+            "sigma_scale": null,
+            "temperature": null
+          },
+          "weight": 0.005,
+          "wins": 2,
+          "mean_delta": 5.5049111538996166e-05,
+          "max_delta": 0.0002336260895876574,
+          "min_delta": -0.00023552438484453209,
+          "split_deltas": {
+            "subject_hole_5": 8.355114284563925e-05,
+            "actual_test_band_holdout": 0.0002336260895876574,
+            "test_boundary_neighbor2_holdout": -0.00023552438484453209,
+            "test_boundary_neighbor5_holdout": -3.832319053198585e-05,
+            "loso_10": 0.0002319159006382021
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5633094554283301,
+            "actual_test_band_holdout": 0.5147824766589116,
+            "test_boundary_neighbor2_holdout": 0.606150762313036,
+            "test_boundary_neighbor5_holdout": 0.5833369866738424,
+            "loso_10": 0.5634578201861227
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_seqdist_s3_sol_light_motion_hgb_l7_w0.005",
+          "feature_family": "s3_sol_light_motion",
+          "feature_count": 1062,
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_leaf_nodes": 7,
+            "k_neighbors": null,
+            "sigma_scale": null,
+            "temperature": null
+          },
+          "weight": 0.005,
+          "wins": 2,
+          "mean_delta": 9.423904575187603e-05,
+          "max_delta": 0.0003627379621959914,
+          "min_delta": -2.134310996104727e-05,
+          "split_deltas": {
+            "subject_hole_5": 8.399665927238953e-05,
+            "actual_test_band_holdout": 0.0003627379621959914,
+            "test_boundary_neighbor2_holdout": -2.134310996104727e-05,
+            "test_boundary_neighbor5_holdout": -1.2856521104720464e-05,
+            "loso_10": 5.8660238356766925e-05
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5633099009447569,
+            "actual_test_band_holdout": 0.51491158853152,
+            "test_boundary_neighbor2_holdout": 0.6063649435879195,
+            "test_boundary_neighbor5_holdout": 0.5833624533432696,
+            "loso_10": 0.5632845645238412
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_seqdist_q3_stress_activity_usage_hgb_l7_w0.01",
+          "feature_family": "q3_stress_activity_usage",
+          "feature_count": 1248,
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_leaf_nodes": 7,
+            "k_neighbors": null,
+            "sigma_scale": null,
+            "temperature": null
+          },
+          "weight": 0.01,
+          "wins": 2,
+          "mean_delta": 0.00011636549305944488,
+          "max_delta": 0.0004735349577896786,
+          "min_delta": -0.000463566704615892,
+          "split_deltas": {
+            "subject_hole_5": 0.0001721545798619717,
+            "actual_test_band_holdout": 0.0004735349577896786,
+            "test_boundary_neighbor2_holdout": -0.000463566704615892,
+            "test_boundary_neighbor5_holdout": -6.916536192647094e-05,
+            "loso_10": 0.00046886999418793707
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5633980588653464,
+            "actual_test_band_holdout": 0.5150223855271137,
+            "test_boundary_neighbor2_holdout": 0.6059227199932646,
+            "test_boundary_neighbor5_holdout": 0.5833061445024479,
+            "loso_10": 0.5636947742796724
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_seqdist_all_hgb_l7_w0.005",
+          "feature_family": "all",
+          "feature_count": 1800,
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_leaf_nodes": 7,
+            "k_neighbors": null,
+            "sigma_scale": null,
+            "temperature": null
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.00011758803231425308,
+          "max_delta": 0.0003888293292745315,
+          "min_delta": -5.37106632436668e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.00011522641292716074,
+            "actual_test_band_holdout": 0.0003888293292745315,
+            "test_boundary_neighbor2_holdout": 5.0227810639791315e-05,
+            "test_boundary_neighbor5_holdout": -5.37106632436668e-05,
+            "loso_10": 8.736727197344862e-05
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5633411306984116,
+            "actual_test_band_holdout": 0.5149376798985985,
+            "test_boundary_neighbor2_holdout": 0.6064365145085203,
+            "test_boundary_neighbor5_holdout": 0.5833215992011307,
+            "loso_10": 0.5633132715574579
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_seqdist_paper_core_rbf_k25_s1_0_w0.005",
+          "feature_family": "paper_core",
+          "feature_count": 814,
+          "model_spec": {
+            "name": "rbf_k25_s1_0",
+            "kind": "rbf",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "k_neighbors": 25,
+            "sigma_scale": 1.0,
+            "temperature": null
+          },
+          "weight": 0.005,
+          "wins": 2,
+          "mean_delta": 0.00012660466227403243,
+          "max_delta": 0.0004056620872383565,
+          "min_delta": -0.00019021643138661393,
+          "split_deltas": {
+            "subject_hole_5": 0.00023831632593129815,
+            "actual_test_band_holdout": 0.0004056620872383565,
+            "test_boundary_neighbor2_holdout": -0.00019021643138661393,
+            "test_boundary_neighbor5_holdout": -1.7868932785103375e-05,
+            "loso_10": 0.00019713026237222486
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5634642206114158,
+            "actual_test_band_holdout": 0.5149545126565623,
+            "test_boundary_neighbor2_holdout": 0.6061960702664939,
+            "test_boundary_neighbor5_holdout": 0.5833574409315893,
+            "loso_10": 0.5634230345478567
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_seqdist_all_rbf_k25_s1_0_w0.005",
+          "feature_family": "all",
+          "feature_count": 1800,
+          "model_spec": {
+            "name": "rbf_k25_s1_0",
+            "kind": "rbf",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "k_neighbors": 25,
+            "sigma_scale": 1.0,
+            "temperature": null
+          },
+          "weight": 0.005,
+          "wins": 2,
+          "mean_delta": 0.00013598999369006658,
+          "max_delta": 0.0004173383396905983,
+          "min_delta": -0.00016849020724141184,
+          "split_deltas": {
+            "subject_hole_5": 0.0002782360161194264,
+            "actual_test_band_holdout": 0.0004173383396905983,
+            "test_boundary_neighbor2_holdout": -0.00016849020724141184,
+            "test_boundary_neighbor5_holdout": -4.752194865176307e-06,
+            "loso_10": 0.0001576180147468964
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5635041403016039,
+            "actual_test_band_holdout": 0.5149661889090146,
+            "test_boundary_neighbor2_holdout": 0.6062177964906391,
+            "test_boundary_neighbor5_holdout": 0.5833705576695092,
+            "loso_10": 0.5633835223002314
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_seqdist_q3_stress_activity_usage_rbf_k25_s1_0_w0.005",
+          "feature_family": "q3_stress_activity_usage",
+          "feature_count": 1248,
+          "model_spec": {
+            "name": "rbf_k25_s1_0",
+            "kind": "rbf",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "k_neighbors": 25,
+            "sigma_scale": 1.0,
+            "temperature": null
+          },
+          "weight": 0.005,
+          "wins": 2,
+          "mean_delta": 0.00013929318836127801,
+          "max_delta": 0.000428509100549479,
+          "min_delta": -0.00020370156632398828,
+          "split_deltas": {
+            "subject_hole_5": 0.00026601986369068076,
+            "actual_test_band_holdout": 0.000428509100549479,
+            "test_boundary_neighbor2_holdout": -0.00020370156632398828,
+            "test_boundary_neighbor5_holdout": -1.276350620460498e-05,
+            "loso_10": 0.0002184020500948236
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5634919241491751,
+            "actual_test_band_holdout": 0.5149773596698735,
+            "test_boundary_neighbor2_holdout": 0.6061825851315565,
+            "test_boundary_neighbor5_holdout": 0.5833625463581698,
+            "loso_10": 0.5634443063355793
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_seqdist_s3_sol_light_motion_rbf_k25_s1_0_w0.005",
+          "feature_family": "s3_sol_light_motion",
+          "feature_count": 1062,
+          "model_spec": {
+            "name": "rbf_k25_s1_0",
+            "kind": "rbf",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "k_neighbors": 25,
+            "sigma_scale": 1.0,
+            "temperature": null
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.00014309473781852765,
+          "max_delta": 0.00042662417617422843,
+          "min_delta": -0.00020784298517695365,
+          "split_deltas": {
+            "subject_hole_5": 0.0002987592918021198,
+            "actual_test_band_holdout": 0.00042662417617422843,
+            "test_boundary_neighbor2_holdout": -0.00020784298517695365,
+            "test_boundary_neighbor5_holdout": 4.625846279915358e-06,
+            "loso_10": 0.00019330736001332838
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5635246635772866,
+            "actual_test_band_holdout": 0.5149754747454982,
+            "test_boundary_neighbor2_holdout": 0.6061784437127036,
+            "test_boundary_neighbor5_holdout": 0.5833799357106543,
+            "loso_10": 0.5634192116454978
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_seqdist_q3_stress_activity_usage_proto_t1_0_w0.005",
+          "feature_family": "q3_stress_activity_usage",
+          "feature_count": 1248,
+          "model_spec": {
+            "name": "proto_t1_0",
+            "kind": "prototype",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "k_neighbors": null,
+            "sigma_scale": null,
+            "temperature": 1.0
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.00014403460140890444,
+          "max_delta": 0.00042446527849859805,
+          "min_delta": -0.0001317111019877304,
+          "split_deltas": {
+            "subject_hole_5": 0.0001819106029301576,
+            "actual_test_band_holdout": 0.00042446527849859805,
+            "test_boundary_neighbor2_holdout": -0.0001317111019877304,
+            "test_boundary_neighbor5_holdout": 6.798324045764748e-05,
+            "loso_10": 0.00017752498714584952
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5634078148884146,
+            "actual_test_band_holdout": 0.5149733158478226,
+            "test_boundary_neighbor2_holdout": 0.6062545755958928,
+            "test_boundary_neighbor5_holdout": 0.583443293104832,
+            "loso_10": 0.5634034292726303
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_seqdist_all_proto_t1_0_w0.005",
+          "feature_family": "all",
+          "feature_count": 1800,
+          "model_spec": {
+            "name": "proto_t1_0",
+            "kind": "prototype",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "k_neighbors": null,
+            "sigma_scale": null,
+            "temperature": 1.0
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.00014576337489951018,
+          "max_delta": 0.00042727314392565496,
+          "min_delta": -0.00012879867494275388,
+          "split_deltas": {
+            "subject_hole_5": 0.00018248449535440692,
+            "actual_test_band_holdout": 0.00042727314392565496,
+            "test_boundary_neighbor2_holdout": -0.00012879867494275388,
+            "test_boundary_neighbor5_holdout": 7.06309600444488e-05,
+            "loso_10": 0.00017722695011579415
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5634083887808389,
+            "actual_test_band_holdout": 0.5149761237132496,
+            "test_boundary_neighbor2_holdout": 0.6062574880229378,
+            "test_boundary_neighbor5_holdout": 0.5834459408244188,
+            "loso_10": 0.5634031312356003
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        }
+      ]
+    },
+    "S3": {
+      "target": "S3",
+      "anchor_primary_losses": {
+        "subject_hole_5": 0.48994468343497904,
+        "actual_test_band_holdout": 0.471610051027991,
+        "test_boundary_neighbor2_holdout": 0.5053185090253905,
+        "test_boundary_neighbor5_holdout": 0.5117752307455081,
+        "loso_10": 0.489944683434979
+      },
+      "best": {
+        "target": "S3",
+        "config": "S3_id342_seqdist_all_ssknn_k1_w0.005",
+        "feature_family": "all",
+        "feature_count": 1800,
+        "model_spec": {
+          "name": "ssknn_k1",
+          "kind": "same_subject_knn",
+          "c_value": null,
+          "max_leaf_nodes": null,
+          "k_neighbors": 1,
+          "sigma_scale": null,
+          "temperature": null
+        },
+        "weight": 0.005,
+        "wins": 1,
+        "mean_delta": 9.195422452202839e-05,
+        "max_delta": 0.0002373292040491748,
+        "min_delta": -0.0002668844670836168,
+        "split_deltas": {
+          "subject_hole_5": 0.0001372077729546728,
+          "actual_test_band_holdout": -0.0002668844670836168,
+          "test_boundary_neighbor2_holdout": 0.0002373292040491748,
+          "test_boundary_neighbor5_holdout": 0.00017257863775943516,
+          "loso_10": 0.00017953997493047602
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4900818912079337,
+          "actual_test_band_holdout": 0.47134316656090736,
+          "test_boundary_neighbor2_holdout": 0.5055558382294397,
+          "test_boundary_neighbor5_holdout": 0.5119478093832676,
+          "loso_10": 0.49012422340990947
+        },
+        "split_anchor_losses": {
+          "subject_hole_5": 0.48994468343497904,
+          "actual_test_band_holdout": 0.471610051027991,
+          "test_boundary_neighbor2_holdout": 0.5053185090253905,
+          "test_boundary_neighbor5_holdout": 0.5117752307455081,
+          "loso_10": 0.489944683434979
+        },
+        "eligible": false
+      },
+      "eligible_count": 0,
+      "selected": null,
+      "top_rows": [
+        {
+          "target": "S3",
+          "config": "S3_id342_seqdist_all_ssknn_k1_w0.005",
+          "feature_family": "all",
+          "feature_count": 1800,
+          "model_spec": {
+            "name": "ssknn_k1",
+            "kind": "same_subject_knn",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "k_neighbors": 1,
+            "sigma_scale": null,
+            "temperature": null
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 9.195422452202839e-05,
+          "max_delta": 0.0002373292040491748,
+          "min_delta": -0.0002668844670836168,
+          "split_deltas": {
+            "subject_hole_5": 0.0001372077729546728,
+            "actual_test_band_holdout": -0.0002668844670836168,
+            "test_boundary_neighbor2_holdout": 0.0002373292040491748,
+            "test_boundary_neighbor5_holdout": 0.00017257863775943516,
+            "loso_10": 0.00017953997493047602
+          },
+          "split_losses": {
+            "subject_hole_5": 0.4900818912079337,
+            "actual_test_band_holdout": 0.47134316656090736,
+            "test_boundary_neighbor2_holdout": 0.5055558382294397,
+            "test_boundary_neighbor5_holdout": 0.5119478093832676,
+            "loso_10": 0.49012422340990947
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_seqdist_paper_core_hgb_l7_w0.005",
+          "feature_family": "paper_core",
+          "feature_count": 814,
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_leaf_nodes": 7,
+            "k_neighbors": null,
+            "sigma_scale": null,
+            "temperature": null
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.00011155815894821064,
+          "max_delta": 0.0002668406296544301,
+          "min_delta": -7.989026286536749e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.0002169298754896576,
+            "actual_test_band_holdout": 9.632444778462368e-05,
+            "test_boundary_neighbor2_holdout": 0.0002668406296544301,
+            "test_boundary_neighbor5_holdout": -7.989026286536749e-05,
+            "loso_10": 5.7586104677709304e-05
+          },
+          "split_losses": {
+            "subject_hole_5": 0.4901616133104687,
+            "actual_test_band_holdout": 0.4717063754757756,
+            "test_boundary_neighbor2_holdout": 0.505585349655045,
+            "test_boundary_neighbor5_holdout": 0.5116953404826428,
+            "loso_10": 0.4900022695396567
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_seqdist_paper_core_ssknn_k3_w0.005",
+          "feature_family": "paper_core",
+          "feature_count": 814,
+          "model_spec": {
+            "name": "ssknn_k3",
+            "kind": "same_subject_knn",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "k_neighbors": 3,
+            "sigma_scale": null,
+            "temperature": null
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.0001251963624145258,
+          "max_delta": 0.00026253700670492153,
+          "min_delta": -9.442253704705639e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.00026253700670492153,
+            "actual_test_band_holdout": 0.00011197904567022965,
+            "test_boundary_neighbor2_holdout": 0.00016634832181405823,
+            "test_boundary_neighbor5_holdout": -9.442253704705639e-05,
+            "loso_10": 0.00017953997493047602
+          },
+          "split_losses": {
+            "subject_hole_5": 0.49020722044168397,
+            "actual_test_band_holdout": 0.4717220300736612,
+            "test_boundary_neighbor2_holdout": 0.5054848573472046,
+            "test_boundary_neighbor5_holdout": 0.5116808082084611,
+            "loso_10": 0.49012422340990947
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_seqdist_q3_stress_activity_usage_hgb_l7_w0.005",
+          "feature_family": "q3_stress_activity_usage",
+          "feature_count": 1248,
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_leaf_nodes": 7,
+            "k_neighbors": null,
+            "sigma_scale": null,
+            "temperature": null
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.00013271324505562677,
+          "max_delta": 0.00023771466691097087,
+          "min_delta": -2.5098146052671133e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.0002308262579346354,
+            "actual_test_band_holdout": 0.00023771466691097087,
+            "test_boundary_neighbor2_holdout": 0.00013264225050180212,
+            "test_boundary_neighbor5_holdout": -2.5098146052671133e-05,
+            "loso_10": 8.748119598339654e-05
+          },
+          "split_losses": {
+            "subject_hole_5": 0.4901755096929137,
+            "actual_test_band_holdout": 0.47184776569490194,
+            "test_boundary_neighbor2_holdout": 0.5054511512758924,
+            "test_boundary_neighbor5_holdout": 0.5117501325994555,
+            "loso_10": 0.4900321646309624
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_seqdist_paper_core_rbf_k25_s1_0_w0.005",
+          "feature_family": "paper_core",
+          "feature_count": 814,
+          "model_spec": {
+            "name": "rbf_k25_s1_0",
+            "kind": "rbf",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "k_neighbors": 25,
+            "sigma_scale": 1.0,
+            "temperature": null
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.00013443327731150757,
+          "max_delta": 0.00023842363189224836,
+          "min_delta": -7.582104590997396e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.00017139733772914,
+            "actual_test_band_holdout": 0.00023842363189224836,
+            "test_boundary_neighbor2_holdout": 0.00019693610191040545,
+            "test_boundary_neighbor5_holdout": -7.582104590997396e-05,
+            "loso_10": 0.00014123036093571795
+          },
+          "split_losses": {
+            "subject_hole_5": 0.4901160807727082,
+            "actual_test_band_holdout": 0.4718484746598832,
+            "test_boundary_neighbor2_holdout": 0.505515445127301,
+            "test_boundary_neighbor5_holdout": 0.5116994096995982,
+            "loso_10": 0.4900859137959147
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_seqdist_all_hgb_l7_w0.005",
+          "feature_family": "all",
+          "feature_count": 1800,
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_leaf_nodes": 7,
+            "k_neighbors": null,
+            "sigma_scale": null,
+            "temperature": null
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.00014321893150045505,
+          "max_delta": 0.00029451182614037563,
+          "min_delta": -8.340799274508814e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.00022619656046990455,
+            "actual_test_band_holdout": 0.00021662313866838145,
+            "test_boundary_neighbor2_holdout": 0.00029451182614037563,
+            "test_boundary_neighbor5_holdout": -8.340799274508814e-05,
+            "loso_10": 6.217112496870181e-05
+          },
+          "split_losses": {
+            "subject_hole_5": 0.49017087999544895,
+            "actual_test_band_holdout": 0.47182667416665935,
+            "test_boundary_neighbor2_holdout": 0.5056130208515309,
+            "test_boundary_neighbor5_holdout": 0.511691822752763,
+            "loso_10": 0.4900068545599477
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_seqdist_s3_sol_light_motion_rbf_k25_s1_0_w0.005",
+          "feature_family": "s3_sol_light_motion",
+          "feature_count": 1062,
+          "model_spec": {
+            "name": "rbf_k25_s1_0",
+            "kind": "rbf",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "k_neighbors": 25,
+            "sigma_scale": 1.0,
+            "temperature": null
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.00014610334017971515,
+          "max_delta": 0.00026902709929227386,
+          "min_delta": -4.771775614786922e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.00019564333753185892,
+            "actual_test_band_holdout": 0.00026902709929227386,
+            "test_boundary_neighbor2_holdout": 0.00015743521943545336,
+            "test_boundary_neighbor5_holdout": -4.771775614786922e-05,
+            "loso_10": 0.00015612880078685887
+          },
+          "split_losses": {
+            "subject_hole_5": 0.4901403267725109,
+            "actual_test_band_holdout": 0.47187907812728325,
+            "test_boundary_neighbor2_holdout": 0.505475944244826,
+            "test_boundary_neighbor5_holdout": 0.5117275129893603,
+            "loso_10": 0.49010081223576585
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_seqdist_s3_sol_light_motion_hgb_l7_w0.005",
+          "feature_family": "s3_sol_light_motion",
+          "feature_count": 1062,
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_leaf_nodes": 7,
+            "k_neighbors": null,
+            "sigma_scale": null,
+            "temperature": null
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.00014612060995009558,
+          "max_delta": 0.0002693704182858969,
+          "min_delta": -0.00015345352179441107,
+          "split_deltas": {
+            "subject_hole_5": 0.0002693704182858969,
+            "actual_test_band_holdout": 0.00020599684647126804,
+            "test_boundary_neighbor2_holdout": 0.00026655933423935796,
+            "test_boundary_neighbor5_holdout": -0.00015345352179441107,
+            "loso_10": 0.000142129972548366
+          },
+          "split_losses": {
+            "subject_hole_5": 0.49021405385326494,
+            "actual_test_band_holdout": 0.47181604787446224,
+            "test_boundary_neighbor2_holdout": 0.5055850683596299,
+            "test_boundary_neighbor5_holdout": 0.5116217772237137,
+            "loso_10": 0.49008681340752736
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_seqdist_paper_core_rbf_k15_s0_7_w0.005",
+          "feature_family": "paper_core",
+          "feature_count": 814,
+          "model_spec": {
+            "name": "rbf_k15_s0_7",
+            "kind": "rbf",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "k_neighbors": 15,
+            "sigma_scale": 0.7,
+            "temperature": null
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.00015003241910714892,
+          "max_delta": 0.00025585466799149525,
+          "min_delta": -1.1413623718481425e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.00018868501219054812,
+            "actual_test_band_holdout": 0.00025585466799149525,
+            "test_boundary_neighbor2_holdout": 0.000250227845335238,
+            "test_boundary_neighbor5_holdout": -1.1413623718481425e-05,
+            "loso_10": 6.680819373694469e-05
+          },
+          "split_losses": {
+            "subject_hole_5": 0.4901333684471696,
+            "actual_test_band_holdout": 0.47186590569598247,
+            "test_boundary_neighbor2_holdout": 0.5055687368707258,
+            "test_boundary_neighbor5_holdout": 0.5117638171217896,
+            "loso_10": 0.49001149162871593
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_seqdist_all_rbf_k15_s0_7_w0.005",
+          "feature_family": "all",
+          "feature_count": 1800,
+          "model_spec": {
+            "name": "rbf_k15_s0_7",
+            "kind": "rbf",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "k_neighbors": 15,
+            "sigma_scale": 0.7,
+            "temperature": null
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.00016270938811177026,
+          "max_delta": 0.00025409220382044406,
+          "min_delta": -5.1910293485613046e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.00025409220382044406,
+            "actual_test_band_holdout": 0.00021439854547872228,
+            "test_boundary_neighbor2_holdout": 0.00023541086676248657,
+            "test_boundary_neighbor5_holdout": -5.1910293485613046e-05,
+            "loso_10": 0.00016155561798281148
+          },
+          "split_losses": {
+            "subject_hole_5": 0.4901987756387995,
+            "actual_test_band_holdout": 0.4718244495734697,
+            "test_boundary_neighbor2_holdout": 0.505553919892153,
+            "test_boundary_neighbor5_holdout": 0.5117233204520225,
+            "loso_10": 0.4901062390529618
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        }
+      ]
+    }
+  },
+  "partial_signal_rows": {
+    "Q3": [],
+    "S3": []
+  },
+  "decision": {
+    "selected_targets": [],
+    "q3_selected": false,
+    "s3_selected": false,
+    "all_focus_targets_selected": false,
+    "mean_primary_delta_vs_id342": 0.0,
+    "max_primary_delta_vs_id342": 0.0,
+    "projected_public_proxy_from_id342": 0.5960832519,
+    "gap_to_public_055_after_proxy": 0.046083251899999955,
+    "sequence_distance_has_q3s3_signal": false,
+    "partial_signal_targets": [],
+    "q3_partial_signal_unstable": false,
+    "s3_partial_signal_unstable": false,
+    "final_sequence_distance_gate_pass": false,
+    "public_055_evidence": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Use Kaggle no-submit only if the final gate passes; otherwise keep this as negative/partial sequence-distance evidence and do not create a DACON artifact."
+  },
+  "in_memory_validation_predictions_only": true,
+  "no_prediction_file_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_dacon_submission_made": true
+}

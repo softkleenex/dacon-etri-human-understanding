@@ -1,0 +1,2751 @@
+{
+  "anchor": {
+    "id": 342,
+    "public_score": 0.5960832519
+  },
+  "created_at_kst": "2026-06-24 05:11:03 UTC+09:00",
+  "decision": {
+    "all_focus_targets_selected": false,
+    "create_submission_artifact": false,
+    "estimated_all_target_delta_vs_id342": 0.0,
+    "evening_state_transition_has_q3s3_signal": false,
+    "final_evening_state_transition_gate_pass": false,
+    "gap_to_public_055_after_proxy": 0.046083251899999955,
+    "max_selected_target_delta_vs_id342": 0.0,
+    "modify_submission_log": false,
+    "next_action": "If this gate fails, close lightweight evening state-transition features as another ID342-aware local lane. If both Q3 and S3 pass, use Kaggle no-submit only for parity review before any artifact.",
+    "partial_signal_targets": [],
+    "projected_public_proxy_from_id342": 0.5960832519,
+    "public_055_evidence": false,
+    "push_kaggle_now": false,
+    "q3_selected": false,
+    "run_kaggle_now": false,
+    "s3_selected": false,
+    "selected_targets": [],
+    "submit_now": false,
+    "target_delta_sum_vs_id342": 0.0
+  },
+  "diagnostic": "post_id342_evening_state_transition_gate",
+  "feature_contract": {
+    "domain_read": "Q3 is pre-sleep stress and S3 is sleep-onset-latency adherence. This gate uses pre-sleep screen/app/HR activity and settling into darkness/charging/stillness, with previous-day label-free deviations and fold-internal subject baselines.",
+    "feature_families": {
+      "all_transition": {
+        "example_features": [
+          "est_pedo_presleep_step_sum_minus_evening_delta_prev1",
+          "est_pedo_presleep_distance_sum_minus_evening_delta_prev1",
+          "est_pedo_presleep_step_sum_minus_evening",
+          "est_pedo_presleep_step_sum_minus_evening_prev1",
+          "est_pedo_presleep_step_sum_minus_evening_dev_past3",
+          "est_pedo_presleep_distance_sum_minus_evening",
+          "est_pedo_presleep_distance_sum_minus_evening_prev1",
+          "est_pedo_presleep_distance_sum_minus_evening_dev_past3",
+          "est_pedo_presleep_step_sum_delta_prev1",
+          "est_usage_afternoon_usage_total_minutes_sum_delta_prev1",
+          "est_pedo_afternoon_step_sum_delta_prev1",
+          "est_usage_evening_usage_total_minutes_sum_minus_afternoon_delta_prev1"
+        ],
+        "feature_count": 520
+      },
+      "q3_arousal_usage": {
+        "example_features": [
+          "est_pedo_presleep_step_sum_minus_evening_delta_prev1",
+          "est_pedo_presleep_distance_sum_minus_evening_delta_prev1",
+          "est_pedo_presleep_step_sum_minus_evening",
+          "est_pedo_presleep_step_sum_minus_evening_prev1",
+          "est_pedo_presleep_step_sum_minus_evening_dev_past3",
+          "est_pedo_presleep_distance_sum_minus_evening",
+          "est_pedo_presleep_distance_sum_minus_evening_prev1",
+          "est_pedo_presleep_distance_sum_minus_evening_dev_past3",
+          "est_pedo_presleep_step_sum_delta_prev1",
+          "est_usage_afternoon_usage_total_minutes_sum_delta_prev1",
+          "est_pedo_afternoon_step_sum_delta_prev1",
+          "est_usage_evening_usage_total_minutes_sum_minus_afternoon_delta_prev1"
+        ],
+        "feature_count": 456
+      },
+      "s3_settling_sol": {
+        "example_features": [
+          "est_pedo_presleep_step_sum_minus_evening_delta_prev1",
+          "est_pedo_presleep_distance_sum_minus_evening_delta_prev1",
+          "est_pedo_presleep_step_sum_minus_evening",
+          "est_pedo_presleep_step_sum_minus_evening_prev1",
+          "est_pedo_presleep_step_sum_minus_evening_dev_past3",
+          "est_pedo_presleep_distance_sum_minus_evening",
+          "est_pedo_presleep_distance_sum_minus_evening_prev1",
+          "est_pedo_presleep_distance_sum_minus_evening_dev_past3",
+          "est_pedo_presleep_step_sum_delta_prev1",
+          "est_usage_afternoon_usage_total_minutes_sum_delta_prev1",
+          "est_pedo_afternoon_step_sum_delta_prev1",
+          "est_usage_evening_usage_total_minutes_sum_minus_afternoon_delta_prev1"
+        ],
+        "feature_count": 323
+      }
+    },
+    "feature_metadata": {
+      "max_feature_columns": 520,
+      "max_lag_base_columns": 90,
+      "max_transition_delta_columns": 140,
+      "mean_missing_rate": 0.14731593406593405,
+      "numeric_feature_columns": 520,
+      "rows": 700,
+      "source_metadata": [
+        {
+          "feature_count": 31,
+          "raw_rows": 939653,
+          "source": "mScreenStatus",
+          "window_rows": 821236
+        },
+        {
+          "feature_count": 18,
+          "raw_rows": 939896,
+          "source": "mACStatus",
+          "window_rows": 821695
+        },
+        {
+          "feature_count": 61,
+          "raw_rows": 961062,
+          "source": "mActivity",
+          "window_rows": 840177
+        },
+        {
+          "feature_count": 83,
+          "raw_rows": 748100,
+          "source": "wPedo",
+          "window_rows": 647128
+        },
+        {
+          "feature_count": 41,
+          "raw_rows": 96258,
+          "source": "m_light",
+          "window_rows": 84127
+        },
+        {
+          "feature_count": 41,
+          "raw_rows": 633741,
+          "source": "w_light",
+          "window_rows": 545151
+        },
+        {
+          "feature_count": 58,
+          "raw_rows": 382918,
+          "source": "wHr",
+          "window_rows": 310046
+        },
+        {
+          "feature_count": 98,
+          "raw_rows": 45197,
+          "source": "mUsageStats",
+          "window_rows": 37586
+        }
+      ],
+      "test_rows": 250,
+      "train_rows": 450
+    }
+  },
+  "no_base_prediction_artifact_created": true,
+  "no_dacon_submission": true,
+  "no_feature_matrix_created": true,
+  "no_kaggle_action": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_submission_log_row_created": true,
+  "purpose": "Test whether fold-internal evening arousal/settling transitions and previous-day deviations add Q3/S3 signal beyond ID342.",
+  "research_sources": [
+    {
+      "read": "ETRI defines Q3 as pre-sleep stress and S3 as sleep-onset-latency guideline adherence; the baseline section reports that task-specific time-zone features beat all-feature bundles.",
+      "title": "ETRI Lifelog Dataset 2024",
+      "url": "https://arxiv.org/html/2508.03698v1"
+    },
+    {
+      "read": "NSF frames sleep quality around latency, awakenings, WASO, and efficiency, with adult latency screening at falling asleep within 30 minutes.",
+      "title": "National Sleep Foundation - What Is Sleep Quality?",
+      "url": "https://www.thensf.org/what-is-sleep-quality/"
+    },
+    {
+      "read": "NSF's sleep-timing guidance motivates regularity and previous-day deviation features rather than only same-day absolute sensor totals.",
+      "title": "National Sleep Foundation - Consistent Sleep Schedules",
+      "url": "https://www.thensf.org/sleep-schedules-sleep-timing-guideline/"
+    },
+    {
+      "read": "Pre-bed device light and alerting effects motivate screen/light/usage settling features for S3 and Q3, while keeping the gate strictly empirical.",
+      "title": "Sleep Foundation - Electronics and Sleep",
+      "url": "https://www.sleepfoundation.org/how-sleep-works/how-electronics-affect-sleep"
+    }
+  ],
+  "target_reports": {
+    "Q3": {
+      "best": {
+        "config": "Q3_id342_evening_state_q3_arousal_usage_lr_c0_03_w0.005",
+        "direction_metrics": {
+          "actual_test_band_holdout": {
+            "failed_direction_corr": {
+              "id287": -0.015377236752551626,
+              "id329": 0.044163832571465646
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.4387755102040816,
+              "id329": 0.5102040816326531
+            },
+            "max_abs_movement_vs_id342": 0.0038918434699087845,
+            "max_failed_direction_corr": 0.044163832571465646,
+            "mean_abs_movement_vs_id342": 0.00025387549226217355
+          },
+          "loso_10": {
+            "failed_direction_corr": {
+              "id287": -0.10831415252349358,
+              "id329": 0.2661293022649571
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.4444444444444444,
+              "id329": 0.5377777777777778
+            },
+            "max_abs_movement_vs_id342": 0.004506664562745025,
+            "max_failed_direction_corr": 0.2661293022649571,
+            "mean_abs_movement_vs_id342": 0.001342154709704749
+          },
+          "subject_hole_5": {
+            "failed_direction_corr": {
+              "id287": -0.10646422680664802,
+              "id329": 0.14200449957164127
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.46,
+              "id329": 0.5222222222222223
+            },
+            "max_abs_movement_vs_id342": 0.004003228756534444,
+            "max_failed_direction_corr": 0.14200449957164127,
+            "mean_abs_movement_vs_id342": 0.0012095831067025266
+          },
+          "test_boundary_neighbor2_holdout": {
+            "failed_direction_corr": {
+              "id287": -0.0021204469371409107,
+              "id329": 0.013788300185119567
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.47560975609756095,
+              "id329": 0.45121951219512196
+            },
+            "max_abs_movement_vs_id342": 0.003959652929602542,
+            "max_failed_direction_corr": 0.013788300185119567,
+            "mean_abs_movement_vs_id342": 0.00022062103536978103
+          },
+          "test_boundary_neighbor5_holdout": {
+            "failed_direction_corr": {
+              "id287": -0.03887033042873267,
+              "id329": 0.06994073516951975
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.4883720930232558,
+              "id329": 0.4883720930232558
+            },
+            "max_abs_movement_vs_id342": 0.0038186078617681307,
+            "max_failed_direction_corr": 0.06994073516951975,
+            "mean_abs_movement_vs_id342": 0.0004427320298854357
+          }
+        },
+        "eligible": false,
+        "feature_count": 456,
+        "feature_family": "q3_arousal_usage",
+        "max_delta": 0.000215615705753458,
+        "max_failed_direction_corr": 0.2661293022649571,
+        "mean_delta": 1.553498669484288e-05,
+        "min_delta": -0.00020105117624469315,
+        "model_spec": {
+          "c_value": 0.03,
+          "kind": "lr",
+          "max_leaf_nodes": null,
+          "name": "lr_c0_03"
+        },
+        "split_anchor_losses": {
+          "actual_test_band_holdout": 0.514548850569324,
+          "loso_10": 0.5632259042854845,
+          "subject_hole_5": 0.5632259042854845,
+          "test_boundary_neighbor2_holdout": 0.6063862866978805,
+          "test_boundary_neighbor5_holdout": 0.5833753098643744
+        },
+        "split_deltas": {
+          "actual_test_band_holdout": 0.000215615705753458,
+          "loso_10": -0.00020105117624469315,
+          "subject_hole_5": -0.0001013174787884985,
+          "test_boundary_neighbor2_holdout": 1.0222246114577338e-05,
+          "test_boundary_neighbor5_holdout": 0.0001542056366393707
+        },
+        "split_losses": {
+          "actual_test_band_holdout": 0.5147644662750774,
+          "loso_10": 0.5630248531092398,
+          "subject_hole_5": 0.563124586806696,
+          "test_boundary_neighbor2_holdout": 0.6063965089439951,
+          "test_boundary_neighbor5_holdout": 0.5835295155010137
+        },
+        "target": "Q3",
+        "valid_counts": {
+          "actual_test_band_holdout": 98,
+          "loso_10": 450,
+          "subject_hole_5": 450,
+          "test_boundary_neighbor2_holdout": 82,
+          "test_boundary_neighbor5_holdout": 172
+        },
+        "weight": 0.005,
+        "wins": 2
+      },
+      "eligible_count": 0,
+      "partial_signal_rows": [],
+      "selected": null,
+      "target": "Q3",
+      "top_rows": [
+        {
+          "config": "Q3_id342_evening_state_q3_arousal_usage_lr_c0_03_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.015377236752551626,
+                "id329": 0.044163832571465646
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4387755102040816,
+                "id329": 0.5102040816326531
+              },
+              "max_abs_movement_vs_id342": 0.0038918434699087845,
+              "max_failed_direction_corr": 0.044163832571465646,
+              "mean_abs_movement_vs_id342": 0.00025387549226217355
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.10831415252349358,
+                "id329": 0.2661293022649571
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4444444444444444,
+                "id329": 0.5377777777777778
+              },
+              "max_abs_movement_vs_id342": 0.004506664562745025,
+              "max_failed_direction_corr": 0.2661293022649571,
+              "mean_abs_movement_vs_id342": 0.001342154709704749
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.10646422680664802,
+                "id329": 0.14200449957164127
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.46,
+                "id329": 0.5222222222222223
+              },
+              "max_abs_movement_vs_id342": 0.004003228756534444,
+              "max_failed_direction_corr": 0.14200449957164127,
+              "mean_abs_movement_vs_id342": 0.0012095831067025266
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.0021204469371409107,
+                "id329": 0.013788300185119567
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47560975609756095,
+                "id329": 0.45121951219512196
+              },
+              "max_abs_movement_vs_id342": 0.003959652929602542,
+              "max_failed_direction_corr": 0.013788300185119567,
+              "mean_abs_movement_vs_id342": 0.00022062103536978103
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.03887033042873267,
+                "id329": 0.06994073516951975
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4883720930232558,
+                "id329": 0.4883720930232558
+              },
+              "max_abs_movement_vs_id342": 0.0038186078617681307,
+              "max_failed_direction_corr": 0.06994073516951975,
+              "mean_abs_movement_vs_id342": 0.0004427320298854357
+            }
+          },
+          "eligible": false,
+          "feature_count": 456,
+          "feature_family": "q3_arousal_usage",
+          "max_delta": 0.000215615705753458,
+          "max_failed_direction_corr": 0.2661293022649571,
+          "mean_delta": 1.553498669484288e-05,
+          "min_delta": -0.00020105117624469315,
+          "model_spec": {
+            "c_value": 0.03,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_03"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.514548850569324,
+            "loso_10": 0.5632259042854845,
+            "subject_hole_5": 0.5632259042854845,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.000215615705753458,
+            "loso_10": -0.00020105117624469315,
+            "subject_hole_5": -0.0001013174787884985,
+            "test_boundary_neighbor2_holdout": 1.0222246114577338e-05,
+            "test_boundary_neighbor5_holdout": 0.0001542056366393707
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.5147644662750774,
+            "loso_10": 0.5630248531092398,
+            "subject_hole_5": 0.563124586806696,
+            "test_boundary_neighbor2_holdout": 0.6063965089439951,
+            "test_boundary_neighbor5_holdout": 0.5835295155010137
+          },
+          "target": "Q3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 2
+        },
+        {
+          "config": "Q3_id342_evening_state_q3_arousal_usage_lr_c0_10_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.010439157280992721,
+                "id329": 0.010237911339581322
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4897959183673469,
+                "id329": 0.41836734693877553
+              },
+              "max_abs_movement_vs_id342": 0.004433812566729284,
+              "max_failed_direction_corr": 0.010439157280992721,
+              "mean_abs_movement_vs_id342": 0.00030558665995943465
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.08114286449443989,
+                "id329": 0.2059318135715694
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4666666666666667,
+                "id329": 0.5244444444444445
+              },
+              "max_abs_movement_vs_id342": 0.0046092862044470745,
+              "max_failed_direction_corr": 0.2059318135715694,
+              "mean_abs_movement_vs_id342": 0.0015832388442988793
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.08410221146621498,
+                "id329": 0.0809017735757217
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.49333333333333335,
+                "id329": 0.4888888888888889
+              },
+              "max_abs_movement_vs_id342": 0.004122727753962635,
+              "max_failed_direction_corr": 0.0809017735757217,
+              "mean_abs_movement_vs_id342": 0.001433960308380906
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.011580032755923855,
+                "id329": -0.026547690031070235
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.43902439024390244,
+                "id329": 0.3902439024390244
+              },
+              "max_abs_movement_vs_id342": 0.004084431687830459,
+              "max_failed_direction_corr": -0.011580032755923855,
+              "mean_abs_movement_vs_id342": 0.0002723159938723379
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.004493117295774535,
+                "id329": 0.04183702597243124
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5116279069767442,
+                "id329": 0.46511627906976744
+              },
+              "max_abs_movement_vs_id342": 0.004430521031107526,
+              "max_failed_direction_corr": 0.04183702597243124,
+              "mean_abs_movement_vs_id342": 0.0005335017889734071
+            }
+          },
+          "eligible": false,
+          "feature_count": 456,
+          "feature_family": "q3_arousal_usage",
+          "max_delta": 0.00022347955441615053,
+          "max_failed_direction_corr": 0.2059318135715694,
+          "mean_delta": 1.939952113598764e-05,
+          "min_delta": -0.00025752802390843765,
+          "model_spec": {
+            "c_value": 0.1,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_10"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.514548850569324,
+            "loso_10": 0.5632259042854845,
+            "subject_hole_5": 0.5632259042854845,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.00016743090279980333,
+            "loso_10": -0.00025752802390843765,
+            "subject_hole_5": -9.036926683969604e-05,
+            "test_boundary_neighbor2_holdout": 0.00022347955441615053,
+            "test_boundary_neighbor5_holdout": 5.398443921211804e-05
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.5147162814721238,
+            "loso_10": 0.562968376261576,
+            "subject_hole_5": 0.5631355350186448,
+            "test_boundary_neighbor2_holdout": 0.6066097662522967,
+            "test_boundary_neighbor5_holdout": 0.5834292943035865
+          },
+          "target": "Q3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 2
+        },
+        {
+          "config": "Q3_id342_evening_state_q3_arousal_usage_lr_c0_03_w0.01",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.015377236752552167,
+                "id329": 0.04416383257146728
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4387755102040816,
+                "id329": 0.5102040816326531
+              },
+              "max_abs_movement_vs_id342": 0.007783686939817569,
+              "max_failed_direction_corr": 0.04416383257146728,
+              "mean_abs_movement_vs_id342": 0.0005077509845243474
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.10831415252349379,
+                "id329": 0.26612930226495685
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4444444444444444,
+                "id329": 0.5377777777777778
+              },
+              "max_abs_movement_vs_id342": 0.009013329125490077,
+              "max_failed_direction_corr": 0.26612930226495685,
+              "mean_abs_movement_vs_id342": 0.002684309419409498
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.10646422680664758,
+                "id329": 0.14200449957164174
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.46,
+                "id329": 0.5222222222222223
+              },
+              "max_abs_movement_vs_id342": 0.008006457513068915,
+              "max_failed_direction_corr": 0.14200449957164174,
+              "mean_abs_movement_vs_id342": 0.0024191662134050605
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.002120446937143018,
+                "id329": 0.013788300185115912
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47560975609756095,
+                "id329": 0.45121951219512196
+              },
+              "max_abs_movement_vs_id342": 0.007919305859204973,
+              "max_failed_direction_corr": 0.013788300185115912,
+              "mean_abs_movement_vs_id342": 0.00044124207073956465
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.03887033042873394,
+                "id329": 0.06994073516952014
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4883720930232558,
+                "id329": 0.4883720930232558
+              },
+              "max_abs_movement_vs_id342": 0.0076372157235362614,
+              "max_failed_direction_corr": 0.06994073516952014,
+              "mean_abs_movement_vs_id342": 0.0008854640597708723
+            }
+          },
+          "eligible": false,
+          "feature_count": 456,
+          "feature_family": "q3_arousal_usage",
+          "max_delta": 0.0004374900361103773,
+          "max_failed_direction_corr": 0.26612930226495685,
+          "mean_delta": 4.0495876242596654e-05,
+          "min_delta": -0.00038725138701167783,
+          "model_spec": {
+            "c_value": 0.03,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_03"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.514548850569324,
+            "loso_10": 0.5632259042854845,
+            "subject_hole_5": 0.5632259042854845,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.0004374900361103773,
+            "loso_10": -0.00038725138701167783,
+            "subject_hole_5": -0.000191680735666222,
+            "test_boundary_neighbor2_holdout": 2.811905232225076e-05,
+            "test_boundary_neighbor5_holdout": 0.00031580241545825505
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.5149863406054344,
+            "loso_10": 0.5628386528984728,
+            "subject_hole_5": 0.5630342235498182,
+            "test_boundary_neighbor2_holdout": 0.6064144057502028,
+            "test_boundary_neighbor5_holdout": 0.5836911122798326
+          },
+          "target": "Q3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.01,
+          "wins": 2
+        },
+        {
+          "config": "Q3_id342_evening_state_all_transition_lr_c0_30_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.005362415655056277,
+                "id329": -0.015505686074980637
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5714285714285714,
+                "id329": 0.4387755102040816
+              },
+              "max_abs_movement_vs_id342": 0.004587409147336449,
+              "max_failed_direction_corr": 0.005362415655056277,
+              "mean_abs_movement_vs_id342": 0.00035251264991505697
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.04679829886438003,
+                "id329": 0.15632517143471025
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5111111111111111,
+                "id329": 0.4888888888888889
+              },
+              "max_abs_movement_vs_id342": 0.004615406901839009,
+              "max_failed_direction_corr": 0.15632517143471025,
+              "mean_abs_movement_vs_id342": 0.001828043215294004
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.10210825427233446,
+                "id329": 0.06969705716178942
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5333333333333333,
+                "id329": 0.4444444444444444
+              },
+              "max_abs_movement_vs_id342": 0.004178706927753573,
+              "max_failed_direction_corr": 0.06969705716178942,
+              "mean_abs_movement_vs_id342": 0.001704782407414772
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.013196832693846909,
+                "id329": -0.03263560083564259
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47560975609756095,
+                "id329": 0.35365853658536583
+              },
+              "max_abs_movement_vs_id342": 0.00422627660365027,
+              "max_failed_direction_corr": -0.013196832693846909,
+              "mean_abs_movement_vs_id342": 0.0003284961316017126
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.005807692746731572,
+                "id329": 0.024314712100312406
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5348837209302325,
+                "id329": 0.43023255813953487
+              },
+              "max_abs_movement_vs_id342": 0.004541551513716158,
+              "max_failed_direction_corr": 0.024314712100312406,
+              "mean_abs_movement_vs_id342": 0.0006584806927284396
+            }
+          },
+          "eligible": false,
+          "feature_count": 520,
+          "feature_family": "all_transition",
+          "max_delta": 0.00020671044043452103,
+          "max_failed_direction_corr": 0.15632517143471025,
+          "mean_delta": 4.2785558375224575e-05,
+          "min_delta": -0.00024122308845031526,
+          "model_spec": {
+            "c_value": 0.3,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_30"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.514548850569324,
+            "loso_10": 0.5632259042854845,
+            "subject_hole_5": 0.5632259042854845,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.00020671044043452103,
+            "loso_10": -0.00024122308845031526,
+            "subject_hole_5": -5.9070424444862546e-05,
+            "test_boundary_neighbor2_holdout": 0.00020586309125592006,
+            "test_boundary_neighbor5_holdout": 0.0001016477730808596
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.5147555610097585,
+            "loso_10": 0.5629846811970342,
+            "subject_hole_5": 0.5631668338610396,
+            "test_boundary_neighbor2_holdout": 0.6065921497891364,
+            "test_boundary_neighbor5_holdout": 0.5834769576374552
+          },
+          "target": "Q3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 2
+        },
+        {
+          "config": "Q3_id342_evening_state_q3_arousal_usage_lr_c0_30_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.02352173117012405,
+                "id329": -0.0031567347990324743
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5816326530612245,
+                "id329": 0.3877551020408163
+              },
+              "max_abs_movement_vs_id342": 0.004602254702542413,
+              "max_failed_direction_corr": 0.02352173117012405,
+              "mean_abs_movement_vs_id342": 0.00035977731974756673
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.06931661758923258,
+                "id329": 0.16352907405487205
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4911111111111111,
+                "id329": 0.5
+              },
+              "max_abs_movement_vs_id342": 0.004615378902299627,
+              "max_failed_direction_corr": 0.16352907405487205,
+              "mean_abs_movement_vs_id342": 0.0017949817517129518
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.08378011493703548,
+                "id329": 0.052817787265167844
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5355555555555556,
+                "id329": 0.45555555555555555
+              },
+              "max_abs_movement_vs_id342": 0.00416612105043096,
+              "max_failed_direction_corr": 0.052817787265167844,
+              "mean_abs_movement_vs_id342": 0.0016515037172448962
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.024847494193036914,
+                "id329": -0.046309069586141435
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47560975609756095,
+                "id329": 0.35365853658536583
+              },
+              "max_abs_movement_vs_id342": 0.004472064376604232,
+              "max_failed_direction_corr": -0.024847494193036914,
+              "mean_abs_movement_vs_id342": 0.00030908086081478565
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.027267123963149394,
+                "id329": 0.027933517839385018
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5174418604651163,
+                "id329": 0.4127906976744186
+              },
+              "max_abs_movement_vs_id342": 0.004602172038403754,
+              "max_failed_direction_corr": 0.027933517839385018,
+              "mean_abs_movement_vs_id342": 0.000611441201563803
+            }
+          },
+          "eligible": false,
+          "feature_count": 456,
+          "feature_family": "q3_arousal_usage",
+          "max_delta": 0.00043397947780610124,
+          "max_failed_direction_corr": 0.16352907405487205,
+          "mean_delta": 4.279949285859175e-05,
+          "min_delta": -0.00027973881487697305,
+          "model_spec": {
+            "c_value": 0.3,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_30"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.514548850569324,
+            "loso_10": 0.5632259042854845,
+            "subject_hole_5": 0.5632259042854845,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.00013631569958261203,
+            "loso_10": -0.00027973881487697305,
+            "subject_hole_5": -3.974159625319551e-05,
+            "test_boundary_neighbor2_holdout": 0.00043397947780610124,
+            "test_boundary_neighbor5_holdout": -3.681730196558597e-05
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.5146851662689066,
+            "loso_10": 0.5629461654706075,
+            "subject_hole_5": 0.5631861626892313,
+            "test_boundary_neighbor2_holdout": 0.6068202661756866,
+            "test_boundary_neighbor5_holdout": 0.5833384925624088
+          },
+          "target": "Q3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 3
+        },
+        {
+          "config": "Q3_id342_evening_state_q3_arousal_usage_lr_c0_10_w0.01",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.010439157280990817,
+                "id329": 0.010237911339579566
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4897959183673469,
+                "id329": 0.41836734693877553
+              },
+              "max_abs_movement_vs_id342": 0.008867625133458581,
+              "max_failed_direction_corr": 0.010439157280990817,
+              "mean_abs_movement_vs_id342": 0.0006111733199188652
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.08114286449444032,
+                "id329": 0.20593181357156956
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4666666666666667,
+                "id329": 0.5244444444444445
+              },
+              "max_abs_movement_vs_id342": 0.009218572408894163,
+              "max_failed_direction_corr": 0.20593181357156956,
+              "mean_abs_movement_vs_id342": 0.003166477688597761
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.0841022114662167,
+                "id329": 0.08090177357572227
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.49333333333333335,
+                "id329": 0.4888888888888889
+              },
+              "max_abs_movement_vs_id342": 0.00824545550792527,
+              "max_failed_direction_corr": 0.08090177357572227,
+              "mean_abs_movement_vs_id342": 0.0028679206167618147
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.011580032755926322,
+                "id329": -0.026547690031072806
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.43902439024390244,
+                "id329": 0.3902439024390244
+              },
+              "max_abs_movement_vs_id342": 0.008168863375660806,
+              "max_failed_direction_corr": -0.011580032755926322,
+              "mean_abs_movement_vs_id342": 0.0005446319877446758
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.004493117295772534,
+                "id329": 0.04183702597242876
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5116279069767442,
+                "id329": 0.46511627906976744
+              },
+              "max_abs_movement_vs_id342": 0.00886104206221508,
+              "max_failed_direction_corr": 0.04183702597242876,
+              "mean_abs_movement_vs_id342": 0.0010670035779468121
+            }
+          },
+          "eligible": false,
+          "feature_count": 456,
+          "feature_family": "q3_arousal_usage",
+          "max_delta": 0.0004582852599271936,
+          "max_failed_direction_corr": 0.20593181357156956,
+          "mean_delta": 5.201745596281615e-05,
+          "min_delta": -0.0004956287236113077,
+          "model_spec": {
+            "c_value": 0.1,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_10"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.514548850569324,
+            "loso_10": 0.5632259042854845,
+            "subject_hole_5": 0.5632259042854845,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.0003441930190460907,
+            "loso_10": -0.0004956287236113077,
+            "subject_hole_5": -0.00016567815599566327,
+            "test_boundary_neighbor2_holdout": 0.0004582852599271936,
+            "test_boundary_neighbor5_holdout": 0.00011891588044776746
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.5148930435883701,
+            "loso_10": 0.5627302755618732,
+            "subject_hole_5": 0.5630602261294888,
+            "test_boundary_neighbor2_holdout": 0.6068445719578077,
+            "test_boundary_neighbor5_holdout": 0.5834942257448221
+          },
+          "target": "Q3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.01,
+          "wins": 2
+        },
+        {
+          "config": "Q3_id342_evening_state_all_transition_lr_c0_10_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.011506750578839159,
+                "id329": -0.0023649328499366147
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5204081632653061,
+                "id329": 0.46938775510204084
+              },
+              "max_abs_movement_vs_id342": 0.004288083606211052,
+              "max_failed_direction_corr": -0.0023649328499366147,
+              "mean_abs_movement_vs_id342": 0.00030867407274980986
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.05714546047343864,
+                "id329": 0.18628842616907906
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4822222222222222,
+                "id329": 0.5
+              },
+              "max_abs_movement_vs_id342": 0.004612270628485696,
+              "max_failed_direction_corr": 0.18628842616907906,
+              "mean_abs_movement_vs_id342": 0.0016089218537157462
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.10386918432697068,
+                "id329": 0.08244129034703225
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5044444444444445,
+                "id329": 0.47333333333333333
+              },
+              "max_abs_movement_vs_id342": 0.004170287535527617,
+              "max_failed_direction_corr": 0.08244129034703225,
+              "mean_abs_movement_vs_id342": 0.0014949589383334851
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.02218645255508106,
+                "id329": -0.027036852686898892
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47560975609756095,
+                "id329": 0.35365853658536583
+              },
+              "max_abs_movement_vs_id342": 0.004043165926273629,
+              "max_failed_direction_corr": -0.02218645255508106,
+              "mean_abs_movement_vs_id342": 0.00029109104372455224
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.015568393521027422,
+                "id329": 0.02467403956450172
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5116279069767442,
+                "id329": 0.43023255813953487
+              },
+              "max_abs_movement_vs_id342": 0.004096327404059741,
+              "max_failed_direction_corr": 0.02467403956450172,
+              "mean_abs_movement_vs_id342": 0.0005657874993530289
+            }
+          },
+          "eligible": false,
+          "feature_count": 520,
+          "feature_family": "all_transition",
+          "max_delta": 0.0002622701342749334,
+          "max_failed_direction_corr": 0.18628842616907906,
+          "mean_delta": 6.023628631501854e-05,
+          "min_delta": -0.00026810728489379265,
+          "model_spec": {
+            "c_value": 0.1,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_10"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.514548850569324,
+            "loso_10": 0.5632259042854845,
+            "subject_hole_5": 0.5632259042854845,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.0002622701342749334,
+            "loso_10": -0.00026810728489379265,
+            "subject_hole_5": -9.765983595522165e-05,
+            "test_boundary_neighbor2_holdout": 0.00022554941726815603,
+            "test_boundary_neighbor5_holdout": 0.00017912900088101757
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.5148111207035989,
+            "loso_10": 0.5629577970005907,
+            "subject_hole_5": 0.5631282444495292,
+            "test_boundary_neighbor2_holdout": 0.6066118361151487,
+            "test_boundary_neighbor5_holdout": 0.5835544388652554
+          },
+          "target": "Q3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 2
+        },
+        {
+          "config": "Q3_id342_evening_state_all_transition_lr_c0_03_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.03726118264474484,
+                "id329": 0.027045488608275818
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.45918367346938777,
+                "id329": 0.5102040816326531
+              },
+              "max_abs_movement_vs_id342": 0.0037640161639543868,
+              "max_failed_direction_corr": 0.027045488608275818,
+              "mean_abs_movement_vs_id342": 0.00025339647023268056
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.08683287529060067,
+                "id329": 0.2422391800154717
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4533333333333333,
+                "id329": 0.5333333333333333
+              },
+              "max_abs_movement_vs_id342": 0.004549234344967498,
+              "max_failed_direction_corr": 0.2422391800154717,
+              "mean_abs_movement_vs_id342": 0.0013685262581375351
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.12018950283747527,
+                "id329": 0.12957665208890992
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.46444444444444444,
+                "id329": 0.5133333333333333
+              },
+              "max_abs_movement_vs_id342": 0.0041122476052196655,
+              "max_failed_direction_corr": 0.12957665208890992,
+              "mean_abs_movement_vs_id342": 0.0012373508513824547
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.031103313844633905,
+                "id329": 0.00047220408657642273
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4024390243902439,
+                "id329": 0.4024390243902439
+              },
+              "max_abs_movement_vs_id342": 0.003778997136947848,
+              "max_failed_direction_corr": 0.00047220408657642273,
+              "mean_abs_movement_vs_id342": 0.00023394169433331753
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.05282591077775655,
+                "id329": 0.04415569421207892
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4476744186046512,
+                "id329": 0.45930232558139533
+              },
+              "max_abs_movement_vs_id342": 0.003884223679141652,
+              "max_failed_direction_corr": 0.04415569421207892,
+              "mean_abs_movement_vs_id342": 0.000448697450261068
+            }
+          },
+          "eligible": false,
+          "feature_count": 520,
+          "feature_family": "all_transition",
+          "max_delta": 0.0003100107655382711,
+          "max_failed_direction_corr": 0.2422391800154717,
+          "mean_delta": 6.54038425487835e-05,
+          "min_delta": -0.0002381045268056159,
+          "model_spec": {
+            "c_value": 0.03,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_03"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.514548850569324,
+            "loso_10": 0.5632259042854845,
+            "subject_hole_5": 0.5632259042854845,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.0003100107655382711,
+            "loso_10": -0.0002381045268056159,
+            "subject_hole_5": -0.00010994376513817627,
+            "test_boundary_neighbor2_holdout": 0.0001409037101375299,
+            "test_boundary_neighbor5_holdout": 0.0002241530290119087
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.5148588613348623,
+            "loso_10": 0.5629877997586789,
+            "subject_hole_5": 0.5631159605203463,
+            "test_boundary_neighbor2_holdout": 0.6065271904080181,
+            "test_boundary_neighbor5_holdout": 0.5835994628933863
+          },
+          "target": "Q3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 2
+        },
+        {
+          "config": "Q3_id342_evening_state_s3_settling_sol_lr_c0_03_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.10470238442601142,
+                "id329": 0.025205998280329118
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.37755102040816324,
+                "id329": 0.5102040816326531
+              },
+              "max_abs_movement_vs_id342": 0.0037312251230914306,
+              "max_failed_direction_corr": 0.025205998280329118,
+              "mean_abs_movement_vs_id342": 0.00024092922156503539
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.14851964879384885,
+                "id329": 0.2707025356553561
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.41333333333333333,
+                "id329": 0.5555555555555556
+              },
+              "max_abs_movement_vs_id342": 0.004510190069420966,
+              "max_failed_direction_corr": 0.2707025356553561,
+              "mean_abs_movement_vs_id342": 0.0012508903642132773
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.18474352153394255,
+                "id329": 0.17332753494418707
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4111111111111111,
+                "id329": 0.5222222222222223
+              },
+              "max_abs_movement_vs_id342": 0.004161137809204046,
+              "max_failed_direction_corr": 0.17332753494418707,
+              "mean_abs_movement_vs_id342": 0.0011675506333344958
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.034763616236389426,
+                "id329": 0.04678641644995827
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4878048780487805,
+                "id329": 0.4634146341463415
+              },
+              "max_abs_movement_vs_id342": 0.0037326295189270553,
+              "max_failed_direction_corr": 0.04678641644995827,
+              "mean_abs_movement_vs_id342": 0.00023218838528978045
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.0791708869490259,
+                "id329": 0.10453677824303072
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4418604651162791,
+                "id329": 0.5348837209302325
+              },
+              "max_abs_movement_vs_id342": 0.003743201344890368,
+              "max_failed_direction_corr": 0.10453677824303072,
+              "mean_abs_movement_vs_id342": 0.0004248872801406425
+            }
+          },
+          "eligible": false,
+          "feature_count": 323,
+          "feature_family": "s3_settling_sol",
+          "max_delta": 0.0005195304961942426,
+          "max_failed_direction_corr": 0.2707025356553561,
+          "mean_delta": 9.495089734377072e-05,
+          "min_delta": -0.0001236835725462182,
+          "model_spec": {
+            "c_value": 0.03,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_03"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.514548850569324,
+            "loso_10": 0.5632259042854845,
+            "subject_hole_5": 0.5632259042854845,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.0005195304961942426,
+            "loso_10": -0.0001236835725462182,
+            "subject_hole_5": -2.841811040499298e-05,
+            "test_boundary_neighbor2_holdout": 1.5170672956754672e-06,
+            "test_boundary_neighbor5_holdout": 0.00010580860618014665
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.5150683810655182,
+            "loso_10": 0.5631022207129383,
+            "subject_hole_5": 0.5631974861750795,
+            "test_boundary_neighbor2_holdout": 0.6063878037651762,
+            "test_boundary_neighbor5_holdout": 0.5834811184705545
+          },
+          "target": "Q3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 2
+        },
+        {
+          "config": "Q3_id342_evening_state_q3_arousal_usage_lr_c0_30_w0.01",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.02352173117012151,
+                "id329": -0.0031567347990330984
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5816326530612245,
+                "id329": 0.3877551020408163
+              },
+              "max_abs_movement_vs_id342": 0.00920450940508484,
+              "max_failed_direction_corr": 0.02352173117012151,
+              "mean_abs_movement_vs_id342": 0.000719554639495131
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.06931661758923403,
+                "id329": 0.16352907405487216
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4911111111111111,
+                "id329": 0.5
+              },
+              "max_abs_movement_vs_id342": 0.009230757804599282,
+              "max_failed_direction_corr": 0.16352907405487216,
+              "mean_abs_movement_vs_id342": 0.0035899635034259032
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.0837801149370364,
+                "id329": 0.052817787265167726
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5355555555555556,
+                "id329": 0.45555555555555555
+              },
+              "max_abs_movement_vs_id342": 0.008332242100861947,
+              "max_failed_direction_corr": 0.052817787265167726,
+              "mean_abs_movement_vs_id342": 0.00330300743448979
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.024847494193038493,
+                "id329": -0.04630906958614273
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47560975609756095,
+                "id329": 0.35365853658536583
+              },
+              "max_abs_movement_vs_id342": 0.008944128753208463,
+              "max_failed_direction_corr": -0.024847494193038493,
+              "mean_abs_movement_vs_id342": 0.0006181617216295691
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.0272671239631478,
+                "id329": 0.027933517839384196
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5174418604651163,
+                "id329": 0.4127906976744186
+              },
+              "max_abs_movement_vs_id342": 0.009204344076807536,
+              "max_failed_direction_corr": 0.027933517839384196,
+              "mean_abs_movement_vs_id342": 0.0012228824031276077
+            }
+          },
+          "eligible": false,
+          "feature_count": 456,
+          "feature_family": "q3_arousal_usage",
+          "max_delta": 0.0008821409996160323,
+          "max_failed_direction_corr": 0.16352907405487216,
+          "mean_delta": 0.00010225133731054382,
+          "min_delta": -0.0005357823410524487,
+          "model_spec": {
+            "c_value": 0.3,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_30"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.514548850569324,
+            "loso_10": 0.5632259042854845,
+            "subject_hole_5": 0.5632259042854845,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.00028459720194617955,
+            "loso_10": -0.0005357823410524487,
+            "subject_hole_5": -6.0724082144969493e-05,
+            "test_boundary_neighbor2_holdout": 0.0008821409996160323,
+            "test_boundary_neighbor5_holdout": -5.897509181207461e-05
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.5148334477712702,
+            "loso_10": 0.562690121944432,
+            "subject_hole_5": 0.5631651802033395,
+            "test_boundary_neighbor2_holdout": 0.6072684276974966,
+            "test_boundary_neighbor5_holdout": 0.5833163347725623
+          },
+          "target": "Q3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.01,
+          "wins": 3
+        }
+      ]
+    },
+    "S3": {
+      "best": {
+        "config": "S3_id342_evening_state_s3_settling_sol_lr_c0_30_w0.005",
+        "direction_metrics": {
+          "actual_test_band_holdout": {
+            "failed_direction_corr": {
+              "id287": -0.04349401769563805,
+              "id329": -0.060972962086247
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.5612244897959183,
+              "id329": 0.5408163265306123
+            },
+            "max_abs_movement_vs_id342": 0.004227996470657247,
+            "max_failed_direction_corr": -0.04349401769563805,
+            "mean_abs_movement_vs_id342": 0.00030678341368007265
+          },
+          "loso_10": {
+            "failed_direction_corr": {
+              "id287": -0.03200222473644619,
+              "id329": -0.10056816949613766
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.5044444444444445,
+              "id329": 0.48
+            },
+            "max_abs_movement_vs_id342": 0.004816545840675701,
+            "max_failed_direction_corr": -0.03200222473644619,
+            "mean_abs_movement_vs_id342": 0.001684749771717985
+          },
+          "subject_hole_5": {
+            "failed_direction_corr": {
+              "id287": 0.0414195614609294,
+              "id329": 0.0011184942486180864
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.5555555555555556,
+              "id329": 0.5488888888888889
+            },
+            "max_abs_movement_vs_id342": 0.004736805916228715,
+            "max_failed_direction_corr": 0.0414195614609294,
+            "mean_abs_movement_vs_id342": 0.0013337633669008055
+          },
+          "test_boundary_neighbor2_holdout": {
+            "failed_direction_corr": {
+              "id287": -0.056622161275993475,
+              "id329": -0.058263863700387636
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.5487804878048781,
+              "id329": 0.5487804878048781
+            },
+            "max_abs_movement_vs_id342": 0.004220875819859277,
+            "max_failed_direction_corr": -0.056622161275993475,
+            "mean_abs_movement_vs_id342": 0.00024002749699187408
+          },
+          "test_boundary_neighbor5_holdout": {
+            "failed_direction_corr": {
+              "id287": 0.08201769784669825,
+              "id329": 0.0509222033799708
+            },
+            "failed_direction_sign_agreement": {
+              "id287": 0.563953488372093,
+              "id329": 0.5581395348837209
+            },
+            "max_abs_movement_vs_id342": 0.004425226470428534,
+            "max_failed_direction_corr": 0.08201769784669825,
+            "mean_abs_movement_vs_id342": 0.0005019008805166635
+          }
+        },
+        "eligible": false,
+        "feature_count": 323,
+        "feature_family": "s3_settling_sol",
+        "max_delta": 0.00038653170121555336,
+        "max_failed_direction_corr": 0.08201769784669825,
+        "mean_delta": 6.31670247158711e-05,
+        "min_delta": -0.00027688246527124427,
+        "model_spec": {
+          "c_value": 0.3,
+          "kind": "lr",
+          "max_leaf_nodes": null,
+          "name": "lr_c0_30"
+        },
+        "split_anchor_losses": {
+          "actual_test_band_holdout": 0.471610051027991,
+          "loso_10": 0.489944683434979,
+          "subject_hole_5": 0.48994468343497904,
+          "test_boundary_neighbor2_holdout": 0.5053185090253905,
+          "test_boundary_neighbor5_holdout": 0.5117752307455081
+        },
+        "split_deltas": {
+          "actual_test_band_holdout": 0.00038653170121555336,
+          "loso_10": 7.73573415743245e-05,
+          "subject_hole_5": -0.00017924366140859016,
+          "test_boundary_neighbor2_holdout": 0.0003080722074693121,
+          "test_boundary_neighbor5_holdout": -0.00027688246527124427
+        },
+        "split_losses": {
+          "actual_test_band_holdout": 0.4719965827292065,
+          "loso_10": 0.4900220407765533,
+          "subject_hole_5": 0.48976543977357045,
+          "test_boundary_neighbor2_holdout": 0.5056265812328599,
+          "test_boundary_neighbor5_holdout": 0.5114983482802369
+        },
+        "target": "S3",
+        "valid_counts": {
+          "actual_test_band_holdout": 98,
+          "loso_10": 450,
+          "subject_hole_5": 450,
+          "test_boundary_neighbor2_holdout": 82,
+          "test_boundary_neighbor5_holdout": 172
+        },
+        "weight": 0.005,
+        "wins": 2
+      },
+      "eligible_count": 0,
+      "partial_signal_rows": [],
+      "selected": null,
+      "target": "S3",
+      "top_rows": [
+        {
+          "config": "S3_id342_evening_state_s3_settling_sol_lr_c0_30_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.04349401769563805,
+                "id329": -0.060972962086247
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5612244897959183,
+                "id329": 0.5408163265306123
+              },
+              "max_abs_movement_vs_id342": 0.004227996470657247,
+              "max_failed_direction_corr": -0.04349401769563805,
+              "mean_abs_movement_vs_id342": 0.00030678341368007265
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.03200222473644619,
+                "id329": -0.10056816949613766
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5044444444444445,
+                "id329": 0.48
+              },
+              "max_abs_movement_vs_id342": 0.004816545840675701,
+              "max_failed_direction_corr": -0.03200222473644619,
+              "mean_abs_movement_vs_id342": 0.001684749771717985
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": 0.0414195614609294,
+                "id329": 0.0011184942486180864
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5555555555555556,
+                "id329": 0.5488888888888889
+              },
+              "max_abs_movement_vs_id342": 0.004736805916228715,
+              "max_failed_direction_corr": 0.0414195614609294,
+              "mean_abs_movement_vs_id342": 0.0013337633669008055
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.056622161275993475,
+                "id329": -0.058263863700387636
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5487804878048781,
+                "id329": 0.5487804878048781
+              },
+              "max_abs_movement_vs_id342": 0.004220875819859277,
+              "max_failed_direction_corr": -0.056622161275993475,
+              "mean_abs_movement_vs_id342": 0.00024002749699187408
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.08201769784669825,
+                "id329": 0.0509222033799708
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.563953488372093,
+                "id329": 0.5581395348837209
+              },
+              "max_abs_movement_vs_id342": 0.004425226470428534,
+              "max_failed_direction_corr": 0.08201769784669825,
+              "mean_abs_movement_vs_id342": 0.0005019008805166635
+            }
+          },
+          "eligible": false,
+          "feature_count": 323,
+          "feature_family": "s3_settling_sol",
+          "max_delta": 0.00038653170121555336,
+          "max_failed_direction_corr": 0.08201769784669825,
+          "mean_delta": 6.31670247158711e-05,
+          "min_delta": -0.00027688246527124427,
+          "model_spec": {
+            "c_value": 0.3,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_30"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.00038653170121555336,
+            "loso_10": 7.73573415743245e-05,
+            "subject_hole_5": -0.00017924366140859016,
+            "test_boundary_neighbor2_holdout": 0.0003080722074693121,
+            "test_boundary_neighbor5_holdout": -0.00027688246527124427
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.4719965827292065,
+            "loso_10": 0.4900220407765533,
+            "subject_hole_5": 0.48976543977357045,
+            "test_boundary_neighbor2_holdout": 0.5056265812328599,
+            "test_boundary_neighbor5_holdout": 0.5114983482802369
+          },
+          "target": "S3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 2
+        },
+        {
+          "config": "S3_id342_evening_state_q3_arousal_usage_hgb_l7_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.027183934685606856,
+                "id329": -0.09980155541852768
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47959183673469385,
+                "id329": 0.45918367346938777
+              },
+              "max_abs_movement_vs_id342": 0.0029494768437197394,
+              "max_failed_direction_corr": -0.027183934685606856,
+              "mean_abs_movement_vs_id342": 0.00019214661509015597
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.1736537504212315,
+                "id329": -0.270663941495941
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47555555555555556,
+                "id329": 0.44666666666666666
+              },
+              "max_abs_movement_vs_id342": 0.004041128831700741,
+              "max_failed_direction_corr": -0.1736537504212315,
+              "mean_abs_movement_vs_id342": 0.0013570665854179364
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -3.204258912985648e-05,
+                "id329": -0.10091085492301466
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4711111111111111,
+                "id329": 0.44222222222222224
+              },
+              "max_abs_movement_vs_id342": 0.0033991849523016537,
+              "max_failed_direction_corr": -3.204258912985648e-05,
+              "mean_abs_movement_vs_id342": 0.0007824774859679269
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.01606932474660952,
+                "id329": -0.07659565208060387
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.45121951219512196,
+                "id329": 0.4268292682926829
+              },
+              "max_abs_movement_vs_id342": 0.00340456383408011,
+              "max_failed_direction_corr": -0.01606932474660952,
+              "mean_abs_movement_vs_id342": 0.00016089103730832486
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.029464599961118238,
+                "id329": -0.062174635163590765
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47674418604651164,
+                "id329": 0.4941860465116279
+              },
+              "max_abs_movement_vs_id342": 0.0030649726390519216,
+              "max_failed_direction_corr": 0.029464599961118238,
+              "mean_abs_movement_vs_id342": 0.0003484921674144295
+            }
+          },
+          "eligible": false,
+          "feature_count": 456,
+          "feature_family": "q3_arousal_usage",
+          "max_delta": 0.0002413411652405495,
+          "max_failed_direction_corr": 0.029464599961118238,
+          "mean_delta": 0.0001073261507836487,
+          "min_delta": -9.876027607602644e-06,
+          "model_spec": {
+            "c_value": null,
+            "kind": "hgb",
+            "max_leaf_nodes": 7,
+            "name": "hgb_l7"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.00017936872900525813,
+            "loso_10": 0.0002413411652405495,
+            "subject_hole_5": 6.477413917199693e-05,
+            "test_boundary_neighbor2_holdout": -9.876027607602644e-06,
+            "test_boundary_neighbor5_holdout": 6.102274810804165e-05
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.47178941975699623,
+            "loso_10": 0.49018602460021954,
+            "subject_hole_5": 0.49000945757415104,
+            "test_boundary_neighbor2_holdout": 0.505308632997783,
+            "test_boundary_neighbor5_holdout": 0.5118362534936162
+          },
+          "target": "S3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 1
+        },
+        {
+          "config": "S3_id342_evening_state_s3_settling_sol_hgb_l7_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.04851493167777742,
+                "id329": -0.12165541980661562
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.45918367346938777,
+                "id329": 0.45918367346938777
+              },
+              "max_abs_movement_vs_id342": 0.002891478316181334,
+              "max_failed_direction_corr": -0.04851493167777742,
+              "mean_abs_movement_vs_id342": 0.00019877404597727475
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.1713556679401379,
+                "id329": -0.263037624104138
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4866666666666667,
+                "id329": 0.4488888888888889
+              },
+              "max_abs_movement_vs_id342": 0.004244264851835641,
+              "max_failed_direction_corr": -0.1713556679401379,
+              "mean_abs_movement_vs_id342": 0.0013608202822684439
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.08881956580967147,
+                "id329": -0.17680834767225512
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4866666666666667,
+                "id329": 0.4577777777777778
+              },
+              "max_abs_movement_vs_id342": 0.00374075354362062,
+              "max_failed_direction_corr": -0.08881956580967147,
+              "mean_abs_movement_vs_id342": 0.0008408872794450237
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.03964849404105389,
+                "id329": -0.11816651752306938
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4634146341463415,
+                "id329": 0.4146341463414634
+              },
+              "max_abs_movement_vs_id342": 0.0027365957577889233,
+              "max_failed_direction_corr": -0.03964849404105389,
+              "mean_abs_movement_vs_id342": 0.00016069243352741914
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.03352770596153079,
+                "id329": -0.13640074482666806
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.45348837209302323,
+                "id329": 0.436046511627907
+              },
+              "max_abs_movement_vs_id342": 0.003426170344816709,
+              "max_failed_direction_corr": -0.03352770596153079,
+              "mean_abs_movement_vs_id342": 0.00037600720053755074
+            }
+          },
+          "eligible": false,
+          "feature_count": 323,
+          "feature_family": "s3_settling_sol",
+          "max_delta": 0.00021288682784875723,
+          "max_failed_direction_corr": -0.03352770596153079,
+          "mean_delta": 0.00012088203290749888,
+          "min_delta": 5.381696361295152e-05,
+          "model_spec": {
+            "c_value": null,
+            "kind": "hgb",
+            "max_leaf_nodes": 7,
+            "name": "hgb_l7"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 8.906425857663214e-05,
+            "loso_10": 0.00021288682784875723,
+            "subject_hole_5": 5.381696361295152e-05,
+            "test_boundary_neighbor2_holdout": 0.00013632226437021444,
+            "test_boundary_neighbor5_holdout": 0.00011231985012893908
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.4716991152865676,
+            "loso_10": 0.49015757026282775,
+            "subject_hole_5": 0.489998500398592,
+            "test_boundary_neighbor2_holdout": 0.5054548312897608,
+            "test_boundary_neighbor5_holdout": 0.5118875505956371
+          },
+          "target": "S3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 0
+        },
+        {
+          "config": "S3_id342_evening_state_all_transition_hgb_l7_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.036449376821994624,
+                "id329": -0.10796271582069078
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.47959183673469385,
+                "id329": 0.4387755102040816
+              },
+              "max_abs_movement_vs_id342": 0.0031188711016913173,
+              "max_failed_direction_corr": -0.036449376821994624,
+              "mean_abs_movement_vs_id342": 0.00019071557588525338
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.185121178718805,
+                "id329": -0.27584810346414096
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4533333333333333,
+                "id329": 0.42444444444444446
+              },
+              "max_abs_movement_vs_id342": 0.004084479962965092,
+              "max_failed_direction_corr": -0.185121178718805,
+              "mean_abs_movement_vs_id342": 0.0013884523115529912
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": -0.007089268818700266,
+                "id329": -0.10935360884063194
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4777777777777778,
+                "id329": 0.4444444444444444
+              },
+              "max_abs_movement_vs_id342": 0.0033297051828102275,
+              "max_failed_direction_corr": -0.007089268818700266,
+              "mean_abs_movement_vs_id342": 0.0007508996206128108
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.011192240128212213,
+                "id329": -0.06868977593516955
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4878048780487805,
+                "id329": 0.4634146341463415
+              },
+              "max_abs_movement_vs_id342": 0.0033110498953651257,
+              "max_failed_direction_corr": -0.011192240128212213,
+              "mean_abs_movement_vs_id342": 0.00016844993762973174
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.03603927859445274,
+                "id329": -0.0605610697516453
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.45930232558139533,
+                "id329": 0.45348837209302323
+              },
+              "max_abs_movement_vs_id342": 0.003022919747118158,
+              "max_failed_direction_corr": 0.03603927859445274,
+              "mean_abs_movement_vs_id342": 0.0003439040295051358
+            }
+          },
+          "eligible": false,
+          "feature_count": 520,
+          "feature_family": "all_transition",
+          "max_delta": 0.0003108018967920567,
+          "max_failed_direction_corr": 0.03603927859445274,
+          "mean_delta": 0.00012993585737935964,
+          "min_delta": 5.230862477800802e-05,
+          "model_spec": {
+            "c_value": null,
+            "kind": "hgb",
+            "max_leaf_nodes": 7,
+            "name": "hgb_l7"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.00012363875009918646,
+            "loso_10": 0.0003108018967920567,
+            "subject_hole_5": 7.56197397807079e-05,
+            "test_boundary_neighbor2_holdout": 5.230862477800802e-05,
+            "test_boundary_neighbor5_holdout": 8.731027544683911e-05
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.47173368977809016,
+            "loso_10": 0.49025548533177105,
+            "subject_hole_5": 0.49002030317475975,
+            "test_boundary_neighbor2_holdout": 0.5053708176501686,
+            "test_boundary_neighbor5_holdout": 0.511862541020955
+          },
+          "target": "S3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 0
+        },
+        {
+          "config": "S3_id342_evening_state_s3_settling_sol_lr_c0_10_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.039078850676249874,
+                "id329": -0.06843858112632352
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5510204081632653,
+                "id329": 0.5510204081632653
+              },
+              "max_abs_movement_vs_id342": 0.003893906093704852,
+              "max_failed_direction_corr": -0.039078850676249874,
+              "mean_abs_movement_vs_id342": 0.0002684419633887151
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.04192355117458407,
+                "id329": -0.11551310392445172
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.49333333333333335,
+                "id329": 0.47333333333333333
+              },
+              "max_abs_movement_vs_id342": 0.004732143288485702,
+              "max_failed_direction_corr": -0.04192355117458407,
+              "mean_abs_movement_vs_id342": 0.0015335999014006142
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": 0.0315754700864458,
+                "id329": -0.01408430964592824
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.54,
+                "id329": 0.5377777777777778
+              },
+              "max_abs_movement_vs_id342": 0.004427114510508368,
+              "max_failed_direction_corr": 0.0315754700864458,
+              "mean_abs_movement_vs_id342": 0.0011626373426868164
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.05962435595987756,
+                "id329": -0.06284927666759106
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5487804878048781,
+                "id329": 0.5975609756097561
+              },
+              "max_abs_movement_vs_id342": 0.0037316124637868375,
+              "max_failed_direction_corr": -0.05962435595987756,
+              "mean_abs_movement_vs_id342": 0.0002071053351223671
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.06628316895536887,
+                "id329": 0.0376038578569631
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.563953488372093,
+                "id329": 0.5465116279069767
+              },
+              "max_abs_movement_vs_id342": 0.004261055612387654,
+              "max_failed_direction_corr": 0.06628316895536887,
+              "mean_abs_movement_vs_id342": 0.00043777958134680144
+            }
+          },
+          "eligible": false,
+          "feature_count": 323,
+          "feature_family": "s3_settling_sol",
+          "max_delta": 0.0004407747847581245,
+          "max_failed_direction_corr": 0.06628316895536887,
+          "mean_delta": 0.00014025640825003903,
+          "min_delta": -0.00010448561634107678,
+          "model_spec": {
+            "c_value": 0.1,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_10"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.0003653714509968542,
+            "loso_10": 8.905370626000053e-05,
+            "subject_hole_5": -0.00010448561634107678,
+            "test_boundary_neighbor2_holdout": 0.0004407747847581245,
+            "test_boundary_neighbor5_holdout": -8.943228442370721e-05
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.4719754224789878,
+            "loso_10": 0.490033737141239,
+            "subject_hole_5": 0.48984019781863797,
+            "test_boundary_neighbor2_holdout": 0.5057592838101487,
+            "test_boundary_neighbor5_holdout": 0.5116857984610844
+          },
+          "target": "S3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 2
+        },
+        {
+          "config": "S3_id342_evening_state_all_transition_lr_c0_30_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.01588476448642226,
+                "id329": -0.012159142073301156
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5816326530612245,
+                "id329": 0.5408163265306123
+              },
+              "max_abs_movement_vs_id342": 0.0043155266125938785,
+              "max_failed_direction_corr": 0.01588476448642226,
+              "mean_abs_movement_vs_id342": 0.00033131318975254903
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.006118074686728574,
+                "id329": -0.07478501470647574
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.54,
+                "id329": 0.5244444444444445
+              },
+              "max_abs_movement_vs_id342": 0.00473371890614438,
+              "max_failed_direction_corr": -0.006118074686728574,
+              "mean_abs_movement_vs_id342": 0.001829215387613195
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": 0.09229364437998362,
+                "id329": 0.08822675610502659
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5355555555555556,
+                "id329": 0.5466666666666666
+              },
+              "max_abs_movement_vs_id342": 0.0047346475236902386,
+              "max_failed_direction_corr": 0.09229364437998362,
+              "mean_abs_movement_vs_id342": 0.0013870039559320216
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.012705679454018744,
+                "id329": -0.003841207751061232
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.573170731707317,
+                "id329": 0.524390243902439
+              },
+              "max_abs_movement_vs_id342": 0.0046010379194246775,
+              "max_failed_direction_corr": 0.012705679454018744,
+              "mean_abs_movement_vs_id342": 0.00027241815750176534
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.13908666793674299,
+                "id329": 0.10923522419505113
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.6569767441860465,
+                "id329": 0.6395348837209303
+              },
+              "max_abs_movement_vs_id342": 0.00451264934465645,
+              "max_failed_direction_corr": 0.13908666793674299,
+              "mean_abs_movement_vs_id342": 0.0005303802322452582
+            }
+          },
+          "eligible": false,
+          "feature_count": 520,
+          "feature_family": "all_transition",
+          "max_delta": 0.0006337259270125517,
+          "max_failed_direction_corr": 0.13908666793674299,
+          "mean_delta": 0.00014142483452035394,
+          "min_delta": -0.00022312590493211992,
+          "model_spec": {
+            "c_value": 0.3,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_30"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.0006337259270125517,
+            "loso_10": 0.0004368693563282511,
+            "subject_hole_5": -7.094078423447447e-05,
+            "test_boundary_neighbor2_holdout": -6.940442157243876e-05,
+            "test_boundary_neighbor5_holdout": -0.00022312590493211992
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.4722437769550035,
+            "loso_10": 0.49038155279130724,
+            "subject_hole_5": 0.48987374265074457,
+            "test_boundary_neighbor2_holdout": 0.5052491046038181,
+            "test_boundary_neighbor5_holdout": 0.511552104840576
+          },
+          "target": "S3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 3
+        },
+        {
+          "config": "S3_id342_evening_state_s3_settling_sol_lr_c0_30_w0.01",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.0434940176956384,
+                "id329": -0.06097296208624697
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5612244897959183,
+                "id329": 0.5408163265306123
+              },
+              "max_abs_movement_vs_id342": 0.008455992941314494,
+              "max_failed_direction_corr": -0.0434940176956384,
+              "mean_abs_movement_vs_id342": 0.0006135668273601482
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.03200222473644644,
+                "id329": -0.10056816949613893
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5044444444444445,
+                "id329": 0.48
+              },
+              "max_abs_movement_vs_id342": 0.009633091681351513,
+              "max_failed_direction_corr": -0.03200222473644644,
+              "mean_abs_movement_vs_id342": 0.003369499543435962
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": 0.04141956146092769,
+                "id329": 0.0011184942486162763
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5555555555555556,
+                "id329": 0.5488888888888889
+              },
+              "max_abs_movement_vs_id342": 0.00947361183245754,
+              "max_failed_direction_corr": 0.04141956146092769,
+              "mean_abs_movement_vs_id342": 0.002667526733801613
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.056622161275993725,
+                "id329": -0.05826386370038694
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5487804878048781,
+                "id329": 0.5487804878048781
+              },
+              "max_abs_movement_vs_id342": 0.008441751639718581,
+              "max_failed_direction_corr": -0.056622161275993725,
+              "mean_abs_movement_vs_id342": 0.0004800549939837465
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.08201769784669656,
+                "id329": 0.05092220337996897
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.563953488372093,
+                "id329": 0.5581395348837209
+              },
+              "max_abs_movement_vs_id342": 0.00885045294085729,
+              "max_failed_direction_corr": 0.08201769784669656,
+              "mean_abs_movement_vs_id342": 0.0010038017610333244
+            }
+          },
+          "eligible": false,
+          "feature_count": 323,
+          "feature_family": "s3_settling_sol",
+          "max_delta": 0.0007859188504047432,
+          "max_failed_direction_corr": 0.08201769784669656,
+          "mean_delta": 0.00014247991312466013,
+          "min_delta": -0.000539083097314208,
+          "model_spec": {
+            "c_value": 0.3,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_30"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.0007859188504047432,
+            "loso_10": 0.00017722616308429862,
+            "subject_hole_5": -0.00034001211097711703,
+            "test_boundary_neighbor2_holdout": 0.0006283497604255839,
+            "test_boundary_neighbor5_holdout": -0.000539083097314208
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.4723959698783957,
+            "loso_10": 0.4901219095980633,
+            "subject_hole_5": 0.4896046713240019,
+            "test_boundary_neighbor2_holdout": 0.5059468587858161,
+            "test_boundary_neighbor5_holdout": 0.5112361476481939
+          },
+          "target": "S3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.01,
+          "wins": 2
+        },
+        {
+          "config": "S3_id342_evening_state_q3_arousal_usage_lr_c0_30_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": -0.014250669440983414,
+                "id329": -0.03691158725689094
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5612244897959183,
+                "id329": 0.5816326530612245
+              },
+              "max_abs_movement_vs_id342": 0.004404058899158042,
+              "max_failed_direction_corr": -0.014250669440983414,
+              "mean_abs_movement_vs_id342": 0.00032504227988228336
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.022500650436071242,
+                "id329": -0.07027874292357066
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5155555555555555,
+                "id329": 0.5222222222222223
+              },
+              "max_abs_movement_vs_id342": 0.004725512533960252,
+              "max_failed_direction_corr": -0.022500650436071242,
+              "mean_abs_movement_vs_id342": 0.0017593539693663979
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": 0.09677546813394762,
+                "id329": 0.09415109119694172
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5555555555555556,
+                "id329": 0.5577777777777778
+              },
+              "max_abs_movement_vs_id342": 0.0047233312795670335,
+              "max_failed_direction_corr": 0.09677546813394762,
+              "mean_abs_movement_vs_id342": 0.0013444212109284316
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.02516506158249363,
+                "id329": 0.021734958150497346
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5975609756097561,
+                "id329": 0.5487804878048781
+              },
+              "max_abs_movement_vs_id342": 0.004664405459845367,
+              "max_failed_direction_corr": 0.02516506158249363,
+              "mean_abs_movement_vs_id342": 0.0002549026121918405
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.1399053154370527,
+                "id329": 0.11298410732445249
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.6802325581395349,
+                "id329": 0.6627906976744186
+              },
+              "max_abs_movement_vs_id342": 0.004493116499141081,
+              "max_failed_direction_corr": 0.1399053154370527,
+              "mean_abs_movement_vs_id342": 0.0005435734682755038
+            }
+          },
+          "eligible": false,
+          "feature_count": 456,
+          "feature_family": "q3_arousal_usage",
+          "max_delta": 0.0007059854511550778,
+          "max_failed_direction_corr": 0.1399053154370527,
+          "mean_delta": 0.00015194864992597036,
+          "min_delta": -0.0001547304708656716,
+          "model_spec": {
+            "c_value": 0.3,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_30"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.0007059854511550778,
+            "loso_10": 0.0002293632263736245,
+            "subject_hole_5": -5.4646866762486646e-05,
+            "test_boundary_neighbor2_holdout": 3.377190972930766e-05,
+            "test_boundary_neighbor5_holdout": -0.0001547304708656716
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.47231603647914605,
+            "loso_10": 0.4901740466613526,
+            "subject_hole_5": 0.48989003656821656,
+            "test_boundary_neighbor2_holdout": 0.5053522809351199,
+            "test_boundary_neighbor5_holdout": 0.5116205002746425
+          },
+          "target": "S3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 2
+        },
+        {
+          "config": "S3_id342_evening_state_all_transition_lr_c0_10_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.02876101673669982,
+                "id329": -0.006878438412039541
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.6020408163265306,
+                "id329": 0.5612244897959183
+              },
+              "max_abs_movement_vs_id342": 0.004170092275392445,
+              "max_failed_direction_corr": 0.02876101673669982,
+              "mean_abs_movement_vs_id342": 0.0002876147496688922
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.011925085158169289,
+                "id329": -0.09330290248616942
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5088888888888888,
+                "id329": 0.48444444444444446
+              },
+              "max_abs_movement_vs_id342": 0.004685071284383335,
+              "max_failed_direction_corr": -0.011925085158169289,
+              "mean_abs_movement_vs_id342": 0.0016446977361207768
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": 0.09502480552152757,
+                "id329": 0.07629758142834378
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5288888888888889,
+                "id329": 0.5311111111111111
+              },
+              "max_abs_movement_vs_id342": 0.004687196701586793,
+              "max_failed_direction_corr": 0.09502480552152757,
+              "mean_abs_movement_vs_id342": 0.001212039693761736
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.0035616605123891024,
+                "id329": -0.009224920436672345
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5365853658536586,
+                "id329": 0.5121951219512195
+              },
+              "max_abs_movement_vs_id342": 0.004270096144994517,
+              "max_failed_direction_corr": 0.0035616605123891024,
+              "mean_abs_movement_vs_id342": 0.00023530964898634435
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.1462361916538722,
+                "id329": 0.11207588133169254
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.6046511627906976,
+                "id329": 0.5755813953488372
+              },
+              "max_abs_movement_vs_id342": 0.0044767173866835375,
+              "max_failed_direction_corr": 0.1462361916538722,
+              "mean_abs_movement_vs_id342": 0.00046511352083474574
+            }
+          },
+          "eligible": false,
+          "feature_count": 520,
+          "feature_family": "all_transition",
+          "max_delta": 0.0005020174585146364,
+          "max_failed_direction_corr": 0.1462361916538722,
+          "mean_delta": 0.00016168174238707645,
+          "min_delta": -0.0001039237468105636,
+          "model_spec": {
+            "c_value": 0.1,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_10"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.0005020174585146364,
+            "loso_10": 0.0003186362693821665,
+            "subject_hole_5": -4.1718981489968776e-05,
+            "test_boundary_neighbor2_holdout": 0.00013339771233911168,
+            "test_boundary_neighbor5_holdout": -0.0001039237468105636
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.4721120684865056,
+            "loso_10": 0.49026331970436116,
+            "subject_hole_5": 0.4899029644534891,
+            "test_boundary_neighbor2_holdout": 0.5054519067377297,
+            "test_boundary_neighbor5_holdout": 0.5116713069986976
+          },
+          "target": "S3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 2
+        },
+        {
+          "config": "S3_id342_evening_state_q3_arousal_usage_lr_c0_10_w0.005",
+          "direction_metrics": {
+            "actual_test_band_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.003689356745613021,
+                "id329": -0.02682569476179461
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.6428571428571429,
+                "id329": 0.6020408163265306
+              },
+              "max_abs_movement_vs_id342": 0.004184925913033044,
+              "max_failed_direction_corr": 0.003689356745613021,
+              "mean_abs_movement_vs_id342": 0.0002791094572686424
+            },
+            "loso_10": {
+              "failed_direction_corr": {
+                "id287": -0.03220170714192204,
+                "id329": -0.09815981578588315
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.4955555555555556,
+                "id329": 0.49333333333333335
+              },
+              "max_abs_movement_vs_id342": 0.0046383127716879136,
+              "max_failed_direction_corr": -0.03220170714192204,
+              "mean_abs_movement_vs_id342": 0.0015634901017721663
+            },
+            "subject_hole_5": {
+              "failed_direction_corr": {
+                "id287": 0.10022177036638512,
+                "id329": 0.08312618404407954
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5266666666666666,
+                "id329": 0.52
+              },
+              "max_abs_movement_vs_id342": 0.004617131098678673,
+              "max_failed_direction_corr": 0.10022177036638512,
+              "mean_abs_movement_vs_id342": 0.0011620817415423184
+            },
+            "test_boundary_neighbor2_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.018570590430437333,
+                "id329": 0.009431464459651229
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.5,
+                "id329": 0.47560975609756095
+              },
+              "max_abs_movement_vs_id342": 0.0042195223498752155,
+              "max_failed_direction_corr": 0.018570590430437333,
+              "mean_abs_movement_vs_id342": 0.00022143737420880102
+            },
+            "test_boundary_neighbor5_holdout": {
+              "failed_direction_corr": {
+                "id287": 0.14094184067970975,
+                "id329": 0.10393640555720762
+              },
+              "failed_direction_sign_agreement": {
+                "id287": 0.627906976744186,
+                "id329": 0.622093023255814
+              },
+              "max_abs_movement_vs_id342": 0.004403977287013139,
+              "max_failed_direction_corr": 0.14094184067970975,
+              "mean_abs_movement_vs_id342": 0.00047534234615113387
+            }
+          },
+          "eligible": false,
+          "feature_count": 456,
+          "feature_family": "q3_arousal_usage",
+          "max_delta": 0.0005915863602080629,
+          "max_failed_direction_corr": 0.14094184067970975,
+          "mean_delta": 0.0001784250184477143,
+          "min_delta": -4.704661784160624e-05,
+          "model_spec": {
+            "c_value": 0.1,
+            "kind": "lr",
+            "max_leaf_nodes": null,
+            "name": "lr_c0_10"
+          },
+          "split_anchor_losses": {
+            "actual_test_band_holdout": 0.471610051027991,
+            "loso_10": 0.489944683434979,
+            "subject_hole_5": 0.48994468343497904,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081
+          },
+          "split_deltas": {
+            "actual_test_band_holdout": 0.0005915863602080629,
+            "loso_10": 0.00019393086339708487,
+            "subject_hole_5": -2.4481249442043218e-05,
+            "test_boundary_neighbor2_holdout": 0.0001781357359170732,
+            "test_boundary_neighbor5_holdout": -4.704661784160624e-05
+          },
+          "split_losses": {
+            "actual_test_band_holdout": 0.47220163738819904,
+            "loso_10": 0.4901386142983761,
+            "subject_hole_5": 0.489920202185537,
+            "test_boundary_neighbor2_holdout": 0.5054966447613076,
+            "test_boundary_neighbor5_holdout": 0.5117281841276665
+          },
+          "target": "S3",
+          "valid_counts": {
+            "actual_test_band_holdout": 98,
+            "loso_10": 450,
+            "subject_hole_5": 450,
+            "test_boundary_neighbor2_holdout": 82,
+            "test_boundary_neighbor5_holdout": 172
+          },
+          "weight": 0.005,
+          "wins": 2
+        }
+      ]
+    }
+  },
+  "validation": {
+    "blend_weights": [
+      0.005,
+      0.01,
+      0.02,
+      0.03,
+      0.05
+    ],
+    "failed_frontier_ids": [
+      287,
+      329
+    ],
+    "max_failed_direction_corr": 0.8,
+    "model_specs": [
+      {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      {
+        "c_value": 0.3,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_30"
+      },
+      {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      }
+    ],
+    "primary_splits": [
+      "subject_hole_5",
+      "actual_test_band_holdout",
+      "test_boundary_neighbor2_holdout",
+      "test_boundary_neighbor5_holdout",
+      "loso_10"
+    ],
+    "target_max_delta_ceiling": 0.00075,
+    "target_mean_delta_ceiling": -5e-05,
+    "target_win_floor": 4
+  }
+}

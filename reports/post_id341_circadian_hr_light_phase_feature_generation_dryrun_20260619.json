@@ -1,0 +1,400 @@
+{
+  "created_at_kst": "2026-06-19 09:17:00 UTC+09:00",
+  "diagnostic": "post_id341_circadian_hr_light_phase_feature_generation_dryrun",
+  "report_only": true,
+  "source_family": "circadian_hr_light_phase_shape_v1",
+  "inputs": {
+    "feature_spec_report": {
+      "path": "reports/post_id341_circadian_hr_light_phase_feature_spec_20260619.json",
+      "exists": true,
+      "feature_spec_ready": true,
+      "next_local_allowed_step": "report_only_feature_generation_dryrun_no_matrix"
+    },
+    "raw_sources": {
+      "wHr": "data/raw/ch2025_data_items/ch2025_wHr.parquet",
+      "wLight": "data/raw/ch2025_data_items/ch2025_wLight.parquet",
+      "mLight": "data/raw/ch2025_data_items/ch2025_mLight.parquet",
+      "wPedo": "data/raw/ch2025_data_items/ch2025_wPedo.parquet"
+    }
+  },
+  "row_alignment": {
+    "expected_rows": 700,
+    "dryrun_rows": 700,
+    "exact_key_alignment": true,
+    "duplicate_keys": 0,
+    "train_rows": 450,
+    "test_rows": 250
+  },
+  "coverage": {
+    "by_split": {
+      "test": {
+        "rows": 250,
+        "strong_phase_shape_rows": 153,
+        "strong_phase_shape_rate": 0.612,
+        "weak_phase_shape_rows": 207,
+        "weak_phase_shape_rate": 0.828,
+        "whr_covered_rate": 0.98,
+        "wlight_covered_rate": 1.0,
+        "mlight_covered_rate": 1.0,
+        "wpedo_covered_rate": 0.996,
+        "median_whr_rows": 593.5,
+        "median_wlight_hours": 24.0,
+        "median_mlight_hours": 24.0,
+        "median_wpedo_hours": 24.0
+      },
+      "train": {
+        "rows": 450,
+        "strong_phase_shape_rows": 253,
+        "strong_phase_shape_rate": 0.5622222222222222,
+        "weak_phase_shape_rows": 337,
+        "weak_phase_shape_rate": 0.7488888888888889,
+        "whr_covered_rate": 0.8688888888888889,
+        "wlight_covered_rate": 0.92,
+        "mlight_covered_rate": 1.0,
+        "wpedo_covered_rate": 0.8977777777777778,
+        "median_whr_rows": 583.0,
+        "median_wlight_hours": 24.0,
+        "median_mlight_hours": 24.0,
+        "median_wpedo_hours": 23.0
+      }
+    }
+  },
+  "feature_columns": {
+    "feature_column_count": 48,
+    "max_allowed_first_dryrun_columns": 56,
+    "within_first_dryrun_bound": true,
+    "missing_declared_features": [],
+    "extra_features": [],
+    "all_values_finite": true,
+    "features": [
+      "phase_strong_day_flag",
+      "phase_weak_day_flag",
+      "whr_rows",
+      "whr_hours",
+      "wlight_hours",
+      "mlight_hours",
+      "wpedo_hours",
+      "phase_missing_source_count",
+      "hr_night_median",
+      "hr_morning_median",
+      "hr_afternoon_median",
+      "hr_evening_median",
+      "hr_day_night_amplitude",
+      "hr_morning_rise_slope",
+      "hr_evening_decay_slope",
+      "hr_curve_roughness",
+      "hr_rest_window_low_quantile",
+      "hr_high_load_minutes_proxy",
+      "wlight_first_nonzero_hour",
+      "wlight_last_nonzero_hour",
+      "wlight_morning_exposure_sum",
+      "wlight_afternoon_exposure_sum",
+      "wlight_evening_exposure_sum",
+      "wlight_night_exposure_sum",
+      "wlight_day_night_contrast",
+      "wlight_evening_delay_ratio",
+      "mlight_dark_minutes_proxy",
+      "mlight_longest_dark_gap_hours",
+      "mlight_night_light_burst_count",
+      "mlight_evening_light_share",
+      "mlight_morning_light_share",
+      "mlight_wearable_light_disagreement",
+      "steps_morning_sum",
+      "steps_afternoon_sum",
+      "steps_evening_sum",
+      "steps_night_sum",
+      "first_active_hour",
+      "last_active_hour",
+      "activity_fragmentation_count",
+      "late_activity_ratio",
+      "rest_window_length_proxy",
+      "activity_phase_centroid_hour",
+      "hr_light_phase_lag_proxy",
+      "activity_light_phase_lag_proxy",
+      "night_light_with_high_hr_minutes_proxy",
+      "evening_activity_with_bright_light_proxy",
+      "morning_light_without_activity_proxy",
+      "strong_phase_cross_modal_consistency_score"
+    ]
+  },
+  "value_ranges": {
+    "phase_strong_day_flag": {
+      "min": 0.0,
+      "median": 1.0,
+      "max": 1.0
+    },
+    "phase_weak_day_flag": {
+      "min": 0.0,
+      "median": 1.0,
+      "max": 1.0
+    },
+    "whr_rows": {
+      "min": 0.0,
+      "median": 588.5,
+      "max": 1366.0
+    },
+    "whr_hours": {
+      "min": 0.0,
+      "median": 12.5,
+      "max": 24.0
+    },
+    "wlight_hours": {
+      "min": 0.0,
+      "median": 24.0,
+      "max": 24.0
+    },
+    "mlight_hours": {
+      "min": 7.0,
+      "median": 24.0,
+      "max": 24.0
+    },
+    "wpedo_hours": {
+      "min": 0.0,
+      "median": 23.0,
+      "max": 24.0
+    },
+    "phase_missing_source_count": {
+      "min": 0.0,
+      "median": 0.0,
+      "max": 3.0
+    },
+    "hr_night_median": {
+      "min": 0.0,
+      "median": 0.0,
+      "max": 240.0
+    },
+    "hr_morning_median": {
+      "min": 0.0,
+      "median": 82.0625,
+      "max": 203.0
+    },
+    "hr_afternoon_median": {
+      "min": 0.0,
+      "median": 84.20487288135594,
+      "max": 156.0
+    },
+    "hr_evening_median": {
+      "min": 0.0,
+      "median": 85.43333333333334,
+      "max": 181.6
+    },
+    "hr_day_night_amplitude": {
+      "min": 0.0,
+      "median": 83.44871794871796,
+      "max": 181.6
+    },
+    "hr_morning_rise_slope": {
+      "min": -211.0,
+      "median": 40.091071428571425,
+      "max": 135.4310344827586
+    },
+    "hr_evening_decay_slope": {
+      "min": -156.0,
+      "median": 0.0,
+      "max": 156.0
+    },
+    "hr_curve_roughness": {
+      "min": 0.0,
+      "median": 91.87330172181868,
+      "max": 346.0
+    },
+    "hr_rest_window_low_quantile": {
+      "min": 0.0,
+      "median": 68.0,
+      "max": 156.0
+    },
+    "hr_high_load_minutes_proxy": {
+      "min": 0.0,
+      "median": 132.0,
+      "max": 909.0
+    },
+    "wlight_first_nonzero_hour": {
+      "min": 0.0,
+      "median": 5.0,
+      "max": 19.0
+    },
+    "wlight_last_nonzero_hour": {
+      "min": 0.0,
+      "median": 23.0,
+      "max": 23.0
+    },
+    "wlight_morning_exposure_sum": {
+      "min": 0.0,
+      "median": 39644.5,
+      "max": 901992.0
+    },
+    "wlight_afternoon_exposure_sum": {
+      "min": 0.0,
+      "median": 72110.0,
+      "max": 1051531.0
+    },
+    "wlight_evening_exposure_sum": {
+      "min": 0.0,
+      "median": 8895.0,
+      "max": 100905.0
+    },
+    "wlight_night_exposure_sum": {
+      "min": 0.0,
+      "median": 0.0,
+      "max": 44018.0
+    },
+    "wlight_day_night_contrast": {
+      "min": -0.999922311995028,
+      "median": 0.9992282518750539,
+      "max": 0.9999992359109622
+    },
+    "wlight_evening_delay_ratio": {
+      "min": 0.0,
+      "median": 0.07140615290561277,
+      "max": 0.999889770723104
+    },
+    "mlight_dark_minutes_proxy": {
+      "min": 0.0,
+      "median": 620.0,
+      "max": 1370.0
+    },
+    "mlight_longest_dark_gap_hours": {
+      "min": 0.0,
+      "median": 6.416666666666666,
+      "max": 22.666666666666668
+    },
+    "mlight_night_light_burst_count": {
+      "min": 0.0,
+      "median": 1.0,
+      "max": 36.0
+    },
+    "mlight_evening_light_share": {
+      "min": 0.0,
+      "median": 0.1555838620564559,
+      "max": 0.9414381022979985
+    },
+    "mlight_morning_light_share": {
+      "min": 0.0,
+      "median": 0.2863069606677101,
+      "max": 0.9997648211318447
+    },
+    "mlight_wearable_light_disagreement": {
+      "min": 0.0,
+      "median": 0.09298701963275063,
+      "max": 0.9237743717148235
+    },
+    "steps_morning_sum": {
+      "min": 0.0,
+      "median": 823.0,
+      "max": 8033.0
+    },
+    "steps_afternoon_sum": {
+      "min": 0.0,
+      "median": 1487.0,
+      "max": 11568.0
+    },
+    "steps_evening_sum": {
+      "min": 0.0,
+      "median": 378.5,
+      "max": 11117.0
+    },
+    "steps_night_sum": {
+      "min": 0.0,
+      "median": 0.0,
+      "max": 3115.0
+    },
+    "first_active_hour": {
+      "min": 0.0,
+      "median": 7.0,
+      "max": 21.0
+    },
+    "last_active_hour": {
+      "min": 0.0,
+      "median": 19.0,
+      "max": 23.0
+    },
+    "activity_fragmentation_count": {
+      "min": 0.0,
+      "median": 39.0,
+      "max": 124.0
+    },
+    "late_activity_ratio": {
+      "min": 0.0,
+      "median": 0.11682918466830958,
+      "max": 0.9997994384275972
+    },
+    "rest_window_length_proxy": {
+      "min": 0.0,
+      "median": 13.0,
+      "max": 24.0
+    },
+    "activity_phase_centroid_hour": {
+      "min": 0.0,
+      "median": 13.215486673583836,
+      "max": 22.136904761904763
+    },
+    "hr_light_phase_lag_proxy": {
+      "min": 0.0,
+      "median": 0.07195360740441788,
+      "max": 0.7813174164693502
+    },
+    "activity_light_phase_lag_proxy": {
+      "min": 0.0,
+      "median": 0.05581834838665385,
+      "max": 0.7813174164693502
+    },
+    "night_light_with_high_hr_minutes_proxy": {
+      "min": 0.0,
+      "median": 0.0,
+      "max": 10.550433714195359
+    },
+    "evening_activity_with_bright_light_proxy": {
+      "min": 0.0,
+      "median": 53.10658081299095,
+      "max": 95.94850421006032
+    },
+    "morning_light_without_activity_proxy": {
+      "min": 0.0,
+      "median": 1.363750890252923,
+      "max": 13.338657927766377
+    },
+    "strong_phase_cross_modal_consistency_score": {
+      "min": 0.0,
+      "median": 0.7967326598736668,
+      "max": 0.9976187403989396
+    }
+  },
+  "safety_contract": {
+    "feature_matrix_written": false,
+    "feature_parquet_written": false,
+    "predictions_created": false,
+    "submission_csv_created": false,
+    "submission_log_modified": false,
+    "model_trained": false,
+    "kaggle_run_executed": false,
+    "dacon_submission_executed": false,
+    "uses_target_labels": false,
+    "uses_oof_predictions": false,
+    "uses_public_scores": false
+  },
+  "decision": {
+    "dryrun_passed": true,
+    "source_family": "circadian_hr_light_phase_shape_v1",
+    "target_focus": [
+      "Q3",
+      "S3",
+      "S2"
+    ],
+    "row_alignment_exact": true,
+    "feature_column_bound_passed": true,
+    "feature_column_count": 48,
+    "train_strong_phase_shape_rate": 0.5622222222222222,
+    "test_strong_phase_shape_rate": 0.612,
+    "train_weak_phase_shape_rate": 0.7488888888888889,
+    "test_weak_phase_shape_rate": 0.828,
+    "next_local_allowed_step": "report_only_feature_matrix_smoke_contract",
+    "feature_matrix_allowed_now": false,
+    "train_model_now": false,
+    "public_058_evidence": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Circadian feature dry run passed. The next no-approval step may only be a separate report-only feature-matrix smoke contract; no matrix write, model, ID342, Kaggle run, or DACON submission is allowed."
+  }
+}

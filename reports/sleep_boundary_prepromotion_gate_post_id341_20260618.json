@@ -1,0 +1,244 @@
+{
+  "created_at_kst": "2026-06-18 04:46:51 UTC+09:00",
+  "diagnostic": "sleep_boundary_prepromotion_gate_post_id341",
+  "purpose": "Decide whether the best low-movement sleep-boundary v3 row is strong enough for artifact promotion.",
+  "inputs": {
+    "v3_scale_scan": "reports/sleep_boundary_transition_v3_scale_scan_post_id341_20260618.json"
+  },
+  "candidate_slug": "id341_sleep_boundary_v3_scale005_q1_s1_s2_s4_micro",
+  "candidate_scale": 0.05,
+  "effective_weights": {
+    "Q1": 0.0025000000000000005,
+    "S1": 0.0015,
+    "S2": 0.005000000000000001,
+    "S4": 0.005000000000000001
+  },
+  "selected_target_configs": {
+    "Q1": {
+      "target": "Q1",
+      "model": "hgb_l5_l2_2",
+      "model_spec": {
+        "name": "hgb_l5_l2_2",
+        "kind": "hgb",
+        "c_value": null,
+        "max_iter": 70,
+        "max_leaf_nodes": 5,
+        "l2_regularization": 2.0
+      },
+      "anchor": "id178",
+      "weight": 0.05,
+      "candidate": "Q1_id178_hgb_l5_l2_2_w0.05",
+      "primary_wins_vs_id341": 4,
+      "mean_delta_vs_id341": -0.002108506476166827,
+      "min_delta_vs_id341": -0.006214597883495321,
+      "max_delta_vs_id341": 8.561712050259018e-05,
+      "split_deltas_vs_id341": {
+        "subject_hole_5": 8.561712050259018e-05,
+        "actual_test_band_holdout": -0.0009780686174335473,
+        "test_boundary_neighbor2_holdout": -0.006214597883495321,
+        "test_boundary_neighbor5_holdout": -0.0024098906657009644,
+        "loso_10": -0.001025592334706893
+      },
+      "split_losses": {
+        "subject_hole_5": 0.5520013357743488,
+        "actual_test_band_holdout": 0.5299592318114125,
+        "test_boundary_neighbor2_holdout": 0.585141654707949,
+        "test_boundary_neighbor5_holdout": 0.5467307928827867,
+        "loso_10": 0.5508901263191394
+      }
+    },
+    "S1": {
+      "target": "S1",
+      "model": "lr_c0_2",
+      "model_spec": {
+        "name": "lr_c0_2",
+        "kind": "lr",
+        "c_value": 0.2,
+        "max_iter": null,
+        "max_leaf_nodes": null,
+        "l2_regularization": null
+      },
+      "anchor": "id178",
+      "weight": 0.03,
+      "candidate": "S1_id178_lr_c0_2_w0.03",
+      "primary_wins_vs_id341": 4,
+      "mean_delta_vs_id341": -0.0014815385466301566,
+      "min_delta_vs_id341": -0.0035436558064434465,
+      "max_delta_vs_id341": 0.0005650110834438671,
+      "split_deltas_vs_id341": {
+        "subject_hole_5": -0.0016553097465476507,
+        "actual_test_band_holdout": -0.0008815612826073571,
+        "test_boundary_neighbor2_holdout": -0.0018921769809961964,
+        "test_boundary_neighbor5_holdout": -0.0035436558064434465,
+        "loso_10": 0.0005650110834438671
+      },
+      "split_losses": {
+        "subject_hole_5": 0.4699751371950927,
+        "actual_test_band_holdout": 0.4644942025465667,
+        "test_boundary_neighbor2_holdout": 0.5336882079988338,
+        "test_boundary_neighbor5_holdout": 0.5113580924919643,
+        "loso_10": 0.4721954580250842
+      }
+    },
+    "S2": {
+      "target": "S2",
+      "model": "lr_c0_05",
+      "model_spec": {
+        "name": "lr_c0_05",
+        "kind": "lr",
+        "c_value": 0.05,
+        "max_iter": null,
+        "max_leaf_nodes": null,
+        "l2_regularization": null
+      },
+      "anchor": "id178",
+      "weight": 0.1,
+      "candidate": "S2_id178_lr_c0_05_w0.1",
+      "primary_wins_vs_id341": 4,
+      "mean_delta_vs_id341": -0.00246033810834545,
+      "min_delta_vs_id341": -0.005733341342940457,
+      "max_delta_vs_id341": 0.00029911400460180815,
+      "split_deltas_vs_id341": {
+        "subject_hole_5": -0.0002349682295833544,
+        "actual_test_band_holdout": -0.0014946352284876951,
+        "test_boundary_neighbor2_holdout": -0.005733341342940457,
+        "test_boundary_neighbor5_holdout": -0.005137859745317552,
+        "loso_10": 0.00029911400460180815
+      },
+      "split_losses": {
+        "subject_hole_5": 0.5293211645178906,
+        "actual_test_band_holdout": 0.5499917066642042,
+        "test_boundary_neighbor2_holdout": 0.5680985863094186,
+        "test_boundary_neighbor5_holdout": 0.5481165141029148,
+        "loso_10": 0.5298552467520758
+      }
+    },
+    "S4": {
+      "target": "S4",
+      "model": "lr_c0_05",
+      "model_spec": {
+        "name": "lr_c0_05",
+        "kind": "lr",
+        "c_value": 0.05,
+        "max_iter": null,
+        "max_leaf_nodes": null,
+        "l2_regularization": null
+      },
+      "anchor": "id178",
+      "weight": 0.1,
+      "candidate": "S4_id178_lr_c0_05_w0.1",
+      "primary_wins_vs_id341": 5,
+      "mean_delta_vs_id341": -0.004967936425663955,
+      "min_delta_vs_id341": -0.011499736628970414,
+      "max_delta_vs_id341": -0.0006205919985425856,
+      "split_deltas_vs_id341": {
+        "subject_hole_5": -0.005184594969692924,
+        "actual_test_band_holdout": -0.011499736628970414,
+        "test_boundary_neighbor2_holdout": -0.0028362313318133214,
+        "test_boundary_neighbor5_holdout": -0.004698527199300528,
+        "loso_10": -0.0006205919985425856
+      },
+      "split_losses": {
+        "subject_hole_5": 0.5975151095168085,
+        "actual_test_band_holdout": 0.6658365312336174,
+        "test_boundary_neighbor2_holdout": 0.6518318984387377,
+        "test_boundary_neighbor5_holdout": 0.6146951689686786,
+        "loso_10": 0.6020791124879588
+      }
+    }
+  },
+  "split_rows": {
+    "subject_hole_5": {
+      "candidate_loss": 0.538511490519561,
+      "id341_loss": 0.538583659924236,
+      "id178_loss": 0.5386377373903545,
+      "delta_vs_id341": -7.21694046749155e-05,
+      "delta_vs_id178": -0.00012624687079343389,
+      "beats_id341": true
+    },
+    "subject_timeseries_5": {
+      "candidate_loss": 0.5396196142627697,
+      "id341_loss": 0.5396878069689024,
+      "id178_loss": 0.5397472162516725,
+      "delta_vs_id341": -6.819270613267481e-05,
+      "delta_vs_id178": -0.0001276019889028257,
+      "beats_id341": true
+    },
+    "actual_test_band_holdout": {
+      "candidate_loss": 0.5413172122595903,
+      "id341_loss": 0.5414645216345798,
+      "id178_loss": 0.5416036568651422,
+      "delta_vs_id341": -0.0001473093749895238,
+      "delta_vs_id178": -0.00028644460555193874,
+      "beats_id341": true
+    },
+    "test_boundary_neighbor2_holdout": {
+      "candidate_loss": 0.5859805394123787,
+      "id341_loss": 0.5861371781640982,
+      "id178_loss": 0.5862898684706096,
+      "delta_vs_id341": -0.00015663875171945119,
+      "delta_vs_id178": -0.0003093290582308894,
+      "beats_id341": true
+    },
+    "test_boundary_neighbor5_holdout": {
+      "candidate_loss": 0.5577663772583936,
+      "id341_loss": 0.557920246831064,
+      "id178_loss": 0.5579861551656572,
+      "delta_vs_id341": -0.00015386957267038426,
+      "delta_vs_id178": -0.00021977790726357416,
+      "beats_id341": true
+    },
+    "loso_10": {
+      "candidate_loss": 0.538536423010554,
+      "id341_loss": 0.538583659924236,
+      "id178_loss": 0.5386377373903545,
+      "delta_vs_id341": -4.723691368191396e-05,
+      "delta_vs_id178": -0.00010131437980043234,
+      "beats_id341": true
+    }
+  },
+  "test_geometry": {
+    "mean_delta_vs_178": 0.0004949368406877534,
+    "max_delta_vs_178": 0.004759073807662384,
+    "mean_delta_vs_329": 0.019323393577359134,
+    "max_delta_vs_329": 0.07919238997096245,
+    "mean_delta_vs_341": 0.000371427536014491,
+    "max_delta_vs_341": 0.004759073807662384,
+    "projection_failed": -0.00017552116441782445,
+    "geometry_proxy": 0.6016972511974908,
+    "local_plus_recent_gap_proxy": 0.601284791419561,
+    "proxy_public_risk": 0.6016972511974908,
+    "beats_id341_proxy": true,
+    "public_058_plausible": false
+  },
+  "public_context": {
+    "public_id178": 0.6014113009,
+    "public_id329": 0.6017908577,
+    "proxy_minus_public_id178": 0.00028595029749090006,
+    "proxy_minus_public_id329": -9.360650250911373e-05,
+    "public_058_gate": 0.59
+  },
+  "gate_checks": {
+    "all_splits_beat_id341": true,
+    "max_delta_vs_341_within_ceiling": true,
+    "mean_delta_vs_341_within_ceiling": true,
+    "failed_projection_non_positive": true,
+    "proxy_below_current_id341_proxy": true,
+    "proxy_below_best_actual_public_anchor_id178": false,
+    "public_058_plausible": false
+  },
+  "decision": {
+    "reviewable_low_movement_feature_lead": true,
+    "promote_submission_artifact": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "why": "The scale-0.05 row is clean as a low-movement feature lead, but its conservative proxy remains above the best actual public anchor ID178 and far above Public 0.58. Keep it as a source lead; do not create ID342 yet.",
+    "next_action": "Use sleep-boundary features inside the upstream/new-source lane, or search for an additional independent source that lowers the proxy below the ID178 public anchor before promotion."
+  },
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_dacon_submission_made": true
+}

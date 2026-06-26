@@ -1,0 +1,469 @@
+{
+  "created_at_kst": "2026-06-24 00:06:40 UTC+09:00",
+  "diagnostic": "post_id338_s3_phone_wearable_weight_geometry_scan",
+  "purpose": "Compare ID338 S3-only phone/wearable overlay weights before any bolder reserve artifact promotion.",
+  "inputs": {
+    "probe_report": "reports/post_id338_material_q3s3_probe_20260623.json",
+    "source_group": "phone_wearable_discordance",
+    "model_spec": {
+      "name": "lr_c0_20",
+      "kind": "lr",
+      "c_value": 0.2
+    },
+    "feature_metadata": {
+      "source_group": "phone_wearable_discordance",
+      "path": "data/processed/post_id341_phone_wearable_discordance_features_v1.parquet",
+      "feature_columns": 85,
+      "train_rows": 450,
+      "test_rows": 250,
+      "train_missing_rate": 0.0,
+      "test_missing_rate": 0.0,
+      "all_train_rows_aligned": true,
+      "all_test_rows_aligned": true
+    }
+  },
+  "rows": [
+    {
+      "target": "S3",
+      "candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.0025",
+      "source_group": "phone_wearable_discordance",
+      "model_spec": {
+        "name": "lr_c0_20",
+        "kind": "lr",
+        "c_value": 0.2
+      },
+      "weight": 0.0025,
+      "probe_summary": {
+        "target": "S3",
+        "source_group": "phone_wearable_discordance",
+        "candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.0025",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.0025,
+        "primary_wins_vs_id338": 4,
+        "mean_delta_vs_id338": -3.248524986702028e-05,
+        "min_delta_vs_id338": -0.00013523105560031556,
+        "max_delta_vs_id338": 2.8550790846071372e-05,
+        "mean_target_movement_vs_id338": 0.00028644164003765224,
+        "max_target_movement_vs_id338": 0.00222559141069556,
+        "mean_failed_projection": 0.0004982711542236495,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": -2.5099502990622025e-05,
+          "actual_test_band_holdout": 2.8550790846071372e-05,
+          "test_boundary_neighbor2_holdout": -1.1121156031190793e-05,
+          "test_boundary_neighbor5_holdout": -0.00013523105560031556,
+          "loso_10": -1.9525325559044404e-05
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.00043309571617343597,
+          "actual_test_band_holdout": 9.464681249163688e-05,
+          "test_boundary_neighbor2_holdout": 6.981066635400063e-05,
+          "test_boundary_neighbor5_holdout": 0.00019017523469640578,
+          "loso_10": 0.0006444797704727821
+        }
+      },
+      "source_prediction_mean": 0.6404835688565824,
+      "source_prediction_min": 0.015441504156825905,
+      "source_prediction_max": 0.9984312266745693,
+      "target_mean_shift_vs_id338": 8.671160724671445e-06,
+      "mean_abs_target_vs_id338": 0.00039668167978843005,
+      "max_abs_target_vs_id338": 0.0018262107484644519,
+      "mean_abs_all_targets_vs_id338": 5.666881139834715e-05,
+      "max_abs_all_targets_vs_id338": 0.0018262107484644519,
+      "joint_deltas_vs_id338": {
+        "target_mean_l1_to_train": -1.2387372463808916e-06,
+        "target_mean_max_abs_to_train": 0.0,
+        "pair11_l1_to_train": 1.7451903485989073e-06,
+        "temporal_volatility_ratio_to_train": -8.173607129480231e-05,
+        "prediction_entropy": 2.075913749965963e-05,
+        "prediction_sharpness": -1.7137543802087096e-05,
+        "extreme_rate_05_95": 0.0,
+        "extreme_rate_01_99": 0.0
+      },
+      "risk_flags": [
+        "mean_delta_not_below_gate"
+      ],
+      "geometry_pass": true
+    },
+    {
+      "target": "S3",
+      "candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.005",
+      "source_group": "phone_wearable_discordance",
+      "model_spec": {
+        "name": "lr_c0_20",
+        "kind": "lr",
+        "c_value": 0.2
+      },
+      "weight": 0.005,
+      "probe_summary": {
+        "target": "S3",
+        "source_group": "phone_wearable_discordance",
+        "candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.005",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.005,
+        "primary_wins_vs_id338": 4,
+        "mean_delta_vs_id338": -6.24965064717986e-05,
+        "min_delta_vs_id338": -0.0002671420686385373,
+        "max_delta_vs_id338": 5.849459809825763e-05,
+        "mean_target_movement_vs_id338": 0.0005728832800752743,
+        "max_target_movement_vs_id338": 0.004451182821391453,
+        "mean_failed_projection": 0.000511294783091337,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": -4.8535604888821915e-05,
+          "actual_test_band_holdout": 5.849459809825763e-05,
+          "test_boundary_neighbor2_holdout": -2.1051546344241778e-05,
+          "test_boundary_neighbor5_holdout": -0.0002671420686385373,
+          "loso_10": -3.424791058564969e-05
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.000866191432346878,
+          "actual_test_band_holdout": 0.00018929362498322025,
+          "test_boundary_neighbor2_holdout": 0.00013962133270794017,
+          "test_boundary_neighbor5_holdout": 0.00038035046939276186,
+          "loso_10": 0.0012889595409455712
+        }
+      },
+      "source_prediction_mean": 0.6404835688565824,
+      "source_prediction_min": 0.015441504156825905,
+      "source_prediction_max": 0.9984312266745693,
+      "target_mean_shift_vs_id338": 1.7342321449231868e-05,
+      "mean_abs_target_vs_id338": 0.0007933633595768668,
+      "max_abs_target_vs_id338": 0.003652421496929237,
+      "mean_abs_all_targets_vs_id338": 0.00011333762279669525,
+      "max_abs_all_targets_vs_id338": 0.003652421496929237,
+      "joint_deltas_vs_id338": {
+        "target_mean_l1_to_train": -2.4774744927479053e-06,
+        "target_mean_max_abs_to_train": 0.0,
+        "pair11_l1_to_train": 3.490380697215162e-06,
+        "temporal_volatility_ratio_to_train": -0.00016170933873915772,
+        "prediction_entropy": 4.1299544344064465e-05,
+        "prediction_sharpness": -3.427508760414644e-05,
+        "extreme_rate_05_95": 0.0,
+        "extreme_rate_01_99": 0.0
+      },
+      "risk_flags": [],
+      "geometry_pass": true
+    },
+    {
+      "target": "S3",
+      "candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.01",
+      "source_group": "phone_wearable_discordance",
+      "model_spec": {
+        "name": "lr_c0_20",
+        "kind": "lr",
+        "c_value": 0.2
+      },
+      "weight": 0.01,
+      "probe_summary": {
+        "target": "S3",
+        "source_group": "phone_wearable_discordance",
+        "candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.01",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.01,
+        "primary_wins_vs_id338": 4,
+        "mean_delta_vs_id338": -0.00011522058258878198,
+        "min_delta_vs_id338": -0.0005211412461938458,
+        "max_delta_vs_id338": 0.0001225444147947008,
+        "mean_target_movement_vs_id338": 0.0011457665601505504,
+        "max_target_movement_vs_id338": 0.008902365642782795,
+        "mean_failed_projection": 0.0005373420408267142,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": -9.04544715200073e-05,
+          "actual_test_band_holdout": 0.0001225444147947008,
+          "test_boundary_neighbor2_holdout": -3.734808757660524e-05,
+          "test_boundary_neighbor5_holdout": -0.0005211412461938458,
+          "loso_10": -4.970352244815235e-05
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.0017323828646937573,
+          "actual_test_band_holdout": 0.00037858724996644164,
+          "test_boundary_neighbor2_holdout": 0.0002792426654158843,
+          "test_boundary_neighbor5_holdout": 0.000760700938785523,
+          "loso_10": 0.0025779190818911463
+        }
+      },
+      "source_prediction_mean": 0.6404835688565824,
+      "source_prediction_min": 0.015441504156825905,
+      "source_prediction_max": 0.9984312266745693,
+      "target_mean_shift_vs_id338": 3.4684642898463736e-05,
+      "mean_abs_target_vs_id338": 0.0015867267191537317,
+      "max_abs_target_vs_id338": 0.007304842993858474,
+      "mean_abs_all_targets_vs_id338": 0.00022667524559339026,
+      "max_abs_all_targets_vs_id338": 0.007304842993858474,
+      "joint_deltas_vs_id338": {
+        "target_mean_l1_to_train": -4.954948985494076e-06,
+        "target_mean_max_abs_to_train": 0.0,
+        "pair11_l1_to_train": 6.980761394440732e-06,
+        "temporal_volatility_ratio_to_train": -0.0003214835545371497,
+        "prediction_entropy": 8.172668332384614e-05,
+        "prediction_sharpness": -6.795810495599519e-05,
+        "extreme_rate_05_95": 0.0,
+        "extreme_rate_01_99": 0.0
+      },
+      "risk_flags": [],
+      "geometry_pass": true
+    },
+    {
+      "target": "S3",
+      "candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.02",
+      "source_group": "phone_wearable_discordance",
+      "model_spec": {
+        "name": "lr_c0_20",
+        "kind": "lr",
+        "c_value": 0.2
+      },
+      "weight": 0.02,
+      "probe_summary": {
+        "target": "S3",
+        "source_group": "phone_wearable_discordance",
+        "candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.02",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.02,
+        "primary_wins_vs_id338": 4,
+        "mean_delta_vs_id338": -0.00019225793876567198,
+        "min_delta_vs_id338": -0.0009907543372417171,
+        "max_delta_vs_id338": 0.0002671799229903571,
+        "mean_target_movement_vs_id338": 0.0022915331203010986,
+        "max_target_movement_vs_id338": 0.01780473128556559,
+        "mean_failed_projection": 0.0005894365562974696,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": -0.00015472321083154217,
+          "actual_test_band_holdout": 0.0002671799229903571,
+          "test_boundary_neighbor2_holdout": -5.573848120843383e-05,
+          "test_boundary_neighbor5_holdout": -0.0009907543372417171,
+          "loso_10": -2.7253587537023893e-05
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.0034647657293875103,
+          "actual_test_band_holdout": 0.0007571744999328849,
+          "test_boundary_neighbor2_holdout": 0.0005584853308317663,
+          "test_boundary_neighbor5_holdout": 0.001521401877571041,
+          "loso_10": 0.005155838163782291
+        }
+      },
+      "source_prediction_mean": 0.6404835688565824,
+      "source_prediction_min": 0.015441504156825905,
+      "source_prediction_max": 0.9984312266745693,
+      "target_mean_shift_vs_id338": 6.93692857970385e-05,
+      "mean_abs_target_vs_id338": 0.003173453438307452,
+      "max_abs_target_vs_id338": 0.014609685987716725,
+      "mean_abs_all_targets_vs_id338": 0.0004533504911867788,
+      "max_abs_all_targets_vs_id338": 0.014609685987716725,
+      "joint_deltas_vs_id338": {
+        "target_mean_l1_to_train": -9.909897971005499e-06,
+        "target_mean_max_abs_to_train": 0.0,
+        "pair11_l1_to_train": 1.3961522788877995e-05,
+        "temporal_volatility_ratio_to_train": -0.0006205424186233599,
+        "prediction_entropy": 0.00015998319530741156,
+        "prediction_sharpness": -0.00013358913670780126,
+        "extreme_rate_05_95": 0.0,
+        "extreme_rate_01_99": 0.0
+      },
+      "risk_flags": [],
+      "geometry_pass": true
+    },
+    {
+      "target": "S3",
+      "candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.035",
+      "source_group": "phone_wearable_discordance",
+      "model_spec": {
+        "name": "lr_c0_20",
+        "kind": "lr",
+        "c_value": 0.2
+      },
+      "weight": 0.035,
+      "probe_summary": {
+        "target": "S3",
+        "source_group": "phone_wearable_discordance",
+        "candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.035",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.035,
+        "primary_wins_vs_id338": 3,
+        "mean_delta_vs_id338": -0.00023967815581926732,
+        "min_delta_vs_id338": -0.0016027509364749948,
+        "max_delta_vs_id338": 0.0005250220111759907,
+        "mean_target_movement_vs_id338": 0.004010182960526922,
+        "max_target_movement_vs_id338": 0.031158279749739837,
+        "mean_failed_projection": 0.0006675783295036014,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": -0.00020316403524750504,
+          "actual_test_band_holdout": 0.0005250220111759907,
+          "test_boundary_neighbor2_holdout": -4.803538176723077e-05,
+          "test_boundary_neighbor5_holdout": -0.0016027509364749948,
+          "loso_10": 0.00013053756321740329
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.006063340026428143,
+          "actual_test_band_holdout": 0.0013250553748825422,
+          "test_boundary_neighbor2_holdout": 0.00097734932895559,
+          "test_boundary_neighbor5_holdout": 0.0026624532857493213,
+          "loso_10": 0.009022716786619013
+        }
+      },
+      "source_prediction_mean": 0.6404835688565824,
+      "source_prediction_min": 0.015441504156825905,
+      "source_prediction_max": 0.9984312266745693,
+      "target_mean_shift_vs_id338": 0.0001213962501447341,
+      "mean_abs_target_vs_id338": 0.005553543517038043,
+      "max_abs_target_vs_id338": 0.025566950478504324,
+      "mean_abs_all_targets_vs_id338": 0.0007933633595768632,
+      "max_abs_all_targets_vs_id338": 0.025566950478504324,
+      "joint_deltas_vs_id338": {
+        "target_mean_l1_to_train": -1.734232144924748e-05,
+        "target_mean_max_abs_to_train": 0.0,
+        "pair11_l1_to_train": 2.4432664880540828e-05,
+        "temporal_volatility_ratio_to_train": -0.001018277253812816,
+        "prediction_entropy": 0.0002709416879117521,
+        "prediction_sharpness": -0.00022746059405079344,
+        "extreme_rate_05_95": -0.00057142857142857,
+        "extreme_rate_01_99": 0.0
+      },
+      "risk_flags": [
+        "mean_all_delta_vs_id338_gt_0.00075",
+        "max_all_delta_vs_id338_gt_0.020",
+        "primary_wins_lt_4"
+      ],
+      "geometry_pass": false
+    },
+    {
+      "target": "S3",
+      "candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.05",
+      "source_group": "phone_wearable_discordance",
+      "model_spec": {
+        "name": "lr_c0_20",
+        "kind": "lr",
+        "c_value": 0.2
+      },
+      "weight": 0.05,
+      "probe_summary": null,
+      "source_prediction_mean": 0.6404835688565824,
+      "source_prediction_min": 0.015441504156825905,
+      "source_prediction_max": 0.9984312266745693,
+      "target_mean_shift_vs_id338": 0.0001734232144924297,
+      "mean_abs_target_vs_id338": 0.007933633595768637,
+      "max_abs_target_vs_id338": 0.03652421496929181,
+      "mean_abs_all_targets_vs_id338": 0.001133376227966948,
+      "max_abs_all_targets_vs_id338": 0.03652421496929181,
+      "joint_deltas_vs_id338": {
+        "target_mean_l1_to_train": -2.477474492748946e-05,
+        "target_mean_max_abs_to_train": 0.0,
+        "pair11_l1_to_train": 3.490380697218978e-05,
+        "temporal_volatility_ratio_to_train": -0.001349216258066832,
+        "prediction_entropy": 0.00037428879835554874,
+        "prediction_sharpness": -0.0003162619358650087,
+        "extreme_rate_05_95": -0.00114285714285714,
+        "extreme_rate_01_99": 0.0
+      },
+      "risk_flags": [
+        "mean_all_delta_vs_id338_gt_0.00075",
+        "max_all_delta_vs_id338_gt_0.020",
+        "primary_wins_lt_4",
+        "mean_delta_not_below_gate",
+        "max_delta_above_gate"
+      ],
+      "geometry_pass": false
+    }
+  ],
+  "selected_config": {
+    "target": "S3",
+    "candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.02",
+    "source_group": "phone_wearable_discordance",
+    "model_spec": {
+      "name": "lr_c0_20",
+      "kind": "lr",
+      "c_value": 0.2
+    },
+    "weight": 0.02,
+    "probe_summary": {
+      "target": "S3",
+      "source_group": "phone_wearable_discordance",
+      "candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.02",
+      "model_spec": {
+        "name": "lr_c0_20",
+        "kind": "lr",
+        "c_value": 0.2
+      },
+      "weight": 0.02,
+      "primary_wins_vs_id338": 4,
+      "mean_delta_vs_id338": -0.00019225793876567198,
+      "min_delta_vs_id338": -0.0009907543372417171,
+      "max_delta_vs_id338": 0.0002671799229903571,
+      "mean_target_movement_vs_id338": 0.0022915331203010986,
+      "max_target_movement_vs_id338": 0.01780473128556559,
+      "mean_failed_projection": 0.0005894365562974696,
+      "split_deltas_vs_id338": {
+        "subject_hole_5": -0.00015472321083154217,
+        "actual_test_band_holdout": 0.0002671799229903571,
+        "test_boundary_neighbor2_holdout": -5.573848120843383e-05,
+        "test_boundary_neighbor5_holdout": -0.0009907543372417171,
+        "loso_10": -2.7253587537023893e-05
+      },
+      "split_mean_movements_vs_id338": {
+        "subject_hole_5": 0.0034647657293875103,
+        "actual_test_band_holdout": 0.0007571744999328849,
+        "test_boundary_neighbor2_holdout": 0.0005584853308317663,
+        "test_boundary_neighbor5_holdout": 0.001521401877571041,
+        "loso_10": 0.005155838163782291
+      }
+    },
+    "source_prediction_mean": 0.6404835688565824,
+    "source_prediction_min": 0.015441504156825905,
+    "source_prediction_max": 0.9984312266745693,
+    "target_mean_shift_vs_id338": 6.93692857970385e-05,
+    "mean_abs_target_vs_id338": 0.003173453438307452,
+    "max_abs_target_vs_id338": 0.014609685987716725,
+    "mean_abs_all_targets_vs_id338": 0.0004533504911867788,
+    "max_abs_all_targets_vs_id338": 0.014609685987716725,
+    "joint_deltas_vs_id338": {
+      "target_mean_l1_to_train": -9.909897971005499e-06,
+      "target_mean_max_abs_to_train": 0.0,
+      "pair11_l1_to_train": 1.3961522788877995e-05,
+      "temporal_volatility_ratio_to_train": -0.0006205424186233599,
+      "prediction_entropy": 0.00015998319530741156,
+      "prediction_sharpness": -0.00013358913670780126,
+      "extreme_rate_05_95": 0.0,
+      "extreme_rate_01_99": 0.0
+    },
+    "risk_flags": [],
+    "geometry_pass": true
+  },
+  "decision": {
+    "scan_completed": true,
+    "selected_weight": 0.02,
+    "selected_candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.02",
+    "public_058_evidence": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_local_allowed_step": "promotion_contract_review_for_bolder_id338_s3_micro_overlay",
+    "next_action": "Selected weight is still no-submit; create an artifact only through a separate promotion script and audit."
+  },
+  "no_full_test_predictions_written": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_made": true,
+  "no_kaggle_run_made": true,
+  "no_dacon_submission_made": true
+}

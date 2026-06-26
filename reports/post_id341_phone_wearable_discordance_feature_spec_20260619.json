@@ -1,0 +1,269 @@
+{
+  "created_at_kst": "2026-06-23 18:17:10 UTC+09:00",
+  "diagnostic": "post_id341_phone_wearable_discordance_feature_spec",
+  "report_only": true,
+  "source_family": "phone_wearable_discordance_v1",
+  "target_focus": [
+    "Q2",
+    "Q3",
+    "S3"
+  ],
+  "input_reports": {
+    "design": {
+      "path": "reports/post_id341_phone_wearable_discordance_design_20260619.json",
+      "exists": true,
+      "parse_ok": true
+    },
+    "material_new_source_queue": {
+      "path": "reports/post_id341_material_new_source_queue_20260619.json",
+      "exists": true,
+      "parse_ok": true
+    }
+  },
+  "row_contract": {
+    "key_columns": [
+      "subject_id",
+      "sleep_date",
+      "lifelog_date"
+    ],
+    "expected_train_rows": 450,
+    "expected_test_rows": 250,
+    "expected_total_rows": 700,
+    "label_columns_allowed": false,
+    "prediction_columns_allowed": false,
+    "submission_columns_allowed": false,
+    "raw_timestamp_columns_allowed": false
+  },
+  "windows": {
+    "early_morning": {
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "description": "00:00-05:59 nocturnal residual activity"
+    },
+    "morning": {
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "description": "06:00-11:59 wake/start friction"
+    },
+    "daytime": {
+      "hours": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "description": "12:00-17:59 daytime alignment"
+    },
+    "evening": {
+      "hours": [
+        18,
+        19,
+        20,
+        21
+      ],
+      "description": "18:00-21:59 evening settling"
+    },
+    "late_evening": {
+      "hours": [
+        22,
+        23
+      ],
+      "description": "22:00-23:59 pre-sleep reactivation"
+    }
+  },
+  "feature_groups": {
+    "phone_rest_state": [
+      "screen_off_rate",
+      "charging_rate",
+      "phone_still_rate",
+      "screen_off_charging_bins"
+    ],
+    "wearable_activation_state": [
+      "step_active_rate",
+      "step_sum_log1p",
+      "hr_observed_rate",
+      "wearable_light_log1p"
+    ],
+    "discordance_state": [
+      "screen_off_step_active_bins",
+      "charging_step_active_bins",
+      "phone_rest_wearable_active_bins",
+      "phone_dark_wearable_light_bins"
+    ],
+    "transition_hysteresis": [
+      "last_phone_active_hour",
+      "first_wearable_active_hour_after_phone_rest",
+      "wearable_after_phone_rest_gap_hours"
+    ]
+  },
+  "global_features": [
+    "day_source_coverage_index",
+    "phone_rest_total_hour_bins",
+    "wearable_active_total_hour_bins",
+    "discordance_total_hour_bins",
+    "discordance_to_phone_rest_ratio",
+    "late_discordance_share",
+    "first_discordance_hour",
+    "last_discordance_hour",
+    "max_contiguous_discordance_hours",
+    "source_missingness_guard_count"
+  ],
+  "feature_names": [
+    "pwd_early_morning_phone_rest_state_screen_off_rate",
+    "pwd_early_morning_phone_rest_state_charging_rate",
+    "pwd_early_morning_phone_rest_state_phone_still_rate",
+    "pwd_early_morning_phone_rest_state_screen_off_charging_bins",
+    "pwd_early_morning_wearable_activation_state_step_active_rate",
+    "pwd_early_morning_wearable_activation_state_step_sum_log1p",
+    "pwd_early_morning_wearable_activation_state_hr_observed_rate",
+    "pwd_early_morning_wearable_activation_state_wearable_light_log1p",
+    "pwd_early_morning_discordance_state_screen_off_step_active_bins",
+    "pwd_early_morning_discordance_state_charging_step_active_bins",
+    "pwd_early_morning_discordance_state_phone_rest_wearable_active_bins",
+    "pwd_early_morning_discordance_state_phone_dark_wearable_light_bins",
+    "pwd_early_morning_transition_hysteresis_last_phone_active_hour",
+    "pwd_early_morning_transition_hysteresis_first_wearable_active_hour_after_phone_rest",
+    "pwd_early_morning_transition_hysteresis_wearable_after_phone_rest_gap_hours",
+    "pwd_morning_phone_rest_state_screen_off_rate",
+    "pwd_morning_phone_rest_state_charging_rate",
+    "pwd_morning_phone_rest_state_phone_still_rate",
+    "pwd_morning_phone_rest_state_screen_off_charging_bins",
+    "pwd_morning_wearable_activation_state_step_active_rate",
+    "pwd_morning_wearable_activation_state_step_sum_log1p",
+    "pwd_morning_wearable_activation_state_hr_observed_rate",
+    "pwd_morning_wearable_activation_state_wearable_light_log1p",
+    "pwd_morning_discordance_state_screen_off_step_active_bins",
+    "pwd_morning_discordance_state_charging_step_active_bins",
+    "pwd_morning_discordance_state_phone_rest_wearable_active_bins",
+    "pwd_morning_discordance_state_phone_dark_wearable_light_bins",
+    "pwd_morning_transition_hysteresis_last_phone_active_hour",
+    "pwd_morning_transition_hysteresis_first_wearable_active_hour_after_phone_rest",
+    "pwd_morning_transition_hysteresis_wearable_after_phone_rest_gap_hours",
+    "pwd_daytime_phone_rest_state_screen_off_rate",
+    "pwd_daytime_phone_rest_state_charging_rate",
+    "pwd_daytime_phone_rest_state_phone_still_rate",
+    "pwd_daytime_phone_rest_state_screen_off_charging_bins",
+    "pwd_daytime_wearable_activation_state_step_active_rate",
+    "pwd_daytime_wearable_activation_state_step_sum_log1p",
+    "pwd_daytime_wearable_activation_state_hr_observed_rate",
+    "pwd_daytime_wearable_activation_state_wearable_light_log1p",
+    "pwd_daytime_discordance_state_screen_off_step_active_bins",
+    "pwd_daytime_discordance_state_charging_step_active_bins",
+    "pwd_daytime_discordance_state_phone_rest_wearable_active_bins",
+    "pwd_daytime_discordance_state_phone_dark_wearable_light_bins",
+    "pwd_daytime_transition_hysteresis_last_phone_active_hour",
+    "pwd_daytime_transition_hysteresis_first_wearable_active_hour_after_phone_rest",
+    "pwd_daytime_transition_hysteresis_wearable_after_phone_rest_gap_hours",
+    "pwd_evening_phone_rest_state_screen_off_rate",
+    "pwd_evening_phone_rest_state_charging_rate",
+    "pwd_evening_phone_rest_state_phone_still_rate",
+    "pwd_evening_phone_rest_state_screen_off_charging_bins",
+    "pwd_evening_wearable_activation_state_step_active_rate",
+    "pwd_evening_wearable_activation_state_step_sum_log1p",
+    "pwd_evening_wearable_activation_state_hr_observed_rate",
+    "pwd_evening_wearable_activation_state_wearable_light_log1p",
+    "pwd_evening_discordance_state_screen_off_step_active_bins",
+    "pwd_evening_discordance_state_charging_step_active_bins",
+    "pwd_evening_discordance_state_phone_rest_wearable_active_bins",
+    "pwd_evening_discordance_state_phone_dark_wearable_light_bins",
+    "pwd_evening_transition_hysteresis_last_phone_active_hour",
+    "pwd_evening_transition_hysteresis_first_wearable_active_hour_after_phone_rest",
+    "pwd_evening_transition_hysteresis_wearable_after_phone_rest_gap_hours",
+    "pwd_late_evening_phone_rest_state_screen_off_rate",
+    "pwd_late_evening_phone_rest_state_charging_rate",
+    "pwd_late_evening_phone_rest_state_phone_still_rate",
+    "pwd_late_evening_phone_rest_state_screen_off_charging_bins",
+    "pwd_late_evening_wearable_activation_state_step_active_rate",
+    "pwd_late_evening_wearable_activation_state_step_sum_log1p",
+    "pwd_late_evening_wearable_activation_state_hr_observed_rate",
+    "pwd_late_evening_wearable_activation_state_wearable_light_log1p",
+    "pwd_late_evening_discordance_state_screen_off_step_active_bins",
+    "pwd_late_evening_discordance_state_charging_step_active_bins",
+    "pwd_late_evening_discordance_state_phone_rest_wearable_active_bins",
+    "pwd_late_evening_discordance_state_phone_dark_wearable_light_bins",
+    "pwd_late_evening_transition_hysteresis_last_phone_active_hour",
+    "pwd_late_evening_transition_hysteresis_first_wearable_active_hour_after_phone_rest",
+    "pwd_late_evening_transition_hysteresis_wearable_after_phone_rest_gap_hours",
+    "pwd_global_day_source_coverage_index",
+    "pwd_global_phone_rest_total_hour_bins",
+    "pwd_global_wearable_active_total_hour_bins",
+    "pwd_global_discordance_total_hour_bins",
+    "pwd_global_discordance_to_phone_rest_ratio",
+    "pwd_global_late_discordance_share",
+    "pwd_global_first_discordance_hour",
+    "pwd_global_last_discordance_hour",
+    "pwd_global_max_contiguous_discordance_hours",
+    "pwd_global_source_missingness_guard_count"
+  ],
+  "feature_count": 85,
+  "schema_bounds": {
+    "feature_prefix": "pwd_",
+    "max_feature_columns": 96,
+    "actual_feature_columns": 85,
+    "all_features_prefixed": true,
+    "duplicate_feature_count": 0,
+    "forbidden_feature_token_hits": [],
+    "raw_identifier_columns_allowed": false,
+    "raw_timestamp_columns_allowed": false,
+    "fold_internal_preprocessing_required_for_any_model": true
+  },
+  "aggregation_contract": {
+    "join_grain": "subject_id + lifelog_date + fixed day window",
+    "hour_grid": "24 fixed hourly bins per row; windows are deterministic and predeclared.",
+    "phone_rest_definition": "screen-off, charging, or still-phone state from raw phone sensors only.",
+    "wearable_activation_definition": "positive steps, observed heart-rate, or wearable light from raw wearable sensors only.",
+    "discordance_definition": "fixed cross-device disagreement masks; no threshold fitted to labels.",
+    "missing_value_policy": "write explicit source coverage/missingness guards; later imputation must be fold-internal."
+  },
+  "leakage_guards": [
+    "Build future features only from each row's lifelog_date raw sensor timestamps.",
+    "Do not use target labels, public LB scores, OOF predictions, submission files, or base prediction artifacts.",
+    "Keep phone/wearable thresholds fixed from the design report; do not tune them on validation residuals.",
+    "Any later feature-generation dry run may stay in memory only unless a separate matrix contract is written.",
+    "Any future model smoke must fit preprocessing, imputation, selection, and calibration inside each outer fold.",
+    "This spec cannot create ID342, a notebook-history artifact, a base prediction artifact, or a submission-log row."
+  ],
+  "decision": {
+    "feature_spec_ready": true,
+    "source_family": "phone_wearable_discordance_v1",
+    "target_focus": [
+      "Q2",
+      "Q3",
+      "S3"
+    ],
+    "selected_targets": [],
+    "feature_count": 85,
+    "public_058_evidence": false,
+    "score_route_opened": false,
+    "feature_matrix_allowed_now": false,
+    "train_model_now": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_local_allowed_step": "report_only_phone_wearable_discordance_feature_generation_dryrun_no_matrix",
+    "next_action": "Feature spec is ready. A future no-approval step may only run an in-memory feature-generation dry run that checks 700-row alignment and bounded finite columns; do not write a feature matrix, train a model, create ID342, run Kaggle, or submit."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

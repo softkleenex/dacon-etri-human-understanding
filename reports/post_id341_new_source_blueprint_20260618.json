@@ -1,0 +1,494 @@
+{
+  "created_at_kst": "2026-06-18 04:26:23 UTC+09:00",
+  "diagnostic": "post_id341_new_source_blueprint",
+  "purpose": "Choose non-OOF-recombination source-family work after ID341 transfer audit blocked current candidates.",
+  "prior_report_status": [
+    {
+      "path": "reports/post_id341_public_transfer_audit_20260618.json",
+      "exists": true
+    },
+    {
+      "path": "reports/post_id341_family_priority_20260618.json",
+      "exists": true
+    },
+    {
+      "path": "reports/external_etri_prior_target_reconstruction_20260616.json",
+      "exists": true
+    },
+    {
+      "path": "reports/external_public05917_notebook_review_20260616.json",
+      "exists": true
+    }
+  ],
+  "raw_sensor_metadata": [
+    {
+      "file": "data/raw/ch2025_data_items/ch2025_mACStatus.parquet",
+      "rows": 939896,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_charging"
+      ],
+      "role": "charge/bedside proxy"
+    },
+    {
+      "file": "data/raw/ch2025_data_items/ch2025_mActivity.parquet",
+      "rows": 961062,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_activity"
+      ],
+      "role": "stillness/activity transitions"
+    },
+    {
+      "file": "data/raw/ch2025_data_items/ch2025_mAmbience.parquet",
+      "rows": 476577,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "element"
+      ],
+      "role": "ambient sound context"
+    },
+    {
+      "file": "data/raw/ch2025_data_items/ch2025_mBle.parquet",
+      "rows": 21830,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "address",
+        "device_class",
+        "rssi"
+      ],
+      "role": "near-device/social-place context"
+    },
+    {
+      "file": "data/raw/ch2025_data_items/ch2025_mGps.parquet",
+      "rows": 800611,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "altitude",
+        "latitude",
+        "longitude",
+        "speed"
+      ],
+      "role": "mobility/place regularity"
+    },
+    {
+      "file": "data/raw/ch2025_data_items/ch2025_mLight.parquet",
+      "rows": 96258,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_light"
+      ],
+      "role": "phone ambient light/darkness"
+    },
+    {
+      "file": "data/raw/ch2025_data_items/ch2025_mScreenStatus.parquet",
+      "rows": 939653,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_screen_use"
+      ],
+      "role": "screen on/off sleep-boundary proxy"
+    },
+    {
+      "file": "data/raw/ch2025_data_items/ch2025_mUsageStats.parquet",
+      "rows": 45197,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "app_name",
+        "total_time"
+      ],
+      "role": "app-use behavior and evening load"
+    },
+    {
+      "file": "data/raw/ch2025_data_items/ch2025_mWifi.parquet",
+      "rows": 76336,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "bssid",
+        "rssi"
+      ],
+      "role": "place/home-stability proxy"
+    },
+    {
+      "file": "data/raw/ch2025_data_items/ch2025_wHr.parquet",
+      "rows": 382918,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "element"
+      ],
+      "role": "night HR/recovery/fragmentation proxy"
+    },
+    {
+      "file": "data/raw/ch2025_data_items/ch2025_wLight.parquet",
+      "rows": 633741,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "w_light"
+      ],
+      "role": "watch light/darkness"
+    },
+    {
+      "file": "data/raw/ch2025_data_items/ch2025_wPedo.parquet",
+      "rows": 748100,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "step",
+        "step_frequency",
+        "running_step",
+        "walking_step",
+        "distance",
+        "speed",
+        "burned_calories"
+      ],
+      "role": "steps/inactivity/exertion"
+    }
+  ],
+  "dataset_summary": {
+    "metrics_train_shape": [
+      450,
+      10
+    ],
+    "sample_submission_shape": [
+      250,
+      10
+    ],
+    "processed_train_shape": [
+      450,
+      242
+    ],
+    "processed_test_shape": [
+      250,
+      242
+    ],
+    "n_processed_feature_columns": 232,
+    "processed_feature_group_counts": {
+      "screen": 17,
+      "activity": 27,
+      "pedo": 27,
+      "heart_rate": 39,
+      "light": 36,
+      "place": 28,
+      "usage": 27,
+      "demographic_calendar": 12
+    },
+    "train_subject_rows": {
+      "id01": 41,
+      "id02": 48,
+      "id03": 33,
+      "id04": 57,
+      "id05": 44,
+      "id06": 48,
+      "id07": 49,
+      "id08": 56,
+      "id09": 41,
+      "id10": 33
+    },
+    "test_subject_rows": {
+      "id01": 27,
+      "id02": 32,
+      "id03": 21,
+      "id04": 27,
+      "id05": 21,
+      "id06": 24,
+      "id07": 30,
+      "id08": 19,
+      "id09": 27,
+      "id10": 22
+    },
+    "target_prevalence_train": {
+      "Q1": 0.4955555555555556,
+      "Q2": 0.5622222222222222,
+      "Q3": 0.6,
+      "S1": 0.6822222222222222,
+      "S2": 0.6511111111111111,
+      "S3": 0.6622222222222223,
+      "S4": 0.56
+    },
+    "date_ranges": {
+      "train_sleep_date_min": "2024-06-04",
+      "train_sleep_date_max": "2024-11-15",
+      "test_sleep_date_min": "2024-07-07",
+      "test_sleep_date_max": "2024-11-20"
+    }
+  },
+  "external_summary": [
+    {
+      "file": "data/external/etri_lifelog/user_info_2019_2018_updated.csv",
+      "rows": 50,
+      "columns": [
+        "userId",
+        "gender",
+        "age",
+        "height",
+        "weight",
+        "startDt",
+        "endDt"
+      ]
+    },
+    {
+      "file": "data/external/etri_lifelog/user_info_2020.csv",
+      "rows": 22,
+      "columns": [
+        "userId",
+        "gender",
+        "age",
+        "handed",
+        "height",
+        "weight",
+        "startDt",
+        "endDt"
+      ]
+    },
+    {
+      "file": "data/external/etri_lifelog/user_sleep_2019_2018.csv",
+      "rows": 736,
+      "columns": [
+        "userId",
+        "startDt",
+        "endDt",
+        "device",
+        "sleep_score",
+        "total_sleep_time",
+        "time_in_bed",
+        "waso",
+        "wakeupcount",
+        "aal",
+        "movement_index",
+        "fragmentation_index",
+        "sleep_frag_index"
+      ]
+    },
+    {
+      "file": "data/external/etri_lifelog/user_sleep_2020.csv",
+      "rows": 615,
+      "columns": [
+        "userId",
+        "timezone",
+        "date",
+        "startDt",
+        "endDt",
+        "lastUpdate",
+        "wakeupduration",
+        "lightsleepduration",
+        "deepsleepduration",
+        "wakeupcount",
+        "durationtosleep",
+        "remsleepduration",
+        "durationtowakeup",
+        "hr_average",
+        "hr_min",
+        "hr_max",
+        "rr_average",
+        "rr_min",
+        "rr_max",
+        "breathing_disturbances_intensity",
+        "snoring",
+        "snoringepisodecount",
+        "sleep_score"
+      ]
+    },
+    {
+      "file": "data/external/etri_lifelog/user_survey_2019_2018.csv",
+      "rows": 1285,
+      "columns": [
+        "userId",
+        "amPm",
+        "inputDt",
+        "sleep",
+        "sleepProblem",
+        "dream",
+        "amCondition",
+        "amEmotion",
+        "pmEmotion",
+        "pmStress",
+        "ifUnusual",
+        "breakfast",
+        "lunch",
+        "dinner",
+        "lateSnack",
+        "amCaffeine",
+        "amCaffAmount",
+        "pmCaffeine",
+        "pmCaffAmount",
+        "alcohol",
+        "aAmount"
+      ]
+    },
+    {
+      "file": "data/external/etri_lifelog/user_survey_2020.csv",
+      "rows": 1230,
+      "columns": [
+        "userId",
+        "date",
+        "amPm",
+        "startInput",
+        "endInput",
+        "sleep",
+        "sleepProblem",
+        "dream",
+        "amCondition",
+        "amEmotion",
+        "pmEmotion",
+        "pmStress",
+        "pmFatigue",
+        "caffeine",
+        "cAmount(ml)",
+        "alcohol",
+        "aAmount(ml)"
+      ]
+    }
+  ],
+  "source_blueprints": [
+    {
+      "name": "sleep_boundary_transition_v1",
+      "priority": 1,
+      "thesis": "Infer sleep onset/wake boundary and sleep interruption structure from cross-modal transitions, rather than reusing daily aggregate OOF artifacts.",
+      "raw_inputs": [
+        "mScreenStatus",
+        "mActivity",
+        "mACStatus",
+        "mLight",
+        "wLight",
+        "wHr",
+        "wPedo"
+      ],
+      "candidate_features": [
+        "last screen-on before dark/still interval",
+        "first screen-on after long still interval",
+        "longest nightly still+dark+low-step segment",
+        "charge-start/charge-end alignment with inferred sleep window",
+        "HR dip timing and night HR recovery slope",
+        "within-subject deviation of inferred bedtime/waketime/duration",
+        "night interruption count from screen/activity/HR spikes"
+      ],
+      "target_focus": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "Q1"
+      ],
+      "why_new": "Processed features contain many daily aggregates and some slp_* summaries, but this lane explicitly models event boundaries and transitions with fold-internal per-subject baselines.",
+      "validation_contract": [
+        "fit transition thresholds inside training folds only",
+        "compare against ID178/ID341 on frozen ID340 split manifest",
+        "no artifact unless it beats ID341 proxy and passes post-ID341 transfer audit"
+      ],
+      "compute": "Kaggle CPU recommended after local metadata smoke; no GPU required"
+    },
+    {
+      "name": "evening_load_recovery_v1",
+      "priority": 2,
+      "thesis": "Represent the day as load followed by recovery: daytime exertion/mobility/social/app load, then evening screen/light/HR recovery before sleep.",
+      "raw_inputs": [
+        "wPedo",
+        "mGps",
+        "mUsageStats",
+        "mAmbience",
+        "mScreenStatus",
+        "wHr",
+        "mLight",
+        "wLight"
+      ],
+      "candidate_features": [
+        "daytime step and movement intensity percentiles",
+        "evening-to-day load ratio",
+        "late app/session entropy and dopamine-app buckets",
+        "ambient speech/music/silence evening mix",
+        "night HR minus day HR recovery delta",
+        "post-heavy-day next-sleep interaction terms"
+      ],
+      "target_focus": [
+        "Q2",
+        "Q3",
+        "S2",
+        "S4"
+      ],
+      "why_new": "External/paper guidance says subjective fatigue/stress are daily-experience outcomes; this lane tests a causal-ish load→recovery representation instead of target-wise prior shrinkage.",
+      "validation_contract": [
+        "group-safe feature normalization by subject inside folds",
+        "single-family model first, no stacking",
+        "slice check on high-activity and high-screen evenings"
+      ],
+      "compute": "local light scan possible; Kaggle for repeated folds"
+    },
+    {
+      "name": "routine_stability_place_entropy_v1",
+      "priority": 3,
+      "thesis": "Capture circadian regularity and place/social entropy across adjacent days; public split may reward stable subject-specific routine rather than local OOF frontier moves.",
+      "raw_inputs": [
+        "mWifi",
+        "mBle",
+        "mGps",
+        "mUsageStats",
+        "mActivity",
+        "mScreenStatus"
+      ],
+      "candidate_features": [
+        "home-stay consistency from Wi-Fi/GPS proxies",
+        "BLE/Wi-Fi novelty and transition entropy",
+        "weekday-adjusted app/screen routine distance",
+        "rolling 3/7-day deviations from subject routine",
+        "previous-day and next-day smoothness features available at inference without labels"
+      ],
+      "target_focus": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S3"
+      ],
+      "why_new": "Uses unlabeled temporal continuity and raw place/context logs; avoids direct external-target prevalence transfer.",
+      "validation_contract": [
+        "chronological and subject-hole lenses both required",
+        "no use of test-label-derived anchors",
+        "must improve transfer proxy without moving far from ID178/ID341 unless source is independently strong"
+      ],
+      "compute": "Kaggle CPU if raw event expansion becomes memory-heavy"
+    },
+    {
+      "name": "external_prior_regularizer_v2",
+      "priority": 4,
+      "thesis": "Use older ETRI data only to regularize feature transformations and monotonic priors, not as labeled rows.",
+      "raw_inputs": [
+        "external etri_lifelog summary CSVs"
+      ],
+      "candidate_features": [
+        "sleep-score range sanity checks",
+        "survey scale behavior priors",
+        "feature bucket boundaries for duration/wake/activity only"
+      ],
+      "target_focus": [
+        "Q2",
+        "S2"
+      ],
+      "why_new": "Prior external attempts showed direct prevalence mismatch, especially S1/S3/S4; keep it as weak regularizer only.",
+      "validation_contract": [
+        "never concatenate external rows into current train",
+        "document every external-derived transform in submission notes",
+        "drop if frozen split gate selects base for all targets again"
+      ],
+      "compute": "local only"
+    }
+  ],
+  "decision": {
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "top_new_source_family": "sleep_boundary_transition_v1",
+    "next_action": "Implement a report-only Kaggle/local smoke for sleep_boundary_transition_v1 feature generation and frozen-split validation. Do not create a submission artifact unless it beats ID341 proxy under the post-ID341 transfer audit."
+  },
+  "no_submission_created": true,
+  "no_dacon_submission_made": true
+}

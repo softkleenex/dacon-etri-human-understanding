@@ -1,0 +1,146 @@
+{
+  "created_at_kst": "2026-06-23 18:11:26 UTC+09:00",
+  "diagnostic": "post_id341_q3s3_negative_evidence_map",
+  "purpose": "Aggregate local Q3/S3 no-approval evidence so weak or closed source families are not repeatedly treated as artifact candidates.",
+  "target_focus": [
+    "Q3",
+    "S3"
+  ],
+  "inputs": {
+    "physio_light_onset": "reports/post_id341_q3s3_physio_light_onset_smoke_20260618.json",
+    "semantic_routine_closure": "reports/post_id341_q3s3_semantic_routine_lane_closure_20260618.json",
+    "calendar_sleep_prior": "reports/post_id341_q3s3_calendar_sleep_prior_smoke_20260618.json",
+    "subject_drift_gate": "reports/post_id341_q3s3_subject_drift_gate_20260618.json",
+    "event_cadence": "reports/post_id341_q3s3_event_cadence_smoke_20260618.json",
+    "place_social_novelty": "reports/place_social_novelty_smoke_fixedlist_post_id341_20260618.json",
+    "routine_stability_place_entropy": "reports/routine_stability_place_entropy_smoke_post_id341_20260618.json",
+    "sensor_adherence_dropout": "reports/sensor_adherence_dropout_smoke_post_id341_20260618.json",
+    "local_lane_closure": "reports/post_id341_q3s3_local_lane_closure_20260618.json",
+    "source_route": "reports/post_id341_q2q3s3_source_route_20260618.json"
+  },
+  "optional_scout_inputs": {
+    "cross_modal_disagreement": "reports/post_id341_q3s3_cross_modal_disagreement_smoke_20260618.json"
+  },
+  "lane_rows": [
+    {
+      "lane": "physio_light_onset",
+      "status": "closed",
+      "q3_evidence": false,
+      "s3_evidence": false,
+      "reason": "No selected Q3/S3 target from wearable/light/movement/onset features.",
+      "report": "reports/post_id341_q3s3_physio_light_onset_smoke_20260618.json",
+      "artifact_allowed": false
+    },
+    {
+      "lane": "semantic_routine",
+      "status": "closed",
+      "q3_evidence": true,
+      "s3_evidence": [
+        "Q3",
+        "S3"
+      ],
+      "reason": "State/routine lane was structurally computable but selected no Q3/S3 target.",
+      "report": "reports/post_id341_q3s3_semantic_routine_lane_closure_20260618.json",
+      "artifact_allowed": false
+    },
+    {
+      "lane": "calendar_sleep_prior",
+      "status": "closed",
+      "q3_evidence": false,
+      "s3_evidence": false,
+      "reason": "Calendar, subject-progress, demographics, and materialized sleep-window summaries selected no target.",
+      "report": "reports/post_id341_q3s3_calendar_sleep_prior_smoke_20260618.json",
+      "artifact_allowed": false
+    },
+    {
+      "lane": "subject_drift",
+      "status": "closed",
+      "q3_evidence": "1/5 primary wins",
+      "s3_evidence": "2/5 primary wins",
+      "reason": "Subject residual drift is too weak for Q3/S3 and fails ID178/Public-0.58 promotion requirements.",
+      "report": "reports/post_id341_q3s3_subject_drift_gate_20260618.json",
+      "artifact_allowed": false
+    },
+    {
+      "lane": "event_cadence",
+      "status": "closed",
+      "q3_evidence": false,
+      "s3_evidence": false,
+      "reason": "Raw timestamp cadence, silence gaps, and inter-event intervals selected no Q3/S3 target.",
+      "report": "reports/post_id341_q3s3_event_cadence_smoke_20260618.json",
+      "artifact_allowed": false
+    },
+    {
+      "lane": "place_social_novelty",
+      "status": "closed",
+      "q3_evidence": [],
+      "s3_evidence": false,
+      "reason": "GPS/WiFi/BLE place-social novelty selected no Q3/S3 target and has no reviewable low-movement row.",
+      "report": "reports/place_social_novelty_smoke_fixedlist_post_id341_20260618.json",
+      "artifact_allowed": false
+    },
+    {
+      "lane": "routine_stability_place_entropy",
+      "status": "closed",
+      "q3_evidence": [],
+      "s3_evidence": false,
+      "reason": "Routine-stability/place-entropy selected no Q3/S3 target and has no proxy-below-anchor row.",
+      "report": "reports/routine_stability_place_entropy_smoke_post_id341_20260618.json",
+      "artifact_allowed": false
+    },
+    {
+      "lane": "sensor_adherence_dropout",
+      "status": "closed",
+      "q3_evidence": [],
+      "s3_evidence": false,
+      "reason": "Sensor-adherence/dropout selected no Q3/S3 target and is closed as a standalone local lane.",
+      "report": "reports/sensor_adherence_dropout_smoke_post_id341_20260618.json",
+      "artifact_allowed": false
+    }
+  ],
+  "scout_rows": [
+    {
+      "lane": "cross_modal_disagreement_scout",
+      "status": "closed_scout",
+      "q3_evidence": false,
+      "s3_evidence": false,
+      "reason": "Phone/watch cross-modal disagreement selected no Q3/S3 target; kept as optional scout evidence without changing the authoritative 8-lane prelaunch contract.",
+      "report": "reports/post_id341_q3s3_cross_modal_disagreement_smoke_20260618.json",
+      "artifact_allowed": false
+    }
+  ],
+  "checks": {
+    "all_local_q3s3_lanes_closed": true,
+    "optional_scout_reports_closed": true,
+    "no_public_058_evidence": true,
+    "local_closure_contract": true,
+    "route_contract": true
+  },
+  "decision": {
+    "q3s3_negative_evidence_map_passed": true,
+    "target_focus": [
+      "Q3",
+      "S3"
+    ],
+    "closed_local_lane_count": 8,
+    "closed_optional_scout_count": 1,
+    "all_local_q3s3_lanes_closed": true,
+    "q3_s3_still_uncovered": true,
+    "public_058_evidence": false,
+    "local_artifact_allowed": false,
+    "primary_next_score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+    "requires_explicit_kaggle_approval": true,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Do not reopen closed local Q3/S3 lanes for artifact creation. The score-relevant path remains the explicit-approved clean ID221→ID226 no-submit upstream rebuild; without approval, only a materially new Q3/S3 source family should be tested."
+  },
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

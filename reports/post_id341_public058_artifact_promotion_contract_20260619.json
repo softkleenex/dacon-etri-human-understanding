@@ -1,0 +1,135 @@
+{
+  "created_at_kst": "2026-06-23 22:57:15 UTC+09:00",
+  "diagnostic": "post_id341_public058_artifact_promotion_contract",
+  "report_only": true,
+  "purpose": "Separate Public-0.58 artifact-contract review from actual artifact promotion. A review may inspect lineage, but this diagnostic never creates CSVs, predictions, notebooks, submission-log rows, Kaggle runs, or DACON submissions.",
+  "inputs": {
+    "threshold": {
+      "path": "reports/post_id341_remote_artifact_review_threshold_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 6170,
+      "decision": {
+        "threshold_gate_ready": true,
+        "output_pending": true,
+        "allow_public_058_artifact_contract_review": false,
+        "record_id178_improvement_lead_only": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Wait for approved no-submit Kaggle outputs; no artifact review can open yet."
+      }
+    },
+    "remote_next_action": {
+      "path": "reports/post_id341_remote_next_action_decision_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 3722,
+      "decision": {
+        "remote_next_action_ready": true,
+        "output_pending": false,
+        "allow_separate_artifact_contract_review": false,
+        "close_remote_lane_for_artifact_creation": true,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Close this remote no-submit lane for artifact creation and move to a materially different raw/sequence source design; do not promote ID342 from these reports."
+      }
+    },
+    "remote_summary": {
+      "path": "reports/post_id341_kaggle_remote_result_summary_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 22828,
+      "decision": {
+        "output_pending": false,
+        "artifact_contract_review_allowed_by_intake": false,
+        "remote_summary_reviewable": false,
+        "public_058_evidence_present": false,
+        "beats_id178_public_anchor_evidence_present": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Do not create artifacts; intake gate or remote evidence is insufficient."
+      }
+    },
+    "submission_log": {
+      "path": "submissions/submission_log.csv",
+      "exists": true,
+      "parse_ok": true,
+      "rows": 342,
+      "max_id": 342,
+      "has_id342_row": true,
+      "ids_are_unique": true,
+      "ready_for_future_unique_id": true,
+      "next_numeric_id_if_later_authorized": 343
+    }
+  },
+  "required_lineage_fields_before_future_promotion": [
+    "candidate_submission_id",
+    "unique_submission_csv_path",
+    "unique_notebook_history_path",
+    "base_oof_prediction_path",
+    "base_test_prediction_path",
+    "source_remote_report_path",
+    "source_threshold_report_path",
+    "local_cv_score",
+    "remote_min_proxy",
+    "selected_targets",
+    "prediction_hash",
+    "submission_log_row",
+    "exact_user_csv_approval"
+  ],
+  "future_promotion_invariants": {
+    "all_filenames_must_be_unique": true,
+    "csv_notebook_base_oof_base_test_log_row_must_match": true,
+    "candidate_id_must_be_greater_than_current_max_id": true,
+    "exact_user_csv_approval_required": true,
+    "dacon_submission_requires_separate_exact_approval": true,
+    "public_058_review_is_not_submission_permission": true
+  },
+  "best_proxy": {
+    "filename": null,
+    "min_proxy": null,
+    "selected_targets": null
+  },
+  "evidence_flags": {
+    "inputs_parse": true,
+    "threshold_gate_ready": true,
+    "threshold_allows_public058_review": false,
+    "next_allows_artifact_contract_review": false,
+    "output_pending": true,
+    "remote_summary_reviewable": false,
+    "summary_public_058_evidence_present": false,
+    "summary_beats_id178_public_anchor": false,
+    "submission_log_ready_for_future_unique_id": true,
+    "public058_artifact_contract_review_open": false
+  },
+  "decision": {
+    "promotion_contract_ready": true,
+    "public058_artifact_contract_review_open": false,
+    "artifact_promotion_allowed_now": false,
+    "requires_separate_exact_candidate_approval": true,
+    "requires_exact_csv_notebook_base_log_lineage": true,
+    "create_submission_artifact": false,
+    "create_base_prediction_artifacts": false,
+    "create_notebook_history_artifact": false,
+    "modify_submission_log": false,
+    "create_id342_or_new_submission_id": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Do not promote artifacts. Keep waiting for approved no-submit remote evidence or repair gates."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

@@ -1,0 +1,47 @@
+{
+  "report": "id337_s1_w005_public_risk_gate",
+  "created_at_kst": "2026-06-18 01:09:08 UTC+09:00",
+  "candidate_id": 337,
+  "candidate_file": "submission_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066_unsubmitted.csv",
+  "base_id": 178,
+  "base_public_score": 0.6014113009,
+  "base_local_reference": 0.5386382667903545,
+  "local_cv": 0.538066,
+  "local_gain_vs_id178_log_row": 0.0005719999999999059,
+  "change": {
+    "target": "S1",
+    "n_kernels": 512,
+    "seed": 45502,
+    "model": "lr_c0_1",
+    "weight": 0.05,
+    "source_report": "reports/id336_s1_weight_sensitivity_20260618.json"
+  },
+  "movement_projection": {
+    "local_cv": 0.538066,
+    "mean_delta_vs_178": 0.0013360024029959651,
+    "max_delta_vs_178": 0.03758537674604023,
+    "rmse_vs_178": 0.004669055252725771,
+    "mean_delta_vs_329": 0.019817927953856042,
+    "max_delta_vs_329": 0.07919238997096245,
+    "mean_delta_vs_335": 0.007883840483161441,
+    "max_delta_vs_335": 0.13051317109405403,
+    "projection_failed": -0.0005538485000278822,
+    "projection_329": 0.0054962557692619304,
+    "projection_335": -0.07389475180526453,
+    "conservative_public_risk_proxy": 0.6050222139833282,
+    "rerank_tier": "reviewable_low_movement"
+  },
+  "identity_check": {
+    "non_s1_oof_exact": true,
+    "non_s1_test_exact": true,
+    "s1_test_max_delta": 0.03758537674604023,
+    "s1_test_mean_delta": 0.009352016820971755
+  },
+  "naive_id178_gap_projected_public": 0.6008390341096455,
+  "decision": {
+    "no_dacon_submission_made": true,
+    "public_058_plausible": false,
+    "controlled_public_probe_hypothesis": true,
+    "summary": "ID337 is the lower-movement S1-only variant selected by the weight sensitivity proxy. It sacrifices part of ID336's local gain to stay much closer to ID178. It is reviewable only with explicit approval, not an automatic submission."
+  }
+}

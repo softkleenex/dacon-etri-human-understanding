@@ -4,6 +4,26 @@ This document is the master specification that guides the machine learning engin
 
 ---
 
+## 0. Current Operating Reality (2026-06-17)
+
+The project has not yet validated a Public `0.55` trajectory. The strongest
+confirmed public anchor is ID178 (`0.6014113009`), while ID329 (`0.6017908577`)
+showed that guarded constrained-combo candidates can preserve anchor-like public
+behavior but still fail to improve it. ID287 (`0.6698787318` public from
+`0.378934` local) is the canonical warning that local frontier scores can be
+misleading.
+
+Therefore, the current priority is:
+
+1. make local validation explain ID178/ID287/ID329 public behavior,
+2. reduce artifact and script sprawl into curated decision records,
+3. only then run new modeling hypotheses.
+
+See `docs/WORKFLOW_REVIEW.md` and `docs/PUBLIC_055_PLAN.md` before promoting
+new candidates.
+
+---
+
 ## 1. 🏗️ Project Architecture & Decoupled Directory Structure
 
 To maintain 100% leak-free processing and ensure clean code portability, the project is structured as follows:
@@ -16,7 +36,7 @@ To maintain 100% leak-free processing and ensure clean code portability, the pro
 │
 ├── docs/                              # Project Documentation
 │   ├── MASTER_PLAN.md                 # [THIS FILE] Master plan and evolution roadmap
-│   ├── submissions/submission_log.csv # Single source of truth for submission history
+│   ├── WORKFLOW_REVIEW.md             # Current risk posture and session handoff
 │   ├── domain/                        # 🧪 Clinical & Physiological Sleep Domain Specs
 │   │   ├── etri_lifelog_2024_paper.pdf # Official ETRI Lifelog academic paper
 │   │   ├── withings_sleep_analyzer_spec_ko.md # Withings hardware & metrics spec (KOR)
@@ -102,3 +122,5 @@ Our feature engineering strictly aligns with the physiological parameters docume
 1.  **Strict local validation**: Do not submit predictions to the leaderboard without explicit user approval.
 2.  **Offline optimization**: During downtime or submission limit locks, focus on SHAP feature importance analysis and model diversity (e.g., hyperparameter search for CatBoost vs LightGBM).
 3.  **Documentation integrity**: Ensure every code patch is accompanied by statistical verification (variance, standard deviations of predictions) to prove that the pipeline has not collapsed back to constant means (`0.5`).
+4.  **Session boundaries**: After broad audits or documentation rewrites, start a fresh session before changing modeling code.
+5.  **No autonomous submissions**: Auto-runner scripts are staging tools only. `make dacon-submit` fails closed unless explicit approval is reflected as `ALLOW_DACON_SUBMIT=true` with exact `SUB_PATH` and `SUB_MEMO`.

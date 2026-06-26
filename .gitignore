@@ -37,6 +37,10 @@ MANIFEST
 !/data/external/etri_lifelog/
 /data/external/etri_lifelog/*
 !/data/external/etri_lifelog/README.md
+/data/external/weather/
+/data/external/kma*/
+/data/external/airkorea*/
+/data/external/public_api*/
 
 # Models and Submissions
 /models/*
@@ -48,10 +52,18 @@ MANIFEST
 
 # Environments
 .env
+.env.*
+!.env.example
+*.local.env
 .venv
 env/
 venv/
 ENV/
+
+# Local secrets and API caches
+secrets/
+*.secret
+*.secrets
 
 # Unit test / coverage reports
 htmlcov/
@@ -115,3 +127,10 @@ checks/
 
 # Local archives and quarantined artifacts
 artifacts/
+
+# Generated strict experiment contract artifacts (kept on disk, not default-tracked)
+/notebooks/history/submission_*_unsubmitted.ipynb
+/reports/experiment_*_unsubmitted.json
+/reports/strict_*_diagnostic*.json
+/reports/experiment_artifacts_audit.json
+/reports/experiment_artifacts_audit.md

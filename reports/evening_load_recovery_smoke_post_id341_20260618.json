@@ -1,0 +1,2417 @@
+{
+  "created_at_kst": "2026-06-18 04:53:10 UTC+09:00",
+  "diagnostic": "evening_load_recovery_smoke_post_id341",
+  "purpose": "Evaluate independent evening_load_recovery_v1 features under frozen post-ID341 validation gates.",
+  "feature_coverage": {
+    "n_rows": 700,
+    "n_train_rows": 450,
+    "n_test_rows": 250,
+    "n_feature_columns": 148,
+    "base_columns_available": [
+      "pedo_total_steps",
+      "pedo_total_distance",
+      "pedo_total_calories",
+      "pedo_evening_steps",
+      "pedo_active_hours",
+      "pedo_step_freq_mean",
+      "mUsage_total_time_mins",
+      "mUsage_night_time_ratio",
+      "mUsage_dopamine_ratio",
+      "mUsage_app_entropy",
+      "mUsage_hourly_volatility",
+      "mUsage_sessions_count",
+      "usage_total_time",
+      "usage_late_time",
+      "usage_late_ratio",
+      "usage_eve_time",
+      "usage_eve_ratio",
+      "screen_on_total",
+      "screen_on_ratio",
+      "screen_night_ratio",
+      "screen_eve_ratio",
+      "screen_presleep_ratio",
+      "mlight_eve_mean",
+      "mlight_night_mean",
+      "mlight_dark_ratio",
+      "mlight_bright_ratio",
+      "wlight_eve_mean",
+      "wlight_night_mean",
+      "wlight_dark_ratio",
+      "wlight_bright_ratio",
+      "gps_moving_ratio",
+      "gps_total_disp",
+      "mGps_radius_of_gyration",
+      "mGps_spatial_entropy",
+      "mGps_homestay_ratio",
+      "amb_music_mean",
+      "amb_speech_mean",
+      "amb_silence_mean",
+      "amb_n_records",
+      "wHr_sleep_efficiency_proxy",
+      "wHr_sleep_fragmentation_index",
+      "wHr_sleep_hr_mean",
+      "wHr_sleep_hr_std",
+      "slp_hr_mean",
+      "slp_hr_std",
+      "slp_hr_rmssd",
+      "slp_hr_range",
+      "slp_hr_spike_count"
+    ],
+    "base_columns_missing": [
+      "wHr_hr_day_mean",
+      "wHr_hr_night_mean",
+      "wHr_hr_rmssd_mean",
+      "wHr_hr_mean_mean"
+    ],
+    "train_missing_mean": 0.09471471471471471,
+    "test_missing_mean": 0.08845945945945946,
+    "top_missing_features": {
+      "elr_raw_gps_moving_ratio": 1.0,
+      "elr_hr_day_minus_night": 1.0,
+      "elr_home_recovery_proxy": 1.0,
+      "elr_mobility_load": 1.0,
+      "elr_load_x_hr_recovery": 1.0,
+      "elr_dopamine_x_hr_recovery": 1.0,
+      "elr_raw_amb_silence_mean": 1.0,
+      "elr_raw_amb_speech_mean": 1.0,
+      "elr_raw_amb_music_mean": 1.0,
+      "elr_hr_day_minus_sleep": 1.0,
+      "elr_raw_slp_hr_spike_count": 0.4822222222222222,
+      "elr_hr_recovery_quality": 0.4711111111111111
+    }
+  },
+  "config_rules": {
+    "target_focus": [
+      "Q2",
+      "Q3",
+      "S2",
+      "S4"
+    ],
+    "config_win_floor": 4,
+    "config_max_delta_ceiling": 0.001,
+    "config_mean_delta_ceiling": -0.0002,
+    "scales": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.65,
+      0.8,
+      1.0
+    ],
+    "blend_weights": [
+      0.01,
+      0.03,
+      0.05,
+      0.1,
+      0.2
+    ],
+    "model_specs": [
+      {
+        "name": "lr_c0_05",
+        "kind": "lr",
+        "c_value": 0.05,
+        "max_iter": null,
+        "max_leaf_nodes": null,
+        "l2_regularization": null
+      },
+      {
+        "name": "lr_c0_2",
+        "kind": "lr",
+        "c_value": 0.2,
+        "max_iter": null,
+        "max_leaf_nodes": null,
+        "l2_regularization": null
+      },
+      {
+        "name": "hgb_l5_l2_2",
+        "kind": "hgb",
+        "c_value": null,
+        "max_iter": 70,
+        "max_leaf_nodes": 5,
+        "l2_regularization": 2.0
+      }
+    ]
+  },
+  "selected_target_configs": {
+    "S4": {
+      "target": "S4",
+      "model": "lr_c0_2",
+      "model_spec": {
+        "name": "lr_c0_2",
+        "kind": "lr",
+        "c_value": 0.2,
+        "max_iter": null,
+        "max_leaf_nodes": null,
+        "l2_regularization": null
+      },
+      "anchor": "id178",
+      "weight": 0.05,
+      "candidate": "S4_id178_lr_c0_2_w0.05",
+      "primary_wins_vs_id341": 4,
+      "mean_delta_vs_id341": -0.0006957250584918251,
+      "min_delta_vs_id341": -0.0016302536177554838,
+      "max_delta_vs_id341": 0.0006540867439026599,
+      "split_deltas_vs_id341": {
+        "subject_hole_5": -0.0003990775961297821,
+        "actual_test_band_holdout": -0.0016302536177554838,
+        "test_boundary_neighbor2_holdout": -0.0006571164516092631,
+        "test_boundary_neighbor5_holdout": -0.0014462643708672562,
+        "loso_10": 0.0006540867439026599
+      },
+      "split_losses": {
+        "subject_hole_5": 0.6023006268903717,
+        "actual_test_band_holdout": 0.6757060142448323,
+        "test_boundary_neighbor2_holdout": 0.6540110133189417,
+        "test_boundary_neighbor5_holdout": 0.6179474317971119,
+        "loso_10": 0.603353791230404
+      }
+    }
+  },
+  "top_scan_rows_by_target": {
+    "Q2": [
+      {
+        "target": "Q2",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q2_id341_lr_c0_05_w0.01",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.00013502689445128447,
+        "min_delta_vs_id341": -0.0006793992075029287,
+        "max_delta_vs_id341": 0.0005434594859967667,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0005434594859967667,
+          "actual_test_band_holdout": 5.921522528218315e-05,
+          "test_boundary_neighbor2_holdout": -0.0006793992075029287,
+          "test_boundary_neighbor5_holdout": 0.0003120526409515767,
+          "loso_10": 0.0004398063275288244
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5568442523895915,
+          "actual_test_band_holdout": 0.5838740069817695,
+          "test_boundary_neighbor2_holdout": 0.6335583720218632,
+          "test_boundary_neighbor5_holdout": 0.5734033405395398,
+          "loso_10": 0.5567405992311234
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q2_id341_hgb_l5_l2_2_w0.01",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0001557919272329622,
+        "min_delta_vs_id341": -0.0005833480013941461,
+        "max_delta_vs_id341": 0.00052581032160115,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0002684609263758908,
+          "actual_test_band_holdout": 0.0002788670804744209,
+          "test_boundary_neighbor2_holdout": -0.0005833480013941461,
+          "test_boundary_neighbor5_holdout": 0.0002891693091074954,
+          "loso_10": 0.00052581032160115
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5565692538299706,
+          "actual_test_band_holdout": 0.5840936588369617,
+          "test_boundary_neighbor2_holdout": 0.6336544232279719,
+          "test_boundary_neighbor5_holdout": 0.5733804572076957,
+          "loso_10": 0.5568266032251957
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q2_id341_lr_c0_2_w0.01",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.00018068422875201496,
+        "min_delta_vs_id341": -0.0006432293632088193,
+        "max_delta_vs_id341": 0.0006105763544529408,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0006105763544529408,
+          "actual_test_band_holdout": 8.50744872649134e-05,
+          "test_boundary_neighbor2_holdout": -0.0006432293632088193,
+          "test_boundary_neighbor5_holdout": 0.0003717398866897037,
+          "loso_10": 0.00047925977856133617
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5569113692580476,
+          "actual_test_band_holdout": 0.5838998662437522,
+          "test_boundary_neighbor2_holdout": 0.6335945418661573,
+          "test_boundary_neighbor5_holdout": 0.5734630277852779,
+          "loso_10": 0.5567800526821559
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "Q2_id341_lr_c0_05_w0.03",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0004974888857587345,
+        "min_delta_vs_id341": -0.0019416425425188288,
+        "max_delta_vs_id341": 0.0017067277345563792,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0017067277345563792,
+          "actual_test_band_holdout": 0.00024993408438223064,
+          "test_boundary_neighbor2_holdout": -0.0019416425425188288,
+          "test_boundary_neighbor5_holdout": 0.0010434723484159525,
+          "loso_10": 0.0014289528039579391
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5580075206381511,
+          "actual_test_band_holdout": 0.5840647258408695,
+          "test_boundary_neighbor2_holdout": 0.6322961286868473,
+          "test_boundary_neighbor5_holdout": 0.5741347602470042,
+          "loso_10": 0.5577297457075525
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "Q2_id341_hgb_l5_l2_2_w0.03",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0005433310189205676,
+        "min_delta_vs_id341": -0.0016648097921257987,
+        "max_delta_vs_id341": 0.0016716386278615714,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0008789706872986969,
+          "actual_test_band_holdout": 0.0008864710824615374,
+          "test_boundary_neighbor2_holdout": -0.0016648097921257987,
+          "test_boundary_neighbor5_holdout": 0.0009443844891068309,
+          "loso_10": 0.0016716386278615714
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5571797635908934,
+          "actual_test_band_holdout": 0.5847012628389489,
+          "test_boundary_neighbor2_holdout": 0.6325729614372403,
+          "test_boundary_neighbor5_holdout": 0.574035672387695,
+          "loso_10": 0.5579724315314561
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "Q2_id341_lr_c0_2_w0.03",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0006477253125434679,
+        "min_delta_vs_id341": -0.0018209710991831107,
+        "max_delta_vs_id341": 0.0019199775204681302,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0019199775204681302,
+          "actual_test_band_holdout": 0.00033982679583610675,
+          "test_boundary_neighbor2_holdout": -0.0018209710991831107,
+          "test_boundary_neighbor5_holdout": 0.0012432621060953775,
+          "loso_10": 0.0015565312395008357
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5582207704240628,
+          "actual_test_band_holdout": 0.5841546185523234,
+          "test_boundary_neighbor2_holdout": 0.632416800130183,
+          "test_boundary_neighbor5_holdout": 0.5743345500046836,
+          "loso_10": 0.5578573241430954
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.05,
+        "candidate": "Q2_id341_lr_c0_05_w0.05",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0009792172383411347,
+        "min_delta_vs_id341": -0.0030806152783700025,
+        "max_delta_vs_id341": 0.0029698802358146814,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0029698802358146814,
+          "actual_test_band_holdout": 0.0005349369456861819,
+          "test_boundary_neighbor2_holdout": -0.0030806152783700025,
+          "test_boundary_neighbor5_holdout": 0.0019122554988105778,
+          "loso_10": 0.0025596287897642345
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5592706731394094,
+          "actual_test_band_holdout": 0.5843497287021735,
+          "test_boundary_neighbor2_holdout": 0.6311571559509961,
+          "test_boundary_neighbor5_holdout": 0.5750035433973988,
+          "loso_10": 0.5588604216933588
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.05,
+        "candidate": "Q2_id341_hgb_l5_l2_2_w0.05",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0010278815192243274,
+        "min_delta_vs_id341": -0.0026399791673601403,
+        "max_delta_vs_id341": 0.0029377781853917595,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0015834046854130701,
+          "actual_test_band_holdout": 0.0015594257069636575,
+          "test_boundary_neighbor2_holdout": -0.0026399791673601403,
+          "test_boundary_neighbor5_holdout": 0.00169877818571329,
+          "loso_10": 0.0029377781853917595
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5578841975890078,
+          "actual_test_band_holdout": 0.585374217463451,
+          "test_boundary_neighbor2_holdout": 0.631597792062006,
+          "test_boundary_neighbor5_holdout": 0.5747900660843015,
+          "loso_10": 0.5592385710889863
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.03,
+        "candidate": "Q2_id178_lr_c0_05_w0.03",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.001115699110038948,
+        "min_delta_vs_id341": -0.000918056462394512,
+        "max_delta_vs_id341": 0.002063159882633392,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.002063159882633392,
+          "actual_test_band_holdout": 0.0011751931259369464,
+          "test_boundary_neighbor2_holdout": -0.000918056462394512,
+          "test_boundary_neighbor5_holdout": 0.0014785493731729327,
+          "loso_10": 0.0017796496308459808
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5583639527862281,
+          "actual_test_band_holdout": 0.5849899848824243,
+          "test_boundary_neighbor2_holdout": 0.6333197147669716,
+          "test_boundary_neighbor5_holdout": 0.5745698372717611,
+          "loso_10": 0.5580804425344406
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id178",
+        "weight": 0.03,
+        "candidate": "Q2_id178_hgb_l5_l2_2_w0.03",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0011574697359546082,
+        "min_delta_vs_id341": -0.0006459659027120424,
+        "max_delta_vs_id341": 0.002021292189345325,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0012318198092524657,
+          "actual_test_band_holdout": 0.0018068396775862139,
+          "test_boundary_neighbor2_holdout": -0.0006459659027120424,
+          "test_boundary_neighbor5_holdout": 0.0013733629063010788,
+          "loso_10": 0.002021292189345325
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5575326127128472,
+          "actual_test_band_holdout": 0.5856216314340735,
+          "test_boundary_neighbor2_holdout": 0.633591805326654,
+          "test_boundary_neighbor5_holdout": 0.5744646508048893,
+          "loso_10": 0.5583220850929399
+        }
+      }
+    ],
+    "Q3": [
+      {
+        "target": "Q3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "Q3_id178_hgb_l5_l2_2_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00037734384428960154,
+        "min_delta_vs_id341": 0.00022662732114953066,
+        "max_delta_vs_id341": 0.0005767892917777351,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0004014501534651549,
+          "actual_test_band_holdout": 0.0005767892917777351,
+          "test_boundary_neighbor2_holdout": 0.00022662732114953066,
+          "test_boundary_neighbor5_holdout": 0.00033103212349683275,
+          "loso_10": 0.00035082033155875436
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5674912349897835,
+          "actual_test_band_holdout": 0.5098780134560555,
+          "test_boundary_neighbor2_holdout": 0.6065624984850322,
+          "test_boundary_neighbor5_holdout": 0.5830972571131986,
+          "loso_10": 0.5674406051678771
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q3_id341_hgb_l5_l2_2_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00037734384428960154,
+        "min_delta_vs_id341": 0.00022662732114953066,
+        "max_delta_vs_id341": 0.0005767892917777351,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0004014501534651549,
+          "actual_test_band_holdout": 0.0005767892917777351,
+          "test_boundary_neighbor2_holdout": 0.00022662732114953066,
+          "test_boundary_neighbor5_holdout": 0.00033103212349683275,
+          "loso_10": 0.00035082033155875436
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5674912349897835,
+          "actual_test_band_holdout": 0.5098780134560555,
+          "test_boundary_neighbor2_holdout": 0.6065624984850322,
+          "test_boundary_neighbor5_holdout": 0.5830972571131986,
+          "loso_10": 0.5674406051678771
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "Q3_id178_lr_c0_05_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0007876153195800039,
+        "min_delta_vs_id341": 0.00046449618962973727,
+        "max_delta_vs_id341": 0.001266979779395494,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0005753203324915246,
+          "actual_test_band_holdout": 0.0009838530176762283,
+          "test_boundary_neighbor2_holdout": 0.001266979779395494,
+          "test_boundary_neighbor5_holdout": 0.0006474272787070356,
+          "loso_10": 0.00046449618962973727
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5676651051688099,
+          "actual_test_band_holdout": 0.510285077181954,
+          "test_boundary_neighbor2_holdout": 0.6076028509432781,
+          "test_boundary_neighbor5_holdout": 0.5834136522684088,
+          "loso_10": 0.5675542810259481
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q3_id341_lr_c0_05_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0007876153195800039,
+        "min_delta_vs_id341": 0.00046449618962973727,
+        "max_delta_vs_id341": 0.001266979779395494,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0005753203324915246,
+          "actual_test_band_holdout": 0.0009838530176762283,
+          "test_boundary_neighbor2_holdout": 0.001266979779395494,
+          "test_boundary_neighbor5_holdout": 0.0006474272787070356,
+          "loso_10": 0.00046449618962973727
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5676651051688099,
+          "actual_test_band_holdout": 0.510285077181954,
+          "test_boundary_neighbor2_holdout": 0.6076028509432781,
+          "test_boundary_neighbor5_holdout": 0.5834136522684088,
+          "loso_10": 0.5675542810259481
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "Q3_id178_lr_c0_2_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0008894184476107902,
+        "min_delta_vs_id341": 0.0004951957189046619,
+        "max_delta_vs_id341": 0.0014925687759446138,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0006208630812329918,
+          "actual_test_band_holdout": 0.001003359451079655,
+          "test_boundary_neighbor2_holdout": 0.0014925687759446138,
+          "test_boundary_neighbor5_holdout": 0.0008351052108920287,
+          "loso_10": 0.0004951957189046619
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5677106479175513,
+          "actual_test_band_holdout": 0.5103045836153575,
+          "test_boundary_neighbor2_holdout": 0.6078284399398273,
+          "test_boundary_neighbor5_holdout": 0.5836013302005938,
+          "loso_10": 0.567584980555223
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q3_id341_lr_c0_2_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0008894184476107902,
+        "min_delta_vs_id341": 0.0004951957189046619,
+        "max_delta_vs_id341": 0.0014925687759446138,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0006208630812329918,
+          "actual_test_band_holdout": 0.001003359451079655,
+          "test_boundary_neighbor2_holdout": 0.0014925687759446138,
+          "test_boundary_neighbor5_holdout": 0.0008351052108920287,
+          "loso_10": 0.0004951957189046619
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5677106479175513,
+          "actual_test_band_holdout": 0.5103045836153575,
+          "test_boundary_neighbor2_holdout": 0.6078284399398273,
+          "test_boundary_neighbor5_holdout": 0.5836013302005938,
+          "loso_10": 0.567584980555223
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id178",
+        "weight": 0.03,
+        "candidate": "Q3_id178_hgb_l5_l2_2_w0.03",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0011940050576148443,
+        "min_delta_vs_id341": 0.0007431223732762282,
+        "max_delta_vs_id341": 0.0017810854150053235,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.001261492933805508,
+          "actual_test_band_holdout": 0.0017810854150053235,
+          "test_boundary_neighbor2_holdout": 0.0007431223732762282,
+          "test_boundary_neighbor5_holdout": 0.0010489141758179832,
+          "loso_10": 0.001135410390169178
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5683512777701238,
+          "actual_test_band_holdout": 0.5110823095792831,
+          "test_boundary_neighbor2_holdout": 0.6070789935371589,
+          "test_boundary_neighbor5_holdout": 0.5838151391655197,
+          "loso_10": 0.5682251952264875
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "Q3_id341_hgb_l5_l2_2_w0.03",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0011940050576148443,
+        "min_delta_vs_id341": 0.0007431223732762282,
+        "max_delta_vs_id341": 0.0017810854150053235,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.001261492933805508,
+          "actual_test_band_holdout": 0.0017810854150053235,
+          "test_boundary_neighbor2_holdout": 0.0007431223732762282,
+          "test_boundary_neighbor5_holdout": 0.0010489141758179832,
+          "loso_10": 0.001135410390169178
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5683512777701238,
+          "actual_test_band_holdout": 0.5110823095792831,
+          "test_boundary_neighbor2_holdout": 0.6070789935371589,
+          "test_boundary_neighbor5_holdout": 0.5838151391655197,
+          "loso_10": 0.5682251952264875
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id178",
+        "weight": 0.05,
+        "candidate": "Q3_id178_hgb_l5_l2_2_w0.05",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.002090827825891117,
+        "min_delta_vs_id341": 0.0013415255369456647,
+        "max_delta_vs_id341": 0.003051534102122888,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.002195566695204043,
+          "actual_test_band_holdout": 0.003051534102122888,
+          "test_boundary_neighbor2_holdout": 0.0013415255369456647,
+          "test_boundary_neighbor5_holdout": 0.0018396297505370862,
+          "loso_10": 0.002025883044645904
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5692853515315224,
+          "actual_test_band_holdout": 0.5123527582664007,
+          "test_boundary_neighbor2_holdout": 0.6076773967008283,
+          "test_boundary_neighbor5_holdout": 0.5846058547402389,
+          "loso_10": 0.5691156678809642
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.05,
+        "candidate": "Q3_id341_hgb_l5_l2_2_w0.05",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.002090827825891117,
+        "min_delta_vs_id341": 0.0013415255369456647,
+        "max_delta_vs_id341": 0.003051534102122888,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.002195566695204043,
+          "actual_test_band_holdout": 0.003051534102122888,
+          "test_boundary_neighbor2_holdout": 0.0013415255369456647,
+          "test_boundary_neighbor5_holdout": 0.0018396297505370862,
+          "loso_10": 0.002025883044645904
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5692853515315224,
+          "actual_test_band_holdout": 0.5123527582664007,
+          "test_boundary_neighbor2_holdout": 0.6076773967008283,
+          "test_boundary_neighbor5_holdout": 0.5846058547402389,
+          "loso_10": 0.5691156678809642
+        }
+      }
+    ],
+    "S2": [
+      {
+        "target": "S2",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S2_id178_hgb_l5_l2_2_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0002033057241082492,
+        "min_delta_vs_id341": 9.778046154373943e-05,
+        "max_delta_vs_id341": 0.00030572884994939376,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00030572884994939376,
+          "actual_test_band_holdout": 9.778046154373943e-05,
+          "test_boundary_neighbor2_holdout": 0.00021588541019168517,
+          "test_boundary_neighbor5_holdout": 0.0001779869491729258,
+          "loso_10": 0.0002191469496835019
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5298618615974233,
+          "actual_test_band_holdout": 0.5515841223542356,
+          "test_boundary_neighbor2_holdout": 0.5740478130625507,
+          "test_boundary_neighbor5_holdout": 0.5534323607974053,
+          "loso_10": 0.5297752796971575
+        }
+      },
+      {
+        "target": "S2",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S2_id341_hgb_l5_l2_2_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0002033057241082492,
+        "min_delta_vs_id341": 9.778046154373943e-05,
+        "max_delta_vs_id341": 0.00030572884994939376,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00030572884994939376,
+          "actual_test_band_holdout": 9.778046154373943e-05,
+          "test_boundary_neighbor2_holdout": 0.00021588541019168517,
+          "test_boundary_neighbor5_holdout": 0.0001779869491729258,
+          "loso_10": 0.0002191469496835019
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5298618615974233,
+          "actual_test_band_holdout": 0.5515841223542356,
+          "test_boundary_neighbor2_holdout": 0.5740478130625507,
+          "test_boundary_neighbor5_holdout": 0.5534323607974053,
+          "loso_10": 0.5297752796971575
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S2_id178_lr_c0_05_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00036279137850583345,
+        "min_delta_vs_id341": 0.00017562336950094348,
+        "max_delta_vs_id341": 0.000513492707045371,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0004695012001930676,
+          "actual_test_band_holdout": 0.0001767079985026676,
+          "test_boundary_neighbor2_holdout": 0.000513492707045371,
+          "test_boundary_neighbor5_holdout": 0.00017562336950094348,
+          "loso_10": 0.00047863161728711745
+        },
+        "split_losses": {
+          "subject_hole_5": 0.530025633947667,
+          "actual_test_band_holdout": 0.5516630498911945,
+          "test_boundary_neighbor2_holdout": 0.5743454203594044,
+          "test_boundary_neighbor5_holdout": 0.5534299972177333,
+          "loso_10": 0.5300347643647612
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S2_id341_lr_c0_05_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00036279137850583345,
+        "min_delta_vs_id341": 0.00017562336950094348,
+        "max_delta_vs_id341": 0.000513492707045371,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0004695012001930676,
+          "actual_test_band_holdout": 0.0001767079985026676,
+          "test_boundary_neighbor2_holdout": 0.000513492707045371,
+          "test_boundary_neighbor5_holdout": 0.00017562336950094348,
+          "loso_10": 0.00047863161728711745
+        },
+        "split_losses": {
+          "subject_hole_5": 0.530025633947667,
+          "actual_test_band_holdout": 0.5516630498911945,
+          "test_boundary_neighbor2_holdout": 0.5743454203594044,
+          "test_boundary_neighbor5_holdout": 0.5534299972177333,
+          "loso_10": 0.5300347643647612
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S2_id178_lr_c0_2_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0004247889260547977,
+        "min_delta_vs_id341": 0.00012759314910637531,
+        "max_delta_vs_id341": 0.0007014512591286826,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0005283202607694326,
+          "actual_test_band_holdout": 0.0003265735909320222,
+          "test_boundary_neighbor2_holdout": 0.0007014512591286826,
+          "test_boundary_neighbor5_holdout": 0.00012759314910637531,
+          "loso_10": 0.0004400063703374757
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5300844530082434,
+          "actual_test_band_holdout": 0.5518129154836239,
+          "test_boundary_neighbor2_holdout": 0.5745333789114877,
+          "test_boundary_neighbor5_holdout": 0.5533819669973388,
+          "loso_10": 0.5299961391178115
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S2_id341_lr_c0_2_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0004247889260547977,
+        "min_delta_vs_id341": 0.00012759314910637531,
+        "max_delta_vs_id341": 0.0007014512591286826,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0005283202607694326,
+          "actual_test_band_holdout": 0.0003265735909320222,
+          "test_boundary_neighbor2_holdout": 0.0007014512591286826,
+          "test_boundary_neighbor5_holdout": 0.00012759314910637531,
+          "loso_10": 0.0004400063703374757
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5300844530082434,
+          "actual_test_band_holdout": 0.5518129154836239,
+          "test_boundary_neighbor2_holdout": 0.5745333789114877,
+          "test_boundary_neighbor5_holdout": 0.5533819669973388,
+          "loso_10": 0.5299961391178115
+        }
+      },
+      {
+        "target": "S2",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id178",
+        "weight": 0.03,
+        "candidate": "S2_id178_hgb_l5_l2_2_w0.03",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.000701855397590112,
+        "min_delta_vs_id341": 0.00037085909016687513,
+        "max_delta_vs_id341": 0.0009593566018455402,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0009593566018455402,
+          "actual_test_band_holdout": 0.00037085909016687513,
+          "test_boundary_neighbor2_holdout": 0.0007314885562244022,
+          "test_boundary_neighbor5_holdout": 0.0006003166929668957,
+          "loso_10": 0.0008472560467468471
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5305154893493195,
+          "actual_test_band_holdout": 0.5518572009828587,
+          "test_boundary_neighbor2_holdout": 0.5745634162085834,
+          "test_boundary_neighbor5_holdout": 0.5538546905411993,
+          "loso_10": 0.5304033887942209
+        }
+      },
+      {
+        "target": "S2",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "S2_id341_hgb_l5_l2_2_w0.03",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.000701855397590112,
+        "min_delta_vs_id341": 0.00037085909016687513,
+        "max_delta_vs_id341": 0.0009593566018455402,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0009593566018455402,
+          "actual_test_band_holdout": 0.00037085909016687513,
+          "test_boundary_neighbor2_holdout": 0.0007314885562244022,
+          "test_boundary_neighbor5_holdout": 0.0006003166929668957,
+          "loso_10": 0.0008472560467468471
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5305154893493195,
+          "actual_test_band_holdout": 0.5518572009828587,
+          "test_boundary_neighbor2_holdout": 0.5745634162085834,
+          "test_boundary_neighbor5_holdout": 0.5538546905411993,
+          "loso_10": 0.5304033887942209
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.03,
+        "candidate": "S2_id178_lr_c0_05_w0.03",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0011495459334528002,
+        "min_delta_vs_id341": 0.0005816062819159473,
+        "max_delta_vs_id341": 0.0015908302127920493,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.001440201111591044,
+          "actual_test_band_holdout": 0.0005816062819159473,
+          "test_boundary_neighbor2_holdout": 0.0015908302127920493,
+          "test_boundary_neighbor5_holdout": 0.0005913745463010933,
+          "loso_10": 0.001543717514663867
+        },
+        "split_losses": {
+          "subject_hole_5": 0.530996333859065,
+          "actual_test_band_holdout": 0.5520679481746078,
+          "test_boundary_neighbor2_holdout": 0.5754227578651511,
+          "test_boundary_neighbor5_holdout": 0.5538457483945335,
+          "loso_10": 0.5310998502621379
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "S2_id341_lr_c0_05_w0.03",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0011495459334528002,
+        "min_delta_vs_id341": 0.0005816062819159473,
+        "max_delta_vs_id341": 0.0015908302127920493,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.001440201111591044,
+          "actual_test_band_holdout": 0.0005816062819159473,
+          "test_boundary_neighbor2_holdout": 0.0015908302127920493,
+          "test_boundary_neighbor5_holdout": 0.0005913745463010933,
+          "loso_10": 0.001543717514663867
+        },
+        "split_losses": {
+          "subject_hole_5": 0.530996333859065,
+          "actual_test_band_holdout": 0.5520679481746078,
+          "test_boundary_neighbor2_holdout": 0.5754227578651511,
+          "test_boundary_neighbor5_holdout": 0.5538457483945335,
+          "loso_10": 0.5310998502621379
+        }
+      }
+    ],
+    "S4": [
+      {
+        "target": "S4",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.05,
+        "candidate": "S4_id178_lr_c0_2_w0.05",
+        "primary_wins_vs_id341": 4,
+        "mean_delta_vs_id341": -0.0006957250584918251,
+        "min_delta_vs_id341": -0.0016302536177554838,
+        "max_delta_vs_id341": 0.0006540867439026599,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.0003990775961297821,
+          "actual_test_band_holdout": -0.0016302536177554838,
+          "test_boundary_neighbor2_holdout": -0.0006571164516092631,
+          "test_boundary_neighbor5_holdout": -0.0014462643708672562,
+          "loso_10": 0.0006540867439026599
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6023006268903717,
+          "actual_test_band_holdout": 0.6757060142448323,
+          "test_boundary_neighbor2_holdout": 0.6540110133189417,
+          "test_boundary_neighbor5_holdout": 0.6179474317971119,
+          "loso_10": 0.603353791230404
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.05,
+        "candidate": "S4_id341_lr_c0_2_w0.05",
+        "primary_wins_vs_id341": 4,
+        "mean_delta_vs_id341": -0.0006957250584918251,
+        "min_delta_vs_id341": -0.0016302536177554838,
+        "max_delta_vs_id341": 0.0006540867439026599,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.0003990775961297821,
+          "actual_test_band_holdout": -0.0016302536177554838,
+          "test_boundary_neighbor2_holdout": -0.0006571164516092631,
+          "test_boundary_neighbor5_holdout": -0.0014462643708672562,
+          "loso_10": 0.0006540867439026599
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6023006268903717,
+          "actual_test_band_holdout": 0.6757060142448323,
+          "test_boundary_neighbor2_holdout": 0.6540110133189417,
+          "test_boundary_neighbor5_holdout": 0.6179474317971119,
+          "loso_10": 0.603353791230404
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.1,
+        "candidate": "S4_id178_lr_c0_2_w0.1",
+        "primary_wins_vs_id341": 4,
+        "mean_delta_vs_id341": -0.0006942113333732403,
+        "min_delta_vs_id341": -0.002624521317211914,
+        "max_delta_vs_id341": 0.002074989678893635,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.0003392356777327521,
+          "actual_test_band_holdout": -0.002624521317211914,
+          "test_boundary_neighbor2_holdout": -0.0006142278022452929,
+          "test_boundary_neighbor5_holdout": -0.001968061548569877,
+          "loso_10": 0.002074989678893635
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6023604688087687,
+          "actual_test_band_holdout": 0.6747117465453759,
+          "test_boundary_neighbor2_holdout": 0.6540539019683057,
+          "test_boundary_neighbor5_holdout": 0.6174256346194092,
+          "loso_10": 0.604774694165395
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.1,
+        "candidate": "S4_id341_lr_c0_2_w0.1",
+        "primary_wins_vs_id341": 4,
+        "mean_delta_vs_id341": -0.0006942113333732403,
+        "min_delta_vs_id341": -0.002624521317211914,
+        "max_delta_vs_id341": 0.002074989678893635,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.0003392356777327521,
+          "actual_test_band_holdout": -0.002624521317211914,
+          "test_boundary_neighbor2_holdout": -0.0006142278022452929,
+          "test_boundary_neighbor5_holdout": -0.001968061548569877,
+          "loso_10": 0.002074989678893635
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6023604688087687,
+          "actual_test_band_holdout": 0.6747117465453759,
+          "test_boundary_neighbor2_holdout": 0.6540539019683057,
+          "test_boundary_neighbor5_holdout": 0.6174256346194092,
+          "loso_10": 0.604774694165395
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.03,
+        "candidate": "S4_id178_lr_c0_2_w0.03",
+        "primary_wins_vs_id341": 4,
+        "mean_delta_vs_id341": -0.0005023572901750262,
+        "min_delta_vs_id341": -0.0010551223581043434,
+        "max_delta_vs_id341": 0.00029847382855274773,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.0002948702245620938,
+          "actual_test_band_holdout": -0.0010551223581043434,
+          "test_boundary_neighbor2_holdout": -0.00047867321756922543,
+          "test_boundary_neighbor5_holdout": -0.000981594479192216,
+          "loso_10": 0.00029847382855274773
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6024048342619394,
+          "actual_test_band_holdout": 0.6762811455044835,
+          "test_boundary_neighbor2_holdout": 0.6541894565529818,
+          "test_boundary_neighbor5_holdout": 0.6184121016887869,
+          "loso_10": 0.6029981783150541
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "S4_id341_lr_c0_2_w0.03",
+        "primary_wins_vs_id341": 4,
+        "mean_delta_vs_id341": -0.0005023572901750262,
+        "min_delta_vs_id341": -0.0010551223581043434,
+        "max_delta_vs_id341": 0.00029847382855274773,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.0002948702245620938,
+          "actual_test_band_holdout": -0.0010551223581043434,
+          "test_boundary_neighbor2_holdout": -0.00047867321756922543,
+          "test_boundary_neighbor5_holdout": -0.000981594479192216,
+          "loso_10": 0.00029847382855274773
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6024048342619394,
+          "actual_test_band_holdout": 0.6762811455044835,
+          "test_boundary_neighbor2_holdout": 0.6541894565529818,
+          "test_boundary_neighbor5_holdout": 0.6184121016887869,
+          "loso_10": 0.6029981783150541
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.05,
+        "candidate": "S4_id178_lr_c0_05_w0.05",
+        "primary_wins_vs_id341": 4,
+        "mean_delta_vs_id341": -0.0004711608459472716,
+        "min_delta_vs_id341": -0.0017044592068596875,
+        "max_delta_vs_id341": 0.0006174845175482835,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.00029855360608910253,
+          "actual_test_band_holdout": -0.0017044592068596875,
+          "test_boundary_neighbor2_holdout": -0.0003302463447962811,
+          "test_boundary_neighbor5_holdout": -0.0006400295895395702,
+          "loso_10": 0.0006174845175482835
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6024011508804124,
+          "actual_test_band_holdout": 0.6756318086557281,
+          "test_boundary_neighbor2_holdout": 0.6543378834257547,
+          "test_boundary_neighbor5_holdout": 0.6187536665784396,
+          "loso_10": 0.6033171890040496
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.05,
+        "candidate": "S4_id341_lr_c0_05_w0.05",
+        "primary_wins_vs_id341": 4,
+        "mean_delta_vs_id341": -0.0004711608459472716,
+        "min_delta_vs_id341": -0.0017044592068596875,
+        "max_delta_vs_id341": 0.0006174845175482835,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.00029855360608910253,
+          "actual_test_band_holdout": -0.0017044592068596875,
+          "test_boundary_neighbor2_holdout": -0.0003302463447962811,
+          "test_boundary_neighbor5_holdout": -0.0006400295895395702,
+          "loso_10": 0.0006174845175482835
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6024011508804124,
+          "actual_test_band_holdout": 0.6756318086557281,
+          "test_boundary_neighbor2_holdout": 0.6543378834257547,
+          "test_boundary_neighbor5_holdout": 0.6187536665784396,
+          "loso_10": 0.6033171890040496
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.1,
+        "candidate": "S4_id178_lr_c0_05_w0.1",
+        "primary_wins_vs_id341": 4,
+        "mean_delta_vs_id341": -0.0004086685896529385,
+        "min_delta_vs_id341": -0.0029064889992952425,
+        "max_delta_vs_id341": 0.001874130226428905,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.0002744429684797822,
+          "actual_test_band_holdout": -0.0029064889992952425,
+          "test_boundary_neighbor2_holdout": -0.0001273094603607694,
+          "test_boundary_neighbor5_holdout": -0.0006092317465578034,
+          "loso_10": 0.001874130226428905
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6024252615180217,
+          "actual_test_band_holdout": 0.6744297788632926,
+          "test_boundary_neighbor2_holdout": 0.6545408203101902,
+          "test_boundary_neighbor5_holdout": 0.6187844644214213,
+          "loso_10": 0.6045738347129302
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.1,
+        "candidate": "S4_id341_lr_c0_05_w0.1",
+        "primary_wins_vs_id341": 4,
+        "mean_delta_vs_id341": -0.0004086685896529385,
+        "min_delta_vs_id341": -0.0029064889992952425,
+        "max_delta_vs_id341": 0.001874130226428905,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.0002744429684797822,
+          "actual_test_band_holdout": -0.0029064889992952425,
+          "test_boundary_neighbor2_holdout": -0.0001273094603607694,
+          "test_boundary_neighbor5_holdout": -0.0006092317465578034,
+          "loso_10": 0.001874130226428905
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6024252615180217,
+          "actual_test_band_holdout": 0.6744297788632926,
+          "test_boundary_neighbor2_holdout": 0.6545408203101902,
+          "test_boundary_neighbor5_holdout": 0.6187844644214213,
+          "loso_10": 0.6045738347129302
+        }
+      }
+    ]
+  },
+  "scale_rows": [
+    {
+      "scale": 0.05,
+      "effective_weights": {
+        "S4": 0.0025000000000000005
+      },
+      "split_rows": {
+        "subject_hole_5": {
+          "candidate_loss": 0.5385792368912363,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": -4.423032999634202e-06,
+          "delta_vs_id178": -5.850049911815258e-05,
+          "beats_id341": true
+        },
+        "subject_timeseries_5": {
+          "candidate_loss": 0.5396890840709285,
+          "id341_loss": 0.5396878069689024,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id341": 1.2771020261315158e-06,
+          "delta_vs_id178": -5.813218074401938e-05,
+          "beats_id341": false
+        },
+        "actual_test_band_holdout": {
+          "candidate_loss": 0.5414506916430994,
+          "id341_loss": 0.5414645216345798,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id341": -1.3829991480363013e-05,
+          "delta_vs_id178": -0.00015296522204277796,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor2_holdout": {
+          "candidate_loss": 0.5861300912081425,
+          "id341_loss": 0.5861371781640982,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id341": -7.086955955637464e-06,
+          "delta_vs_id178": -0.0001597772624670757,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor5_holdout": {
+          "candidate_loss": 0.5579066549279111,
+          "id341_loss": 0.557920246831064,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id341": -1.3591903152865292e-05,
+          "delta_vs_id178": -7.950023774605519e-05,
+          "beats_id341": true
+        },
+        "loso_10": {
+          "candidate_loss": 0.5385856474292064,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": 1.9875049704909387e-06,
+          "delta_vs_id178": -5.208996114802744e-05,
+          "beats_id341": false
+        }
+      },
+      "primary_passes_vs_id341": {
+        "subject_hole_5": true,
+        "actual_test_band_holdout": true,
+        "test_boundary_neighbor2_holdout": true,
+        "test_boundary_neighbor5_holdout": true,
+        "loso_10": false
+      },
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385792368912363,
+      "test_geometry": {
+        "mean_delta_vs_178": 0.0001793989681306886,
+        "max_delta_vs_178": 0.002025444883233418,
+        "mean_delta_vs_329": 0.01935670520699476,
+        "max_delta_vs_329": 0.07919238997096245,
+        "mean_delta_vs_341": 5.588966345742609e-05,
+        "max_delta_vs_341": 0.0013444419349910586,
+        "projection_failed": -9.325038869189615e-05,
+        "geometry_proxy": 0.601506941674763,
+        "local_plus_recent_gap_proxy": 0.6013525377912363,
+        "proxy_public_risk": 0.601506941674763,
+        "beats_id341_proxy": true,
+        "public_058_plausible": false
+      },
+      "reviewable_low_movement_candidate": false
+    },
+    {
+      "scale": 0.1,
+      "effective_weights": {
+        "S4": 0.005000000000000001
+      },
+      "split_rows": {
+        "subject_hole_5": {
+          "candidate_loss": 0.5385749803897106,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": -8.679534525324328e-06,
+          "delta_vs_id178": -6.275700064384271e-05,
+          "beats_id341": true
+        },
+        "subject_timeseries_5": {
+          "candidate_loss": 0.5396905811077195,
+          "id341_loss": 0.5396878069689024,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id341": 2.774138817107641e-06,
+          "delta_vs_id178": -5.6635143953043254e-05,
+          "beats_id341": false
+        },
+        "actual_test_band_holdout": {
+          "candidate_loss": 0.5414370933345374,
+          "id341_loss": 0.5414645216345798,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id341": -2.7428300042431353e-05,
+          "delta_vs_id178": -0.0001665635306048463,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor2_holdout": {
+          "candidate_loss": 0.5861232574657304,
+          "id341_loss": 0.5861371781640982,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id341": -1.3920698367808626e-05,
+          "delta_vs_id178": -0.00016661100487924685,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor5_holdout": {
+          "candidate_loss": 0.5578934142855532,
+          "id341_loss": 0.557920246831064,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id341": -2.683254551083536e-05,
+          "delta_vs_id178": -9.274088010402526e-05,
+          "beats_id341": true
+        },
+        "loso_10": {
+          "candidate_loss": 0.5385879225235569,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": 4.262599320958849e-06,
+          "delta_vs_id178": -4.981486679755953e-05,
+          "beats_id341": false
+        }
+      },
+      "primary_passes_vs_id341": {
+        "subject_hole_5": true,
+        "actual_test_band_holdout": true,
+        "test_boundary_neighbor2_holdout": true,
+        "test_boundary_neighbor5_holdout": true,
+        "loso_10": false
+      },
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385749803897106,
+      "test_geometry": {
+        "mean_delta_vs_178": 0.00023528863158811292,
+        "max_delta_vs_178": 0.002688883869982006,
+        "mean_delta_vs_329": 0.01935593617336895,
+        "max_delta_vs_329": 0.07919238997096245,
+        "mean_delta_vs_341": 0.00011177932691485046,
+        "max_delta_vs_341": 0.002688883869982006,
+        "projection_failed": -0.00010177733279147894,
+        "geometry_proxy": 0.601553110656755,
+        "local_plus_recent_gap_proxy": 0.6013482812897106,
+        "proxy_public_risk": 0.601553110656755,
+        "beats_id341_proxy": true,
+        "public_058_plausible": false
+      },
+      "reviewable_low_movement_candidate": false
+    },
+    {
+      "scale": 0.15,
+      "effective_weights": {
+        "S4": 0.0075
+      },
+      "split_rows": {
+        "subject_hole_5": {
+          "candidate_loss": 0.5385708902315901,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": -1.2769692645853148e-05,
+          "delta_vs_id178": -6.684715876437153e-05,
+          "beats_id341": true
+        },
+        "subject_timeseries_5": {
+          "candidate_loss": 0.5396922978732659,
+          "id341_loss": 0.5396878069689024,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id341": 4.4909043634966395e-06,
+          "delta_vs_id178": -5.4918378406654256e-05,
+          "beats_id341": false
+        },
+        "actual_test_band_holdout": {
+          "candidate_loss": 0.5414237264098776,
+          "id341_loss": 0.5414645216345798,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id341": -4.0795224702239175e-05,
+          "delta_vs_id178": -0.00017993045526465412,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor2_holdout": {
+          "candidate_loss": 0.5861166766907331,
+          "id341_loss": 0.5861371781640982,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id341": -2.0501473365075462e-05,
+          "delta_vs_id178": -0.00017319177987651369,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor5_holdout": {
+          "candidate_loss": 0.5578805234100928,
+          "id341_loss": 0.557920246831064,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id341": -3.972342097124937e-05,
+          "delta_vs_id178": -0.00010563175556443927,
+          "beats_id341": true
+        },
+        "loso_10": {
+          "candidate_loss": 0.5385904842902193,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": 6.8243659833155945e-06,
+          "delta_vs_id178": -4.7253100135202786e-05,
+          "beats_id341": false
+        }
+      },
+      "primary_passes_vs_id341": {
+        "subject_hole_5": true,
+        "actual_test_band_holdout": true,
+        "test_boundary_neighbor2_holdout": true,
+        "test_boundary_neighbor5_holdout": true,
+        "loso_10": false
+      },
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385708902315901,
+      "test_geometry": {
+        "mean_delta_vs_178": 0.000291178295045539,
+        "max_delta_vs_178": 0.004033325804973065,
+        "mean_delta_vs_329": 0.019358131046963323,
+        "max_delta_vs_329": 0.07919238997096245,
+        "mean_delta_vs_341": 0.0001676689903722765,
+        "max_delta_vs_341": 0.004033325804973065,
+        "projection_failed": -0.00011030427689103391,
+        "geometry_proxy": 0.601612899697712,
+        "local_plus_recent_gap_proxy": 0.6013441911315901,
+        "proxy_public_risk": 0.601612899697712,
+        "beats_id341_proxy": true,
+        "public_058_plausible": false
+      },
+      "reviewable_low_movement_candidate": false
+    },
+    {
+      "scale": 0.2,
+      "effective_weights": {
+        "S4": 0.010000000000000002
+      },
+      "split_rows": {
+        "subject_hole_5": {
+          "candidate_loss": 0.5385669662336641,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": -1.669369057188952e-05,
+          "delta_vs_id178": -7.07711566904079e-05,
+          "beats_id341": true
+        },
+        "subject_timeseries_5": {
+          "candidate_loss": 0.5396942341681731,
+          "id341_loss": 0.5396878069689024,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id341": 6.427199270686579e-06,
+          "delta_vs_id178": -5.2982083499464316e-05,
+          "beats_id341": false
+        },
+        "actual_test_band_holdout": {
+          "candidate_loss": 0.5414105905759029,
+          "id341_loss": 0.5414645216345798,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id341": -5.393105867690373e-05,
+          "delta_vs_id178": -0.00019306628923931868,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor2_holdout": {
+          "candidate_loss": 0.5861103486444268,
+          "id341_loss": 0.5861371781640982,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id341": -2.6829519671367486e-05,
+          "delta_vs_id178": -0.0001795198261828057,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor5_holdout": {
+          "candidate_loss": 0.5578679808509588,
+          "id341_loss": 0.557920246831064,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id341": -5.226598010521499e-05,
+          "delta_vs_id178": -0.00011817431469840489,
+          "beats_id341": true
+        },
+        "loso_10": {
+          "candidate_loss": 0.5385933318327601,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": 9.671908524189199e-06,
+          "delta_vs_id178": -4.440555759432918e-05,
+          "beats_id341": false
+        }
+      },
+      "primary_passes_vs_id341": {
+        "subject_hole_5": true,
+        "actual_test_band_holdout": true,
+        "test_boundary_neighbor2_holdout": true,
+        "test_boundary_neighbor5_holdout": true,
+        "loso_10": false
+      },
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385669662336641,
+      "test_geometry": {
+        "mean_delta_vs_178": 0.000347067958502964,
+        "max_delta_vs_178": 0.005377767739964234,
+        "mean_delta_vs_329": 0.019361854846837195,
+        "max_delta_vs_329": 0.07919238997096245,
+        "mean_delta_vs_341": 0.0002235586538297015,
+        "max_delta_vs_341": 0.005377767739964234,
+        "projection_failed": -0.00011883122099061584,
+        "geometry_proxy": 0.601672688738669,
+        "local_plus_recent_gap_proxy": 0.6013402671336641,
+        "proxy_public_risk": 0.601672688738669,
+        "beats_id341_proxy": true,
+        "public_058_plausible": false
+      },
+      "reviewable_low_movement_candidate": false
+    },
+    {
+      "scale": 0.3,
+      "effective_weights": {
+        "S4": 0.015
+      },
+      "split_rows": {
+        "subject_hole_5": {
+          "candidate_loss": 0.5385596160096205,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": -2.4043914615412554e-05,
+          "delta_vs_id178": -7.812138073393093e-05,
+          "beats_id341": true
+        },
+        "subject_timeseries_5": {
+          "candidate_loss": 0.5396987645812633,
+          "id341_loss": 0.5396878069689024,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id341": 1.0957612360917857e-05,
+          "delta_vs_id178": -4.845167040923304e-05,
+          "beats_id341": false
+        },
+        "actual_test_band_holdout": {
+          "candidate_loss": 0.5413850110359226,
+          "id341_loss": 0.5414645216345798,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id341": -7.951059865718424e-05,
+          "delta_vs_id178": -0.00021864582921959919,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor2_holdout": {
+          "candidate_loss": 0.5860984498198009,
+          "id341_loss": 0.5861371781640982,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id341": -3.8728344297300765e-05,
+          "delta_vs_id178": -0.000191418650808739,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor5_holdout": {
+          "candidate_loss": 0.557843935088537,
+          "id341_loss": 0.557920246831064,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id341": -7.631174252697992e-05,
+          "delta_vs_id178": -0.00014222007712016982,
+          "beats_id341": true
+        },
+        "loso_10": {
+          "candidate_loss": 0.5385998807605751,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": 1.6220836339120304e-05,
+          "delta_vs_id178": -3.7856629779398077e-05,
+          "beats_id341": false
+        }
+      },
+      "primary_passes_vs_id341": {
+        "subject_hole_5": true,
+        "actual_test_band_holdout": true,
+        "test_boundary_neighbor2_holdout": true,
+        "test_boundary_neighbor5_holdout": true,
+        "loso_10": false
+      },
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385596160096205,
+      "test_geometry": {
+        "mean_delta_vs_178": 0.0004588472854178147,
+        "max_delta_vs_178": 0.00806665160994624,
+        "mean_delta_vs_329": 0.019370915090245588,
+        "max_delta_vs_329": 0.07919238997096245,
+        "mean_delta_vs_341": 0.00033533798074455225,
+        "max_delta_vs_341": 0.00806665160994624,
+        "projection_failed": -0.00013588510918976032,
+        "geometry_proxy": 0.6017922668205827,
+        "local_plus_recent_gap_proxy": 0.6013329169096205,
+        "proxy_public_risk": 0.6017922668205827,
+        "beats_id341_proxy": true,
+        "public_058_plausible": false
+      },
+      "reviewable_low_movement_candidate": false
+    },
+    {
+      "scale": 0.4,
+      "effective_weights": {
+        "S4": 0.020000000000000004
+      },
+      "split_rows": {
+        "subject_hole_5": {
+          "candidate_loss": 0.5385529283476624,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": -3.0731576573517216e-05,
+          "delta_vs_id178": -8.48090426920356e-05,
+          "beats_id341": true
+        },
+        "subject_timeseries_5": {
+          "candidate_loss": 0.5397041708822332,
+          "id341_loss": 0.5396878069689024,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id341": 1.6363913330819102e-05,
+          "delta_vs_id178": -4.304536943933179e-05,
+          "beats_id341": false
+        },
+        "actual_test_band_holdout": {
+          "candidate_loss": 0.5413603524835154,
+          "id341_loss": 0.5414645216345798,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id341": -0.00010416915106437052,
+          "delta_vs_id178": -0.00024330438162678547,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor2_holdout": {
+          "candidate_loss": 0.5860875592288102,
+          "id341_loss": 0.5861371781640982,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id341": -4.961893528798722e-05,
+          "delta_vs_id178": -0.00020230924179942544,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor5_holdout": {
+          "candidate_loss": 0.5578212662138607,
+          "id341_loss": 0.557920246831064,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id341": -9.898061720325924e-05,
+          "delta_vs_id178": -0.00016488895179644913,
+          "beats_id341": true
+        },
+        "loso_10": {
+          "candidate_loss": 0.538607562533631,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": 2.3902609394998997e-05,
+          "delta_vs_id178": -3.0174856723519383e-05,
+          "beats_id341": false
+        }
+      },
+      "primary_passes_vs_id341": {
+        "subject_hole_5": true,
+        "actual_test_band_holdout": true,
+        "test_boundary_neighbor2_holdout": true,
+        "test_boundary_neighbor5_holdout": true,
+        "loso_10": false
+      },
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385529283476624,
+      "test_geometry": {
+        "mean_delta_vs_178": 0.0005706266123326654,
+        "max_delta_vs_178": 0.010755535479928358,
+        "mean_delta_vs_329": 0.01938237533513128,
+        "max_delta_vs_329": 0.07919238997096245,
+        "mean_delta_vs_341": 0.0004471173076594029,
+        "max_delta_vs_341": 0.010755535479928358,
+        "projection_failed": -0.00015293899738889972,
+        "geometry_proxy": 0.6019118449024967,
+        "local_plus_recent_gap_proxy": 0.6013262292476624,
+        "proxy_public_risk": 0.6019118449024967,
+        "beats_id341_proxy": true,
+        "public_058_plausible": false
+      },
+      "reviewable_low_movement_candidate": false
+    },
+    {
+      "scale": 0.5,
+      "effective_weights": {
+        "S4": 0.025
+      },
+      "split_rows": {
+        "subject_hole_5": {
+          "candidate_loss": 0.5385469019533076,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": -3.6757970928391615e-05,
+          "delta_vs_id178": -9.083543704691e-05,
+          "beats_id341": true
+        },
+        "subject_timeseries_5": {
+          "candidate_loss": 0.5397104517090469,
+          "id341_loss": 0.5396878069689024,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id341": 2.2644740144461828e-05,
+          "delta_vs_id178": -3.676454262568907e-05,
+          "beats_id341": false
+        },
+        "actual_test_band_holdout": {
+          "candidate_loss": 0.5413366127782113,
+          "id341_loss": 0.5414645216345798,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id341": -0.00012790885636848603,
+          "delta_vs_id178": -0.000267044086930901,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor2_holdout": {
+          "candidate_loss": 0.5860776752246772,
+          "id341_loss": 0.5861371781640982,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id341": -5.9502939420919e-05,
+          "delta_vs_id178": -0.00021219324593235722,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor5_holdout": {
+          "candidate_loss": 0.5577999640607717,
+          "id341_loss": 0.557920246831064,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id341": -0.0001202827702923015,
+          "delta_vs_id178": -0.0001861911048854914,
+          "beats_id341": true
+        },
+        "loso_10": {
+          "candidate_loss": 0.5386163706848601,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": 3.271076062416611e-05,
+          "delta_vs_id178": -2.1366705494352267e-05,
+          "beats_id341": false
+        }
+      },
+      "primary_passes_vs_id341": {
+        "subject_hole_5": true,
+        "actual_test_band_holdout": true,
+        "test_boundary_neighbor2_holdout": true,
+        "test_boundary_neighbor5_holdout": true,
+        "loso_10": false
+      },
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385469019533076,
+      "test_geometry": {
+        "mean_delta_vs_178": 0.0006824059392475165,
+        "max_delta_vs_178": 0.013444419349910475,
+        "mean_delta_vs_329": 0.019399220950389942,
+        "max_delta_vs_329": 0.07919238997096245,
+        "mean_delta_vs_341": 0.0005588966345742541,
+        "max_delta_vs_341": 0.013444419349910475,
+        "projection_failed": -0.0001699928855880454,
+        "geometry_proxy": 0.6020314229844106,
+        "local_plus_recent_gap_proxy": 0.6013202028533076,
+        "proxy_public_risk": 0.6020314229844106,
+        "beats_id341_proxy": true,
+        "public_058_plausible": false
+      },
+      "reviewable_low_movement_candidate": false
+    },
+    {
+      "scale": 0.65,
+      "effective_weights": {
+        "S4": 0.0325
+      },
+      "split_rows": {
+        "subject_hole_5": {
+          "candidate_loss": 0.538539099589615,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": -4.456033462096887e-05,
+          "delta_vs_id178": -9.863780073948725e-05,
+          "beats_id341": true
+        },
+        "subject_timeseries_5": {
+          "candidate_loss": 0.5397215099546842,
+          "id341_loss": 0.5396878069689024,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id341": 3.370298578175834e-05,
+          "delta_vs_id178": -2.5706296988392552e-05,
+          "beats_id341": false
+        },
+        "actual_test_band_holdout": {
+          "candidate_loss": 0.5413027215965469,
+          "id341_loss": 0.5414645216345798,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id341": -0.00016180003803289988,
+          "delta_vs_id178": -0.00030093526859531483,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor2_holdout": {
+          "candidate_loss": 0.5860647332498955,
+          "id341_loss": 0.5861371781640982,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id341": -7.244491420266286e-05,
+          "delta_vs_id178": -0.00022513522071410108,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor5_holdout": {
+          "candidate_loss": 0.5577705526282887,
+          "id341_loss": 0.557920246831064,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id341": -0.00014969420277533008,
+          "delta_vs_id178": -0.00021560253736851998,
+          "beats_id341": true
+        },
+        "loso_10": {
+          "candidate_loss": 0.5386316814485097,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": 4.802152427374473e-05,
+          "delta_vs_id178": -6.055941844773649e-06,
+          "beats_id341": false
+        }
+      },
+      "primary_passes_vs_id341": {
+        "subject_hole_5": true,
+        "actual_test_band_holdout": true,
+        "test_boundary_neighbor2_holdout": true,
+        "test_boundary_neighbor5_holdout": true,
+        "loso_10": false
+      },
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.538539099589615,
+      "test_geometry": {
+        "mean_delta_vs_178": 0.000850074929619793,
+        "max_delta_vs_178": 0.01747774515488343,
+        "mean_delta_vs_329": 0.01943846434049991,
+        "max_delta_vs_329": 0.07919238997096245,
+        "mean_delta_vs_341": 0.0007265656249465304,
+        "max_delta_vs_341": 0.01747774515488343,
+        "projection_failed": -0.00019557371788674326,
+        "geometry_proxy": 0.6022107901072813,
+        "local_plus_recent_gap_proxy": 0.601312400489615,
+        "proxy_public_risk": 0.6022107901072813,
+        "beats_id341_proxy": true,
+        "public_058_plausible": false
+      },
+      "reviewable_low_movement_candidate": false
+    },
+    {
+      "scale": 0.8,
+      "effective_weights": {
+        "S4": 0.04000000000000001
+      },
+      "split_rows": {
+        "subject_hole_5": {
+          "candidate_loss": 0.5385327785405212,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": -5.088138371478479e-05,
+          "delta_vs_id178": -0.00010495884983330317,
+          "beats_id341": true
+        },
+        "subject_timeseries_5": {
+          "candidate_loss": 0.5397345292353457,
+          "id341_loss": 0.5396878069689024,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id341": 4.67222664433109e-05,
+          "delta_vs_id178": -1.2687016326839995e-05,
+          "beats_id341": false
+        },
+        "actual_test_band_holdout": {
+          "candidate_loss": 0.5412708866784024,
+          "id341_loss": 0.5414645216345798,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id341": -0.0001936349561774131,
+          "delta_vs_id178": -0.00033277018673982806,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor2_holdout": {
+          "candidate_loss": 0.5860540479887185,
+          "id341_loss": 0.5861371781640982,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id341": -8.313017537964207e-05,
+          "delta_vs_id178": -0.0002358204818910803,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor5_holdout": {
+          "candidate_loss": 0.557744164867928,
+          "id341_loss": 0.557920246831064,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id341": -0.00017608196313601,
+          "delta_vs_id178": -0.0002419902977291999,
+          "beats_id341": true
+        },
+        "loso_10": {
+          "candidate_loss": 0.5386494931071393,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": 6.583318290331874e-05,
+          "delta_vs_id178": 1.1755716784800363e-05,
+          "beats_id341": false
+        }
+      },
+      "primary_passes_vs_id341": {
+        "subject_hole_5": true,
+        "actual_test_band_holdout": true,
+        "test_boundary_neighbor2_holdout": true,
+        "test_boundary_neighbor5_holdout": true,
+        "loso_10": false
+      },
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385327785405212,
+      "test_geometry": {
+        "mean_delta_vs_178": 0.001017743919992069,
+        "max_delta_vs_178": 0.021511070959856604,
+        "mean_delta_vs_329": 0.019489192991617048,
+        "max_delta_vs_329": 0.07919238997096245,
+        "mean_delta_vs_341": 0.0008942346153188066,
+        "max_delta_vs_341": 0.021511070959856604,
+        "projection_failed": -0.00022115455018546036,
+        "geometry_proxy": 0.6023901572301523,
+        "local_plus_recent_gap_proxy": 0.6013060794405212,
+        "proxy_public_risk": 0.6023901572301523,
+        "beats_id341_proxy": true,
+        "public_058_plausible": false
+      },
+      "reviewable_low_movement_candidate": false
+    },
+    {
+      "scale": 1.0,
+      "effective_weights": {
+        "S4": 0.05
+      },
+      "split_rows": {
+        "subject_hole_5": {
+          "candidate_loss": 0.5385266488390746,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": -5.701108516131814e-05,
+          "delta_vs_id178": -0.00011108855127983652,
+          "beats_id341": true
+        },
+        "subject_timeseries_5": {
+          "candidate_loss": 0.5397549330752699,
+          "id341_loss": 0.5396878069689024,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id341": 6.712610636749883e-05,
+          "delta_vs_id178": 7.716823597347933e-06,
+          "beats_id341": false
+        },
+        "actual_test_band_holdout": {
+          "candidate_loss": 0.5412316282606148,
+          "id341_loss": 0.5414645216345798,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id341": -0.0002328933739650374,
+          "delta_vs_id178": -0.00037202860452745234,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor2_holdout": {
+          "candidate_loss": 0.5860433043852968,
+          "id341_loss": 0.5861371781640982,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id341": -9.38737788013233e-05,
+          "delta_vs_id178": -0.00024656408531276153,
+          "beats_id341": true
+        },
+        "test_boundary_neighbor5_holdout": {
+          "candidate_loss": 0.5577136376352257,
+          "id341_loss": 0.557920246831064,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id341": -0.00020660919583825876,
+          "delta_vs_id178": -0.00027251753043144866,
+          "beats_id341": true
+        },
+        "loso_10": {
+          "candidate_loss": 0.5386771008876506,
+          "id341_loss": 0.538583659924236,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id341": 9.344096341468155e-05,
+          "delta_vs_id178": 3.9363497296163175e-05,
+          "beats_id341": false
+        }
+      },
+      "primary_passes_vs_id341": {
+        "subject_hole_5": true,
+        "actual_test_band_holdout": true,
+        "test_boundary_neighbor2_holdout": true,
+        "test_boundary_neighbor5_holdout": true,
+        "loso_10": false
+      },
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385266488390746,
+      "test_geometry": {
+        "mean_delta_vs_178": 0.0012413025738217697,
+        "max_delta_vs_178": 0.02688883869982084,
+        "mean_delta_vs_329": 0.019575738606927903,
+        "max_delta_vs_329": 0.07919238997096245,
+        "mean_delta_vs_341": 0.0011177932691485073,
+        "max_delta_vs_341": 0.02688883869982084,
+        "projection_failed": -0.0002552623265837478,
+        "geometry_proxy": 0.60262931339398,
+        "local_plus_recent_gap_proxy": 0.6012999497390746,
+        "proxy_public_risk": 0.60262931339398,
+        "beats_id341_proxy": true,
+        "public_058_plausible": false
+      },
+      "reviewable_low_movement_candidate": false
+    }
+  ],
+  "best_reviewable_low_movement": null,
+  "best_by_proxy": {
+    "scale": 0.05,
+    "effective_weights": {
+      "S4": 0.0025000000000000005
+    },
+    "split_rows": {
+      "subject_hole_5": {
+        "candidate_loss": 0.5385792368912363,
+        "id341_loss": 0.538583659924236,
+        "id178_loss": 0.5386377373903545,
+        "delta_vs_id341": -4.423032999634202e-06,
+        "delta_vs_id178": -5.850049911815258e-05,
+        "beats_id341": true
+      },
+      "subject_timeseries_5": {
+        "candidate_loss": 0.5396890840709285,
+        "id341_loss": 0.5396878069689024,
+        "id178_loss": 0.5397472162516725,
+        "delta_vs_id341": 1.2771020261315158e-06,
+        "delta_vs_id178": -5.813218074401938e-05,
+        "beats_id341": false
+      },
+      "actual_test_band_holdout": {
+        "candidate_loss": 0.5414506916430994,
+        "id341_loss": 0.5414645216345798,
+        "id178_loss": 0.5416036568651422,
+        "delta_vs_id341": -1.3829991480363013e-05,
+        "delta_vs_id178": -0.00015296522204277796,
+        "beats_id341": true
+      },
+      "test_boundary_neighbor2_holdout": {
+        "candidate_loss": 0.5861300912081425,
+        "id341_loss": 0.5861371781640982,
+        "id178_loss": 0.5862898684706096,
+        "delta_vs_id341": -7.086955955637464e-06,
+        "delta_vs_id178": -0.0001597772624670757,
+        "beats_id341": true
+      },
+      "test_boundary_neighbor5_holdout": {
+        "candidate_loss": 0.5579066549279111,
+        "id341_loss": 0.557920246831064,
+        "id178_loss": 0.5579861551656572,
+        "delta_vs_id341": -1.3591903152865292e-05,
+        "delta_vs_id178": -7.950023774605519e-05,
+        "beats_id341": true
+      },
+      "loso_10": {
+        "candidate_loss": 0.5385856474292064,
+        "id341_loss": 0.538583659924236,
+        "id178_loss": 0.5386377373903545,
+        "delta_vs_id341": 1.9875049704909387e-06,
+        "delta_vs_id178": -5.208996114802744e-05,
+        "beats_id341": false
+      }
+    },
+    "primary_passes_vs_id341": {
+      "subject_hole_5": true,
+      "actual_test_band_holdout": true,
+      "test_boundary_neighbor2_holdout": true,
+      "test_boundary_neighbor5_holdout": true,
+      "loso_10": false
+    },
+    "primary_wins_vs_id341": 4,
+    "all_primary_splits_beat_id341": false,
+    "local_cv_subject_hole_5": 0.5385792368912363,
+    "test_geometry": {
+      "mean_delta_vs_178": 0.0001793989681306886,
+      "max_delta_vs_178": 0.002025444883233418,
+      "mean_delta_vs_329": 0.01935670520699476,
+      "max_delta_vs_329": 0.07919238997096245,
+      "mean_delta_vs_341": 5.588966345742609e-05,
+      "max_delta_vs_341": 0.0013444419349910586,
+      "projection_failed": -9.325038869189615e-05,
+      "geometry_proxy": 0.601506941674763,
+      "local_plus_recent_gap_proxy": 0.6013525377912363,
+      "proxy_public_risk": 0.601506941674763,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false
+    },
+    "reviewable_low_movement_candidate": false
+  },
+  "decision": {
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "selected_targets": [
+      "S4"
+    ],
+    "reviewable_low_movement_candidate_exists": false,
+    "best_reviewable_scale": null,
+    "best_proxy": 0.601506941674763,
+    "best_proxy_scale": 0.05,
+    "public_058_plausible": false,
+    "next_action": "If evening-load has a reviewable row, combine it with the sleep-boundary scale-0.05 lead in a no-artifact combined gate. Otherwise keep it as rejected context and try routine-stability/place entropy."
+  },
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_dacon_submission_made": true
+}

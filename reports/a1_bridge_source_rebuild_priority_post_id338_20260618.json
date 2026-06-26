@@ -1,0 +1,742 @@
+{
+  "created_at_kst": "2026-06-18 01:47:29 UTC+09:00",
+  "diagnostic": "a1_bridge_source_rebuild_priority_post_id338",
+  "input_report": "reports/fold_internal_delta_capped_bridge_rebuild_post_id338_20260618.json",
+  "source_artifacts_are_preexisting": true,
+  "no_submission_created": true,
+  "no_dacon_submission_made": true,
+  "source_catalog": {
+    "235": {
+      "role": "bridge_base",
+      "risk": "mid_non_nested",
+      "read": "ID235 is the base of the A1 bridge ladder; useful as a reconstruction anchor, not proof."
+    },
+    "238": {
+      "role": "lower_frontier_source",
+      "risk": "high_non_nested",
+      "read": "ID238 is the lower aggressive pair/logit source below later q-calibration branches."
+    },
+    "239": {
+      "role": "q240_free_recalibration",
+      "risk": "high_non_nested",
+      "read": "ID239 is ID238 isotonic recalibration; still full-OOF, but not in the q240 branch."
+    },
+    "240": {
+      "role": "q240_free_recalibration",
+      "risk": "high_non_nested",
+      "read": "ID240 is ID238 q80/S4-isotonic recalibration; q240-free but calibration-heavy."
+    },
+    "241": {
+      "role": "q240_free_recalibration",
+      "risk": "high_non_nested",
+      "read": "ID241 is ID238 q160/S4-isotonic recalibration; main q240-free replacement for ID242."
+    },
+    "242": {
+      "role": "blocked_q240_calibration",
+      "risk": "extreme_non_nested",
+      "read": "ID242 dominates the all-extreme A1 selector but belongs to the blocked q240 chain."
+    },
+    "243": {
+      "role": "blocked_q240_calibration",
+      "risk": "extreme_non_nested",
+      "read": "ID243 is the q240 all-target sibling; keep blocked with ID242 until lower layers are rebuilt."
+    }
+  },
+  "split_summary": {
+    "subject_hole_fold_internal": {
+      "all_extreme_best": {
+        "scenario": "midrisk_caps_all_extremes",
+        "cap": 0.3,
+        "overall": 0.3954230912793072,
+        "robust_score": 0.4184441011017834,
+        "usage": {
+          "total_fold_target_choices": 35,
+          "source_counts": {
+            "235": 4,
+            "238": 1,
+            "239": 5,
+            "242": 25
+          },
+          "bridge_source_counts": {
+            "238": 1,
+            "239": 5,
+            "242": 25
+          },
+          "q240_choice_rate": 0.7142857142857143,
+          "non_base_choice_rate": 0.8857142857142857,
+          "target_predominant_choices": {
+            "Q1": {
+              "choice": "bridge:242:logit:a0.475",
+              "count": 5,
+              "n_folds": 5
+            },
+            "Q2": {
+              "choice": "bridge:242:logit:a0.463",
+              "count": 4,
+              "n_folds": 5
+            },
+            "Q3": {
+              "choice": "bridge:242:logit:a0.463",
+              "count": 4,
+              "n_folds": 5
+            },
+            "S1": {
+              "choice": "bridge:242:logit:a0.450",
+              "count": 5,
+              "n_folds": 5
+            },
+            "S2": {
+              "choice": "bridge:242:logit:a0.475",
+              "count": 5,
+              "n_folds": 5
+            },
+            "S3": {
+              "choice": "base:235",
+              "count": 4,
+              "n_folds": 5
+            },
+            "S4": {
+              "choice": "bridge:239:prob:a0.550",
+              "count": 5,
+              "n_folds": 5
+            }
+          }
+        }
+      },
+      "q240_free_best": {
+        "scenario": "no_q240_extremes",
+        "cap": 0.3,
+        "overall": 0.4142723933919072,
+        "robust_score": 0.4325446560354367,
+        "usage": {
+          "total_fold_target_choices": 35,
+          "source_counts": {
+            "235": 4,
+            "238": 1,
+            "239": 5,
+            "241": 25
+          },
+          "bridge_source_counts": {
+            "238": 1,
+            "239": 5,
+            "241": 25
+          },
+          "q240_choice_rate": 0.0,
+          "non_base_choice_rate": 0.8857142857142857,
+          "target_predominant_choices": {
+            "Q1": {
+              "choice": "bridge:241:logit:a0.475",
+              "count": 5,
+              "n_folds": 5
+            },
+            "Q2": {
+              "choice": "bridge:241:logit:a0.463",
+              "count": 5,
+              "n_folds": 5
+            },
+            "Q3": {
+              "choice": "bridge:241:prob:a0.537",
+              "count": 5,
+              "n_folds": 5
+            },
+            "S1": {
+              "choice": "bridge:241:logit:a0.400",
+              "count": 5,
+              "n_folds": 5
+            },
+            "S2": {
+              "choice": "bridge:241:logit:a0.425",
+              "count": 4,
+              "n_folds": 5
+            },
+            "S3": {
+              "choice": "base:235",
+              "count": 4,
+              "n_folds": 5
+            },
+            "S4": {
+              "choice": "bridge:239:prob:a0.550",
+              "count": 5,
+              "n_folds": 5
+            }
+          }
+        }
+      },
+      "q240_only_best": {
+        "scenario": "q240_only_stress",
+        "cap": 0.2,
+        "overall": 0.41751434296223533,
+        "robust_score": 0.438313458192995,
+        "usage": {
+          "total_fold_target_choices": 35,
+          "source_counts": {
+            "235": 4,
+            "242": 31
+          },
+          "bridge_source_counts": {
+            "242": 31
+          },
+          "q240_choice_rate": 0.8857142857142857,
+          "non_base_choice_rate": 0.8857142857142857,
+          "target_predominant_choices": {
+            "Q1": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 5,
+              "n_folds": 5
+            },
+            "Q2": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 5,
+              "n_folds": 5
+            },
+            "Q3": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 5,
+              "n_folds": 5
+            },
+            "S1": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 5,
+              "n_folds": 5
+            },
+            "S2": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 5,
+              "n_folds": 5
+            },
+            "S3": {
+              "choice": "base:235",
+              "count": 4,
+              "n_folds": 5
+            },
+            "S4": {
+              "choice": "bridge:242:prob:a0.363",
+              "count": 5,
+              "n_folds": 5
+            }
+          }
+        }
+      },
+      "safe_all_extreme_best": {
+        "scenario": "safe_caps_all_extremes",
+        "cap": 0.2,
+        "overall": 0.41751434296223533,
+        "robust_score": 0.438313458192995,
+        "usage": {
+          "total_fold_target_choices": 35,
+          "source_counts": {
+            "235": 4,
+            "238": 1,
+            "239": 5,
+            "242": 25
+          },
+          "bridge_source_counts": {
+            "238": 1,
+            "239": 5,
+            "242": 25
+          },
+          "q240_choice_rate": 0.7142857142857143,
+          "non_base_choice_rate": 0.8857142857142857,
+          "target_predominant_choices": {
+            "Q1": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 5,
+              "n_folds": 5
+            },
+            "Q2": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 5,
+              "n_folds": 5
+            },
+            "Q3": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 5,
+              "n_folds": 5
+            },
+            "S1": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 5,
+              "n_folds": 5
+            },
+            "S2": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 5,
+              "n_folds": 5
+            },
+            "S3": {
+              "choice": "base:235",
+              "count": 4,
+              "n_folds": 5
+            },
+            "S4": {
+              "choice": "bridge:239:prob:a0.363",
+              "count": 5,
+              "n_folds": 5
+            }
+          }
+        }
+      },
+      "q240_free_gap_vs_all": {
+        "overall": 0.018849302112599997,
+        "robust_score": 0.014100554933653309,
+        "target_rows": [
+          {
+            "target": "Q1",
+            "all_extreme_loss": 0.3943228246814404,
+            "q240_free_loss": 0.42990554513743,
+            "q240_free_minus_all": 0.03558272045598959
+          },
+          {
+            "target": "Q3",
+            "all_extreme_loss": 0.39515585297558975,
+            "q240_free_loss": 0.42519666574595677,
+            "q240_free_minus_all": 0.03004081277036702
+          },
+          {
+            "target": "S2",
+            "all_extreme_loss": 0.3777103839676272,
+            "q240_free_loss": 0.4076224253079065,
+            "q240_free_minus_all": 0.029912041340279305
+          },
+          {
+            "target": "Q2",
+            "all_extreme_loss": 0.39258638441671984,
+            "q240_free_loss": 0.4123292665459866,
+            "q240_free_minus_all": 0.01974288212926678
+          },
+          {
+            "target": "S1",
+            "all_extreme_loss": 0.3468835950383172,
+            "q240_free_loss": 0.3635502531306149,
+            "q240_free_minus_all": 0.01666665809229767
+          },
+          {
+            "target": "S3",
+            "all_extreme_loss": 0.46511496294445753,
+            "q240_free_loss": 0.46511496294445753,
+            "q240_free_minus_all": 0.0
+          },
+          {
+            "target": "S4",
+            "all_extreme_loss": 0.3961876349309984,
+            "q240_free_loss": 0.3961876349309984,
+            "q240_free_minus_all": 0.0
+          }
+        ]
+      }
+    },
+    "loso_fold_internal": {
+      "all_extreme_best": {
+        "scenario": "midrisk_caps_all_extremes",
+        "cap": 0.3,
+        "overall": 0.39541454033452444,
+        "robust_score": 0.4184150694002384,
+        "usage": {
+          "total_fold_target_choices": 70,
+          "source_counts": {
+            "235": 7,
+            "238": 3,
+            "239": 10,
+            "242": 50
+          },
+          "bridge_source_counts": {
+            "238": 3,
+            "239": 10,
+            "242": 50
+          },
+          "q240_choice_rate": 0.7142857142857143,
+          "non_base_choice_rate": 0.9,
+          "target_predominant_choices": {
+            "Q1": {
+              "choice": "bridge:242:logit:a0.475",
+              "count": 10,
+              "n_folds": 10
+            },
+            "Q2": {
+              "choice": "bridge:242:logit:a0.463",
+              "count": 9,
+              "n_folds": 10
+            },
+            "Q3": {
+              "choice": "bridge:242:logit:a0.463",
+              "count": 9,
+              "n_folds": 10
+            },
+            "S1": {
+              "choice": "bridge:242:logit:a0.450",
+              "count": 9,
+              "n_folds": 10
+            },
+            "S2": {
+              "choice": "bridge:242:logit:a0.475",
+              "count": 10,
+              "n_folds": 10
+            },
+            "S3": {
+              "choice": "base:235",
+              "count": 7,
+              "n_folds": 10
+            },
+            "S4": {
+              "choice": "bridge:239:prob:a0.550",
+              "count": 10,
+              "n_folds": 10
+            }
+          }
+        }
+      },
+      "q240_free_best": {
+        "scenario": "no_q240_extremes",
+        "cap": 0.3,
+        "overall": 0.41444015644536636,
+        "robust_score": 0.4327300869089425,
+        "usage": {
+          "total_fold_target_choices": 70,
+          "source_counts": {
+            "235": 7,
+            "238": 3,
+            "239": 10,
+            "241": 50
+          },
+          "bridge_source_counts": {
+            "238": 3,
+            "239": 10,
+            "241": 50
+          },
+          "q240_choice_rate": 0.0,
+          "non_base_choice_rate": 0.9,
+          "target_predominant_choices": {
+            "Q1": {
+              "choice": "bridge:241:logit:a0.475",
+              "count": 10,
+              "n_folds": 10
+            },
+            "Q2": {
+              "choice": "bridge:241:logit:a0.463",
+              "count": 10,
+              "n_folds": 10
+            },
+            "Q3": {
+              "choice": "bridge:241:prob:a0.537",
+              "count": 10,
+              "n_folds": 10
+            },
+            "S1": {
+              "choice": "bridge:241:logit:a0.400",
+              "count": 10,
+              "n_folds": 10
+            },
+            "S2": {
+              "choice": "bridge:241:logit:a0.425",
+              "count": 7,
+              "n_folds": 10
+            },
+            "S3": {
+              "choice": "base:235",
+              "count": 7,
+              "n_folds": 10
+            },
+            "S4": {
+              "choice": "bridge:239:prob:a0.550",
+              "count": 10,
+              "n_folds": 10
+            }
+          }
+        }
+      },
+      "q240_only_best": {
+        "scenario": "q240_only_stress",
+        "cap": 0.2,
+        "overall": 0.41751434296223533,
+        "robust_score": 0.438313458192995,
+        "usage": {
+          "total_fold_target_choices": 70,
+          "source_counts": {
+            "235": 7,
+            "242": 63
+          },
+          "bridge_source_counts": {
+            "242": 63
+          },
+          "q240_choice_rate": 0.9,
+          "non_base_choice_rate": 0.9,
+          "target_predominant_choices": {
+            "Q1": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 10,
+              "n_folds": 10
+            },
+            "Q2": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 10,
+              "n_folds": 10
+            },
+            "Q3": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 10,
+              "n_folds": 10
+            },
+            "S1": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 10,
+              "n_folds": 10
+            },
+            "S2": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 10,
+              "n_folds": 10
+            },
+            "S3": {
+              "choice": "base:235",
+              "count": 7,
+              "n_folds": 10
+            },
+            "S4": {
+              "choice": "bridge:242:prob:a0.363",
+              "count": 10,
+              "n_folds": 10
+            }
+          }
+        }
+      },
+      "safe_all_extreme_best": {
+        "scenario": "safe_caps_all_extremes",
+        "cap": 0.2,
+        "overall": 0.41751434296223533,
+        "robust_score": 0.438313458192995,
+        "usage": {
+          "total_fold_target_choices": 70,
+          "source_counts": {
+            "235": 7,
+            "238": 3,
+            "239": 10,
+            "242": 50
+          },
+          "bridge_source_counts": {
+            "238": 3,
+            "239": 10,
+            "242": 50
+          },
+          "q240_choice_rate": 0.7142857142857143,
+          "non_base_choice_rate": 0.9,
+          "target_predominant_choices": {
+            "Q1": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 10,
+              "n_folds": 10
+            },
+            "Q2": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 10,
+              "n_folds": 10
+            },
+            "Q3": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 10,
+              "n_folds": 10
+            },
+            "S1": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 10,
+              "n_folds": 10
+            },
+            "S2": {
+              "choice": "bridge:242:logit:a0.325",
+              "count": 10,
+              "n_folds": 10
+            },
+            "S3": {
+              "choice": "base:235",
+              "count": 7,
+              "n_folds": 10
+            },
+            "S4": {
+              "choice": "bridge:239:prob:a0.363",
+              "count": 10,
+              "n_folds": 10
+            }
+          }
+        }
+      },
+      "q240_free_gap_vs_all": {
+        "overall": 0.019025616110841914,
+        "robust_score": 0.014315017508704064,
+        "target_rows": [
+          {
+            "target": "Q1",
+            "all_extreme_loss": 0.3943228246814404,
+            "q240_free_loss": 0.42990554513743,
+            "q240_free_minus_all": 0.03558272045598959
+          },
+          {
+            "target": "S2",
+            "all_extreme_loss": 0.3777103839676272,
+            "q240_free_loss": 0.4087967666821203,
+            "q240_free_minus_all": 0.0310863827144931
+          },
+          {
+            "target": "Q3",
+            "all_extreme_loss": 0.3954585836686985,
+            "q240_free_loss": 0.42519666574595677,
+            "q240_free_minus_all": 0.029738082077258254
+          },
+          {
+            "target": "Q2",
+            "all_extreme_loss": 0.3927134015020706,
+            "q240_free_loss": 0.4123292665459866,
+            "q240_free_minus_all": 0.019615865043915992
+          },
+          {
+            "target": "S1",
+            "all_extreme_loss": 0.34639399064637866,
+            "q240_free_loss": 0.3635502531306149,
+            "q240_free_minus_all": 0.01715626248423624
+          },
+          {
+            "target": "S3",
+            "all_extreme_loss": 0.46511496294445753,
+            "q240_free_loss": 0.46511496294445753,
+            "q240_free_minus_all": 0.0
+          },
+          {
+            "target": "S4",
+            "all_extreme_loss": 0.3961876349309984,
+            "q240_free_loss": 0.3961876349309984,
+            "q240_free_minus_all": 0.0
+          }
+        ]
+      }
+    }
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "lane": "A1_q240_free_source_layer_rebuild",
+      "source_ids": [
+        238,
+        239,
+        241
+      ],
+      "cap": 0.3,
+      "why": "This is the cleanest immediate A1 lane: it gives up about 0.018849 subject-hole and 0.019026 LOSO local score versus the q240-dominated all-extreme row, but avoids direct ID242/243 dependence.",
+      "target_map": {
+        "Q1": {
+          "choice": "bridge:241:logit:a0.475",
+          "count": 5,
+          "n_folds": 5
+        },
+        "Q2": {
+          "choice": "bridge:241:logit:a0.463",
+          "count": 5,
+          "n_folds": 5
+        },
+        "Q3": {
+          "choice": "bridge:241:prob:a0.537",
+          "count": 5,
+          "n_folds": 5
+        },
+        "S1": {
+          "choice": "bridge:241:logit:a0.400",
+          "count": 5,
+          "n_folds": 5
+        },
+        "S2": {
+          "choice": "bridge:241:logit:a0.425",
+          "count": 4,
+          "n_folds": 5
+        },
+        "S3": {
+          "choice": "base:235",
+          "count": 4,
+          "n_folds": 5
+        },
+        "S4": {
+          "choice": "bridge:239:prob:a0.550",
+          "count": 5,
+          "n_folds": 5
+        }
+      },
+      "allowed_next_action": "Rebuild source alternatives 238/239/241 inside frozen outer folds, then replay the cap0.30 target-wise bridge selector report-only.",
+      "blocked_action": "Do not create a DACON CSV from the existing q240-free OOF artifacts."
+    },
+    {
+      "rank": 2,
+      "lane": "A1_s4_s3_micro_ablation",
+      "source_ids": [
+        238,
+        239
+      ],
+      "cap": 0.3,
+      "why": "S4 consistently selects ID239 and S3 mostly stays on base with occasional ID238. This is lower-upside than the q240-free full target map, but cheaper and useful as a sanity check before a larger source rebuild.",
+      "target_map": {
+        "S3": {
+          "choice": "base:235",
+          "count": 4,
+          "n_folds": 5
+        },
+        "S4": {
+          "choice": "bridge:239:prob:a0.550",
+          "count": 5,
+          "n_folds": 5
+        }
+      },
+      "allowed_next_action": "Run a report-only nested S3/S4 ablation if compute budget is tight.",
+      "blocked_action": "Do not tune S3/S4 by public-anchor movement alone."
+    },
+    {
+      "rank": 3,
+      "lane": "A1_q240_branch_hold",
+      "source_ids": [
+        242,
+        243
+      ],
+      "cap": 0.3,
+      "why": "The all-extreme row is strongest, with q240 choices in roughly 71.4% of subject-hole fold-target choices and 71.4% of LOSO choices. That is signal, but it is also exactly the blocked full-OOF q240 calibration chain.",
+      "target_map": {
+        "Q1": {
+          "choice": "bridge:242:logit:a0.475",
+          "count": 5,
+          "n_folds": 5
+        },
+        "Q2": {
+          "choice": "bridge:242:logit:a0.463",
+          "count": 4,
+          "n_folds": 5
+        },
+        "Q3": {
+          "choice": "bridge:242:logit:a0.463",
+          "count": 4,
+          "n_folds": 5
+        },
+        "S1": {
+          "choice": "bridge:242:logit:a0.450",
+          "count": 5,
+          "n_folds": 5
+        },
+        "S2": {
+          "choice": "bridge:242:logit:a0.475",
+          "count": 5,
+          "n_folds": 5
+        },
+        "S3": {
+          "choice": "base:235",
+          "count": 4,
+          "n_folds": 5
+        },
+        "S4": {
+          "choice": "bridge:239:prob:a0.550",
+          "count": 5,
+          "n_folds": 5
+        }
+      },
+      "allowed_next_action": "Keep as an explanatory stress target only; revisit after lower calibration/source generation is rebuilt without full-OOF shortcuts.",
+      "blocked_action": "Do not submit or descend into ID242/252 artifacts from this evidence."
+    }
+  ],
+  "decision": {
+    "primary_next_lane": "A1_q240_free_source_layer_rebuild",
+    "public_058_plausible": false,
+    "create_submission_artifact": false,
+    "reason": "The A1 signal survives, but the strongest all-extreme selector is dominated by the blocked q240 chain. The safest useful next work is a q240-free source-layer rebuild, not a leaderboard submission."
+  }
+}

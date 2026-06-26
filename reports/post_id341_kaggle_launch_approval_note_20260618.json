@@ -1,0 +1,171 @@
+{
+  "created_at_kst": "2026-06-23 22:02:22 UTC+09:00",
+  "diagnostic": "post_id341_kaggle_launch_approval_note",
+  "purpose": "Freeze the exact approval contract for the next no-submit Kaggle/Linux upstream rebuild parity run.",
+  "inputs": {
+    "synthesis": "reports/post_id341_local_source_closure_synthesis_20260618.json",
+    "upstream_packet": "reports/kaggle_upstream_execution_packet_post_id341_20260618.json",
+    "source_zip_selftest": "reports/kaggle_source_zip_selftest_post_id341_20260618.json",
+    "kernel_metadata": "notebooks/kaggle_upstream_rebuild_runner/kernel-metadata.json",
+    "dataset_metadata": "dataset-metadata.json"
+  },
+  "prerequisites": {
+    "local_source_stack_closed": true,
+    "no_local_lane_promotable": true,
+    "closure_reports_present": true,
+    "source_zip_selftest_ready": true,
+    "upstream_packet_ready": true,
+    "kernel_metadata_safe": true,
+    "kaggle_cli_available": true,
+    "approval_contract_test_target_present": true,
+    "prelaunch_local_target_present": true,
+    "ready_local_target_present": true,
+    "make_targets_present": true
+  },
+  "make_targets": {
+    "kaggle-approval-contract-test": true,
+    "kaggle-upstream-prelaunch-local": true,
+    "kaggle-upstream-ready-local": true,
+    "kaggle-push-upstream-patch-dataset": true,
+    "kaggle-check-base-dataset-files": true,
+    "kaggle-check-upstream-patch-dataset-files": true,
+    "kaggle-push-upstream-rebuild-runner": true,
+    "kaggle-kernel-status-upstream-rebuild": true,
+    "kaggle-wait-and-pull-upstream-rebuild-output": true,
+    "kaggle-review-upstream-rebuild-output": true,
+    "require-kaggle-remote-approval": true
+  },
+  "kaggle_cli": {
+    "path": ".venv/bin/kaggle",
+    "version_check": {
+      "cmd": "/Volumes/samsd/workspace_v2/dacon/dacon-etri-human-understanding/.venv/bin/kaggle --version",
+      "returncode": 0,
+      "passed": true,
+      "stdout_tail": "Kaggle CLI 2.1.1\n",
+      "stderr_tail": ""
+    }
+  },
+  "dataset_slug": "softkleenex/dacon-etri-human-base",
+  "dataset_slugs": [
+    "softkleenex/dacon-etri-human-base",
+    "softkleenex/dacon-etri-upstream-patch-post-id341"
+  ],
+  "kernel_slug": "softkleenex/dacon-etri-upstream-rebuild-post-id341",
+  "local_pre_approval_commands": [
+    {
+      "step": 0,
+      "command": "make kaggle-upstream-ready-local",
+      "why": "Preferred one-command local readiness wrapper: focused approval contract checks, local runner smoke, freshness gate, and final prelaunch readiness. This remains local and no-network.",
+      "network": false,
+      "creates_dacon_submission": false,
+      "creates_submission_artifact": false,
+      "preferred_wrapper": true
+    },
+    {
+      "step": 1,
+      "command": "make kaggle-approval-contract-test",
+      "why": "Run the focused local approval/guard contract lint, format-check, and pytest suite.",
+      "network": false,
+      "creates_dacon_submission": false,
+      "creates_submission_artifact": false,
+      "preferred_wrapper": false
+    },
+    {
+      "step": 2,
+      "command": "make kaggle-upstream-prelaunch-local",
+      "why": "Refresh all no-submit local prelaunch reports after the focused contract suite passes.",
+      "network": false,
+      "creates_dacon_submission": false,
+      "creates_submission_artifact": false,
+      "preferred_wrapper": false
+    }
+  ],
+  "exact_approval_required_commands": [
+    {
+      "step": 1,
+      "command": "ALLOW_KAGGLE_REMOTE=true make kaggle-push-upstream-patch-dataset",
+      "why": "Push the small no-submit patch dataset with refreshed scripts, reports, submissions, and post-ID341 artifacts.",
+      "network": true,
+      "creates_dacon_submission": false,
+      "creates_submission_artifact": false
+    },
+    {
+      "step": 2,
+      "command": "ALLOW_KAGGLE_REMOTE=true make kaggle-check-base-dataset-files",
+      "why": "Verify Kaggle sees the large base dataset used for raw/processed competition files.",
+      "network": true,
+      "creates_dacon_submission": false,
+      "creates_submission_artifact": false
+    },
+    {
+      "step": 3,
+      "command": "ALLOW_KAGGLE_REMOTE=true make kaggle-check-upstream-patch-dataset-files",
+      "why": "Verify Kaggle sees the patch dataset before pushing the runner.",
+      "network": true,
+      "creates_dacon_submission": false,
+      "creates_submission_artifact": false
+    },
+    {
+      "step": 4,
+      "command": "ALLOW_KAGGLE_REMOTE=true make kaggle-push-upstream-rebuild-runner",
+      "why": "Push the CPU-only upstream rebuild/parity runner notebook.",
+      "network": true,
+      "creates_dacon_submission": false,
+      "creates_submission_artifact": false
+    },
+    {
+      "step": 5,
+      "command": "ALLOW_KAGGLE_REMOTE=true make kaggle-kernel-status-upstream-rebuild",
+      "why": "Poll until the runner is complete before pulling outputs.",
+      "network": true,
+      "creates_dacon_submission": false,
+      "creates_submission_artifact": false
+    },
+    {
+      "step": 6,
+      "command": "ALLOW_KAGGLE_REMOTE=true make kaggle-wait-and-pull-upstream-rebuild-output",
+      "why": "Pull report-only outputs after the Kaggle runner completes.",
+      "network": true,
+      "creates_dacon_submission": false,
+      "creates_submission_artifact": false
+    },
+    {
+      "step": 7,
+      "command": "make kaggle-review-upstream-rebuild-output",
+      "why": "Run local no-submit intake, remote summary, next-action decision, and the strict Public-0.58 artifact-review threshold gate on pulled outputs.",
+      "network": false,
+      "creates_dacon_submission": false,
+      "creates_submission_artifact": false
+    }
+  ],
+  "stop_rules": [
+    "Do not execute any command above unless the user explicitly approves this exact command sequence.",
+    "Immediately before any Kaggle network command, prefer make kaggle-upstream-ready-local; at minimum run make kaggle-approval-contract-test and make kaggle-upstream-prelaunch-local locally, and stop if any local gate fails.",
+    "Every Kaggle network command must include ALLOW_KAGGLE_REMOTE=true; without it, Makefile targets fail closed.",
+    "Do not DACON-submit from Kaggle or local during this run.",
+    "Do not create a submission CSV, base_oof/base_test artifact, notebook history artifact, or submission_log row from pulled outputs automatically.",
+    "If the base or patch dataset file listings do not show the expected payloads, stop before pushing the runner.",
+    "If the runner fails or outputs are missing, stop and write a failure report instead of creating ID342.",
+    "Stop unless the Q3/S3 negative-map handoff is proven: the remote negative map is generated and staged, remaining-route inventory uses --negative-evidence-map, and eight closed local lanes are asserted.",
+    "Only after pulled reports pass safe intake, next-action, public/local gap, data/source coverage, no-forbidden-action, ID178-beating, and min_proxy <= 0.58 gates may a separate Public-0.58 artifact-contract review begin.",
+    "If pulled reports only beat ID178 but remain above 0.58, record an improvement lead only; do not create ID342."
+  ],
+  "decision": {
+    "approval_note_ready": true,
+    "execute_kaggle_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "requires_explicit_user_approval": true,
+    "next_action": "Ask for explicit approval of the exact command sequence before running Kaggle. Without approval, keep the repo in no-submit report-only mode."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

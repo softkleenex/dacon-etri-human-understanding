@@ -1,0 +1,1065 @@
+{
+  "created_at_kst": "2026-06-23 23:49:13 UTC+09:00",
+  "diagnostic": "post_id338_material_q3s3_probe",
+  "purpose": "Run an ID338-preserving fold-internal no-submit probe over registered material raw-source feature matrices for Q3/S3 only.",
+  "target_focus": [
+    "Q3",
+    "S3"
+  ],
+  "anchor_id": 338,
+  "inputs": {
+    "source_matrices": {
+      "phone_wearable_discordance": "data/processed/post_id341_phone_wearable_discordance_features_v1.parquet",
+      "proximity_ambience": "data/processed/post_id341_proximity_ambience_cooccurrence_features_v1.parquet",
+      "gps_path_topology": "data/processed/post_id341_gps_path_topology_features_v1.parquet",
+      "circadian_hr_light": "data/processed/post_id341_circadian_hr_light_phase_features_v1.parquet",
+      "usage_semantic": "data/processed/post_id341_usage_semantic_burst_markov_features_v1.parquet"
+    },
+    "id338_oof": "artifacts/base_predictions/base_oof_id_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861.csv",
+    "id287_failed_oof": "artifacts/base_predictions/base_oof_id_287_post285_base282_fixedtemp_balanced_cv0.378934.csv",
+    "split_manifest": "reports/id340_validation_split_manifest_20260618.json"
+  },
+  "feature_metadata": {
+    "sources": {
+      "phone_wearable_discordance": {
+        "path": "data/processed/post_id341_phone_wearable_discordance_features_v1.parquet",
+        "rows": 700,
+        "train_rows": 450,
+        "test_rows": 250,
+        "feature_columns": 85,
+        "aligned_rows": 450,
+        "mean_missing_rate": 0.0,
+        "all_train_rows_aligned": true
+      },
+      "proximity_ambience": {
+        "path": "data/processed/post_id341_proximity_ambience_cooccurrence_features_v1.parquet",
+        "rows": 700,
+        "train_rows": 450,
+        "test_rows": 250,
+        "feature_columns": 80,
+        "aligned_rows": 450,
+        "mean_missing_rate": 0.0,
+        "all_train_rows_aligned": true
+      },
+      "gps_path_topology": {
+        "path": "data/processed/post_id341_gps_path_topology_features_v1.parquet",
+        "rows": 700,
+        "train_rows": 450,
+        "test_rows": 250,
+        "feature_columns": 32,
+        "aligned_rows": 450,
+        "mean_missing_rate": 0.0,
+        "all_train_rows_aligned": true
+      },
+      "circadian_hr_light": {
+        "path": "data/processed/post_id341_circadian_hr_light_phase_features_v1.parquet",
+        "rows": 700,
+        "train_rows": 450,
+        "test_rows": 250,
+        "feature_columns": 48,
+        "aligned_rows": 450,
+        "mean_missing_rate": 0.0,
+        "all_train_rows_aligned": true
+      },
+      "usage_semantic": {
+        "path": "data/processed/post_id341_usage_semantic_burst_markov_features_v1.parquet",
+        "rows": 700,
+        "train_rows": 450,
+        "test_rows": 250,
+        "feature_columns": 77,
+        "aligned_rows": 450,
+        "mean_missing_rate": 0.0,
+        "all_train_rows_aligned": true
+      }
+    },
+    "total_feature_columns": 322,
+    "all_sources_train_aligned": true
+  },
+  "config": {
+    "model_specs": [
+      {
+        "name": "lr_c0_01",
+        "kind": "lr",
+        "c_value": 0.01
+      },
+      {
+        "name": "lr_c0_03",
+        "kind": "lr",
+        "c_value": 0.03
+      },
+      {
+        "name": "lr_c0_08",
+        "kind": "lr",
+        "c_value": 0.08
+      },
+      {
+        "name": "lr_c0_20",
+        "kind": "lr",
+        "c_value": 0.2
+      }
+    ],
+    "split_names": [
+      "subject_hole_5",
+      "actual_test_band_holdout",
+      "test_boundary_neighbor2_holdout",
+      "test_boundary_neighbor5_holdout",
+      "loso_10"
+    ],
+    "blend_weights": [
+      0.0025,
+      0.005,
+      0.01,
+      0.02,
+      0.035,
+      0.05
+    ],
+    "config_win_floor": 4,
+    "config_mean_delta_ceiling": -5e-05,
+    "config_max_delta_ceiling": 0.0005,
+    "config_mean_movement_ceiling": 0.00085
+  },
+  "anchor_context_rows": [
+    {
+      "target": "Q3",
+      "split_name": "subject_hole_5",
+      "id178_loss": 0.5670897848363183,
+      "id337_loss": 0.5670897848363183,
+      "id338_loss": 0.5666470764450061,
+      "id340_loss": 0.5670897848363183,
+      "id338_minus_id178": -0.00044270839131221873,
+      "id338_minus_id337": -0.00044270839131221873,
+      "id340_minus_id338": 0.00044270839131221873
+    },
+    {
+      "target": "Q3",
+      "split_name": "actual_test_band_holdout",
+      "id178_loss": 0.5093012241642778,
+      "id337_loss": 0.5093012241642778,
+      "id338_loss": 0.5081160732617265,
+      "id340_loss": 0.5093012241642778,
+      "id338_minus_id178": -0.0011851509025513352,
+      "id338_minus_id337": -0.0011851509025513352,
+      "id340_minus_id338": 0.0011851509025513352
+    },
+    {
+      "target": "Q3",
+      "split_name": "test_boundary_neighbor2_holdout",
+      "id178_loss": 0.6063358711638827,
+      "id337_loss": 0.6063358711638827,
+      "id338_loss": 0.6104153276993708,
+      "id340_loss": 0.6063358711638827,
+      "id338_minus_id178": 0.004079456535488135,
+      "id338_minus_id337": 0.004079456535488135,
+      "id340_minus_id338": -0.004079456535488135
+    },
+    {
+      "target": "Q3",
+      "split_name": "test_boundary_neighbor5_holdout",
+      "id178_loss": 0.5827662249897018,
+      "id337_loss": 0.5827662249897018,
+      "id338_loss": 0.5840174357336573,
+      "id340_loss": 0.5827662249897018,
+      "id338_minus_id178": 0.001251210743955511,
+      "id338_minus_id337": 0.001251210743955511,
+      "id340_minus_id338": -0.001251210743955511
+    },
+    {
+      "target": "Q3",
+      "split_name": "loso_10",
+      "id178_loss": 0.5670897848363183,
+      "id337_loss": 0.5670897848363183,
+      "id338_loss": 0.5666470764450061,
+      "id340_loss": 0.5670897848363183,
+      "id338_minus_id178": -0.00044270839131221873,
+      "id338_minus_id337": -0.00044270839131221873,
+      "id340_minus_id338": 0.00044270839131221873
+    },
+    {
+      "target": "S3",
+      "split_name": "subject_hole_5",
+      "id178_loss": 0.49089303890027697,
+      "id337_loss": 0.49089303890027697,
+      "id338_loss": 0.49089303890027697,
+      "id340_loss": 0.49089303890027697,
+      "id338_minus_id178": 0.0,
+      "id338_minus_id337": 0.0,
+      "id340_minus_id338": 0.0
+    },
+    {
+      "target": "S3",
+      "split_name": "actual_test_band_holdout",
+      "id178_loss": 0.47199996150799395,
+      "id337_loss": 0.47199996150799395,
+      "id338_loss": 0.47199996150799395,
+      "id340_loss": 0.47199996150799395,
+      "id338_minus_id178": 0.0,
+      "id338_minus_id337": 0.0,
+      "id340_minus_id338": 0.0
+    },
+    {
+      "target": "S3",
+      "split_name": "test_boundary_neighbor2_holdout",
+      "id178_loss": 0.5069499097612542,
+      "id337_loss": 0.5069499097612542,
+      "id338_loss": 0.5069499097612542,
+      "id340_loss": 0.5069499097612542,
+      "id338_minus_id178": 0.0,
+      "id338_minus_id337": 0.0,
+      "id340_minus_id338": 0.0
+    },
+    {
+      "target": "S3",
+      "split_name": "test_boundary_neighbor5_holdout",
+      "id178_loss": 0.5128937130660507,
+      "id337_loss": 0.5128937130660507,
+      "id338_loss": 0.5128937130660507,
+      "id340_loss": 0.5128937130660507,
+      "id338_minus_id178": 0.0,
+      "id338_minus_id337": 0.0,
+      "id340_minus_id338": 0.0
+    },
+    {
+      "target": "S3",
+      "split_name": "loso_10",
+      "id178_loss": 0.4908930389002769,
+      "id337_loss": 0.4908930389002769,
+      "id338_loss": 0.4908930389002769,
+      "id340_loss": 0.4908930389002769,
+      "id338_minus_id178": 0.0,
+      "id338_minus_id337": 0.0,
+      "id340_minus_id338": 0.0
+    }
+  ],
+  "selected_target_configs": {
+    "S3": {
+      "target": "S3",
+      "source_group": "phone_wearable_discordance",
+      "candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.005",
+      "model_spec": {
+        "name": "lr_c0_20",
+        "kind": "lr",
+        "c_value": 0.2
+      },
+      "weight": 0.005,
+      "primary_wins_vs_id338": 4,
+      "mean_delta_vs_id338": -6.24965064717986e-05,
+      "min_delta_vs_id338": -0.0002671420686385373,
+      "max_delta_vs_id338": 5.849459809825763e-05,
+      "mean_target_movement_vs_id338": 0.0005728832800752743,
+      "max_target_movement_vs_id338": 0.004451182821391453,
+      "mean_failed_projection": 0.000511294783091337,
+      "split_deltas_vs_id338": {
+        "subject_hole_5": -4.8535604888821915e-05,
+        "actual_test_band_holdout": 5.849459809825763e-05,
+        "test_boundary_neighbor2_holdout": -2.1051546344241778e-05,
+        "test_boundary_neighbor5_holdout": -0.0002671420686385373,
+        "loso_10": -3.424791058564969e-05
+      },
+      "split_mean_movements_vs_id338": {
+        "subject_hole_5": 0.000866191432346878,
+        "actual_test_band_holdout": 0.00018929362498322025,
+        "test_boundary_neighbor2_holdout": 0.00013962133270794017,
+        "test_boundary_neighbor5_holdout": 0.00038035046939276186,
+        "loso_10": 0.0012889595409455712
+      }
+    }
+  },
+  "top_rows_by_target": {
+    "Q3": [
+      {
+        "target": "Q3",
+        "source_group": "circadian_hr_light",
+        "candidate": "blend_id338_circadian_hr_light_lr_c0_20_w0.0025",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.0025,
+        "primary_wins_vs_id338": 2,
+        "mean_delta_vs_id338": 5.0332182329304585e-06,
+        "min_delta_vs_id338": -5.767161979930435e-05,
+        "max_delta_vs_id338": 7.399665244345321e-05,
+        "mean_target_movement_vs_id338": 0.0002881903392948717,
+        "max_target_movement_vs_id338": 0.002228624559574899,
+        "mean_failed_projection": 0.00041191744821928556,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": 7.399665244345321e-05,
+          "actual_test_band_holdout": -2.938251484463361e-05,
+          "test_boundary_neighbor2_holdout": -5.767161979930435e-05,
+          "test_boundary_neighbor5_holdout": 1.2751624675622075e-05,
+          "loso_10": 2.5471948689514967e-05
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.0005134441816544327,
+          "actual_test_band_holdout": 0.0001106065904113654,
+          "test_boundary_neighbor2_holdout": 8.777593389294142e-05,
+          "test_boundary_neighbor5_holdout": 0.00018200492160243658,
+          "loso_10": 0.0005471200689131825
+        }
+      },
+      {
+        "target": "Q3",
+        "source_group": "circadian_hr_light",
+        "candidate": "blend_id338_circadian_hr_light_lr_c0_08_w0.0025",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "weight": 0.0025,
+        "primary_wins_vs_id338": 2,
+        "mean_delta_vs_id338": 7.914505795314497e-06,
+        "min_delta_vs_id338": -7.556875267744623e-05,
+        "max_delta_vs_id338": 7.305727466599965e-05,
+        "mean_target_movement_vs_id338": 0.0002696941534148721,
+        "max_target_movement_vs_id338": 0.0021874819917786364,
+        "mean_failed_projection": 0.00040792893290347463,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": 7.305727466599965e-05,
+          "actual_test_band_holdout": -1.2676027282276792e-06,
+          "test_boundary_neighbor2_holdout": -7.556875267744623e-05,
+          "test_boundary_neighbor5_holdout": 1.748158847070247e-05,
+          "loso_10": 2.5870021245544272e-05
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.000484930358299713,
+          "actual_test_band_holdout": 0.00010308216838400846,
+          "test_boundary_neighbor2_holdout": 8.10114932824282e-05,
+          "test_boundary_neighbor5_holdout": 0.00017021264808772616,
+          "loso_10": 0.0005092340990204847
+        }
+      },
+      {
+        "target": "Q3",
+        "source_group": "circadian_hr_light",
+        "candidate": "blend_id338_circadian_hr_light_lr_c0_20_w0.005",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.005,
+        "primary_wins_vs_id338": 2,
+        "mean_delta_vs_id338": 1.1926593344457892e-05,
+        "min_delta_vs_id338": -0.0001132423617579148,
+        "max_delta_vs_id338": 0.00014970141927783676,
+        "mean_target_movement_vs_id338": 0.0005763806785897287,
+        "max_target_movement_vs_id338": 0.004457249119149798,
+        "mean_failed_projection": 0.00033858737108259554,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": 0.00014970141927783676,
+          "actual_test_band_holdout": -5.706412233696945e-05,
+          "test_boundary_neighbor2_holdout": -0.0001132423617579148,
+          "test_boundary_neighbor5_holdout": 2.7200465615551117e-05,
+          "loso_10": 5.3037565923785834e-05
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.0010268883633088816,
+          "actual_test_band_holdout": 0.00022121318082268468,
+          "test_boundary_neighbor2_holdout": 0.00017555186778584018,
+          "test_boundary_neighbor5_holdout": 0.00036400984320485353,
+          "loso_10": 0.0010942401378263836
+        }
+      },
+      {
+        "target": "Q3",
+        "source_group": "circadian_hr_light",
+        "candidate": "blend_id338_circadian_hr_light_lr_c0_08_w0.005",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "weight": 0.005,
+        "primary_wins_vs_id338": 2,
+        "mean_delta_vs_id338": 1.7455743888228348e-05,
+        "min_delta_vs_id338": -0.00014931296964548757,
+        "max_delta_vs_id338": 0.0001476433736159466,
+        "mean_target_movement_vs_id338": 0.0005393883068297273,
+        "max_target_movement_vs_id338": 0.004374963983557273,
+        "mean_failed_projection": 0.00033061034045097303,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": 0.0001476433736159466,
+          "actual_test_band_holdout": -1.0370278673565991e-06,
+          "test_boundary_neighbor2_holdout": -0.00014931296964548757,
+          "test_boundary_neighbor5_holdout": 3.63970489707377e-05,
+          "loso_10": 5.3588294367301614e-05
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.0009698607165994402,
+          "actual_test_band_holdout": 0.00020616433676797372,
+          "test_boundary_neighbor2_holdout": 0.00016202298656481219,
+          "test_boundary_neighbor5_holdout": 0.0003404252961754271,
+          "loso_10": 0.0010184681980409836
+        }
+      },
+      {
+        "target": "Q3",
+        "source_group": "circadian_hr_light",
+        "candidate": "blend_id338_circadian_hr_light_lr_c0_20_w0.01",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.01,
+        "primary_wins_vs_id338": 2,
+        "mean_delta_vs_id338": 3.125404783066443e-05,
+        "min_delta_vs_id338": -0.0002181350839625118,
+        "max_delta_vs_id338": 0.0003062071324380078,
+        "mean_target_movement_vs_id338": 0.0011527613571794566,
+        "max_target_movement_vs_id338": 0.008914498238299581,
+        "mean_failed_projection": 0.00019192721680923153,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": 0.0003062071324380078,
+          "actual_test_band_holdout": -0.00010736074766404258,
+          "test_boundary_neighbor2_holdout": -0.0002181350839625118,
+          "test_boundary_neighbor5_holdout": 6.11517223452207e-05,
+          "loso_10": 0.00011440721599664805
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.0020537767266177627,
+          "actual_test_band_holdout": 0.0004424263616453719,
+          "test_boundary_neighbor2_holdout": 0.00035110373557168274,
+          "test_boundary_neighbor5_holdout": 0.0007280196864097062,
+          "loso_10": 0.002188480275652759
+        }
+      },
+      {
+        "target": "Q3",
+        "source_group": "circadian_hr_light",
+        "candidate": "blend_id338_circadian_hr_light_lr_c0_20_w0.02",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.02,
+        "primary_wins_vs_id338": 2,
+        "mean_delta_vs_id338": 9.18054345397934e-05,
+        "min_delta_vs_id338": -0.00040328664993416474,
+        "max_delta_vs_id338": 0.0006394157507265685,
+        "mean_target_movement_vs_id338": 0.002305522714358913,
+        "max_target_movement_vs_id338": 0.01782899647659915,
+        "mean_failed_projection": -0.00010139309173749925,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": 0.0006394157507265685,
+          "actual_test_band_holdout": -0.00018792998911487668,
+          "test_boundary_neighbor2_holdout": -0.00040328664993416474,
+          "test_boundary_neighbor5_holdout": 0.0001490124915817237,
+          "loso_10": 0.0002618155694397162
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.004107553453235525,
+          "actual_test_band_holdout": 0.0008848527232907417,
+          "test_boundary_neighbor2_holdout": 0.0007022074711433657,
+          "test_boundary_neighbor5_holdout": 0.0014560393728194152,
+          "loso_10": 0.004376960551305519
+        }
+      },
+      {
+        "target": "Q3",
+        "source_group": "circadian_hr_light",
+        "candidate": "blend_id338_circadian_hr_light_lr_c0_20_w0.035",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.035,
+        "primary_wins_vs_id338": 2,
+        "mean_delta_vs_id338": 0.00023631036477060884,
+        "min_delta_vs_id338": -0.0006208738537668568,
+        "max_delta_vs_id338": 0.00118898031274417,
+        "mean_target_movement_vs_id338": 0.004034664750128096,
+        "max_target_movement_vs_id338": 0.031200743834048514,
+        "mean_failed_projection": -0.0005413735545575908,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": 0.00118898031274417,
+          "actual_test_band_holdout": -0.0002596937189653925,
+          "test_boundary_neighbor2_holdout": -0.0006208738537668568,
+          "test_boundary_neighbor5_holdout": 0.0003296701880433073,
+          "loso_10": 0.0005434688957978162
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.007188218543162165,
+          "actual_test_band_holdout": 0.0015484922657587978,
+          "test_boundary_neighbor2_holdout": 0.0012288630745008868,
+          "test_boundary_neighbor5_holdout": 0.0025480689024339745,
+          "loso_10": 0.007659680964784658
+        }
+      },
+      {
+        "target": "Q3",
+        "source_group": "circadian_hr_light",
+        "candidate": "blend_id338_circadian_hr_light_lr_c0_20_w0.05",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.05,
+        "primary_wins_vs_id338": 2,
+        "mean_delta_vs_id338": 0.0004436853017312448,
+        "min_delta_vs_id338": -0.0007683958135200619,
+        "max_delta_vs_id338": 0.0017971864321352227,
+        "mean_target_movement_vs_id338": 0.005763806785897282,
+        "max_target_movement_vs_id338": 0.04457249119149791,
+        "mean_failed_projection": -0.000981354017377685,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": 0.0017971864321352227,
+          "actual_test_band_holdout": -0.00027396201660723207,
+          "test_boundary_neighbor2_holdout": -0.0007683958135200619,
+          "test_boundary_neighbor5_holdout": 0.0005674596182390079,
+          "loso_10": 0.0008961382884092872
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.010268883633088817,
+          "actual_test_band_holdout": 0.002212131808226854,
+          "test_boundary_neighbor2_holdout": 0.001755518677858412,
+          "test_boundary_neighbor5_holdout": 0.003640098432048532,
+          "loso_10": 0.010942401378263796
+        }
+      },
+      {
+        "target": "Q3",
+        "source_group": "circadian_hr_light",
+        "candidate": "blend_id338_circadian_hr_light_lr_c0_03_w0.0025",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03
+        },
+        "weight": 0.0025,
+        "primary_wins_vs_id338": 1,
+        "mean_delta_vs_id338": 1.7395763877470215e-05,
+        "min_delta_vs_id338": -9.030981905422397e-05,
+        "max_delta_vs_id338": 7.421261062012796e-05,
+        "mean_target_movement_vs_id338": 0.0002503081514616086,
+        "max_target_movement_vs_id338": 0.0021000034676871143,
+        "mean_failed_projection": 0.00039910695846319996,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": 7.421261062012796e-05,
+          "actual_test_band_holdout": 4.656246746870263e-05,
+          "test_boundary_neighbor2_holdout": -9.030981905422397e-05,
+          "test_boundary_neighbor5_holdout": 2.4670563461226536e-05,
+          "loso_10": 3.184299689151793e-05
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.0004533978586368869,
+          "actual_test_band_holdout": 9.531254533635352e-05,
+          "test_boundary_neighbor2_holdout": 7.510310906538541e-05,
+          "test_boundary_neighbor5_holdout": 0.0001618576878257675,
+          "loso_10": 0.00046586955644364967
+        }
+      },
+      {
+        "target": "Q3",
+        "source_group": "circadian_hr_light",
+        "candidate": "blend_id338_circadian_hr_light_lr_c0_01_w0.0025",
+        "model_spec": {
+          "name": "lr_c0_01",
+          "kind": "lr",
+          "c_value": 0.01
+        },
+        "weight": 0.0025,
+        "primary_wins_vs_id338": 1,
+        "mean_delta_vs_id338": 3.529684956939949e-05,
+        "min_delta_vs_id338": -9.102397030635867e-05,
+        "max_delta_vs_id338": 0.0001135625303234633,
+        "mean_target_movement_vs_id338": 0.00024202565910678343,
+        "max_target_movement_vs_id338": 0.0019128691793960095,
+        "mean_failed_projection": 0.0003851467285471826,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": 7.460128452230208e-05,
+          "actual_test_band_holdout": 0.0001135625303234633,
+          "test_boundary_neighbor2_holdout": -9.102397030635867e-05,
+          "test_boundary_neighbor5_holdout": 3.4996857172786555e-05,
+          "loso_10": 4.434754613480418e-05
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.0004355680437569283,
+          "actual_test_band_holdout": 9.443430287397178e-05,
+          "test_boundary_neighbor2_holdout": 7.580704398015979e-05,
+          "test_boundary_neighbor5_holdout": 0.0001646934594623496,
+          "loso_10": 0.00043962544546050775
+        }
+      },
+      {
+        "target": "Q3",
+        "source_group": "circadian_hr_light",
+        "candidate": "blend_id338_circadian_hr_light_lr_c0_03_w0.005",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03
+        },
+        "weight": 0.005,
+        "primary_wins_vs_id338": 1,
+        "mean_delta_vs_id338": 3.6223296458426366e-05,
+        "min_delta_vs_id338": -0.00017900817393579072,
+        "max_delta_vs_id338": 0.00014979195768871634,
+        "mean_target_movement_vs_id338": 0.0005006163029232048,
+        "max_target_movement_vs_id338": 0.004200006935374215,
+        "mean_failed_projection": 0.00031296639157042227,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": 0.00014979195768871634,
+          "actual_test_band_holdout": 9.44058991748653e-05,
+          "test_boundary_neighbor2_holdout": -0.00017900817393579072,
+          "test_boundary_neighbor5_holdout": 5.064678407773471e-05,
+          "loso_10": 6.528001528660621e-05
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.0009067957172737937,
+          "actual_test_band_holdout": 0.00019062509067266587,
+          "test_boundary_neighbor2_holdout": 0.00015020621813073012,
+          "test_boundary_neighbor5_holdout": 0.0003237153756515153,
+          "loso_10": 0.0009317391128873193
+        }
+      },
+      {
+        "target": "Q3",
+        "source_group": "circadian_hr_light",
+        "candidate": "blend_id338_circadian_hr_light_lr_c0_08_w0.01",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "weight": 0.01,
+        "primary_wins_vs_id338": 1,
+        "mean_delta_vs_id338": 4.1385399110116515e-05,
+        "min_delta_vs_id338": -0.0002913743893135923,
+        "max_delta_vs_id338": 0.000301378253868112,
+        "mean_target_movement_vs_id338": 0.0010787766136594564,
+        "max_target_movement_vs_id338": 0.008749927967114546,
+        "mean_failed_projection": 0.00017597315554598666,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": 0.000301378253868112,
+          "actual_test_band_holdout": 3.8879934514124415e-06,
+          "test_boundary_neighbor2_holdout": -0.0002913743893135923,
+          "test_boundary_neighbor5_holdout": 7.85019166418266e-05,
+          "loso_10": 0.00011453322090282381
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.0019397214331988819,
+          "actual_test_band_holdout": 0.00041232867353594707,
+          "test_boundary_neighbor2_holdout": 0.00032404597312962687,
+          "test_boundary_neighbor5_holdout": 0.0006808505923508599,
+          "loso_10": 0.0020369363960819663
+        }
+      }
+    ],
+    "S3": [
+      {
+        "target": "S3",
+        "source_group": "phone_wearable_discordance",
+        "candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.02",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.02,
+        "primary_wins_vs_id338": 4,
+        "mean_delta_vs_id338": -0.00019225793876567198,
+        "min_delta_vs_id338": -0.0009907543372417171,
+        "max_delta_vs_id338": 0.0002671799229903571,
+        "mean_target_movement_vs_id338": 0.0022915331203010986,
+        "max_target_movement_vs_id338": 0.01780473128556559,
+        "mean_failed_projection": 0.0005894365562974696,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": -0.00015472321083154217,
+          "actual_test_band_holdout": 0.0002671799229903571,
+          "test_boundary_neighbor2_holdout": -5.573848120843383e-05,
+          "test_boundary_neighbor5_holdout": -0.0009907543372417171,
+          "loso_10": -2.7253587537023893e-05
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.0034647657293875103,
+          "actual_test_band_holdout": 0.0007571744999328849,
+          "test_boundary_neighbor2_holdout": 0.0005584853308317663,
+          "test_boundary_neighbor5_holdout": 0.001521401877571041,
+          "loso_10": 0.005155838163782291
+        }
+      },
+      {
+        "target": "S3",
+        "source_group": "phone_wearable_discordance",
+        "candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.01",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.01,
+        "primary_wins_vs_id338": 4,
+        "mean_delta_vs_id338": -0.00011522058258878198,
+        "min_delta_vs_id338": -0.0005211412461938458,
+        "max_delta_vs_id338": 0.0001225444147947008,
+        "mean_target_movement_vs_id338": 0.0011457665601505504,
+        "max_target_movement_vs_id338": 0.008902365642782795,
+        "mean_failed_projection": 0.0005373420408267142,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": -9.04544715200073e-05,
+          "actual_test_band_holdout": 0.0001225444147947008,
+          "test_boundary_neighbor2_holdout": -3.734808757660524e-05,
+          "test_boundary_neighbor5_holdout": -0.0005211412461938458,
+          "loso_10": -4.970352244815235e-05
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.0017323828646937573,
+          "actual_test_band_holdout": 0.00037858724996644164,
+          "test_boundary_neighbor2_holdout": 0.0002792426654158843,
+          "test_boundary_neighbor5_holdout": 0.000760700938785523,
+          "loso_10": 0.0025779190818911463
+        }
+      },
+      {
+        "target": "S3",
+        "source_group": "phone_wearable_discordance",
+        "candidate": "blend_id338_phone_wearable_discordance_lr_c0_08_w0.01",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "weight": 0.01,
+        "primary_wins_vs_id338": 4,
+        "mean_delta_vs_id338": -8.809765762410882e-05,
+        "min_delta_vs_id338": -0.00046853116072864687,
+        "max_delta_vs_id338": 0.00016385345126257445,
+        "mean_target_movement_vs_id338": 0.0010743940826519998,
+        "max_target_movement_vs_id338": 0.008560622153559655,
+        "mean_failed_projection": 0.0005277878827839198,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": -6.98529625104416e-05,
+          "actual_test_band_holdout": 0.00016385345126257445,
+          "test_boundary_neighbor2_holdout": -3.6423304536903345e-05,
+          "test_boundary_neighbor5_holdout": -0.00046853116072864687,
+          "loso_10": -2.9534311607126718e-05
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.0016363165801985824,
+          "actual_test_band_holdout": 0.000357907909564468,
+          "test_boundary_neighbor2_holdout": 0.0002536338806296,
+          "test_boundary_neighbor5_holdout": 0.000688062267220591,
+          "loso_10": 0.002436049775646758
+        }
+      },
+      {
+        "target": "S3",
+        "source_group": "phone_wearable_discordance",
+        "candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.005",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.005,
+        "primary_wins_vs_id338": 4,
+        "mean_delta_vs_id338": -6.24965064717986e-05,
+        "min_delta_vs_id338": -0.0002671420686385373,
+        "max_delta_vs_id338": 5.849459809825763e-05,
+        "mean_target_movement_vs_id338": 0.0005728832800752743,
+        "max_target_movement_vs_id338": 0.004451182821391453,
+        "mean_failed_projection": 0.000511294783091337,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": -4.8535604888821915e-05,
+          "actual_test_band_holdout": 5.849459809825763e-05,
+          "test_boundary_neighbor2_holdout": -2.1051546344241778e-05,
+          "test_boundary_neighbor5_holdout": -0.0002671420686385373,
+          "loso_10": -3.424791058564969e-05
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.000866191432346878,
+          "actual_test_band_holdout": 0.00018929362498322025,
+          "test_boundary_neighbor2_holdout": 0.00013962133270794017,
+          "test_boundary_neighbor5_holdout": 0.00038035046939276186,
+          "loso_10": 0.0012889595409455712
+        }
+      },
+      {
+        "target": "S3",
+        "source_group": "phone_wearable_discordance",
+        "candidate": "blend_id338_phone_wearable_discordance_lr_c0_08_w0.005",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "weight": 0.005,
+        "primary_wins_vs_id338": 4,
+        "mean_delta_vs_id338": -4.850444960921019e-05,
+        "min_delta_vs_id338": -0.00024052198057378238,
+        "max_delta_vs_id338": 7.956232126232754e-05,
+        "mean_target_movement_vs_id338": 0.0005371970413259994,
+        "max_target_movement_vs_id338": 0.004280311076779814,
+        "mean_failed_projection": 0.0005065177040699399,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": -3.818472872246792e-05,
+          "actual_test_band_holdout": 7.956232126232754e-05,
+          "test_boundary_neighbor2_holdout": -2.021077280889294e-05,
+          "test_boundary_neighbor5_holdout": -0.00024052198057378238,
+          "loso_10": -2.3167087203235237e-05
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.0008181582900992897,
+          "actual_test_band_holdout": 0.00017895395478223305,
+          "test_boundary_neighbor2_holdout": 0.00012681694031479852,
+          "test_boundary_neighbor5_holdout": 0.0003440311336102949,
+          "loso_10": 0.0012180248878233813
+        }
+      },
+      {
+        "target": "S3",
+        "source_group": "phone_wearable_discordance",
+        "candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.0025",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.0025,
+        "primary_wins_vs_id338": 4,
+        "mean_delta_vs_id338": -3.248524986702028e-05,
+        "min_delta_vs_id338": -0.00013523105560031556,
+        "max_delta_vs_id338": 2.8550790846071372e-05,
+        "mean_target_movement_vs_id338": 0.00028644164003765224,
+        "max_target_movement_vs_id338": 0.00222559141069556,
+        "mean_failed_projection": 0.0004982711542236495,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": -2.5099502990622025e-05,
+          "actual_test_band_holdout": 2.8550790846071372e-05,
+          "test_boundary_neighbor2_holdout": -1.1121156031190793e-05,
+          "test_boundary_neighbor5_holdout": -0.00013523105560031556,
+          "loso_10": -1.9525325559044404e-05
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.00043309571617343597,
+          "actual_test_band_holdout": 9.464681249163688e-05,
+          "test_boundary_neighbor2_holdout": 6.981066635400063e-05,
+          "test_boundary_neighbor5_holdout": 0.00019017523469640578,
+          "loso_10": 0.0006444797704727821
+        }
+      },
+      {
+        "target": "S3",
+        "source_group": "phone_wearable_discordance",
+        "candidate": "blend_id338_phone_wearable_discordance_lr_c0_08_w0.0025",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "weight": 0.0025,
+        "primary_wins_vs_id338": 4,
+        "mean_delta_vs_id338": -2.538003628409502e-05,
+        "min_delta_vs_id338": -0.00012184372249546271,
+        "max_delta_vs_id338": 3.918843857619869e-05,
+        "mean_target_movement_vs_id338": 0.00026859852066301037,
+        "max_target_movement_vs_id338": 0.002140155538389907,
+        "mean_failed_projection": 0.0004958826147129507,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": -1.991297261949576e-05,
+          "actual_test_band_holdout": 3.918843857619869e-05,
+          "test_boundary_neighbor2_holdout": -1.060615331471837e-05,
+          "test_boundary_neighbor5_holdout": -0.00012184372249546271,
+          "loso_10": -1.3725771566996947e-05
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.0004090791450496318,
+          "actual_test_band_holdout": 8.947697739114069e-05,
+          "test_boundary_neighbor2_holdout": 6.340847015742731e-05,
+          "test_boundary_neighbor5_holdout": 0.0001720155668051697,
+          "loso_10": 0.0006090124439116825
+        }
+      },
+      {
+        "target": "S3",
+        "source_group": "phone_wearable_discordance",
+        "candidate": "blend_id338_phone_wearable_discordance_lr_c0_20_w0.035",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.035,
+        "primary_wins_vs_id338": 3,
+        "mean_delta_vs_id338": -0.00023967815581926732,
+        "min_delta_vs_id338": -0.0016027509364749948,
+        "max_delta_vs_id338": 0.0005250220111759907,
+        "mean_target_movement_vs_id338": 0.004010182960526922,
+        "max_target_movement_vs_id338": 0.031158279749739837,
+        "mean_failed_projection": 0.0006675783295036014,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": -0.00020316403524750504,
+          "actual_test_band_holdout": 0.0005250220111759907,
+          "test_boundary_neighbor2_holdout": -4.803538176723077e-05,
+          "test_boundary_neighbor5_holdout": -0.0016027509364749948,
+          "loso_10": 0.00013053756321740329
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.006063340026428143,
+          "actual_test_band_holdout": 0.0013250553748825422,
+          "test_boundary_neighbor2_holdout": 0.00097734932895559,
+          "test_boundary_neighbor5_holdout": 0.0026624532857493213,
+          "loso_10": 0.009022716786619013
+        }
+      },
+      {
+        "target": "S3",
+        "source_group": "phone_wearable_discordance",
+        "candidate": "blend_id338_phone_wearable_discordance_lr_c0_08_w0.035",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "weight": 0.035,
+        "primary_wins_vs_id338": 3,
+        "mean_delta_vs_id338": -0.00015922225206123076,
+        "min_delta_vs_id338": -0.0014304129888389472,
+        "max_delta_vs_id338": 0.0006553827287539837,
+        "mean_target_movement_vs_id338": 0.0037603792892819967,
+        "max_target_movement_vs_id338": 0.02996217753745878,
+        "mean_failed_projection": 0.0006341387763538201,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": -0.0001335699402244539,
+          "actual_test_band_holdout": 0.0006553827287539837,
+          "test_boundary_neighbor2_holdout": -5.8040164702122254e-05,
+          "test_boundary_neighbor5_holdout": -0.0014304129888389472,
+          "loso_10": 0.00017052910470538585
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.005727108030695034,
+          "actual_test_band_holdout": 0.0012526776834756396,
+          "test_boundary_neighbor2_holdout": 0.0008877185822035955,
+          "test_boundary_neighbor5_holdout": 0.002408217935272061,
+          "loso_10": 0.008526174214763654
+        }
+      },
+      {
+        "target": "S3",
+        "source_group": "phone_wearable_discordance",
+        "candidate": "blend_id338_phone_wearable_discordance_lr_c0_08_w0.02",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "weight": 0.02,
+        "primary_wins_vs_id338": 3,
+        "mean_delta_vs_id338": -0.0001413768340748911,
+        "min_delta_vs_id338": -0.0008881453198451572,
+        "max_delta_vs_id338": 0.00034652147681768497,
+        "mean_target_movement_vs_id338": 0.0021487881653039992,
+        "max_target_movement_vs_id338": 0.01712124430711931,
+        "mean_failed_projection": 0.0005703282402118806,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": -0.00011401010890416119,
+          "actual_test_band_holdout": 0.00034652147681768497,
+          "test_boundary_neighbor2_holdout": -5.6915259313283784e-05,
+          "test_boundary_neighbor5_holdout": -0.0008881453198451572,
+          "loso_10": 5.665040870461713e-06
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.003272633160397161,
+          "actual_test_band_holdout": 0.0007158158191289383,
+          "test_boundary_neighbor2_holdout": 0.0005072677612591981,
+          "test_boundary_neighbor5_holdout": 0.0013761245344411797,
+          "loso_10": 0.004872099551293518
+        }
+      },
+      {
+        "target": "S3",
+        "source_group": "usage_semantic",
+        "candidate": "blend_id338_usage_semantic_lr_c0_20_w0.035",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.035,
+        "primary_wins_vs_id338": 3,
+        "mean_delta_vs_id338": -0.00011320706329110974,
+        "min_delta_vs_id338": -0.0016977387161235535,
+        "max_delta_vs_id338": 0.0011474414568460323,
+        "mean_target_movement_vs_id338": 0.00324772064674929,
+        "max_target_movement_vs_id338": 0.030145863352675648,
+        "mean_failed_projection": 0.0006160544965433828,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": 0.0011474414568460323,
+          "actual_test_band_holdout": -0.0016977387161235535,
+          "test_boundary_neighbor2_holdout": -0.00020252985453894645,
+          "test_boundary_neighbor5_holdout": -0.00017394691293837194,
+          "loso_10": 0.00036073871029929094
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.004382214561855111,
+          "actual_test_band_holdout": 0.0009706367744856557,
+          "test_boundary_neighbor2_holdout": 0.0009612370964279462,
+          "test_boundary_neighbor5_holdout": 0.0023080259329481155,
+          "loso_10": 0.007616488868029623
+        }
+      },
+      {
+        "target": "S3",
+        "source_group": "gps_path_topology",
+        "candidate": "blend_id338_gps_path_topology_lr_c0_20_w0.02",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.02,
+        "primary_wins_vs_id338": 3,
+        "mean_delta_vs_id338": -0.00011173843423922802,
+        "min_delta_vs_id338": -0.00043012529739605565,
+        "max_delta_vs_id338": 5.106242762331625e-05,
+        "mean_target_movement_vs_id338": 0.002039510996605987,
+        "max_target_movement_vs_id338": 0.018514629196520693,
+        "mean_failed_projection": 0.0004370006576654308,
+        "split_deltas_vs_id338": {
+          "subject_hole_5": -0.00021120340091557166,
+          "actual_test_band_holdout": 3.791556947063679e-05,
+          "test_boundary_neighbor2_holdout": 5.106242762331625e-05,
+          "test_boundary_neighbor5_holdout": -0.00043012529739605565,
+          "loso_10": -6.341469978465852e-06
+        },
+        "split_mean_movements_vs_id338": {
+          "subject_hole_5": 0.002560890362309496,
+          "actual_test_band_holdout": 0.0006168225851568358,
+          "test_boundary_neighbor2_holdout": 0.00047881480229344575,
+          "test_boundary_neighbor5_holdout": 0.0012886955133228543,
+          "loso_10": 0.005252331719947303
+        }
+      }
+    ]
+  },
+  "scan_row_count": 1680,
+  "decision": {
+    "probe_completed": true,
+    "selected_targets": [
+      "S3"
+    ],
+    "any_q3s3_signal_found": true,
+    "all_q3s3_targets_covered": false,
+    "public_058_evidence": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_local_allowed_step": "id338_material_q3s3_no_artifact_geometry_gate",
+    "next_action": "If selected targets exist, run only a no-artifact geometry gate against ID338/test-shape risk. Do not create a CSV/base/notebook/log artifact without a separate promotion contract."
+  },
+  "no_full_test_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_made": true,
+  "no_kaggle_run_made": true,
+  "no_dacon_submission_made": true
+}

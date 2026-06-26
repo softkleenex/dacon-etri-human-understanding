@@ -24,14 +24,13 @@ echo $DACON_TEAMNAME
 > ```
 
 ### 2. 실전 파이썬 자동 제출 스니펫 및 Makefile 활용
-대회의 성격(일반 CSV 제출 vs 코드 파일 제출)에 따라 사용하는 함수가 다릅니다. 이 템플릿에서는 **`make dacon-submit`** 명령어를 제공하여, 스크립트 작성 없이도 터미널에서 즉각적인 파일 제출이 가능합니다.
+대회의 성격(일반 CSV 제출 vs 코드 파일 제출)에 따라 사용하는 함수가 다릅니다. 이 템플릿에서는 **`make dacon-submit`** 명령어를 제공하지만, 실수 제출을 막기 위해 기본값은 fail-closed입니다. 명시 승인 후 exact `SUB_PATH`/`SUB_MEMO`와 `ALLOW_DACON_SUBMIT=true`를 함께 전달해야 합니다.
 
 ```bash
-# 터미널에서 아래 명령을 실행하면 경로와 메모를 묻는 프롬프트가 나타납니다.
-make dacon-submit
-# 프롬프트 예시:
-# Enter submission file path: submissions/xgb_fold5_ensemble.csv
-# Enter submission message: Auto-submitted via baseline
+# explicit approval after reviewing the exact file and memo
+ALLOW_DACON_SUBMIT=true make dacon-submit \
+  SUB_PATH=submissions/xgb_fold5_ensemble.csv \
+  SUB_MEMO="reviewed safe ensemble"
 ```
 
 추론 스크립트의 맨 마지막에 파이썬 로직을 덧붙여 파이프라인을 완전 자동화하려면 아래 코드를 참고하세요.

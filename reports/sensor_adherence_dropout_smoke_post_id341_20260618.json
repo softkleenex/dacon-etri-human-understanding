@@ -1,0 +1,2484 @@
+{
+  "created_at_kst": "2026-06-18 06:21:40 UTC+09:00",
+  "diagnostic": "sensor_adherence_dropout_smoke_post_id341",
+  "purpose": "Evaluate label-free sensor completeness/dropout/adherence features under frozen post-ID341 gates.",
+  "feature_coverage": {
+    "n_rows": 700,
+    "n_train_rows": 450,
+    "n_test_rows": 250,
+    "n_input_numeric_columns": 299,
+    "n_feature_columns": 94,
+    "family_input_column_counts": {
+      "screen": 22,
+      "activity": 26,
+      "pedo": 31,
+      "hr": 66,
+      "light": 47,
+      "place": 27,
+      "usage": 31,
+      "ambience": 17,
+      "sleep_proxy": 62
+    },
+    "record_like_columns_sample": [
+      "act_n_records",
+      "amb_n_records",
+      "ch2025_mActivity_is_active_sum",
+      "ch2025_mAmbience_ambience_changes_sum",
+      "ch2025_mBle_ble_devices_sum",
+      "ch2025_mGps_gps_dist_sum",
+      "ch2025_mGps_gps_records_mean",
+      "ch2025_mGps_gps_records_sum",
+      "ch2025_mScreenStatus_bedtime_screen_use_sum",
+      "ch2025_mScreenStatus_is_unlock_sum",
+      "ch2025_mScreenStatus_m_screen_use_sum",
+      "ch2025_mUsageStats_app_camera_sum",
+      "ch2025_mUsageStats_app_chrome_sum",
+      "ch2025_mUsageStats_app_gallery_sum",
+      "ch2025_mUsageStats_app_game_sum",
+      "ch2025_mUsageStats_app_instagram_sum",
+      "ch2025_mUsageStats_app_kakao_sum",
+      "ch2025_mUsageStats_app_music_sum",
+      "ch2025_mUsageStats_app_naver_sum",
+      "ch2025_mUsageStats_app_netflix_sum",
+      "ch2025_mUsageStats_app_tiktok_sum",
+      "ch2025_mUsageStats_app_youtube_sum",
+      "ch2025_mUsageStats_total_usage_time_sum",
+      "ch2025_mWifi_bssid_transition_sum",
+      "ch2025_mWifi_wifi_devices_sum",
+      "ch2025_wPedo_burned_calories_sum",
+      "ch2025_wPedo_distance_sum",
+      "ch2025_wPedo_running_step_sum",
+      "ch2025_wPedo_step_sum",
+      "ch2025_wPedo_walking_step_sum",
+      "mUsage_sessions_count",
+      "slp_act_n_records",
+      "slp_hr_n_records",
+      "slp_hr_spike_count",
+      "slp_pedo_n_records",
+      "wHr_slp_hr_spike_count"
+    ],
+    "train_missing_mean": 0.0,
+    "test_missing_mean": 0.0,
+    "top_missing_features": {
+      "sad_global_missing_rate": 0.0,
+      "sad_pedo_missing_rate_missing": 0.0,
+      "sad_light_nonzero_rate_missing": 0.0,
+      "sad_light_missing_rate_missing": 0.0,
+      "sad_hr_log_record_signal_missing": 0.0,
+      "sad_hr_log_nonmissing_cols_missing": 0.0,
+      "sad_hr_nonzero_rate_missing": 0.0,
+      "sad_hr_missing_rate_missing": 0.0,
+      "sad_pedo_log_record_signal_missing": 0.0,
+      "sad_pedo_log_nonmissing_cols_missing": 0.0,
+      "sad_pedo_nonzero_rate_missing": 0.0,
+      "sad_activity_log_record_signal_missing": 0.0
+    }
+  },
+  "config_rules": {
+    "target_focus": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "config_win_floor": 4,
+    "config_max_delta_ceiling": 0.001,
+    "config_mean_delta_ceiling": -0.00015,
+    "review_max_delta_vs_341": 0.02,
+    "scales": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.65,
+      0.8,
+      1.0
+    ],
+    "blend_weights": [
+      0.01,
+      0.03,
+      0.05,
+      0.1,
+      0.2
+    ],
+    "model_specs": [
+      {
+        "name": "lr_c0_05",
+        "kind": "lr",
+        "c_value": 0.05,
+        "max_iter": null,
+        "max_leaf_nodes": null,
+        "l2_regularization": null
+      },
+      {
+        "name": "lr_c0_2",
+        "kind": "lr",
+        "c_value": 0.2,
+        "max_iter": null,
+        "max_leaf_nodes": null,
+        "l2_regularization": null
+      },
+      {
+        "name": "hgb_l5_l2_2",
+        "kind": "hgb",
+        "c_value": null,
+        "max_iter": 70,
+        "max_leaf_nodes": 5,
+        "l2_regularization": 2.0
+      }
+    ]
+  },
+  "selected_target_configs": {},
+  "top_scan_rows_by_target": {
+    "Q1": [
+      {
+        "target": "Q1",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "Q1_id178_hgb_l5_l2_2_w0.01",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -0.00013697515205952638,
+        "min_delta_vs_id341": -0.0008499204612276712,
+        "max_delta_vs_id341": 0.00038161424173532854,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00038161424173532854,
+          "actual_test_band_holdout": 0.00017143586278334233,
+          "test_boundary_neighbor2_holdout": -0.0008499204612276712,
+          "test_boundary_neighbor5_holdout": -0.0003612503792419508,
+          "loso_10": -2.6755024346680756e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5522973328955816,
+          "actual_test_band_holdout": 0.5311087362916294,
+          "test_boundary_neighbor2_holdout": 0.5905063321302166,
+          "test_boundary_neighbor5_holdout": 0.5487794331692457,
+          "loso_10": 0.5518889636294996
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q1_id341_hgb_l5_l2_2_w0.01",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -0.00013697515205952638,
+        "min_delta_vs_id341": -0.0008499204612276712,
+        "max_delta_vs_id341": 0.00038161424173532854,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00038161424173532854,
+          "actual_test_band_holdout": 0.00017143586278334233,
+          "test_boundary_neighbor2_holdout": -0.0008499204612276712,
+          "test_boundary_neighbor5_holdout": -0.0003612503792419508,
+          "loso_10": -2.6755024346680756e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5522973328955816,
+          "actual_test_band_holdout": 0.5311087362916294,
+          "test_boundary_neighbor2_holdout": 0.5905063321302166,
+          "test_boundary_neighbor5_holdout": 0.5487794331692457,
+          "loso_10": 0.5518889636294996
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "Q1_id178_lr_c0_2_w0.01",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": 1.0071430798253011e-05,
+        "min_delta_vs_id341": -0.0006592056845786676,
+        "max_delta_vs_id341": 0.0007054918394304721,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00033383919944973695,
+          "actual_test_band_holdout": 0.0007054918394304721,
+          "test_boundary_neighbor2_holdout": -0.0006592056845786676,
+          "test_boundary_neighbor5_holdout": -8.268938674682591e-05,
+          "loso_10": -0.0002470788135634505
+        },
+        "split_losses": {
+          "subject_hole_5": 0.552249557853296,
+          "actual_test_band_holdout": 0.5316427922682765,
+          "test_boundary_neighbor2_holdout": 0.5906970469068656,
+          "test_boundary_neighbor5_holdout": 0.5490579941617408,
+          "loso_10": 0.5516686398402828
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q1_id341_lr_c0_2_w0.01",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": 1.0071430798253011e-05,
+        "min_delta_vs_id341": -0.0006592056845786676,
+        "max_delta_vs_id341": 0.0007054918394304721,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00033383919944973695,
+          "actual_test_band_holdout": 0.0007054918394304721,
+          "test_boundary_neighbor2_holdout": -0.0006592056845786676,
+          "test_boundary_neighbor5_holdout": -8.268938674682591e-05,
+          "loso_10": -0.0002470788135634505
+        },
+        "split_losses": {
+          "subject_hole_5": 0.552249557853296,
+          "actual_test_band_holdout": 0.5316427922682765,
+          "test_boundary_neighbor2_holdout": 0.5906970469068656,
+          "test_boundary_neighbor5_holdout": 0.5490579941617408,
+          "loso_10": 0.5516686398402828
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "Q1_id178_lr_c0_05_w0.01",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": 2.3811640037751937e-05,
+        "min_delta_vs_id341": -0.0005965033158635835,
+        "max_delta_vs_id341": 0.0006399756727967221,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00034052576301291104,
+          "actual_test_band_holdout": 0.0006399756727967221,
+          "test_boundary_neighbor2_holdout": -0.0005965033158635835,
+          "test_boundary_neighbor5_holdout": -6.0044810706982865e-05,
+          "loso_10": -0.00020489510905030706
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5522562444168592,
+          "actual_test_band_holdout": 0.5315772761016427,
+          "test_boundary_neighbor2_holdout": 0.5907597492755807,
+          "test_boundary_neighbor5_holdout": 0.5490806387377807,
+          "loso_10": 0.551710823544796
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q1_id341_lr_c0_05_w0.01",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": 2.3811640037751937e-05,
+        "min_delta_vs_id341": -0.0005965033158635835,
+        "max_delta_vs_id341": 0.0006399756727967221,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00034052576301291104,
+          "actual_test_band_holdout": 0.0006399756727967221,
+          "test_boundary_neighbor2_holdout": -0.0005965033158635835,
+          "test_boundary_neighbor5_holdout": -6.0044810706982865e-05,
+          "loso_10": -0.00020489510905030706
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5522562444168592,
+          "actual_test_band_holdout": 0.5315772761016427,
+          "test_boundary_neighbor2_holdout": 0.5907597492755807,
+          "test_boundary_neighbor5_holdout": 0.5490806387377807,
+          "loso_10": 0.551710823544796
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.03,
+        "candidate": "Q1_id178_lr_c0_2_w0.03",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": 0.000190832248972872,
+        "min_delta_vs_id341": -0.0018894070178372413,
+        "max_delta_vs_id341": 0.0022025376015535336,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0010599968784361646,
+          "actual_test_band_holdout": 0.0022025376015535336,
+          "test_boundary_neighbor2_holdout": -0.0018894070178372413,
+          "test_boundary_neighbor5_holdout": -0.00011390675842770648,
+          "loso_10": -0.00030505945886039054
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5529757155322824,
+          "actual_test_band_holdout": 0.5331398380303995,
+          "test_boundary_neighbor2_holdout": 0.5894668455736071,
+          "test_boundary_neighbor5_holdout": 0.54902677679006,
+          "loso_10": 0.5516106591949859
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "Q1_id341_lr_c0_2_w0.03",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": 0.000190832248972872,
+        "min_delta_vs_id341": -0.0018894070178372413,
+        "max_delta_vs_id341": 0.0022025376015535336,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0010599968784361646,
+          "actual_test_band_holdout": 0.0022025376015535336,
+          "test_boundary_neighbor2_holdout": -0.0018894070178372413,
+          "test_boundary_neighbor5_holdout": -0.00011390675842770648,
+          "loso_10": -0.00030505945886039054
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5529757155322824,
+          "actual_test_band_holdout": 0.5331398380303995,
+          "test_boundary_neighbor2_holdout": 0.5894668455736071,
+          "test_boundary_neighbor5_holdout": 0.54902677679006,
+          "loso_10": 0.5516106591949859
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.03,
+        "candidate": "Q1_id178_lr_c0_05_w0.03",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": 0.00023456759063413823,
+        "min_delta_vs_id341": -0.0016771775920515486,
+        "max_delta_vs_id341": 0.0020127594689917094,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.001075646816313336,
+          "actual_test_band_holdout": 0.0020127594689917094,
+          "test_boundary_neighbor2_holdout": -0.0016771775920515486,
+          "test_boundary_neighbor5_holdout": -8.57805588605487e-06,
+          "loso_10": -0.00022981268419675072
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5529913654701596,
+          "actual_test_band_holdout": 0.5329500598978377,
+          "test_boundary_neighbor2_holdout": 0.5896790749993928,
+          "test_boundary_neighbor5_holdout": 0.5491321054926016,
+          "loso_10": 0.5516859059696495
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "Q1_id341_lr_c0_05_w0.03",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": 0.00023456759063413823,
+        "min_delta_vs_id341": -0.0016771775920515486,
+        "max_delta_vs_id341": 0.0020127594689917094,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.001075646816313336,
+          "actual_test_band_holdout": 0.0020127594689917094,
+          "test_boundary_neighbor2_holdout": -0.0016771775920515486,
+          "test_boundary_neighbor5_holdout": -8.57805588605487e-06,
+          "loso_10": -0.00022981268419675072
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5529913654701596,
+          "actual_test_band_holdout": 0.5329500598978377,
+          "test_boundary_neighbor2_holdout": 0.5896790749993928,
+          "test_boundary_neighbor5_holdout": 0.5491321054926016,
+          "loso_10": 0.5516859059696495
+        }
+      }
+    ],
+    "Q2": [
+      {
+        "target": "Q2",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q2_id341_hgb_l5_l2_2_w0.01",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 3.657425417831206e-05,
+        "min_delta_vs_id341": -0.000362954608539523,
+        "max_delta_vs_id341": 0.00027588065144590335,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00027588065144590335,
+          "actual_test_band_holdout": -8.957393388531187e-05,
+          "test_boundary_neighbor2_holdout": -0.000362954608539523,
+          "test_boundary_neighbor5_holdout": 9.347775128532021e-05,
+          "loso_10": 0.0002660414105851716
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5565766735550406,
+          "actual_test_band_holdout": 0.583725217822602,
+          "test_boundary_neighbor2_holdout": 0.6338748166208266,
+          "test_boundary_neighbor5_holdout": 0.5731847656498735,
+          "loso_10": 0.5565668343141797
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "Q2_id341_hgb_l5_l2_2_w0.03",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.00019589963201194216,
+        "min_delta_vs_id341": -0.0009947049153842258,
+        "max_delta_vs_id341": 0.0008938958588500245,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0008938958588500245,
+          "actual_test_band_holdout": -0.00017099664412079107,
+          "test_boundary_neighbor2_holdout": -0.0009947049153842258,
+          "test_boundary_neighbor5_holdout": 0.00036398692562433776,
+          "loso_10": 0.0008873169350903654
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5571946887624447,
+          "actual_test_band_holdout": 0.5836437951123665,
+          "test_boundary_neighbor2_holdout": 0.6332430663139819,
+          "test_boundary_neighbor5_holdout": 0.5734552748242125,
+          "loso_10": 0.5571881098386849
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.05,
+        "candidate": "Q2_id341_hgb_l5_l2_2_w0.05",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.0004639505889155293,
+        "min_delta_vs_id341": -0.001508735505290737,
+        "max_delta_vs_id341": 0.0016221264201188301,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.001596954377860671,
+          "actual_test_band_holdout": -0.000129139829522118,
+          "test_boundary_neighbor2_holdout": -0.001508735505290737,
+          "test_boundary_neighbor5_holdout": 0.0007385474814110005,
+          "loso_10": 0.0016221264201188301
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5578977472814554,
+          "actual_test_band_holdout": 0.5836856519269652,
+          "test_boundary_neighbor2_holdout": 0.6327290357240754,
+          "test_boundary_neighbor5_holdout": 0.5738298353799992,
+          "loso_10": 0.5579229193237134
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q2_id341_lr_c0_05_w0.01",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.00014366560539424977,
+        "min_delta_vs_id341": -0.00021567461328841908,
+        "max_delta_vs_id341": 0.0003464741643083302,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00013128347521718098,
+          "actual_test_band_holdout": 0.00018920562400548402,
+          "test_boundary_neighbor2_holdout": -0.00021567461328841908,
+          "test_boundary_neighbor5_holdout": 0.00026703937672867273,
+          "loso_10": 0.0003464741643083302
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5564320763788119,
+          "actual_test_band_holdout": 0.5840039973804928,
+          "test_boundary_neighbor2_holdout": 0.6340220966160777,
+          "test_boundary_neighbor5_holdout": 0.5733583272753169,
+          "loso_10": 0.5566472670679029
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q2_id341_lr_c0_2_w0.01",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.00015344061858026947,
+        "min_delta_vs_id341": -0.0001061083811255692,
+        "max_delta_vs_id341": 0.0003618225103240169,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00010983947966602958,
+          "actual_test_band_holdout": 0.0001529260302775004,
+          "test_boundary_neighbor2_holdout": -0.0001061083811255692,
+          "test_boundary_neighbor5_holdout": 0.00024872345375936966,
+          "loso_10": 0.0003618225103240169
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5564106323832607,
+          "actual_test_band_holdout": 0.5839677177867648,
+          "test_boundary_neighbor2_holdout": 0.6341316628482405,
+          "test_boundary_neighbor5_holdout": 0.5733400113523476,
+          "loso_10": 0.5566626154139186
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "Q2_id341_lr_c0_05_w0.03",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0005285558280784697,
+        "min_delta_vs_id341": -0.0005596632822101322,
+        "max_delta_vs_id341": 0.0011667834395108212,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00047165509503543923,
+          "actual_test_band_holdout": 0.0006605590772925662,
+          "test_boundary_neighbor2_holdout": -0.0005596632822101322,
+          "test_boundary_neighbor5_holdout": 0.0009034448107636539,
+          "loso_10": 0.0011667834395108212
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5567724479986301,
+          "actual_test_band_holdout": 0.5844753508337799,
+          "test_boundary_neighbor2_holdout": 0.633678107947156,
+          "test_boundary_neighbor5_holdout": 0.5739947327093519,
+          "loso_10": 0.5574675763431054
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "Q2_id341_lr_c0_2_w0.03",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0005726616500181025,
+        "min_delta_vs_id341": -0.00023432487569330362,
+        "max_delta_vs_id341": 0.0012398335153597229,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0004164185992905356,
+          "actual_test_band_holdout": 0.0005726315686155337,
+          "test_boundary_neighbor2_holdout": -0.00023432487569330362,
+          "test_boundary_neighbor5_holdout": 0.0008687494425180242,
+          "loso_10": 0.0012398335153597229
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5567172115028852,
+          "actual_test_band_holdout": 0.5843874233251029,
+          "test_boundary_neighbor2_holdout": 0.6340034463536728,
+          "test_boundary_neighbor5_holdout": 0.5739600373411062,
+          "loso_10": 0.5575406264189543
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.05,
+        "candidate": "Q2_id341_lr_c0_05_w0.05",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0010381063813970747,
+        "min_delta_vs_id341": -0.0007931272204537709,
+        "max_delta_vs_id341": 0.0021487057884568284,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0009124250421299607,
+          "actual_test_band_holdout": 0.0012520306678575066,
+          "test_boundary_neighbor2_holdout": -0.0007931272204537709,
+          "test_boundary_neighbor5_holdout": 0.0016704976289948492,
+          "loso_10": 0.0021487057884568284
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5572132179457246,
+          "actual_test_band_holdout": 0.5850668224243448,
+          "test_boundary_neighbor2_holdout": 0.6334446440089123,
+          "test_boundary_neighbor5_holdout": 0.5747617855275831,
+          "loso_10": 0.5584494986920514
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id178",
+        "weight": 0.05,
+        "candidate": "Q2_id178_hgb_l5_l2_2_w0.05",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0010491713269194403,
+        "min_delta_vs_id341": -0.0005335600699400977,
+        "max_delta_vs_id341": 0.001958378434294028,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.001935316538848375,
+          "actual_test_band_holdout": 0.0007348025730425922,
+          "test_boundary_neighbor2_holdout": -0.0005335600699400977,
+          "test_boundary_neighbor5_holdout": 0.0011509191583523037,
+          "loso_10": 0.001958378434294028
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5582361094424431,
+          "actual_test_band_holdout": 0.5845495943295299,
+          "test_boundary_neighbor2_holdout": 0.633704211159426,
+          "test_boundary_neighbor5_holdout": 0.5742422070569405,
+          "loso_10": 0.5582591713378886
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.05,
+        "candidate": "Q2_id341_lr_c0_2_w0.05",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0011354233628792843,
+        "min_delta_vs_id341": -0.00025488677765095336,
+        "max_delta_vs_id341": 0.0023130463327112327,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0008354132762720123,
+          "actual_test_band_holdout": 0.001138315136107848,
+          "test_boundary_neighbor2_holdout": -0.00025488677765095336,
+          "test_boundary_neighbor5_holdout": 0.0016452288469562815,
+          "loso_10": 0.0023130463327112327
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5571362061798667,
+          "actual_test_band_holdout": 0.5849531068925952,
+          "test_boundary_neighbor2_holdout": 0.6339828844517151,
+          "test_boundary_neighbor5_holdout": 0.5747365167455445,
+          "loso_10": 0.5586138392363058
+        }
+      }
+    ],
+    "Q3": [
+      {
+        "target": "Q3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "Q3_id178_hgb_l5_l2_2_w0.01",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 1.992463775104536e-05,
+        "min_delta_vs_id341": -0.0005013721152236084,
+        "max_delta_vs_id341": 0.0003822891587640376,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00013189909232247388,
+          "actual_test_band_holdout": 0.0003822891587640376,
+          "test_boundary_neighbor2_holdout": -0.0005013721152236084,
+          "test_boundary_neighbor5_holdout": -9.884850654240385e-05,
+          "loso_10": 0.00018565555943472756
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5672216839286408,
+          "actual_test_band_holdout": 0.5096835133230418,
+          "test_boundary_neighbor2_holdout": 0.605834499048659,
+          "test_boundary_neighbor5_holdout": 0.5826673764831594,
+          "loso_10": 0.5672754403957531
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q3_id341_hgb_l5_l2_2_w0.01",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 1.992463775104536e-05,
+        "min_delta_vs_id341": -0.0005013721152236084,
+        "max_delta_vs_id341": 0.0003822891587640376,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00013189909232247388,
+          "actual_test_band_holdout": 0.0003822891587640376,
+          "test_boundary_neighbor2_holdout": -0.0005013721152236084,
+          "test_boundary_neighbor5_holdout": -9.884850654240385e-05,
+          "loso_10": 0.00018565555943472756
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5672216839286408,
+          "actual_test_band_holdout": 0.5096835133230418,
+          "test_boundary_neighbor2_holdout": 0.605834499048659,
+          "test_boundary_neighbor5_holdout": 0.5826673764831594,
+          "loso_10": 0.5672754403957531
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id178",
+        "weight": 0.03,
+        "candidate": "Q3_id178_hgb_l5_l2_2_w0.03",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.00012890320269451916,
+        "min_delta_vs_id341": -0.001407639763696844,
+        "max_delta_vs_id341": 0.001206325150672427,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.000453172568007032,
+          "actual_test_band_holdout": 0.001206325150672427,
+          "test_boundary_neighbor2_holdout": -0.001407639763696844,
+          "test_boundary_neighbor5_holdout": -0.00023806227689926462,
+          "loso_10": 0.0006307203353892454
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5675429574043254,
+          "actual_test_band_holdout": 0.5105075493149502,
+          "test_boundary_neighbor2_holdout": 0.6049282314001858,
+          "test_boundary_neighbor5_holdout": 0.5825281627128025,
+          "loso_10": 0.5677205051717076
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "Q3_id341_hgb_l5_l2_2_w0.03",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.00012890320269451916,
+        "min_delta_vs_id341": -0.001407639763696844,
+        "max_delta_vs_id341": 0.001206325150672427,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.000453172568007032,
+          "actual_test_band_holdout": 0.001206325150672427,
+          "test_boundary_neighbor2_holdout": -0.001407639763696844,
+          "test_boundary_neighbor5_holdout": -0.00023806227689926462,
+          "loso_10": 0.0006307203353892454
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5675429574043254,
+          "actual_test_band_holdout": 0.5105075493149502,
+          "test_boundary_neighbor2_holdout": 0.6049282314001858,
+          "test_boundary_neighbor5_holdout": 0.5825281627128025,
+          "loso_10": 0.5677205051717076
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id178",
+        "weight": 0.05,
+        "candidate": "Q3_id178_hgb_l5_l2_2_w0.05",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.0003263442250285964,
+        "min_delta_vs_id341": -0.002192537426212726,
+        "max_delta_vs_id341": 0.0021076065502096952,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.000848415021040605,
+          "actual_test_band_holdout": 0.0021076065502096952,
+          "test_boundary_neighbor2_holdout": -0.002192537426212726,
+          "test_boundary_neighbor5_holdout": -0.00030196925697389965,
+          "loso_10": 0.0011702062370793076
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5679381998573589,
+          "actual_test_band_holdout": 0.5114088307144875,
+          "test_boundary_neighbor2_holdout": 0.6041433337376699,
+          "test_boundary_neighbor5_holdout": 0.5824642557327279,
+          "loso_10": 0.5682599910733976
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.05,
+        "candidate": "Q3_id341_hgb_l5_l2_2_w0.05",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.0003263442250285964,
+        "min_delta_vs_id341": -0.002192537426212726,
+        "max_delta_vs_id341": 0.0021076065502096952,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.000848415021040605,
+          "actual_test_band_holdout": 0.0021076065502096952,
+          "test_boundary_neighbor2_holdout": -0.002192537426212726,
+          "test_boundary_neighbor5_holdout": -0.00030196925697389965,
+          "loso_10": 0.0011702062370793076
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5679381998573589,
+          "actual_test_band_holdout": 0.5114088307144875,
+          "test_boundary_neighbor2_holdout": 0.6041433337376699,
+          "test_boundary_neighbor5_holdout": 0.5824642557327279,
+          "loso_10": 0.5682599910733976
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id178",
+        "weight": 0.1,
+        "candidate": "Q3_id178_hgb_l5_l2_2_w0.1",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.0011822238081511615,
+        "min_delta_vs_id341": -0.003671740418386471,
+        "max_delta_vs_id341": 0.004684894905678583,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0021422210626103055,
+          "actual_test_band_holdout": 0.004684894905678583,
+          "test_boundary_neighbor2_holdout": -0.003671740418386471,
+          "test_boundary_neighbor5_holdout": -0.00015038000284450792,
+          "loso_10": 0.0029061234936978986
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5692320058989286,
+          "actual_test_band_holdout": 0.5139861190699564,
+          "test_boundary_neighbor2_holdout": 0.6026641307454962,
+          "test_boundary_neighbor5_holdout": 0.5826158449868573,
+          "loso_10": 0.5699959083300162
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.1,
+        "candidate": "Q3_id341_hgb_l5_l2_2_w0.1",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.0011822238081511615,
+        "min_delta_vs_id341": -0.003671740418386471,
+        "max_delta_vs_id341": 0.004684894905678583,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0021422210626103055,
+          "actual_test_band_holdout": 0.004684894905678583,
+          "test_boundary_neighbor2_holdout": -0.003671740418386471,
+          "test_boundary_neighbor5_holdout": -0.00015038000284450792,
+          "loso_10": 0.0029061234936978986
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5692320058989286,
+          "actual_test_band_holdout": 0.5139861190699564,
+          "test_boundary_neighbor2_holdout": 0.6026641307454962,
+          "test_boundary_neighbor5_holdout": 0.5826158449868573,
+          "loso_10": 0.5699959083300162
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id178",
+        "weight": 0.2,
+        "candidate": "Q3_id178_hgb_l5_l2_2_w0.2",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.004296613089226131,
+        "min_delta_vs_id341": -0.0048474677697563084,
+        "max_delta_vs_id341": 0.011142519552457153,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00592995747971703,
+          "actual_test_band_holdout": 0.011142519552457153,
+          "test_boundary_neighbor2_holdout": -0.0048474677697563084,
+          "test_boundary_neighbor5_holdout": 0.0013749128614788386,
+          "loso_10": 0.007883143322233943
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5730197423160354,
+          "actual_test_band_holdout": 0.520443743716735,
+          "test_boundary_neighbor2_holdout": 0.6014884033941263,
+          "test_boundary_neighbor5_holdout": 0.5841411378511806,
+          "loso_10": 0.5749729281585523
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.2,
+        "candidate": "Q3_id341_hgb_l5_l2_2_w0.2",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.004296613089226131,
+        "min_delta_vs_id341": -0.0048474677697563084,
+        "max_delta_vs_id341": 0.011142519552457153,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00592995747971703,
+          "actual_test_band_holdout": 0.011142519552457153,
+          "test_boundary_neighbor2_holdout": -0.0048474677697563084,
+          "test_boundary_neighbor5_holdout": 0.0013749128614788386,
+          "loso_10": 0.007883143322233943
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5730197423160354,
+          "actual_test_band_holdout": 0.520443743716735,
+          "test_boundary_neighbor2_holdout": 0.6014884033941263,
+          "test_boundary_neighbor5_holdout": 0.5841411378511806,
+          "loso_10": 0.5749729281585523
+        }
+      }
+    ],
+    "S1": [
+      {
+        "target": "S1",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S1_id178_hgb_l5_l2_2_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0003986696421073743,
+        "min_delta_vs_id341": 8.889683472568244e-05,
+        "max_delta_vs_id341": 0.0010194120382567284,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00012688456135473425,
+          "actual_test_band_holdout": 0.0010194120382567284,
+          "test_boundary_neighbor2_holdout": 8.889683472568244e-05,
+          "test_boundary_neighbor5_holdout": 0.0004898568438858053,
+          "loso_10": 0.0002682979323139212
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4717573315029951,
+          "actual_test_band_holdout": 0.4663951758674308,
+          "test_boundary_neighbor2_holdout": 0.5356692818145556,
+          "test_boundary_neighbor5_holdout": 0.5153916051422935,
+          "loso_10": 0.4718987448739543
+        }
+      },
+      {
+        "target": "S1",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S1_id341_hgb_l5_l2_2_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0003986696421073743,
+        "min_delta_vs_id341": 8.889683472568244e-05,
+        "max_delta_vs_id341": 0.0010194120382567284,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00012688456135473425,
+          "actual_test_band_holdout": 0.0010194120382567284,
+          "test_boundary_neighbor2_holdout": 8.889683472568244e-05,
+          "test_boundary_neighbor5_holdout": 0.0004898568438858053,
+          "loso_10": 0.0002682979323139212
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4717573315029951,
+          "actual_test_band_holdout": 0.4663951758674308,
+          "test_boundary_neighbor2_holdout": 0.5356692818145556,
+          "test_boundary_neighbor5_holdout": 0.5153916051422935,
+          "loso_10": 0.4718987448739543
+        }
+      },
+      {
+        "target": "S1",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S1_id178_lr_c0_05_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0006380968386509367,
+        "min_delta_vs_id341": 0.0004107721267520015,
+        "max_delta_vs_id341": 0.0010269215240888974,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0004107721267520015,
+          "actual_test_band_holdout": 0.0010269215240888974,
+          "test_boundary_neighbor2_holdout": 0.0005702382638018699,
+          "test_boundary_neighbor5_holdout": 0.0006501564144909544,
+          "loso_10": 0.0005323958641209603
+        },
+        "split_losses": {
+          "subject_hole_5": 0.47204121906839236,
+          "actual_test_band_holdout": 0.46640268535326296,
+          "test_boundary_neighbor2_holdout": 0.5361506232436318,
+          "test_boundary_neighbor5_holdout": 0.5155519047128987,
+          "loso_10": 0.4721628428057613
+        }
+      },
+      {
+        "target": "S1",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S1_id341_lr_c0_05_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0006380968386509367,
+        "min_delta_vs_id341": 0.0004107721267520015,
+        "max_delta_vs_id341": 0.0010269215240888974,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0004107721267520015,
+          "actual_test_band_holdout": 0.0010269215240888974,
+          "test_boundary_neighbor2_holdout": 0.0005702382638018699,
+          "test_boundary_neighbor5_holdout": 0.0006501564144909544,
+          "loso_10": 0.0005323958641209603
+        },
+        "split_losses": {
+          "subject_hole_5": 0.47204121906839236,
+          "actual_test_band_holdout": 0.46640268535326296,
+          "test_boundary_neighbor2_holdout": 0.5361506232436318,
+          "test_boundary_neighbor5_holdout": 0.5155519047128987,
+          "loso_10": 0.4721628428057613
+        }
+      },
+      {
+        "target": "S1",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S1_id178_lr_c0_2_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.000702080712252029,
+        "min_delta_vs_id341": 0.0005098409585895802,
+        "max_delta_vs_id341": 0.0009985891314465145,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0005098409585895802,
+          "actual_test_band_holdout": 0.0009985891314465145,
+          "test_boundary_neighbor2_holdout": 0.0007038924040364547,
+          "test_boundary_neighbor5_holdout": 0.0006355191473130795,
+          "loso_10": 0.0006625619198745158
+        },
+        "split_losses": {
+          "subject_hole_5": 0.47214028790022994,
+          "actual_test_band_holdout": 0.4663743529606206,
+          "test_boundary_neighbor2_holdout": 0.5362842773838664,
+          "test_boundary_neighbor5_holdout": 0.5155372674457208,
+          "loso_10": 0.4722930088615149
+        }
+      },
+      {
+        "target": "S1",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S1_id341_lr_c0_2_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.000702080712252029,
+        "min_delta_vs_id341": 0.0005098409585895802,
+        "max_delta_vs_id341": 0.0009985891314465145,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0005098409585895802,
+          "actual_test_band_holdout": 0.0009985891314465145,
+          "test_boundary_neighbor2_holdout": 0.0007038924040364547,
+          "test_boundary_neighbor5_holdout": 0.0006355191473130795,
+          "loso_10": 0.0006625619198745158
+        },
+        "split_losses": {
+          "subject_hole_5": 0.47214028790022994,
+          "actual_test_band_holdout": 0.4663743529606206,
+          "test_boundary_neighbor2_holdout": 0.5362842773838664,
+          "test_boundary_neighbor5_holdout": 0.5155372674457208,
+          "loso_10": 0.4722930088615149
+        }
+      },
+      {
+        "target": "S1",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id178",
+        "weight": 0.03,
+        "candidate": "S1_id178_hgb_l5_l2_2_w0.03",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0012688535362628817,
+        "min_delta_vs_id341": 0.0003086289257806518,
+        "max_delta_vs_id341": 0.00309077156708526,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0004739465810600363,
+          "actual_test_band_holdout": 0.00309077156708526,
+          "test_boundary_neighbor2_holdout": 0.0003086289257806518,
+          "test_boundary_neighbor5_holdout": 0.0015152947469182498,
+          "loso_10": 0.0009556258604702106
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4721043935227004,
+          "actual_test_band_holdout": 0.4684665353962593,
+          "test_boundary_neighbor2_holdout": 0.5358890139056106,
+          "test_boundary_neighbor5_holdout": 0.516417043045326,
+          "loso_10": 0.47258607280211057
+        }
+      },
+      {
+        "target": "S1",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "S1_id341_hgb_l5_l2_2_w0.03",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0012688535362628817,
+        "min_delta_vs_id341": 0.0003086289257806518,
+        "max_delta_vs_id341": 0.00309077156708526,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0004739465810600363,
+          "actual_test_band_holdout": 0.00309077156708526,
+          "test_boundary_neighbor2_holdout": 0.0003086289257806518,
+          "test_boundary_neighbor5_holdout": 0.0015152947469182498,
+          "loso_10": 0.0009556258604702106
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4721043935227004,
+          "actual_test_band_holdout": 0.4684665353962593,
+          "test_boundary_neighbor2_holdout": 0.5358890139056106,
+          "test_boundary_neighbor5_holdout": 0.516417043045326,
+          "loso_10": 0.47258607280211057
+        }
+      },
+      {
+        "target": "S1",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.03,
+        "candidate": "S1_id178_lr_c0_05_w0.03",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0019935833995497255,
+        "min_delta_vs_id341": 0.001305356965589699,
+        "max_delta_vs_id341": 0.0031417010452831073,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.001305356965589699,
+          "actual_test_band_holdout": 0.0031417010452831073,
+          "test_boundary_neighbor2_holdout": 0.0017722703779843307,
+          "test_boundary_neighbor5_holdout": 0.002007088615101238,
+          "loso_10": 0.001741499993790252
+        },
+        "split_losses": {
+          "subject_hole_5": 0.47293580390723006,
+          "actual_test_band_holdout": 0.46851746487445717,
+          "test_boundary_neighbor2_holdout": 0.5373526553578143,
+          "test_boundary_neighbor5_holdout": 0.516908836913509,
+          "loso_10": 0.4733719469354306
+        }
+      },
+      {
+        "target": "S1",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "S1_id341_lr_c0_05_w0.03",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0019935833995497255,
+        "min_delta_vs_id341": 0.001305356965589699,
+        "max_delta_vs_id341": 0.0031417010452831073,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.001305356965589699,
+          "actual_test_band_holdout": 0.0031417010452831073,
+          "test_boundary_neighbor2_holdout": 0.0017722703779843307,
+          "test_boundary_neighbor5_holdout": 0.002007088615101238,
+          "loso_10": 0.001741499993790252
+        },
+        "split_losses": {
+          "subject_hole_5": 0.47293580390723006,
+          "actual_test_band_holdout": 0.46851746487445717,
+          "test_boundary_neighbor2_holdout": 0.5373526553578143,
+          "test_boundary_neighbor5_holdout": 0.516908836913509,
+          "loso_10": 0.4733719469354306
+        }
+      }
+    ],
+    "S2": [
+      {
+        "target": "S2",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S2_id178_lr_c0_2_w0.01",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.0002525365647022992,
+        "min_delta_vs_id341": -0.00011032605848315669,
+        "max_delta_vs_id341": 0.0006011112024267851,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.00011032605848315669,
+          "actual_test_band_holdout": 0.0005766314539302764,
+          "test_boundary_neighbor2_holdout": 0.0006011112024267851,
+          "test_boundary_neighbor5_holdout": 0.00020207815693096265,
+          "loso_10": -6.8119312933712095e-06
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5294458066889908,
+          "actual_test_band_holdout": 0.5520629733466221,
+          "test_boundary_neighbor2_holdout": 0.5744330388547858,
+          "test_boundary_neighbor5_holdout": 0.5534564520051634,
+          "loso_10": 0.5295493208161807
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S2_id341_lr_c0_2_w0.01",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.0002525365647022992,
+        "min_delta_vs_id341": -0.00011032605848315669,
+        "max_delta_vs_id341": 0.0006011112024267851,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.00011032605848315669,
+          "actual_test_band_holdout": 0.0005766314539302764,
+          "test_boundary_neighbor2_holdout": 0.0006011112024267851,
+          "test_boundary_neighbor5_holdout": 0.00020207815693096265,
+          "loso_10": -6.8119312933712095e-06
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5294458066889908,
+          "actual_test_band_holdout": 0.5520629733466221,
+          "test_boundary_neighbor2_holdout": 0.5744330388547858,
+          "test_boundary_neighbor5_holdout": 0.5534564520051634,
+          "loso_10": 0.5295493208161807
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S2_id178_lr_c0_05_w0.01",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.00019666029730771583,
+        "min_delta_vs_id341": -4.0209780483024815e-05,
+        "max_delta_vs_id341": 0.00040771231427350063,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -4.0209780483024815e-05,
+          "actual_test_band_holdout": 0.00040061013328873685,
+          "test_boundary_neighbor2_holdout": 0.00040771231427350063,
+          "test_boundary_neighbor5_holdout": 0.00021003191483137673,
+          "loso_10": 5.156904627989789e-06
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5295159229669909,
+          "actual_test_band_holdout": 0.5518869520259806,
+          "test_boundary_neighbor2_holdout": 0.5742396399666325,
+          "test_boundary_neighbor5_holdout": 0.5534644057630638,
+          "loso_10": 0.529561289652102
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S2_id341_lr_c0_05_w0.01",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.00019666029730771583,
+        "min_delta_vs_id341": -4.0209780483024815e-05,
+        "max_delta_vs_id341": 0.00040771231427350063,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -4.0209780483024815e-05,
+          "actual_test_band_holdout": 0.00040061013328873685,
+          "test_boundary_neighbor2_holdout": 0.00040771231427350063,
+          "test_boundary_neighbor5_holdout": 0.00021003191483137673,
+          "loso_10": 5.156904627989789e-06
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5295159229669909,
+          "actual_test_band_holdout": 0.5518869520259806,
+          "test_boundary_neighbor2_holdout": 0.5742396399666325,
+          "test_boundary_neighbor5_holdout": 0.5534644057630638,
+          "loso_10": 0.529561289652102
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.03,
+        "candidate": "S2_id178_lr_c0_05_w0.03",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0006551965794013625,
+        "min_delta_vs_id341": -5.711763373561496e-05,
+        "max_delta_vs_id341": 0.001265404989821195,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -5.711763373561496e-05,
+          "actual_test_band_holdout": 0.001237837062078806,
+          "test_boundary_neighbor2_holdout": 0.001265404989821195,
+          "test_boundary_neighbor5_holdout": 0.0006878729829229435,
+          "loso_10": 0.00014198549591948328
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5294990151137383,
+          "actual_test_band_holdout": 0.5527241789547707,
+          "test_boundary_neighbor2_holdout": 0.5750973326421802,
+          "test_boundary_neighbor5_holdout": 0.5539422468311553,
+          "loso_10": 0.5296981182433935
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "S2_id341_lr_c0_05_w0.03",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0006551965794013625,
+        "min_delta_vs_id341": -5.711763373561496e-05,
+        "max_delta_vs_id341": 0.001265404989821195,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -5.711763373561496e-05,
+          "actual_test_band_holdout": 0.001237837062078806,
+          "test_boundary_neighbor2_holdout": 0.001265404989821195,
+          "test_boundary_neighbor5_holdout": 0.0006878729829229435,
+          "loso_10": 0.00014198549591948328
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5294990151137383,
+          "actual_test_band_holdout": 0.5527241789547707,
+          "test_boundary_neighbor2_holdout": 0.5750973326421802,
+          "test_boundary_neighbor5_holdout": 0.5539422468311553,
+          "loso_10": 0.5296981182433935
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.03,
+        "candidate": "S2_id178_lr_c0_2_w0.03",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0008231185779268068,
+        "min_delta_vs_id341": -0.0002633058966586832,
+        "max_delta_vs_id341": 0.0018463923431074614,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.0002633058966586832,
+          "actual_test_band_holdout": 0.0017692083409063253,
+          "test_boundary_neighbor2_holdout": 0.0018463923431074614,
+          "test_boundary_neighbor5_holdout": 0.0006555597775229627,
+          "loso_10": 0.00010773832475596823
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5292928268508152,
+          "actual_test_band_holdout": 0.5532555502335982,
+          "test_boundary_neighbor2_holdout": 0.5756783199954665,
+          "test_boundary_neighbor5_holdout": 0.5539099336257554,
+          "loso_10": 0.52966387107223
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "S2_id341_lr_c0_2_w0.03",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0008231185779268068,
+        "min_delta_vs_id341": -0.0002633058966586832,
+        "max_delta_vs_id341": 0.0018463923431074614,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.0002633058966586832,
+          "actual_test_band_holdout": 0.0017692083409063253,
+          "test_boundary_neighbor2_holdout": 0.0018463923431074614,
+          "test_boundary_neighbor5_holdout": 0.0006555597775229627,
+          "loso_10": 0.00010773832475596823
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5292928268508152,
+          "actual_test_band_holdout": 0.5532555502335982,
+          "test_boundary_neighbor2_holdout": 0.5756783199954665,
+          "test_boundary_neighbor5_holdout": 0.5539099336257554,
+          "loso_10": 0.52966387107223
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.05,
+        "candidate": "S2_id178_lr_c0_2_w0.05",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0014774657196726438,
+        "min_delta_vs_id341": -0.00033575266879315446,
+        "max_delta_vs_id341": 0.003149307630754161,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.00033575266879315446,
+          "actual_test_band_holdout": 0.0030142457261653766,
+          "test_boundary_neighbor2_holdout": 0.003149307630754161,
+          "test_boundary_neighbor5_holdout": 0.0011742691160862018,
+          "loso_10": 0.0003852587941506336
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5292203800786808,
+          "actual_test_band_holdout": 0.5545005876188572,
+          "test_boundary_neighbor2_holdout": 0.5769812352831132,
+          "test_boundary_neighbor5_holdout": 0.5544286429643186,
+          "loso_10": 0.5299413915416247
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.05,
+        "candidate": "S2_id341_lr_c0_2_w0.05",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0014774657196726438,
+        "min_delta_vs_id341": -0.00033575266879315446,
+        "max_delta_vs_id341": 0.003149307630754161,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.00033575266879315446,
+          "actual_test_band_holdout": 0.0030142457261653766,
+          "test_boundary_neighbor2_holdout": 0.003149307630754161,
+          "test_boundary_neighbor5_holdout": 0.0011742691160862018,
+          "loso_10": 0.0003852587941506336
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5292203800786808,
+          "actual_test_band_holdout": 0.5545005876188572,
+          "test_boundary_neighbor2_holdout": 0.5769812352831132,
+          "test_boundary_neighbor5_holdout": 0.5544286429643186,
+          "loso_10": 0.5299413915416247
+        }
+      }
+    ],
+    "S3": [
+      {
+        "target": "S3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S3_id178_hgb_l5_l2_2_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00017972090063804734,
+        "min_delta_vs_id341": 3.290176749881635e-05,
+        "max_delta_vs_id341": 0.00027874949874712174,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00021953301521382418,
+          "actual_test_band_holdout": 0.00011320256537067364,
+          "test_boundary_neighbor2_holdout": 0.00025421765635980087,
+          "test_boundary_neighbor5_holdout": 3.290176749881635e-05,
+          "loso_10": 0.00027874949874712174
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4911125719154908,
+          "actual_test_band_holdout": 0.4721131640733646,
+          "test_boundary_neighbor2_holdout": 0.507204127417614,
+          "test_boundary_neighbor5_holdout": 0.5129266148335495,
+          "loso_10": 0.49117178839902403
+        }
+      },
+      {
+        "target": "S3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S3_id341_hgb_l5_l2_2_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00017972090063804734,
+        "min_delta_vs_id341": 3.290176749881635e-05,
+        "max_delta_vs_id341": 0.00027874949874712174,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00021953301521382418,
+          "actual_test_band_holdout": 0.00011320256537067364,
+          "test_boundary_neighbor2_holdout": 0.00025421765635980087,
+          "test_boundary_neighbor5_holdout": 3.290176749881635e-05,
+          "loso_10": 0.00027874949874712174
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4911125719154908,
+          "actual_test_band_holdout": 0.4721131640733646,
+          "test_boundary_neighbor2_holdout": 0.507204127417614,
+          "test_boundary_neighbor5_holdout": 0.5129266148335495,
+          "loso_10": 0.49117178839902403
+        }
+      },
+      {
+        "target": "S3",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S3_id178_lr_c0_2_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0003669277474476984,
+        "min_delta_vs_id341": 0.00019749593546891653,
+        "max_delta_vs_id341": 0.0005691465003778706,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00019749593546891653,
+          "actual_test_band_holdout": 0.0003851882992045863,
+          "test_boundary_neighbor2_holdout": 0.0003265526623645876,
+          "test_boundary_neighbor5_holdout": 0.0005691465003778706,
+          "loso_10": 0.000356255339822531
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4910905348357459,
+          "actual_test_band_holdout": 0.47238514980719853,
+          "test_boundary_neighbor2_holdout": 0.5072764624236188,
+          "test_boundary_neighbor5_holdout": 0.5134628595664286,
+          "loso_10": 0.49124929424009944
+        }
+      },
+      {
+        "target": "S3",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S3_id341_lr_c0_2_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0003669277474476984,
+        "min_delta_vs_id341": 0.00019749593546891653,
+        "max_delta_vs_id341": 0.0005691465003778706,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00019749593546891653,
+          "actual_test_band_holdout": 0.0003851882992045863,
+          "test_boundary_neighbor2_holdout": 0.0003265526623645876,
+          "test_boundary_neighbor5_holdout": 0.0005691465003778706,
+          "loso_10": 0.000356255339822531
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4910905348357459,
+          "actual_test_band_holdout": 0.47238514980719853,
+          "test_boundary_neighbor2_holdout": 0.5072764624236188,
+          "test_boundary_neighbor5_holdout": 0.5134628595664286,
+          "loso_10": 0.49124929424009944
+        }
+      },
+      {
+        "target": "S3",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S3_id178_lr_c0_05_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00037805345876053,
+        "min_delta_vs_id341": 0.0002166125310171796,
+        "max_delta_vs_id341": 0.0005514108604658396,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0002166125310171796,
+          "actual_test_band_holdout": 0.0004326104293298494,
+          "test_boundary_neighbor2_holdout": 0.00037642671451620924,
+          "test_boundary_neighbor5_holdout": 0.0005514108604658396,
+          "loso_10": 0.00031320675847357204
+        },
+        "split_losses": {
+          "subject_hole_5": 0.49110965143129415,
+          "actual_test_band_holdout": 0.4724325719373238,
+          "test_boundary_neighbor2_holdout": 0.5073263364757704,
+          "test_boundary_neighbor5_holdout": 0.5134451239265165,
+          "loso_10": 0.4912062456587505
+        }
+      },
+      {
+        "target": "S3",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S3_id341_lr_c0_05_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00037805345876053,
+        "min_delta_vs_id341": 0.0002166125310171796,
+        "max_delta_vs_id341": 0.0005514108604658396,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0002166125310171796,
+          "actual_test_band_holdout": 0.0004326104293298494,
+          "test_boundary_neighbor2_holdout": 0.00037642671451620924,
+          "test_boundary_neighbor5_holdout": 0.0005514108604658396,
+          "loso_10": 0.00031320675847357204
+        },
+        "split_losses": {
+          "subject_hole_5": 0.49110965143129415,
+          "actual_test_band_holdout": 0.4724325719373238,
+          "test_boundary_neighbor2_holdout": 0.5073263364757704,
+          "test_boundary_neighbor5_holdout": 0.5134451239265165,
+          "loso_10": 0.4912062456587505
+        }
+      },
+      {
+        "target": "S3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id178",
+        "weight": 0.03,
+        "candidate": "S3_id178_hgb_l5_l2_2_w0.03",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.000621234564557871,
+        "min_delta_vs_id341": 0.0001869881908042048,
+        "max_delta_vs_id341": 0.0009950283849398667,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00070870790656824,
+          "actual_test_band_holdout": 0.00039916431944131414,
+          "test_boundary_neighbor2_holdout": 0.0008162840210357292,
+          "test_boundary_neighbor5_holdout": 0.0001869881908042048,
+          "loso_10": 0.0009950283849398667
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4916017468068452,
+          "actual_test_band_holdout": 0.47239912582743526,
+          "test_boundary_neighbor2_holdout": 0.5077661937822899,
+          "test_boundary_neighbor5_holdout": 0.5130807012568549,
+          "loso_10": 0.4918880672852168
+        }
+      },
+      {
+        "target": "S3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "S3_id341_hgb_l5_l2_2_w0.03",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.000621234564557871,
+        "min_delta_vs_id341": 0.0001869881908042048,
+        "max_delta_vs_id341": 0.0009950283849398667,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00070870790656824,
+          "actual_test_band_holdout": 0.00039916431944131414,
+          "test_boundary_neighbor2_holdout": 0.0008162840210357292,
+          "test_boundary_neighbor5_holdout": 0.0001869881908042048,
+          "loso_10": 0.0009950283849398667
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4916017468068452,
+          "actual_test_band_holdout": 0.47239912582743526,
+          "test_boundary_neighbor2_holdout": 0.5077661937822899,
+          "test_boundary_neighbor5_holdout": 0.5130807012568549,
+          "loso_10": 0.4918880672852168
+        }
+      },
+      {
+        "target": "S3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id178",
+        "weight": 0.05,
+        "candidate": "S3_id178_hgb_l5_l2_2_w0.05",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.001166346668726359,
+        "min_delta_vs_id341": 0.000453072306508151,
+        "max_delta_vs_id341": 0.0019063681734576288,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0012621565198066564,
+          "actual_test_band_holdout": 0.0007621419171756072,
+          "test_boundary_neighbor2_holdout": 0.0014479944266837519,
+          "test_boundary_neighbor5_holdout": 0.000453072306508151,
+          "loso_10": 0.0019063681734576288
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4921551954200836,
+          "actual_test_band_holdout": 0.47276210342516956,
+          "test_boundary_neighbor2_holdout": 0.508397904187938,
+          "test_boundary_neighbor5_holdout": 0.5133467853725588,
+          "loso_10": 0.49279940707373454
+        }
+      },
+      {
+        "target": "S3",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id341",
+        "weight": 0.05,
+        "candidate": "S3_id341_hgb_l5_l2_2_w0.05",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.001166346668726359,
+        "min_delta_vs_id341": 0.000453072306508151,
+        "max_delta_vs_id341": 0.0019063681734576288,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0012621565198066564,
+          "actual_test_band_holdout": 0.0007621419171756072,
+          "test_boundary_neighbor2_holdout": 0.0014479944266837519,
+          "test_boundary_neighbor5_holdout": 0.000453072306508151,
+          "loso_10": 0.0019063681734576288
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4921551954200836,
+          "actual_test_band_holdout": 0.47276210342516956,
+          "test_boundary_neighbor2_holdout": 0.508397904187938,
+          "test_boundary_neighbor5_holdout": 0.5133467853725588,
+          "loso_10": 0.49279940707373454
+        }
+      }
+    ],
+    "S4": [
+      {
+        "target": "S4",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.03,
+        "candidate": "S4_id178_lr_c0_05_w0.03",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -0.00021132567617521136,
+        "min_delta_vs_id341": -0.000672003997337578,
+        "max_delta_vs_id341": 0.0003149697212143643,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.0002560574946212091,
+          "actual_test_band_holdout": -0.000672003997337578,
+          "test_boundary_neighbor2_holdout": 0.00020745528315135875,
+          "test_boundary_neighbor5_holdout": -0.0006509918932829928,
+          "loso_10": 0.0003149697212143643
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6024436469918802,
+          "actual_test_band_holdout": 0.6766642638652502,
+          "test_boundary_neighbor2_holdout": 0.6548755850537024,
+          "test_boundary_neighbor5_holdout": 0.6187427042746961,
+          "loso_10": 0.6030146742077157
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "S4_id341_lr_c0_05_w0.03",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -0.00021132567617521136,
+        "min_delta_vs_id341": -0.000672003997337578,
+        "max_delta_vs_id341": 0.0003149697212143643,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.0002560574946212091,
+          "actual_test_band_holdout": -0.000672003997337578,
+          "test_boundary_neighbor2_holdout": 0.00020745528315135875,
+          "test_boundary_neighbor5_holdout": -0.0006509918932829928,
+          "loso_10": 0.0003149697212143643
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6024436469918802,
+          "actual_test_band_holdout": 0.6766642638652502,
+          "test_boundary_neighbor2_holdout": 0.6548755850537024,
+          "test_boundary_neighbor5_holdout": 0.6187427042746961,
+          "loso_10": 0.6030146742077157
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.05,
+        "candidate": "S4_id178_lr_c0_05_w0.05",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -0.0002036936268433154,
+        "min_delta_vs_id341": -0.0009313830376377341,
+        "max_delta_vs_id341": 0.0006838704064244805,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.0003601783348421428,
+          "actual_test_band_holdout": -0.0009313830376377341,
+          "test_boundary_neighbor2_holdout": 0.0005033380797666576,
+          "test_boundary_neighbor5_holdout": -0.000914115247927838,
+          "loso_10": 0.0006838704064244805
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6023395261516593,
+          "actual_test_band_holdout": 0.6764048848249501,
+          "test_boundary_neighbor2_holdout": 0.6551714678503177,
+          "test_boundary_neighbor5_holdout": 0.6184795809200513,
+          "loso_10": 0.6033835748929258
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.05,
+        "candidate": "S4_id341_lr_c0_05_w0.05",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -0.0002036936268433154,
+        "min_delta_vs_id341": -0.0009313830376377341,
+        "max_delta_vs_id341": 0.0006838704064244805,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.0003601783348421428,
+          "actual_test_band_holdout": -0.0009313830376377341,
+          "test_boundary_neighbor2_holdout": 0.0005033380797666576,
+          "test_boundary_neighbor5_holdout": -0.000914115247927838,
+          "loso_10": 0.0006838704064244805
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6023395261516593,
+          "actual_test_band_holdout": 0.6764048848249501,
+          "test_boundary_neighbor2_holdout": 0.6551714678503177,
+          "test_boundary_neighbor5_holdout": 0.6184795809200513,
+          "loso_10": 0.6033835748929258
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S4_id178_lr_c0_05_w0.01",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -0.00010103293519074797,
+        "min_delta_vs_id341": -0.0002629509724004775,
+        "max_delta_vs_id341": 7.222631758729836e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -9.88685125029587e-05,
+          "actual_test_band_holdout": -0.0002629509724004775,
+          "test_boundary_neighbor2_holdout": 3.656250031280894e-05,
+          "test_boundary_neighbor5_holdout": -0.00025213400895041094,
+          "loso_10": 7.222631758729836e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6026008359739985,
+          "actual_test_band_holdout": 0.6770733168901873,
+          "test_boundary_neighbor2_holdout": 0.6547046922708638,
+          "test_boundary_neighbor5_holdout": 0.6191415621590287,
+          "loso_10": 0.6027719308040886
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S4_id341_lr_c0_05_w0.01",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -0.00010103293519074797,
+        "min_delta_vs_id341": -0.0002629509724004775,
+        "max_delta_vs_id341": 7.222631758729836e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -9.88685125029587e-05,
+          "actual_test_band_holdout": -0.0002629509724004775,
+          "test_boundary_neighbor2_holdout": 3.656250031280894e-05,
+          "test_boundary_neighbor5_holdout": -0.00025213400895041094,
+          "loso_10": 7.222631758729836e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6026008359739985,
+          "actual_test_band_holdout": 0.6770733168901873,
+          "test_boundary_neighbor2_holdout": 0.6547046922708638,
+          "test_boundary_neighbor5_holdout": 0.6191415621590287,
+          "loso_10": 0.6027719308040886
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S4_id178_lr_c0_2_w0.01",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": 1.1877839833052128e-05,
+        "min_delta_vs_id341": -0.0002064515757299601,
+        "max_delta_vs_id341": 0.00032350830406224773,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -4.8978311648961714e-05,
+          "actual_test_band_holdout": -0.00010828279387031792,
+          "test_boundary_neighbor2_holdout": 0.00032350830406224773,
+          "test_boundary_neighbor5_holdout": -0.0002064515757299601,
+          "loso_10": 9.959357635225263e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6026507261748525,
+          "actual_test_band_holdout": 0.6772279850687175,
+          "test_boundary_neighbor2_holdout": 0.6549916380746132,
+          "test_boundary_neighbor5_holdout": 0.6191872445922492,
+          "loso_10": 0.6027992980628536
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S4_id341_lr_c0_2_w0.01",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": 1.1877839833052128e-05,
+        "min_delta_vs_id341": -0.0002064515757299601,
+        "max_delta_vs_id341": 0.00032350830406224773,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -4.8978311648961714e-05,
+          "actual_test_band_holdout": -0.00010828279387031792,
+          "test_boundary_neighbor2_holdout": 0.00032350830406224773,
+          "test_boundary_neighbor5_holdout": -0.0002064515757299601,
+          "loso_10": 9.959357635225263e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6026507261748525,
+          "actual_test_band_holdout": 0.6772279850687175,
+          "test_boundary_neighbor2_holdout": 0.6549916380746132,
+          "test_boundary_neighbor5_holdout": 0.6191872445922492,
+          "loso_10": 0.6027992980628536
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.03,
+        "candidate": "S4_id178_lr_c0_2_w0.03",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": 0.00013751505144559139,
+        "min_delta_vs_id341": -0.0005051731780535418,
+        "max_delta_vs_id341": 0.0010719758636011933,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.00010165770193648616,
+          "actual_test_band_holdout": -0.00018848264464532694,
+          "test_boundary_neighbor2_holdout": 0.0010719758636011933,
+          "test_boundary_neighbor5_holdout": -0.0005051731780535418,
+          "loso_10": 0.0004109129182621185
+        },
+        "split_losses": {
+          "subject_hole_5": 0.602598046784565,
+          "actual_test_band_holdout": 0.6771477852179425,
+          "test_boundary_neighbor2_holdout": 0.6557401056341522,
+          "test_boundary_neighbor5_holdout": 0.6188885229899256,
+          "loso_10": 0.6031106174047635
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id341",
+        "weight": 0.03,
+        "candidate": "S4_id341_lr_c0_2_w0.03",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": 0.00013751505144559139,
+        "min_delta_vs_id341": -0.0005051731780535418,
+        "max_delta_vs_id341": 0.0010719758636011933,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.00010165770193648616,
+          "actual_test_band_holdout": -0.00018848264464532694,
+          "test_boundary_neighbor2_holdout": 0.0010719758636011933,
+          "test_boundary_neighbor5_holdout": -0.0005051731780535418,
+          "loso_10": 0.0004109129182621185
+        },
+        "split_losses": {
+          "subject_hole_5": 0.602598046784565,
+          "actual_test_band_holdout": 0.6771477852179425,
+          "test_boundary_neighbor2_holdout": 0.6557401056341522,
+          "test_boundary_neighbor5_holdout": 0.6188885229899256,
+          "loso_10": 0.6031106174047635
+        }
+      }
+    ]
+  },
+  "scale_rows": [],
+  "best_reviewable_low_movement": null,
+  "best_by_proxy": null,
+  "decision": {
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "selected_targets": [],
+    "reviewable_low_movement_candidate_exists": false,
+    "best_reviewable_scale": null,
+    "best_proxy": null,
+    "best_proxy_scale": null,
+    "public_058_plausible": false,
+    "next_action": "If this source has a reviewable row, combine it with the existing sleep/evening source gate before any artifact. Otherwise close sensor-adherence as a standalone local lane and prioritize the approved Kaggle upstream rebuild."
+  },
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_dacon_submission_made": true
+}

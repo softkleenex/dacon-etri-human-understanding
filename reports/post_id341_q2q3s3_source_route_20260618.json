@@ -1,0 +1,133 @@
+{
+  "created_at_kst": "2026-06-23 18:07:54 UTC+09:00",
+  "diagnostic": "post_id341_q2q3s3_source_route",
+  "purpose": "Choose the next no-submit source route for the missing Q2/Q3/S3 target gap after local post-ID341 lanes failed to produce a promotable candidate.",
+  "inputs": {
+    "missing_target_inventory": "reports/post_id341_missing_target_signal_inventory_20260618.json",
+    "target_gap_budget": "reports/post_id341_target_gap_budget_20260618.json",
+    "local_source_closure": "reports/post_id341_local_source_closure_synthesis_20260618.json",
+    "local_smoke_freshness": "reports/post_id341_local_smoke_freshness_gate_20260618.json",
+    "new_source_blueprint": "reports/post_id341_new_source_blueprint_20260618.json",
+    "clean_backbone_closure": "reports/post_id341_clean_backbone_lane_closure_20260618.json",
+    "phase2_block_a_gap": "reports/phase2_block_a_q1_proxy_gap_post_id341_20260618.json",
+    "phase2_block_b_s2_recovery": "reports/phase2_block_b_s2_sleep_recovery_retry_post_id341_20260618.json",
+    "phase3_usage_temporal": "reports/phase3_usage_temporal_microstructure_smoke_post_id341_20260618.json",
+    "place_social": "reports/place_social_novelty_smoke_fixedlist_post_id341_20260618.json",
+    "sensor_adherence": "reports/sensor_adherence_dropout_smoke_post_id341_20260618.json",
+    "external_prior": "reports/external_etri_prior_smoke_post_id341_20260618.json",
+    "combined_external": "reports/combined_sleep_evening_external_prior_gate_post_id341_20260618.json"
+  },
+  "evidence_flags": {
+    "missing_targets_match_q2_q3_s3": true,
+    "q1_s4_only_is_insufficient": true,
+    "local_source_stack_closed_for_submission_artifact": true,
+    "local_smoke_fresh": true,
+    "route_ready_for_prelaunch_contract": true
+  },
+  "routes": [
+    {
+      "rank": 1,
+      "route": "explicit_approved_clean_upstream_id221_to_id226",
+      "target_coverage": [
+        "Q2",
+        "Q3",
+        "S3"
+      ],
+      "evidence": {
+        "missing_targets_have_upstream_backbone_signal": true,
+        "id226_fold_wins": [
+          null,
+          null,
+          null
+        ],
+        "id226_delta_vs_id178": [
+          null,
+          null,
+          null
+        ]
+      },
+      "why": "The only current evidence that covers all missing Q2/Q3/S3 targets is the historical clean ID221→ID226 upstream backbone surface. It must be rebuilt report-first before artifact review.",
+      "blocking_condition": "requires_exact_user_approval_for_kaggle_no_submit",
+      "allowed_now_without_approval": false,
+      "creates_submission": false
+    },
+    {
+      "rank": 2,
+      "route": "local_or_kaggle_q2q3s3_env_social_routine_v2_design",
+      "target_coverage": [
+        "Q2",
+        "Q3",
+        "S3"
+      ],
+      "evidence": {
+        "usage_temporal_selected_targets": [],
+        "place_social_selected_targets": [],
+        "sensor_adherence_selected_targets": []
+      },
+      "why": "If approval is not given, the only locally meaningful next design is a materially different Q2/Q3/S3-first environment/social/routine source. Existing usage/place/sensor standalone smokes selected no targets, so this must be a new pre-registered source design, not wider local tuning.",
+      "blocking_condition": "previous_standalone_local_smokes_selected_no_targets",
+      "allowed_now_without_approval": true,
+      "creates_submission": false
+    },
+    {
+      "rank": 3,
+      "route": "external_prior_regularizer_only",
+      "target_coverage": [
+        "Q2"
+      ],
+      "evidence": {
+        "external_prior_reviewable": null,
+        "combined_external_public_058": false,
+        "combined_external_best_proxy": 0.6014904915736343
+      },
+      "why": "External ETRI files are useful as weak priors or bin-boundary regularizers, but current evidence blocks direct concatenation and does not produce a Public-0.58-reviewable route.",
+      "blocking_condition": "external_direct_concat_blocked_and_proxy_too_high",
+      "allowed_now_without_approval": true,
+      "creates_submission": false
+    },
+    {
+      "rank": 4,
+      "route": "more_q1_s4_or_s2_local_tuning",
+      "target_coverage": [
+        "Q1",
+        "S2",
+        "S4"
+      ],
+      "evidence": {
+        "q1_all_primary_signal_confirmed": true,
+        "q1_signal_sufficient_for_id178_proxy": false,
+        "additional_independent_target_signal_required": true,
+        "s2_final_block_b_gate_pass": false
+      },
+      "why": "Q1/S4/S2 evidence cannot close the missing-target budget by itself. More local tuning here preserves the current failure mode.",
+      "blocking_condition": "does_not_cover_q2_q3_s3_gap",
+      "allowed_now_without_approval": false,
+      "creates_submission": false
+    }
+  ],
+  "decision": {
+    "primary_score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+    "fallback_no_approval_route": "local_or_kaggle_q2q3s3_env_social_routine_v2_design",
+    "missing_targets": [
+      "Q2",
+      "Q3",
+      "S3"
+    ],
+    "local_q2q3s3_artifact_allowed": false,
+    "more_q1_s4_tuning_allowed": false,
+    "remote_no_submit_prelaunch_ready": true,
+    "requires_explicit_user_approval": true,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "If the user gives the exact Kaggle approval phrase, run the guarded no-submit upstream rebuild. Without approval, only design/report a materially different Q2/Q3/S3-first env-social-routine source; do not create ID342 or tune Q1/S4 further."
+  },
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

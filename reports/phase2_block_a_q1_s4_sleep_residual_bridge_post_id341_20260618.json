@@ -1,0 +1,1730 @@
+{
+  "created_at_kst": "2026-06-18 07:57:00 UTC+09:00",
+  "diagnostic": "phase2_block_a_q1_s4_sleep_residual_bridge_post_id341",
+  "purpose": "Test the first phase-2 raw multimodal block: Q1/S4 sleep-boundary plus subject-residual bridge under frozen primary validation gates.",
+  "phase2_plan": "reports/phase2_raw_multimodal_execution_plan_post_id341_20260618.json",
+  "phase2_plan_exists": true,
+  "feature_coverage": {
+    "n_train_rows": 450,
+    "n_test_rows": 250,
+    "sleep_feature_columns": 294,
+    "residual_feature_columns": 399,
+    "bridge_feature_columns": 693,
+    "sleep_coverage": {
+      "n_rows": 700,
+      "n_train_rows": 450,
+      "n_test_rows": 250,
+      "n_feature_columns": 294,
+      "n_raw_numeric_columns": 147,
+      "train_missing_mean": 0.06866213151927436,
+      "test_missing_mean": 0.0673061224489796,
+      "top_missing_features": {
+        "sbt_hr_std_night_24_30": 0.8044444444444444,
+        "sbt_hr_evening_minus_night": 0.8022222222222222,
+        "sbt_hr_morning_minus_night": 0.7866666666666666,
+        "sbt_hr_min_night_24_30": 0.76,
+        "sbt_hr_mean_night_24_30": 0.76,
+        "sbt_hr_std_late_22_24": 0.6644444444444444,
+        "sbt_hr_mean_late_22_24": 0.6355555555555555,
+        "sbt_hr_min_late_22_24": 0.6355555555555555,
+        "sbt_pedo_low_step_gap_hours": 0.5044444444444445,
+        "sbt_pedo_step_sum_night_24_30": 0.3888888888888889,
+        "sbt_pedo_has_step_ratio_night_24_30": 0.3888888888888889,
+        "sbt_wlight_mean_night_24_30": 0.3511111111111111
+      }
+    },
+    "residual_coverage": {
+      "selected_base_column_count": 56,
+      "ranked_base_column_preview": [
+        {
+          "column": "mlight_all_q25",
+          "coverage": 1.0,
+          "variance": 252.96289619442464,
+          "abs_mean": 3.062227781481213,
+          "score": 3.414209792631836
+        },
+        {
+          "column": "ch2025_mUsageStats_app_game_sum",
+          "coverage": 0.9777777777777777,
+          "variance": 585680766.0685899,
+          "abs_mean": 1155.043181818182,
+          "score": 2.7985131515351354
+        },
+        {
+          "column": "wlight_all_q25",
+          "coverage": 0.92,
+          "variance": 931.7221040747744,
+          "abs_mean": 9.094202898550725,
+          "score": 2.6142783197074655
+        },
+        {
+          "column": "slp_pedo_mid_steps",
+          "coverage": 0.7844444444444445,
+          "variance": 14606.84448153825,
+          "abs_mean": 19.28611898016997,
+          "score": 2.459826145420237
+        },
+        {
+          "column": "mlight_morn_mean",
+          "coverage": 0.9733333333333334,
+          "variance": 157663.37828370932,
+          "abs_mean": 199.71273455323436,
+          "score": 2.1951031455081154
+        },
+        {
+          "column": "ch2025_mUsageStats_app_music_sum",
+          "coverage": 0.9777777777777777,
+          "variance": 253368499288.1663,
+          "abs_mean": 135226.69545454546,
+          "score": 2.1731019796962934
+        },
+        {
+          "column": "ch2025_mLight_light_mean_max",
+          "coverage": 1.0,
+          "variance": 113147073.40140307,
+          "abs_mean": 5206.220715124342,
+          "score": 2.166886307783523
+        },
+        {
+          "column": "ch2025_mLight_light_max_max",
+          "coverage": 1.0,
+          "variance": 113147073.40140307,
+          "abs_mean": 5206.220715124342,
+          "score": 2.166886307783523
+        },
+        {
+          "column": "mlight_all_max",
+          "coverage": 1.0,
+          "variance": 113147073.40140307,
+          "abs_mean": 5206.220715124342,
+          "score": 2.166886307783523
+        },
+        {
+          "column": "ch2025_mUsageStats_app_tiktok_sum",
+          "coverage": 0.9777777777777777,
+          "variance": 481411255947.0881,
+          "abs_mean": 187359.6090909091,
+          "score": 2.1664321468728254
+        },
+        {
+          "column": "mlight_all_std",
+          "coverage": 1.0,
+          "variance": 914061.795385251,
+          "abs_mean": 562.8313758108247,
+          "score": 2.166116239899164
+        },
+        {
+          "column": "wHr_slp_hr_spike_count",
+          "coverage": 0.7,
+          "variance": 267.57641723356005,
+          "abs_mean": 4.190476190476191,
+          "score": 2.147651693810651
+        },
+        {
+          "column": "mlight_all_median",
+          "coverage": 1.0,
+          "variance": 3125.465983589528,
+          "abs_mean": 40.80885568088955,
+          "score": 2.1421892061242516
+        },
+        {
+          "column": "mGps_unique_locations",
+          "coverage": 0.9422222222222222,
+          "variance": 549.9749911000356,
+          "abs_mean": 15.037735849056604,
+          "score": 2.097393583747336
+        },
+        {
+          "column": "ch2025_mUsageStats_app_instagram_sum",
+          "coverage": 0.9777777777777777,
+          "variance": 2417700645559.7686,
+          "abs_mean": 719538.9090909091,
+          "score": 2.0672871928903946
+        },
+        {
+          "column": "ch2025_mUsageStats_app_chrome_sum",
+          "coverage": 0.9777777777777777,
+          "variance": 159292234468.61032,
+          "abs_mean": 200597.66136363638,
+          "score": 2.0657440299925796
+        },
+        {
+          "column": "mlight_all_q75",
+          "coverage": 1.0,
+          "variance": 64778.70186737618,
+          "abs_mean": 234.66590360191134,
+          "score": 2.026606548916821
+        },
+        {
+          "column": "ch2025_wPedo_burned_calories_max",
+          "coverage": 0.8977777777777778,
+          "variance": 4068.79954258702,
+          "abs_mean": 38.29784107963453,
+          "score": 2.0187075466221756
+        },
+        {
+          "column": "ch2025_mUsageStats_app_youtube_sum",
+          "coverage": 0.9777777777777777,
+          "variance": 4353539219575.0923,
+          "abs_mean": 1333621.5909090908,
+          "score": 2.017618313590164
+        },
+        {
+          "column": "ch2025_mLight_light_mean_mean",
+          "coverage": 1.0,
+          "variance": 31356.803841021476,
+          "abs_mean": 186.35329835601308,
+          "score": 1.976438922539297
+        }
+      ],
+      "n_feature_columns": 399,
+      "train_missing_mean": 0.07631857421331105,
+      "test_missing_mean": 0.06271679197994988
+    },
+    "train_missing_mean": 0.07307038640371973,
+    "test_missing_mean": 0.06466378066378066
+  },
+  "target_scan_focus": [
+    "Q1",
+    "S4"
+  ],
+  "model_specs": [
+    {
+      "name": "lr_c0_03",
+      "kind": "lr",
+      "c_value": 0.03,
+      "max_iter": null,
+      "max_leaf_nodes": null,
+      "l2_regularization": null,
+      "max_depth": null,
+      "min_samples_leaf": null,
+      "n_estimators": null
+    },
+    {
+      "name": "lr_c0_12",
+      "kind": "lr",
+      "c_value": 0.12,
+      "max_iter": null,
+      "max_leaf_nodes": null,
+      "l2_regularization": null,
+      "max_depth": null,
+      "min_samples_leaf": null,
+      "n_estimators": null
+    },
+    {
+      "name": "hgb_l4_l2_5",
+      "kind": "hgb",
+      "c_value": null,
+      "max_iter": 55,
+      "max_leaf_nodes": 4,
+      "l2_regularization": 5.0,
+      "max_depth": null,
+      "min_samples_leaf": null,
+      "n_estimators": null
+    },
+    {
+      "name": "et_d4_l25",
+      "kind": "et",
+      "c_value": null,
+      "max_iter": null,
+      "max_leaf_nodes": null,
+      "l2_regularization": null,
+      "max_depth": 4,
+      "min_samples_leaf": 25,
+      "n_estimators": 120
+    }
+  ],
+  "blend_weights": [
+    0.005,
+    0.01,
+    0.025,
+    0.05
+  ],
+  "selection_rule": {
+    "config_win_floor": 4,
+    "config_mean_delta_ceiling": -5e-05,
+    "config_max_delta_ceiling": 0.0005,
+    "final_primary_wins_floor": 5,
+    "final_projected_proxy_below_id178_public": 0.6014113009
+  },
+  "top_scan_by_target": {
+    "Q1": [
+      {
+        "target": "Q1",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.05,
+        "candidate": "Q1_id178_sleep_residual_bridge_hgb_l4_l2_5_w0.05",
+        "primary_wins_vs_id341": 5,
+        "mean_delta_vs_id341": -0.0014889595220077378,
+        "min_delta_vs_id341": -0.004784845884011846,
+        "max_delta_vs_id341": -5.844107132391141e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -5.844107132391141e-05,
+          "actual_test_band_holdout": -0.000718783567345227,
+          "test_boundary_neighbor2_holdout": -0.004784845884011846,
+          "test_boundary_neighbor5_holdout": -0.0013994383326805249,
+          "loso_10": -0.00048328875467718024
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5518572775825223,
+          "actual_test_band_holdout": 0.5302185168615008,
+          "test_boundary_neighbor2_holdout": 0.5865714067074325,
+          "test_boundary_neighbor5_holdout": 0.5477412452158071,
+          "loso_10": 0.5514324298991691
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.05,
+        "candidate": "Q1_id341_sleep_residual_bridge_hgb_l4_l2_5_w0.05",
+        "primary_wins_vs_id341": 5,
+        "mean_delta_vs_id341": -0.0014889595220077378,
+        "min_delta_vs_id341": -0.004784845884011846,
+        "max_delta_vs_id341": -5.844107132391141e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -5.844107132391141e-05,
+          "actual_test_band_holdout": -0.000718783567345227,
+          "test_boundary_neighbor2_holdout": -0.004784845884011846,
+          "test_boundary_neighbor5_holdout": -0.0013994383326805249,
+          "loso_10": -0.00048328875467718024
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5518572775825223,
+          "actual_test_band_holdout": 0.5302185168615008,
+          "test_boundary_neighbor2_holdout": 0.5865714067074325,
+          "test_boundary_neighbor5_holdout": 0.5477412452158071,
+          "loso_10": 0.5514324298991691
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.025,
+        "candidate": "Q1_id178_sleep_residual_bridge_hgb_l4_l2_5_w0.025",
+        "primary_wins_vs_id341": 5,
+        "mean_delta_vs_id341": -0.0010093832259815637,
+        "min_delta_vs_id341": -0.0027352251450838416,
+        "max_delta_vs_id341": -0.0001567292242661278,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.0001567292242661278,
+          "actual_test_band_holdout": -0.0007426664900908042,
+          "test_boundary_neighbor2_holdout": -0.0027352251450838416,
+          "test_boundary_neighbor5_holdout": -0.0009499791670553037,
+          "loso_10": -0.0004623161034117418
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5517589894295801,
+          "actual_test_band_holdout": 0.5301946339387552,
+          "test_boundary_neighbor2_holdout": 0.5886210274463605,
+          "test_boundary_neighbor5_holdout": 0.5481907043814324,
+          "loso_10": 0.5514534025504345
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.025,
+        "candidate": "Q1_id341_sleep_residual_bridge_hgb_l4_l2_5_w0.025",
+        "primary_wins_vs_id341": 5,
+        "mean_delta_vs_id341": -0.0010093832259815637,
+        "min_delta_vs_id341": -0.0027352251450838416,
+        "max_delta_vs_id341": -0.0001567292242661278,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.0001567292242661278,
+          "actual_test_band_holdout": -0.0007426664900908042,
+          "test_boundary_neighbor2_holdout": -0.0027352251450838416,
+          "test_boundary_neighbor5_holdout": -0.0009499791670553037,
+          "loso_10": -0.0004623161034117418
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5517589894295801,
+          "actual_test_band_holdout": 0.5301946339387552,
+          "test_boundary_neighbor2_holdout": 0.5886210274463605,
+          "test_boundary_neighbor5_holdout": 0.5481907043814324,
+          "loso_10": 0.5514534025504345
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "Q1_id178_sleep_residual_bridge_hgb_l4_l2_5_w0.01",
+        "primary_wins_vs_id341": 5,
+        "mean_delta_vs_id341": -0.0004792047520120413,
+        "min_delta_vs_id341": -0.0011919742840934555,
+        "max_delta_vs_id341": -9.648432660880335e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -9.648432660880335e-05,
+          "actual_test_band_holdout": -0.000410544127297241,
+          "test_boundary_neighbor2_holdout": -0.0011919742840934555,
+          "test_boundary_neighbor5_holdout": -0.00044964053905705015,
+          "loso_10": -0.00024738048300365634
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5518192343272375,
+          "actual_test_band_holdout": 0.5305267563015488,
+          "test_boundary_neighbor2_holdout": 0.5901642783073509,
+          "test_boundary_neighbor5_holdout": 0.5486910430094306,
+          "loso_10": 0.5516683381708426
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q1_id341_sleep_residual_bridge_hgb_l4_l2_5_w0.01",
+        "primary_wins_vs_id341": 5,
+        "mean_delta_vs_id341": -0.0004792047520120413,
+        "min_delta_vs_id341": -0.0011919742840934555,
+        "max_delta_vs_id341": -9.648432660880335e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -9.648432660880335e-05,
+          "actual_test_band_holdout": -0.000410544127297241,
+          "test_boundary_neighbor2_holdout": -0.0011919742840934555,
+          "test_boundary_neighbor5_holdout": -0.00044964053905705015,
+          "loso_10": -0.00024738048300365634
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5518192343272375,
+          "actual_test_band_holdout": 0.5305267563015488,
+          "test_boundary_neighbor2_holdout": 0.5901642783073509,
+          "test_boundary_neighbor5_holdout": 0.5486910430094306,
+          "loso_10": 0.5516683381708426
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "Q1_id178_sleep_residual_bridge_lr_c0_03_w0.01",
+        "primary_wins_vs_id341": 5,
+        "mean_delta_vs_id341": -0.0003628082733102778,
+        "min_delta_vs_id341": -0.0013127707986599901,
+        "max_delta_vs_id341": -1.0366770451408769e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -1.0366770451408769e-05,
+          "actual_test_band_holdout": -0.0001020883212905499,
+          "test_boundary_neighbor2_holdout": -0.00026564355090541447,
+          "test_boundary_neighbor5_holdout": -0.0013127707986599901,
+          "loso_10": -0.00012317192524402554
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5519053518833948,
+          "actual_test_band_holdout": 0.5308352121075555,
+          "test_boundary_neighbor2_holdout": 0.5910906090405389,
+          "test_boundary_neighbor5_holdout": 0.5478279127498277,
+          "loso_10": 0.5517925467286022
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q1_id341_sleep_residual_bridge_lr_c0_03_w0.01",
+        "primary_wins_vs_id341": 5,
+        "mean_delta_vs_id341": -0.0003628082733102778,
+        "min_delta_vs_id341": -0.0013127707986599901,
+        "max_delta_vs_id341": -1.0366770451408769e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -1.0366770451408769e-05,
+          "actual_test_band_holdout": -0.0001020883212905499,
+          "test_boundary_neighbor2_holdout": -0.00026564355090541447,
+          "test_boundary_neighbor5_holdout": -0.0013127707986599901,
+          "loso_10": -0.00012317192524402554
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5519053518833948,
+          "actual_test_band_holdout": 0.5308352121075555,
+          "test_boundary_neighbor2_holdout": 0.5910906090405389,
+          "test_boundary_neighbor5_holdout": 0.5478279127498277,
+          "loso_10": 0.5517925467286022
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "candidate": "Q1_id178_sleep_residual_bridge_hgb_l4_l2_5_w0.005",
+        "primary_wins_vs_id341": 5,
+        "mean_delta_vs_id341": -0.00025348398107252203,
+        "min_delta_vs_id341": -0.0006139899041509578,
+        "max_delta_vs_id341": -5.419221900593296e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -5.419221900593296e-05,
+          "actual_test_band_holdout": -0.00022663602672190475,
+          "test_boundary_neighbor2_holdout": -0.0006139899041509578,
+          "test_boundary_neighbor5_holdout": -0.0002374444877479842,
+          "loso_10": -0.00013515726773583037
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5518615264348403,
+          "actual_test_band_holdout": 0.5307106644021241,
+          "test_boundary_neighbor2_holdout": 0.5907422626872934,
+          "test_boundary_neighbor5_holdout": 0.5489032390607397,
+          "loso_10": 0.5517805613861104
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "Q1_id341_sleep_residual_bridge_hgb_l4_l2_5_w0.005",
+        "primary_wins_vs_id341": 5,
+        "mean_delta_vs_id341": -0.00025348398107252203,
+        "min_delta_vs_id341": -0.0006139899041509578,
+        "max_delta_vs_id341": -5.419221900593296e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -5.419221900593296e-05,
+          "actual_test_band_holdout": -0.00022663602672190475,
+          "test_boundary_neighbor2_holdout": -0.0006139899041509578,
+          "test_boundary_neighbor5_holdout": -0.0002374444877479842,
+          "loso_10": -0.00013515726773583037
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5518615264348403,
+          "actual_test_band_holdout": 0.5307106644021241,
+          "test_boundary_neighbor2_holdout": 0.5907422626872934,
+          "test_boundary_neighbor5_holdout": 0.5489032390607397,
+          "loso_10": 0.5517805613861104
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "candidate": "Q1_id178_sleep_residual_bridge_lr_c0_03_w0.005",
+        "primary_wins_vs_id341": 5,
+        "mean_delta_vs_id341": -0.0001990846306494598,
+        "min_delta_vs_id341": -0.0006917567277193726,
+        "max_delta_vs_id341": -1.0909775968404034e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -1.0909775968404034e-05,
+          "actual_test_band_holdout": -7.72953557516276e-05,
+          "test_boundary_neighbor2_holdout": -0.00013903669712944655,
+          "test_boundary_neighbor5_holdout": -0.0006917567277193726,
+          "loso_10": -7.642459667844825e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5519048088778779,
+          "actual_test_band_holdout": 0.5308600050730944,
+          "test_boundary_neighbor2_holdout": 0.5912172158943149,
+          "test_boundary_neighbor5_holdout": 0.5484489268207683,
+          "loso_10": 0.5518392940571678
+        }
+      },
+      {
+        "target": "Q1",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "Q1_id341_sleep_residual_bridge_lr_c0_03_w0.005",
+        "primary_wins_vs_id341": 5,
+        "mean_delta_vs_id341": -0.0001990846306494598,
+        "min_delta_vs_id341": -0.0006917567277193726,
+        "max_delta_vs_id341": -1.0909775968404034e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -1.0909775968404034e-05,
+          "actual_test_band_holdout": -7.72953557516276e-05,
+          "test_boundary_neighbor2_holdout": -0.00013903669712944655,
+          "test_boundary_neighbor5_holdout": -0.0006917567277193726,
+          "loso_10": -7.642459667844825e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5519048088778779,
+          "actual_test_band_holdout": 0.5308600050730944,
+          "test_boundary_neighbor2_holdout": 0.5912172158943149,
+          "test_boundary_neighbor5_holdout": 0.5484489268207683,
+          "loso_10": 0.5518392940571678
+        }
+      }
+    ],
+    "S4": [
+      {
+        "target": "S4",
+        "model": "et_d4_l25",
+        "model_spec": {
+          "name": "et_d4_l25",
+          "kind": "et",
+          "c_value": null,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": 4,
+          "min_samples_leaf": 25,
+          "n_estimators": 120
+        },
+        "anchor": "id178",
+        "weight": 0.05,
+        "candidate": "S4_id178_sleep_residual_bridge_et_d4_l25_w0.05",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -0.00060347677316277,
+        "min_delta_vs_id341": -0.002944779276586429,
+        "max_delta_vs_id341": 0.0013487949906313412,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0010631404698967506,
+          "actual_test_band_holdout": -0.002944779276586429,
+          "test_boundary_neighbor2_holdout": -0.001998916060167444,
+          "test_boundary_neighbor5_holdout": -0.00048562398958806874,
+          "loso_10": 0.0013487949906313412
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6037628449563982,
+          "actual_test_band_holdout": 0.6743914885860014,
+          "test_boundary_neighbor2_holdout": 0.6526692137103836,
+          "test_boundary_neighbor5_holdout": 0.618908072178391,
+          "loso_10": 0.6040484994771327
+        }
+      },
+      {
+        "target": "S4",
+        "model": "et_d4_l25",
+        "model_spec": {
+          "name": "et_d4_l25",
+          "kind": "et",
+          "c_value": null,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": 4,
+          "min_samples_leaf": 25,
+          "n_estimators": 120
+        },
+        "anchor": "id341",
+        "weight": 0.05,
+        "candidate": "S4_id341_sleep_residual_bridge_et_d4_l25_w0.05",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -0.00060347677316277,
+        "min_delta_vs_id341": -0.002944779276586429,
+        "max_delta_vs_id341": 0.0013487949906313412,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0010631404698967506,
+          "actual_test_band_holdout": -0.002944779276586429,
+          "test_boundary_neighbor2_holdout": -0.001998916060167444,
+          "test_boundary_neighbor5_holdout": -0.00048562398958806874,
+          "loso_10": 0.0013487949906313412
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6037628449563982,
+          "actual_test_band_holdout": 0.6743914885860014,
+          "test_boundary_neighbor2_holdout": 0.6526692137103836,
+          "test_boundary_neighbor5_holdout": 0.618908072178391,
+          "loso_10": 0.6040484994771327
+        }
+      },
+      {
+        "target": "S4",
+        "model": "et_d4_l25",
+        "model_spec": {
+          "name": "et_d4_l25",
+          "kind": "et",
+          "c_value": null,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": 4,
+          "min_samples_leaf": 25,
+          "n_estimators": 120
+        },
+        "anchor": "id178",
+        "weight": 0.025,
+        "candidate": "S4_id178_sleep_residual_bridge_et_d4_l25_w0.025",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -0.00036567173582171544,
+        "min_delta_vs_id341": -0.0015549137678575464,
+        "max_delta_vs_id341": 0.0006105280377303179,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0004923849120390678,
+          "actual_test_band_holdout": -0.0015549137678575464,
+          "test_boundary_neighbor2_holdout": -0.0010603684277330494,
+          "test_boundary_neighbor5_holdout": -0.00031598943328736695,
+          "loso_10": 0.0006105280377303179
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6031920893985405,
+          "actual_test_band_holdout": 0.6757813540947303,
+          "test_boundary_neighbor2_holdout": 0.653607761342818,
+          "test_boundary_neighbor5_holdout": 0.6190777067346918,
+          "loso_10": 0.6033102325242317
+        }
+      },
+      {
+        "target": "S4",
+        "model": "et_d4_l25",
+        "model_spec": {
+          "name": "et_d4_l25",
+          "kind": "et",
+          "c_value": null,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": 4,
+          "min_samples_leaf": 25,
+          "n_estimators": 120
+        },
+        "anchor": "id341",
+        "weight": 0.025,
+        "candidate": "S4_id341_sleep_residual_bridge_et_d4_l25_w0.025",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -0.00036567173582171544,
+        "min_delta_vs_id341": -0.0015549137678575464,
+        "max_delta_vs_id341": 0.0006105280377303179,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0004923849120390678,
+          "actual_test_band_holdout": -0.0015549137678575464,
+          "test_boundary_neighbor2_holdout": -0.0010603684277330494,
+          "test_boundary_neighbor5_holdout": -0.00031598943328736695,
+          "loso_10": 0.0006105280377303179
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6031920893985405,
+          "actual_test_band_holdout": 0.6757813540947303,
+          "test_boundary_neighbor2_holdout": 0.653607761342818,
+          "test_boundary_neighbor5_holdout": 0.6190777067346918,
+          "loso_10": 0.6033102325242317
+        }
+      },
+      {
+        "target": "S4",
+        "model": "et_d4_l25",
+        "model_spec": {
+          "name": "et_d4_l25",
+          "kind": "et",
+          "c_value": null,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": 4,
+          "min_samples_leaf": 25,
+          "n_estimators": 120
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S4_id178_sleep_residual_bridge_et_d4_l25_w0.01",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -0.00016217460038951969,
+        "min_delta_vs_id341": -0.0006426484588945014,
+        "max_delta_vs_id341": 0.00022837309061318756,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00018732409886279555,
+          "actual_test_band_holdout": -0.0006426484588945014,
+          "test_boundary_neighbor2_holdout": -0.00043925265898081545,
+          "test_boundary_neighbor5_holdout": -0.00014466907354826475,
+          "loso_10": 0.00022837309061318756
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6028870285853642,
+          "actual_test_band_holdout": 0.6766936194036933,
+          "test_boundary_neighbor2_holdout": 0.6542288771115702,
+          "test_boundary_neighbor5_holdout": 0.6192490270944309,
+          "loso_10": 0.6029280775771145
+        }
+      },
+      {
+        "target": "S4",
+        "model": "et_d4_l25",
+        "model_spec": {
+          "name": "et_d4_l25",
+          "kind": "et",
+          "c_value": null,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": 4,
+          "min_samples_leaf": 25,
+          "n_estimators": 120
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S4_id341_sleep_residual_bridge_et_d4_l25_w0.01",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -0.00016217460038951969,
+        "min_delta_vs_id341": -0.0006426484588945014,
+        "max_delta_vs_id341": 0.00022837309061318756,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00018732409886279555,
+          "actual_test_band_holdout": -0.0006426484588945014,
+          "test_boundary_neighbor2_holdout": -0.00043925265898081545,
+          "test_boundary_neighbor5_holdout": -0.00014466907354826475,
+          "loso_10": 0.00022837309061318756
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6028870285853642,
+          "actual_test_band_holdout": 0.6766936194036933,
+          "test_boundary_neighbor2_holdout": 0.6542288771115702,
+          "test_boundary_neighbor5_holdout": 0.6192490270944309,
+          "loso_10": 0.6029280775771145
+        }
+      },
+      {
+        "target": "S4",
+        "model": "et_d4_l25",
+        "model_spec": {
+          "name": "et_d4_l25",
+          "kind": "et",
+          "c_value": null,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": 4,
+          "min_samples_leaf": 25,
+          "n_estimators": 120
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "candidate": "S4_id178_sleep_residual_bridge_et_d4_l25_w0.005",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -8.378865937164193e-05,
+        "min_delta_vs_id341": -0.00032485009418092847,
+        "max_delta_vs_id341": 0.0001115007671151913,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 9.203707533922412e-05,
+          "actual_test_band_holdout": -0.00032485009418092847,
+          "test_boundary_neighbor2_holdout": -0.00022218703445398003,
+          "test_boundary_neighbor5_holdout": -7.544401067771656e-05,
+          "loso_10": 0.0001115007671151913
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6027917415618407,
+          "actual_test_band_holdout": 0.6770114177684069,
+          "test_boundary_neighbor2_holdout": 0.654445942736097,
+          "test_boundary_neighbor5_holdout": 0.6193182521573014,
+          "loso_10": 0.6028112052536165
+        }
+      },
+      {
+        "target": "S4",
+        "model": "et_d4_l25",
+        "model_spec": {
+          "name": "et_d4_l25",
+          "kind": "et",
+          "c_value": null,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": 4,
+          "min_samples_leaf": 25,
+          "n_estimators": 120
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "S4_id341_sleep_residual_bridge_et_d4_l25_w0.005",
+        "primary_wins_vs_id341": 3,
+        "mean_delta_vs_id341": -8.378865937164193e-05,
+        "min_delta_vs_id341": -0.00032485009418092847,
+        "max_delta_vs_id341": 0.0001115007671151913,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 9.203707533922412e-05,
+          "actual_test_band_holdout": -0.00032485009418092847,
+          "test_boundary_neighbor2_holdout": -0.00022218703445398003,
+          "test_boundary_neighbor5_holdout": -7.544401067771656e-05,
+          "loso_10": 0.0001115007671151913
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6027917415618407,
+          "actual_test_band_holdout": 0.6770114177684069,
+          "test_boundary_neighbor2_holdout": 0.654445942736097,
+          "test_boundary_neighbor5_holdout": 0.6193182521573014,
+          "loso_10": 0.6028112052536165
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_12",
+        "model_spec": {
+          "name": "lr_c0_12",
+          "kind": "lr",
+          "c_value": 0.12,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "candidate": "S4_id178_sleep_residual_bridge_lr_c0_12_w0.005",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 2.589542636910469e-05,
+        "min_delta_vs_id341": -0.0001917109874787215,
+        "max_delta_vs_id341": 0.0003078628861863386,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 2.7473439953240586e-05,
+          "actual_test_band_holdout": -0.0001917109874787215,
+          "test_boundary_neighbor2_holdout": 0.0003078628861863386,
+          "test_boundary_neighbor5_holdout": -4.4323776049903785e-05,
+          "loso_10": 3.0175569234569544e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6027271779264547,
+          "actual_test_band_holdout": 0.6771445568751091,
+          "test_boundary_neighbor2_holdout": 0.6549759926567373,
+          "test_boundary_neighbor5_holdout": 0.6193493723919292,
+          "loso_10": 0.6027298800557359
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_12",
+        "model_spec": {
+          "name": "lr_c0_12",
+          "kind": "lr",
+          "c_value": 0.12,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "S4_id341_sleep_residual_bridge_lr_c0_12_w0.005",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 2.589542636910469e-05,
+        "min_delta_vs_id341": -0.0001917109874787215,
+        "max_delta_vs_id341": 0.0003078628861863386,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 2.7473439953240586e-05,
+          "actual_test_band_holdout": -0.0001917109874787215,
+          "test_boundary_neighbor2_holdout": 0.0003078628861863386,
+          "test_boundary_neighbor5_holdout": -4.4323776049903785e-05,
+          "loso_10": 3.0175569234569544e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6027271779264547,
+          "actual_test_band_holdout": 0.6771445568751091,
+          "test_boundary_neighbor2_holdout": 0.6549759926567373,
+          "test_boundary_neighbor5_holdout": 0.6193493723919292,
+          "loso_10": 0.6027298800557359
+        }
+      },
+      {
+        "target": "S4",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "candidate": "S4_id178_sleep_residual_bridge_hgb_l4_l2_5_w0.005",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 2.7180488569467087e-05,
+        "min_delta_vs_id341": -9.20048275276919e-05,
+        "max_delta_vs_id341": 0.00014567980543644943,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.000139525487532155,
+          "actual_test_band_holdout": -9.20048275276919e-05,
+          "test_boundary_neighbor2_holdout": -7.320167026159119e-05,
+          "test_boundary_neighbor5_holdout": 1.590364766801411e-05,
+          "loso_10": 0.00014567980543644943
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6028392299740336,
+          "actual_test_band_holdout": 0.6772442630350601,
+          "test_boundary_neighbor2_holdout": 0.6545949281002894,
+          "test_boundary_neighbor5_holdout": 0.6194095998156471,
+          "loso_10": 0.6028453842919378
+        }
+      },
+      {
+        "target": "S4",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "S4_id341_sleep_residual_bridge_hgb_l4_l2_5_w0.005",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 2.7180488569467087e-05,
+        "min_delta_vs_id341": -9.20048275276919e-05,
+        "max_delta_vs_id341": 0.00014567980543644943,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.000139525487532155,
+          "actual_test_band_holdout": -9.20048275276919e-05,
+          "test_boundary_neighbor2_holdout": -7.320167026159119e-05,
+          "test_boundary_neighbor5_holdout": 1.590364766801411e-05,
+          "loso_10": 0.00014567980543644943
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6028392299740336,
+          "actual_test_band_holdout": 0.6772442630350601,
+          "test_boundary_neighbor2_holdout": 0.6545949281002894,
+          "test_boundary_neighbor5_holdout": 0.6194095998156471,
+          "loso_10": 0.6028453842919378
+        }
+      }
+    ]
+  },
+  "selected_configs": {
+    "Q1": {
+      "target": "Q1",
+      "model": "hgb_l4_l2_5",
+      "model_spec": {
+        "name": "hgb_l4_l2_5",
+        "kind": "hgb",
+        "c_value": null,
+        "max_iter": 55,
+        "max_leaf_nodes": 4,
+        "l2_regularization": 5.0,
+        "max_depth": null,
+        "min_samples_leaf": null,
+        "n_estimators": null
+      },
+      "anchor": "id178",
+      "weight": 0.05,
+      "candidate": "Q1_id178_sleep_residual_bridge_hgb_l4_l2_5_w0.05",
+      "primary_wins_vs_id341": 5,
+      "mean_delta_vs_id341": -0.0014889595220077378,
+      "min_delta_vs_id341": -0.004784845884011846,
+      "max_delta_vs_id341": -5.844107132391141e-05,
+      "split_deltas_vs_id341": {
+        "subject_hole_5": -5.844107132391141e-05,
+        "actual_test_band_holdout": -0.000718783567345227,
+        "test_boundary_neighbor2_holdout": -0.004784845884011846,
+        "test_boundary_neighbor5_holdout": -0.0013994383326805249,
+        "loso_10": -0.00048328875467718024
+      },
+      "split_losses": {
+        "subject_hole_5": 0.5518572775825223,
+        "actual_test_band_holdout": 0.5302185168615008,
+        "test_boundary_neighbor2_holdout": 0.5865714067074325,
+        "test_boundary_neighbor5_holdout": 0.5477412452158071,
+        "loso_10": 0.5514324298991691
+      }
+    }
+  },
+  "assembled_candidate": {
+    "selected_configs": {
+      "Q1": {
+        "target": "Q1",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.05,
+        "candidate": "Q1_id178_sleep_residual_bridge_hgb_l4_l2_5_w0.05",
+        "primary_wins_vs_id341": 5,
+        "mean_delta_vs_id341": -0.0014889595220077378,
+        "min_delta_vs_id341": -0.004784845884011846,
+        "max_delta_vs_id341": -5.844107132391141e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -5.844107132391141e-05,
+          "actual_test_band_holdout": -0.000718783567345227,
+          "test_boundary_neighbor2_holdout": -0.004784845884011846,
+          "test_boundary_neighbor5_holdout": -0.0013994383326805249,
+          "loso_10": -0.00048328875467718024
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5518572775825223,
+          "actual_test_band_holdout": 0.5302185168615008,
+          "test_boundary_neighbor2_holdout": 0.5865714067074325,
+          "test_boundary_neighbor5_holdout": 0.5477412452158071,
+          "loso_10": 0.5514324298991691
+        }
+      }
+    },
+    "split_reports": {
+      "subject_hole_5": {
+        "candidate": {
+          "mean_loss": 0.5385753111997611,
+          "target_losses": {
+            "Q1": 0.5518572775825223,
+            "Q2": 0.5563007929035947,
+            "Q3": 0.5670897848363183,
+            "S1": 0.47163044694164036,
+            "S2": 0.5295561327474739,
+            "S3": 0.49089303890027697,
+            "S4": 0.6026997044865015
+          },
+          "target_valid_n": {
+            "Q1": 450,
+            "Q2": 450,
+            "Q3": 450,
+            "S1": 450,
+            "S2": 450,
+            "S3": 450,
+            "S4": 450
+          }
+        },
+        "reference_id178": {
+          "mean_loss": 0.5386377373903545,
+          "target_losses": {
+            "Q1": 0.5519157186538463,
+            "Q2": 0.5566793351664244,
+            "Q3": 0.5670897848363183,
+            "S1": 0.47163044694164036,
+            "S2": 0.5295561327474739,
+            "S3": 0.49089303890027697,
+            "S4": 0.6026997044865015
+          },
+          "target_valid_n": {
+            "Q1": 450,
+            "Q2": 450,
+            "Q3": 450,
+            "S1": 450,
+            "S2": 450,
+            "S3": 450,
+            "S4": 450
+          }
+        },
+        "reference_id341": {
+          "mean_loss": 0.538583659924236,
+          "target_losses": {
+            "Q1": 0.5519157186538463,
+            "Q2": 0.5563007929035947,
+            "Q3": 0.5670897848363183,
+            "S1": 0.47163044694164036,
+            "S2": 0.5295561327474739,
+            "S3": 0.49089303890027697,
+            "S4": 0.6026997044865015
+          },
+          "target_valid_n": {
+            "Q1": 450,
+            "Q2": 450,
+            "Q3": 450,
+            "S1": 450,
+            "S2": 450,
+            "S3": 450,
+            "S4": 450
+          }
+        },
+        "delta_vs_id178": -6.242619059337873e-05,
+        "delta_vs_id341": -8.348724474860347e-06,
+        "beats_id341": true
+      },
+      "actual_test_band_holdout": {
+        "candidate": {
+          "mean_loss": 0.5413618382678163,
+          "target_losses": {
+            "Q1": 0.5302185168615008,
+            "Q2": 0.5838147917564873,
+            "Q3": 0.5093012241642778,
+            "S1": 0.46537576382917406,
+            "S2": 0.5514863418926919,
+            "S3": 0.47199996150799395,
+            "S4": 0.6773362678625878
+          },
+          "target_valid_n": {
+            "Q1": 98,
+            "Q2": 98,
+            "Q3": 98,
+            "S1": 98,
+            "S2": 98,
+            "S3": 98,
+            "S4": 98
+          }
+        },
+        "reference_id178": {
+          "mean_loss": 0.5416036568651422,
+          "target_losses": {
+            "Q1": 0.530937300428846,
+            "Q2": 0.5847887383704241,
+            "Q3": 0.5093012241642778,
+            "S1": 0.46537576382917406,
+            "S2": 0.5514863418926919,
+            "S3": 0.47199996150799395,
+            "S4": 0.6773362678625878
+          },
+          "target_valid_n": {
+            "Q1": 98,
+            "Q2": 98,
+            "Q3": 98,
+            "S1": 98,
+            "S2": 98,
+            "S3": 98,
+            "S4": 98
+          }
+        },
+        "reference_id341": {
+          "mean_loss": 0.5414645216345798,
+          "target_losses": {
+            "Q1": 0.530937300428846,
+            "Q2": 0.5838147917564873,
+            "Q3": 0.5093012241642778,
+            "S1": 0.46537576382917406,
+            "S2": 0.5514863418926919,
+            "S3": 0.47199996150799395,
+            "S4": 0.6773362678625878
+          },
+          "target_valid_n": {
+            "Q1": 98,
+            "Q2": 98,
+            "Q3": 98,
+            "S1": 98,
+            "S2": 98,
+            "S3": 98,
+            "S4": 98
+          }
+        },
+        "delta_vs_id178": -0.00024181859732597122,
+        "delta_vs_id341": -0.00010268336676355627,
+        "beats_id341": true
+      },
+      "test_boundary_neighbor2_holdout": {
+        "candidate": {
+          "mean_loss": 0.5854536287520965,
+          "target_losses": {
+            "Q1": 0.5865714067074325,
+            "Q2": 0.6342377712293661,
+            "Q3": 0.6063358711638827,
+            "S1": 0.53558038497983,
+            "S2": 0.573831927652359,
+            "S3": 0.5069499097612542,
+            "S4": 0.654668129770551
+          },
+          "target_valid_n": {
+            "Q1": 82,
+            "Q2": 82,
+            "Q3": 82,
+            "S1": 82,
+            "S2": 82,
+            "S3": 82,
+            "S4": 82
+          }
+        },
+        "reference_id178": {
+          "mean_loss": 0.5862898684706096,
+          "target_losses": {
+            "Q1": 0.5913562525914443,
+            "Q2": 0.6353066033749463,
+            "Q3": 0.6063358711638827,
+            "S1": 0.53558038497983,
+            "S2": 0.573831927652359,
+            "S3": 0.5069499097612542,
+            "S4": 0.654668129770551
+          },
+          "target_valid_n": {
+            "Q1": 82,
+            "Q2": 82,
+            "Q3": 82,
+            "S1": 82,
+            "S2": 82,
+            "S3": 82,
+            "S4": 82
+          }
+        },
+        "reference_id341": {
+          "mean_loss": 0.5861371781640982,
+          "target_losses": {
+            "Q1": 0.5913562525914443,
+            "Q2": 0.6342377712293661,
+            "Q3": 0.6063358711638827,
+            "S1": 0.53558038497983,
+            "S2": 0.573831927652359,
+            "S3": 0.5069499097612542,
+            "S4": 0.654668129770551
+          },
+          "target_valid_n": {
+            "Q1": 82,
+            "Q2": 82,
+            "Q3": 82,
+            "S1": 82,
+            "S2": 82,
+            "S3": 82,
+            "S4": 82
+          }
+        },
+        "delta_vs_id178": -0.0008362397185130988,
+        "delta_vs_id341": -0.0006835494120016605,
+        "beats_id341": true
+      },
+      "test_boundary_neighbor5_holdout": {
+        "candidate": {
+          "mean_loss": 0.5577203270692525,
+          "target_losses": {
+            "Q1": 0.5477412452158071,
+            "Q2": 0.5730912878985882,
+            "Q3": 0.5827662249897018,
+            "S1": 0.5149017482984077,
+            "S2": 0.5532543738482324,
+            "S3": 0.5128937130660507,
+            "S4": 0.6193936961679791
+          },
+          "target_valid_n": {
+            "Q1": 172,
+            "Q2": 172,
+            "Q3": 172,
+            "S1": 172,
+            "S2": 172,
+            "S3": 172,
+            "S4": 172
+          }
+        },
+        "reference_id178": {
+          "mean_loss": 0.5579861551656572,
+          "target_losses": {
+            "Q1": 0.5491406835484877,
+            "Q2": 0.573552646240741,
+            "Q3": 0.5827662249897018,
+            "S1": 0.5149017482984077,
+            "S2": 0.5532543738482324,
+            "S3": 0.5128937130660507,
+            "S4": 0.6193936961679791
+          },
+          "target_valid_n": {
+            "Q1": 172,
+            "Q2": 172,
+            "Q3": 172,
+            "S1": 172,
+            "S2": 172,
+            "S3": 172,
+            "S4": 172
+          }
+        },
+        "reference_id341": {
+          "mean_loss": 0.557920246831064,
+          "target_losses": {
+            "Q1": 0.5491406835484877,
+            "Q2": 0.5730912878985882,
+            "Q3": 0.5827662249897018,
+            "S1": 0.5149017482984077,
+            "S2": 0.5532543738482324,
+            "S3": 0.5128937130660507,
+            "S4": 0.6193936961679791
+          },
+          "target_valid_n": {
+            "Q1": 172,
+            "Q2": 172,
+            "Q3": 172,
+            "S1": 172,
+            "S2": 172,
+            "S3": 172,
+            "S4": 172
+          }
+        },
+        "delta_vs_id178": -0.00026582809640474103,
+        "delta_vs_id341": -0.00019991976181155113,
+        "beats_id341": true
+      },
+      "loso_10": {
+        "candidate": {
+          "mean_loss": 0.5385146186735679,
+          "target_losses": {
+            "Q1": 0.5514324298991691,
+            "Q2": 0.5563007929035946,
+            "Q3": 0.5670897848363183,
+            "S1": 0.47163044694164036,
+            "S2": 0.529556132747474,
+            "S3": 0.4908930389002769,
+            "S4": 0.6026997044865013
+          },
+          "target_valid_n": {
+            "Q1": 450,
+            "Q2": 450,
+            "Q3": 450,
+            "S1": 450,
+            "S2": 450,
+            "S3": 450,
+            "S4": 450
+          }
+        },
+        "reference_id178": {
+          "mean_loss": 0.5386377373903545,
+          "target_losses": {
+            "Q1": 0.5519157186538463,
+            "Q2": 0.5566793351664245,
+            "Q3": 0.5670897848363183,
+            "S1": 0.47163044694164036,
+            "S2": 0.529556132747474,
+            "S3": 0.4908930389002769,
+            "S4": 0.6026997044865013
+          },
+          "target_valid_n": {
+            "Q1": 450,
+            "Q2": 450,
+            "Q3": 450,
+            "S1": 450,
+            "S2": 450,
+            "S3": 450,
+            "S4": 450
+          }
+        },
+        "reference_id341": {
+          "mean_loss": 0.538583659924236,
+          "target_losses": {
+            "Q1": 0.5519157186538463,
+            "Q2": 0.5563007929035946,
+            "Q3": 0.5670897848363183,
+            "S1": 0.47163044694164036,
+            "S2": 0.529556132747474,
+            "S3": 0.4908930389002769,
+            "S4": 0.6026997044865013
+          },
+          "target_valid_n": {
+            "Q1": 450,
+            "Q2": 450,
+            "Q3": 450,
+            "S1": 450,
+            "S2": 450,
+            "S3": 450,
+            "S4": 450
+          }
+        },
+        "delta_vs_id178": -0.00012311871678660768,
+        "delta_vs_id341": -6.90412506680893e-05,
+        "beats_id341": true
+      }
+    },
+    "primary_deltas_vs_id341": {
+      "subject_hole_5": -8.348724474860347e-06,
+      "actual_test_band_holdout": -0.00010268336676355627,
+      "test_boundary_neighbor2_holdout": -0.0006835494120016605,
+      "test_boundary_neighbor5_holdout": -0.00019991976181155113,
+      "loso_10": -6.90412506680893e-05
+    },
+    "primary_wins_vs_id341": 5,
+    "all_primary_splits_beat_id341": true,
+    "mean_primary_delta_vs_id341": -0.0002127085031439435,
+    "max_primary_delta_vs_id341": -8.348724474860347e-06
+  },
+  "test_geometry": {
+    "computed_in_memory_only": true,
+    "full_train_sources": {
+      "Q1": {
+        "model": "hgb_l4_l2_5",
+        "source_mean": 0.49363504452283835,
+        "source_std": 0.11197237286062525
+      }
+    },
+    "source_target_mean": {
+      "Q1": 0.5110820328111652,
+      "Q2": 0.5560521489965559,
+      "Q3": 0.6366606681154913,
+      "S1": 0.6843838008766049,
+      "S2": 0.6385934354269325,
+      "S3": 0.6370151045667353,
+      "S4": 0.5630487990021661
+    },
+    "source_target_std": {
+      "Q1": 0.23355547546374253,
+      "Q2": 0.19314916453548603,
+      "Q3": 0.20030620198523336,
+      "S1": 0.21624822943031555,
+      "S2": 0.22694065833454102,
+      "S3": 0.23961586997203288,
+      "S4": 0.14747746559053554
+    },
+    "vs_base": {
+      "id178": {
+        "mean_abs_delta_all_targets": 0.0014735822999584777,
+        "mean_delta_all_targets": -0.00013848533043466895,
+        "mean_abs_delta_by_target": {
+          "Q1": 0.009450510966996508,
+          "Q2": 0.0008645651327128373,
+          "Q3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean_delta_by_target": {
+          "Q1": -0.0009182625414909092,
+          "Q2": -5.113477155177401e-05,
+          "Q3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "corr_by_target": {
+          "Q1": 0.9997719836917066,
+          "Q2": 0.9999875597692334,
+          "Q3": 1.0,
+          "S1": 1.0,
+          "S2": 1.0,
+          "S3": 1.0,
+          "S4": 1.0
+        }
+      },
+      "id287": {
+        "mean_abs_delta_all_targets": 0.11641268693833728,
+        "mean_delta_all_targets": -0.01760119103808313,
+        "mean_abs_delta_by_target": {
+          "Q1": 0.13159087904442895,
+          "Q2": 0.14091088188493298,
+          "Q3": 0.13804171815369956,
+          "S1": 0.12250572318905188,
+          "S2": 0.13541058868500155,
+          "S3": 0.0348590918567193,
+          "S4": 0.11156992575452686
+        },
+        "mean_delta_by_target": {
+          "Q1": -0.01828506262813366,
+          "Q2": -0.016203781715900718,
+          "Q3": -0.04146940679547213,
+          "S1": -0.017003631060377028,
+          "S2": 0.006984508523464192,
+          "S3": -0.00691316750048094,
+          "S4": -0.030317796089681607
+        },
+        "corr_by_target": {
+          "Q1": 0.9027794096302714,
+          "Q2": 0.8142667642056594,
+          "Q3": 0.8620597658364866,
+          "S1": 0.8641538936071779,
+          "S2": 0.8581416900522751,
+          "S3": 0.9828257486569814,
+          "S4": 0.8278334047587458
+        }
+      },
+      "id329": {
+        "mean_abs_delta_all_targets": 0.019660859684297895,
+        "mean_delta_all_targets": 0.005003393157366428,
+        "mean_abs_delta_by_target": {
+          "Q1": 0.02977375849153613,
+          "Q2": 0.023664902763386196,
+          "Q3": 0.026233706476251104,
+          "S1": 0.013495816308241903,
+          "S2": 0.01846922737893788,
+          "S3": 0.008509538931144927,
+          "S4": 0.01747906744058712
+        },
+        "mean_delta_by_target": {
+          "Q1": -0.0026530512519663406,
+          "Q2": 0.004914903655208283,
+          "Q3": 0.014937705502418889,
+          "S1": 0.0077273590028958845,
+          "S2": 0.009208362915058431,
+          "S3": -0.0015728346826790617,
+          "S4": 0.0024613069606289097
+        },
+        "corr_by_target": {
+          "Q1": 0.9912468965758647,
+          "Q2": 0.9914346049418208,
+          "Q3": 0.9952937671209346,
+          "S1": 0.9966806495681292,
+          "S2": 0.9956246261765123,
+          "S3": 0.9989031048206279,
+          "S4": 0.9891121603818209
+        }
+      },
+      "id341": {
+        "mean_abs_delta_all_targets": 0.0013500729952852153,
+        "mean_delta_all_targets": -0.00013118036307012984,
+        "mean_abs_delta_by_target": {
+          "Q1": 0.009450510966996508,
+          "Q2": 0.0,
+          "Q3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean_delta_by_target": {
+          "Q1": -0.0009182625414909092,
+          "Q2": 0.0,
+          "Q3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "corr_by_target": {
+          "Q1": 0.9997719836917066,
+          "Q2": 1.0,
+          "Q3": 1.0,
+          "S1": 1.0,
+          "S2": 1.0,
+          "S3": 1.0,
+          "S4": 1.0
+        }
+      }
+    }
+  },
+  "decision": {
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "selected_target_count": 1,
+    "selected_targets": [
+      "Q1"
+    ],
+    "all_primary_splits_beat_id341": true,
+    "primary_wins_vs_id341": 5,
+    "mean_primary_delta_vs_id341": -0.0002127085031439435,
+    "max_primary_delta_vs_id341": -8.348724474860347e-06,
+    "projected_public_proxy_from_id341": 0.6036170749968561,
+    "beats_id178_public_anchor_proxy": false,
+    "final_block_a_gate_pass": false,
+    "public_058_reviewable": false,
+    "next_action": "If final_block_a_gate_pass is false, do not widen local blending; keep block A as negative/partial evidence and run the approved no-submit Kaggle block only if explicit remote execution is desired."
+  },
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

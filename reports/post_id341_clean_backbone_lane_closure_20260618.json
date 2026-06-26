@@ -1,0 +1,35 @@
+{
+  "created_at_kst": "2026-06-18 05:37:44 UTC+09:00",
+  "diagnostic": "post_id341_clean_backbone_lane_closure",
+  "purpose": "Decide whether to continue ID221/ID226 clean-backbone work after the fold-internal ID226 calibration smoke.",
+  "inputs": {
+    "clean_backbone_next_step": "reports/post_id341_clean_backbone_next_step_decision_20260618.json",
+    "clean_id226_calibration_smoke": "reports/post_id341_clean_id226_calibration_smoke_20260618.json"
+  },
+  "evidence": {
+    "id221_treat_as_anchor_control": true,
+    "id226_delta_vs_id218": 0.0003377677370208776,
+    "id226_delta_vs_id178": -0.004196804692353617,
+    "id226_delta_vs_id341": -0.004142727226235099,
+    "id226_primary_beats_id178": false,
+    "id226_primary_beats_id341": false,
+    "id226_clean_calibration_signal": false,
+    "id226_failed_projection_id287": 0.03947733985111541
+  },
+  "decision": {
+    "close_clean_backbone_lane_now": true,
+    "do_not_replay_id227_228_237": true,
+    "do_not_create_id342_from_clean_backbone": true,
+    "next_lane": "stronger_raw_or_sequence_source_model",
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_heavy_rebuild_now": false,
+    "next_action": "Stop local ID221/ID226/ID227/ID228/ID237 clean-backbone escalation. The next score-relevant report-only work should be a stronger raw/sequence source model or another independent source family, then transfer-gated against ID178/287/329/341."
+  },
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_dacon_submission_made": true
+}

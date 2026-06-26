@@ -1,0 +1,254 @@
+{
+  "created_at_kst": "2026-06-18 03:35:22 UTC+09:00",
+  "diagnostic": "id340_exact_sequence_full_geometry_gate",
+  "candidate_design": {
+    "name": "blend_id178_sequence_summary_lr_c0_3_w0.03",
+    "base_id": 178,
+    "source_model": {
+      "name": "lr_c0_3",
+      "kind": "lr",
+      "c_value": 0.3,
+      "max_depth": null,
+      "max_leaf_nodes": null
+    },
+    "fixed_blend_weight": 0.03,
+    "modified_targets": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "artifact_status": "not_created"
+  },
+  "sequence_feature_summary": {
+    "n_sequence_rows": 809,
+    "n_total_channels": 68,
+    "n_summary_features": 2108,
+    "feature_family_count": 31
+  },
+  "reference_sources": {
+    "178": "base_oof_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638.csv; base_test_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638.csv",
+    "287": "base_oof_id_287_post285_base282_fixedtemp_balanced_cv0.378934.csv; base_test_id_287_post285_base282_fixedtemp_balanced_cv0.378934.csv",
+    "329": "base_oof_id_329_post328_combo4_cap080_budget050_practical_cv0.516718.csv; base_test_id_329_post328_combo4_cap080_budget050_practical_cv0.516718.csv",
+    "335": "base_oof_id_335_id178_alpha_s4half_stressguard_cv0.539690.csv; base_test_id_335_id178_alpha_s4half_stressguard_cv0.539690.csv",
+    "337": "base_oof_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066.csv; base_test_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066.csv",
+    "339": "base_oof_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441.csv; base_test_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441.csv"
+  },
+  "split_probe_context": {
+    "source": "reports/id340_sequence_summary_candidate_decision_20260618.json",
+    "split_rows": [
+      {
+        "split": "subject_hole_5",
+        "found": true,
+        "mean_loss": 0.5383460244918444,
+        "id178_loss": 0.5386377373903545,
+        "delta_vs_id178": -0.00029171289851004367,
+        "is_primary": true
+      },
+      {
+        "split": "subject_timeseries_5",
+        "found": true,
+        "mean_loss": 0.5401152092012809,
+        "id178_loss": 0.5397472162516725,
+        "delta_vs_id178": 0.0003679929496083201,
+        "is_primary": false
+      },
+      {
+        "split": "actual_test_band_holdout",
+        "found": true,
+        "mean_loss": 0.5400825804450898,
+        "id178_loss": 0.5416036568651422,
+        "delta_vs_id178": -0.0015210764200523919,
+        "is_primary": true
+      },
+      {
+        "split": "test_boundary_neighbor2_holdout",
+        "found": true,
+        "mean_loss": 0.5855804298120988,
+        "id178_loss": 0.5862898684706096,
+        "delta_vs_id178": -0.0007094386585108081,
+        "is_primary": true
+      },
+      {
+        "split": "test_boundary_neighbor5_holdout",
+        "found": true,
+        "mean_loss": 0.5578141431794029,
+        "id178_loss": 0.5579861551656572,
+        "delta_vs_id178": -0.0001720119862542724,
+        "is_primary": true
+      },
+      {
+        "split": "loso_10",
+        "found": true,
+        "mean_loss": 0.5382697024431664,
+        "id178_loss": 0.5386377373903545,
+        "delta_vs_id178": -0.0003680349471880673,
+        "is_primary": true
+      }
+    ],
+    "subject_hole_loss": 0.5383460244918444,
+    "subject_hole_delta_vs_id178": -0.00029171289851004367,
+    "primary_gate_pass_from_probe": true
+  },
+  "geometry": {
+    "mean_delta_vs_178": 0.00940549178539725,
+    "max_delta_vs_178": 0.028566298992450778,
+    "mean_delta_vs_329": 0.020999175650682638,
+    "max_delta_vs_329": 0.08488723748139915,
+    "mean_delta_vs_335": 0.01530724623951731,
+    "max_delta_vs_335": 0.11332375276274731,
+    "projection_failed": -0.004776427690950039,
+    "prediction_mean": 0.6035167219461375,
+    "prediction_std": 0.21694895453980015
+  },
+  "risk_tier": "reviewable_low_movement",
+  "conservative_public_risk_proxy": 0.6067234729944672,
+  "proxy_comparison": {
+    "id337_proxy": 0.6050222139833282,
+    "id339_proxy": 0.609547092560233,
+    "delta_vs_id337_proxy": 0.0017012590111389336,
+    "delta_vs_id339_proxy": -0.0028236195657658225,
+    "naive_id178_gap_projected_public": 0.6011190586014898
+  },
+  "candidate_vs_reference_test_delta": {
+    "id337": {
+      "mean_abs_delta": 0.009564368774639866,
+      "max_abs_delta": 0.032082190267599286
+    },
+    "id339": {
+      "mean_abs_delta": 0.012532183299225766,
+      "max_abs_delta": 0.07274580418909876
+    },
+    "id329": {
+      "mean_abs_delta": 0.020999175650682638,
+      "max_abs_delta": 0.08488723748139915
+    },
+    "id287": {
+      "mean_abs_delta": 0.11710334493744322,
+      "max_abs_delta": 0.3092191611374985
+    }
+  },
+  "test_delta_vs_id178_by_target": {
+    "max": {
+      "Q1": 0.028306070560607077,
+      "Q2": 0.024305338598801435,
+      "Q3": 0.026010753516255702,
+      "S1": 0.026654235684107963,
+      "S2": 0.02763782354519828,
+      "S3": 0.028566298992450778,
+      "S4": 0.021408224556623612
+    },
+    "mean": {
+      "Q1": 0.009602890579726445,
+      "Q2": 0.01037478159255399,
+      "Q3": 0.010242913904719405,
+      "S1": 0.007941351574293274,
+      "S2": 0.009408249120564307,
+      "S3": 0.008953361238228062,
+      "S4": 0.009314894487695267
+    }
+  },
+  "source_prediction_details": {
+    "Q1": {
+      "positive_rate_train": 0.4955555555555556,
+      "source_train_mean": 0.49727904757439,
+      "source_test_mean": 0.511354894632345,
+      "source_test_min": 1.9829661819289556e-09,
+      "source_test_max": 0.9999936730013242,
+      "source_test_std": 0.40170789766795095
+    },
+    "Q2": {
+      "positive_rate_train": 0.5622222222222222,
+      "source_train_mean": 0.5582600174147201,
+      "source_test_mean": 0.5356493719401534,
+      "source_test_min": 1.9819077536185087e-07,
+      "source_test_max": 0.9999891844196257,
+      "source_test_std": 0.3963210860689783
+    },
+    "Q3": {
+      "positive_rate_train": 0.6,
+      "source_train_mean": 0.5938630454520771,
+      "source_test_mean": 0.6019766565887849,
+      "source_test_min": 0.00014851806595477692,
+      "source_test_max": 0.9999999999297775,
+      "source_test_std": 0.3898213962126527
+    },
+    "S1": {
+      "positive_rate_train": 0.6822222222222222,
+      "source_train_mean": 0.6705754875312,
+      "source_test_mean": 0.6090637025565809,
+      "source_test_min": 7.274736043875593e-07,
+      "source_test_max": 0.9999983361402562,
+      "source_test_std": 0.3944533232855296
+    },
+    "S2": {
+      "positive_rate_train": 0.6511111111111111,
+      "source_train_mean": 0.6407866386714876,
+      "source_test_mean": 0.6184001930157761,
+      "source_test_min": 4.376016240774096e-05,
+      "source_test_max": 0.999998563664527,
+      "source_test_std": 0.39825646516355984
+    },
+    "S3": {
+      "positive_rate_train": 0.6622222222222223,
+      "source_train_mean": 0.6528177143762693,
+      "source_test_mean": 0.632494110144614,
+      "source_test_min": 0.0006471986163362816,
+      "source_test_max": 0.9999992072312339,
+      "source_test_std": 0.3655513910509008
+    },
+    "S4": {
+      "positive_rate_train": 0.56,
+      "source_train_mean": 0.5557231133910692,
+      "source_test_mean": 0.6125886653973769,
+      "source_test_min": 4.513130218956142e-07,
+      "source_test_max": 0.9999987213677104,
+      "source_test_std": 0.37468689189891335
+    }
+  },
+  "loss_context_not_cv": {
+    "warning": "These losses blend ID178 OOF with full-train in-sample source predictions. They are diagnostic only and must not be used as local CV evidence.",
+    "base_id178_oof_losses": {
+      "Q1": 0.5519157186538461,
+      "Q2": 0.5566793351664245,
+      "Q3": 0.5670897848363184,
+      "S1": 0.47163044694164047,
+      "S2": 0.529556132747474,
+      "S3": 0.4908930389002769,
+      "S4": 0.6026997044865015
+    },
+    "source_full_train_in_sample_losses": {
+      "Q1": 0.1296038790120678,
+      "Q2": 0.11934733324796098,
+      "Q3": 0.13361996857123287,
+      "S1": 0.1139350272167662,
+      "S2": 0.14021159420118376,
+      "S3": 0.15535805692774438,
+      "S4": 0.14418074412082374
+    },
+    "candidate_mixed_in_sample_losses": {
+      "Q1": 0.5314226640244055,
+      "Q2": 0.5362702653768306,
+      "Q3": 0.5465953645053317,
+      "S1": 0.45183396353638083,
+      "S2": 0.5110181819352878,
+      "S3": 0.47346216390392903,
+      "S4": 0.5826192303904676
+    },
+    "candidate_mixed_in_sample_mean": 0.5190316905246618
+  },
+  "decision": {
+    "passes_full_geometry_gate_for_artifact_review": false,
+    "promote_submission_candidate_now": false,
+    "create_id340_artifact_now": false,
+    "submit_now": false,
+    "public_058_plausible": false,
+    "read": "The exact design is safe enough for artifact-review if movement/proxy are below ID337/ID339, but it remains report-only here. Public 0.58 requires stronger evidence than this proxy gate."
+  },
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_dacon_submission_made": true
+}

@@ -1,0 +1,131 @@
+{
+  "created_at_kst": "2026-06-23 22:02:30 UTC+09:00",
+  "diagnostic": "kaggle_remote_fail_closed_dryrun_audit",
+  "purpose": "Prove that the Kaggle-facing Make targets fail closed without explicit approval before any Kaggle CLI command can run.",
+  "tested_targets": [
+    "kaggle-push-code",
+    "kaggle-push-upstream-patch-dataset",
+    "kaggle-check-base-dataset-files",
+    "kaggle-check-upstream-patch-dataset-files",
+    "kaggle-push-upstream-rebuild-runner",
+    "kaggle-kernel-status-upstream-rebuild",
+    "kaggle-pull-upstream-rebuild-output",
+    "kaggle-wait-and-pull-upstream-rebuild-output"
+  ],
+  "expected_guard_message": "Kaggle remote action blocked",
+  "forbidden_leak_markers": [
+    "datasets version",
+    "datasets files",
+    "kernels push",
+    "kernels status",
+    "kernels output",
+    "Submitting ",
+    "dacon_submit_api"
+  ],
+  "results": [
+    {
+      "target": "kaggle-push-code",
+      "cmd": "ALLOW_KAGGLE_REMOTE=false KAGGLE=/usr/bin/false make --no-print-directory kaggle-push-code",
+      "returncode": 2,
+      "guard_message_present": true,
+      "forbidden_leak_markers": [],
+      "failed_before_remote": true,
+      "stdout_tail": "Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\n",
+      "stderr_tail": "make: *** [require-kaggle-remote-approval] Error 2\n"
+    },
+    {
+      "target": "kaggle-push-upstream-patch-dataset",
+      "cmd": "ALLOW_KAGGLE_REMOTE=false KAGGLE=/usr/bin/false make --no-print-directory kaggle-push-upstream-patch-dataset",
+      "returncode": 2,
+      "guard_message_present": true,
+      "forbidden_leak_markers": [],
+      "failed_before_remote": true,
+      "stdout_tail": "Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\n",
+      "stderr_tail": "make: *** [require-kaggle-remote-approval] Error 2\n"
+    },
+    {
+      "target": "kaggle-check-base-dataset-files",
+      "cmd": "ALLOW_KAGGLE_REMOTE=false KAGGLE=/usr/bin/false make --no-print-directory kaggle-check-base-dataset-files",
+      "returncode": 2,
+      "guard_message_present": true,
+      "forbidden_leak_markers": [],
+      "failed_before_remote": true,
+      "stdout_tail": "Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\n",
+      "stderr_tail": "make: *** [require-kaggle-remote-approval] Error 2\n"
+    },
+    {
+      "target": "kaggle-check-upstream-patch-dataset-files",
+      "cmd": "ALLOW_KAGGLE_REMOTE=false KAGGLE=/usr/bin/false make --no-print-directory kaggle-check-upstream-patch-dataset-files",
+      "returncode": 2,
+      "guard_message_present": true,
+      "forbidden_leak_markers": [],
+      "failed_before_remote": true,
+      "stdout_tail": "Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\n",
+      "stderr_tail": "make: *** [require-kaggle-remote-approval] Error 2\n"
+    },
+    {
+      "target": "kaggle-push-upstream-rebuild-runner",
+      "cmd": "ALLOW_KAGGLE_REMOTE=false KAGGLE=/usr/bin/false make --no-print-directory kaggle-push-upstream-rebuild-runner",
+      "returncode": 2,
+      "guard_message_present": true,
+      "forbidden_leak_markers": [],
+      "failed_before_remote": true,
+      "stdout_tail": "/Library/Developer/CommandLineTools/usr/bin/make kaggle-push-only KAGGLE_NOTEBOOK_DIR=notebooks/kaggle_upstream_rebuild_runner KAGGLE_SLUG=softkleenex/dacon-etri-upstream-rebuild-post-id341 KAGGLE_ENABLE_GPU=false KAGGLE_ENABLE_TPU=false\nError: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\n",
+      "stderr_tail": "make[1]: *** [require-kaggle-remote-approval] Error 2\nmake: *** [kaggle-push-upstream-rebuild-runner] Error 2\n"
+    },
+    {
+      "target": "kaggle-kernel-status-upstream-rebuild",
+      "cmd": "ALLOW_KAGGLE_REMOTE=false KAGGLE=/usr/bin/false make --no-print-directory kaggle-kernel-status-upstream-rebuild",
+      "returncode": 2,
+      "guard_message_present": true,
+      "forbidden_leak_markers": [],
+      "failed_before_remote": true,
+      "stdout_tail": "Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\n",
+      "stderr_tail": "make: *** [require-kaggle-remote-approval] Error 2\n"
+    },
+    {
+      "target": "kaggle-pull-upstream-rebuild-output",
+      "cmd": "ALLOW_KAGGLE_REMOTE=false KAGGLE=/usr/bin/false make --no-print-directory kaggle-pull-upstream-rebuild-output",
+      "returncode": 2,
+      "guard_message_present": true,
+      "forbidden_leak_markers": [],
+      "failed_before_remote": true,
+      "stdout_tail": "Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\n",
+      "stderr_tail": "make: *** [require-kaggle-remote-approval] Error 2\n"
+    },
+    {
+      "target": "kaggle-wait-and-pull-upstream-rebuild-output",
+      "cmd": "ALLOW_KAGGLE_REMOTE=false KAGGLE=/usr/bin/false make --no-print-directory kaggle-wait-and-pull-upstream-rebuild-output",
+      "returncode": 2,
+      "guard_message_present": true,
+      "forbidden_leak_markers": [],
+      "failed_before_remote": true,
+      "stdout_tail": "Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\n",
+      "stderr_tail": "make: *** [require-kaggle-remote-approval] Error 2\n"
+    }
+  ],
+  "checks": {
+    "all_failed_before_remote": true,
+    "all_returned_nonzero": true,
+    "all_guard_messages_present": true,
+    "no_forbidden_leak_markers": true
+  },
+  "decision": {
+    "remote_fail_closed_dryrun_pass": true,
+    "requires_explicit_user_approval": true,
+    "execute_kaggle_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "next_action": "Remote targets fail closed without approval; explicit approval is still required before any Kaggle network step."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

@@ -12,12 +12,12 @@ DACON 환경의 특성(하루 제출 횟수 제한, 평가 점수 민감도)과 
 - **Path, Metadata & Syntax Check**: 데이터 로더의 Kaggle flat-directory fallback, kernel metadata, config, compute quota, Python syntax를 검사합니다.
 
 ## 🤖 2. 결과 회수 및 명시적 제출
-자동 제출은 기록 무결성을 해치기 쉬우므로 기본 워크플로우에서 제거했습니다. Kaggle 실행 후 `make kaggle-wait-and-pull`로 결과를 받고, `make normalize-submissions`로 기록을 정규화한 뒤, 검토한 파일만 `make dacon-submit`으로 제출합니다.
+자동 제출은 기록 무결성을 해치기 쉬우므로 기본 워크플로우에서 제거했습니다. Kaggle 실행 후 `make kaggle-wait-and-pull`로 결과를 받고, `make normalize-submissions`로 기록을 정규화한 뒤, 검토한 파일만 `ALLOW_DACON_SUBMIT=true make dacon-submit`으로 제출합니다.
 
 **주요 점검 로직**:
 - **Kaggle Output Pull**: `make kaggle-wait-and-pull`이 커널 종료 후 결과물을 `submissions/`로 받습니다.
 - **Submission Normalization**: `normalize_submission_log.py`가 `status_clean`, `risk_reason`, `safe_for_default_ensemble`을 갱신합니다.
-- **Deliberate DACON Submit**: `dacon-submit`은 `SUB_PATH`와 `SUB_MEMO`를 명시해 실행합니다.
+- **Deliberate DACON Submit**: `dacon-submit`은 `SUB_PATH`, `SUB_MEMO`, `ALLOW_DACON_SUBMIT=true`를 모두 명시해야 실행됩니다.
 
 ## 🤝 3. 지능형 앙상블 스크립트 (`ensemble.py`)
 여러 번의 실험(CatBoost, LSTM 등)에서 얻어진 결과물들을 섞어 점수를 안정화(Soft Voting)하는 스크립트입니다.

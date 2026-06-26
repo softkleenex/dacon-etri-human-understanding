@@ -1,0 +1,497 @@
+{
+  "inputs": {
+    "official_files": {
+      "metrics_train": "data/raw/ch2026_metrics_train.csv",
+      "submission_sample": "data/raw/ch2026_submission_sample.csv",
+      "metrics_description_en": "data/raw/ch2026_metrics_description.md",
+      "metrics_description_ko": "data/raw/ch2026_metrics_description_ko.md",
+      "processed_train": "data/processed/df_train_raw.parquet",
+      "processed_test": "data/processed/df_test_raw.parquet"
+    },
+    "raw_modality_files": {
+      "mACStatus": "data/raw/ch2025_data_items/ch2025_mACStatus.parquet",
+      "mActivity": "data/raw/ch2025_data_items/ch2025_mActivity.parquet",
+      "mAmbience": "data/raw/ch2025_data_items/ch2025_mAmbience.parquet",
+      "mBle": "data/raw/ch2025_data_items/ch2025_mBle.parquet",
+      "mGps": "data/raw/ch2025_data_items/ch2025_mGps.parquet",
+      "mLight": "data/raw/ch2025_data_items/ch2025_mLight.parquet",
+      "mScreenStatus": "data/raw/ch2025_data_items/ch2025_mScreenStatus.parquet",
+      "mUsageStats": "data/raw/ch2025_data_items/ch2025_mUsageStats.parquet",
+      "mWifi": "data/raw/ch2025_data_items/ch2025_mWifi.parquet",
+      "wHr": "data/raw/ch2025_data_items/ch2025_wHr.parquet",
+      "wLight": "data/raw/ch2025_data_items/ch2025_wLight.parquet",
+      "wPedo": "data/raw/ch2025_data_items/ch2025_wPedo.parquet"
+    },
+    "external_etri_files": {
+      "user_info_2019_2018_updated": "data/external/etri_lifelog/user_info_2019_2018_updated.csv",
+      "user_info_2020": "data/external/etri_lifelog/user_info_2020.csv",
+      "user_sleep_2019_2018": "data/external/etri_lifelog/user_sleep_2019_2018.csv",
+      "user_sleep_2020": "data/external/etri_lifelog/user_sleep_2020.csv",
+      "user_survey_2019_2018": "data/external/etri_lifelog/user_survey_2019_2018.csv",
+      "user_survey_2020": "data/external/etri_lifelog/user_survey_2020.csv"
+    },
+    "reference_docs": {
+      "data_dictionary": "docs/competition/DATA_DICTIONARY.md",
+      "data_items_2025": "docs/competition/Data items in the 2025 challenge.md",
+      "dataset_design_2024": "docs/competition/Human Understanding AI Paper Challenge 2024 - Dataset Design.md",
+      "etri_lifelog_2024_paper_notes": "docs/domain/etri_lifelog_2024_paper.md",
+      "etri_pretraining_strategy": "docs/infrastructure/etri/etri_pretraining_strategy.md"
+    },
+    "evidence_reports": {
+      "public_local_gap": "reports/post_id341_public_local_gap_diagnosis_20260618.json",
+      "public_transfer": "reports/post_id341_public_transfer_audit_20260618.json",
+      "new_source_blueprint": "reports/post_id341_new_source_blueprint_20260618.json",
+      "external_etri_prior": "reports/external_etri_prior_smoke_post_id341_20260618.json",
+      "combined_sleep_evening_external": "reports/combined_sleep_evening_external_prior_gate_post_id341_20260618.json",
+      "phase2_raw_sequence_spec": "reports/post_id341_phase2_raw_source_execution_spec_20260618.json",
+      "upstream_phase1_readiness": "reports/post_id341_upstream_rebuild_phase1_readiness_20260618.json",
+      "local_source_closure": "reports/post_id341_local_source_closure_synthesis_20260618.json",
+      "kaggle_prelaunch": "reports/post_id341_kaggle_prelaunch_readiness_gate_20260618.json"
+    },
+    "runner_notebook": "notebooks/kaggle_upstream_rebuild_runner/Upstream_Rebuild_Post_ID341_Runner.ipynb"
+  },
+  "coverage": {
+    "official": {
+      "all_present": true,
+      "missing": [],
+      "items": {
+        "metrics_train": {
+          "name": "metrics_train",
+          "path": "data/raw/ch2026_metrics_train.csv",
+          "exists": true,
+          "bytes": 18506,
+          "rows": 450
+        },
+        "submission_sample": {
+          "name": "submission_sample",
+          "path": "data/raw/ch2026_submission_sample.csv",
+          "exists": true,
+          "bytes": 10306,
+          "rows": 250
+        },
+        "metrics_description_en": {
+          "name": "metrics_description_en",
+          "path": "data/raw/ch2026_metrics_description.md",
+          "exists": true,
+          "bytes": 5499
+        },
+        "metrics_description_ko": {
+          "name": "metrics_description_ko",
+          "path": "data/raw/ch2026_metrics_description_ko.md",
+          "exists": true,
+          "bytes": 6877
+        },
+        "processed_train": {
+          "name": "processed_train",
+          "path": "data/processed/df_train_raw.parquet",
+          "exists": true,
+          "bytes": 2035406,
+          "rows": 450,
+          "columns": 242,
+          "metadata_read": true
+        },
+        "processed_test": {
+          "name": "processed_test",
+          "path": "data/processed/df_test_raw.parquet",
+          "exists": true,
+          "bytes": 1244701,
+          "rows": 250,
+          "columns": 242,
+          "metadata_read": true
+        }
+      }
+    },
+    "raw_modalities": {
+      "all_present": true,
+      "missing": [],
+      "items": {
+        "mACStatus": {
+          "name": "mACStatus",
+          "path": "data/raw/ch2025_data_items/ch2025_mACStatus.parquet",
+          "exists": true,
+          "bytes": 4537839,
+          "rows": 939896,
+          "columns": 3,
+          "metadata_read": true
+        },
+        "mActivity": {
+          "name": "mActivity",
+          "path": "data/raw/ch2025_data_items/ch2025_mActivity.parquet",
+          "exists": true,
+          "bytes": 4642475,
+          "rows": 961062,
+          "columns": 3,
+          "metadata_read": true
+        },
+        "mAmbience": {
+          "name": "mAmbience",
+          "path": "data/raw/ch2025_data_items/ch2025_mAmbience.parquet",
+          "exists": true,
+          "bytes": 14842921,
+          "rows": 476577,
+          "columns": 3,
+          "metadata_read": true
+        },
+        "mBle": {
+          "name": "mBle",
+          "path": "data/raw/ch2025_data_items/ch2025_mBle.parquet",
+          "exists": true,
+          "bytes": 4066339,
+          "rows": 21830,
+          "columns": 5,
+          "metadata_read": true
+        },
+        "mGps": {
+          "name": "mGps",
+          "path": "data/raw/ch2025_data_items/ch2025_mGps.parquet",
+          "exists": true,
+          "bytes": 71923967,
+          "rows": 800611,
+          "columns": 6,
+          "metadata_read": true
+        },
+        "mLight": {
+          "name": "mLight",
+          "path": "data/raw/ch2025_data_items/ch2025_mLight.parquet",
+          "exists": true,
+          "bytes": 676980,
+          "rows": 96258,
+          "columns": 3,
+          "metadata_read": true
+        },
+        "mScreenStatus": {
+          "name": "mScreenStatus",
+          "path": "data/raw/ch2025_data_items/ch2025_mScreenStatus.parquet",
+          "exists": true,
+          "bytes": 4570592,
+          "rows": 939653,
+          "columns": 3,
+          "metadata_read": true
+        },
+        "mUsageStats": {
+          "name": "mUsageStats",
+          "path": "data/raw/ch2025_data_items/ch2025_mUsageStats.parquet",
+          "exists": true,
+          "bytes": 1001239,
+          "rows": 45197,
+          "columns": 4,
+          "metadata_read": true
+        },
+        "mWifi": {
+          "name": "mWifi",
+          "path": "data/raw/ch2025_data_items/ch2025_mWifi.parquet",
+          "exists": true,
+          "bytes": 3983650,
+          "rows": 76336,
+          "columns": 4,
+          "metadata_read": true
+        },
+        "wHr": {
+          "name": "wHr",
+          "path": "data/raw/ch2025_data_items/ch2025_wHr.parquet",
+          "exists": true,
+          "bytes": 10374973,
+          "rows": 382918,
+          "columns": 3,
+          "metadata_read": true
+        },
+        "wLight": {
+          "name": "wLight",
+          "path": "data/raw/ch2025_data_items/ch2025_wLight.parquet",
+          "exists": true,
+          "bytes": 3408602,
+          "rows": 633741,
+          "columns": 3,
+          "metadata_read": true
+        },
+        "wPedo": {
+          "name": "wPedo",
+          "path": "data/raw/ch2025_data_items/ch2025_wPedo.parquet",
+          "exists": true,
+          "bytes": 4769326,
+          "rows": 748100,
+          "columns": 9,
+          "metadata_read": true
+        }
+      }
+    },
+    "external_etri": {
+      "all_present": true,
+      "missing": [],
+      "items": {
+        "user_info_2019_2018_updated": {
+          "name": "user_info_2019_2018_updated",
+          "path": "data/external/etri_lifelog/user_info_2019_2018_updated.csv",
+          "exists": true,
+          "bytes": 1937,
+          "rows": 50
+        },
+        "user_info_2020": {
+          "name": "user_info_2020",
+          "path": "data/external/etri_lifelog/user_info_2020.csv",
+          "exists": true,
+          "bytes": 1108,
+          "rows": 22
+        },
+        "user_sleep_2019_2018": {
+          "name": "user_sleep_2019_2018",
+          "path": "data/external/etri_lifelog/user_sleep_2019_2018.csv",
+          "exists": true,
+          "bytes": 61026,
+          "rows": 736
+        },
+        "user_sleep_2020": {
+          "name": "user_sleep_2020",
+          "path": "data/external/etri_lifelog/user_sleep_2020.csv",
+          "exists": true,
+          "bytes": 75031,
+          "rows": 615
+        },
+        "user_survey_2019_2018": {
+          "name": "user_survey_2019_2018",
+          "path": "data/external/etri_lifelog/user_survey_2019_2018.csv",
+          "exists": true,
+          "bytes": 64215,
+          "rows": 1285
+        },
+        "user_survey_2020": {
+          "name": "user_survey_2020",
+          "path": "data/external/etri_lifelog/user_survey_2020.csv",
+          "exists": true,
+          "bytes": 91545,
+          "rows": 1230
+        }
+      }
+    },
+    "reference_docs": {
+      "all_present": true,
+      "missing": [],
+      "items": {
+        "data_dictionary": {
+          "name": "data_dictionary",
+          "path": "docs/competition/DATA_DICTIONARY.md",
+          "exists": true,
+          "bytes": 4039
+        },
+        "data_items_2025": {
+          "name": "data_items_2025",
+          "path": "docs/competition/Data items in the 2025 challenge.md",
+          "exists": true,
+          "bytes": 2256
+        },
+        "dataset_design_2024": {
+          "name": "dataset_design_2024",
+          "path": "docs/competition/Human Understanding AI Paper Challenge 2024 - Dataset Design.md",
+          "exists": true,
+          "bytes": 12023
+        },
+        "etri_lifelog_2024_paper_notes": {
+          "name": "etri_lifelog_2024_paper_notes",
+          "path": "docs/domain/etri_lifelog_2024_paper.md",
+          "exists": true,
+          "bytes": 43088
+        },
+        "etri_pretraining_strategy": {
+          "name": "etri_pretraining_strategy",
+          "path": "docs/infrastructure/etri/etri_pretraining_strategy.md",
+          "exists": true,
+          "bytes": 2402
+        }
+      }
+    },
+    "evidence_reports": {
+      "all_present": true,
+      "missing": [],
+      "items": {
+        "public_local_gap": {
+          "path": "reports/post_id341_public_local_gap_diagnosis_20260618.json",
+          "exists": true,
+          "bytes": 10741,
+          "decision": {
+            "public_local_gap_diagnosis_ready": true,
+            "mac_m4_environment_primary_explanation": false,
+            "any_watch_candidate_passes_public_058_recent_floor_proxy": false,
+            "any_watch_candidate_passes_public_058_recent_stress_proxy": false,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "local_cv_needed_for_public_058_recent_floor": 0.517445,
+            "local_cv_needed_for_public_058_recent_stress": 0.494927,
+            "next_action": "Do not promote local CV-only candidates. The next score-relevant move remains the explicit-approved no-submit Kaggle/Linux upstream rebuild, followed by a separate Public-0.58 artifact-contract review only if pulled reports are safe, beat the current confirmed public anchor band, and show min_proxy <= 0.58; ID178-only improvement above 0.58 is a lead, not ID342."
+          }
+        },
+        "public_transfer": {
+          "path": "reports/post_id341_public_transfer_audit_20260618.json",
+          "exists": true,
+          "bytes": 127493,
+          "decision": {
+            "any_candidate_passes_public_058_gate": false,
+            "submit_now": false,
+            "create_submission_artifact": false,
+            "push_kaggle_now": false,
+            "public_058_plausible_candidate_exists": false,
+            "forced_probe_fallback": null,
+            "manual_probe_family_status": "consumed_after_id341_id340_id337_public_micro_probe_slate",
+            "next_action": "Do not continue local OOF recombination or same-family shrinking. The next score-relevant work is the report-only Kaggle upstream source rebuild, or a genuinely new source family evaluated through this transfer gate."
+          }
+        },
+        "new_source_blueprint": {
+          "path": "reports/post_id341_new_source_blueprint_20260618.json",
+          "exists": true,
+          "bytes": 13527,
+          "decision": {
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "top_new_source_family": "sleep_boundary_transition_v1",
+            "next_action": "Implement a report-only Kaggle/local smoke for sleep_boundary_transition_v1 feature generation and frozen-split validation. Do not create a submission artifact unless it beats ID341 proxy under the post-ID341 transfer audit."
+          }
+        },
+        "external_etri_prior": {
+          "path": "reports/external_etri_prior_smoke_post_id341_20260618.json",
+          "exists": true,
+          "bytes": 37128,
+          "decision": {
+            "external_prior_reviewable_low_movement_candidate_exists": false,
+            "external_prior_promotable_public_058_candidate_exists": false,
+            "best_proxy": 0.6015636731586781,
+            "best_proxy_row_name": "S2",
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "next_action": "Use external ETRI data only as weak-prior/reference evidence unless a future source passes the combined transfer gate. Do not concatenate older external rows into current training without a separate leak-free proof."
+          }
+        },
+        "combined_sleep_evening_external": {
+          "path": "reports/combined_sleep_evening_external_prior_gate_post_id341_20260618.json",
+          "exists": true,
+          "bytes": 56491,
+          "decision": {
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "reviewable_low_movement_candidate_exists": false,
+            "proxy_below_id178_candidate_exists": false,
+            "public_058_plausible": false,
+            "best_proxy": 0.6014904915736343,
+            "best_proxy_sleep_scale": 0.0,
+            "best_proxy_evening_scale": 0.025,
+            "best_proxy_external_group": "Q1",
+            "best_proxy_external_scale": 0.0,
+            "next_action": "If this combined non-sequence weak-source gate still does not drop below ID178 public, keep the local new-source stack closed and use the explicit-approved Kaggle upstream rebuild as the next score-relevant step."
+          }
+        },
+        "phase2_raw_sequence_spec": {
+          "path": "reports/post_id341_phase2_raw_source_execution_spec_20260618.json",
+          "exists": true,
+          "bytes": 25052,
+          "decision": {
+            "phase2_spec_ready": true,
+            "recommended_next_revision": "remote_phase2_raw_multimodal_sequence_source_smoke",
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "run_heavy_rebuild_now": false,
+            "next_action": "After explicit approval and pulled green phase-1 runner reports, extend the Kaggle runner only with the stage-contract raw/sequence source smoke. Do not create ID342 unless the pulled temporary source passes transfer and joint-risk gates plus a separate artifact-contract review."
+          }
+        },
+        "upstream_phase1_readiness": {
+          "path": "reports/post_id341_upstream_rebuild_phase1_readiness_20260618.json",
+          "exists": true,
+          "bytes": 22565,
+          "decision": {
+            "phase1_ready": true,
+            "local_new_source_stack_closed": true,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_heavy_rebuild_now": false,
+            "next_action": "Use this refreshed readiness report inside the Kaggle upstream runner. Local new-source stacks did not beat the ID178 public anchor, so do not create ID342 locally; the next useful approved action is a CPU-only report-first upstream rebuild runner before any artifact promotion."
+          }
+        },
+        "local_source_closure": {
+          "path": "reports/post_id341_local_source_closure_synthesis_20260618.json",
+          "exists": true,
+          "bytes": 14675,
+          "decision": {
+            "local_source_closure_synthesis_ready": true,
+            "local_no_approval_score_route_exists": false,
+            "only_score_relevant_open_route": "explicit_approved_clean_upstream_id221_to_id226",
+            "create_submission_artifact": false,
+            "modify_submission_log": false,
+            "create_id342_or_new_submission_id": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "train_model_now": false,
+            "local_source_stack_closed_for_submission_artifact": true,
+            "any_local_lane_promotable": false,
+            "all_required_reports_present": true,
+            "kaggle_source_zip_selftest_ready": true,
+            "kaggle_upstream_packet_ready": true,
+            "recommended_next_lane": "report_first_upstream_rebuild_or_kaggle_linux_parity",
+            "requires_explicit_approval_for_kaggle": true,
+            "requires_exact_kaggle_approval_phrase": true,
+            "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+            "public_058_reviewable": false,
+            "next_action": "Do not create a local ID342 submission artifact. The only score-relevant next move is explicit-user-approved Kaggle/Linux report-first upstream rebuild/parity (`Kaggle upstream rebuild no-submit 실행 승인`), then local intake, remote summary, next-action, and Public-0.58 threshold gates. Only open a Public-0.58 artifact-contract review if the pulled reports are safe, beat the ID178 public-anchor proxy, and show min_proxy <= 0.58; ID178-only improvement above 0.58 is an improvement lead, not ID342."
+          }
+        },
+        "kaggle_prelaunch": {
+          "path": "reports/post_id341_kaggle_prelaunch_readiness_gate_20260618.json",
+          "exists": true,
+          "bytes": 39421,
+          "decision": {
+            "prelaunch_ready_for_explicit_approval": true,
+            "requires_explicit_user_approval": true,
+            "execute_kaggle_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "artifact_contract_review_allowed": false,
+            "next_action": "Await explicit approval of the exact command sequence, then run the no-submit Kaggle/Linux parity path."
+          }
+        }
+      }
+    },
+    "kaggle_runner_patterns": {
+      "notebook_exists": true,
+      "patterns": {
+        "external_prior": true,
+        "combined_external": true,
+        "phase2_raw_sequence_plan": true,
+        "phase2_block_a": true,
+        "phase2_block_a_gap": true,
+        "phase2_block_b": true,
+        "clean_backbone": true
+      },
+      "all_patterns_present": true
+    }
+  },
+  "source_role_summary": {
+    "official_metric_and_split_files": "Primary train/test/spec artifacts are present and remain the only supervised training ground.",
+    "raw_modalities": "All 2025 raw modality parquet tables are present; recent local reports used sleep, evening, usage, ambience, place/social, and sensor-adherence views.",
+    "external_etri": "External 2019/2020 ETRI files are present and already evaluated as weak priors; direct concatenation is not allowed by current evidence.",
+    "paper_and_data_specs": "Competition and ETRI paper notes are present as feature-design references, not label leakage sources.",
+    "kaggle_runner": "The upstream no-submit runner references the current external, raw/sequence phase-2, and clean-backbone closure scripts."
+  },
+  "decision": {
+    "data_source_coverage_audit_ready": true,
+    "all_major_sources_present": true,
+    "all_required_evidence_reports_present": true,
+    "upstream_runner_references_required_source_checks": true,
+    "data_source_coverage_ready": true,
+    "external_direct_concat_allowed": false,
+    "external_prior_reviewable": false,
+    "local_source_stack_closed_for_submission_artifact": true,
+    "public_058_local_cv_only_gate_passed": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Data/source coverage is accounted for locally. Do not concatenate external rows or create ID342; the next score-relevant step remains explicit-approved no-submit Kaggle/Linux upstream rebuild."
+  }
+}

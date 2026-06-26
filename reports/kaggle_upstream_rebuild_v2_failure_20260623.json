@@ -1,0 +1,38 @@
+{
+  "created_at_kst": "2026-06-23",
+  "diagnostic": "kaggle_upstream_rebuild_v2_failure",
+  "kernel_slug": "softkleenex/dacon-etri-upstream-rebuild-post-id341",
+  "kernel_status": "KernelWorkerStatus.ERROR",
+  "run_contract": "no-submit",
+  "dataset_sources": [
+    "softkleenex/dacon-etri-human-base",
+    "softkleenex/dacon-etri-upstream-patch-post-id341"
+  ],
+  "evidence": {
+    "kaggle_cli_probe_dataset_created": "softkleenex/codex-kaggle-cli-probe-20260623",
+    "kaggle_cli_probe_kernel_created": "softkleenex/codex-kaggle-kernel-probe-20260623",
+    "packaged_project_required_paths_missing": [],
+    "remote_reports_started": true,
+    "failure_cell": "upstream rebuild blueprint assertion",
+    "failing_report": "remote_post_id341_upstream_rebuild_blueprint_20260618.json",
+    "failing_decision_key": "decision.blueprint_ready",
+    "failing_decision_value": false,
+    "remote_missing_required_files": [
+      "dataset-metadata.json"
+    ],
+    "remote_blueprint_json_path": "build/kaggle_outputs/upstream_rebuild_post_id341_v2_direct/project/reports/remote_post_id341_upstream_rebuild_blueprint_20260618.json",
+    "local_log_path": "build/kaggle_outputs/upstream_rebuild_post_id341_v2_logs/dacon-etri-upstream-rebuild-post-id341.log"
+  },
+  "interpretation": {
+    "kaggle_cli_auth_slug_blocked": false,
+    "stale_base_dataset_blocked": false,
+    "base_plus_patch_overlay_reached_remote_reports": true,
+    "safe_to_wait_for_current_run": false,
+    "safe_to_create_submission_artifact": false,
+    "safe_to_submit_dacon": false
+  },
+  "known_gap": null,
+  "root_cause": "Kaggle consumed dataset-metadata.json as dataset metadata and did not expose it as an input file, so the working project lacked dataset-metadata.json even though the base+patch overlay reached remote report execution.",
+  "fix_prepared": "The no-submit runner now synthesizes a minimal runtime dataset-metadata.json after overlay when Kaggle input files omit it. The source self-test cleanup was also narrowed to build/kaggle_dataset so build/kaggle_outputs logs are preserved.",
+  "next_action": "Push the refreshed patch dataset and runner only under explicit no-submit Kaggle approval, then confirm the remote blueprint gate passes before any further report phase."
+}

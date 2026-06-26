@@ -1,0 +1,169 @@
+{
+  "created_at_kst": "2026-06-23 18:17:40 UTC+09:00",
+  "diagnostic": "post_id341_self_supervised_heavy_compute_contract",
+  "report_only": true,
+  "source_family": "self_supervised_subject_state_embedding_v1",
+  "target_focus": [
+    "Q2",
+    "Q3",
+    "S3"
+  ],
+  "purpose": "Define the separate no-submit approval boundary for a future label-free self-supervised subject-state embedding run, without executing heavy compute or opening a score route.",
+  "approval_phrases": {
+    "self_supervised_heavy_compute_no_submit": "Self-supervised subject-state heavy compute no-submit 실행 승인",
+    "kaggle_upstream_rebuild_no_submit": "Kaggle upstream rebuild no-submit 실행 승인",
+    "phrases_are_separate": true
+  },
+  "prerequisites": {
+    "design_report_ready": true,
+    "raw_manifest_ready": true,
+    "row_contract_ready": true,
+    "queue_records_heavy_deferred": true,
+    "no_approval_frontier_closed": true,
+    "prelaunch_freshness_ready": true,
+    "submission_log_ready_for_existing_id342_state": true,
+    "submission_log_status": {
+      "path": "submissions/submission_log.csv",
+      "exists": true,
+      "parse_ok": true,
+      "rows": 342,
+      "max_id": 342,
+      "ids_are_unique": true,
+      "has_id342_row": true,
+      "id342_row_count": 1,
+      "id342_submission_files": [
+        "submission_id_342_id178_id221_featuresim_shrink050_cv0.534000_unsubmitted.csv"
+      ],
+      "id342_existing_generated_unsubmitted": true,
+      "id342_state_ok": true,
+      "log_ready_for_future_unique_id": true,
+      "next_numeric_id_if_later_authorized": 343
+    },
+    "raw_manifest_summary": {
+      "raw_modality_count": 12,
+      "expected_raw_modality_count": 12,
+      "total_raw_rows": 6122179,
+      "total_raw_size_mb": 122.832,
+      "all_streams_have_subject_and_timestamp": true
+    },
+    "row_contract_summary": {
+      "official_train_rows": 450,
+      "official_test_rows": 250,
+      "processed_train_rows": 450,
+      "processed_test_rows": 250,
+      "row_contract_exact": true
+    }
+  },
+  "bounded_heavy_plan": [
+    {
+      "stage": "approval_boundary",
+      "allowed_now": false,
+      "after_exact_heavy_approval": "contract_refresh_only",
+      "guard": "The Kaggle upstream approval phrase does not authorize this route."
+    },
+    {
+      "stage": "label_free_tokenization",
+      "allowed_now": false,
+      "after_exact_heavy_approval": "fixed vocabularies and timestamp bins only",
+      "guard": "No target-guided token selection, no public-score feedback, no OOF residual tuning."
+    },
+    {
+      "stage": "self_supervised_pretraining",
+      "allowed_now": false,
+      "after_exact_heavy_approval": "masked reconstruction or contrastive objective only",
+      "guard": "No target labels, no submission CSV, no leaderboard-informed early stopping."
+    },
+    {
+      "stage": "temporary_embedding_artifacts",
+      "allowed_now": false,
+      "after_exact_heavy_approval": "ignored build/artifact/report areas only",
+      "guard": "No submission_log row and no promoted feature matrix without a later artifact contract."
+    },
+    {
+      "stage": "fold_internal_downstream_smoke",
+      "allowed_now": false,
+      "after_exact_heavy_approval": "subject-hole fold-internal smoke report only",
+      "guard": "Outer validation rows cannot influence embedding choice, calibration, or blending."
+    },
+    {
+      "stage": "submission_artifact_review",
+      "allowed_now": false,
+      "after_exact_heavy_approval": "still blocked",
+      "guard": "Requires a separate future artifact contract and exact CSV approval."
+    }
+  ],
+  "forbidden_actions_now": {
+    "read_full_raw_streams_now": false,
+    "fit_embedding_now": false,
+    "write_feature_matrix_now": false,
+    "train_downstream_model_now": false,
+    "write_oof_or_test_predictions_now": false,
+    "create_submission_artifact": false,
+    "modify_submission_log": false,
+    "create_id342_or_new_submission_id": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "submit_now": false
+  },
+  "allowed_output_locations_after_explicit_heavy_approval": [
+    "build/self_supervised_subject_state_embedding_v1/",
+    "artifacts/self_supervised_subject_state_embedding_v1/",
+    "reports/post_id341_self_supervised_*"
+  ],
+  "decision": {
+    "heavy_compute_contract_ready": true,
+    "source_family": "self_supervised_subject_state_embedding_v1",
+    "target_focus": [
+      "Q2",
+      "Q3",
+      "S3"
+    ],
+    "heavy_compute_allowed_now": false,
+    "requires_explicit_heavy_compute_approval": true,
+    "approval_phrase": "Self-supervised subject-state heavy compute no-submit 실행 승인",
+    "current_kaggle_upstream_approval_phrase_only_applies_to_upstream_rebuild": true,
+    "kaggle_upstream_approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+    "local_no_approval_allowed": false,
+    "public_058_evidence": false,
+    "score_route_opened": false,
+    "feature_matrix_allowed_now": false,
+    "train_model_now": false,
+    "create_submission_artifact": false,
+    "modify_submission_log": false,
+    "create_id342_or_new_submission_id": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Do not execute this route now. If the exact separate heavy-compute approval phrase is given later, refresh this contract first, then run only label-free no-submit stages; any submission artifact still requires a later artifact contract and exact CSV approval."
+  },
+  "no_full_raw_stream_read": true,
+  "no_feature_matrix_created": true,
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true,
+  "context_reports": {
+    "design": {
+      "path": "reports/post_id341_self_supervised_subject_state_embedding_design_20260619.json",
+      "exists": true,
+      "parse_ok": true
+    },
+    "queue": {
+      "path": "reports/post_id341_material_new_source_queue_20260619.json",
+      "exists": true,
+      "parse_ok": true
+    },
+    "frontier": {
+      "path": "reports/post_id341_no_approval_frontier_20260619.json",
+      "exists": true,
+      "parse_ok": true
+    },
+    "prelaunch_freshness": {
+      "path": "reports/post_id341_prelaunch_freshness_contract_20260619.json",
+      "exists": true,
+      "parse_ok": true
+    }
+  }
+}

@@ -1,0 +1,829 @@
+{
+  "created_at_kst": "2026-06-17 23:16:29 UTC+09:00",
+  "diagnostic": "sequence_survivor_review_post_id335",
+  "candidate_ids": [
+    178,
+    179,
+    190,
+    191,
+    193,
+    177,
+    198,
+    200,
+    203,
+    206,
+    180,
+    334,
+    335
+  ],
+  "public_anchors": {
+    "178": 0.6014113009,
+    "287": 0.6698787318,
+    "329": 0.6017908577
+  },
+  "source_report": "reports/surviving_candidates_excluding_id242_post_id335_20260617.json",
+  "ranked_candidates": [
+    {
+      "id": 179,
+      "submission_file": "submission_id_179_id178_tempered_id177_random_conv_anchor_blend_cv0.538290_unsubmitted.csv",
+      "status_clean": "generated_unsubmitted",
+      "public_lb": null,
+      "overall": 0.5382899278463247,
+      "target_scores": {
+        "Q1": 0.5518898077788584,
+        "Q2": 0.5566793351664245,
+        "Q3": 0.566647076445006,
+        "S1": 0.46971401318622896,
+        "S2": 0.5295216690835329,
+        "S3": 0.4908930389002769,
+        "S4": 0.6026845543639449
+      },
+      "robust_score": 0.5639745841224618,
+      "slice_summary": {
+        "worst_subject": "id10",
+        "worst_subject_loss": 0.6335904713163946,
+        "worst_date_bin": "q4",
+        "worst_date_loss": 0.5650947617124531,
+        "worst_target": "S4",
+        "worst_target_loss": 0.6026845543639449,
+        "late_minus_early": 0.06609311627357761
+      },
+      "geometry": {
+        "mean_delta_vs_178": 0.003990813769578516,
+        "max_delta_vs_178": 0.05182432489492261,
+        "mean_delta_vs_329": 0.02020539615969193,
+        "max_delta_vs_329": 0.085140806615432,
+        "mean_delta_vs_335": 0.00867508701853043,
+        "max_delta_vs_335": 0.09376551038243897,
+        "projection_failed": 0.0011229191056193822,
+        "prediction_mean": 0.6041313455248902,
+        "prediction_std": 0.21848494353569803
+      },
+      "dependency": {
+        "experiment_json": "reports/experiment_179_id178_tempered_id177_random_conv_anchor_blend_cv0.538290_unsubmitted.json",
+        "method": "Tempered random-conv anchor blend between ID178 and ID177",
+        "upstream_hint": 177,
+        "selection_contract": "All seven targets are fixed convex blends between ID178 high-C random-conv predictions and ID177 lower-variance random-conv predictions. Target weights were chosen from a light OOF tempering scan after the ID178 public-gap failure.",
+        "caution": "Public-structure/non-strict random-conv tempering probe. It is selected from OOF behavior and should not be treated as strict Subject-Hole evidence or submitted without explicit approval."
+      },
+      "review_metrics": {
+        "local_gain_vs_178": 0.0003478095440297979,
+        "robust_gain_vs_178": 0.00021767917237425216,
+        "movement_efficiency": 0.0067113183767469374,
+        "risk_score": 0.0022458382112387643,
+        "review_score": -0.00215450838519538
+      },
+      "target_delta_vs_178": {
+        "Q1": -2.5910874987711274e-05,
+        "Q2": 0.0,
+        "Q3": -0.0004427083913124408,
+        "S1": -0.0019164337554115063,
+        "S2": -3.446366394110889e-05,
+        "S3": 0.0,
+        "S4": -1.5150122556595313e-05
+      },
+      "review_read": "cleanest low-movement same-family review anchor"
+    },
+    {
+      "id": 178,
+      "submission_file": "submission_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638_unsubmitted.csv",
+      "status_clean": "cv_lb_gap_risk",
+      "public_lb": 0.6014113009,
+      "overall": 0.5386377373903545,
+      "target_scores": {
+        "Q1": 0.5519157186538461,
+        "Q2": 0.5566793351664245,
+        "Q3": 0.5670897848363184,
+        "S1": 0.47163044694164047,
+        "S2": 0.529556132747474,
+        "S3": 0.4908930389002769,
+        "S4": 0.6026997044865015
+      },
+      "robust_score": 0.5641922632948361,
+      "slice_summary": {
+        "worst_subject": "id10",
+        "worst_subject_loss": 0.6337140147760353,
+        "worst_date_bin": "q4",
+        "worst_date_loss": 0.5649583559223001,
+        "worst_target": "S4",
+        "worst_target_loss": 0.6026997044865015,
+        "late_minus_early": 0.06598924685657503
+      },
+      "geometry": {
+        "mean_delta_vs_178": 0.0,
+        "max_delta_vs_178": 0.0,
+        "mean_delta_vs_329": 0.019371878744784868,
+        "max_delta_vs_329": 0.07919238997096245,
+        "mean_delta_vs_335": 0.007392309092025558,
+        "max_delta_vs_335": 0.11194917233304491,
+        "projection_failed": 0.0,
+        "prediction_mean": 0.6039721981583849,
+        "prediction_std": 0.21919035716556767
+      },
+      "dependency": {
+        "experiment_json": "reports/experiment_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638_unsubmitted.json",
+        "method": "Target-wise multiseed random-conv sequence overlay on ID173",
+        "upstream_hint": "base_oof_id_173_id169_s4_hourly_sequence_overlay_cv0.545253.csv; base_test_id_173_id169_s4_hourly_sequence_overlay_cv0.545253.csv",
+        "selection_contract": "ID173 predictions are blended target-wise with deterministic random-convolution sequence models. Target/seed/kernel-count/model/weight choices are selected from listed local public-structure diagnostics, so this is a tuned public-structure probe, not nested evidence.",
+        "caution": "Public-structure/non-strict random-conv sequence overlay with target-wise full-diagnostic selection."
+      },
+      "review_metrics": {
+        "local_gain_vs_178": 0.0,
+        "robust_gain_vs_178": 0.0,
+        "movement_efficiency": 0.0,
+        "risk_score": 0.0,
+        "review_score": 0.0
+      },
+      "target_delta_vs_178": {
+        "Q1": 0.0,
+        "Q2": 0.0,
+        "Q3": 0.0,
+        "S1": 0.0,
+        "S2": 0.0,
+        "S3": 0.0,
+        "S4": 0.0
+      },
+      "review_read": "reference/watch-only"
+    },
+    {
+      "id": 177,
+      "submission_file": "submission_id_177_id173_multiseed_random_conv_sequence_overlay_v4_cv0.540607_unsubmitted.csv",
+      "status_clean": "generated_unsubmitted",
+      "public_lb": null,
+      "overall": 0.5406069144235259,
+      "target_scores": {
+        "Q1": 0.5545157607170068,
+        "Q2": 0.5592582901447268,
+        "Q3": 0.5697344774323306,
+        "S1": 0.4722155448353778,
+        "S2": 0.5343617200317949,
+        "S3": 0.4908930389002769,
+        "S4": 0.6032695689031676
+      },
+      "robust_score": 0.5660104561498929,
+      "slice_summary": {
+        "worst_subject": "id10",
+        "worst_subject_loss": 0.6374710173209605,
+        "worst_date_bin": "q4",
+        "worst_date_loss": 0.5662164021275664,
+        "worst_target": "S4",
+        "worst_target_loss": 0.6032695689031676,
+        "late_minus_early": 0.06374384633265873
+      },
+      "geometry": {
+        "mean_delta_vs_178": 0.018594068467269638,
+        "max_delta_vs_178": 0.11516516643316121,
+        "mean_delta_vs_329": 0.02634197858320284,
+        "max_delta_vs_329": 0.13529985538176442,
+        "mean_delta_vs_335": 0.021088773563629214,
+        "max_delta_vs_335": 0.11684082926737938,
+        "projection_failed": 0.0011685706575064476,
+        "prediction_mean": 0.6046608642541066,
+        "prediction_std": 0.21583116461303187
+      },
+      "dependency": {
+        "experiment_json": "reports/experiment_177_id173_multiseed_random_conv_sequence_overlay_v4_cv0.540607_unsubmitted.json",
+        "method": "Target-wise multiseed random-conv sequence overlay on ID173",
+        "upstream_hint": "base_oof_id_173_id169_s4_hourly_sequence_overlay_cv0.545253.csv; base_test_id_173_id169_s4_hourly_sequence_overlay_cv0.545253.csv",
+        "selection_contract": "ID173 predictions are blended target-wise with deterministic random-convolution sequence models. Target/seed/kernel-count/model/weight choices are selected from listed local public-structure diagnostics, so this is a tuned public-structure probe, not nested evidence.",
+        "caution": "Public-structure/non-strict random-conv sequence overlay with target-wise full-diagnostic selection."
+      },
+      "review_metrics": {
+        "local_gain_vs_178": -0.001969177033171454,
+        "robust_gain_vs_178": -0.0018181928550567994,
+        "movement_efficiency": -0.017098720855965695,
+        "risk_score": 0.03327205583318439,
+        "review_score": -0.033847710525324363
+      },
+      "target_delta_vs_178": {
+        "Q1": 0.002600042063160668,
+        "Q2": 0.0025789549783022947,
+        "Q3": 0.002644692596012188,
+        "S1": 0.0005850978937373408,
+        "S2": 0.0048055872843209,
+        "S3": 0.0,
+        "S4": 0.000569864416666177
+      },
+      "review_read": "reference/watch-only"
+    },
+    {
+      "id": 198,
+      "submission_file": "submission_id_198_id193_s3_smartphone_light_compact_overlay_cv0.536380_unsubmitted.csv",
+      "status_clean": "generated_unsubmitted",
+      "public_lb": null,
+      "overall": 0.5363800269342364,
+      "target_scores": {
+        "Q1": 0.549257703927497,
+        "Q2": 0.5506886916995475,
+        "Q3": 0.564204033525718,
+        "S1": 0.4677508557148142,
+        "S2": 0.5295216690835329,
+        "S3": 0.4905526802245998,
+        "S4": 0.6026845543639449
+      },
+      "robust_score": 0.5621094568467305,
+      "slice_summary": {
+        "worst_subject": "id10",
+        "worst_subject_loss": 0.6276125583156522,
+        "worst_date_bin": "q4",
+        "worst_date_loss": 0.564775590359121,
+        "worst_target": "S4",
+        "worst_target_loss": 0.6026845543639449,
+        "late_minus_early": 0.06835030488345967
+      },
+      "geometry": {
+        "mean_delta_vs_178": 0.019173371478122075,
+        "max_delta_vs_178": 0.12183922992772392,
+        "mean_delta_vs_329": 0.02696613665511879,
+        "max_delta_vs_329": 0.1283483849160512,
+        "mean_delta_vs_335": 0.022490687752081875,
+        "max_delta_vs_335": 0.1213139284848753,
+        "projection_failed": -0.010218318456906956,
+        "prediction_mean": 0.6034955293517876,
+        "prediction_std": 0.21413602227390788
+      },
+      "dependency": {
+        "experiment_json": "reports/experiment_198_id193_s3_smartphone_light_compact_overlay_cv0.536380_unsubmitted.json",
+        "method": "Target-wise compact smartphone/light overlay on ID193",
+        "upstream_hint": "base_oof_id_193_id191_sequence_summary_embedding_overlay_cv0.536429.csv; base_test_id_193_id191_sequence_summary_embedding_overlay_cv0.536429.csv",
+        "selection_contract": "ID193 predictions are lightly blended target-wise with compact smartphone/light side models selected from the listed local public-structure diagnostic.",
+        "caution": "Public-structure/non-strict compact sensor overlay; not strict Subject-Hole evidence."
+      },
+      "review_metrics": {
+        "local_gain_vs_178": 0.0022577104561181116,
+        "robust_gain_vs_178": 0.0020828064481055453,
+        "movement_efficiency": 0.018530242332107687,
+        "risk_score": 0.033471383942179134,
+        "review_score": -0.03281156120614495
+      },
+      "target_delta_vs_178": {
+        "Q1": -0.0026580147263491893,
+        "Q2": -0.005990643466877055,
+        "Q3": -0.0028857513106004262,
+        "S1": -0.0038795912268262955,
+        "S2": -3.446366394110889e-05,
+        "S3": -0.0003403586756771104,
+        "S4": -1.5150122556595313e-05
+      },
+      "review_read": "watch-only: more movement than ID179 for tiny gain"
+    },
+    {
+      "id": 193,
+      "submission_file": "submission_id_193_id191_sequence_summary_embedding_overlay_cv0.536429_unsubmitted.csv",
+      "status_clean": "generated_unsubmitted",
+      "public_lb": null,
+      "overall": 0.5364286496021903,
+      "target_scores": {
+        "Q1": 0.549257703927497,
+        "Q2": 0.5506886916995475,
+        "Q3": 0.564204033525718,
+        "S1": 0.4677508557148142,
+        "S2": 0.5295216690835329,
+        "S3": 0.4908930389002769,
+        "S4": 0.6026845543639449
+      },
+      "robust_score": 0.5622202056363943,
+      "slice_summary": {
+        "worst_subject": "id10",
+        "worst_subject_loss": 0.6281747799151903,
+        "worst_date_bin": "q4",
+        "worst_date_loss": 0.5649268597724543,
+        "worst_target": "S4",
+        "worst_target_loss": 0.6026845543639449,
+        "late_minus_early": 0.06823053209603719
+      },
+      "geometry": {
+        "mean_delta_vs_178": 0.018261715405853196,
+        "max_delta_vs_178": 0.12183922992772392,
+        "mean_delta_vs_329": 0.026797331057167587,
+        "max_delta_vs_329": 0.1283483849160512,
+        "mean_delta_vs_335": 0.021579031679813,
+        "max_delta_vs_335": 0.1213139284848753,
+        "projection_failed": -0.01054303663492487,
+        "prediction_mean": 0.6031838475234254,
+        "prediction_std": 0.21495333553966195
+      },
+      "dependency": {
+        "experiment_json": "reports/experiment_193_id191_sequence_summary_embedding_overlay_cv0.536429_unsubmitted.json",
+        "method": "Target-wise sequence-summary embedding overlay on ID191",
+        "upstream_hint": "base_oof_id_191_id190_tempered_id177_remote_s1_anchor_blend_cv0.538009.csv; base_test_id_191_id190_tempered_id177_remote_s1_anchor_blend_cv0.538009.csv",
+        "selection_contract": "ID191 predictions are blended target-wise with deterministic sequence-summary embedding models. Target/model/weight choices are selected from listed local public-structure diagnostics.",
+        "caution": "Public-structure/non-strict sequence-summary overlay; not strict Subject-Hole evidence."
+      },
+      "review_metrics": {
+        "local_gain_vs_178": 0.002209087788164199,
+        "robust_gain_vs_178": 0.0019720576584417726,
+        "movement_efficiency": 0.01813116998092198,
+        "risk_score": 0.033471383942179134,
+        "review_score": -0.032832360618702115
+      },
+      "target_delta_vs_178": {
+        "Q1": -0.0026580147263491893,
+        "Q2": -0.005990643466877055,
+        "Q3": -0.0028857513106004262,
+        "S1": -0.0038795912268262955,
+        "S2": -3.446366394110889e-05,
+        "S3": 0.0,
+        "S4": -1.5150122556595313e-05
+      },
+      "review_read": "watch-only: more movement than ID179 for tiny gain"
+    },
+    {
+      "id": 335,
+      "submission_file": "submission_id_335_id178_alpha_s4half_stressguard_cv0.539690_unsubmitted.csv",
+      "status_clean": "generated_unsubmitted",
+      "public_lb": null,
+      "overall": 0.5396899345175763,
+      "target_scores": {
+        "Q1": 0.5519157186538461,
+        "Q2": 0.5566793351664245,
+        "Q3": 0.5670897848363184,
+        "S1": 0.4774829202961419,
+        "S2": 0.529556132747474,
+        "S3": 0.4908930389002769,
+        "S4": 0.6042126110225525
+      },
+      "robust_score": 0.5653395580886575,
+      "slice_summary": {
+        "worst_subject": "id10",
+        "worst_subject_loss": 0.6338868026166585,
+        "worst_date_bin": "q4",
+        "worst_date_loss": 0.5665686970054727,
+        "worst_target": "S4",
+        "worst_target_loss": 0.6042126110225525,
+        "late_minus_early": 0.06755653440093284
+      },
+      "geometry": {
+        "mean_delta_vs_178": 0.007392309092025558,
+        "max_delta_vs_178": 0.11194917233304491,
+        "mean_delta_vs_329": 0.022898494924789434,
+        "max_delta_vs_329": 0.16039821693910883,
+        "mean_delta_vs_335": 0.0,
+        "max_delta_vs_335": 0.0,
+        "projection_failed": 0.0031894411906569285,
+        "prediction_mean": 0.6041778523551518,
+        "prediction_std": 0.219531381420949
+      },
+      "dependency": {
+        "experiment_json": "reports/experiment_335_id178_alpha_s4half_stressguard_cv0.539690_unsubmitted.json",
+        "method": "Target-wise attenuation between ID173 base and ID178 sequence overlay; S4 uses alpha 0.5.",
+        "upstream_hint": null,
+        "selection_contract": null,
+        "caution": null
+      },
+      "review_metrics": {
+        "local_gain_vs_178": -0.0010521971272218211,
+        "robust_gain_vs_178": -0.001147294793821474,
+        "movement_efficiency": -0.009398882593714682,
+        "risk_score": 0.03361161360518217,
+        "review_score": -0.03393678251000868
+      },
+      "target_delta_vs_178": {
+        "Q1": 0.0,
+        "Q2": 0.0,
+        "Q3": 0.0,
+        "S1": 0.005852473354501453,
+        "S2": 0.0,
+        "S3": 0.0,
+        "S4": 0.001512906536051073
+      },
+      "review_read": "reference/watch-only"
+    },
+    {
+      "id": 191,
+      "submission_file": "submission_id_191_id190_tempered_id177_remote_s1_anchor_blend_cv0.538009_unsubmitted.csv",
+      "status_clean": "generated_unsubmitted",
+      "public_lb": null,
+      "overall": 0.5380094767789797,
+      "target_scores": {
+        "Q1": 0.5518898077788584,
+        "Q2": 0.5566793351664245,
+        "Q3": 0.566647076445006,
+        "S1": 0.4677508557148142,
+        "S2": 0.5295216690835329,
+        "S3": 0.4908930389002769,
+        "S4": 0.6026845543639449
+      },
+      "robust_score": 0.5640153338932183,
+      "slice_summary": {
+        "worst_subject": "id10",
+        "worst_subject_loss": 0.6334972147621494,
+        "worst_date_bin": "q4",
+        "worst_date_loss": 0.5664458130844064,
+        "worst_target": "S4",
+        "worst_target_loss": 0.6026845543639449,
+        "late_minus_early": 0.06747917778822482
+      },
+      "geometry": {
+        "mean_delta_vs_178": 0.006326506264026333,
+        "max_delta_vs_178": 0.12183922992772392,
+        "mean_delta_vs_329": 0.022027945760567942,
+        "max_delta_vs_329": 0.1268671558893318,
+        "mean_delta_vs_335": 0.009643822537986133,
+        "max_delta_vs_335": 0.11650714943477447,
+        "projection_failed": 0.002381816511632129,
+        "prediction_mean": 0.603930870234992,
+        "prediction_std": 0.2182091256068771
+      },
+      "dependency": {
+        "experiment_json": "reports/experiment_191_id190_tempered_id177_remote_s1_anchor_blend_cv0.538009_unsubmitted.json",
+        "method": "Tempered random-conv anchor blend between ID190 and ID177",
+        "upstream_hint": 177,
+        "selection_contract": "All seven targets are fixed convex blends between ID190 high-C random-conv predictions and ID177 lower-variance random-conv predictions. Target weights were chosen from a light OOF tempering scan after the ID178 public-gap failure.",
+        "caution": "Public-structure/non-strict random-conv tempering probe. It is selected from OOF behavior and should not be treated as strict Subject-Hole evidence or submitted without explicit approval."
+      },
+      "review_metrics": {
+        "local_gain_vs_178": 0.0006282606113747757,
+        "robust_gain_vs_178": 0.0001769294016177314,
+        "movement_efficiency": 0.005156472277011807,
+        "risk_score": 0.03823501696544339,
+        "review_score": -0.038091671903006656
+      },
+      "target_delta_vs_178": {
+        "Q1": -2.5910874987711274e-05,
+        "Q2": 0.0,
+        "Q3": -0.0004427083913124408,
+        "S1": -0.0038795912268262955,
+        "S2": -3.446366394110889e-05,
+        "S3": 0.0,
+        "S4": -1.5150122556595313e-05
+      },
+      "review_read": "watch-only: more movement than ID179 for tiny gain"
+    },
+    {
+      "id": 334,
+      "submission_file": "submission_id_334_id178_rollback_s1_s4_sequence_stressguard_cv0.540347_unsubmitted.csv",
+      "status_clean": "generated_unsubmitted",
+      "public_lb": null,
+      "overall": 0.5403472787174195,
+      "target_scores": {
+        "Q1": 0.5519157186538461,
+        "Q2": 0.5566793351664245,
+        "Q3": 0.5670897848363184,
+        "S1": 0.4774829202961419,
+        "S2": 0.529556132747474,
+        "S3": 0.4908930389002769,
+        "S4": 0.6088140204214548
+      },
+      "robust_score": 0.5664006500505595,
+      "slice_summary": {
+        "worst_subject": "id10",
+        "worst_subject_loss": 0.6343858716952481,
+        "worst_date_bin": "q4",
+        "worst_date_loss": 0.567057712043808,
+        "worst_target": "S4",
+        "worst_target_loss": 0.6088140204214548,
+        "late_minus_early": 0.06694958344299196
+      },
+      "geometry": {
+        "mean_delta_vs_178": 0.010289745148010603,
+        "max_delta_vs_178": 0.11912031993699335,
+        "mean_delta_vs_329": 0.025242222073081792,
+        "max_delta_vs_329": 0.16039821693910883,
+        "mean_delta_vs_335": 0.0028974360559850445,
+        "max_delta_vs_335": 0.05956015996849662,
+        "projection_failed": 0.003942981518549397,
+        "prediction_mean": 0.6037452910546361,
+        "prediction_std": 0.2198520515852337
+      },
+      "dependency": {
+        "experiment_json": "reports/experiment_334_id178_rollback_s1_s4_sequence_stressguard_cv0.540347_unsubmitted.json",
+        "method": "ID178 target rollback: keep sequence targets Q1/Q2/Q3/S2, revert S1/S4 to ID173",
+        "upstream_hint": null,
+        "selection_contract": null,
+        "caution": null
+      },
+      "review_metrics": {
+        "local_gain_vs_178": -0.0017095413270650228,
+        "robust_gain_vs_178": -0.002208386755723435,
+        "movement_efficiency": -0.014351382937598349,
+        "risk_score": 0.042245376405949414,
+        "review_score": -0.04280812334693476
+      },
+      "target_delta_vs_178": {
+        "Q1": 0.0,
+        "Q2": 0.0,
+        "Q3": 0.0,
+        "S1": 0.005852473354501453,
+        "S2": 0.0,
+        "S3": 0.0,
+        "S4": 0.006114315934953374
+      },
+      "review_read": "reference/watch-only"
+    },
+    {
+      "id": 190,
+      "submission_file": "submission_id_190_id173_remote_s1_random_conv_refresh_overlay_cv0.537956_unsubmitted.csv",
+      "status_clean": "generated_unsubmitted",
+      "public_lb": null,
+      "overall": 0.5379559121210985,
+      "target_scores": {
+        "Q1": 0.5519157186538461,
+        "Q2": 0.5566793351664245,
+        "Q3": 0.5670897848363184,
+        "S1": 0.4668576700568478,
+        "S2": 0.529556132747474,
+        "S3": 0.4908930389002769,
+        "S4": 0.6026997044865015
+      },
+      "robust_score": 0.5641711091548551,
+      "slice_summary": {
+        "worst_subject": "id10",
+        "worst_subject_loss": 0.6337570637731111,
+        "worst_date_bin": "q4",
+        "worst_date_loss": 0.5672509440477123,
+        "worst_target": "S4",
+        "worst_target_loss": 0.6026997044865015,
+        "late_minus_early": 0.06868799840946166
+      },
+      "geometry": {
+        "mean_delta_vs_178": 0.005034405288100655,
+        "max_delta_vs_178": 0.12740305767766358,
+        "mean_delta_vs_329": 0.02278656392000605,
+        "max_delta_vs_329": 0.132327753293974,
+        "mean_delta_vs_335": 0.008726705005956679,
+        "max_delta_vs_335": 0.16399262694687822,
+        "projection_failed": 0.002288904374568627,
+        "prediction_mean": 0.6036076976312973,
+        "prediction_std": 0.21869567379594637
+      },
+      "dependency": {
+        "experiment_json": "reports/experiment_190_id173_remote_s1_random_conv_refresh_overlay_cv0.537956_unsubmitted.json",
+        "method": "Target-wise multiseed random-conv sequence overlay on ID173",
+        "upstream_hint": "base_oof_id_173_id169_s4_hourly_sequence_overlay_cv0.545253.csv; base_test_id_173_id169_s4_hourly_sequence_overlay_cv0.545253.csv",
+        "selection_contract": "ID173 predictions are blended target-wise with deterministic random-convolution sequence models. Target/seed/kernel-count/model/weight choices are selected from listed local public-structure diagnostics, so this is a tuned public-structure probe, not nested evidence.",
+        "caution": "Public-structure/non-strict random-conv sequence overlay with target-wise full-diagnostic selection."
+      },
+      "review_metrics": {
+        "local_gain_vs_178": 0.0006818252692559756,
+        "robust_gain_vs_178": 2.1154139980938957e-05,
+        "movement_efficiency": 0.005351718252956137,
+        "risk_score": 0.042500254891268116,
+        "review_score": -0.042361774423418826
+      },
+      "target_delta_vs_178": {
+        "Q1": 0.0,
+        "Q2": 0.0,
+        "Q3": 0.0,
+        "S1": -0.004772776884792662,
+        "S2": 0.0,
+        "S3": 0.0,
+        "S4": 0.0
+      },
+      "review_read": "watch-only: more movement than ID179 for tiny gain"
+    },
+    {
+      "id": 206,
+      "submission_file": "submission_id_206_id203_wavelet_spectral_sequence_overlay_cv0.535764_unsubmitted.csv",
+      "status_clean": "generated_unsubmitted",
+      "public_lb": null,
+      "overall": 0.5357639123296409,
+      "target_scores": {
+        "Q1": 0.5482579081715612,
+        "Q2": 0.5506886916995475,
+        "Q3": 0.5628770675141632,
+        "S1": 0.4677372079771736,
+        "S2": 0.5295161847284966,
+        "S3": 0.4905526802245998,
+        "S4": 0.6007176459919449
+      },
+      "robust_score": 0.5614091284583937,
+      "slice_summary": {
+        "worst_subject": "id10",
+        "worst_subject_loss": 0.6265786846554944,
+        "worst_date_bin": "q4",
+        "worst_date_loss": 0.5645877345850604,
+        "worst_target": "S4",
+        "worst_target_loss": 0.6007176459919449,
+        "late_minus_early": 0.06988273479047269
+      },
+      "geometry": {
+        "mean_delta_vs_178": 0.026019152987187624,
+        "max_delta_vs_178": 0.13641392820976572,
+        "mean_delta_vs_329": 0.031199839003925554,
+        "max_delta_vs_329": 0.14019970572742757,
+        "mean_delta_vs_335": 0.02820330591466968,
+        "max_delta_vs_335": 0.13641392820976572,
+        "projection_failed": -0.014065465316678996,
+        "prediction_mean": 0.6028167957354301,
+        "prediction_std": 0.21301114752001118
+      },
+      "dependency": {
+        "experiment_json": "reports/experiment_206_id203_wavelet_spectral_sequence_overlay_cv0.535764_unsubmitted.json",
+        "method": "Target-wise wavelet/spectral sequence overlay on ID203",
+        "upstream_hint": "base_oof_id_203_id200_s4_recurrence_gaf_sequence_overlay_cv0.535980.csv; base_test_id_203_id200_s4_recurrence_gaf_sequence_overlay_cv0.535980.csv",
+        "selection_contract": "ID203 predictions are lightly blended target-wise with deterministic wavelet/spectral sequence models selected from the listed local public-structure diagnostic. Raw side models are diagnostic-only.",
+        "caution": "Public-structure/non-strict wavelet/spectral sequence overlay; not strict Subject-Hole evidence."
+      },
+      "review_metrics": {
+        "local_gain_vs_178": 0.002873825060713542,
+        "robust_gain_vs_178": 0.0027831348364423247,
+        "movement_efficiency": 0.021066947476905865,
+        "risk_score": 0.04513114256781258,
+        "review_score": -0.04427806407202564
+      },
+      "target_delta_vs_178": {
+        "Q1": -0.0036578104822849733,
+        "Q2": -0.005990643466877055,
+        "Q3": -0.004212717322155224,
+        "S1": -0.003893238964466861,
+        "S2": -3.99480189774426e-05,
+        "S3": -0.0003403586756771104,
+        "S4": -0.001982058494556571
+      },
+      "review_read": "watch-only: more movement than ID179 for tiny gain"
+    },
+    {
+      "id": 203,
+      "submission_file": "submission_id_203_id200_s4_recurrence_gaf_sequence_overlay_cv0.535980_unsubmitted.csv",
+      "status_clean": "generated_unsubmitted",
+      "public_lb": null,
+      "overall": 0.5359801333026634,
+      "target_scores": {
+        "Q1": 0.5482579081715612,
+        "Q2": 0.5506886916995475,
+        "Q3": 0.5639144216327321,
+        "S1": 0.4677372079771736,
+        "S2": 0.5295216690835329,
+        "S3": 0.4905526802245998,
+        "S4": 0.6011883543294968
+      },
+      "robust_score": 0.5615227654204179,
+      "slice_summary": {
+        "worst_subject": "id10",
+        "worst_subject_loss": 0.6265426771432677,
+        "worst_date_bin": "q4",
+        "worst_date_loss": 0.5644713539027262,
+        "worst_target": "S4",
+        "worst_target_loss": 0.6011883543294968,
+        "late_minus_early": 0.0686238772330881
+      },
+      "geometry": {
+        "mean_delta_vs_178": 0.023885953784126192,
+        "max_delta_vs_178": 0.13641392820976572,
+        "mean_delta_vs_329": 0.0294054047872924,
+        "max_delta_vs_329": 0.14019970572742757,
+        "mean_delta_vs_335": 0.026086011213281343,
+        "max_delta_vs_335": 0.13641392820976572,
+        "projection_failed": -0.012678610789248156,
+        "prediction_mean": 0.603157934454251,
+        "prediction_std": 0.21331916214607355
+      },
+      "dependency": {
+        "experiment_json": "reports/experiment_203_id200_s4_recurrence_gaf_sequence_overlay_cv0.535980_unsubmitted.json",
+        "method": "Target-wise recurrence/GAF sequence-image overlay on ID200",
+        "upstream_hint": "base_oof_id_200_id198_sax_paa_sequence_overlay_cv0.536190.csv; base_test_id_200_id198_sax_paa_sequence_overlay_cv0.536190.csv",
+        "selection_contract": "ID200 predictions are blended target-wise with deterministic recurrence/GAF sequence-image summary models selected from the listed local public-structure diagnostic.",
+        "caution": "Public-structure/non-strict recurrence/GAF sequence overlay; not strict Subject-Hole evidence."
+      },
+      "review_metrics": {
+        "local_gain_vs_178": 0.0026576040876911122,
+        "robust_gain_vs_178": 0.0026694978744181697,
+        "movement_efficiency": 0.019481911580205177,
+        "risk_score": 0.04513114256781258,
+        "review_score": -0.04433267196283254
+      },
+      "target_delta_vs_178": {
+        "Q1": -0.0036578104822849733,
+        "Q2": -0.005990643466877055,
+        "Q3": -0.0031753632035863566,
+        "S1": -0.003893238964466861,
+        "S2": -3.446366394110889e-05,
+        "S3": -0.0003403586756771104,
+        "S4": -0.001511350157004654
+      },
+      "review_read": "watch-only: more movement than ID179 for tiny gain"
+    },
+    {
+      "id": 200,
+      "submission_file": "submission_id_200_id198_sax_paa_sequence_overlay_cv0.536190_unsubmitted.csv",
+      "status_clean": "generated_unsubmitted",
+      "public_lb": null,
+      "overall": 0.5361898576174031,
+      "target_scores": {
+        "Q1": 0.5482579081715612,
+        "Q2": 0.5506886916995475,
+        "Q3": 0.5639144216327321,
+        "S1": 0.4677372079771736,
+        "S2": 0.5295216690835329,
+        "S3": 0.4905526802245998,
+        "S4": 0.602656424532675
+      },
+      "robust_score": 0.5619884378332618,
+      "slice_summary": {
+        "worst_subject": "id10",
+        "worst_subject_loss": 0.6278977860773244,
+        "worst_date_bin": "q4",
+        "worst_date_loss": 0.5645975381440761,
+        "worst_target": "S4",
+        "worst_target_loss": 0.602656424532675,
+        "late_minus_early": 0.06817438215269728
+      },
+      "geometry": {
+        "mean_delta_vs_178": 0.021284823855234013,
+        "max_delta_vs_178": 0.13641392820976572,
+        "mean_delta_vs_329": 0.028004635756122862,
+        "max_delta_vs_329": 0.14019970572742757,
+        "mean_delta_vs_335": 0.024519766349825164,
+        "max_delta_vs_335": 0.13641392820976572,
+        "projection_failed": -0.012932503406286424,
+        "prediction_mean": 0.6032121160099673,
+        "prediction_std": 0.2131651880352567
+      },
+      "dependency": {
+        "experiment_json": "reports/experiment_200_id198_sax_paa_sequence_overlay_cv0.536190_unsubmitted.json",
+        "method": "Target-wise SAX/PAA sequence-pattern overlay on ID198",
+        "upstream_hint": "base_oof_id_198_id193_s3_smartphone_light_compact_overlay_cv0.536380.csv; base_test_id_198_id193_s3_smartphone_light_compact_overlay_cv0.536380.csv",
+        "selection_contract": "ID198 predictions are blended target-wise with deterministic SAX/PAA sequence-pattern models selected from the listed local public-structure diagnostic.",
+        "caution": "Public-structure/non-strict SAX/PAA sequence overlay; not strict Subject-Hole evidence."
+      },
+      "review_metrics": {
+        "local_gain_vs_178": 0.0024478797729513557,
+        "robust_gain_vs_178": 0.0022038254615742714,
+        "movement_efficiency": 0.017944500279965653,
+        "risk_score": 0.04513114256781258,
+        "review_score": -0.04442118406706488
+      },
+      "target_delta_vs_178": {
+        "Q1": -0.0036578104822849733,
+        "Q2": -0.005990643466877055,
+        "Q3": -0.0031753632035863566,
+        "S1": -0.003893238964466861,
+        "S2": -3.446366394110889e-05,
+        "S3": -0.0003403586756771104,
+        "S4": -4.327995382646943e-05
+      },
+      "review_read": "watch-only: more movement than ID179 for tiny gain"
+    },
+    {
+      "id": 180,
+      "submission_file": "submission_id_180_id179_tempered_id172_extreme_anchor_probe_cv0.529579_unsubmitted.csv",
+      "status_clean": "generated_unsubmitted",
+      "public_lb": null,
+      "overall": 0.5295786811315188,
+      "target_scores": {
+        "Q1": 0.5411246814725698,
+        "Q2": 0.545163708143406,
+        "Q3": 0.5566964790566968,
+        "S1": 0.46289761868796303,
+        "S2": 0.5191178809423349,
+        "S3": 0.48721461565253776,
+        "S4": 0.594835783965124
+      },
+      "robust_score": 0.5550215363370588,
+      "slice_summary": {
+        "worst_subject": "id10",
+        "worst_subject_loss": 0.6258312645391743,
+        "worst_date_bin": "q4",
+        "worst_date_loss": 0.5545120151422963,
+        "worst_target": "S4",
+        "worst_target_loss": 0.594835783965124,
+        "late_minus_early": 0.0613938555059077
+      },
+      "geometry": {
+        "mean_delta_vs_178": 0.012873452197310294,
+        "max_delta_vs_178": 0.07234022298417353,
+        "mean_delta_vs_329": 0.017785679094084576,
+        "max_delta_vs_329": 0.09364964924516744,
+        "mean_delta_vs_335": 0.01545099537036821,
+        "max_delta_vs_335": 0.10034722379932892,
+        "projection_failed": 0.03482577862583619,
+        "prediction_mean": 0.6031941627331887,
+        "prediction_std": 0.21761596531666524
+      },
+      "dependency": {
+        "experiment_json": "reports/experiment_180_id179_tempered_id172_extreme_anchor_probe_cv0.529579_unsubmitted.json",
+        "method": "Refined-anchor tempered extreme-calibration public probe",
+        "upstream_hint": null,
+        "selection_contract": "All seven targets are fixed blends between ID179 and ID172. Default clean weight is 0.89; target overrides are {}.",
+        "caution": "Public-structure leaderboard probe only. The extreme component is full-OOF fitted and not nested; this artifact is not strict Subject-Hole comparable despite its lower public-structure score."
+      },
+      "review_metrics": {
+        "local_gain_vs_178": 0.00905905625883563,
+        "robust_gain_vs_178": 0.00917072695777732,
+        "movement_efficiency": 0.1252284812671583,
+        "risk_score": 0.06965155725167238,
+        "review_score": -0.06692267330412752
+      },
+      "target_delta_vs_178": {
+        "Q1": -0.010791037181276386,
+        "Q2": -0.01151562702301856,
+        "Q3": -0.010393305779621609,
+        "S1": -0.008732828253677438,
+        "S2": -0.010438251805139132,
+        "S3": -0.0036784232477391487,
+        "S4": -0.00786392052137741
+      },
+      "review_read": "reject: failed-direction projection too high"
+    }
+  ],
+  "decision": {
+    "create_submission_artifact": false,
+    "dacon_submission_made": false,
+    "public_058_plausible": false,
+    "manual_probe_anchor": 179,
+    "reason": "ID179 remains the cleanest low-movement same-family review anchor after excluding the ID242 chain. Several sequence descendants improve local CV slightly more, but they move much farther from the confirmed ID178 public anchor and still use non-strict/OOF-selected sequence overlays. This review does not authorize a DACON submission."
+  },
+  "no_submission_created": true,
+  "no_dacon_submission_made": true
+}

@@ -1,0 +1,387 @@
+{
+  "created_at_kst": "2026-06-23 18:17:39 UTC+09:00",
+  "diagnostic": "post_id341_self_supervised_subject_state_embedding_design",
+  "report_only": true,
+  "source_family": "self_supervised_subject_state_embedding_v1",
+  "target_focus": [
+    "Q2",
+    "Q3",
+    "S3"
+  ],
+  "purpose": "Freeze a possible label-free multimodal subject-state embedding route as design-only, while blocking heavy local execution and preserving the explicit-approved upstream rebuild as the only score route.",
+  "context_status": {
+    "all_context_reports_present": true,
+    "queue_ready": true,
+    "queue_records_self_supervised_heavy_deferred": true,
+    "all_local_no_approval_score_routes_closed": true,
+    "local_source_stack_closed": true,
+    "data_source_coverage_ready": true,
+    "public_058_candidate_exists": false,
+    "operator_handoff_ready": true,
+    "only_score_relevant_open_route": "explicit_approved_clean_upstream_id221_to_id226",
+    "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인"
+  },
+  "raw_modality_manifest": {
+    "raw_modality_count": 12,
+    "expected_raw_modality_count": 12,
+    "all_expected_modalities_present": true,
+    "all_streams_have_subject_and_timestamp": true,
+    "total_raw_rows": 6122179,
+    "total_raw_size_mb": 122.832,
+    "modalities": {
+      "mACStatus": {
+        "path": "data/raw/ch2025_data_items/ch2025_mACStatus.parquet",
+        "exists": true,
+        "num_rows": 939896,
+        "num_columns": 3,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "m_charging"
+        ],
+        "has_subject_id": true,
+        "has_timestamp": true,
+        "size_mb": 4.328
+      },
+      "mActivity": {
+        "path": "data/raw/ch2025_data_items/ch2025_mActivity.parquet",
+        "exists": true,
+        "num_rows": 961062,
+        "num_columns": 3,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "m_activity"
+        ],
+        "has_subject_id": true,
+        "has_timestamp": true,
+        "size_mb": 4.427
+      },
+      "mAmbience": {
+        "path": "data/raw/ch2025_data_items/ch2025_mAmbience.parquet",
+        "exists": true,
+        "num_rows": 476577,
+        "num_columns": 3,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "element"
+        ],
+        "has_subject_id": true,
+        "has_timestamp": true,
+        "size_mb": 14.155
+      },
+      "mBle": {
+        "path": "data/raw/ch2025_data_items/ch2025_mBle.parquet",
+        "exists": true,
+        "num_rows": 21830,
+        "num_columns": 5,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "address",
+          "device_class",
+          "rssi"
+        ],
+        "has_subject_id": true,
+        "has_timestamp": true,
+        "size_mb": 3.878
+      },
+      "mGps": {
+        "path": "data/raw/ch2025_data_items/ch2025_mGps.parquet",
+        "exists": true,
+        "num_rows": 800611,
+        "num_columns": 6,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "altitude",
+          "latitude",
+          "longitude",
+          "speed"
+        ],
+        "has_subject_id": true,
+        "has_timestamp": true,
+        "size_mb": 68.592
+      },
+      "mLight": {
+        "path": "data/raw/ch2025_data_items/ch2025_mLight.parquet",
+        "exists": true,
+        "num_rows": 96258,
+        "num_columns": 3,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "m_light"
+        ],
+        "has_subject_id": true,
+        "has_timestamp": true,
+        "size_mb": 0.646
+      },
+      "mScreenStatus": {
+        "path": "data/raw/ch2025_data_items/ch2025_mScreenStatus.parquet",
+        "exists": true,
+        "num_rows": 939653,
+        "num_columns": 3,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "m_screen_use"
+        ],
+        "has_subject_id": true,
+        "has_timestamp": true,
+        "size_mb": 4.359
+      },
+      "mUsageStats": {
+        "path": "data/raw/ch2025_data_items/ch2025_mUsageStats.parquet",
+        "exists": true,
+        "num_rows": 45197,
+        "num_columns": 4,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "app_name",
+          "total_time"
+        ],
+        "has_subject_id": true,
+        "has_timestamp": true,
+        "size_mb": 0.955
+      },
+      "mWifi": {
+        "path": "data/raw/ch2025_data_items/ch2025_mWifi.parquet",
+        "exists": true,
+        "num_rows": 76336,
+        "num_columns": 4,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "bssid",
+          "rssi"
+        ],
+        "has_subject_id": true,
+        "has_timestamp": true,
+        "size_mb": 3.799
+      },
+      "wHr": {
+        "path": "data/raw/ch2025_data_items/ch2025_wHr.parquet",
+        "exists": true,
+        "num_rows": 382918,
+        "num_columns": 3,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "element"
+        ],
+        "has_subject_id": true,
+        "has_timestamp": true,
+        "size_mb": 9.894
+      },
+      "wLight": {
+        "path": "data/raw/ch2025_data_items/ch2025_wLight.parquet",
+        "exists": true,
+        "num_rows": 633741,
+        "num_columns": 3,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "w_light"
+        ],
+        "has_subject_id": true,
+        "has_timestamp": true,
+        "size_mb": 3.251
+      },
+      "wPedo": {
+        "path": "data/raw/ch2025_data_items/ch2025_wPedo.parquet",
+        "exists": true,
+        "num_rows": 748100,
+        "num_columns": 9,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "step",
+          "step_frequency",
+          "running_step",
+          "walking_step",
+          "distance",
+          "speed",
+          "burned_calories"
+        ],
+        "has_subject_id": true,
+        "has_timestamp": true,
+        "size_mb": 4.548
+      }
+    }
+  },
+  "row_contract": {
+    "official_train_rows": 450,
+    "official_test_rows": 250,
+    "official_total_rows": 700,
+    "processed_train_rows": 450,
+    "processed_test_rows": 250,
+    "processed_train_columns": 242,
+    "processed_test_columns": 242,
+    "key_columns": [
+      "subject_id",
+      "sleep_date",
+      "lifelog_date"
+    ],
+    "target_columns": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "train_key_duplicates": 0,
+    "test_key_duplicates": 0,
+    "row_contract_exact": true
+  },
+  "distinctness_map": [
+    {
+      "closed_lane": "usage_semantic_burst_markov_v1",
+      "overlap_risk": "medium",
+      "distinction": "Embedding would use synchronized multimodal day-state tokens, not app-state Markov counts alone.",
+      "do_not_repeat": "Do not turn this into another app category/session aggregate scan."
+    },
+    {
+      "closed_lane": "gps_path_topology_sequence_v1",
+      "overlap_risk": "medium",
+      "distinction": "GPS is only one channel in the state token; topology/path features are not the primary representation.",
+      "do_not_repeat": "Do not replay route topology or dwell-segment ordering."
+    },
+    {
+      "closed_lane": "circadian_hr_light_phase_shape_v1",
+      "overlap_risk": "medium",
+      "distinction": "Phase-shape used hand-built HR/light curves; embedding would learn cross-modal co-occurrence states.",
+      "do_not_repeat": "Do not rerun circadian curve summaries with tiny model changes."
+    },
+    {
+      "closed_lane": "proximity_ambience_cooccurrence_v1",
+      "overlap_risk": "medium",
+      "distinction": "Co-occurrence was fixed WiFi/BLE/ambience windows; embedding would tokenize all sensors with masked reconstruction.",
+      "do_not_repeat": "Do not produce another proximity/ambience-only matrix."
+    },
+    {
+      "closed_lane": "phone_wearable_discordance_v1",
+      "overlap_risk": "medium",
+      "distinction": "Discordance used fixed phone-vs-wearable rules; embedding would learn broader latent day states.",
+      "do_not_repeat": "Do not build another deterministic discordance feature matrix."
+    },
+    {
+      "closed_lane": "local_oof_combo_or_second_stage_calibration",
+      "overlap_risk": "critical",
+      "distinction": "This design is source-level and label-free before downstream folds, not a recombination of existing OOF predictions.",
+      "do_not_repeat": "No full-OOF calibration, public-anchor blend, or ID287/ID329-style cascade."
+    }
+  ],
+  "design_stages": [
+    {
+      "stage": "metadata_only_current_step",
+      "allowed_now": true,
+      "output": "this report only",
+      "guard": "No full raw read, no embedding fit, no feature matrix, no model."
+    },
+    {
+      "stage": "approved_label_free_tokenization",
+      "allowed_now": false,
+      "output": "bounded event-token schema report only",
+      "guard": "Requires a new explicit heavy-compute contract; fixed vocabularies only, no target-guided tokens."
+    },
+    {
+      "stage": "approved_self_supervised_pretraining",
+      "allowed_now": false,
+      "output": "temporary embeddings under ignored build/artifact area only",
+      "guard": "Masked modality/time-bin reconstruction only; no target labels, public scores, or submission files."
+    },
+    {
+      "stage": "fold_internal_downstream_smoke",
+      "allowed_now": false,
+      "output": "report-only subject-hole fold losses",
+      "guard": "Outer validation rows must not influence embedding selection, target calibration, or blending."
+    },
+    {
+      "stage": "artifact_contract_review",
+      "allowed_now": false,
+      "output": "none unless Public-0.58 gates pass later",
+      "guard": "A separate decision note and exact user approval are required before any submission artifact."
+    }
+  ],
+  "safety_contract": {
+    "read_full_raw_streams_now": false,
+    "fit_embedding_now": false,
+    "write_feature_matrix_now": false,
+    "train_model_now": false,
+    "write_oof_or_test_predictions_now": false,
+    "create_submission_artifact": false,
+    "modify_submission_log": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "submit_now": false,
+    "requires_new_heavy_compute_contract_before_execution": true,
+    "requires_new_artifact_contract_before_any_submission_file": true,
+    "current_approval_phrase_only_applies_to_upstream_rebuild": true
+  },
+  "decision": {
+    "design_ready": true,
+    "source_family": "self_supervised_subject_state_embedding_v1",
+    "target_focus": [
+      "Q2",
+      "Q3",
+      "S3"
+    ],
+    "materially_new_but_heavy": true,
+    "local_no_approval_allowed": false,
+    "requires_explicit_heavy_compute_approval": true,
+    "current_score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+    "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+    "public_058_evidence": false,
+    "score_route_opened": false,
+    "feature_matrix_allowed_now": false,
+    "train_model_now": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_local_allowed_step": "none_without_new_explicit_heavy_compute_contract",
+    "next_action": "Keep this as a design-only route. If pursued later, first write a separate heavy-compute contract; otherwise the only score-relevant action remains the explicit-approved no-submit upstream rebuild."
+  },
+  "no_feature_matrix_created": true,
+  "no_model_trained": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true,
+  "context_reports": {
+    "material_new_source_queue": {
+      "path": "reports/post_id341_material_new_source_queue_20260619.json",
+      "exists": true,
+      "parse_ok": true
+    },
+    "no_approval_frontier": {
+      "path": "reports/post_id341_no_approval_frontier_20260619.json",
+      "exists": true,
+      "parse_ok": true
+    },
+    "data_source_coverage": {
+      "path": "reports/post_id341_data_source_coverage_audit_20260618.json",
+      "exists": true,
+      "parse_ok": true
+    },
+    "public_local_gap": {
+      "path": "reports/post_id341_public_local_gap_diagnosis_20260618.json",
+      "exists": true,
+      "parse_ok": true
+    },
+    "local_source_closure": {
+      "path": "reports/post_id341_local_source_closure_synthesis_20260618.json",
+      "exists": true,
+      "parse_ok": true
+    },
+    "operator_handoff": {
+      "path": "reports/post_id341_operator_handoff_contract_20260619.json",
+      "exists": true,
+      "parse_ok": true
+    }
+  }
+}

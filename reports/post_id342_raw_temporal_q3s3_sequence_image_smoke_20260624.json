@@ -1,0 +1,1085 @@
+{
+  "created_at_kst": "2026-06-24 03:11:50 UTC+09:00",
+  "diagnostic": "post_id342_raw_temporal_q3s3_sequence_image_smoke",
+  "purpose": "Test an ID342-aware raw temporal sequence-image representation for Q3/S3 without creating artifacts.",
+  "research_priority_report": "reports/post_id342_research_gap_and_source_priority_20260624.json",
+  "anchor_oof": "artifacts/base_predictions/base_oof_id_342_id178_id221_featuresim_shrink050_cv0.534000.csv",
+  "time_window_contract": {
+    "anchor_rule": "Timestamps 00:00-11:59 are assigned to the previous lifelog date.",
+    "relative_hour_min": 12,
+    "relative_hour_max_exclusive": 33,
+    "hour_bins": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ],
+    "target_focus": [
+      "Q3",
+      "S3"
+    ]
+  },
+  "coverage": {
+    "raw_sources": {
+      "screen": {
+        "raw_rows": 939653,
+        "window_rows": 821236,
+        "features": 63
+      },
+      "charge": {
+        "raw_rows": 939896,
+        "window_rows": 821695,
+        "features": 42
+      },
+      "activity": {
+        "raw_rows": 961062,
+        "window_rows": 840177,
+        "features": 105
+      },
+      "pedo": {
+        "raw_rows": 748100,
+        "window_rows": 647128,
+        "features": 189
+      },
+      "hr": {
+        "raw_rows": 382918,
+        "window_rows": 310046,
+        "features": 105
+      },
+      "mlight": {
+        "raw_rows": 96258,
+        "window_rows": 84127,
+        "features": 84
+      },
+      "wlight": {
+        "raw_rows": 633741,
+        "window_rows": 545151,
+        "features": 84
+      },
+      "gps": {
+        "raw_rows": 800611,
+        "window_rows": 698952,
+        "features": 84
+      },
+      "wifi": {
+        "raw_rows": 76336,
+        "window_rows": 65990,
+        "features": 42
+      },
+      "ble": {
+        "raw_rows": 21830,
+        "window_rows": 18524,
+        "features": 42
+      },
+      "usage": {
+        "raw_rows": 45197,
+        "window_rows": 37586,
+        "features": 231
+      },
+      "ambience": {
+        "raw_rows": 476577,
+        "window_rows": 416786,
+        "features": 147
+      },
+      "feature_columns_before_alignment": 2278,
+      "raw_total_rows": 6122179,
+      "window_total_rows": 5307398
+    },
+    "alignment": {
+      "aligned_rows": 700,
+      "train_rows": 450,
+      "test_rows": 250,
+      "feature_columns": 2136,
+      "train_any_feature_coverage": 1.0,
+      "test_any_feature_coverage": 1.0,
+      "train_missing_mean": 0.24160944652517685,
+      "test_missing_mean": 0.22621535580524346
+    }
+  },
+  "validation": {
+    "primary_splits": [
+      "subject_hole_5",
+      "actual_test_band_holdout",
+      "test_boundary_neighbor2_holdout",
+      "test_boundary_neighbor5_holdout",
+      "loso_10"
+    ],
+    "model_specs": [
+      {
+        "name": "lr_c0_02",
+        "kind": "lr",
+        "c_value": 0.02,
+        "max_leaf_nodes": null,
+        "l2_regularization": null,
+        "k_neighbors": null
+      },
+      {
+        "name": "lr_c0_08",
+        "kind": "lr",
+        "c_value": 0.08,
+        "max_leaf_nodes": null,
+        "l2_regularization": null,
+        "k_neighbors": null
+      },
+      {
+        "name": "lr_c0_20",
+        "kind": "lr",
+        "c_value": 0.2,
+        "max_leaf_nodes": null,
+        "l2_regularization": null,
+        "k_neighbors": null
+      },
+      {
+        "name": "ssknn_k1",
+        "kind": "ss_knn",
+        "c_value": null,
+        "max_leaf_nodes": null,
+        "l2_regularization": null,
+        "k_neighbors": 1
+      },
+      {
+        "name": "ssknn_k3",
+        "kind": "ss_knn",
+        "c_value": null,
+        "max_leaf_nodes": null,
+        "l2_regularization": null,
+        "k_neighbors": 3
+      },
+      {
+        "name": "ssknn_k7",
+        "kind": "ss_knn",
+        "c_value": null,
+        "max_leaf_nodes": null,
+        "l2_regularization": null,
+        "k_neighbors": 7
+      }
+    ],
+    "blend_weights": [
+      0.005,
+      0.01,
+      0.02,
+      0.05
+    ],
+    "target_win_floor": 4,
+    "target_mean_delta_ceiling": -5e-05,
+    "target_max_delta_ceiling": 0.00075,
+    "feature_columns_used": 420,
+    "feature_selection": {
+      "candidate_numeric_columns": 2136,
+      "eligible_by_coverage_variance": 1884,
+      "selected_feature_columns": 420,
+      "max_feature_columns": 420,
+      "max_subject_dev_columns": 120,
+      "top_selected_columns": [
+        "rseq_charge_h17_charging_sum",
+        "rseq_screen_h17_screen_on_sum",
+        "rseq_activity_h17_activity_active_sum",
+        "rseq_mlight_h17_mlight_log1p_max",
+        "rseq_screen_h17_screen_unlock_sum",
+        "rseq_mlight_h17_mlight_log1p_mean",
+        "rseq_mlight_h17_mlight_dark_mean",
+        "rseq_activity_h17_activity_still_mean",
+        "rseq_charge_h17_charging_mean",
+        "rseq_screen_h17_screen_on_mean",
+        "rseq_activity_h17_activity_vehicle_mean",
+        "rseq_activity_h17_activity_unknown_mean",
+        "rseq_activity_h17_activity_active_mean",
+        "rseq_mlight_h17_mlight_bright_mean",
+        "rseq_charge_h13_charging_sum",
+        "rseq_charge_h12_charging_sum",
+        "rseq_screen_h13_screen_on_sum",
+        "rseq_screen_h12_screen_on_sum",
+        "rseq_activity_h12_activity_active_sum",
+        "rseq_activity_h13_activity_active_sum"
+      ]
+    }
+  },
+  "target_reports": {
+    "Q3": {
+      "target": "Q3",
+      "best": {
+        "target": "Q3",
+        "config": "Q3_id342_raw_temporal_ssknn_k1_w0.05",
+        "model_spec": {
+          "name": "ssknn_k1",
+          "kind": "ss_knn",
+          "c_value": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "k_neighbors": 1
+        },
+        "weight": 0.05,
+        "wins": 3,
+        "mean_delta": -0.001734715966390321,
+        "max_delta": 0.002487120522535524,
+        "min_delta": -0.011342878279239299,
+        "split_deltas": {
+          "subject_hole_5": -8.313862493547486e-05,
+          "actual_test_band_holdout": 0.002487120522535524,
+          "test_boundary_neighbor2_holdout": -0.011342878279239299,
+          "test_boundary_neighbor5_holdout": -0.0016584904885008633,
+          "loso_10": 0.0019238070381885075
+        },
+        "split_losses": {
+          "subject_hole_5": 0.563142765660549,
+          "actual_test_band_holdout": 0.5170359710918595,
+          "test_boundary_neighbor2_holdout": 0.5950434084186412,
+          "test_boundary_neighbor5_holdout": 0.5817168193758735,
+          "loso_10": 0.565149711323673
+        },
+        "split_anchor_losses": {
+          "subject_hole_5": 0.5632259042854845,
+          "actual_test_band_holdout": 0.514548850569324,
+          "test_boundary_neighbor2_holdout": 0.6063862866978805,
+          "test_boundary_neighbor5_holdout": 0.5833753098643744,
+          "loso_10": 0.5632259042854845
+        },
+        "eligible": false
+      },
+      "eligible_count": 0,
+      "selected": null,
+      "top_rows": [
+        {
+          "target": "Q3",
+          "config": "Q3_id342_raw_temporal_ssknn_k1_w0.05",
+          "model_spec": {
+            "name": "ssknn_k1",
+            "kind": "ss_knn",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null,
+            "k_neighbors": 1
+          },
+          "weight": 0.05,
+          "wins": 3,
+          "mean_delta": -0.001734715966390321,
+          "max_delta": 0.002487120522535524,
+          "min_delta": -0.011342878279239299,
+          "split_deltas": {
+            "subject_hole_5": -8.313862493547486e-05,
+            "actual_test_band_holdout": 0.002487120522535524,
+            "test_boundary_neighbor2_holdout": -0.011342878279239299,
+            "test_boundary_neighbor5_holdout": -0.0016584904885008633,
+            "loso_10": 0.0019238070381885075
+          },
+          "split_losses": {
+            "subject_hole_5": 0.563142765660549,
+            "actual_test_band_holdout": 0.5170359710918595,
+            "test_boundary_neighbor2_holdout": 0.5950434084186412,
+            "test_boundary_neighbor5_holdout": 0.5817168193758735,
+            "loso_10": 0.565149711323673
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_raw_temporal_ssknn_k1_w0.02",
+          "model_spec": {
+            "name": "ssknn_k1",
+            "kind": "ss_knn",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null,
+            "k_neighbors": 1
+          },
+          "weight": 0.02,
+          "wins": 3,
+          "mean_delta": -0.00104645547840736,
+          "max_delta": 0.0007066676018558926,
+          "min_delta": -0.005057771580647907,
+          "split_deltas": {
+            "subject_hole_5": -0.00040695637905141524,
+            "actual_test_band_holdout": 0.0006248058406735923,
+            "test_boundary_neighbor2_holdout": -0.005057771580647907,
+            "test_boundary_neighbor5_holdout": -0.0010990228748669617,
+            "loso_10": 0.0007066676018558926
+          },
+          "split_losses": {
+            "subject_hole_5": 0.562818947906433,
+            "actual_test_band_holdout": 0.5151736564099976,
+            "test_boundary_neighbor2_holdout": 0.6013285151172326,
+            "test_boundary_neighbor5_holdout": 0.5822762869895074,
+            "loso_10": 0.5639325718873404
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_raw_temporal_ssknn_k1_w0.01",
+          "model_spec": {
+            "name": "ssknn_k1",
+            "kind": "ss_knn",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null,
+            "k_neighbors": 1
+          },
+          "weight": 0.01,
+          "wins": 3,
+          "mean_delta": -0.0005851494981468531,
+          "max_delta": 0.00034260028031707357,
+          "min_delta": -0.0026215834289567974,
+          "split_deltas": {
+            "subject_hole_5": -0.0002682805185263426,
+            "actual_test_band_holdout": 0.0002478983899442122,
+            "test_boundary_neighbor2_holdout": -0.0026215834289567974,
+            "test_boundary_neighbor5_holdout": -0.0006263822135124109,
+            "loso_10": 0.00034260028031707357
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5629576237669581,
+            "actual_test_band_holdout": 0.5147967489592682,
+            "test_boundary_neighbor2_holdout": 0.6037647032689237,
+            "test_boundary_neighbor5_holdout": 0.582748927650862,
+            "loso_10": 0.5635685045658015
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_raw_temporal_ssknn_k1_w0.005",
+          "model_spec": {
+            "name": "ssknn_k1",
+            "kind": "ss_knn",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null,
+            "k_neighbors": 1
+          },
+          "weight": 0.005,
+          "wins": 3,
+          "mean_delta": -0.00030840338374746865,
+          "max_delta": 0.00016859096273524887,
+          "min_delta": -0.001334611919508344,
+          "split_deltas": {
+            "subject_hole_5": -0.0001506191956545111,
+            "actual_test_band_holdout": 0.00010750704945761136,
+            "test_boundary_neighbor2_holdout": -0.001334611919508344,
+            "test_boundary_neighbor5_holdout": -0.0003328838157673486,
+            "loso_10": 0.00016859096273524887
+          },
+          "split_losses": {
+            "subject_hole_5": 0.56307528508983,
+            "actual_test_band_holdout": 0.5146563576187816,
+            "test_boundary_neighbor2_holdout": 0.6050516747783722,
+            "test_boundary_neighbor5_holdout": 0.583042426048607,
+            "loso_10": 0.5633944952482197
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_raw_temporal_ssknn_k7_w0.005",
+          "model_spec": {
+            "name": "ssknn_k7",
+            "kind": "ss_knn",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null,
+            "k_neighbors": 7
+          },
+          "weight": 0.005,
+          "wins": 2,
+          "mean_delta": 2.419056874836123e-06,
+          "max_delta": 0.00028147571184600206,
+          "min_delta": -0.0003370988708620848,
+          "split_deltas": {
+            "subject_hole_5": 0.00028147571184600206,
+            "actual_test_band_holdout": 1.1824739516108629e-05,
+            "test_boundary_neighbor2_holdout": -0.0003370988708620848,
+            "test_boundary_neighbor5_holdout": -0.00011269725886109416,
+            "loso_10": 0.00016859096273524887
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5635073799973305,
+            "actual_test_band_holdout": 0.5145606753088401,
+            "test_boundary_neighbor2_holdout": 0.6060491878270184,
+            "test_boundary_neighbor5_holdout": 0.5832626126055133,
+            "loso_10": 0.5633944952482197
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_raw_temporal_ssknn_k7_w0.01",
+          "model_spec": {
+            "name": "ssknn_k7",
+            "kind": "ss_knn",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null,
+            "k_neighbors": 7
+          },
+          "weight": 0.01,
+          "wins": 2,
+          "mean_delta": 1.0884262264321266e-05,
+          "max_delta": 0.0005689481253824402,
+          "min_delta": -0.0006668636179738563,
+          "split_deltas": {
+            "subject_hole_5": 0.0005689481253824402,
+            "actual_test_band_holdout": 2.9312561954597527e-05,
+            "test_boundary_neighbor2_holdout": -0.0006668636179738563,
+            "test_boundary_neighbor5_holdout": -0.0002195760383586487,
+            "loso_10": 0.00034260028031707357
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5637948524108669,
+            "actual_test_band_holdout": 0.5145781631312786,
+            "test_boundary_neighbor2_holdout": 0.6057194230799067,
+            "test_boundary_neighbor5_holdout": 0.5831557338260157,
+            "loso_10": 0.5635685045658015
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_raw_temporal_ssknn_k3_w0.005",
+          "model_spec": {
+            "name": "ssknn_k3",
+            "kind": "ss_knn",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null,
+            "k_neighbors": 3
+          },
+          "weight": 0.005,
+          "wins": 2,
+          "mean_delta": 1.9037238404728817e-05,
+          "max_delta": 0.00034584077290655824,
+          "min_delta": -0.0005618459606296922,
+          "split_deltas": {
+            "subject_hole_5": 0.00034584077290655824,
+            "actual_test_band_holdout": 0.0001660126825278052,
+            "test_boundary_neighbor2_holdout": -0.0005618459606296922,
+            "test_boundary_neighbor5_holdout": -2.3412265516276065e-05,
+            "loso_10": 0.00016859096273524887
+          },
+          "split_losses": {
+            "subject_hole_5": 0.563571745058391,
+            "actual_test_band_holdout": 0.5147148632518518,
+            "test_boundary_neighbor2_holdout": 0.6058244407372508,
+            "test_boundary_neighbor5_holdout": 0.5833518975988581,
+            "loso_10": 0.5633944952482197
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_raw_temporal_lr_c0_20_w0.005",
+          "model_spec": {
+            "name": "lr_c0_20",
+            "kind": "lr",
+            "c_value": 0.2,
+            "max_leaf_nodes": null,
+            "l2_regularization": null,
+            "k_neighbors": null
+          },
+          "weight": 0.005,
+          "wins": 2,
+          "mean_delta": 3.540494790073012e-05,
+          "max_delta": 0.00035567796215030256,
+          "min_delta": -0.0003281114428658194,
+          "split_deltas": {
+            "subject_hole_5": 0.00035567796215030256,
+            "actual_test_band_holdout": 0.00014789567221429323,
+            "test_boundary_neighbor2_holdout": -0.0003281114428658194,
+            "test_boundary_neighbor5_holdout": -0.00015475212049409492,
+            "loso_10": 0.00015631466849896913
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5635815822476348,
+            "actual_test_band_holdout": 0.5146967462415383,
+            "test_boundary_neighbor2_holdout": 0.6060581752550147,
+            "test_boundary_neighbor5_holdout": 0.5832205577438803,
+            "loso_10": 0.5633822189539834
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        }
+      ]
+    },
+    "S3": {
+      "target": "S3",
+      "best": {
+        "target": "S3",
+        "config": "S3_id342_raw_temporal_ssknn_k7_w0.005",
+        "model_spec": {
+          "name": "ssknn_k7",
+          "kind": "ss_knn",
+          "c_value": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "k_neighbors": 7
+        },
+        "weight": 0.005,
+        "wins": 2,
+        "mean_delta": 9.179411995384746e-05,
+        "max_delta": 0.0002216386728454145,
+        "min_delta": -4.771079091347996e-05,
+        "split_deltas": {
+          "subject_hole_5": 0.00014309629489650533,
+          "actual_test_band_holdout": -3.759355198967862e-05,
+          "test_boundary_neighbor2_holdout": 0.0002216386728454145,
+          "test_boundary_neighbor5_holdout": -4.771079091347996e-05,
+          "loso_10": 0.00017953997493047602
+        },
+        "split_losses": {
+          "subject_hole_5": 0.49008777972987555,
+          "actual_test_band_holdout": 0.4715724574760013,
+          "test_boundary_neighbor2_holdout": 0.505540147698236,
+          "test_boundary_neighbor5_holdout": 0.5117275199545946,
+          "loso_10": 0.49012422340990947
+        },
+        "split_anchor_losses": {
+          "subject_hole_5": 0.48994468343497904,
+          "actual_test_band_holdout": 0.471610051027991,
+          "test_boundary_neighbor2_holdout": 0.5053185090253905,
+          "test_boundary_neighbor5_holdout": 0.5117752307455081,
+          "loso_10": 0.489944683434979
+        },
+        "eligible": false
+      },
+      "eligible_count": 0,
+      "selected": null,
+      "top_rows": [
+        {
+          "target": "S3",
+          "config": "S3_id342_raw_temporal_ssknn_k7_w0.005",
+          "model_spec": {
+            "name": "ssknn_k7",
+            "kind": "ss_knn",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null,
+            "k_neighbors": 7
+          },
+          "weight": 0.005,
+          "wins": 2,
+          "mean_delta": 9.179411995384746e-05,
+          "max_delta": 0.0002216386728454145,
+          "min_delta": -4.771079091347996e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.00014309629489650533,
+            "actual_test_band_holdout": -3.759355198967862e-05,
+            "test_boundary_neighbor2_holdout": 0.0002216386728454145,
+            "test_boundary_neighbor5_holdout": -4.771079091347996e-05,
+            "loso_10": 0.00017953997493047602
+          },
+          "split_losses": {
+            "subject_hole_5": 0.49008777972987555,
+            "actual_test_band_holdout": 0.4715724574760013,
+            "test_boundary_neighbor2_holdout": 0.505540147698236,
+            "test_boundary_neighbor5_holdout": 0.5117275199545946,
+            "loso_10": 0.49012422340990947
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_raw_temporal_ssknn_k3_w0.005",
+          "model_spec": {
+            "name": "ssknn_k3",
+            "kind": "ss_knn",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null,
+            "k_neighbors": 3
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.0001157136678967996,
+          "max_delta": 0.0002000151008308415,
+          "min_delta": -6.564982403506336e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.0002000151008308415,
+            "actual_test_band_holdout": -6.564982403506336e-05,
+            "test_boundary_neighbor2_holdout": 0.00019198772338158143,
+            "test_boundary_neighbor5_holdout": 7.26753643761624e-05,
+            "loso_10": 0.00017953997493047602
+          },
+          "split_losses": {
+            "subject_hole_5": 0.4901446985358099,
+            "actual_test_band_holdout": 0.4715444012039559,
+            "test_boundary_neighbor2_holdout": 0.5055104967487721,
+            "test_boundary_neighbor5_holdout": 0.5118479061098843,
+            "loso_10": 0.49012422340990947
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_raw_temporal_ssknn_k1_w0.005",
+          "model_spec": {
+            "name": "ssknn_k1",
+            "kind": "ss_knn",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null,
+            "k_neighbors": 1
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.00015750785942865165,
+          "max_delta": 0.0005082379083757305,
+          "min_delta": -0.00010810703907526698,
+          "split_deltas": {
+            "subject_hole_5": 0.00014545465088933174,
+            "actual_test_band_holdout": 6.241380202298696e-05,
+            "test_boundary_neighbor2_holdout": 0.0005082379083757305,
+            "test_boundary_neighbor5_holdout": -0.00010810703907526698,
+            "loso_10": 0.00017953997493047602
+          },
+          "split_losses": {
+            "subject_hole_5": 0.4900901380858684,
+            "actual_test_band_holdout": 0.47167246483001396,
+            "test_boundary_neighbor2_holdout": 0.5058267469337663,
+            "test_boundary_neighbor5_holdout": 0.5116671237064329,
+            "loso_10": 0.49012422340990947
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_raw_temporal_ssknn_k7_w0.01",
+          "model_spec": {
+            "name": "ssknn_k7",
+            "kind": "ss_knn",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null,
+            "k_neighbors": 7
+          },
+          "weight": 0.01,
+          "wins": 2,
+          "mean_delta": 0.00018935524142548176,
+          "max_delta": 0.0004474862074183017,
+          "min_delta": -9.111826271035461e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.00028935552642411766,
+            "actual_test_band_holdout": -7.047048688885171e-05,
+            "test_boundary_neighbor2_holdout": 0.0004474862074183017,
+            "test_boundary_neighbor5_holdout": -9.111826271035461e-05,
+            "loso_10": 0.0003715232228841958
+          },
+          "split_losses": {
+            "subject_hole_5": 0.49023403896140316,
+            "actual_test_band_holdout": 0.4715395805411021,
+            "test_boundary_neighbor2_holdout": 0.5057659952328089,
+            "test_boundary_neighbor5_holdout": 0.5116841124827978,
+            "loso_10": 0.4903162066578632
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_raw_temporal_lr_c0_20_w0.005",
+          "model_spec": {
+            "name": "lr_c0_20",
+            "kind": "lr",
+            "c_value": 0.2,
+            "max_leaf_nodes": null,
+            "l2_regularization": null,
+            "k_neighbors": null
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.0001898233107611613,
+          "max_delta": 0.0008035296213104726,
+          "min_delta": -0.00010667836716082846,
+          "split_deltas": {
+            "subject_hole_5": 0.00015620882716727014,
+            "actual_test_band_holdout": 7.087170260544617e-06,
+            "test_boundary_neighbor2_holdout": 0.0008035296213104726,
+            "test_boundary_neighbor5_holdout": -0.00010667836716082846,
+            "loso_10": 8.896930222834776e-05
+          },
+          "split_losses": {
+            "subject_hole_5": 0.4901008922621463,
+            "actual_test_band_holdout": 0.4716171381982515,
+            "test_boundary_neighbor2_holdout": 0.506122038646701,
+            "test_boundary_neighbor5_holdout": 0.5116685523783473,
+            "loso_10": 0.49003365273720734
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_raw_temporal_lr_c0_08_w0.005",
+          "model_spec": {
+            "name": "lr_c0_08",
+            "kind": "lr",
+            "c_value": 0.08,
+            "max_leaf_nodes": null,
+            "l2_regularization": null,
+            "k_neighbors": null
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.00020977866269099587,
+          "max_delta": 0.0007384226425072304,
+          "min_delta": -6.320821072958172e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.00016448965450199804,
+            "actual_test_band_holdout": 0.00010411335482629624,
+            "test_boundary_neighbor2_holdout": 0.0007384226425072304,
+            "test_boundary_neighbor5_holdout": -6.320821072958172e-05,
+            "loso_10": 0.00010507587234903637
+          },
+          "split_losses": {
+            "subject_hole_5": 0.49010917308948104,
+            "actual_test_band_holdout": 0.47171416438281727,
+            "test_boundary_neighbor2_holdout": 0.5060569316678978,
+            "test_boundary_neighbor5_holdout": 0.5117120225347785,
+            "loso_10": 0.490049759307328
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_raw_temporal_lr_c0_02_w0.005",
+          "model_spec": {
+            "name": "lr_c0_02",
+            "kind": "lr",
+            "c_value": 0.02,
+            "max_leaf_nodes": null,
+            "l2_regularization": null,
+            "k_neighbors": null
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.00023655133914911585,
+          "max_delta": 0.0006853355504514713,
+          "min_delta": -5.896212946798762e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.00015640515611720085,
+            "actual_test_band_holdout": 0.0002486324121520056,
+            "test_boundary_neighbor2_holdout": 0.0006853355504514713,
+            "test_boundary_neighbor5_holdout": -5.896212946798762e-05,
+            "loso_10": 0.00015134570649288914
+          },
+          "split_losses": {
+            "subject_hole_5": 0.49010108859109625,
+            "actual_test_band_holdout": 0.471858683440143,
+            "test_boundary_neighbor2_holdout": 0.506003844575842,
+            "test_boundary_neighbor5_holdout": 0.5117162686160401,
+            "loso_10": 0.4900960291414719
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_raw_temporal_ssknn_k3_w0.01",
+          "model_spec": {
+            "name": "ssknn_k3",
+            "kind": "ss_knn",
+            "c_value": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null,
+            "k_neighbors": 3
+          },
+          "weight": 0.01,
+          "wins": 1,
+          "mean_delta": 0.00023995284160399644,
+          "max_delta": 0.0004064650269745007,
+          "min_delta": -0.00012273290614783772,
+          "split_deltas": {
+            "subject_hole_5": 0.0004064650269745007,
+            "actual_test_band_holdout": -0.00012273290614783772,
+            "test_boundary_neighbor2_holdout": 0.00039203974633283956,
+            "test_boundary_neighbor5_holdout": 0.00015246911797628382,
+            "loso_10": 0.0003715232228841958
+          },
+          "split_losses": {
+            "subject_hole_5": 0.49035114846195355,
+            "actual_test_band_holdout": 0.47148731812184314,
+            "test_boundary_neighbor2_holdout": 0.5057105487717234,
+            "test_boundary_neighbor5_holdout": 0.5119276998634844,
+            "loso_10": 0.4903162066578632
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        }
+      ]
+    }
+  },
+  "partial_signal_rows": {
+    "Q3": [
+      {
+        "target": "Q3",
+        "config": "Q3_id342_raw_temporal_ssknn_k1_w0.05",
+        "model_spec": {
+          "name": "ssknn_k1",
+          "kind": "ss_knn",
+          "c_value": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "k_neighbors": 1
+        },
+        "weight": 0.05,
+        "wins": 3,
+        "mean_delta": -0.001734715966390321,
+        "max_delta": 0.002487120522535524,
+        "min_delta": -0.011342878279239299,
+        "split_deltas": {
+          "subject_hole_5": -8.313862493547486e-05,
+          "actual_test_band_holdout": 0.002487120522535524,
+          "test_boundary_neighbor2_holdout": -0.011342878279239299,
+          "test_boundary_neighbor5_holdout": -0.0016584904885008633,
+          "loso_10": 0.0019238070381885075
+        },
+        "split_losses": {
+          "subject_hole_5": 0.563142765660549,
+          "actual_test_band_holdout": 0.5170359710918595,
+          "test_boundary_neighbor2_holdout": 0.5950434084186412,
+          "test_boundary_neighbor5_holdout": 0.5817168193758735,
+          "loso_10": 0.565149711323673
+        },
+        "split_anchor_losses": {
+          "subject_hole_5": 0.5632259042854845,
+          "actual_test_band_holdout": 0.514548850569324,
+          "test_boundary_neighbor2_holdout": 0.6063862866978805,
+          "test_boundary_neighbor5_holdout": 0.5833753098643744,
+          "loso_10": 0.5632259042854845
+        },
+        "eligible": false
+      },
+      {
+        "target": "Q3",
+        "config": "Q3_id342_raw_temporal_ssknn_k1_w0.02",
+        "model_spec": {
+          "name": "ssknn_k1",
+          "kind": "ss_knn",
+          "c_value": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "k_neighbors": 1
+        },
+        "weight": 0.02,
+        "wins": 3,
+        "mean_delta": -0.00104645547840736,
+        "max_delta": 0.0007066676018558926,
+        "min_delta": -0.005057771580647907,
+        "split_deltas": {
+          "subject_hole_5": -0.00040695637905141524,
+          "actual_test_band_holdout": 0.0006248058406735923,
+          "test_boundary_neighbor2_holdout": -0.005057771580647907,
+          "test_boundary_neighbor5_holdout": -0.0010990228748669617,
+          "loso_10": 0.0007066676018558926
+        },
+        "split_losses": {
+          "subject_hole_5": 0.562818947906433,
+          "actual_test_band_holdout": 0.5151736564099976,
+          "test_boundary_neighbor2_holdout": 0.6013285151172326,
+          "test_boundary_neighbor5_holdout": 0.5822762869895074,
+          "loso_10": 0.5639325718873404
+        },
+        "split_anchor_losses": {
+          "subject_hole_5": 0.5632259042854845,
+          "actual_test_band_holdout": 0.514548850569324,
+          "test_boundary_neighbor2_holdout": 0.6063862866978805,
+          "test_boundary_neighbor5_holdout": 0.5833753098643744,
+          "loso_10": 0.5632259042854845
+        },
+        "eligible": false
+      },
+      {
+        "target": "Q3",
+        "config": "Q3_id342_raw_temporal_ssknn_k1_w0.01",
+        "model_spec": {
+          "name": "ssknn_k1",
+          "kind": "ss_knn",
+          "c_value": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "k_neighbors": 1
+        },
+        "weight": 0.01,
+        "wins": 3,
+        "mean_delta": -0.0005851494981468531,
+        "max_delta": 0.00034260028031707357,
+        "min_delta": -0.0026215834289567974,
+        "split_deltas": {
+          "subject_hole_5": -0.0002682805185263426,
+          "actual_test_band_holdout": 0.0002478983899442122,
+          "test_boundary_neighbor2_holdout": -0.0026215834289567974,
+          "test_boundary_neighbor5_holdout": -0.0006263822135124109,
+          "loso_10": 0.00034260028031707357
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5629576237669581,
+          "actual_test_band_holdout": 0.5147967489592682,
+          "test_boundary_neighbor2_holdout": 0.6037647032689237,
+          "test_boundary_neighbor5_holdout": 0.582748927650862,
+          "loso_10": 0.5635685045658015
+        },
+        "split_anchor_losses": {
+          "subject_hole_5": 0.5632259042854845,
+          "actual_test_band_holdout": 0.514548850569324,
+          "test_boundary_neighbor2_holdout": 0.6063862866978805,
+          "test_boundary_neighbor5_holdout": 0.5833753098643744,
+          "loso_10": 0.5632259042854845
+        },
+        "eligible": false
+      }
+    ],
+    "S3": []
+  },
+  "decision": {
+    "selected_targets": [],
+    "q3_selected": false,
+    "s3_selected": false,
+    "all_focus_targets_selected": false,
+    "mean_primary_delta_vs_id342": 0.0,
+    "max_primary_delta_vs_id342": 0.0,
+    "projected_public_proxy_from_id342": 0.5960832519,
+    "gap_to_public_055_after_proxy": 0.046083251899999955,
+    "raw_temporal_has_q3s3_signal": false,
+    "partial_signal_targets": [
+      "Q3"
+    ],
+    "q3_partial_signal_unstable": true,
+    "s3_partial_signal_unstable": false,
+    "final_raw_temporal_gate_pass": false,
+    "public_055_evidence": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Do not create a DACON artifact from this smoke. If the final gate passes locally, use Kaggle no-submit for parity and artifact-review evidence only. If it fails, keep the raw temporal representation as negative evidence and move to a stronger sequence model."
+  },
+  "in_memory_validation_predictions_only": true,
+  "no_prediction_file_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

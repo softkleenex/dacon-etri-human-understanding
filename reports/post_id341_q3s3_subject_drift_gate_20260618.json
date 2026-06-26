@@ -1,0 +1,67 @@
+{
+  "created_at_kst": "2026-06-23 18:10:37 UTC+09:00",
+  "diagnostic": "post_id341_q3s3_subject_drift_gate",
+  "purpose": "Extract Q3/S3-specific evidence from the subject residual sequence-drift smoke and decide whether it can reopen the local artifact path.",
+  "inputs": {
+    "subject_residual_sequence_drift_smoke": "reports/subject_residual_sequence_drift_smoke_post_id341_20260618.json"
+  },
+  "target_focus": [
+    "Q3",
+    "S3"
+  ],
+  "thresholds": {
+    "win_floor_for_context": 3,
+    "win_floor_for_promotion": 4,
+    "requires_beats_id178_public_anchor_proxy": true,
+    "requires_public_058_reviewable": true
+  },
+  "target_evidence": {
+    "Q3": {
+      "target": "Q3",
+      "primary_wins_vs_id341": 1,
+      "primary_splits_seen": 5,
+      "mean_primary_delta_vs_id341": -0.0003173770470738413,
+      "min_primary_delta_vs_id341": -0.0015868852353692064,
+      "max_primary_delta_vs_id341": 0.0
+    },
+    "S3": {
+      "target": "S3",
+      "primary_wins_vs_id341": 2,
+      "primary_splits_seen": 5,
+      "mean_primary_delta_vs_id341": -7.619080974428095e-05,
+      "min_primary_delta_vs_id341": -0.00037403366965649276,
+      "max_primary_delta_vs_id341": 0.0
+    }
+  },
+  "source_decision": {
+    "source_family_has_smoke_signal": true,
+    "projected_public_proxy_from_id341": 0.603816102060194,
+    "beats_id178_public_anchor_proxy": false,
+    "public_058_reviewable": false
+  },
+  "decision": {
+    "q3s3_subject_drift_gate_passed": true,
+    "target_focus": [
+      "Q3",
+      "S3"
+    ],
+    "q3_primary_wins_vs_id341": 1,
+    "s3_primary_wins_vs_id341": 2,
+    "q3s3_subject_drift_context_signal": false,
+    "q3s3_subject_drift_artifact_allowed": false,
+    "q3s3_subject_drift_closed_for_artifact": true,
+    "public_058_evidence": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Keep subject-drift Q3/S3 evidence as negative/context-only evidence. It does not cover both Q3 and S3 strongly enough, does not beat the ID178 public-anchor proxy, and cannot create an artifact."
+  },
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

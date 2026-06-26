@@ -1,0 +1,480 @@
+{
+  "created_at": "2026-06-16",
+  "purpose": "Candidate-tier manifest after ID203 recurrence/GAF cleaner update and ID204/ID205 bridge updates.",
+  "ground_truth_warning": {
+    "id178_public_lb": 0.6014113009,
+    "meaning": "ID203/204/205 improve local public-structure scores, but Public 0.55 remains unproven without DACON submission."
+  },
+  "current_cleaner_branch": {
+    "candidate_ids": [
+      203,
+      200,
+      198,
+      193,
+      191,
+      179
+    ],
+    "preferred_order": [
+      203,
+      200,
+      198,
+      193,
+      191,
+      179
+    ],
+    "interpretation": "ID203 is the current lowest cleaner/non-ID172-calibration branch, adding S4 recurrence/GAF signal to ID200."
+  },
+  "current_moderate_bridge": {
+    "candidate_ids": [
+      204,
+      201,
+      199,
+      194,
+      205,
+      202,
+      195,
+      192,
+      181,
+      182,
+      180
+    ],
+    "preferred_order": [
+      204,
+      201,
+      199,
+      194,
+      205,
+      202,
+      195,
+      192,
+      181,
+      182,
+      180
+    ],
+    "interpretation": "ID204 is the preferred moderate-low delta06 bridge. ID205 is the stronger but riskier delta08 bridge."
+  },
+  "tiers": {
+    "cleaner_anchor_like": {
+      "candidate_ids": [
+        203,
+        200,
+        198,
+        193,
+        191,
+        179
+      ]
+    },
+    "moderate_low_counterprobe": {
+      "candidate_ids": [
+        204,
+        201,
+        199,
+        194
+      ]
+    },
+    "moderate_counterprobe": {
+      "candidate_ids": [
+        205,
+        202,
+        195,
+        192,
+        181,
+        182,
+        180
+      ]
+    },
+    "bold_counterprobe": {
+      "candidate_ids": [
+        196,
+        197,
+        183,
+        184,
+        185
+      ]
+    },
+    "extreme_counterprobe_only": {
+      "candidate_ids": [
+        186,
+        187,
+        188,
+        189,
+        172
+      ]
+    }
+  },
+  "id203_review": {
+    "base_id": 200,
+    "local_cv_before": 0.5361898576174031,
+    "local_cv_after": 0.5359801333026634,
+    "modified_targets": [
+      "S4"
+    ],
+    "s4_before": 0.602656424532675,
+    "s4_after": 0.6011883543294968,
+    "diagnostic_report": "reports/id200_recurrence_gaf_sequence_diagnostic_20260616.json"
+  },
+  "id204_review": {
+    "base_id": 203,
+    "extreme_id": 172,
+    "local_cv": 0.5247606882789883,
+    "comparison_id201_local_cv": 0.5249989532673958,
+    "interpretation": "Same delta06 target-wise clean weights as ID201, but with ID203 as clean anchor."
+  },
+  "id205_review": {
+    "base_id": 203,
+    "extreme_id": 172,
+    "local_cv": 0.521424249794571,
+    "comparison_id202_local_cv": 0.5216672721367674,
+    "interpretation": "Same delta08 target-wise clean weights as ID202, but with ID203 as clean anchor."
+  },
+  "rows": [
+    {
+      "id": 179,
+      "submission_file": "submission_id_179_id178_tempered_id177_random_conv_anchor_blend_cv0.538290_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_179_id178_tempered_id177_random_conv_anchor_blend_cv0.538290_unsubmitted.ipynb",
+      "report_file": "reports/experiment_179_id178_tempered_id177_random_conv_anchor_blend_cv0.538290_unsubmitted.json",
+      "local_cv": 0.5382899278463247,
+      "strict_subject_hole_comparable": false,
+      "max_delta_vs_id203": 0.13564460786301913,
+      "mean_delta_vs_id203": 0.021649051271168736,
+      "target_scores": {
+        "Q1": 0.5518898077788584,
+        "Q2": 0.5566793351664245,
+        "Q3": 0.566647076445006,
+        "S1": 0.46971401318622896,
+        "S2": 0.5295216690835329,
+        "S3": 0.4908930389002769,
+        "S4": 0.6026845543639449
+      }
+    },
+    {
+      "id": 191,
+      "submission_file": "submission_id_191_id190_tempered_id177_remote_s1_anchor_blend_cv0.538009_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_191_id190_tempered_id177_remote_s1_anchor_blend_cv0.538009_unsubmitted.ipynb",
+      "report_file": "reports/experiment_191_id190_tempered_id177_remote_s1_anchor_blend_cv0.538009_unsubmitted.json",
+      "local_cv": 0.5380094767789797,
+      "strict_subject_hole_comparable": false,
+      "max_delta_vs_id203": 0.13564460786301913,
+      "mean_delta_vs_id203": 0.01913930836514329,
+      "target_scores": {
+        "Q1": 0.5518898077788584,
+        "Q2": 0.5566793351664245,
+        "Q3": 0.566647076445006,
+        "S1": 0.4677508557148142,
+        "S2": 0.5295216690835329,
+        "S3": 0.4908930389002769,
+        "S4": 0.6026845543639449
+      }
+    },
+    {
+      "id": 193,
+      "submission_file": "submission_id_193_id191_sequence_summary_embedding_overlay_cv0.536429_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_193_id191_sequence_summary_embedding_overlay_cv0.536429_unsubmitted.ipynb",
+      "report_file": "reports/experiment_193_id191_sequence_summary_embedding_overlay_cv0.536429_unsubmitted.json",
+      "local_cv": 0.5364286496021903,
+      "strict_subject_hole_comparable": false,
+      "max_delta_vs_id203": 0.06252470639757546,
+      "mean_delta_vs_id203": 0.00749431351303116,
+      "target_scores": {
+        "Q1": 0.549257703927497,
+        "Q2": 0.5506886916995475,
+        "Q3": 0.564204033525718,
+        "S1": 0.4677508557148142,
+        "S2": 0.5295216690835329,
+        "S3": 0.4908930389002769,
+        "S4": 0.6026845543639449
+      }
+    },
+    {
+      "id": 198,
+      "submission_file": "submission_id_198_id193_s3_smartphone_light_compact_overlay_cv0.536380_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_198_id193_s3_smartphone_light_compact_overlay_cv0.536380_unsubmitted.ipynb",
+      "report_file": "reports/experiment_198_id193_s3_smartphone_light_compact_overlay_cv0.536380_unsubmitted.json",
+      "local_cv": 0.5363800269342364,
+      "strict_subject_hole_comparable": false,
+      "max_delta_vs_id203": 0.06252470639757546,
+      "mean_delta_vs_id203": 0.006582657440762283,
+      "target_scores": {
+        "Q1": 0.549257703927497,
+        "Q2": 0.5506886916995475,
+        "Q3": 0.564204033525718,
+        "S1": 0.4677508557148142,
+        "S2": 0.5295216690835329,
+        "S3": 0.4905526802245998,
+        "S4": 0.6026845543639449
+      }
+    },
+    {
+      "id": 200,
+      "submission_file": "submission_id_200_id198_sax_paa_sequence_overlay_cv0.536190_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_200_id198_sax_paa_sequence_overlay_cv0.536190_unsubmitted.ipynb",
+      "report_file": "reports/experiment_200_id198_sax_paa_sequence_overlay_cv0.536190_unsubmitted.json",
+      "local_cv": 0.5361898576174031,
+      "strict_subject_hole_comparable": false,
+      "max_delta_vs_id203": 0.059741269766047767,
+      "mean_delta_vs_id203": 0.0028981522813736832,
+      "target_scores": {
+        "Q1": 0.5482579081715612,
+        "Q2": 0.5506886916995475,
+        "Q3": 0.5639144216327321,
+        "S1": 0.4677372079771736,
+        "S2": 0.5295216690835329,
+        "S3": 0.4905526802245998,
+        "S4": 0.602656424532675
+      }
+    },
+    {
+      "id": 203,
+      "submission_file": "submission_id_203_id200_s4_recurrence_gaf_sequence_overlay_cv0.535980_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_203_id200_s4_recurrence_gaf_sequence_overlay_cv0.535980_unsubmitted.ipynb",
+      "report_file": "reports/experiment_203_id200_s4_recurrence_gaf_sequence_overlay_cv0.535980_unsubmitted.json",
+      "local_cv": 0.5359801333026634,
+      "strict_subject_hole_comparable": false,
+      "max_delta_vs_id203": 0.0,
+      "mean_delta_vs_id203": 0.0,
+      "target_scores": {
+        "Q1": 0.5482579081715612,
+        "Q2": 0.5506886916995475,
+        "Q3": 0.5639144216327321,
+        "S1": 0.4677372079771736,
+        "S2": 0.5295216690835329,
+        "S3": 0.4905526802245998,
+        "S4": 0.6011883543294968
+      }
+    },
+    {
+      "id": 194,
+      "submission_file": "submission_id_194_id193_targetwise_delta06_id172_extreme_probe_cv0.525179_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_194_id193_targetwise_delta06_id172_extreme_probe_cv0.525179_unsubmitted.ipynb",
+      "report_file": "reports/experiment_194_id193_targetwise_delta06_id172_extreme_probe_cv0.525179_unsubmitted.json",
+      "local_cv": 0.5251794969951628,
+      "strict_subject_hole_comparable": false,
+      "max_delta_vs_id203": 0.09809964108371771,
+      "mean_delta_vs_id203": 0.018413916163848635,
+      "target_scores": {
+        "Q1": 0.5395157851820108,
+        "Q2": 0.5367833216447161,
+        "Q3": 0.5507519110878014,
+        "S1": 0.45800399733336056,
+        "S2": 0.5186802620550962,
+        "S3": 0.48085062352489505,
+        "S4": 0.5916705781382597
+      }
+    },
+    {
+      "id": 199,
+      "submission_file": "submission_id_199_id198_targetwise_delta06_id172_extreme_probe_cv0.525173_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_199_id198_targetwise_delta06_id172_extreme_probe_cv0.525173_unsubmitted.ipynb",
+      "report_file": "reports/experiment_199_id198_targetwise_delta06_id172_extreme_probe_cv0.525173_unsubmitted.json",
+      "local_cv": 0.5251726576963912,
+      "strict_subject_hole_comparable": false,
+      "max_delta_vs_id203": 0.09809964108371771,
+      "mean_delta_vs_id203": 0.018337482760525842,
+      "target_scores": {
+        "Q1": 0.5395157851820108,
+        "Q2": 0.5367833216447161,
+        "Q3": 0.5507519110878014,
+        "S1": 0.45800399733336056,
+        "S2": 0.5186802620550962,
+        "S3": 0.4808027484334942,
+        "S4": 0.5916705781382597
+      }
+    },
+    {
+      "id": 201,
+      "submission_file": "submission_id_201_id200_targetwise_delta06_id172_extreme_probe_cv0.524999_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_201_id200_targetwise_delta06_id172_extreme_probe_cv0.524999_unsubmitted.ipynb",
+      "report_file": "reports/experiment_201_id200_targetwise_delta06_id172_extreme_probe_cv0.524999_unsubmitted.json",
+      "local_cv": 0.5249989532673958,
+      "strict_subject_hole_comparable": false,
+      "max_delta_vs_id203": 0.09374430089294672,
+      "mean_delta_vs_id203": 0.017004768034486632,
+      "target_scores": {
+        "Q1": 0.5386073512421428,
+        "Q2": 0.5367833216447161,
+        "Q3": 0.5505138529115233,
+        "S1": 0.45799623843617143,
+        "S2": 0.5186802620550962,
+        "S3": 0.4808027484334942,
+        "S4": 0.5916088981486269
+      }
+    },
+    {
+      "id": 204,
+      "submission_file": "submission_id_204_id203_targetwise_delta06_id172_extreme_probe_cv0.524761_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_204_id203_targetwise_delta06_id172_extreme_probe_cv0.524761_unsubmitted.ipynb",
+      "report_file": "reports/experiment_204_id203_targetwise_delta06_id172_extreme_probe_cv0.524761_unsubmitted.json",
+      "local_cv": 0.5247606882789883,
+      "strict_subject_hole_comparable": false,
+      "max_delta_vs_id203": 0.061308591208860674,
+      "mean_delta_vs_id203": 0.015666285122684254,
+      "target_scores": {
+        "Q1": 0.5386073512421428,
+        "Q2": 0.5367833216447161,
+        "Q3": 0.5505138529115233,
+        "S1": 0.45799623843617143,
+        "S2": 0.5186802620550962,
+        "S3": 0.4808027484334942,
+        "S4": 0.5899410432297747
+      }
+    },
+    {
+      "id": 195,
+      "submission_file": "submission_id_195_id193_targetwise_delta08_id172_extreme_probe_cv0.521836_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_195_id193_targetwise_delta08_id172_extreme_probe_cv0.521836_unsubmitted.ipynb",
+      "report_file": "reports/experiment_195_id193_targetwise_delta08_id172_extreme_probe_cv0.521836_unsubmitted.json",
+      "local_cv": 0.5218361521430795,
+      "strict_subject_hole_comparable": false,
+      "max_delta_vs_id203": 0.11170551925771743,
+      "mean_delta_vs_id203": 0.023140756373293173,
+      "target_scores": {
+        "Q1": 0.5364931042000763,
+        "Q2": 0.5325799884242439,
+        "Q3": 0.5468499639158583,
+        "S1": 0.45516461651779055,
+        "S2": 0.5154469463879291,
+        "S3": 0.4779082785849293,
+        "S4": 0.5884101669707295
+      }
+    },
+    {
+      "id": 202,
+      "submission_file": "submission_id_202_id200_targetwise_delta08_id172_extreme_probe_cv0.521667_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_202_id200_targetwise_delta08_id172_extreme_probe_cv0.521667_unsubmitted.ipynb",
+      "report_file": "reports/experiment_202_id200_targetwise_delta08_id172_extreme_probe_cv0.521667_unsubmitted.json",
+      "local_cv": 0.5216672721367674,
+      "strict_subject_hole_comparable": false,
+      "max_delta_vs_id203": 0.1076298323015501,
+      "mean_delta_vs_id203": 0.022023187681590912,
+      "target_scores": {
+        "Q1": 0.535616057815811,
+        "Q2": 0.5325799884242439,
+        "Q3": 0.5466230391074614,
+        "S1": 0.4551577063011925,
+        "S2": 0.5154469463879291,
+        "S3": 0.47790732986253276,
+        "S4": 0.5883398370582011
+      }
+    },
+    {
+      "id": 205,
+      "submission_file": "submission_id_205_id203_targetwise_delta08_id172_extreme_probe_cv0.521424_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_205_id203_targetwise_delta08_id172_extreme_probe_cv0.521424_unsubmitted.ipynb",
+      "report_file": "reports/experiment_205_id203_targetwise_delta08_id172_extreme_probe_cv0.521424_unsubmitted.json",
+      "local_cv": 0.521424249794571,
+      "strict_subject_hole_comparable": false,
+      "max_delta_vs_id203": 0.08213037690243596,
+      "mean_delta_vs_id203": 0.020918980288877155,
+      "target_scores": {
+        "Q1": 0.535616057815811,
+        "Q2": 0.5325799884242439,
+        "Q3": 0.5466230391074614,
+        "S1": 0.4551577063011925,
+        "S2": 0.5154469463879291,
+        "S3": 0.47790732986253276,
+        "S4": 0.5866386806628261
+      }
+    },
+    {
+      "id": 196,
+      "submission_file": "submission_id_196_id193_targetwise_delta10_id172_extreme_probe_cv0.518710_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_196_id193_targetwise_delta10_id172_extreme_probe_cv0.518710_unsubmitted.ipynb",
+      "report_file": "reports/experiment_196_id193_targetwise_delta10_id172_extreme_probe_cv0.518710_unsubmitted.json",
+      "local_cv": 0.518710411181411,
+      "strict_subject_hole_comparable": false,
+      "max_delta_vs_id203": 0.12505943672479147,
+      "mean_delta_vs_id203": 0.028010354812171696,
+      "target_scores": {
+        "Q1": 0.5336852824991654,
+        "Q2": 0.528675127313956,
+        "Q3": 0.5431327813968857,
+        "S1": 0.45251830849514274,
+        "S2": 0.5123713820948143,
+        "S3": 0.47515215171548597,
+        "S4": 0.5854378447544276
+      }
+    },
+    {
+      "id": 197,
+      "submission_file": "submission_id_197_id193_targetwise_delta12_id172_extreme_probe_cv0.515748_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_197_id193_targetwise_delta12_id172_extreme_probe_cv0.515748_unsubmitted.ipynb",
+      "report_file": "reports/experiment_197_id193_targetwise_delta12_id172_extreme_probe_cv0.515748_unsubmitted.json",
+      "local_cv": 0.5157478898824104,
+      "strict_subject_hole_comparable": false,
+      "max_delta_vs_id203": 0.14168276850269224,
+      "mean_delta_vs_id203": 0.032995121614394704,
+      "target_scores": {
+        "Q1": 0.5309216555065878,
+        "Q2": 0.5248955334681541,
+        "Q3": 0.539730794759839,
+        "S1": 0.4500556368760337,
+        "S2": 0.5093711684163854,
+        "S3": 0.4725725736028038,
+        "S4": 0.5826878665470685
+      }
+    },
+    {
+      "id": 189,
+      "submission_file": "submission_id_189_id172_s4_tempered_id179_extreme_frontier_probe_cv0.492595_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_189_id172_s4_tempered_id179_extreme_frontier_probe_cv0.492595_unsubmitted.ipynb",
+      "report_file": "reports/experiment_189_id172_s4_tempered_id179_extreme_frontier_probe_cv0.492595_unsubmitted.json",
+      "local_cv": 0.49259527618747034,
+      "strict_subject_hole_comparable": false,
+      "max_delta_vs_id203": 0.5805177449611252,
+      "mean_delta_vs_id203": 0.10222967803589672,
+      "target_scores": {
+        "Q1": 0.4970131794492239,
+        "Q2": 0.4916851806889194,
+        "Q3": 0.5160143692946385,
+        "S1": 0.4334122972202147,
+        "S2": 0.4771671189923673,
+        "S3": 0.46511496294445753,
+        "S4": 0.5677598247224709
+      }
+    },
+    {
+      "id": 172,
+      "submission_file": "submission_id_172_id163_targetwise_extreme_public_probe_cv0.492762_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_172_id163_targetwise_extreme_public_probe_cv0.492762_unsubmitted.ipynb",
+      "report_file": "reports/experiment_172_id163_targetwise_extreme_public_probe_cv0.492762_unsubmitted.json",
+      "local_cv": 0.49276216288642377,
+      "strict_subject_hole_comparable": false,
+      "max_delta_vs_id203": 0.5805177449611252,
+      "mean_delta_vs_id203": 0.10410533452591583,
+      "target_scores": {
+        "Q1": 0.4970131794492239,
+        "Q2": 0.4916851806889194,
+        "Q3": 0.5160143692946385,
+        "S1": 0.4334122972202147,
+        "S2": 0.4771671189923673,
+        "S3": 0.4651149629444577,
+        "S4": 0.5689280316151448
+      }
+    }
+  ],
+  "recommended_next_actions": [
+    "Use ID203 as the cleaner reference for future non-extreme diagnostics.",
+    "Use ID204 as the preferred moderate-low bridge; ID205 is a more aggressive moderate counterprobe only.",
+    "Before any submission discussion, refresh split robustness including ID203-ID205.",
+    "Do not submit without explicit user approval."
+  ],
+  "source_reports": [
+    "reports/id200_recurrence_gaf_sequence_diagnostic_20260616.json",
+    "reports/experiment_203_id200_s4_recurrence_gaf_sequence_overlay_cv0.535980_unsubmitted.json",
+    "reports/experiment_204_id203_targetwise_delta06_id172_extreme_probe_cv0.524761_unsubmitted.json",
+    "reports/experiment_205_id203_targetwise_delta08_id172_extreme_probe_cv0.521424_unsubmitted.json",
+    "reports/candidate_tier_manifest_post_id202_20260616.json",
+    "reports/id178_id205_split_robustness_diagnostic_20260616.json",
+    "reports/id178_id205_split_robustness_diagnostic_20260616.md"
+  ],
+  "split_robustness_review": {
+    "report": "reports/id178_id205_split_robustness_diagnostic_20260616.json",
+    "id203_robustness_score": 0.568318,
+    "id200_robustness_score": 0.568848,
+    "id204_robustness_score": 0.556611,
+    "id201_robustness_score": 0.557148,
+    "id205_robustness_score": 0.553144,
+    "id202_robustness_score": 0.553676,
+    "interpretation": "ID203/204/205 improve the same split robustness formula versus their ID200/201/202 counterparts, but this remains an OOF fragility lens rather than public LB proof."
+  }
+}

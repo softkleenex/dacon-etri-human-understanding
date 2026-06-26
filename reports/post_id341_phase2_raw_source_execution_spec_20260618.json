@@ -1,0 +1,710 @@
+{
+  "created_at_kst": "2026-06-18 08:43:23 UTC+09:00",
+  "diagnostic": "post_id341_phase2_raw_source_execution_spec",
+  "purpose": "Freeze the next approved Kaggle revision after phase-1 closure: stronger raw/sequence source smoke, not local micro-blending or contaminated upstream artifact replay.",
+  "required_report_status": {
+    "phase1_readiness": {
+      "path": "reports/post_id341_upstream_rebuild_phase1_readiness_20260618.json",
+      "exists": true,
+      "bytes": 22565
+    },
+    "priority_matrix": {
+      "path": "reports/post_id341_upstream_source_priority_matrix_20260618.json",
+      "exists": true,
+      "bytes": 82911
+    },
+    "clean_backbone_closure": {
+      "path": "reports/post_id341_clean_backbone_lane_closure_20260618.json",
+      "exists": true,
+      "bytes": 1667
+    },
+    "transfer_gate_v2": {
+      "path": "reports/post_id341_transfer_gate_v2_joint_risk_20260618.json",
+      "exists": true,
+      "bytes": 122574
+    },
+    "external_prior": {
+      "path": "reports/external_etri_prior_smoke_post_id341_20260618.json",
+      "exists": true,
+      "bytes": 37128
+    },
+    "combined_external": {
+      "path": "reports/combined_sleep_evening_external_prior_gate_post_id341_20260618.json",
+      "exists": true,
+      "bytes": 56491
+    },
+    "new_source_blueprint": {
+      "path": "reports/post_id341_new_source_blueprint_20260618.json",
+      "exists": true,
+      "bytes": 13527
+    },
+    "split_manifest": {
+      "path": "reports/id340_validation_split_manifest_20260618.json",
+      "exists": true,
+      "bytes": 135846
+    }
+  },
+  "missing_required_reports": [],
+  "current_closure_read": {
+    "phase1_ready": true,
+    "local_new_source_stack_closed": true,
+    "existing_artifact_promotable": false,
+    "clean_backbone_closed": true,
+    "clean_backbone_next_lane": "stronger_raw_or_sequence_source_model",
+    "transfer_v2_public_058_candidate": false,
+    "combined_external_best_proxy": 0.6014904915736343,
+    "combined_external_public_058": false,
+    "new_source_blueprint_top_family": "sleep_boundary_transition_v1"
+  },
+  "data_readiness": {
+    "processed_train": {
+      "path": "data/processed/df_train_raw.parquet",
+      "shape": [
+        450,
+        242
+      ],
+      "numeric_columns": 237,
+      "subject_count": 10,
+      "date_min": "2024-06-03",
+      "date_max": "2024-11-14",
+      "target_columns_present": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "target_prevalence": {
+        "Q1": 0.4955555555555556,
+        "Q2": 0.5622222222222222,
+        "Q3": 0.6,
+        "S1": 0.6822222222222222,
+        "S2": 0.6511111111111111,
+        "S3": 0.6622222222222223,
+        "S4": 0.56
+      },
+      "target_prevalence_note": "training labels"
+    },
+    "processed_test": {
+      "path": "data/processed/df_test_raw.parquet",
+      "shape": [
+        250,
+        242
+      ],
+      "numeric_columns": 237,
+      "subject_count": 10,
+      "date_min": "2024-07-06",
+      "date_max": "2024-11-19",
+      "target_columns_present": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "target_prevalence": null,
+      "target_prevalence_note": "not reported for test placeholder target columns"
+    },
+    "raw_file_count": 12,
+    "raw_total_rows": 6122179,
+    "raw_total_size_mb": 122.832,
+    "raw_files": [
+      {
+        "path": "data/raw/ch2025_data_items/ch2025_mACStatus.parquet",
+        "rows": 939896,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "m_charging"
+        ],
+        "subject_count": 10,
+        "has_timestamp": true,
+        "size_mb": 4.328
+      },
+      {
+        "path": "data/raw/ch2025_data_items/ch2025_mActivity.parquet",
+        "rows": 961062,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "m_activity"
+        ],
+        "subject_count": 10,
+        "has_timestamp": true,
+        "size_mb": 4.427
+      },
+      {
+        "path": "data/raw/ch2025_data_items/ch2025_mAmbience.parquet",
+        "rows": 476577,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "m_ambience"
+        ],
+        "subject_count": 10,
+        "has_timestamp": true,
+        "size_mb": 14.155
+      },
+      {
+        "path": "data/raw/ch2025_data_items/ch2025_mBle.parquet",
+        "rows": 21830,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "m_ble"
+        ],
+        "subject_count": 10,
+        "has_timestamp": true,
+        "size_mb": 3.878
+      },
+      {
+        "path": "data/raw/ch2025_data_items/ch2025_mGps.parquet",
+        "rows": 800611,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "m_gps"
+        ],
+        "subject_count": 10,
+        "has_timestamp": true,
+        "size_mb": 68.592
+      },
+      {
+        "path": "data/raw/ch2025_data_items/ch2025_mLight.parquet",
+        "rows": 96258,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "m_light"
+        ],
+        "subject_count": 10,
+        "has_timestamp": true,
+        "size_mb": 0.646
+      },
+      {
+        "path": "data/raw/ch2025_data_items/ch2025_mScreenStatus.parquet",
+        "rows": 939653,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "m_screen_use"
+        ],
+        "subject_count": 10,
+        "has_timestamp": true,
+        "size_mb": 4.359
+      },
+      {
+        "path": "data/raw/ch2025_data_items/ch2025_mUsageStats.parquet",
+        "rows": 45197,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "m_usage_stats"
+        ],
+        "subject_count": 10,
+        "has_timestamp": true,
+        "size_mb": 0.955
+      },
+      {
+        "path": "data/raw/ch2025_data_items/ch2025_mWifi.parquet",
+        "rows": 76336,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "m_wifi"
+        ],
+        "subject_count": 10,
+        "has_timestamp": true,
+        "size_mb": 3.799
+      },
+      {
+        "path": "data/raw/ch2025_data_items/ch2025_wHr.parquet",
+        "rows": 382918,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "heart_rate"
+        ],
+        "subject_count": 10,
+        "has_timestamp": true,
+        "size_mb": 9.894
+      },
+      {
+        "path": "data/raw/ch2025_data_items/ch2025_wLight.parquet",
+        "rows": 633741,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "w_light"
+        ],
+        "subject_count": 10,
+        "has_timestamp": true,
+        "size_mb": 3.251
+      },
+      {
+        "path": "data/raw/ch2025_data_items/ch2025_wPedo.parquet",
+        "rows": 748100,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "step",
+          "step_frequency",
+          "running_step",
+          "walking_step",
+          "distance",
+          "speed",
+          "burned_calories"
+        ],
+        "subject_count": 10,
+        "has_timestamp": true,
+        "size_mb": 4.548
+      }
+    ]
+  },
+  "optional_local_smoke_evidence": {
+    "subject_residual_sequence_drift": {
+      "path": "reports/subject_residual_sequence_drift_smoke_post_id341_20260618.json",
+      "exists": true,
+      "summary": {
+        "source_family_has_smoke_signal": true,
+        "selected_targets": null,
+        "phase2_raw_multimodal_plan_ready": null,
+        "recommended_first_block": null,
+        "final_block_a_gate_pass": null,
+        "q1_all_primary_signal_confirmed": null,
+        "q1_signal_sufficient_for_id178_proxy": null,
+        "additional_independent_target_signal_required": null,
+        "s2_has_config_signal": null,
+        "final_block_b_gate_pass": null,
+        "usage_temporal_has_config_signal": null,
+        "final_usage_temporal_gate_pass": null,
+        "ambience_reopen_now": null,
+        "ambience_has_nested_positive_signal": null,
+        "local_source_stack_closed_for_submission_artifact": null,
+        "any_local_lane_promotable": null,
+        "all_primary_splits_beat_id341": false,
+        "primary_split_wins_vs_id341": 1,
+        "primary_wins_vs_id341": null,
+        "mean_primary_delta_vs_id341": -1.3681439806112471e-05,
+        "projected_public_proxy_from_id341": 0.603816102060194,
+        "public_058_reviewable": false,
+        "create_submission_artifact": false,
+        "submit_now": false
+      }
+    },
+    "subject_residual_target_restricted_gate": {
+      "path": "reports/subject_residual_target_restricted_gate_post_id341_20260618.json",
+      "exists": true,
+      "summary": {
+        "source_family_has_smoke_signal": null,
+        "selected_targets": [
+          "Q1",
+          "S4"
+        ],
+        "phase2_raw_multimodal_plan_ready": null,
+        "recommended_first_block": null,
+        "final_block_a_gate_pass": null,
+        "q1_all_primary_signal_confirmed": null,
+        "q1_signal_sufficient_for_id178_proxy": null,
+        "additional_independent_target_signal_required": null,
+        "s2_has_config_signal": null,
+        "final_block_b_gate_pass": null,
+        "usage_temporal_has_config_signal": null,
+        "final_usage_temporal_gate_pass": null,
+        "ambience_reopen_now": null,
+        "ambience_has_nested_positive_signal": null,
+        "local_source_stack_closed_for_submission_artifact": null,
+        "any_local_lane_promotable": null,
+        "all_primary_splits_beat_id341": false,
+        "primary_split_wins_vs_id341": null,
+        "primary_wins_vs_id341": 3,
+        "mean_primary_delta_vs_id341": -4.587235861621686e-05,
+        "projected_public_proxy_from_id341": 0.6037839111413839,
+        "public_058_reviewable": false,
+        "create_submission_artifact": false,
+        "submit_now": false
+      }
+    },
+    "phase2_raw_multimodal_execution_plan": {
+      "path": "reports/phase2_raw_multimodal_execution_plan_post_id341_20260618.json",
+      "exists": true,
+      "summary": {
+        "source_family_has_smoke_signal": null,
+        "selected_targets": null,
+        "phase2_raw_multimodal_plan_ready": true,
+        "recommended_first_block": "A_q1_s4_sleep_residual_bridge",
+        "final_block_a_gate_pass": null,
+        "q1_all_primary_signal_confirmed": null,
+        "q1_signal_sufficient_for_id178_proxy": null,
+        "additional_independent_target_signal_required": null,
+        "s2_has_config_signal": null,
+        "final_block_b_gate_pass": null,
+        "usage_temporal_has_config_signal": null,
+        "final_usage_temporal_gate_pass": null,
+        "ambience_reopen_now": null,
+        "ambience_has_nested_positive_signal": null,
+        "local_source_stack_closed_for_submission_artifact": null,
+        "any_local_lane_promotable": null,
+        "all_primary_splits_beat_id341": null,
+        "primary_split_wins_vs_id341": null,
+        "primary_wins_vs_id341": null,
+        "mean_primary_delta_vs_id341": null,
+        "projected_public_proxy_from_id341": null,
+        "public_058_reviewable": null,
+        "create_submission_artifact": false,
+        "submit_now": false
+      }
+    },
+    "phase2_block_a_q1_s4_sleep_residual_bridge": {
+      "path": "reports/phase2_block_a_q1_s4_sleep_residual_bridge_post_id341_20260618.json",
+      "exists": true,
+      "summary": {
+        "source_family_has_smoke_signal": null,
+        "selected_targets": [
+          "Q1"
+        ],
+        "phase2_raw_multimodal_plan_ready": null,
+        "recommended_first_block": null,
+        "final_block_a_gate_pass": false,
+        "q1_all_primary_signal_confirmed": null,
+        "q1_signal_sufficient_for_id178_proxy": null,
+        "additional_independent_target_signal_required": null,
+        "s2_has_config_signal": null,
+        "final_block_b_gate_pass": null,
+        "usage_temporal_has_config_signal": null,
+        "final_usage_temporal_gate_pass": null,
+        "ambience_reopen_now": null,
+        "ambience_has_nested_positive_signal": null,
+        "local_source_stack_closed_for_submission_artifact": null,
+        "any_local_lane_promotable": null,
+        "all_primary_splits_beat_id341": true,
+        "primary_split_wins_vs_id341": null,
+        "primary_wins_vs_id341": 5,
+        "mean_primary_delta_vs_id341": -0.0002127085031439435,
+        "projected_public_proxy_from_id341": 0.6036170749968561,
+        "public_058_reviewable": false,
+        "create_submission_artifact": false,
+        "submit_now": false
+      }
+    },
+    "phase2_block_a_q1_proxy_gap": {
+      "path": "reports/phase2_block_a_q1_proxy_gap_post_id341_20260618.json",
+      "exists": true,
+      "summary": {
+        "source_family_has_smoke_signal": null,
+        "selected_targets": null,
+        "phase2_raw_multimodal_plan_ready": null,
+        "recommended_first_block": null,
+        "final_block_a_gate_pass": null,
+        "q1_all_primary_signal_confirmed": true,
+        "q1_signal_sufficient_for_id178_proxy": false,
+        "additional_independent_target_signal_required": true,
+        "s2_has_config_signal": null,
+        "final_block_b_gate_pass": null,
+        "usage_temporal_has_config_signal": null,
+        "final_usage_temporal_gate_pass": null,
+        "ambience_reopen_now": null,
+        "ambience_has_nested_positive_signal": null,
+        "local_source_stack_closed_for_submission_artifact": null,
+        "any_local_lane_promotable": null,
+        "all_primary_splits_beat_id341": null,
+        "primary_split_wins_vs_id341": null,
+        "primary_wins_vs_id341": null,
+        "mean_primary_delta_vs_id341": null,
+        "projected_public_proxy_from_id341": null,
+        "public_058_reviewable": null,
+        "create_submission_artifact": false,
+        "submit_now": false
+      }
+    },
+    "phase2_block_b_s2_sleep_recovery_retry": {
+      "path": "reports/phase2_block_b_s2_sleep_recovery_retry_post_id341_20260618.json",
+      "exists": true,
+      "summary": {
+        "source_family_has_smoke_signal": null,
+        "selected_targets": [],
+        "phase2_raw_multimodal_plan_ready": null,
+        "recommended_first_block": null,
+        "final_block_a_gate_pass": null,
+        "q1_all_primary_signal_confirmed": null,
+        "q1_signal_sufficient_for_id178_proxy": null,
+        "additional_independent_target_signal_required": null,
+        "s2_has_config_signal": false,
+        "final_block_b_gate_pass": false,
+        "usage_temporal_has_config_signal": null,
+        "final_usage_temporal_gate_pass": null,
+        "ambience_reopen_now": null,
+        "ambience_has_nested_positive_signal": null,
+        "local_source_stack_closed_for_submission_artifact": null,
+        "any_local_lane_promotable": null,
+        "all_primary_splits_beat_id341": false,
+        "primary_split_wins_vs_id341": null,
+        "primary_wins_vs_id341": 0,
+        "mean_primary_delta_vs_id341": 0.0,
+        "projected_public_proxy_from_id341": 0.6038297835,
+        "public_058_reviewable": false,
+        "create_submission_artifact": false,
+        "submit_now": false
+      }
+    },
+    "phase3_usage_temporal_microstructure": {
+      "path": "reports/phase3_usage_temporal_microstructure_smoke_post_id341_20260618.json",
+      "exists": true,
+      "summary": {
+        "source_family_has_smoke_signal": null,
+        "selected_targets": [],
+        "phase2_raw_multimodal_plan_ready": null,
+        "recommended_first_block": null,
+        "final_block_a_gate_pass": null,
+        "q1_all_primary_signal_confirmed": null,
+        "q1_signal_sufficient_for_id178_proxy": null,
+        "additional_independent_target_signal_required": null,
+        "s2_has_config_signal": null,
+        "final_block_b_gate_pass": null,
+        "usage_temporal_has_config_signal": false,
+        "final_usage_temporal_gate_pass": false,
+        "ambience_reopen_now": null,
+        "ambience_has_nested_positive_signal": null,
+        "local_source_stack_closed_for_submission_artifact": null,
+        "any_local_lane_promotable": null,
+        "all_primary_splits_beat_id341": false,
+        "primary_split_wins_vs_id341": null,
+        "primary_wins_vs_id341": 0,
+        "mean_primary_delta_vs_id341": 0.0,
+        "projected_public_proxy_from_id341": 0.6038297835,
+        "public_058_reviewable": false,
+        "create_submission_artifact": false,
+        "submit_now": false
+      }
+    },
+    "phase3_ambience_context_closure": {
+      "path": "reports/phase3_ambience_context_closure_post_id341_20260618.json",
+      "exists": true,
+      "summary": {
+        "source_family_has_smoke_signal": null,
+        "selected_targets": null,
+        "phase2_raw_multimodal_plan_ready": null,
+        "recommended_first_block": null,
+        "final_block_a_gate_pass": null,
+        "q1_all_primary_signal_confirmed": null,
+        "q1_signal_sufficient_for_id178_proxy": null,
+        "additional_independent_target_signal_required": null,
+        "s2_has_config_signal": null,
+        "final_block_b_gate_pass": null,
+        "usage_temporal_has_config_signal": null,
+        "final_usage_temporal_gate_pass": null,
+        "ambience_reopen_now": false,
+        "ambience_has_nested_positive_signal": false,
+        "local_source_stack_closed_for_submission_artifact": null,
+        "any_local_lane_promotable": null,
+        "all_primary_splits_beat_id341": null,
+        "primary_split_wins_vs_id341": null,
+        "primary_wins_vs_id341": null,
+        "mean_primary_delta_vs_id341": null,
+        "projected_public_proxy_from_id341": null,
+        "public_058_reviewable": false,
+        "create_submission_artifact": false,
+        "submit_now": false
+      }
+    },
+    "post_id341_local_source_closure_synthesis": {
+      "path": "reports/post_id341_local_source_closure_synthesis_20260618.json",
+      "exists": true,
+      "summary": {
+        "source_family_has_smoke_signal": null,
+        "selected_targets": null,
+        "phase2_raw_multimodal_plan_ready": null,
+        "recommended_first_block": null,
+        "final_block_a_gate_pass": null,
+        "q1_all_primary_signal_confirmed": null,
+        "q1_signal_sufficient_for_id178_proxy": null,
+        "additional_independent_target_signal_required": null,
+        "s2_has_config_signal": null,
+        "final_block_b_gate_pass": null,
+        "usage_temporal_has_config_signal": null,
+        "final_usage_temporal_gate_pass": null,
+        "ambience_reopen_now": null,
+        "ambience_has_nested_positive_signal": null,
+        "local_source_stack_closed_for_submission_artifact": true,
+        "any_local_lane_promotable": false,
+        "all_primary_splits_beat_id341": null,
+        "primary_split_wins_vs_id341": null,
+        "primary_wins_vs_id341": null,
+        "mean_primary_delta_vs_id341": null,
+        "projected_public_proxy_from_id341": null,
+        "public_058_reviewable": false,
+        "create_submission_artifact": false,
+        "submit_now": false
+      }
+    }
+  },
+  "split_manifest_summary": {
+    "n_train_rows": 450,
+    "n_test_rows": 250,
+    "n_folds_total": 23,
+    "split_counts": {
+      "subject_hole_5": 5,
+      "subject_timeseries_5": 5,
+      "actual_test_band_holdout": 1,
+      "test_boundary_neighbor2_holdout": 1,
+      "test_boundary_neighbor5_holdout": 1,
+      "loso_10": 10
+    },
+    "primary_splits_required": [
+      "subject_hole_5",
+      "actual_test_band_holdout",
+      "test_boundary_neighbor2_holdout",
+      "test_boundary_neighbor5_holdout",
+      "loso_10"
+    ]
+  },
+  "stage_contract": [
+    {
+      "stage": "remote_latest_closure_parity",
+      "compute": "Kaggle CPU",
+      "purpose": "Regenerate transfer-v2, external-prior, and combined weak-source closure reports in Kaggle runtime.",
+      "allowed_outputs": [
+        "remote_post_id341_transfer_gate_v2_joint_risk_20260618.json/.md",
+        "remote_external_etri_prior_smoke_post_id341_20260618.json/.md",
+        "remote_combined_sleep_evening_external_prior_gate_post_id341_20260618.json/.md"
+      ],
+      "stop_if": [
+        "any report creates or requests a submission artifact",
+        "any report unexpectedly finds a Public 0.58 candidate; stop for manual review instead of auto-promoting"
+      ],
+      "creates_submission": false
+    },
+    {
+      "stage": "raw_multimodal_sequence_source_smoke",
+      "compute": "Kaggle CPU first; GPU/TPU disabled",
+      "purpose": "Build compact sequence/source summaries from raw event streams rather than recombining existing OOF prediction artifacts.",
+      "candidate_sources": [
+        {
+          "name": "nightly_multimodal_bins_v1",
+          "raw_inputs": [
+            "mScreenStatus",
+            "mActivity",
+            "mACStatus",
+            "mLight",
+            "wLight",
+            "wHr",
+            "wPedo"
+          ],
+          "representation": "12h-36h relative-night bins with screen/activity/charge/light/hr/pedo transitions",
+          "target_focus": [
+            "Q1",
+            "S1",
+            "S2",
+            "S3",
+            "S4"
+          ]
+        },
+        {
+          "name": "environment_social_routine_bins_v1",
+          "raw_inputs": [
+            "mWifi",
+            "mBle",
+            "mUsageStats",
+            "mGps",
+            "mAmbience"
+          ],
+          "representation": "hourly novelty/routine entropy and app/env context summaries, no BSSID direct memorization",
+          "target_focus": [
+            "Q2",
+            "Q3",
+            "S4"
+          ]
+        },
+        {
+          "name": "subject_residual_sequence_drift_v1",
+          "raw_inputs": [
+            "processed numeric features",
+            "calendar covariates"
+          ],
+          "representation": "fold-internal per-subject residual trend and volatility summaries fitted without valid rows",
+          "target_focus": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "S1",
+            "S2",
+            "S3",
+            "S4"
+          ]
+        }
+      ],
+      "model_family_allowlist": [
+        "LogisticRegression with strong regularization",
+        "HistGradientBoostingClassifier shallow/regularized",
+        "ExtraTreesClassifier shallow/leaf-regularized"
+      ],
+      "selection_rule": "For every outer frozen split, fit preprocessing, feature selection, and any target/source selection only inside the training fold. Outer valid rows are score-only. Never select using public LB or full OOF.",
+      "allowed_outputs": [
+        "reports/remote_phase2_raw_source_smoke_metrics_20260618.json/.md",
+        "reports/remote_phase2_raw_source_candidate_geometry_20260618.json/.md",
+        "kaggle_outputs/phase2_raw_source_manifest.json"
+      ],
+      "forbidden_outputs": [
+        "submissions/*.csv",
+        "artifacts/base_predictions/base_oof_id_*.csv",
+        "artifacts/base_predictions/base_test_id_*.csv",
+        "notebooks/history/submission_*.ipynb",
+        "submission_log.csv row changes"
+      ],
+      "creates_submission": false
+    },
+    {
+      "stage": "transfer_and_joint_risk_gate",
+      "compute": "Kaggle CPU or local after pulled outputs",
+      "purpose": "Evaluate any temporary source predictions against ID178/287/329/341 and joint-risk metrics before artifact review.",
+      "promotion_floor": {
+        "must_beat_all_primary_splits_vs_id341": true,
+        "must_have_non_positive_failed_projection": true,
+        "must_have_proxy_below_id178_public": 0.6014113009,
+        "public_058_review_cutoff": 0.59,
+        "must_pass_joint_warning_lens": true
+      },
+      "manual_review_required_even_if_passes": true,
+      "creates_submission": false
+    }
+  ],
+  "gate_invariants": {
+    "no_dacon_submission": true,
+    "no_kaggle_push_without_explicit_user_approval": true,
+    "no_submission_csv_before_artifact_contract": true,
+    "unique_filename_required_for_any_future_artifact": true,
+    "full_artifact_contract_required_before_submission_file_promotion": [
+      "submission CSV",
+      "notebook/history",
+      "metadata JSON",
+      "decision MD",
+      "base_oof",
+      "base_test",
+      "submission_log row"
+    ],
+    "public_lb_not_used_for_selection": true,
+    "outer_valid_rows_score_only": true
+  },
+  "decision": {
+    "phase2_spec_ready": true,
+    "recommended_next_revision": "remote_phase2_raw_multimodal_sequence_source_smoke",
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "run_heavy_rebuild_now": false,
+    "next_action": "After explicit approval and pulled green phase-1 runner reports, extend the Kaggle runner only with the stage-contract raw/sequence source smoke. Do not create ID342 unless the pulled temporary source passes transfer and joint-risk gates plus a separate artifact-contract review."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

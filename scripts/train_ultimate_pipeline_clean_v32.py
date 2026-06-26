@@ -22,6 +22,8 @@ warnings.filterwarnings('ignore')
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
 from src.data.data_loader import DataLoader
+from src.data.make_dataset import build_training_dataset
+from src.features.demographics import DEMOGRAPHIC_FEATURE_COLUMNS
 from src.features.transformers import FoldWisePCA, LeakFreeSubjectZScaler
 from src.utils.logger import get_logger
 from src.utils.validation import make_subject_hole_folds
@@ -83,7 +85,7 @@ WINDOW_PAIR_FEATURES = [
 ]
 
 # Combine all base features for interpolation and scaling
-ALL_BASE_FEATURES = CORE_FEATURES + CIRCADIAN_SEASONAL_FEATURES + WINDOW_PAIR_FEATURES
+ALL_BASE_FEATURES = CORE_FEATURES + CIRCADIAN_SEASONAL_FEATURES + WINDOW_PAIR_FEATURES + DEMOGRAPHIC_FEATURE_COLUMNS
 
 # Best Laplace Hyperparameters discovered by AgentGA Optuna Evolver
 BEST_LAPLACE_PARAMS = {
@@ -361,8 +363,19 @@ def run_clean_ultimate_pipeline_v32():
     processed_train_path = Path("data/processed/df_train_raw.parquet")
     processed_test_path = Path("data/processed/df_test_raw.parquet")
 
-    df_train_raw = pd.read_parquet(processed_train_path)
-    df_test_raw = pd.read_parquet(processed_test_path)
+    if processed_train_path.exists() and processed_test_path.exists():
+        logger.info("Found cached raw datasets in data/processed/. Loading directly.")
+        df_train_raw = pd.read_parquet(processed_train_path)
+        df_test_raw = pd.read_parquet(processed_test_path)
+    else:
+        logger.info("Processed raw dataset cache missing. Rebuilding from official raw sensor files.")
+        sensor_data_dict = data_loader.load_sensor_data()
+        df_train_raw = build_training_dataset(metrics_df, sensor_data_dict)
+        df_test_raw = build_training_dataset(sample_sub_df, sensor_data_dict)
+        processed_train_path.parent.mkdir(parents=True, exist_ok=True)
+        df_train_raw.to_parquet(processed_train_path, index=False)
+        df_test_raw.to_parquet(processed_test_path, index=False)
+        logger.info("Cached rebuilt raw datasets with official demographic features to data/processed/.")
 
     df_train_raw['is_test'] = 0
     df_test_raw['is_test'] = 1
@@ -720,28 +733,29 @@ def run_clean_ultimate_pipeline_v32():
         logger.info(f"Target {target} CV -> CatBoost: {log_loss(y[has_label], oof_preds_cat[has_label, t_global_idx]):.4f} | LightGBM: {log_loss(y[has_label], oof_preds_lgb[has_label, t_global_idx]):.4f} | LogisticRegression: {log_loss(y[has_label], oof_preds_lr[has_label, t_global_idx]):.4f} | ExtraTrees: {log_loss(y[has_label], oof_preds_et[has_label, t_global_idx]):.4f}")
 
     # Save Curated OOFs and Submissions as v13 files
-    logger.info("Saving SOTA-v32 curated OOF predictions...")
+    output_tag = os.environ.get("DACON_BASE_OUTPUT_TAG", "v13")
+    logger.info(f"Saving SOTA-v32 curated OOF predictions with output tag: {output_tag}")
 
     oof_template = pd.DataFrame({'date': df_train['date'], 'subject_id': df_train[id_col]})
     sub_template = pd.DataFrame({'date': df_test['date'], 'subject_id': df_test[id_col]})
 
     cat_oof = oof_template.copy(); cat_sub = sub_template.copy(); cat_oof[targets] = oof_preds_cat; cat_sub[targets] = test_preds_cat
-    cat_oof.to_csv("submissions/oof_catboost_v13.csv", index=False); cat_sub.to_csv("submissions/submission_catboost_v13.csv", index=False)
+    cat_oof.to_csv(f"submissions/oof_catboost_{output_tag}.csv", index=False); cat_sub.to_csv(f"submissions/submission_catboost_{output_tag}.csv", index=False)
 
     lgb_oof = oof_template.copy(); lgb_sub = sub_template.copy(); lgb_oof[targets] = oof_preds_lgb; lgb_sub[targets] = test_preds_lgb
-    lgb_oof.to_csv("submissions/oof_lgbm_v13.csv", index=False); lgb_sub.to_csv("submissions/submission_lgbm_v13.csv", index=False)
+    lgb_oof.to_csv(f"submissions/oof_lgbm_{output_tag}.csv", index=False); lgb_sub.to_csv(f"submissions/submission_lgbm_{output_tag}.csv", index=False)
 
     xgb_oof = oof_template.copy(); xgb_sub = sub_template.copy(); xgb_oof[targets] = oof_preds_xgb; xgb_sub[targets] = test_preds_xgb
-    xgb_oof.to_csv("submissions/oof_xgb_v13.csv", index=False); xgb_sub.to_csv("submissions/submission_xgb_v13.csv", index=False)
+    xgb_oof.to_csv(f"submissions/oof_xgb_{output_tag}.csv", index=False); xgb_sub.to_csv(f"submissions/submission_xgb_{output_tag}.csv", index=False)
 
     et_oof = oof_template.copy(); et_sub = sub_template.copy(); et_oof[targets] = oof_preds_et; et_sub[targets] = test_preds_et
-    et_oof.to_csv("submissions/oof_et_v13.csv", index=False); et_sub.to_csv("submissions/submission_et_v13.csv", index=False)
+    et_oof.to_csv(f"submissions/oof_et_{output_tag}.csv", index=False); et_sub.to_csv(f"submissions/submission_et_{output_tag}.csv", index=False)
 
     rf_oof = oof_template.copy(); rf_sub = sub_template.copy(); rf_oof[targets] = oof_preds_rf; rf_sub[targets] = test_preds_rf
-    rf_oof.to_csv("submissions/oof_rf_v13.csv", index=False); rf_sub.to_csv("submissions/submission_rf_v13.csv", index=False)
+    rf_oof.to_csv(f"submissions/oof_rf_{output_tag}.csv", index=False); rf_sub.to_csv(f"submissions/submission_rf_{output_tag}.csv", index=False)
 
     lr_oof = oof_template.copy(); lr_sub = sub_template.copy(); lr_oof[targets] = oof_preds_lr; lr_sub[targets] = test_preds_lr
-    lr_oof.to_csv("submissions/oof_lr_v13.csv", index=False); lr_sub.to_csv("submissions/submission_lr_v13.csv", index=False)
+    lr_oof.to_csv(f"submissions/oof_lr_{output_tag}.csv", index=False); lr_sub.to_csv(f"submissions/submission_lr_{output_tag}.csv", index=False)
 
     logger.info("SOTA-v32 curated pipeline successfully finished training and saved as v13!")
 

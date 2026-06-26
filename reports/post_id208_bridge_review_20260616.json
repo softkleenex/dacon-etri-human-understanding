@@ -1,0 +1,40 @@
+{
+  "created_at": "2026-06-16",
+  "purpose": "Bridge review after carrying ID206 into the existing ID172 delta06/delta08 weights.",
+  "id206_cleaner": {
+    "local_cv": 0.5357639123296409,
+    "submission_file": "submission_id_206_id203_wavelet_spectral_sequence_overlay_cv0.535764_unsubmitted.csv"
+  },
+  "id207_delta06": {
+    "base_id": 206,
+    "extreme_id": 172,
+    "local_cv": 0.5245180891344232,
+    "comparison_id204_local_cv": 0.5247606882789884,
+    "submission_file": "submission_id_207_id206_targetwise_delta06_id172_extreme_probe_cv0.524518_unsubmitted.csv",
+    "interpretation": "Same delta06 target-wise clean weights as ID204, but with ID206 as clean anchor."
+  },
+  "id208_delta08": {
+    "base_id": 206,
+    "extreme_id": 172,
+    "local_cv": 0.5211769609748181,
+    "comparison_id205_local_cv": 0.521424249794571,
+    "submission_file": "submission_id_208_id206_targetwise_delta08_id172_extreme_probe_cv0.521177_unsubmitted.csv",
+    "interpretation": "Same delta08 target-wise clean weights as ID205, but with ID206 as clean anchor."
+  },
+  "robustness": {
+    "diagnostic_report": "reports/id178_id208_split_robustness_diagnostic_20260616.json",
+    "id204_to_id207": {
+      "overall_before": 0.5247606882789884,
+      "overall_after": 0.5245180891344232,
+      "robust_before": 0.5570894226633399,
+      "robust_after": 0.5569203368725831
+    },
+    "id205_to_id208": {
+      "overall_before": 0.521424249794571,
+      "overall_after": 0.5211769609748182,
+      "robust_before": 0.5536095423188462,
+      "robust_after": 0.5534187012767828
+    }
+  },
+  "warning": "ID207/ID208 inherit the same non-nested ID172 calibration risk as ID204/ID205. They are not public proof."
+}

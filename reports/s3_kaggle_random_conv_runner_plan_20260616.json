@@ -1,0 +1,64 @@
+{
+  "created_at_kst": "2026-06-16",
+  "purpose": "Prepare Kaggle S3 hard-wall raw random-conv remote sweep runner after local S3 compact diagnostics saturated.",
+  "runner_notebook": "notebooks/kaggle_strict_runner/Strict_Remote_Experiment_Runner.ipynb",
+  "kernel_metadata": "notebooks/kaggle_strict_runner/kernel-metadata.json",
+  "dataset_source": "softkleenex/dacon-etri-human-base",
+  "anchor_base_id": 247,
+  "runner_jobs": [
+    {
+      "base_id": 247,
+      "n_kernels": 512,
+      "seed": 45201,
+      "output": "reports/id247_s3_random_conv_sequence_diagnostic_nk512_seed45201.json"
+    },
+    {
+      "base_id": 247,
+      "n_kernels": 512,
+      "seed": 45202,
+      "output": "reports/id247_s3_random_conv_sequence_diagnostic_nk512_seed45202.json"
+    },
+    {
+      "base_id": 247,
+      "n_kernels": 512,
+      "seed": 45203,
+      "output": "reports/id247_s3_random_conv_sequence_diagnostic_nk512_seed45203.json"
+    },
+    {
+      "base_id": 247,
+      "n_kernels": 768,
+      "seed": 45301,
+      "output": "reports/id247_s3_random_conv_sequence_diagnostic_nk768_seed45301.json"
+    },
+    {
+      "base_id": 247,
+      "n_kernels": 768,
+      "seed": 45302,
+      "output": "reports/id247_s3_random_conv_sequence_diagnostic_nk768_seed45302.json"
+    },
+    {
+      "base_id": 247,
+      "n_kernels": 1024,
+      "seed": 45401,
+      "output": "reports/id247_s3_random_conv_sequence_diagnostic_nk1024_seed45401.json"
+    }
+  ],
+  "local_smoke": {
+    "command": "scripts/diagnose_public_random_conv_sequence.py --base-id 247 --n-kernels 16 --seed 45999",
+    "output": "reports/id247_s3_random_conv_sequence_smoke_nk16_seed45999_20260616.json",
+    "base_mean": 0.41552331381610536,
+    "targetwise_best_mean": 0.41552331381610536,
+    "s3_best": "base",
+    "s3_base_loss": 0.46511496294445753,
+    "s3_best_loss": 0.46511496294445753,
+    "n_total_channels": 68,
+    "n_random_conv_features": 64
+  },
+  "preflight": "scripts/pre_flight_check.py --notebook_dir notebooks/kaggle_strict_runner --research passed",
+  "promotion_contract": "If a pulled report improves S3, promote only through unique submission CSV, notebook, submission_log row, metadata JSON, and base OOF/test artifacts. No DACON submission is made by the runner.",
+  "next_commands": [
+    "make kaggle-push-code",
+    "make kaggle-push-strict-runner",
+    "make kaggle-pull-strict-output"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "review_date": "2026-06-16",
+  "source_notebook": "/Volumes/samsd/download_samsd/[Public_0.5917] LGBM+XGB 앵커·Subject-hole CV·안정성 피처선별·블렌드.ipynb",
+  "sha256": "71ae4397d0b429e501af44aa4de679cd4394f915862e68a2ffe62cf561846808",
+  "size_bytes": 51847,
+  "cell_count": 31,
+  "code_cell_count": 18,
+  "markdown_cell_count": 13,
+  "claimed_public_score": 0.5917,
+  "claimed_local_oof": 0.514,
+  "claimed_local_public_gap": 0.0777,
+  "claimed_anchor_public": 0.5939,
+  "claimed_feature_reduction": {
+    "from": 23177,
+    "to": 1682
+  },
+  "practical_assessment": {
+    "reproducible_as_is": false,
+    "reason": "Notebook describes functions and claimed results, but does not include the V152 anchor artifacts, large prebuilt feature matrices, or a complete executable feature build.",
+    "public_benchmark": "Slightly better than current local-log best public ID178 0.6014113009, but still far from public 0.55 and still has a large local-public gap."
+  },
+  "transferable_ideas": [
+    "Use conservative anchor blending rather than high-variance residual dominance.",
+    "Compare subject-hole and within-subject temporal validation lenses before trusting local CV.",
+    "Prefer stability-selected features and low-variance models for leaderboard-facing candidates.",
+    "Rank candidates by public-gap risk signals: prediction extremeness, anchor distance, and target-wise drift."
+  ],
+  "recommended_next_action": "Keep the notebook as validation-repair/anchor-stability guidance, but move away from direct sleep-guideline or shallow LGBM/XGB stability overlays on the current artifact ladder.",
+  "follow_up_transfer_checks": {
+    "sleep_guideline_overlay": {
+      "reports": [
+        "reports/public_sleep_guideline_overlay_diagnostic_20260616.json",
+        "reports/subject_hole_sleep_guideline_overlay_diagnostic_20260616.json"
+      ],
+      "result": "No promotable signal. ID226 and ID231 selected base for every S-target under both fold lenses."
+    },
+    "booster_stability_overlay": {
+      "reports": [
+        "reports/public_booster_stability_overlay_fast_scan_20260616.json"
+      ],
+      "result": "No promotable signal. Shallow stability-selected LGBM/XGB blends selected base for every target even under full-OOF scan."
+    }
+  }
+}

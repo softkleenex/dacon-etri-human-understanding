@@ -1,0 +1,181 @@
+{
+  "created_at_kst": "2026-06-23 18:16:30 UTC+09:00",
+  "diagnostic": "post_id341_proximity_ambience_cooccurrence_feature_matrix_smoke_contract",
+  "report_only": true,
+  "source_family": "proximity_ambience_cooccurrence_v1",
+  "target_focus": [
+    "Q3",
+    "S3"
+  ],
+  "purpose": "Gate whether the proximity/ambience co-occurrence v1 dry-run schema may be materialized later as exactly one registered label-free feature matrix, with no model or submission side effects.",
+  "inputs": {
+    "feature_spec_report": {
+      "path": "reports/post_id341_proximity_ambience_cooccurrence_feature_spec_20260619.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 9433,
+      "diagnostic": "post_id341_proximity_ambience_cooccurrence_feature_spec",
+      "feature_frame_summary": {},
+      "feature_count": 80,
+      "error": null
+    },
+    "feature_generation_dryrun_report": {
+      "path": "reports/post_id341_proximity_ambience_cooccurrence_feature_generation_dryrun_20260619.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 5196,
+      "diagnostic": "post_id341_proximity_ambience_cooccurrence_feature_generation_dryrun",
+      "feature_frame_summary": {
+        "row_count": 700,
+        "train_rows": 450,
+        "test_rows": 250,
+        "column_count_including_keys": 84,
+        "feature_column_count": 80,
+        "expected_feature_column_count": 80,
+        "feature_columns_match_spec": true,
+        "duplicate_key_rows": 0,
+        "finite_all_values": true,
+        "nan_count": 0,
+        "feature_min": 0.0,
+        "feature_max": 5413.0,
+        "zero_variance_feature_count": 1,
+        "nonzero_feature_count": 80
+      },
+      "feature_count": null,
+      "error": null
+    },
+    "material_new_source_queue": {
+      "path": "reports/post_id341_material_new_source_queue_20260619.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 24240,
+      "source_item": {
+        "rank": 4,
+        "name": "proximity_ambience_cooccurrence_v1",
+        "type": "materially_new_local_design_probe",
+        "status": "validated_stop_completed_no_model",
+        "target_focus": [
+          "Q3",
+          "S3"
+        ],
+        "raw_inputs": [
+          "mWifi",
+          "mBle",
+          "mAmbience",
+          "mScreenStatus"
+        ],
+        "why_materially_new": "Combines WiFi/BLE proximity richness with speech/crowd/inside/outside ambience in fixed 10-minute windows. This is not GPS route topology, usage Markov app semantics, ambience-only daily context, or missingness/event cadence.",
+        "first_safe_probe": "completed: report-only design, metadata/co-occurrence smoke, bounded 80-column feature spec, in-memory feature-generation dry run, report-only feature-matrix smoke contract, one registered label-free feature matrix, schema report, and deterministic validation stop. No model, submission artifact, Kaggle run, or DACON submission is authorized.",
+        "next_allowed_step": "closed_stop_or_wait_for_explicit_kaggle_approval",
+        "score_relevant": false,
+        "local_no_approval_allowed": false,
+        "train_model_now": false,
+        "create_artifact_allowed": false,
+        "submission_artifact_allowed": false,
+        "feature_matrix_write_allowed_next_under_contract": false,
+        "feature_matrix_materialized_under_contract": true
+      },
+      "error": null
+    }
+  },
+  "registered_paths": {
+    "feature_matrix_path": "data/processed/post_id341_proximity_ambience_cooccurrence_features_v1.parquet",
+    "schema_report_path": "reports/post_id341_proximity_ambience_cooccurrence_features_v1_schema.json",
+    "feature_matrix_exists_now": true,
+    "schema_report_exists_now": true
+  },
+  "dryrun_summary": {
+    "row_count": 700,
+    "train_rows": 450,
+    "test_rows": 250,
+    "column_count_including_keys": 84,
+    "feature_column_count": 80,
+    "expected_feature_column_count": 80,
+    "feature_columns_match_spec": true,
+    "duplicate_key_rows": 0,
+    "finite_all_values": true,
+    "nan_count": 0,
+    "feature_min": 0.0,
+    "feature_max": 5413.0,
+    "zero_variance_feature_count": 1,
+    "nonzero_feature_count": 80
+  },
+  "future_writer_contract": {
+    "writer_allowed_next_under_contract": false,
+    "allowed_feature_matrix_path": "data/processed/post_id341_proximity_ambience_cooccurrence_features_v1.parquet",
+    "allowed_schema_report_path": "reports/post_id341_proximity_ambience_cooccurrence_features_v1_schema.json",
+    "expected_row_count": 700,
+    "expected_train_rows": 450,
+    "expected_test_rows": 250,
+    "expected_feature_column_count": 80,
+    "required_key_columns": [
+      "subject_id",
+      "sleep_date",
+      "lifelog_date",
+      "split"
+    ],
+    "forbidden_columns": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "prediction",
+      "oof",
+      "submission"
+    ],
+    "writer_must_stop_after_schema_report": true,
+    "model_training_allowed": false,
+    "submission_artifact_allowed": false,
+    "kaggle_or_dacon_allowed": false
+  },
+  "checks": {
+    "spec_contract_ready": true,
+    "dryrun_contract_ready": true,
+    "dryrun_schema_ready": true,
+    "queue_contract_ready": true,
+    "current_queue_contract_ready": false,
+    "queue_records_contract_ready": false,
+    "queue_records_matrix_materialized": false,
+    "queue_records_lane_closed": true,
+    "privacy_contract_ready": true,
+    "registered_matrix_absent_before_write": false,
+    "registered_schema_absent_before_write": false,
+    "feature_matrix_write_allowed_next_under_contract": false,
+    "does_not_write_feature_matrix": true,
+    "does_not_train_model": true,
+    "does_not_create_submission_artifact": true
+  },
+  "decision": {
+    "feature_matrix_smoke_contract_ready": true,
+    "source_family": "proximity_ambience_cooccurrence_v1",
+    "target_focus": [
+      "Q3",
+      "S3"
+    ],
+    "selected_targets": [],
+    "public_058_evidence": false,
+    "score_route_opened": false,
+    "feature_matrix_write_allowed_now": false,
+    "feature_matrix_write_allowed_next_under_contract": false,
+    "feature_matrix_already_materialized_under_contract": true,
+    "train_model_now": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_local_allowed_step": "validate_proximity_ambience_cooccurrence_feature_matrix_then_stop_or_wait_for_explicit_kaggle_approval",
+    "next_action": "The registered matrix already exists; validate schema/report and stop unless explicit Kaggle approval is given."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_feature_matrix_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

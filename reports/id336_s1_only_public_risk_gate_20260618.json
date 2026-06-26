@@ -1,0 +1,127 @@
+{
+  "report": "id336_s1_only_public_risk_gate",
+  "created_utc": "2026-06-17T15:51:05.899788+00:00",
+  "candidate_id": 336,
+  "candidate_file": "submission_id_336_id178_s1_seed45502_randomconv_overlay_cv0.537663_unsubmitted.csv",
+  "metadata_file": "reports/experiment_336_id178_s1_seed45502_randomconv_overlay_cv0.537663_unsubmitted.json",
+  "base_id": 178,
+  "local_cv": 0.5376634287497856,
+  "base_cv": 0.5386377373903545,
+  "local_gain_vs_base": 0.0009743086405689105,
+  "target_scores": {
+    "Q1": 0.5519157186538461,
+    "Q2": 0.5566793351664245,
+    "Q3": 0.5670897848363184,
+    "S1": 0.46481028645765693,
+    "S2": 0.529556132747474,
+    "S3": 0.4908930389002769,
+    "S4": 0.6026997044865015
+  },
+  "s1_detail": {
+    "base_loss": 0.47163044694164047,
+    "raw_sequence_loss": 0.6890120456835461,
+    "selected_loss": 0.46481028645765693,
+    "target_improvement_vs_base": 0.0068201604839835395,
+    "test_prediction_mean_before": 0.6843838008766049,
+    "test_prediction_mean_after": 0.6789831679698325,
+    "test_prediction_max_abs_delta_vs_base": 0.1127561302381207,
+    "test_prediction_mean_abs_delta_vs_base": 0.028056050462915257
+  },
+  "identity_vs_id178_by_split": {
+    "oof": {
+      "Q1": {
+        "max_abs_delta": 0.0,
+        "mean_abs_delta": 0.0
+      },
+      "Q2": {
+        "max_abs_delta": 0.0,
+        "mean_abs_delta": 0.0
+      },
+      "Q3": {
+        "max_abs_delta": 0.0,
+        "mean_abs_delta": 0.0
+      },
+      "S1": {
+        "max_abs_delta": 0.13820426304602063,
+        "mean_abs_delta": 0.03275195755984799
+      },
+      "S2": {
+        "max_abs_delta": 0.0,
+        "mean_abs_delta": 0.0
+      },
+      "S3": {
+        "max_abs_delta": 0.0,
+        "mean_abs_delta": 0.0
+      },
+      "S4": {
+        "max_abs_delta": 0.0,
+        "mean_abs_delta": 0.0
+      }
+    },
+    "test": {
+      "Q1": {
+        "max_abs_delta": 0.0,
+        "mean_abs_delta": 0.0
+      },
+      "Q2": {
+        "max_abs_delta": 0.0,
+        "mean_abs_delta": 0.0
+      },
+      "Q3": {
+        "max_abs_delta": 0.0,
+        "mean_abs_delta": 0.0
+      },
+      "S1": {
+        "max_abs_delta": 0.1127561302381207,
+        "mean_abs_delta": 0.028056050462915257
+      },
+      "S2": {
+        "max_abs_delta": 0.0,
+        "mean_abs_delta": 0.0
+      },
+      "S3": {
+        "max_abs_delta": 0.0,
+        "mean_abs_delta": 0.0
+      },
+      "S4": {
+        "max_abs_delta": 0.0,
+        "mean_abs_delta": 0.0
+      }
+    }
+  },
+  "rerank_row": {
+    "id": 336,
+    "submission_file": "submission_id_336_id178_s1_seed45502_randomconv_overlay_cv0.537663_unsubmitted.csv",
+    "base_test_file": "artifacts/base_predictions/base_test_id_336_id178_s1_seed45502_randomconv_overlay_cv0.537663.csv",
+    "family": "sequence_temporal_family",
+    "local_cv": 0.537663,
+    "public_lb": null,
+    "status_clean": "generated_unsubmitted",
+    "mean_delta_vs_178": 0.004008007208987894,
+    "max_delta_vs_178": 0.1127561302381207,
+    "rmse_vs_178": 0.014007165758177311,
+    "mean_delta_vs_329": 0.022041394144512734,
+    "max_delta_vs_329": 0.10694841541260869,
+    "mean_delta_vs_335": 0.009632711224982757,
+    "max_delta_vs_335": 0.1728948696677458,
+    "projection_failed": -0.0016615455000836235,
+    "projection_329": 0.016488767307785694,
+    "projection_335": -0.22168425541579342,
+    "conservative_public_risk_proxy": 0.6079447614276173,
+    "risk_tier": "reviewable_low_movement"
+  },
+  "gates": {
+    "artifact_contract_created": true,
+    "non_s1_targets_identical_to_id178": true,
+    "local_improves_id178": true,
+    "failed_projection_non_positive": true,
+    "reviewable_low_movement_tier": true,
+    "public_058_plausible": false,
+    "automatic_submission_allowed": false
+  },
+  "recommendation": {
+    "status": "reviewable_controlled_probe_not_submit",
+    "rationale": "ID336 is cleaner than broad combo attempts because it modifies only S1 on top of known public anchor ID178, improves local CV by about 0.000974, and has slightly negative projection to the ID287 failed direction. However S1 test max delta is 0.112756 and evidence remains public-structure-local, so it is not a Public 0.58 claim.",
+    "next_step": "If considering DACON, ask explicit approval for this exact file only after comparing it with ID178/ID329 public anchors. Otherwise run an S1 weight sensitivity gate around 0.10/0.12/0.15 before spending a submission."
+  }
+}

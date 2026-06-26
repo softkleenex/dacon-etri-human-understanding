@@ -1,0 +1,244 @@
+{
+  "created_at_kst": "2026-06-19 09:47:52 UTC+09:00",
+  "diagnostic": "post_id341_circadian_hr_light_phase_feature_spec",
+  "report_only": true,
+  "source_family": "circadian_hr_light_phase_shape_v1",
+  "inputs": {
+    "queue_report": {
+      "path": "reports/post_id341_material_new_source_queue_20260619.json",
+      "exists": true,
+      "next_no_approval_step": "usage_semantic_burst_markov_v1",
+      "circadian_queue_status": "closed_after_feature_matrix_and_model_smoke_no_signal",
+      "circadian_next_allowed_step": "closed_no_artifact"
+    },
+    "metadata_report": {
+      "path": "reports/post_id341_circadian_hr_light_phase_metadata_probe_20260619.json",
+      "exists": true,
+      "metadata_probe_passed": true,
+      "strong_phase_shape_train_rate": 0.5622222222222222,
+      "strong_phase_shape_test_rate": 0.612,
+      "weak_phase_shape_train_rate": 0.7488888888888889,
+      "weak_phase_shape_test_rate": 0.828
+    }
+  },
+  "feature_blocks": [
+    {
+      "block": "phase_source_quality",
+      "purpose": "Keep downstream models aware of whether a day has enough circadian signal to trust.",
+      "raw_inputs": [
+        "wHr",
+        "wLight",
+        "mLight",
+        "wPedo"
+      ],
+      "features": [
+        "phase_strong_day_flag",
+        "phase_weak_day_flag",
+        "whr_rows",
+        "whr_hours",
+        "wlight_hours",
+        "mlight_hours",
+        "wpedo_hours",
+        "phase_missing_source_count"
+      ],
+      "fit_scope": "row_local_no_fit",
+      "target_focus": [
+        "Q3",
+        "S3",
+        "S2"
+      ]
+    },
+    {
+      "block": "wearable_hr_phase_shape",
+      "purpose": "Represent autonomic recovery and intraday HR curve shape without using labels.",
+      "raw_inputs": [
+        "wHr"
+      ],
+      "features": [
+        "hr_night_median",
+        "hr_morning_median",
+        "hr_afternoon_median",
+        "hr_evening_median",
+        "hr_day_night_amplitude",
+        "hr_morning_rise_slope",
+        "hr_evening_decay_slope",
+        "hr_curve_roughness",
+        "hr_rest_window_low_quantile",
+        "hr_high_load_minutes_proxy"
+      ],
+      "fit_scope": "predeclared_hour_bins_only",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ]
+    },
+    {
+      "block": "wearable_light_phase_shape",
+      "purpose": "Capture light timing, amplitude, and delayed-evening exposure as a circadian zeitgeber.",
+      "raw_inputs": [
+        "wLight"
+      ],
+      "features": [
+        "wlight_first_nonzero_hour",
+        "wlight_last_nonzero_hour",
+        "wlight_morning_exposure_sum",
+        "wlight_afternoon_exposure_sum",
+        "wlight_evening_exposure_sum",
+        "wlight_night_exposure_sum",
+        "wlight_day_night_contrast",
+        "wlight_evening_delay_ratio"
+      ],
+      "fit_scope": "row_local_no_fit",
+      "target_focus": [
+        "Q3",
+        "S3",
+        "S2"
+      ]
+    },
+    {
+      "block": "phone_light_dark_continuity",
+      "purpose": "Use phone light as a fallback/context signal for darkness continuity and late exposure.",
+      "raw_inputs": [
+        "mLight"
+      ],
+      "features": [
+        "mlight_dark_minutes_proxy",
+        "mlight_longest_dark_gap_hours",
+        "mlight_night_light_burst_count",
+        "mlight_evening_light_share",
+        "mlight_morning_light_share",
+        "mlight_wearable_light_disagreement"
+      ],
+      "fit_scope": "row_local_no_fit",
+      "target_focus": [
+        "Q3",
+        "S3",
+        "S2"
+      ]
+    },
+    {
+      "block": "rest_activity_phase_shape",
+      "purpose": "Separate circadian phase shifts from ordinary movement and rest/activity fragmentation.",
+      "raw_inputs": [
+        "wPedo"
+      ],
+      "features": [
+        "steps_morning_sum",
+        "steps_afternoon_sum",
+        "steps_evening_sum",
+        "steps_night_sum",
+        "first_active_hour",
+        "last_active_hour",
+        "activity_fragmentation_count",
+        "late_activity_ratio",
+        "rest_window_length_proxy",
+        "activity_phase_centroid_hour"
+      ],
+      "fit_scope": "predeclared_activity_thresholds_only",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ]
+    },
+    {
+      "block": "cross_modal_phase_alignment",
+      "purpose": "Measure whether HR, light, and activity are phase-aligned or internally contradictory.",
+      "raw_inputs": [
+        "wHr",
+        "wLight",
+        "mLight",
+        "wPedo"
+      ],
+      "features": [
+        "hr_light_phase_lag_proxy",
+        "activity_light_phase_lag_proxy",
+        "night_light_with_high_hr_minutes_proxy",
+        "evening_activity_with_bright_light_proxy",
+        "morning_light_without_activity_proxy",
+        "strong_phase_cross_modal_consistency_score"
+      ],
+      "fit_scope": "row_local_no_fit",
+      "target_focus": [
+        "Q3",
+        "S3",
+        "S2"
+      ]
+    }
+  ],
+  "leakage_guards": [
+    "No target labels, OOF predictions, submission CSVs, public scores, or prior candidate predictions may enter feature generation.",
+    "All phase windows must be predeclared hour bins; do not tune time windows on validation loss.",
+    "Subject-relative baselines, if added later, must be fit inside each training fold only.",
+    "Final test feature generation may use row-local raw sensor values, but must not fit subject baselines from unlabeled test rows without a separate report.",
+    "Missingness and coverage flags are allowed only as raw-source reliability features, not as public-score-calibrated switches.",
+    "The first execution after this spec may only be a report-only dry run checking row alignment, feature counts, and train/test coverage.",
+    "No feature parquet, fold model, base prediction artifact, notebook/history artifact, submission-log row, ID342, Kaggle run, or DACON submission is allowed by this spec."
+  ],
+  "resource_bounds": {
+    "max_daily_feature_columns_for_first_dryrun": 56,
+    "planned_first_pass_feature_columns": 48,
+    "max_hour_bins": 24,
+    "max_phase_summary_bins": 4,
+    "max_rows_expected": 700,
+    "allowed_first_execution": "report_only_feature_generation_dryrun_no_matrix",
+    "disallowed_first_execution": [
+      "feature_parquet_write",
+      "fold_model_training",
+      "test_prediction_generation",
+      "submission_csv_creation",
+      "kaggle_remote_run_without_exact_approval",
+      "dacon_submission"
+    ]
+  },
+  "validation_lenses": [
+    {
+      "lens": "row_alignment_dryrun",
+      "required_before_matrix": true,
+      "pass_rule": "The dry run must align exactly to 450 train + 250 test subject/lifelog rows with no duplicate keys."
+    },
+    {
+      "lens": "coverage_balance_gate",
+      "required_before_matrix": true,
+      "pass_rule": "Strong phase-shape rates must remain >=0.50 in train and test; weak rates must remain >=0.70."
+    },
+    {
+      "lens": "feature_count_gate",
+      "required_before_matrix": true,
+      "pass_rule": "The first-pass schema must stay within 56 feature columns plus keys and must contain only bounded numeric/boolean features."
+    },
+    {
+      "lens": "subject_hole_fit_scope",
+      "required_before_model": true,
+      "pass_rule": "Any later subject-relative phase baseline must be fitted inside each outer train fold only."
+    },
+    {
+      "lens": "target_specific_promotion_gate",
+      "required_before_artifact": true,
+      "pass_rule": "A future fold-internal model must beat the ID341/ID178 anchor on Q3/S3/S2 slices without worsening public-transfer risk."
+    },
+    {
+      "lens": "public_transfer_gate_v2",
+      "required_before_artifact": true,
+      "pass_rule": "No candidate can be promoted unless the conservative public proxy is reviewable below the current ID178/ID329 plateau."
+    }
+  ],
+  "decision": {
+    "feature_spec_ready": true,
+    "source_family": "circadian_hr_light_phase_shape_v1",
+    "target_focus": [
+      "Q3",
+      "S3",
+      "S2"
+    ],
+    "metadata_probe_passed": true,
+    "next_local_allowed_step": "report_only_feature_generation_dryrun_no_matrix",
+    "feature_matrix_allowed_now": false,
+    "train_model_now": false,
+    "public_058_evidence": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "The circadian HR/light phase-shape spec is ready. The next no-approval step may only be a report-only feature-generation dry run that checks row alignment, coverage, and schema bounds; no feature parquet, model, ID342, Kaggle run, or DACON submission is allowed."
+  }
+}

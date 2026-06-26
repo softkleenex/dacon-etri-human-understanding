@@ -1,0 +1,644 @@
+{
+  "created_at_kst": "2026-06-23 22:02:35 UTC+09:00",
+  "diagnostic": "post_id341_kaggle_prelaunch_readiness_gate",
+  "purpose": "Aggregate all local no-submit readiness evidence before an explicit-approved Kaggle/Linux parity run. This gate does not authorize remote execution by itself.",
+  "inputs": {
+    "approval_note": {
+      "path": "reports/post_id341_kaggle_launch_approval_note_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 7802,
+      "decision": {
+        "approval_note_ready": true,
+        "execute_kaggle_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "requires_explicit_user_approval": true,
+        "next_action": "Ask for explicit approval of the exact command sequence before running Kaggle. Without approval, keep the repo in no-submit report-only mode."
+      },
+      "error": null
+    },
+    "execution_packet": {
+      "path": "reports/kaggle_upstream_execution_packet_post_id341_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 31999,
+      "decision": {
+        "ready_for_explicit_approval": true,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "next_action": "Await explicit approval for the exact Kaggle command sequence, or continue designing a materially different local raw source without creating ID342."
+      },
+      "error": null
+    },
+    "source_zip_selftest": {
+      "path": "reports/kaggle_source_zip_selftest_post_id341_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 14103,
+      "decision": {
+        "selftest_passed": true,
+        "ready_for_explicit_kaggle_approval": true,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "next_action": "If the user explicitly approves, run the guarded sequence: ALLOW_KAGGLE_REMOTE=true make kaggle-push-upstream-patch-dataset; ALLOW_KAGGLE_REMOTE=true make kaggle-check-base-dataset-files; ALLOW_KAGGLE_REMOTE=true make kaggle-check-upstream-patch-dataset-files; ALLOW_KAGGLE_REMOTE=true make kaggle-push-upstream-rebuild-runner; ALLOW_KAGGLE_REMOTE=true make kaggle-kernel-status-upstream-rebuild; ALLOW_KAGGLE_REMOTE=true make kaggle-wait-and-pull-upstream-rebuild-output; then make kaggle-review-upstream-rebuild-output. Otherwise keep working locally without creating ID342."
+      },
+      "error": null
+    },
+    "runner_intake_contract": {
+      "path": "reports/post_id341_kaggle_runner_intake_contract_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 9675,
+      "decision": {
+        "runner_intake_contract_pass": true,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "artifact_contract_review_allowed": false,
+        "next_action": "Runner staging matches the intake gate; explicit user approval is still required for Kaggle push/run."
+      },
+      "error": null
+    },
+    "runner_q3s3_negative_map_handoff_contract": {
+      "remote_negative_map": "remote_post_id341_q3s3_negative_evidence_map_20260618.json",
+      "remote_fold_nested_sibling_bridge": "remote_post_id341_q3s3_fold_nested_sibling_bridge_smoke_20260619.json",
+      "remote_remaining_inventory": "remote_post_id341_q3s3_remaining_route_inventory_20260618.json",
+      "negative_map_name_present": true,
+      "fold_nested_sibling_name_present": true,
+      "remaining_inventory_name_present": true,
+      "negative_map_declared_before_inventory": true,
+      "fold_nested_sibling_declared_between_negative_and_inventory": true,
+      "negative_map_generation_command_present": true,
+      "fold_nested_sibling_generation_command_present": true,
+      "remaining_inventory_uses_negative_map_arg": true,
+      "remaining_inventory_uses_fold_nested_sibling_arg": true,
+      "negative_map_staged_in_report_roots": true,
+      "fold_nested_sibling_staged_in_report_roots": true,
+      "negative_map_asserts_eight_closed_lanes": true,
+      "q3s3_negative_map_handoff_pass": true
+    },
+    "guarded_remote_contract": {
+      "path": "reports/kaggle_guarded_remote_contract_audit_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 8779,
+      "decision": {
+        "guarded_remote_contract_pass": true,
+        "execute_kaggle_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "next_action": "Guarded remote contract is consistent; explicit approval is still required for any Kaggle network step."
+      },
+      "error": null
+    },
+    "remote_fail_closed_dryrun_audit": {
+      "path": "reports/kaggle_remote_fail_closed_dryrun_audit_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 6255,
+      "decision": {
+        "remote_fail_closed_dryrun_pass": true,
+        "requires_explicit_user_approval": true,
+        "execute_kaggle_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "next_action": "Remote targets fail closed without approval; explicit approval is still required before any Kaggle network step."
+      },
+      "error": null
+    },
+    "public_local_gap_diagnosis": {
+      "path": "reports/post_id341_public_local_gap_diagnosis_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 10741,
+      "decision": {
+        "public_local_gap_diagnosis_ready": true,
+        "mac_m4_environment_primary_explanation": false,
+        "any_watch_candidate_passes_public_058_recent_floor_proxy": false,
+        "any_watch_candidate_passes_public_058_recent_stress_proxy": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "local_cv_needed_for_public_058_recent_floor": 0.517445,
+        "local_cv_needed_for_public_058_recent_stress": 0.494927,
+        "next_action": "Do not promote local CV-only candidates. The next score-relevant move remains the explicit-approved no-submit Kaggle/Linux upstream rebuild, followed by a separate Public-0.58 artifact-contract review only if pulled reports are safe, beat the current confirmed public anchor band, and show min_proxy <= 0.58; ID178-only improvement above 0.58 is a lead, not ID342."
+      },
+      "error": null
+    },
+    "data_source_coverage_audit": {
+      "path": "reports/post_id341_data_source_coverage_audit_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 21538,
+      "decision": {
+        "data_source_coverage_audit_ready": true,
+        "all_major_sources_present": true,
+        "all_required_evidence_reports_present": true,
+        "upstream_runner_references_required_source_checks": true,
+        "data_source_coverage_ready": true,
+        "external_direct_concat_allowed": false,
+        "external_prior_reviewable": false,
+        "local_source_stack_closed_for_submission_artifact": true,
+        "public_058_local_cv_only_gate_passed": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Data/source coverage is accounted for locally. Do not concatenate external rows or create ID342; the next score-relevant step remains explicit-approved no-submit Kaggle/Linux upstream rebuild."
+      },
+      "error": null
+    },
+    "missing_target_signal_inventory": {
+      "path": "reports/post_id341_missing_target_signal_inventory_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 20092,
+      "decision": {
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "focus_targets": [
+          "Q2",
+          "Q3",
+          "S3"
+        ],
+        "focus_missing_locally": [
+          "Q2",
+          "Q3",
+          "S3"
+        ],
+        "focus_has_upstream_backbone_signal": [
+          "Q2",
+          "Q3",
+          "S3"
+        ],
+        "secondary_watch_only_targets": [
+          "S1",
+          "S2"
+        ],
+        "local_q2_q3_s3_promotable": false,
+        "external_direct_concat_allowed": false,
+        "prelaunch_ready_for_explicit_approval": true,
+        "requires_explicit_user_approval": true,
+        "recommended_next_action": "Do not create a local ID342. Q2/Q3/S3 have no current local selected rows; the only meaningful Q2/Q3/S3 surface is the report-first clean ID221→ID226 upstream rebuild, gated by explicit Kaggle approval."
+      },
+      "error": null
+    },
+    "q2q3s3_source_hypothesis_matrix": {
+      "path": "reports/post_id341_q2q3s3_source_hypothesis_matrix_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 13957,
+      "decision": {
+        "q2q3s3_source_hypothesis_matrix_ready": true,
+        "all_focus_targets_missing_locally": true,
+        "all_focus_targets_have_historical_id226_signal": true,
+        "all_focus_targets_id226_win_all_folds_vs_341": true,
+        "processed_feature_coverage_sufficient_for_design": true,
+        "external_direct_concat_allowed": false,
+        "local_q2q3s3_artifact_promotable": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "requires_explicit_kaggle_approval": true,
+        "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+        "recommended_next_action": "Keep local ID342 closed. Use this matrix as the score-relevant design compass for the explicit-approved no-submit Kaggle upstream rebuild; only pulled reports that beat ID178 and pass Public-0.58 review gates may open a separate artifact-contract review."
+      },
+      "error": null
+    },
+    "q2q3s3_local_fallback_chain": {
+      "path": "reports/post_id341_q2q3s3_local_fallback_chain_contract_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 10215,
+      "decision": {
+        "local_fallback_chain_contract_pass": true,
+        "primary_score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+        "fallback_no_approval_route": "local_or_kaggle_q2q3s3_env_social_routine_v2_design",
+        "missing_targets": [
+          "Q2",
+          "Q3",
+          "S3"
+        ],
+        "selected_local_context_targets": [
+          "Q2"
+        ],
+        "q3_s3_still_uncovered": true,
+        "local_q2_lead_context_only": true,
+        "public_058_evidence": false,
+        "local_artifact_allowed": false,
+        "requires_explicit_kaggle_approval": true,
+        "execute_kaggle_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "next_action": "Keep the Q2 local lead as context only; pursue the explicit-approved clean ID221→ID226 upstream rebuild for Q2/Q3/S3 coverage, or design a materially different Q3/S3 source without creating ID342."
+      },
+      "error": null
+    },
+    "q3s3_local_lane_closure": {
+      "path": "reports/post_id341_q3s3_local_lane_closure_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 2734,
+      "decision": {
+        "local_q2_component_keep_as_context": true,
+        "q3_s3_uncovered_after_local_fallback": [
+          "Q3",
+          "S3"
+        ],
+        "local_fallback_closed_for_submission_artifact": true,
+        "local_artifact_allowed": false,
+        "public_058_evidence": false,
+        "primary_next_score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+        "requires_explicit_kaggle_approval": true,
+        "prelaunch_ready_for_explicit_approval": true,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Do not create a local submission artifact from Q2-only context. The next score-relevant path is the explicit-approved clean ID221→ID226 no-submit upstream rebuild; without that approval, only document new genuinely independent Q3/S3 hypotheses, not broader local tuning."
+      },
+      "error": null
+    },
+    "q3s3_semantic_routine_lane_closure": {
+      "path": "reports/post_id341_q3s3_semantic_routine_lane_closure_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 2147,
+      "decision": {
+        "semantic_routine_lane_closure_passed": true,
+        "q3_s3_still_uncovered": [
+          "Q3",
+          "S3"
+        ],
+        "local_semantic_routine_artifact_allowed": false,
+        "public_058_evidence": false,
+        "primary_next_score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+        "requires_explicit_kaggle_approval": true,
+        "prelaunch_ready_for_explicit_approval": true,
+        "execute_kaggle_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "next_action": "Do not create ID342 from semantic-routine Q3/S3 features. The lane is structurally computable but failed fold-internal target selection. Continue only through the explicit-approved clean upstream ID221→ID226 no-submit rebuild, or design a materially different source."
+      },
+      "error": null
+    },
+    "q3s3_remaining_route_inventory": {
+      "path": "reports/post_id341_q3s3_remaining_route_inventory_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 23599,
+      "decision": {
+        "q3s3_remaining_route_inventory_ready": true,
+        "target_focus": [
+          "Q3",
+          "S3"
+        ],
+        "q3_s3_still_uncovered": true,
+        "fold_nested_sibling_bridge_closed": true,
+        "gps_path_topology_model_lane_closed": true,
+        "external_public05917_direct_route_closed": true,
+        "local_no_approval_score_route_exists": false,
+        "only_score_relevant_open_route": "explicit_approved_clean_upstream_id221_to_id226",
+        "requires_explicit_kaggle_approval": true,
+        "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+        "manual_probe_if_user_spends_submission": null,
+        "manual_probe_family_status": "consumed_after_id341_id340_id337_public_micro_probe_slate",
+        "public_058_evidence": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Do not create a local ID342 from closed Q3/S3 lanes. The next score-relevant action is the explicit-approved no-submit Kaggle upstream rebuild; otherwise continue with report-only design/tests."
+      },
+      "error": null
+    },
+    "usage_semantic_burst_markov_validation_stop": {
+      "path": "reports/post_id341_usage_semantic_burst_markov_feature_matrix_validation_stop_20260619.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 16523,
+      "decision": {
+        "validation_stop_passed": true,
+        "source_family": "usage_semantic_burst_markov_v1",
+        "target_focus": [
+          "Q2",
+          "Q3"
+        ],
+        "selected_targets": [],
+        "public_058_evidence": false,
+        "score_route_opened": false,
+        "train_model_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_local_allowed_step": "stop_or_wait_for_explicit_kaggle_upstream_rebuild_no_submit_approval",
+        "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+        "next_action": "Usage matrix is validated as label-free infrastructure. Stop local no-approval modeling here; only an exact approved Kaggle no-submit upstream rebuild may consume it indirectly, and still may not submit."
+      },
+      "error": null
+    },
+    "self_supervised_subject_state_design": {
+      "path": "reports/post_id341_self_supervised_subject_state_embedding_design_20260619.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 12534,
+      "decision": {
+        "design_ready": true,
+        "source_family": "self_supervised_subject_state_embedding_v1",
+        "target_focus": [
+          "Q2",
+          "Q3",
+          "S3"
+        ],
+        "materially_new_but_heavy": true,
+        "local_no_approval_allowed": false,
+        "requires_explicit_heavy_compute_approval": true,
+        "current_score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+        "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+        "public_058_evidence": false,
+        "score_route_opened": false,
+        "feature_matrix_allowed_now": false,
+        "train_model_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_local_allowed_step": "none_without_new_explicit_heavy_compute_contract",
+        "next_action": "Keep this as a design-only route. If pursued later, first write a separate heavy-compute contract; otherwise the only score-relevant action remains the explicit-approved no-submit upstream rebuild."
+      },
+      "error": null
+    },
+    "local_smoke_freshness_gate": {
+      "path": "reports/post_id341_local_smoke_freshness_gate_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 2960,
+      "decision": {
+        "local_runner_smoke_fresh": true,
+        "requires_local_runner_smoke_rerun": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Local runner smoke is fresh; explicit approval is still required for any Kaggle network run."
+      },
+      "error": null
+    },
+    "output_intake_gate": {
+      "path": "reports/post_id341_kaggle_output_intake_gate_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 14654,
+      "decision": {
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "output_pending": true,
+        "all_expected_reports_present": false,
+        "runner_manifest_required": false,
+        "runner_manifest_present": false,
+        "runner_manifest_ok": false,
+        "runner_manifest_missing_or_invalid": false,
+        "unexpected_submission_like_files_present": false,
+        "remote_forbidden_actions_present": false,
+        "remote_review_signal_present": false,
+        "artifact_contract_review_allowed": false,
+        "public_058_reviewable": false,
+        "next_action": "Outputs are pending; do not create artifacts."
+      },
+      "error": null
+    },
+    "post_pull_review_chain_contract": {
+      "path": "reports/post_id341_post_pull_review_chain_contract_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 5520,
+      "decision": {
+        "post_pull_review_chain_contract_pass": true,
+        "output_pending": true,
+        "artifact_contract_review_allowed": false,
+        "public_058_reviewable": false,
+        "execute_kaggle_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "next_action": "Post-pull review chain is pending-safe; explicit approval is still required before any Kaggle network step."
+      },
+      "error": null
+    },
+    "runner_score_relevance_contract": {
+      "path": "reports/post_id341_runner_score_relevance_contract_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 11865,
+      "decision": {
+        "runner_score_relevance_contract_pass": true,
+        "score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+        "missing_targets": [
+          "Q2",
+          "Q3",
+          "S3"
+        ],
+        "execute_kaggle_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "next_action": "Runner is score-relevant and pending-safe; explicit approval is still required for Kaggle execution."
+      },
+      "error": null
+    },
+    "material_source_remote_coverage_contract": {
+      "path": "reports/post_id341_material_source_remote_coverage_contract_20260619.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 12349,
+      "decision": {
+        "material_source_remote_coverage_contract_pass": true,
+        "all_queue_items_covered": true,
+        "no_forbidden_actions": true,
+        "only_score_relevant_open_route": "explicit_approved_clean_upstream_id221_to_id226",
+        "requires_explicit_kaggle_approval": true,
+        "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+        "public_058_evidence": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Coverage is complete; wait for exact Kaggle no-submit approval or continue report-only source design."
+      },
+      "error": null
+    },
+    "kernel_metadata": {
+      "path": "notebooks/kaggle_upstream_rebuild_runner/kernel-metadata.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 525,
+      "decision": {},
+      "error": null,
+      "id": "softkleenex/dacon-etri-upstream-rebuild-post-id341",
+      "code_file": "Upstream_Rebuild_Post_ID341_Runner.ipynb",
+      "enable_gpu": false,
+      "enable_tpu": false,
+      "dataset_sources": [
+        "softkleenex/dacon-etri-human-base",
+        "softkleenex/dacon-etri-upstream-patch-post-id341"
+      ],
+      "is_private": true,
+      "safe_for_cpu_no_submit_runner": true
+    }
+  },
+  "dry_runs": [
+    {
+      "cmd": "make -n kaggle-approval-contract-test",
+      "returncode": 0,
+      "passed": true,
+      "stdout_tail": "feature_generation_dryrun.py tests/test_post_id341_phone_wearable_discordance_feature_matrix_smoke_contract.py tests/test_post_id341_phone_wearable_discordance_feature_matrix_writer.py tests/test_post_id341_phone_wearable_discordance_feature_matrix_validation_stop.py scripts/diagnose_post_id341_self_supervised_subject_state_embedding_design.py scripts/diagnose_post_id341_self_supervised_heavy_compute_contract.py tests/test_post_id341_self_supervised_subject_state_embedding_design.py tests/test_post_id341_self_supervised_heavy_compute_contract.py scripts/diagnose_post_id341_material_source_remote_coverage_contract.py tests/test_post_id341_material_source_remote_coverage_contract.py scripts/diagnose_post_id341_prelaunch_freshness_contract.py tests/test_post_id341_prelaunch_freshness_contract.py scripts/diagnose_post_id341_public058_artifact_promotion_contract.py tests/test_post_id341_public058_artifact_promotion_contract.py scripts/diagnose_post_id341_safe_wait_state_contract.py tests/test_post_id341_safe_wait_state_contract.py scripts/diagnose_post_id341_next_material_route_triage.py tests/test_post_id341_next_material_route_triage.py scripts/diagnose_post_id341_sleep_proxy_threshold_residual_design.py tests/test_post_id341_sleep_proxy_threshold_residual_design.py scripts/diagnose_post_id341_local_remote_compute_boundary_contract.py tests/test_post_id341_local_remote_compute_boundary_contract.py scripts/diagnose_post_id341_local_source_closure_synthesis.py tests/test_post_id341_local_source_closure_synthesis.py scripts/diagnose_post_id341_submission_spend_policy.py tests/test_post_id341_submission_spend_policy.py\nPYTHONPATH=. .venv/bin/pytest -q tests/test_kaggle_remote_make_guards.py tests/test_kaggle_guarded_remote_contract_audit.py tests/test_kaggle_remote_fail_closed_dryrun_audit.py tests/test_post_id341_kaggle_output_intake_gate.py tests/test_post_id341_kaggle_prelaunch_gate.py tests/test_post_id341_kaggle_remote_summary.py tests/test_post_id341_kaggle_runner_intake_contract.py tests/test_post_id341_kaggle_source_package_contract.py tests/test_post_id341_kaggle_ready_local_target.py tests/test_post_id341_post_pull_review_chain_contract.py tests/test_post_id341_remote_artifact_review_threshold.py tests/test_post_id341_remote_next_action.py tests/test_post_id341_operator_handoff_contract.py tests/test_post_id341_usage_semantic_burst_markov_design.py tests/test_post_id341_usage_semantic_burst_markov_metadata_smoke.py tests/test_post_id341_usage_semantic_burst_markov_feature_spec.py tests/test_post_id341_usage_semantic_burst_markov_feature_generation_dryrun.py tests/test_post_id341_usage_semantic_burst_markov_feature_matrix_smoke_contract.py tests/test_post_id341_usage_semantic_burst_markov_feature_matrix_writer.py tests/test_post_id341_usage_semantic_burst_markov_feature_matrix_validation_stop.py tests/test_post_id341_proximity_ambience_cooccurrence.py tests/test_post_id341_phone_wearable_discordance_design.py tests/test_post_id341_phone_wearable_discordance_feature_spec.py tests/test_post_id341_phone_wearable_discordance_feature_generation_dryrun.py tests/test_post_id341_phone_wearable_discordance_feature_matrix_smoke_contract.py tests/test_post_id341_phone_wearable_discordance_feature_matrix_writer.py tests/test_post_id341_phone_wearable_discordance_feature_matrix_validation_stop.py tests/test_post_id341_self_supervised_subject_state_embedding_design.py tests/test_post_id341_self_supervised_heavy_compute_contract.py tests/test_post_id341_material_source_remote_coverage_contract.py tests/test_post_id341_prelaunch_freshness_contract.py tests/test_post_id341_public058_artifact_promotion_contract.py tests/test_post_id341_safe_wait_state_contract.py tests/test_post_id341_next_material_route_triage.py tests/test_post_id341_sleep_proxy_threshold_residual_design.py tests/test_post_id341_local_remote_compute_boundary_contract.py tests/test_post_id341_local_source_closure_synthesis.py tests/test_post_id341_submission_spend_policy.py\n",
+      "stderr_tail": ""
+    },
+    {
+      "cmd": "make -n kaggle-upstream-prelaunch-local",
+      "returncode": 0,
+      "passed": true,
+      "stdout_tail": "esis.py --output reports/post_id341_local_source_closure_synthesis_20260618.json\n.venv/bin/python scripts/diagnose_kaggle_source_zip_selftest_post_id341.py --output reports/kaggle_source_zip_selftest_post_id341_20260618.json\n.venv/bin/python scripts/diagnose_kaggle_upstream_execution_packet_post_id341.py --output reports/kaggle_upstream_execution_packet_post_id341_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_local_source_closure_synthesis.py --output reports/post_id341_local_source_closure_synthesis_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_kaggle_launch_approval_note.py --output reports/post_id341_kaggle_launch_approval_note_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_kaggle_output_intake_gate.py --output reports/post_id341_kaggle_output_intake_gate_20260618.json\n.venv/bin/python scripts/summarize_post_id341_kaggle_remote_results.py --output reports/post_id341_kaggle_remote_result_summary_20260618.json\n.venv/bin/python scripts/decide_post_id341_remote_next_action.py --output reports/post_id341_remote_next_action_decision_20260618.json\n.venv/bin/python scripts/decide_post_id341_remote_artifact_review_threshold.py --output reports/post_id341_remote_artifact_review_threshold_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_public058_artifact_promotion_contract.py --output reports/post_id341_public058_artifact_promotion_contract_20260619.json\n.venv/bin/python scripts/diagnose_post_id341_post_pull_review_chain_contract.py --output reports/post_id341_post_pull_review_chain_contract_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_runner_score_relevance_contract.py --output reports/post_id341_runner_score_relevance_contract_20260618.json\n.venv/bin/python scripts/audit_kaggle_guarded_remote_contract.py --output reports/kaggle_guarded_remote_contract_audit_20260618.json\n.venv/bin/python scripts/audit_kaggle_remote_fail_closed_dryrun.py --output reports/kaggle_remote_fail_closed_dryrun_audit_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_local_smoke_freshness_gate.py --output reports/post_id341_local_smoke_freshness_gate_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_local_remote_compute_boundary_contract.py --output reports/post_id341_local_remote_compute_boundary_contract_20260619.json\n.venv/bin/python scripts/diagnose_post_id341_no_approval_frontier.py --output reports/post_id341_no_approval_frontier_20260619.json\n.venv/bin/python scripts/diagnose_post_id341_operator_handoff_contract.py --output reports/post_id341_operator_handoff_contract_20260619.json\n.venv/bin/python scripts/diagnose_post_id341_self_supervised_subject_state_embedding_design.py --output reports/post_id341_self_supervised_subject_state_embedding_design_20260619.json\n.venv/bin/python scripts/diagnose_post_id341_sleep_proxy_threshold_residual_design.py --output reports/post_id341_sleep_proxy_threshold_residual_design_20260619.json\n.venv/bin/python scripts/diagnose_post_id341_material_new_source_queue.py --output reports/post_id341_material_new_source_queue_20260619.json\n.venv/bin/python scripts/diagnose_post_id341_material_source_remote_coverage_contract.py --output reports/post_id341_material_source_remote_coverage_contract_20260619.json\n.venv/bin/python scripts/diagnose_post_id341_kaggle_prelaunch_readiness_gate.py --output reports/post_id341_kaggle_prelaunch_readiness_gate_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_prelaunch_freshness_contract.py --output reports/post_id341_prelaunch_freshness_contract_20260619.json\n.venv/bin/python scripts/diagnose_post_id341_self_supervised_heavy_compute_contract.py --output reports/post_id341_self_supervised_heavy_compute_contract_20260619.json\n.venv/bin/python scripts/diagnose_post_id341_safe_wait_state_contract.py --output reports/post_id341_safe_wait_state_contract_20260619.json\n.venv/bin/python scripts/diagnose_post_id341_next_material_route_triage.py --output reports/post_id341_next_material_route_triage_20260619.json\n",
+      "stderr_tail": ""
+    },
+    {
+      "cmd": "make -n ALLOW_KAGGLE_REMOTE=true kaggle-push-upstream-patch-dataset",
+      "returncode": 0,
+      "passed": true,
+      "stdout_tail": "if [ \"true\" != \"true\" ]; then \\\n\t\techo \"Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\"; \\\n\t\texit 2; \\\n\tfi\nmkdir -p build/kaggle_upstream_patch_dataset\nrm -rf build/kaggle_upstream_patch_dataset/*\nmkdir -p build/kaggle_upstream_patch_dataset/data/processed build/kaggle_upstream_patch_dataset/data/external build/kaggle_upstream_patch_dataset/artifacts build/kaggle_upstream_patch_dataset/submissions\ncp -R src conf scripts reports build/kaggle_upstream_patch_dataset/\ncp pyproject.toml README.md Makefile build/kaggle_upstream_patch_dataset/\ncp data/processed/post_id341_usage_semantic_burst_markov_features_v1.parquet build/kaggle_upstream_patch_dataset/data/processed/\ncp -R data/external/etri_lifelog build/kaggle_upstream_patch_dataset/data/external/\ncp -R artifacts/base_predictions build/kaggle_upstream_patch_dataset/artifacts/\ncp -R submissions build/kaggle_upstream_patch_dataset/\nprintf '{\\n  \"title\": \"Dacon ETRI Upstream Patch Post ID341\",\\n  \"id\": \"softkleenex/dacon-etri-upstream-patch-post-id341\",\\n  \"licenses\": [{\"name\": \"CC0-1.0\"}]\\n}\\n' > build/kaggle_upstream_patch_dataset/dataset-metadata.json\nfind build/kaggle_upstream_patch_dataset \\( -name __pycache__ -o -name .pytest_cache -o -name .ruff_cache \\) -type d -prune -exec rm -rf {} +\nfind build/kaggle_upstream_patch_dataset \\( -name '*.pyc' -o -name .DS_Store \\) -type f -delete\necho \"Packaged upstream patch files into build/kaggle_upstream_patch_dataset/\"\nif .venv/bin/kaggle datasets files softkleenex/dacon-etri-upstream-patch-post-id341 >/dev/null 2>&1; then \\\n\t\t.venv/bin/kaggle datasets version -p build/kaggle_upstream_patch_dataset -m \"Refresh post-ID341 upstream patch payload\"; \\\n\telse \\\n\t\t.venv/bin/kaggle datasets create -p build/kaggle_upstream_patch_dataset -r zip; \\\n\tfi\n",
+      "stderr_tail": ""
+    },
+    {
+      "cmd": "make -n ALLOW_KAGGLE_REMOTE=true kaggle-check-base-dataset-files",
+      "returncode": 0,
+      "passed": true,
+      "stdout_tail": "if [ \"true\" != \"true\" ]; then \\\n\t\techo \"Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\"; \\\n\t\texit 2; \\\n\tfi\n.venv/bin/kaggle datasets files softkleenex/dacon-etri-human-base\n",
+      "stderr_tail": ""
+    },
+    {
+      "cmd": "make -n ALLOW_KAGGLE_REMOTE=true kaggle-check-upstream-patch-dataset-files",
+      "returncode": 0,
+      "passed": true,
+      "stdout_tail": "if [ \"true\" != \"true\" ]; then \\\n\t\techo \"Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\"; \\\n\t\texit 2; \\\n\tfi\n.venv/bin/kaggle datasets files softkleenex/dacon-etri-upstream-patch-post-id341\n",
+      "stderr_tail": ""
+    },
+    {
+      "cmd": "make -n ALLOW_KAGGLE_REMOTE=true kaggle-push-upstream-rebuild-runner",
+      "returncode": 0,
+      "passed": true,
+      "stdout_tail": "/Library/Developer/CommandLineTools/usr/bin/make kaggle-push-only KAGGLE_NOTEBOOK_DIR=notebooks/kaggle_upstream_rebuild_runner KAGGLE_SLUG=softkleenex/dacon-etri-upstream-rebuild-post-id341 KAGGLE_ENABLE_GPU=false KAGGLE_ENABLE_TPU=false\nif [ \"true\" != \"true\" ]; then \\\n\t\techo \"Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\"; \\\n\t\texit 2; \\\n\tfi\nsed -i '' -e \"s|\\\"id\\\": \\\".*\\\"|\\\"id\\\": \\\"softkleenex/dacon-etri-upstream-rebuild-post-id341\\\"|\" notebooks/kaggle_upstream_rebuild_runner/kernel-metadata.json\nsed -i '' -e \"s|\\\"title\\\": \\\".*\\\"|\\\"title\\\": \\\"dacon-etri-upstream-rebuild-post-id341\\\"|\" notebooks/kaggle_upstream_rebuild_runner/kernel-metadata.json\nsed -i '' -e \"s|\\\"enable_gpu\\\": [a-zA-Z]*|\\\"enable_gpu\\\": false|\" notebooks/kaggle_upstream_rebuild_runner/kernel-metadata.json\nsed -i '' -e \"s|\\\"enable_tpu\\\": [a-zA-Z]*|\\\"enable_tpu\\\": false|\" notebooks/kaggle_upstream_rebuild_runner/kernel-metadata.json\n.venv/bin/python scripts/pre_flight_check.py --notebook_dir notebooks/kaggle_upstream_rebuild_runner --research\n.venv/bin/kaggle kernels push -p notebooks/kaggle_upstream_rebuild_runner\necho \"Kernel softkleenex/dacon-etri-upstream-rebuild-post-id341 pushed successfully on Kaggle. GPU=false, TPU=false.\"\n",
+      "stderr_tail": ""
+    },
+    {
+      "cmd": "make -n ALLOW_KAGGLE_REMOTE=true kaggle-kernel-status-upstream-rebuild",
+      "returncode": 0,
+      "passed": true,
+      "stdout_tail": "if [ \"true\" != \"true\" ]; then \\\n\t\techo \"Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\"; \\\n\t\texit 2; \\\n\tfi\n.venv/bin/kaggle kernels status softkleenex/dacon-etri-upstream-rebuild-post-id341\n",
+      "stderr_tail": ""
+    },
+    {
+      "cmd": "make -n ALLOW_KAGGLE_REMOTE=true kaggle-wait-and-pull-upstream-rebuild-output",
+      "returncode": 0,
+      "passed": true,
+      "stdout_tail": "if [ \"true\" != \"true\" ]; then \\\n\t\techo \"Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\"; \\\n\t\texit 2; \\\n\tfi\n/Library/Developer/CommandLineTools/usr/bin/make kaggle-wait-and-pull KAGGLE_SLUG=softkleenex/dacon-etri-upstream-rebuild-post-id341 PULL_DIR=build/kaggle_outputs/upstream_rebuild_post_id341\nif [ \"true\" != \"true\" ]; then \\\n\t\techo \"Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\"; \\\n\t\texit 2; \\\n\tfi\necho \"Waiting for Kaggle kernel softkleenex/dacon-etri-upstream-rebuild-post-id341 to finish...\"\nwhile true; do \\\n\t\tstatus_output=\"$(.venv/bin/kaggle kernels status softkleenex/dacon-etri-upstream-rebuild-post-id341 2>&1)\"; \\\n\t\techo \"$status_output\"; \\\n\t\tif echo \"$status_output\" | grep -Eiq 'complete|success'; then \\\n\t\t\tbreak; \\\n\t\tfi; \\\n\t\tif echo \"$status_output\" | grep -Eiq 'running|queued|pending'; then \\\n\t\t\techo \"Kernel is not complete yet... sleeping for 60 seconds.\"; \\\n\t\t\tsleep 60; \\\n\t\telse \\\n\t\t\techo \"Kernel status is not complete/running/queued/pending; refusing to pull outputs.\"; \\\n\t\t\texit 3; \\\n\t\tfi; \\\n\tdone; \\\n\techo \"Kernel finished. Pulling output...\"; \\\n\t.venv/bin/kaggle kernels output softkleenex/dacon-etri-upstream-rebuild-post-id341 -p build/kaggle_outputs/upstream_rebuild_post_id341 --force\necho \"Downloaded outputs to build/kaggle_outputs/upstream_rebuild_post_id341 directory.\"\n",
+      "stderr_tail": ""
+    },
+    {
+      "cmd": "make -n kaggle-review-upstream-rebuild-output",
+      "returncode": 0,
+      "passed": true,
+      "stdout_tail": ".venv/bin/python scripts/diagnose_post_id341_kaggle_output_intake_gate.py --output reports/post_id341_kaggle_output_intake_gate_20260618.json\n.venv/bin/python scripts/summarize_post_id341_kaggle_remote_results.py --output reports/post_id341_kaggle_remote_result_summary_20260618.json\n.venv/bin/python scripts/decide_post_id341_remote_next_action.py --output reports/post_id341_remote_next_action_decision_20260618.json\n.venv/bin/python scripts/decide_post_id341_remote_artifact_review_threshold.py --output reports/post_id341_remote_artifact_review_threshold_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_public058_artifact_promotion_contract.py --output reports/post_id341_public058_artifact_promotion_contract_20260619.json\n",
+      "stderr_tail": ""
+    }
+  ],
+  "checks": {
+    "approval_note_ready": true,
+    "requires_explicit_user_approval": true,
+    "execution_packet_ready": true,
+    "source_zip_selftest_ready": true,
+    "runner_intake_contract_pass": true,
+    "runner_q3s3_negative_map_handoff_ready": true,
+    "guarded_remote_contract_pass": true,
+    "remote_fail_closed_dryrun_pass": true,
+    "public_local_gap_ready": true,
+    "public_local_gap_blocks_local_cv_only_promotion": true,
+    "data_source_coverage_ready": true,
+    "data_source_external_concat_blocked": true,
+    "data_source_local_stack_closed": true,
+    "missing_target_inventory_ready": true,
+    "q2q3s3_source_hypothesis_matrix_ready": true,
+    "q2q3s3_local_fallback_chain_ready": true,
+    "q3s3_local_lane_closure_ready": true,
+    "q3s3_semantic_routine_lane_closure_ready": true,
+    "q3s3_remaining_route_inventory_ready": true,
+    "usage_semantic_burst_markov_validation_stop_ready": true,
+    "self_supervised_subject_state_design_ready": true,
+    "local_runner_smoke_fresh": true,
+    "output_intake_pending_and_clean": true,
+    "post_pull_review_chain_ready": true,
+    "runner_score_relevance_ready": true,
+    "material_source_remote_coverage_ready": true,
+    "kernel_metadata_safe": true,
+    "remote_result_summary_script_exists": true,
+    "remote_next_action_script_exists": true,
+    "dry_runs_pass": true,
+    "no_forbidden_local_decision": true
+  },
+  "exact_command_sequence_after_explicit_approval": [
+    "ALLOW_KAGGLE_REMOTE=true make kaggle-push-upstream-patch-dataset",
+    "ALLOW_KAGGLE_REMOTE=true make kaggle-check-base-dataset-files",
+    "ALLOW_KAGGLE_REMOTE=true make kaggle-check-upstream-patch-dataset-files",
+    "ALLOW_KAGGLE_REMOTE=true make kaggle-push-upstream-rebuild-runner",
+    "ALLOW_KAGGLE_REMOTE=true make kaggle-kernel-status-upstream-rebuild",
+    "ALLOW_KAGGLE_REMOTE=true make kaggle-wait-and-pull-upstream-rebuild-output",
+    "make kaggle-review-upstream-rebuild-output"
+  ],
+  "local_pre_approval_command_sequence": [
+    "make kaggle-approval-contract-test",
+    "make kaggle-upstream-prelaunch-local"
+  ],
+  "decision": {
+    "prelaunch_ready_for_explicit_approval": true,
+    "requires_explicit_user_approval": true,
+    "execute_kaggle_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "artifact_contract_review_allowed": false,
+    "next_action": "Await explicit approval of the exact command sequence, then run the no-submit Kaggle/Linux parity path."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

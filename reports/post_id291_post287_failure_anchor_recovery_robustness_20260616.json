@@ -1,0 +1,325 @@
+{
+  "created_at": "2026-06-16T19:13:12",
+  "purpose": "Post-ID287 public failure clean-anchor candidate review for IDs 289-291.",
+  "public_truth": {
+    "id178": {
+      "local_cv": 0.538638,
+      "public_lb": 0.6014113009,
+      "gap": 0.0627733009
+    },
+    "id287": {
+      "local_cv": 0.378934,
+      "public_lb": 0.6698787318,
+      "gap": 0.2909447318
+    }
+  },
+  "source_scans": [
+    "reports/post287_failure_confirmed_anchor_bridge_scan_20260616.json",
+    "reports/post287_failure_clean_anchor_bridge_scan_20260616.json"
+  ],
+  "candidate_policy": "ID287 submitted failed; IDs 289-291 exclude ID287 and ID288 from source frontier choices and move from confirmed public anchor ID178 under small caps.",
+  "post_failure_risk_proxy": "local_cv + ID178_gap + 0.75*max(0,max_delta_vs_id178-0.03) + 0.25*max(0,mean_delta_vs_id178-0.015)",
+  "candidates": [
+    {
+      "id": 289,
+      "role": "post_failure_safest_probe",
+      "submission_file": "submission_id_289_post287_clean_anchor_cap030_cv0.517635_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_289_post287_clean_anchor_cap030_cv0.517635_unsubmitted.ipynb",
+      "metadata_file": "reports/experiment_289_post287_clean_anchor_cap030_cv0.517635_unsubmitted.json",
+      "local_cv": 0.517635,
+      "cap_vs_id178": 0.03,
+      "max_abs_delta_vs_id178": 0.029697506150579644,
+      "mean_abs_delta_vs_id178": 0.012847405877205538,
+      "max_abs_delta_vs_failed_id287": 0.27062448761692715,
+      "mean_abs_delta_vs_failed_id287": 0.10278165173627404,
+      "optimistic_id178_gap_proxy": 0.5804083009,
+      "post_failure_risk_proxy": 0.5804083009,
+      "target_scores": {
+        "Q1": 0.5278796971177906,
+        "Q2": 0.531291681924101,
+        "Q3": 0.5395752522923121,
+        "S1": 0.45040387149927535,
+        "S2": 0.5058086107215439,
+        "S3": 0.4855582139216487,
+        "S4": 0.5829292769208155
+      },
+      "choices": {
+        "Q1": {
+          "kind": "bridge",
+          "frontier_id": 280,
+          "method": "logit",
+          "alpha": 0.125,
+          "loss": 0.5278796971177906,
+          "test_max_abs_delta_vs_anchor": 0.029608062299330995,
+          "test_mean": 0.5135889312109964,
+          "frontier_source": "base_oof_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv; base_test_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv"
+        },
+        "Q2": {
+          "kind": "bridge",
+          "frontier_id": 272,
+          "method": "logit",
+          "alpha": 0.2,
+          "loss": 0.531291681924101,
+          "test_max_abs_delta_vs_anchor": 0.02969727001365352,
+          "test_mean": 0.5578794465637782,
+          "frontier_source": "base_oof_id_272_post271_rec_cap150_p010_blend_cv0.448575.csv; base_test_id_272_post271_rec_cap150_p010_blend_cv0.448575.csv"
+        },
+        "Q3": {
+          "kind": "bridge",
+          "frontier_id": 280,
+          "method": "logit",
+          "alpha": 0.125,
+          "loss": 0.5395752522923121,
+          "test_max_abs_delta_vs_anchor": 0.028531951741221362,
+          "test_mean": 0.6407184546234951,
+          "frontier_source": "base_oof_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv; base_test_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv"
+        },
+        "S1": {
+          "kind": "bridge",
+          "frontier_id": 280,
+          "method": "logit",
+          "alpha": 0.125,
+          "loss": 0.45040387149927535,
+          "test_max_abs_delta_vs_anchor": 0.028501876541643545,
+          "test_mean": 0.6858255986418661,
+          "frontier_source": "base_oof_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv; base_test_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv"
+        },
+        "S2": {
+          "kind": "bridge",
+          "frontier_id": 272,
+          "method": "logit",
+          "alpha": 0.2,
+          "loss": 0.5058086107215439,
+          "test_max_abs_delta_vs_anchor": 0.029697506150579644,
+          "test_mean": 0.6383914966641612,
+          "frontier_source": "base_oof_id_272_post271_rec_cap150_p010_blend_cv0.448575.csv; base_test_id_272_post271_rec_cap150_p010_blend_cv0.448575.csv"
+        },
+        "S3": {
+          "kind": "bridge",
+          "frontier_id": 272,
+          "method": "prob",
+          "alpha": 0.2,
+          "loss": 0.4855582139216487,
+          "test_max_abs_delta_vs_anchor": 0.028810041752991608,
+          "test_mean": 0.6383570020403118,
+          "frontier_source": "base_oof_id_272_post271_rec_cap150_p010_blend_cv0.448575.csv; base_test_id_272_post271_rec_cap150_p010_blend_cv0.448575.csv"
+        },
+        "S4": {
+          "kind": "bridge",
+          "frontier_id": 280,
+          "method": "logit",
+          "alpha": 0.125,
+          "loss": 0.5829292769208155,
+          "test_max_abs_delta_vs_anchor": 0.02963618074908736,
+          "test_mean": 0.5661960793337159,
+          "frontier_source": "base_oof_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv; base_test_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv"
+        }
+      },
+      "base_oof_file": "artifacts/base_predictions/base_oof_id_289_post287_clean_anchor_cap030_cv0.517635.csv",
+      "base_test_file": "artifacts/base_predictions/base_test_id_289_post287_clean_anchor_cap030_cv0.517635.csv"
+    },
+    {
+      "id": 290,
+      "role": "post_failure_balanced_probe",
+      "submission_file": "submission_id_290_post287_clean_anchor_cap050_cv0.504921_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_290_post287_clean_anchor_cap050_cv0.504921_unsubmitted.ipynb",
+      "metadata_file": "reports/experiment_290_post287_clean_anchor_cap050_cv0.504921_unsubmitted.json",
+      "local_cv": 0.504921,
+      "cap_vs_id178": 0.05,
+      "max_abs_delta_vs_id178": 0.0492183332707104,
+      "mean_abs_delta_vs_id178": 0.020597626445227644,
+      "max_abs_delta_vs_failed_id287": 0.25146028573301177,
+      "mean_abs_delta_vs_failed_id287": 0.09536934225652965,
+      "optimistic_id178_gap_proxy": 0.5676943009,
+      "post_failure_risk_proxy": 0.5835074574643396,
+      "target_scores": {
+        "Q1": 0.5141926694416001,
+        "Q2": 0.5159849656972721,
+        "Q3": 0.5209068177210353,
+        "S1": 0.4357937205832724,
+        "S2": 0.4915955041322828,
+        "S3": 0.48429066107707336,
+        "S4": 0.571681288035348
+      },
+      "choices": {
+        "Q1": {
+          "kind": "bridge",
+          "frontier_id": 280,
+          "method": "logit",
+          "alpha": 0.2,
+          "loss": 0.5141926694416001,
+          "test_max_abs_delta_vs_anchor": 0.047467711200976204,
+          "test_mean": 0.5145386790981652,
+          "frontier_source": "base_oof_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv; base_test_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv"
+        },
+        "Q2": {
+          "kind": "bridge",
+          "frontier_id": 281,
+          "method": "logit",
+          "alpha": 0.2,
+          "loss": 0.5159849656972721,
+          "test_max_abs_delta_vs_anchor": 0.04921833327071046,
+          "test_mean": 0.5582885027861476,
+          "frontier_source": "base_oof_id_281_post278_gapaware_cap260_sp005_dp100_blend_cv0.399583.csv; base_test_id_281_post278_gapaware_cap260_sp005_dp100_blend_cv0.399583.csv"
+        },
+        "Q3": {
+          "kind": "bridge",
+          "frontier_id": 281,
+          "method": "logit",
+          "alpha": 0.2,
+          "loss": 0.5209068177210353,
+          "test_max_abs_delta_vs_anchor": 0.04919155582077561,
+          "test_mean": 0.6431173360989184,
+          "frontier_source": "base_oof_id_281_post278_gapaware_cap260_sp005_dp100_blend_cv0.399583.csv; base_test_id_281_post278_gapaware_cap260_sp005_dp100_blend_cv0.399583.csv"
+        },
+        "S1": {
+          "kind": "bridge",
+          "frontier_id": 281,
+          "method": "logit",
+          "alpha": 0.2,
+          "loss": 0.4357937205832724,
+          "test_max_abs_delta_vs_anchor": 0.04916481658832994,
+          "test_mean": 0.686583847132693,
+          "frontier_source": "base_oof_id_281_post278_gapaware_cap260_sp005_dp100_blend_cv0.399583.csv; base_test_id_281_post278_gapaware_cap260_sp005_dp100_blend_cv0.399583.csv"
+        },
+        "S2": {
+          "kind": "bridge",
+          "frontier_id": 281,
+          "method": "logit",
+          "alpha": 0.2,
+          "loss": 0.4915955041322828,
+          "test_max_abs_delta_vs_anchor": 0.04919697715806248,
+          "test_mean": 0.6373066013007597,
+          "frontier_source": "base_oof_id_281_post278_gapaware_cap260_sp005_dp100_blend_cv0.399583.csv; base_test_id_281_post278_gapaware_cap260_sp005_dp100_blend_cv0.399583.csv"
+        },
+        "S3": {
+          "kind": "bridge",
+          "frontier_id": 272,
+          "method": "prob",
+          "alpha": 0.25,
+          "loss": 0.48429066107707336,
+          "test_max_abs_delta_vs_anchor": 0.03601255219123953,
+          "test_mean": 0.6386924764087059,
+          "frontier_source": "base_oof_id_272_post271_rec_cap150_p010_blend_cv0.448575.csv; base_test_id_272_post271_rec_cap150_p010_blend_cv0.448575.csv"
+        },
+        "S4": {
+          "kind": "bridge",
+          "frontier_id": 280,
+          "method": "logit",
+          "alpha": 0.2,
+          "loss": 0.571681288035348,
+          "test_max_abs_delta_vs_anchor": 0.04751782721439135,
+          "test_mean": 0.5679989130434482,
+          "frontier_source": "base_oof_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv; base_test_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv"
+        }
+      },
+      "base_oof_file": "artifacts/base_predictions/base_oof_id_290_post287_clean_anchor_cap050_cv0.504921.csv",
+      "base_test_file": "artifacts/base_predictions/base_test_id_290_post287_clean_anchor_cap050_cv0.504921.csv"
+    },
+    {
+      "id": 291,
+      "role": "post_failure_score_pressure_probe",
+      "submission_file": "submission_id_291_post287_clean_anchor_cap060_cv0.498891_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_291_post287_clean_anchor_cap060_cv0.498891_unsubmitted.ipynb",
+      "metadata_file": "reports/experiment_291_post287_clean_anchor_cap060_cv0.498891_unsubmitted.json",
+      "local_cv": 0.498891,
+      "cap_vs_id178": 0.06,
+      "max_abs_delta_vs_id178": 0.05948545207812239,
+      "mean_abs_delta_vs_id178": 0.024228765991697977,
+      "max_abs_delta_vs_failed_id287": 0.24226423378068657,
+      "mean_abs_delta_vs_failed_id287": 0.09184461354114862,
+      "optimistic_id178_gap_proxy": 0.5616643009,
+      "post_failure_risk_proxy": 0.5860855814565162,
+      "target_scores": {
+        "Q1": 0.5053681694289633,
+        "Q2": 0.5094795712076812,
+        "Q3": 0.5136110591971351,
+        "S1": 0.4303728188032671,
+        "S2": 0.4854664311321203,
+        "S3": 0.48350232837620133,
+        "S4": 0.5644335824220086
+      },
+      "choices": {
+        "Q1": {
+          "kind": "bridge",
+          "frontier_id": 280,
+          "method": "logit",
+          "alpha": 0.25,
+          "loss": 0.5053681694289633,
+          "test_max_abs_delta_vs_anchor": 0.05941779694155114,
+          "test_mean": 0.5151692745708045,
+          "frontier_source": "base_oof_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv; base_test_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv"
+        },
+        "Q2": {
+          "kind": "bridge",
+          "frontier_id": 280,
+          "method": "logit",
+          "alpha": 0.25,
+          "loss": 0.5094795712076812,
+          "test_max_abs_delta_vs_anchor": 0.0572901348430242,
+          "test_mean": 0.5587068184517912,
+          "frontier_source": "base_oof_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv; base_test_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv"
+        },
+        "Q3": {
+          "kind": "bridge",
+          "frontier_id": 280,
+          "method": "logit",
+          "alpha": 0.25,
+          "loss": 0.5136110591971351,
+          "test_max_abs_delta_vs_anchor": 0.057530058568011966,
+          "test_mean": 0.644404994703719,
+          "frontier_source": "base_oof_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv; base_test_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv"
+        },
+        "S1": {
+          "kind": "bridge",
+          "frontier_id": 280,
+          "method": "logit",
+          "alpha": 0.25,
+          "loss": 0.4303728188032671,
+          "test_max_abs_delta_vs_anchor": 0.05745745826708892,
+          "test_mean": 0.686971846014855,
+          "frontier_source": "base_oof_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv; base_test_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv"
+        },
+        "S2": {
+          "kind": "bridge",
+          "frontier_id": 280,
+          "method": "logit",
+          "alpha": 0.25,
+          "loss": 0.4854664311321203,
+          "test_max_abs_delta_vs_anchor": 0.05754465898977412,
+          "test_mean": 0.6371813632863012,
+          "frontier_source": "base_oof_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv; base_test_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv"
+        },
+        "S3": {
+          "kind": "bridge",
+          "frontier_id": 279,
+          "method": "logit",
+          "alpha": 0.2,
+          "loss": 0.48350232837620133,
+          "test_max_abs_delta_vs_anchor": 0.05641931913152963,
+          "test_mean": 0.6384175644647382,
+          "frontier_source": "base_oof_id_279_post278_gapaware_cap220_sp005_dp100_blend_cv0.414169.csv; base_test_id_279_post278_gapaware_cap220_sp005_dp100_blend_cv0.414169.csv"
+        },
+        "S4": {
+          "kind": "bridge",
+          "frontier_id": 280,
+          "method": "logit",
+          "alpha": 0.25,
+          "loss": 0.5644335824220086,
+          "test_max_abs_delta_vs_anchor": 0.05948545207812239,
+          "test_mean": 0.5691642251979276,
+          "frontier_source": "base_oof_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv; base_test_id_280_post278_gapaware_cap240_sp005_dp100_blend_cv0.406704.csv"
+        }
+      },
+      "base_oof_file": "artifacts/base_predictions/base_oof_id_291_post287_clean_anchor_cap060_cv0.498891.csv",
+      "base_test_file": "artifacts/base_predictions/base_test_id_291_post287_clean_anchor_cap060_cv0.498891.csv"
+    }
+  ],
+  "recommendation": {
+    "lead_if_submitting_again": 289,
+    "score_pressure_alternative": 290,
+    "do_not_jump_to": 291,
+    "rationale": "ID287 public failure makes movement control more valuable than local CV. ID289 is the cleanest next public-information probe; ID290 is acceptable only if accepting more risk for local improvement. ID291 is probably too aggressive immediately after a 0.6699 public failure."
+  },
+  "submission_policy": "No DACON submission was made for IDs 289-291. Explicit user approval required."
+}

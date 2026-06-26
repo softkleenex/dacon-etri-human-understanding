@@ -1,0 +1,87 @@
+{
+  "created_at_kst": "2026-06-18 03:42:03 UTC+09:00",
+  "diagnostic": "id340_q2_seqsum_w001_public_risk_gate",
+  "candidate_file": "submission_id_340_id178_q2_seqsum_lr_c03_w001_safety_cv0.538426_unsubmitted.csv",
+  "metadata": "reports/experiment_340_id178_q2_seqsum_lr_c03_w001_safety_cv0.538426_unsubmitted.json",
+  "source_scan": "reports/id340_sequence_subset_geometry_scan_20260618.json",
+  "local_cv": 0.5384261363154741,
+  "target_scores": {
+    "Q1": 0.5519157186538461,
+    "Q2": 0.5551981276422608,
+    "Q3": 0.5670897848363184,
+    "S1": 0.47163044694164047,
+    "S2": 0.529556132747474,
+    "S3": 0.4908930389002769,
+    "S4": 0.6026997044865015
+  },
+  "geometry": {
+    "mean_delta_vs_178": 0.0004940372186930471,
+    "max_delta_vs_178": 0.008101779532933812,
+    "mean_delta_vs_329": 0.01934478182448396,
+    "max_delta_vs_329": 0.07919238997096245,
+    "mean_delta_vs_335": 0.007886346310718606,
+    "max_delta_vs_335": 0.11194917233304491,
+    "projection_failed": -0.00033889377836937915,
+    "prediction_mean": 0.6039429782889266,
+    "prediction_std": 0.21907472523486807
+  },
+  "risk_tier": "reviewable_low_movement",
+  "conservative_public_risk_proxy": 0.6040620400221042,
+  "proxy_delta_vs_id337": -0.0009601739612240534,
+  "proxy_delta_vs_id339": -0.0054850525381288096,
+  "public_058_plausible": false,
+  "primary_gate_pass": true,
+  "full_geometry_pass": true,
+  "split_rows": [
+    {
+      "split": "subject_hole_5",
+      "mean_loss": 0.538426136315474,
+      "id178_loss": 0.5386377373903545,
+      "delta_vs_id178": -0.0002116010748804964,
+      "is_primary": true
+    },
+    {
+      "split": "subject_timeseries_5",
+      "mean_loss": 0.5396120244315795,
+      "id178_loss": 0.5397472162516725,
+      "delta_vs_id178": -0.000135191820093028,
+      "is_primary": false
+    },
+    {
+      "split": "actual_test_band_holdout",
+      "mean_loss": 0.5411053257839773,
+      "id178_loss": 0.5416036568651422,
+      "delta_vs_id178": -0.0004983310811649266,
+      "is_primary": true
+    },
+    {
+      "split": "test_boundary_neighbor2_holdout",
+      "mean_loss": 0.5858593850757616,
+      "id178_loss": 0.5862898684706096,
+      "delta_vs_id178": -0.00043048339484796916,
+      "is_primary": true
+    },
+    {
+      "split": "test_boundary_neighbor5_holdout",
+      "mean_loss": 0.5577358936172844,
+      "id178_loss": 0.5579861551656572,
+      "delta_vs_id178": -0.000250261548372821,
+      "is_primary": true
+    },
+    {
+      "split": "loso_10",
+      "mean_loss": 0.5385202605883977,
+      "id178_loss": 0.5386377373903545,
+      "delta_vs_id178": -0.0001174768019567285,
+      "is_primary": true
+    }
+  ],
+  "decision": {
+    "dacon_submission": false,
+    "public_058_plausible": false,
+    "controlled_probe_candidate": true,
+    "requires_explicit_user_approval": true,
+    "read": "ID340 is safer by proxy than ID337/ID339 and moves only Q2 at very low weight, but the proxy remains around 0.604, so it is not Public 0.58 evidence."
+  },
+  "no_dacon_submission_made": true
+}

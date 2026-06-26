@@ -1,0 +1,568 @@
+{
+  "created_at_kst": "2026-06-18 07:15:50 UTC+09:00",
+  "diagnostic": "post_id341_upstream_rebuild_phase1_readiness",
+  "purpose": "Check readiness for the CPU-only report-first upstream rebuild after local new-source lanes failed to beat ID178 Public.",
+  "required_report_checks": [
+    {
+      "path": "reports/post_id341_upstream_rebuild_blueprint_20260618.json",
+      "exists": true,
+      "bytes": 14865
+    },
+    {
+      "path": "reports/id340_validation_split_manifest_20260618.json",
+      "exists": true,
+      "bytes": 135846
+    },
+    {
+      "path": "reports/public_joint_distribution_risk_post_id341_20260618.json",
+      "exists": true,
+      "bytes": 37177
+    },
+    {
+      "path": "reports/joint_risk_candidate_rerank_post_id341_20260618.json",
+      "exists": true,
+      "bytes": 73137
+    },
+    {
+      "path": "reports/post_id341_family_priority_20260618.json",
+      "exists": true,
+      "bytes": 3919
+    },
+    {
+      "path": "reports/post_id341_a1_qfree_lane_closure_20260618.json",
+      "exists": true,
+      "bytes": 1726
+    },
+    {
+      "path": "reports/b1_pair_blend_source_dependency_audit_20260618.json",
+      "exists": true,
+      "bytes": 38379
+    },
+    {
+      "path": "reports/post_id341_public_transfer_audit_20260618.json",
+      "exists": true,
+      "bytes": 127464
+    },
+    {
+      "path": "reports/post_id341_transfer_gate_v2_joint_risk_20260618.json",
+      "exists": true,
+      "bytes": 122574
+    },
+    {
+      "path": "reports/post_id341_new_source_blueprint_20260618.json",
+      "exists": true,
+      "bytes": 13527
+    },
+    {
+      "path": "reports/sleep_boundary_prepromotion_gate_post_id341_20260618.json",
+      "exists": true,
+      "bytes": 9003
+    },
+    {
+      "path": "reports/evening_load_recovery_smoke_post_id341_20260618.json",
+      "exists": true,
+      "bytes": 88373
+    },
+    {
+      "path": "reports/combined_new_source_gate_post_id341_20260618.json",
+      "exists": true,
+      "bytes": 236127
+    },
+    {
+      "path": "reports/combined_sequence_sleep_evening_gate_post_id341_20260618.json",
+      "exists": true,
+      "bytes": 1236886
+    },
+    {
+      "path": "reports/routine_stability_place_entropy_smoke_post_id341_20260618.json",
+      "exists": true,
+      "bytes": 53347
+    },
+    {
+      "path": "reports/place_social_novelty_smoke_fixedlist_post_id341_20260618.json",
+      "exists": true,
+      "bytes": 52392
+    },
+    {
+      "path": "reports/sensor_adherence_dropout_smoke_post_id341_20260618.json",
+      "exists": true,
+      "bytes": 90975
+    },
+    {
+      "path": "reports/external_etri_prior_smoke_post_id341_20260618.json",
+      "exists": true,
+      "bytes": 37128
+    },
+    {
+      "path": "reports/combined_sleep_evening_external_prior_gate_post_id341_20260618.json",
+      "exists": true,
+      "bytes": 56491
+    },
+    {
+      "path": "reports/post_id341_phase2_raw_source_execution_spec_20260618.json",
+      "exists": true,
+      "bytes": 13253
+    }
+  ],
+  "missing_required_reports": [],
+  "split_manifest_summary": {
+    "exists": true,
+    "n_train_rows": 450,
+    "n_test_rows": 250,
+    "n_folds_total": 23,
+    "split_counts": {
+      "subject_hole_5": 5,
+      "subject_timeseries_5": 5,
+      "actual_test_band_holdout": 1,
+      "test_boundary_neighbor2_holdout": 1,
+      "test_boundary_neighbor5_holdout": 1,
+      "loso_10": 10
+    },
+    "valid_n_by_split": {
+      "subject_hole_5": {
+        "min": 85,
+        "mean": 90.0,
+        "max": 95
+      },
+      "subject_timeseries_5": {
+        "min": 59,
+        "mean": 59.0,
+        "max": 59
+      },
+      "actual_test_band_holdout": {
+        "min": 98,
+        "mean": 98.0,
+        "max": 98
+      },
+      "test_boundary_neighbor2_holdout": {
+        "min": 82,
+        "mean": 82.0,
+        "max": 82
+      },
+      "test_boundary_neighbor5_holdout": {
+        "min": 172,
+        "mean": 172.0,
+        "max": 172
+      },
+      "loso_10": {
+        "min": 33,
+        "mean": 45.0,
+        "max": 57
+      }
+    }
+  },
+  "source_records": {
+    "upstream_model_layer": [
+      {
+        "id": 221,
+        "base_oof_exists": true,
+        "base_test_exists": true,
+        "base_oof_file": "artifacts/base_predictions/base_oof_id_221_id218_public_feature_similarity_overlay_cv0.532990.csv",
+        "base_test_file": "artifacts/base_predictions/base_test_id_221_id218_public_feature_similarity_overlay_cv0.532990.csv",
+        "log_row_exists": true,
+        "submission_file": "submission_id_221_id218_public_feature_similarity_overlay_cv0.532990_unsubmitted.csv",
+        "local_cv": 0.53299,
+        "public_lb": null,
+        "status_clean": "generated_unsubmitted",
+        "model_description": "public feature-similarity overlay on ID218",
+        "artifact_exists": true,
+        "ready_for_read_only_replay": true
+      },
+      {
+        "id": 226,
+        "base_oof_exists": true,
+        "base_test_exists": true,
+        "base_oof_file": "artifacts/base_predictions/base_oof_id_226_id221_id172_targetwise_best_convex_frontier_cv0.491771.csv",
+        "base_test_file": "artifacts/base_predictions/base_test_id_226_id221_id172_targetwise_best_convex_frontier_cv0.491771.csv",
+        "log_row_exists": true,
+        "submission_file": "submission_id_226_id221_id172_targetwise_best_convex_frontier_cv0.491771_unsubmitted.csv",
+        "local_cv": 0.491771,
+        "public_lb": null,
+        "status_clean": "generated_unsubmitted",
+        "model_description": "Refined-anchor tempered extreme calibration blend probe",
+        "artifact_exists": true,
+        "ready_for_read_only_replay": true
+      },
+      {
+        "id": 227,
+        "base_oof_exists": true,
+        "base_test_exists": true,
+        "base_oof_file": "artifacts/base_predictions/base_oof_id_227_id226_second_stage_iso_q160_ultra_frontier_cv0.464409.csv",
+        "base_test_file": "artifacts/base_predictions/base_test_id_227_id226_second_stage_iso_q160_ultra_frontier_cv0.464409.csv",
+        "log_row_exists": true,
+        "submission_file": "submission_id_227_id226_second_stage_iso_q160_ultra_frontier_cv0.464409_unsubmitted.csv",
+        "local_cv": 0.464409,
+        "public_lb": null,
+        "status_clean": "generated_unsubmitted",
+        "model_description": "Second-stage full-OOF calibration on ID226",
+        "artifact_exists": true,
+        "ready_for_read_only_replay": true
+      },
+      {
+        "id": 228,
+        "base_oof_exists": true,
+        "base_test_exists": true,
+        "base_oof_file": "artifacts/base_predictions/base_oof_id_228_id226_second_stage_iso_only_tempered_frontier_cv0.482245.csv",
+        "base_test_file": "artifacts/base_predictions/base_test_id_228_id226_second_stage_iso_only_tempered_frontier_cv0.482245.csv",
+        "log_row_exists": true,
+        "submission_file": "submission_id_228_id226_second_stage_iso_only_tempered_frontier_cv0.482245_unsubmitted.csv",
+        "local_cv": 0.482245,
+        "public_lb": null,
+        "status_clean": "generated_unsubmitted",
+        "model_description": "Second-stage full-OOF calibration on ID226",
+        "artifact_exists": true,
+        "ready_for_read_only_replay": true
+      },
+      {
+        "id": 237,
+        "base_oof_exists": true,
+        "base_test_exists": true,
+        "base_oof_file": "artifacts/base_predictions/base_oof_id_237_id226_tempgrid_s4q160_frontier_cv0.466691.csv",
+        "base_test_file": "artifacts/base_predictions/base_test_id_237_id226_tempgrid_s4q160_frontier_cv0.466691.csv",
+        "log_row_exists": true,
+        "submission_file": "submission_id_237_id226_tempgrid_s4q160_frontier_cv0.466691_unsubmitted.csv",
+        "local_cv": 0.466691,
+        "public_lb": null,
+        "status_clean": "generated_unsubmitted",
+        "model_description": "Second-stage full-OOF calibration on ID226",
+        "artifact_exists": true,
+        "ready_for_read_only_replay": true
+      }
+    ],
+    "a1_replay_layer": [
+      {
+        "id": 238,
+        "base_oof_exists": true,
+        "base_test_exists": true,
+        "base_oof_file": "artifacts/base_predictions/base_oof_id_238_id227_clean_anchor_logit_oracle_frontier_cv0.462365.csv",
+        "base_test_file": "artifacts/base_predictions/base_test_id_238_id227_clean_anchor_logit_oracle_frontier_cv0.462365.csv",
+        "log_row_exists": true,
+        "submission_file": "submission_id_238_id227_clean_anchor_logit_oracle_frontier_cv0.462365_unsubmitted.csv",
+        "local_cv": 0.462365,
+        "public_lb": null,
+        "status_clean": "generated_unsubmitted",
+        "model_description": "Target-wise pair logit blend probe",
+        "artifact_exists": true,
+        "ready_for_read_only_replay": true
+      },
+      {
+        "id": 239,
+        "base_oof_exists": true,
+        "base_test_exists": true,
+        "base_oof_file": "artifacts/base_predictions/base_oof_id_239_id238_iso_recal_frontier_cv0.437967.csv",
+        "base_test_file": "artifacts/base_predictions/base_test_id_239_id238_iso_recal_frontier_cv0.437967.csv",
+        "log_row_exists": true,
+        "submission_file": "submission_id_239_id238_iso_recal_frontier_cv0.437967_unsubmitted.csv",
+        "local_cv": 0.437967,
+        "public_lb": null,
+        "status_clean": "generated_unsubmitted",
+        "model_description": "Second-stage full-OOF calibration on ID238",
+        "artifact_exists": true,
+        "ready_for_read_only_replay": true
+      },
+      {
+        "id": 241,
+        "base_oof_exists": true,
+        "base_test_exists": true,
+        "base_oof_file": "artifacts/base_predictions/base_oof_id_241_id238_q160_s4iso_recal_frontier_cv0.383459.csv",
+        "base_test_file": "artifacts/base_predictions/base_test_id_241_id238_q160_s4iso_recal_frontier_cv0.383459.csv",
+        "log_row_exists": true,
+        "submission_file": "submission_id_241_id238_q160_s4iso_recal_frontier_cv0.383459_unsubmitted.csv",
+        "local_cv": 0.383459,
+        "public_lb": null,
+        "status_clean": "generated_unsubmitted",
+        "model_description": "Second-stage full-OOF calibration on ID238",
+        "artifact_exists": true,
+        "ready_for_read_only_replay": true
+      }
+    ],
+    "b1_replay_layer": [
+      {
+        "id": 254,
+        "base_oof_exists": true,
+        "base_test_exists": true,
+        "base_oof_file": "artifacts/base_predictions/base_oof_id_254_id178_anchor_cap015_frontier_bridge_cv0.471985.csv",
+        "base_test_file": "artifacts/base_predictions/base_test_id_254_id178_anchor_cap015_frontier_bridge_cv0.471985.csv",
+        "log_row_exists": true,
+        "submission_file": "submission_id_254_id178_anchor_cap015_frontier_bridge_cv0.471985_unsubmitted.csv",
+        "local_cv": 0.471985,
+        "public_lb": null,
+        "status_clean": "generated_unsubmitted",
+        "model_description": "Confirmed-public-anchor delta-capped bridge probe",
+        "artifact_exists": true,
+        "ready_for_read_only_replay": true
+      },
+      {
+        "id": 255,
+        "base_oof_exists": true,
+        "base_test_exists": true,
+        "base_oof_file": "artifacts/base_predictions/base_oof_id_255_id178_anchor_fine_cap012_frontier_bridge_cv0.469816.csv",
+        "base_test_file": "artifacts/base_predictions/base_test_id_255_id178_anchor_fine_cap012_frontier_bridge_cv0.469816.csv",
+        "log_row_exists": true,
+        "submission_file": "submission_id_255_id178_anchor_fine_cap012_frontier_bridge_cv0.469816_unsubmitted.csv",
+        "local_cv": 0.469816,
+        "public_lb": null,
+        "status_clean": "generated_unsubmitted",
+        "model_description": "Confirmed-public-anchor delta-capped bridge probe",
+        "artifact_exists": true,
+        "ready_for_read_only_replay": true
+      },
+      {
+        "id": 256,
+        "base_oof_exists": true,
+        "base_test_exists": true,
+        "base_oof_file": "artifacts/base_predictions/base_oof_id_256_id178_anchor_fine_cap014_frontier_bridge_cv0.464121.csv",
+        "base_test_file": "artifacts/base_predictions/base_test_id_256_id178_anchor_fine_cap014_frontier_bridge_cv0.464121.csv",
+        "log_row_exists": true,
+        "submission_file": "submission_id_256_id178_anchor_fine_cap014_frontier_bridge_cv0.464121_unsubmitted.csv",
+        "local_cv": 0.464121,
+        "public_lb": null,
+        "status_clean": "generated_unsubmitted",
+        "model_description": "Confirmed-public-anchor delta-capped bridge probe",
+        "artifact_exists": true,
+        "ready_for_read_only_replay": true
+      },
+      {
+        "id": 257,
+        "base_oof_exists": true,
+        "base_test_exists": true,
+        "base_oof_file": "artifacts/base_predictions/base_oof_id_257_id178_anchor_fine_cap018_frontier_bridge_cv0.433079.csv",
+        "base_test_file": "artifacts/base_predictions/base_test_id_257_id178_anchor_fine_cap018_frontier_bridge_cv0.433079.csv",
+        "log_row_exists": true,
+        "submission_file": "submission_id_257_id178_anchor_fine_cap018_frontier_bridge_cv0.433079_unsubmitted.csv",
+        "local_cv": 0.433079,
+        "public_lb": null,
+        "status_clean": "generated_unsubmitted",
+        "model_description": "Confirmed-public-anchor delta-capped bridge probe",
+        "artifact_exists": true,
+        "ready_for_read_only_replay": true
+      },
+      {
+        "id": 258,
+        "base_oof_exists": true,
+        "base_test_exists": true,
+        "base_oof_file": "artifacts/base_predictions/base_oof_id_258_id178_anchor_clean_cap016_frontier_bridge_cv0.457647.csv",
+        "base_test_file": "artifacts/base_predictions/base_test_id_258_id178_anchor_clean_cap016_frontier_bridge_cv0.457647.csv",
+        "log_row_exists": true,
+        "submission_file": "submission_id_258_id178_anchor_clean_cap016_frontier_bridge_cv0.457647_unsubmitted.csv",
+        "local_cv": 0.457647,
+        "public_lb": null,
+        "status_clean": "generated_unsubmitted",
+        "model_description": "Confirmed-public-anchor delta-capped bridge probe",
+        "artifact_exists": true,
+        "ready_for_read_only_replay": true
+      },
+      {
+        "id": 266,
+        "base_oof_exists": true,
+        "base_test_exists": true,
+        "base_oof_file": "artifacts/base_predictions/base_oof_id_266_id178_direct_lite_fine_cap015_blend_cv0.457894.csv",
+        "base_test_file": "artifacts/base_predictions/base_test_id_266_id178_direct_lite_fine_cap015_blend_cv0.457894.csv",
+        "log_row_exists": true,
+        "submission_file": "submission_id_266_id178_direct_lite_fine_cap015_blend_cv0.457894_unsubmitted.csv",
+        "local_cv": 0.457894,
+        "public_lb": null,
+        "status_clean": "generated_unsubmitted",
+        "model_description": "Target-wise pair logit blend probe",
+        "artifact_exists": true,
+        "ready_for_read_only_replay": true
+      }
+    ],
+    "public_anchor_layer": [
+      {
+        "id": 178,
+        "base_oof_exists": true,
+        "base_test_exists": true,
+        "base_oof_file": "artifacts/base_predictions/base_oof_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638.csv",
+        "base_test_file": "artifacts/base_predictions/base_test_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638.csv",
+        "log_row_exists": true,
+        "submission_file": "submission_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638_unsubmitted.csv",
+        "local_cv": 0.538638,
+        "public_lb": 0.6014113009,
+        "status_clean": "cv_lb_gap_risk",
+        "model_description": "Multiseed random-conv sequence overlay on ID173",
+        "artifact_exists": true,
+        "ready_for_read_only_replay": true
+      },
+      {
+        "id": 287,
+        "base_oof_exists": true,
+        "base_test_exists": true,
+        "base_oof_file": "artifacts/base_predictions/base_oof_id_287_post285_base282_fixedtemp_balanced_cv0.378934.csv",
+        "base_test_file": "artifacts/base_predictions/base_test_id_287_post285_base282_fixedtemp_balanced_cv0.378934.csv",
+        "log_row_exists": true,
+        "submission_file": "submission_id_287_post285_base282_fixedtemp_balanced_cv0.378934_unsubmitted.csv",
+        "local_cv": 0.378934,
+        "public_lb": 0.6698787318,
+        "status_clean": "cv_lb_gap_risk",
+        "model_description": "Second-stage full-OOF calibration on ID282",
+        "artifact_exists": true,
+        "ready_for_read_only_replay": true
+      },
+      {
+        "id": 329,
+        "base_oof_exists": true,
+        "base_test_exists": true,
+        "base_oof_file": "artifacts/base_predictions/base_oof_id_329_post328_combo4_cap080_budget050_practical_cv0.516718.csv",
+        "base_test_file": "artifacts/base_predictions/base_test_id_329_post328_combo4_cap080_budget050_practical_cv0.516718.csv",
+        "log_row_exists": true,
+        "submission_file": "submission_id_329_post328_combo4_cap080_budget050_practical_cv0.516718_unsubmitted.csv",
+        "local_cv": 0.516718,
+        "public_lb": 0.6017908577,
+        "status_clean": "cv_lb_gap_risk",
+        "model_description": "Aggregate failed-direction budget recovery probe",
+        "artifact_exists": true,
+        "ready_for_read_only_replay": true
+      },
+      {
+        "id": 341,
+        "base_oof_exists": true,
+        "base_test_exists": true,
+        "base_oof_file": "artifacts/base_predictions/base_oof_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584.csv",
+        "base_test_file": "artifacts/base_predictions/base_test_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584.csv",
+        "log_row_exists": true,
+        "submission_file": "submission_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.csv",
+        "local_cv": 0.538584,
+        "public_lb": null,
+        "status_clean": "generated_unsubmitted",
+        "model_description": "ID178 Q2-only seq-summary lr_c0_3 w0.0025",
+        "artifact_exists": true,
+        "ready_for_read_only_replay": true
+      }
+    ]
+  },
+  "recent_new_source_read": {
+    "sleep_boundary": {
+      "reviewable_feature_lead": true,
+      "promote_submission_artifact": false,
+      "proxy": 0.6016972511974908,
+      "proxy_minus_public_id178": 0.00028595029749090006
+    },
+    "evening_load_recovery": {
+      "selected_targets": [
+        "S4"
+      ],
+      "best_proxy": 0.601506941674763,
+      "reviewable": false
+    },
+    "combined_new_source": {
+      "best_proxy": 0.6014904915736343,
+      "proxy_below_id178_candidate_exists": false,
+      "public_058_plausible": false
+    },
+    "combined_sequence_sleep_evening": {
+      "best_proxy": 0.6014904915736343,
+      "best_proxy_sequence_scale": 0.0,
+      "proxy_below_id178_candidate_exists": false,
+      "public_058_plausible": false
+    },
+    "routine_stability": {
+      "selected_targets": [],
+      "reviewable": false
+    },
+    "place_social_novelty": {
+      "selected_targets": [],
+      "reviewable": false,
+      "best_proxy": null,
+      "train_missing_mean": 0.019823232323232323
+    },
+    "sensor_adherence_dropout": {
+      "selected_targets": [],
+      "reviewable": false,
+      "best_proxy": null,
+      "train_missing_mean": 0.0
+    },
+    "external_etri_prior": {
+      "targets_available": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "best_proxy": 0.6015636731586781,
+      "reviewable": false,
+      "public_058_plausible_candidate_exists": false
+    },
+    "combined_sleep_evening_external_prior": {
+      "best_proxy": 0.6014904915736343,
+      "best_proxy_sleep_scale": 0.0,
+      "best_proxy_evening_scale": 0.025,
+      "best_proxy_external_group": "Q1",
+      "best_proxy_external_scale": 0.0,
+      "reviewable": false,
+      "public_058_plausible_candidate_exists": false
+    },
+    "phase2_raw_source_execution_spec": {
+      "phase2_spec_ready": true,
+      "recommended_next_revision": "remote_phase2_raw_multimodal_sequence_source_smoke",
+      "create_submission_artifact": false,
+      "run_heavy_rebuild_now": false
+    },
+    "transfer_gate_v2_joint_risk": {
+      "combined_rows": 244,
+      "unscored_combined_rows": 241,
+      "public_058_plausible_candidate_exists": false,
+      "any_candidate_passes_combined_public_058_gate": false,
+      "best_combined_pass_id": null
+    },
+    "local_new_source_stack_read": {
+      "proxy_below_id178_found": false,
+      "public_058_plausible_found": false,
+      "force_submission_artifact": false
+    }
+  },
+  "next_phase_queue": [
+    {
+      "phase": "payload_and_split_smoke",
+      "compute": "Kaggle CPU or local",
+      "purpose": "Verify project payload, frozen split manifest, and source artifact availability.",
+      "ready_now": true,
+      "creates_submission": false
+    },
+    {
+      "phase": "upstream_model_layer_rebuild_design",
+      "compute": "Kaggle CPU recommended before any long run",
+      "purpose": "Define model-level approximations for fresh upstream sources using frozen folds and no public-LB feedback.",
+      "ready_now": true,
+      "creates_submission": false
+    },
+    {
+      "phase": "a1_replay_from_clean_sources",
+      "compute": "Kaggle CPU after source rebuild design passes",
+      "purpose": "Replay A1 qfree selectors only from rebuilt/clean sources, not contaminated full-OOF artifacts.",
+      "ready_now": true,
+      "creates_submission": false
+    },
+    {
+      "phase": "b1_dependency_rebuild_plan",
+      "compute": "Kaggle CPU after A1 read",
+      "purpose": "Plan pair/logit source dependencies below IDs 254/255/256/257/258/266 without creating a candidate CSV.",
+      "ready_now": true,
+      "creates_submission": false
+    },
+    {
+      "phase": "transfer_gate_only",
+      "compute": "local or Kaggle CPU",
+      "purpose": "Compare any rebuilt source lead against ID178/287/329/341 plus the joint-risk transfer gate v2 before artifact review.",
+      "ready_now": true,
+      "creates_submission": false
+    }
+  ],
+  "decision": {
+    "phase1_ready": true,
+    "local_new_source_stack_closed": true,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_heavy_rebuild_now": false,
+    "next_action": "Use this refreshed readiness report inside the Kaggle upstream runner. Local new-source stacks did not beat the ID178 public anchor, so do not create ID342 locally; the next useful approved action is a CPU-only report-first upstream rebuild runner before any artifact promotion."
+  },
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_dacon_submission_made": true
+}

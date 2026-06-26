@@ -1,0 +1,542 @@
+{
+  "created_at_kst": "2026-06-23 18:17:39 UTC+09:00",
+  "diagnostic": "post_id341_material_new_source_queue",
+  "report_only": true,
+  "context_status": {
+    "all_context_reports_present": true,
+    "no_approval_score_route_exists": false,
+    "only_score_relevant_open_route": "explicit_approved_clean_upstream_id221_to_id226",
+    "prelaunch_ready_for_explicit_approval": true,
+    "operator_handoff_ready": true,
+    "q3_s3_still_uncovered": true,
+    "target_gap_has_no_public_058_budget": true,
+    "gps_path_topology_model_lane_closed": true,
+    "circadian_hr_light_phase_metadata_passed": true,
+    "circadian_hr_light_phase_feature_spec_ready": true,
+    "circadian_hr_light_phase_feature_generation_dryrun_passed": true,
+    "circadian_hr_light_phase_feature_matrix_smoke_contract_ready": true,
+    "circadian_hr_light_phase_feature_matrix_materialized": true,
+    "circadian_hr_light_phase_model_smoke_contract_ready": true,
+    "circadian_hr_light_phase_model_smoke_completed": true,
+    "circadian_hr_light_phase_model_lane_closed": true,
+    "usage_semantic_burst_markov_design_ready": true,
+    "usage_semantic_burst_markov_metadata_smoke_passed": true,
+    "usage_semantic_burst_markov_feature_spec_ready": true,
+    "usage_semantic_burst_markov_feature_generation_dryrun_passed": true,
+    "usage_semantic_burst_markov_feature_matrix_smoke_contract_ready": true,
+    "usage_semantic_burst_markov_feature_matrix_materialized": true,
+    "usage_semantic_burst_markov_validation_stop_passed": true,
+    "proximity_ambience_cooccurrence_design_ready": true,
+    "proximity_ambience_cooccurrence_metadata_smoke_passed": true,
+    "proximity_ambience_cooccurrence_feature_spec_ready": true,
+    "proximity_ambience_cooccurrence_feature_generation_dryrun_passed": true,
+    "proximity_ambience_cooccurrence_feature_matrix_smoke_contract_ready": true,
+    "proximity_ambience_cooccurrence_feature_matrix_materialized": true,
+    "proximity_ambience_cooccurrence_validation_stop_passed": true,
+    "phone_wearable_discordance_design_ready": true,
+    "phone_wearable_discordance_feature_spec_ready": true,
+    "phone_wearable_discordance_feature_generation_dryrun_passed": true,
+    "phone_wearable_discordance_feature_matrix_smoke_contract_ready": true,
+    "phone_wearable_discordance_feature_matrix_materialized": true,
+    "phone_wearable_discordance_validation_stop_passed": true,
+    "sleep_proxy_threshold_residual_design_ready": true,
+    "self_supervised_subject_state_embedding_design_ready": true,
+    "self_supervised_subject_state_embedding_design_report_present": true
+  },
+  "closed_repeat_lanes": [
+    {
+      "lane": "gps_path_topology_sequence_v1",
+      "status": "closed_for_artifact",
+      "repeat_risk": "high",
+      "reason": "The GPS path-topology feature matrix was materialized and the fold-internal model smoke selected no Q3/S3 target, opened no score route, and produced no Public 0.58 evidence.",
+      "do_not_repeat_as": "GPS topology metadata/spec/matrix/model-smoke replay with only tiny weight changes"
+    },
+    {
+      "lane": "sleep_boundary_micro_blend",
+      "status": "feature_lead_only",
+      "repeat_risk": "high",
+      "reason": "Sleep-boundary v3 scale 0.05 is clean and low-movement, but the prepromotion proxy remains above the ID178 public anchor and far above Public 0.58.",
+      "do_not_repeat_as": "another Q1/S1/S2/S4 micro-scale local blend"
+    },
+    {
+      "lane": "evening_load_recovery",
+      "status": "closed_for_artifact",
+      "repeat_risk": "high",
+      "reason": "The best evening-load rows have only 4 primary wins and no reviewable low-movement candidate.",
+      "do_not_repeat_as": "S4-only or weak evening-load scale scan"
+    },
+    {
+      "lane": "routine_stability_place_entropy",
+      "status": "closed_for_artifact",
+      "repeat_risk": "high",
+      "reason": "Routine/place entropy selected no Q3/S3 target.",
+      "do_not_repeat_as": "daily aggregate place/routine entropy scan"
+    },
+    {
+      "lane": "sensor_adherence_dropout",
+      "status": "closed_for_artifact",
+      "repeat_risk": "high",
+      "reason": "Adherence/dropout selected no target as a standalone local lane.",
+      "do_not_repeat_as": "coverage/missingness-only feature family"
+    },
+    {
+      "lane": "paper_family_processed_features",
+      "status": "closed_for_artifact",
+      "repeat_risk": "high",
+      "reason": "Paper-family processed-feature smoke selected no Q2/Q3/S3 target.",
+      "do_not_repeat_as": "same processed-column family with only small weight changes"
+    },
+    {
+      "lane": "local_oof_combo_or_second_stage_calibration",
+      "status": "quarantined",
+      "repeat_risk": "critical",
+      "reason": "ID287 and ID329 showed local OOF/frontier gains can collapse or plateau publicly.",
+      "do_not_repeat_as": "same-family local CV cascade or full-OOF calibration"
+    }
+  ],
+  "source_queue": [
+    {
+      "rank": 0,
+      "name": "approved_clean_upstream_id221_to_id226",
+      "type": "score_relevant_remote_no_submit",
+      "status": "open_requires_exact_approval",
+      "target_focus": [
+        "Q2",
+        "Q3",
+        "S3"
+      ],
+      "raw_inputs": [
+        "existing upstream base predictions",
+        "clean rebuild packet"
+      ],
+      "why_materially_new": "This is not another local recombination; it rebuilds the historical ID226-style Q2/Q3/S3 signal through the guarded Kaggle/Linux no-submit path.",
+      "next_allowed_step": "only_after_exact_approval_phrase",
+      "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+      "score_relevant": true,
+      "local_no_approval_allowed": false,
+      "train_model_now": false,
+      "create_artifact_allowed": false
+    },
+    {
+      "rank": 1,
+      "name": "gps_path_topology_sequence_v1",
+      "type": "materially_new_local_design_probe",
+      "status": "closed_after_feature_matrix_and_model_smoke",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ],
+      "raw_inputs": [
+        "mGps",
+        "mWifi",
+        "mBle",
+        "mActivity"
+      ],
+      "why_materially_new": "Closed place/routine lanes used daily entropy/novelty summaries. This would inspect route topology, home-work transition motifs, dwell-segment ordering, and late-day path disruption as sequences. That probe has now been executed through feature-matrix materialization and a fold-internal model smoke, which selected no target.",
+      "first_safe_probe": "completed: metadata, feature spec, feature matrix contract, matrix write, model smoke",
+      "next_allowed_step": "closed_no_artifact",
+      "score_relevant": false,
+      "local_no_approval_allowed": false,
+      "train_model_now": false,
+      "create_artifact_allowed": false
+    },
+    {
+      "rank": 2,
+      "name": "circadian_hr_light_phase_shape_v1",
+      "type": "materially_new_local_design_probe",
+      "status": "closed_after_feature_matrix_and_model_smoke_no_signal",
+      "target_focus": [
+        "Q3",
+        "S3",
+        "S2"
+      ],
+      "raw_inputs": [
+        "wHr",
+        "wLight",
+        "mLight",
+        "wPedo"
+      ],
+      "why_materially_new": "Sleep-boundary features used windows and transitions; this would test label-free 24h phase-shape summaries such as phase delay, amplitude, curve roughness, and light/HR phase mismatch.",
+      "first_safe_probe": "completed: metadata, feature spec, feature-generation dry run, feature-matrix contract, matrix write, model-smoke contract, and bounded in-memory model smoke. No target was selected and no score route opened.",
+      "next_allowed_step": "closed_no_artifact",
+      "score_relevant": false,
+      "local_no_approval_allowed": false,
+      "train_model_now": false,
+      "create_artifact_allowed": false,
+      "submission_artifact_allowed": false,
+      "feature_matrix_write_allowed_next_under_contract": false,
+      "model_smoke_allowed_next_under_contract": false
+    },
+    {
+      "rank": 3,
+      "name": "usage_semantic_burst_markov_v1",
+      "type": "design_hold_due_overlap",
+      "status": "validated_stop_completed_no_model",
+      "target_focus": [
+        "Q2",
+        "Q3"
+      ],
+      "raw_inputs": [
+        "mUsageStats",
+        "mScreenStatus",
+        "mAmbience"
+      ],
+      "why_materially_new": "Would require app-burst Markov/session semantics rather than aggregate usage totals, but overlaps with the phase3 usage-temporal closure enough that it should not be first.",
+      "first_safe_probe": "completed: design, metadata/cardinality smoke, feature spec, in-memory dry run, feature-matrix smoke contract, one registered label-free feature matrix, schema report, and validation stop. No model, submission artifact, Kaggle run, or DACON submission is authorized.",
+      "next_allowed_step": "closed_stop_or_wait_for_explicit_kaggle_approval",
+      "score_relevant": false,
+      "local_no_approval_allowed": false,
+      "train_model_now": false,
+      "create_artifact_allowed": false,
+      "submission_artifact_allowed": false,
+      "feature_matrix_materialized_under_contract": true
+    },
+    {
+      "rank": 4,
+      "name": "proximity_ambience_cooccurrence_v1",
+      "type": "materially_new_local_design_probe",
+      "status": "validated_stop_completed_no_model",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ],
+      "raw_inputs": [
+        "mWifi",
+        "mBle",
+        "mAmbience",
+        "mScreenStatus"
+      ],
+      "why_materially_new": "Combines WiFi/BLE proximity richness with speech/crowd/inside/outside ambience in fixed 10-minute windows. This is not GPS route topology, usage Markov app semantics, ambience-only daily context, or missingness/event cadence.",
+      "first_safe_probe": "completed: report-only design, metadata/co-occurrence smoke, bounded 80-column feature spec, in-memory feature-generation dry run, report-only feature-matrix smoke contract, one registered label-free feature matrix, schema report, and deterministic validation stop. No model, submission artifact, Kaggle run, or DACON submission is authorized.",
+      "next_allowed_step": "closed_stop_or_wait_for_explicit_kaggle_approval",
+      "score_relevant": false,
+      "local_no_approval_allowed": false,
+      "train_model_now": false,
+      "create_artifact_allowed": false,
+      "submission_artifact_allowed": false,
+      "feature_matrix_write_allowed_next_under_contract": false,
+      "feature_matrix_materialized_under_contract": true
+    },
+    {
+      "rank": 5,
+      "name": "phone_wearable_discordance_v1",
+      "type": "materially_new_local_design_probe",
+      "status": "validated_stop_completed_no_model",
+      "target_focus": [
+        "Q2",
+        "Q3",
+        "S3"
+      ],
+      "raw_inputs": [
+        "mScreenStatus",
+        "mACStatus",
+        "mActivity",
+        "wPedo",
+        "wHr",
+        "wLight",
+        "mLight"
+      ],
+      "why_materially_new": "Uses fixed cross-device disagreement between phone rest/charging/screen/activity state and wearable activation/light/heart-rate state. This is not coverage-only adherence, sleep-boundary micro-blending, circadian phase-shape, usage Markov semantics, GPS topology, or proximity/ambience co-occurrence.",
+      "first_safe_probe": "completed: design, bounded feature spec, in-memory dry run, feature-matrix smoke contract, one registered label-free feature matrix, schema report, and deterministic validation stop. No model, submission artifact, Kaggle run, or DACON submission is authorized.",
+      "next_allowed_step": "closed_stop_or_wait_for_explicit_kaggle_approval",
+      "score_relevant": false,
+      "local_no_approval_allowed": false,
+      "train_model_now": false,
+      "create_artifact_allowed": false,
+      "submission_artifact_allowed": false,
+      "feature_matrix_write_allowed_next_under_contract": false,
+      "feature_matrix_materialized_under_contract": true
+    },
+    {
+      "rank": 6,
+      "name": "self_supervised_subject_state_embedding_v1",
+      "type": "heavy_design_only",
+      "status": "design_gate_ready_heavy_deferred",
+      "target_focus": [
+        "Q2",
+        "Q3",
+        "S3"
+      ],
+      "raw_inputs": [
+        "all raw sensor streams"
+      ],
+      "why_materially_new": "Could learn label-free day-state embeddings and then test a small fold-internal model, but it is heavy and risks becoming another opaque local selector.",
+      "first_safe_probe": "completed: metadata-only design gate over all 12 raw sensor streams and the 450/250 row contract. No full raw-stream read, embedding fit, feature matrix, model, submission artifact, Kaggle run, or DACON submission is authorized.",
+      "next_allowed_step": "defer_until_explicit_heavy_compute_approval",
+      "score_relevant": false,
+      "local_no_approval_allowed": false,
+      "train_model_now": false,
+      "create_artifact_allowed": false,
+      "submission_artifact_allowed": false,
+      "design_gate_ready": true,
+      "feature_matrix_write_allowed_next_under_contract": false
+    },
+    {
+      "rank": 7,
+      "name": "sleep_proxy_threshold_residual_v1",
+      "type": "design_backlog_not_open",
+      "status": "design_backlog_recorded_closed_no_local_lane",
+      "target_focus": [
+        "S2",
+        "S3",
+        "S4",
+        "Q1"
+      ],
+      "raw_inputs": [
+        "processed sleep-stage duration proxies",
+        "processed sleep efficiency / fragmentation proxies",
+        "sleep HR / pedometer / light proxies"
+      ],
+      "why_materially_new": "Would test subject-normalized residuals around sleep-guideline thresholds for S2/S3/S4/Q1, but it overlaps enough with closed sleep-boundary/circadian lanes that it remains a recorded design backlog instead of a local no-approval score lane.",
+      "first_safe_probe": "completed: design-only schema/context feasibility for sleep-stage, sleep-efficiency, fragmentation, sleep HR, pedometer, and light proxy blocks. It is recorded as backlog only; no target associations, feature matrix, model, submission artifact, Kaggle run, or DACON submission is authorized.",
+      "next_allowed_step": "closed_design_backlog_only",
+      "score_relevant": false,
+      "local_no_approval_allowed": false,
+      "train_model_now": false,
+      "create_artifact_allowed": false,
+      "submission_artifact_allowed": false,
+      "feature_matrix_write_allowed_next_under_contract": false,
+      "design_backlog_recorded": true,
+      "open_design_lane_now": false,
+      "compute_target_associations_now": false
+    }
+  ],
+  "decision": {
+    "material_new_source_queue_ready": true,
+    "local_no_approval_score_route_exists": false,
+    "only_score_relevant_open_route": "explicit_approved_clean_upstream_id221_to_id226",
+    "requires_explicit_kaggle_approval": true,
+    "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+    "next_no_approval_step": "none_local_no_approval_lanes_closed",
+    "next_no_approval_step_type": "stop_or_wait_for_explicit_kaggle_upstream_rebuild_no_submit_approval",
+    "public_058_evidence": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "train_model_now": false,
+    "next_action": "The phone/wearable discordance feature matrix validation stop passed. Local no-approval score work remains closed; the sleep-proxy threshold residual idea is recorded as closed design backlog only. Wait for exact Kaggle upstream rebuild no-submit approval or a genuinely new report-only source design. Do not train a model, create ID342, run Kaggle, create a submission artifact, modify the submission log, or submit."
+  },
+  "context_reports": {
+    "no_approval_frontier": {
+      "path": "reports/post_id341_no_approval_frontier_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "operator_handoff": {
+      "path": "reports/post_id341_operator_handoff_contract_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "q3s3_remaining_route_inventory": {
+      "path": "reports/post_id341_q3s3_remaining_route_inventory_20260618.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "q3s3_negative_evidence_map": {
+      "path": "reports/post_id341_q3s3_negative_evidence_map_20260618.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "target_gap_budget": {
+      "path": "reports/post_id341_target_gap_budget_20260618.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "missing_target_inventory": {
+      "path": "reports/post_id341_missing_target_signal_inventory_20260618.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "sleep_boundary_prepromotion": {
+      "path": "reports/sleep_boundary_prepromotion_gate_post_id341_20260618.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "evening_load_recovery": {
+      "path": "reports/evening_load_recovery_smoke_post_id341_20260618.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "combined_sleep_evening_external": {
+      "path": "reports/combined_sleep_evening_external_prior_gate_post_id341_20260618.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "routine_stability_place_entropy": {
+      "path": "reports/routine_stability_place_entropy_smoke_post_id341_20260618.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "sensor_adherence_dropout": {
+      "path": "reports/sensor_adherence_dropout_smoke_post_id341_20260618.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "phase3_usage_temporal": {
+      "path": "reports/phase3_usage_temporal_microstructure_smoke_post_id341_20260618.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "phase3_ambience_context": {
+      "path": "reports/phase3_ambience_context_closure_post_id341_20260618.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "external_public05917_residual": {
+      "path": "reports/post_id341_external_public05917_residual_audit_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "gps_path_topology_model_smoke": {
+      "path": "reports/post_id341_gps_path_topology_model_smoke_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "circadian_hr_light_phase_metadata": {
+      "path": "reports/post_id341_circadian_hr_light_phase_metadata_probe_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "circadian_hr_light_phase_feature_spec": {
+      "path": "reports/post_id341_circadian_hr_light_phase_feature_spec_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "circadian_hr_light_phase_feature_generation_dryrun": {
+      "path": "reports/post_id341_circadian_hr_light_phase_feature_generation_dryrun_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "circadian_hr_light_phase_feature_matrix_smoke_contract": {
+      "path": "reports/post_id341_circadian_hr_light_phase_feature_matrix_smoke_contract_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "circadian_hr_light_phase_feature_matrix_schema": {
+      "path": "reports/post_id341_circadian_hr_light_phase_features_v1_schema.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "circadian_hr_light_phase_model_smoke_contract": {
+      "path": "reports/post_id341_circadian_hr_light_phase_model_smoke_contract_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "circadian_hr_light_phase_model_smoke": {
+      "path": "reports/post_id341_circadian_hr_light_phase_model_smoke_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "usage_semantic_burst_markov_design": {
+      "path": "reports/post_id341_usage_semantic_burst_markov_design_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "usage_semantic_burst_markov_metadata_smoke": {
+      "path": "reports/post_id341_usage_semantic_burst_markov_metadata_smoke_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "usage_semantic_burst_markov_feature_spec": {
+      "path": "reports/post_id341_usage_semantic_burst_markov_feature_spec_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "usage_semantic_burst_markov_feature_generation_dryrun": {
+      "path": "reports/post_id341_usage_semantic_burst_markov_feature_generation_dryrun_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "usage_semantic_burst_markov_feature_matrix_smoke_contract": {
+      "path": "reports/post_id341_usage_semantic_burst_markov_feature_matrix_smoke_contract_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "usage_semantic_burst_markov_feature_matrix_schema": {
+      "path": "reports/post_id341_usage_semantic_burst_markov_features_v1_schema.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "usage_semantic_burst_markov_validation_stop": {
+      "path": "reports/post_id341_usage_semantic_burst_markov_feature_matrix_validation_stop_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "proximity_ambience_cooccurrence_design": {
+      "path": "reports/post_id341_proximity_ambience_cooccurrence_design_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "proximity_ambience_cooccurrence_metadata_smoke": {
+      "path": "reports/post_id341_proximity_ambience_cooccurrence_metadata_smoke_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "proximity_ambience_cooccurrence_feature_spec": {
+      "path": "reports/post_id341_proximity_ambience_cooccurrence_feature_spec_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "proximity_ambience_cooccurrence_feature_generation_dryrun": {
+      "path": "reports/post_id341_proximity_ambience_cooccurrence_feature_generation_dryrun_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "proximity_ambience_cooccurrence_feature_matrix_smoke_contract": {
+      "path": "reports/post_id341_proximity_ambience_cooccurrence_feature_matrix_smoke_contract_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "proximity_ambience_cooccurrence_feature_matrix_schema": {
+      "path": "reports/post_id341_proximity_ambience_cooccurrence_features_v1_schema.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "proximity_ambience_cooccurrence_validation_stop": {
+      "path": "reports/post_id341_proximity_ambience_cooccurrence_feature_matrix_validation_stop_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "phone_wearable_discordance_design": {
+      "path": "reports/post_id341_phone_wearable_discordance_design_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "phone_wearable_discordance_feature_spec": {
+      "path": "reports/post_id341_phone_wearable_discordance_feature_spec_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "phone_wearable_discordance_feature_generation_dryrun": {
+      "path": "reports/post_id341_phone_wearable_discordance_feature_generation_dryrun_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "phone_wearable_discordance_feature_matrix_smoke_contract": {
+      "path": "reports/post_id341_phone_wearable_discordance_feature_matrix_smoke_contract_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "phone_wearable_discordance_feature_matrix_schema": {
+      "path": "reports/post_id341_phone_wearable_discordance_features_v1_schema.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "phone_wearable_discordance_validation_stop": {
+      "path": "reports/post_id341_phone_wearable_discordance_feature_matrix_validation_stop_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "sleep_proxy_threshold_residual_design": {
+      "path": "reports/post_id341_sleep_proxy_threshold_residual_design_20260619.json",
+      "exists": true,
+      "parse_error": null
+    },
+    "self_supervised_subject_state_embedding_design": {
+      "path": "reports/post_id341_self_supervised_subject_state_embedding_design_20260619.json",
+      "exists": true,
+      "parse_error": null
+    }
+  }
+}

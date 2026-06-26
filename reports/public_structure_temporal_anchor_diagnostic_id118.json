@@ -1,0 +1,173 @@
+{
+  "base_id": 118,
+  "validation_lens": "public_structure_interleaved_within_subject_blocked_cv",
+  "fold_rule": "Within each subject, sorted dates are assigned to fold = date_rank % 5; validation labels are hidden as a block. Anchor predictions for validation use only non-validation labels from the same subject.",
+  "promotion_status": "diagnostic_only_not_promoted",
+  "promotion_caution": "This changes the validation lens from the strict Subject-Hole CV used for IDs 95-118. Do not promote or submit without explicit user approval.",
+  "targets_modified_if_used": [
+    "Q1",
+    "Q2",
+    "Q3"
+  ],
+  "fixed_candidates": {
+    "Q1": {
+      "alpha_base": 0.75,
+      "half_life": 2
+    },
+    "Q2": {
+      "alpha_base": 0.6,
+      "half_life": 21
+    },
+    "Q3": {
+      "alpha_base": 0.55,
+      "half_life": 21
+    }
+  },
+  "target_results": {
+    "Q1": {
+      "base_loss": 0.6006374692560381,
+      "blocked_fixed_loss": 0.5755607644201988,
+      "delta": -0.025076704835839347,
+      "fold_details": [
+        {
+          "fold": 0,
+          "loss": 0.5205261081412774,
+          "n_valid": 95
+        },
+        {
+          "fold": 1,
+          "loss": 0.5639520956153935,
+          "n_valid": 92
+        },
+        {
+          "fold": 2,
+          "loss": 0.6260880262166181,
+          "n_valid": 91
+        },
+        {
+          "fold": 3,
+          "loss": 0.6072314743483496,
+          "n_valid": 87
+        },
+        {
+          "fold": 4,
+          "loss": 0.5631249678239205,
+          "n_valid": 85
+        }
+      ],
+      "alpha_base": 0.75,
+      "half_life": 2
+    },
+    "Q2": {
+      "base_loss": 0.6326195110547383,
+      "blocked_fixed_loss": 0.5807296508727525,
+      "delta": -0.051889860181985825,
+      "fold_details": [
+        {
+          "fold": 0,
+          "loss": 0.5941491172930484,
+          "n_valid": 95
+        },
+        {
+          "fold": 1,
+          "loss": 0.5610060506607197,
+          "n_valid": 92
+        },
+        {
+          "fold": 2,
+          "loss": 0.5608474706227076,
+          "n_valid": 91
+        },
+        {
+          "fold": 3,
+          "loss": 0.5953860145384741,
+          "n_valid": 87
+        },
+        {
+          "fold": 4,
+          "loss": 0.5933637293835201,
+          "n_valid": 85
+        }
+      ],
+      "alpha_base": 0.6,
+      "half_life": 21
+    },
+    "Q3": {
+      "base_loss": 0.6491325415207199,
+      "blocked_fixed_loss": 0.595898399132688,
+      "delta": -0.05323414238803181,
+      "fold_details": [
+        {
+          "fold": 0,
+          "loss": 0.5798600533431313,
+          "n_valid": 95
+        },
+        {
+          "fold": 1,
+          "loss": 0.6333131540868974,
+          "n_valid": 92
+        },
+        {
+          "fold": 2,
+          "loss": 0.6278020543381507,
+          "n_valid": 91
+        },
+        {
+          "fold": 3,
+          "loss": 0.5434801910945606,
+          "n_valid": 87
+        },
+        {
+          "fold": 4,
+          "loss": 0.5928235387778723,
+          "n_valid": 85
+        }
+      ],
+      "alpha_base": 0.55,
+      "half_life": 21
+    },
+    "S1": {
+      "base_loss": 0.499176401349998,
+      "blocked_fixed_loss": 0.499176401349998,
+      "delta": 0.0,
+      "note": "unchanged_base"
+    },
+    "S2": {
+      "base_loss": 0.553891723811432,
+      "blocked_fixed_loss": 0.553891723811432,
+      "delta": 0.0,
+      "note": "unchanged_base"
+    },
+    "S3": {
+      "base_loss": 0.5277558904420688,
+      "blocked_fixed_loss": 0.5277558904420688,
+      "delta": 0.0,
+      "note": "unchanged_base"
+    },
+    "S4": {
+      "base_loss": 0.6263828670856609,
+      "blocked_fixed_loss": 0.6263828670856609,
+      "delta": 0.0,
+      "note": "unchanged_base"
+    }
+  },
+  "local_cv_if_q123_fixed_and_s_targets_base": 0.5656279567306857,
+  "strict_id118_target_scores": {
+    "Q1": 0.6006374692560381,
+    "Q2": 0.6326195110547383,
+    "Q3": 0.6491325415207199,
+    "S1": 0.499176401349998,
+    "S2": 0.553891723811432,
+    "S3": 0.5277558904420688,
+    "S4": 0.6263828670856609
+  },
+  "blocked_target_scores_if_used": {
+    "Q1": 0.5755607644201988,
+    "Q2": 0.5807296508727525,
+    "Q3": 0.595898399132688,
+    "S1": 0.499176401349998,
+    "S2": 0.553891723811432,
+    "S3": 0.5277558904420688,
+    "S4": 0.6263828670856609
+  }
+}

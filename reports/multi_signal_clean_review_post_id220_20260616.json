@@ -1,0 +1,87 @@
+{
+  "created_at": "2026-06-16",
+  "purpose": "Review after ID218 clean multi-signal overlay and ID219/ID220 bridge updates.",
+  "id218": {
+    "base_id": 215,
+    "local_cv_before": 0.5341352898167411,
+    "local_cv_after": 0.53410316496098,
+    "robust_before": 0.5658633405717717,
+    "robust_after": 0.5656325244293346,
+    "modified_targets": [
+      "Q1",
+      "Q3",
+      "S3",
+      "S4"
+    ],
+    "selected_sources": {
+      "Q1": "random_conv",
+      "Q2": "base",
+      "Q3": "window_pair",
+      "S1": "base",
+      "S2": "base",
+      "S3": "smartphone_light",
+      "S4": "random_conv"
+    },
+    "target_scores_after": {
+      "Q1": 0.5480146417521856,
+      "Q2": 0.5506886916995475,
+      "Q3": 0.5627679785804912,
+      "S1": 0.46724545440453036,
+      "S2": 0.5295161847284966,
+      "S3": 0.4905451597941861,
+      "S4": 0.5899440437674225
+    },
+    "submission_file": "submission_id_218_id215_multi_signal_clean_overlay_cv0.534103_unsubmitted.csv",
+    "notebook_file": "notebooks/history/submission_218_id215_multi_signal_clean_overlay_cv0.534103_unsubmitted.ipynb",
+    "supporting_reports": {
+      "window_pair": "reports/id215_window_pair_sequence_diagnostic_20260616.json",
+      "smartphone_light": "reports/id215_smartphone_light_compact_diagnostic_20260616.json",
+      "random_conv": "reports/id215_random_conv_sequence_diagnostic_nk384_seed43030_20260616.json"
+    },
+    "interpretation": "Current best clean/non-ID172 public-structure branch, but only a tiny local improvement over ID215."
+  },
+  "id219_delta06": {
+    "base_id": 218,
+    "extreme_id": 172,
+    "local_cv": 0.5228743173700975,
+    "robustness_score": 0.553878519467181,
+    "comparison_id216_local_cv": 0.5228752409636209,
+    "comparison_id216_robustness_score": 0.5540292877518838,
+    "submission_file": "submission_id_219_id218_targetwise_delta06_id172_extreme_probe_cv0.522874_unsubmitted.csv",
+    "notebook_file": "notebooks/history/submission_219_id218_targetwise_delta06_id172_extreme_probe_cv0.522874_unsubmitted.ipynb",
+    "interpretation": "Preferred moderate-low bridge after ID218, but the gain over ID216 is microscopic and inherits ID172 risk."
+  },
+  "id220_delta08": {
+    "base_id": 218,
+    "extreme_id": 172,
+    "local_cv": 0.5195613138221138,
+    "robustness_score": 0.5504423908004501,
+    "comparison_id217_local_cv": 0.5195564679403938,
+    "comparison_id217_robustness_score": 0.5505732942399605,
+    "submission_file": "submission_id_220_id218_targetwise_delta08_id172_extreme_probe_cv0.519561_unsubmitted.csv",
+    "notebook_file": "notebooks/history/submission_220_id218_targetwise_delta08_id172_extreme_probe_cv0.519561_unsubmitted.ipynb",
+    "interpretation": "Robustness-score delta08 frontier, but ID217 remains fractionally lower by raw local CV. Both are high-risk non-nested ID172 bridge artifacts."
+  },
+  "robustness": {
+    "diagnostic_report": "reports/id178_id220_split_robustness_diagnostic_20260616.json",
+    "id215_to_id218": {
+      "overall_before": 0.5341352898167411,
+      "overall_after": 0.53410316496098,
+      "robust_before": 0.5658633405717717,
+      "robust_after": 0.5656325244293346
+    },
+    "id216_to_id219": {
+      "overall_before": 0.5228752409636209,
+      "overall_after": 0.5228743173700975,
+      "robust_before": 0.5540292877518838,
+      "robust_after": 0.553878519467181
+    },
+    "id217_to_id220": {
+      "overall_before": 0.5195564679403938,
+      "overall_after": 0.5195613138221138,
+      "robust_before": 0.5505732942399605,
+      "robust_after": 0.5504423908004501
+    }
+  },
+  "warning": "ID218 is cleaner but still public-structure/non-strict. ID219/ID220 inherit non-nested ID172 calibration risk. No DACON submission was made."
+}

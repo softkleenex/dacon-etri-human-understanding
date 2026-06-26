@@ -1,0 +1,1900 @@
+{
+  "created_at_kst": "2026-06-18 03:28:44 UTC+09:00",
+  "diagnostic": "id340_sequence_summary_split_probe",
+  "purpose": "Evaluate sequence-summary source and fixed ID178 blends under the frozen ID340 split manifest.",
+  "n_sequence_rows": 809,
+  "n_total_channels": 68,
+  "n_summary_features": 2108,
+  "feature_family_count": 31,
+  "model_specs": [
+    {
+      "name": "lr_c0_1",
+      "kind": "lr",
+      "c_value": 0.1,
+      "max_depth": null,
+      "max_leaf_nodes": null
+    },
+    {
+      "name": "lr_c0_3",
+      "kind": "lr",
+      "c_value": 0.3,
+      "max_depth": null,
+      "max_leaf_nodes": null
+    },
+    {
+      "name": "hgb_l7",
+      "kind": "hgb",
+      "c_value": null,
+      "max_depth": null,
+      "max_leaf_nodes": 7
+    }
+  ],
+  "blend_weights": [
+    0.01,
+    0.03,
+    0.05,
+    0.07,
+    0.1,
+    0.15
+  ],
+  "primary_gate_splits": [
+    "subject_hole_5",
+    "actual_test_band_holdout",
+    "test_boundary_neighbor2_holdout",
+    "test_boundary_neighbor5_holdout",
+    "loso_10"
+  ],
+  "split_reports": {
+    "subject_hole_5": {
+      "split": "subject_hole_5",
+      "n_folds": 5,
+      "reference_id178": {
+        "mean_loss": 0.5386377373903545,
+        "target_losses": {
+          "Q1": 0.5519157186538463,
+          "Q2": 0.5566793351664244,
+          "Q3": 0.5670897848363183,
+          "S1": 0.47163044694164036,
+          "S2": 0.5295561327474739,
+          "S3": 0.49089303890027697,
+          "S4": 0.6026997044865015
+        }
+      },
+      "best": {
+        "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.03",
+        "model_spec": {
+          "name": "lr_c0_3",
+          "kind": "lr",
+          "c_value": 0.3,
+          "max_depth": null,
+          "max_leaf_nodes": null
+        },
+        "kind": "id178_fixed_blend",
+        "weight": 0.03,
+        "mean_loss": 0.5383460244918444,
+        "target_losses": {
+          "Q1": 0.5503347868364047,
+          "Q2": 0.5524896379847566,
+          "Q3": 0.5676284355507671,
+          "S1": 0.4707682101480427,
+          "S2": 0.5306703073970752,
+          "S3": 0.4938851394519334,
+          "S4": 0.6026456540739318
+        }
+      },
+      "best_delta_vs_id178": -0.00029171289851004367,
+      "top_rows": [
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.03",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.03,
+          "mean_loss": 0.5383460244918444,
+          "target_losses": {
+            "Q1": 0.5503347868364047,
+            "Q2": 0.5524896379847566,
+            "Q3": 0.5676284355507671,
+            "S1": 0.4707682101480427,
+            "S2": 0.5306703073970752,
+            "S3": 0.4938851394519334,
+            "S4": 0.6026456540739318
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.03",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.03,
+          "mean_loss": 0.5383939098770416,
+          "target_losses": {
+            "Q1": 0.5502029065407131,
+            "Q2": 0.553426518440967,
+            "Q3": 0.5672561705084391,
+            "S1": 0.4709021703464614,
+            "S2": 0.5305992594582863,
+            "S3": 0.49375542336685346,
+            "S4": 0.6026149204775705
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.01",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.01,
+          "mean_loss": 0.5384415731948203,
+          "target_losses": {
+            "Q1": 0.5512730647276295,
+            "Q2": 0.5551981276422608,
+            "Q3": 0.5671976980777234,
+            "S1": 0.4711951325291505,
+            "S2": 0.5298476435164368,
+            "S3": 0.4917519942421125,
+            "S4": 0.6026273516284292
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.01",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.01,
+          "mean_loss": 0.5384782678522,
+          "target_losses": {
+            "Q1": 0.5512453886667639,
+            "Q2": 0.5555307811997184,
+            "Q3": 0.5670856202046718,
+            "S1": 0.4712726610022424,
+            "S2": 0.5298414740942845,
+            "S3": 0.49174291752036847,
+            "S4": 0.602629032277351
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.05",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.05,
+          "mean_loss": 0.5385799739562378,
+          "target_losses": {
+            "Q1": 0.5494972507834055,
+            "Q2": 0.5515654078455019,
+            "Q3": 0.5676579739976617,
+            "S1": 0.4708702164216387,
+            "S2": 0.5315914366669985,
+            "S3": 0.4961084709442251,
+            "S4": 0.6027690610342336
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.05",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.05,
+          "mean_loss": 0.5385873150216597,
+          "target_losses": {
+            "Q1": 0.5497913529437832,
+            "Q2": 0.5500995033326372,
+            "Q3": 0.5683364979223654,
+            "S1": 0.4707636429848471,
+            "S2": 0.5317883369511683,
+            "S3": 0.4964526481516281,
+            "S4": 0.6028792228651888
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.01",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.01,
+          "mean_loss": 0.5388367403346503,
+          "target_losses": {
+            "Q1": 0.5515967199016308,
+            "Q2": 0.5570770326781145,
+            "Q3": 0.5671496599647714,
+            "S1": 0.4717611958795992,
+            "S2": 0.529970909821415,
+            "S3": 0.4914096566318445,
+            "S4": 0.602892007465177
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.07",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.07,
+          "mean_loss": 0.5390064127641228,
+          "target_losses": {
+            "Q1": 0.5490808317369364,
+            "Q2": 0.5499338459513308,
+            "Q3": 0.5682838062842663,
+            "S1": 0.4711034023692026,
+            "S2": 0.5328046097072651,
+            "S3": 0.4987480875704747,
+            "S4": 0.6030903057293835
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.07",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.07,
+          "mean_loss": 0.5391258729895583,
+          "target_losses": {
+            "Q1": 0.5495902800945953,
+            "Q2": 0.5480083294956621,
+            "Q3": 0.5693129522345478,
+            "S1": 0.4710858451163611,
+            "S2": 0.533181523396602,
+            "S3": 0.49937582765359273,
+            "S4": 0.6033263529355466
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.03",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.03,
+          "mean_loss": 0.5393093611110568,
+          "target_losses": {
+            "Q1": 0.5511272227616336,
+            "Q2": 0.5579352022247802,
+            "Q3": 0.5673391662404116,
+            "S1": 0.4720912289371451,
+            "S2": 0.5308518714542098,
+            "S3": 0.49250958159872305,
+            "S4": 0.6033112545604936
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.05",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.05,
+          "mean_loss": 0.5398737813790747,
+          "target_losses": {
+            "Q1": 0.5508472411463814,
+            "Q2": 0.5588753616896709,
+            "Q3": 0.5676188284679443,
+            "S1": 0.4725057221094952,
+            "S2": 0.5317998667370973,
+            "S3": 0.49369311915868075,
+            "S4": 0.6037763303442528
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.1",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.1,
+          "mean_loss": 0.5400583606448225,
+          "target_losses": {
+            "Q1": 0.548933219585692,
+            "Q2": 0.5478938012897954,
+            "Q3": 0.5696303256530376,
+            "S1": 0.47187002308863435,
+            "S2": 0.5350184729078344,
+            "S3": 0.5031783671655293,
+            "S4": 0.6038843148232339
+          }
+        }
+      ]
+    },
+    "subject_timeseries_5": {
+      "split": "subject_timeseries_5",
+      "n_folds": 5,
+      "reference_id178": {
+        "mean_loss": 0.5397472162516725,
+        "target_losses": {
+          "Q1": 0.5548616437538422,
+          "Q2": 0.5702764042818496,
+          "Q3": 0.5466936750674858,
+          "S1": 0.46262622361740663,
+          "S2": 0.526271344286669,
+          "S3": 0.5112281912990054,
+          "S4": 0.6062730314554494
+        }
+      },
+      "best": {
+        "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.01",
+        "model_spec": {
+          "name": "lr_c0_3",
+          "kind": "lr",
+          "c_value": 0.3,
+          "max_depth": null,
+          "max_leaf_nodes": null
+        },
+        "kind": "id178_fixed_blend",
+        "weight": 0.01,
+        "mean_loss": 0.539783301533344,
+        "target_losses": {
+          "Q1": 0.5545371328404644,
+          "Q2": 0.569330061541198,
+          "Q3": 0.5466620695103102,
+          "S1": 0.4624016421385422,
+          "S2": 0.5271185434666669,
+          "S3": 0.5122713196095439,
+          "S4": 0.6061623416266821
+        }
+      },
+      "best_delta_vs_id178": 3.608528167142744e-05,
+      "top_rows": [
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.01",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.01,
+          "mean_loss": 0.539783301533344,
+          "target_losses": {
+            "Q1": 0.5545371328404644,
+            "Q2": 0.569330061541198,
+            "Q3": 0.5466620695103102,
+            "S1": 0.4624016421385422,
+            "S2": 0.5271185434666669,
+            "S3": 0.5122713196095439,
+            "S4": 0.6061623416266821
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.01",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.01,
+          "mean_loss": 0.5398166999679654,
+          "target_losses": {
+            "Q1": 0.5543865856856728,
+            "Q2": 0.5695557956758331,
+            "Q3": 0.5467268790240829,
+            "S1": 0.4625155315434758,
+            "S2": 0.527022424102228,
+            "S3": 0.5123211543691464,
+            "S4": 0.6061885293753189
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.01",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.01,
+          "mean_loss": 0.5399126457325806,
+          "target_losses": {
+            "Q1": 0.5544968228903985,
+            "Q2": 0.5706376901879204,
+            "Q3": 0.5468905433119091,
+            "S1": 0.4627630607783737,
+            "S2": 0.5265741797498174,
+            "S3": 0.5117375816956418,
+            "S4": 0.6062886415140032
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.03",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.03,
+          "mean_loss": 0.5401152092012809,
+          "target_losses": {
+            "Q1": 0.554221193397393,
+            "Q2": 0.5677440015076396,
+            "Q3": 0.546897059034165,
+            "S1": 0.4621610899707008,
+            "S2": 0.5290509321735799,
+            "S3": 0.5145598588085134,
+            "S4": 0.6061723295169745
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.03",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.03,
+          "mean_loss": 0.5401766067503252,
+          "target_losses": {
+            "Q1": 0.5537812315042098,
+            "Q2": 0.5683697382119974,
+            "Q3": 0.5470336278055045,
+            "S1": 0.4624621445397864,
+            "S2": 0.5287208079371577,
+            "S3": 0.5146768582891146,
+            "S4": 0.6061918389645067
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.03",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.03,
+          "mean_loss": 0.5403494551564842,
+          "target_losses": {
+            "Q1": 0.5540451351873967,
+            "Q2": 0.5714428004073522,
+            "Q3": 0.5473755491825897,
+            "S1": 0.46310032703675286,
+            "S2": 0.5272499040504481,
+            "S3": 0.512869515226475,
+            "S4": 0.6063629550043751
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.05",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.05,
+          "mean_loss": 0.5407687129218882,
+          "target_losses": {
+            "Q1": 0.5542939728824382,
+            "Q2": 0.5665411503076795,
+            "Q3": 0.5475085993116355,
+            "S1": 0.46218460383213805,
+            "S2": 0.5312685825833513,
+            "S3": 0.5171082654167884,
+            "S4": 0.6064758161191867
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.05",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.05,
+          "mean_loss": 0.5408093272379749,
+          "target_losses": {
+            "Q1": 0.5535694787213051,
+            "Q2": 0.5675049400951161,
+            "Q3": 0.5476448982356,
+            "S1": 0.46262268798121314,
+            "S2": 0.5306556157815473,
+            "S3": 0.5172506456772425,
+            "S4": 0.6064170241738002
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.05",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.05,
+          "mean_loss": 0.540913538336752,
+          "target_losses": {
+            "Q1": 0.5538920537861735,
+            "Q2": 0.5723551546854568,
+            "Q3": 0.5479776884086925,
+            "S1": 0.4635190525597587,
+            "S2": 0.5280163687585627,
+            "S3": 0.5141400441084601,
+            "S4": 0.6064944060501595
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.07",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.07,
+          "mean_loss": 0.5415932108714937,
+          "target_losses": {
+            "Q1": 0.5539808971704268,
+            "Q2": 0.5733717763808299,
+            "Q3": 0.5486922986795377,
+            "S1": 0.46401584127508,
+            "S2": 0.5288709103031181,
+            "S3": 0.5155380819732078,
+            "S4": 0.6066826703182561
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.07",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.07,
+          "mean_loss": 0.5416958366991719,
+          "target_losses": {
+            "Q1": 0.553696955893762,
+            "Q2": 0.5669429918769785,
+            "Q3": 0.5485450467928484,
+            "S1": 0.4629872221301972,
+            "S2": 0.5328069200565346,
+            "S3": 0.5200349638487056,
+            "S4": 0.6068567562951762
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.07",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.07,
+          "mean_loss": 0.541722345071083,
+          "target_losses": {
+            "Q1": 0.5547104127530452,
+            "Q2": 0.5656971502747653,
+            "Q3": 0.5484763223288478,
+            "S1": 0.46245860847651266,
+            "S2": 0.5337470197586501,
+            "S3": 0.5199077171634846,
+            "S4": 0.6070591847422755
+          }
+        }
+      ]
+    },
+    "actual_test_band_holdout": {
+      "split": "actual_test_band_holdout",
+      "n_folds": 1,
+      "reference_id178": {
+        "mean_loss": 0.5416036568651422,
+        "target_losses": {
+          "Q1": 0.530937300428846,
+          "Q2": 0.5847887383704241,
+          "Q3": 0.5093012241642778,
+          "S1": 0.46537576382917406,
+          "S2": 0.5514863418926919,
+          "S3": 0.47199996150799395,
+          "S4": 0.6773362678625878
+        }
+      },
+      "best": {
+        "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.07",
+        "model_spec": {
+          "name": "lr_c0_3",
+          "kind": "lr",
+          "c_value": 0.3,
+          "max_depth": null,
+          "max_leaf_nodes": null
+        },
+        "kind": "id178_fixed_blend",
+        "weight": 0.07,
+        "mean_loss": 0.5395380483024226,
+        "target_losses": {
+          "Q1": 0.5212637736755182,
+          "Q2": 0.5628934582559779,
+          "Q3": 0.5165402799375178,
+          "S1": 0.47047587149398085,
+          "S2": 0.5571167810979248,
+          "S3": 0.4747007417468277,
+          "S4": 0.6737754319092109
+        }
+      },
+      "best_delta_vs_id178": -0.002065608562719645,
+      "top_rows": [
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.07",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.07,
+          "mean_loss": 0.5395380483024226,
+          "target_losses": {
+            "Q1": 0.5212637736755182,
+            "Q2": 0.5628934582559779,
+            "Q3": 0.5165402799375178,
+            "S1": 0.47047587149398085,
+            "S2": 0.5571167810979248,
+            "S3": 0.4747007417468277,
+            "S4": 0.6737754319092109
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.05",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.05,
+          "mean_loss": 0.5396283721517946,
+          "target_losses": {
+            "Q1": 0.5226997430840952,
+            "Q2": 0.5685874936656576,
+            "Q3": 0.5141002732401062,
+            "S1": 0.4687729759283759,
+            "S2": 0.5552160046104231,
+            "S3": 0.47366095216254006,
+            "S4": 0.6743611623713641
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.1",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.1,
+          "mean_loss": 0.5400075229062871,
+          "target_losses": {
+            "Q1": 0.5203022030286586,
+            "Q2": 0.5550832572365019,
+            "Q3": 0.5207318469123652,
+            "S1": 0.47338642704807055,
+            "S2": 0.5603926897059864,
+            "S3": 0.4766555508421261,
+            "S4": 0.673500685570301
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.03",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.03,
+          "mean_loss": 0.5400825804450898,
+          "target_losses": {
+            "Q1": 0.5249890102862719,
+            "Q2": 0.5747090882585714,
+            "Q3": 0.5119523140660059,
+            "S1": 0.467263978660636,
+            "S2": 0.553546044536617,
+            "S3": 0.4728341690392417,
+            "S4": 0.6752834582682853
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.05",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.05,
+          "mean_loss": 0.5403221467304953,
+          "target_losses": {
+            "Q1": 0.5225206945901645,
+            "Q2": 0.570510400004148,
+            "Q3": 0.5156326998591241,
+            "S1": 0.469245047668631,
+            "S2": 0.5557105129540334,
+            "S3": 0.47391134668006724,
+            "S4": 0.6747243253572988
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.07",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.07,
+          "mean_loss": 0.5404088630621982,
+          "target_losses": {
+            "Q1": 0.5208854008109309,
+            "Q2": 0.5654329644763996,
+            "Q3": 0.5185508003649691,
+            "S1": 0.47105457142726415,
+            "S2": 0.557783267548185,
+            "S3": 0.47498712036028357,
+            "S4": 0.6741679164473549
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.03",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.03,
+          "mean_loss": 0.5405451821709076,
+          "target_losses": {
+            "Q1": 0.524950136875221,
+            "Q2": 0.575933303551329,
+            "Q3": 0.5129322747749967,
+            "S1": 0.46758407518587486,
+            "S2": 0.553851530953376,
+            "S3": 0.4730122222980308,
+            "S4": 0.6755527315575252
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.01",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.01,
+          "mean_loss": 0.5409650738016393,
+          "target_losses": {
+            "Q1": 0.5284996330941355,
+            "Q2": 0.5813004208022692,
+            "Q3": 0.5101066361413915,
+            "S1": 0.46595399674989596,
+            "S2": 0.5521123553754902,
+            "S3": 0.4722232857038887,
+            "S4": 0.6765591887444046
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.1",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.1,
+          "mean_loss": 0.5410492368193973,
+          "target_losses": {
+            "Q1": 0.519535275635457,
+            "Q2": 0.5584089287595821,
+            "Q3": 0.5233282938511871,
+            "S1": 0.4740448499171135,
+            "S2": 0.5612779236170369,
+            "S3": 0.47692852405520825,
+            "S4": 0.6738208619001962
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.01",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.01,
+          "mean_loss": 0.5411365525193456,
+          "target_losses": {
+            "Q1": 0.5285185084179487,
+            "Q2": 0.5817341373370419,
+            "Q3": 0.5104545654775552,
+            "S1": 0.46607365491087216,
+            "S2": 0.5522161710258886,
+            "S3": 0.47229204260859603,
+            "S4": 0.6766667878575163
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.01",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.01,
+          "mean_loss": 0.5417392264628188,
+          "target_losses": {
+            "Q1": 0.5307195889138225,
+            "Q2": 0.5846135993503017,
+            "Q3": 0.5100847725539662,
+            "S1": 0.4656227030855308,
+            "S2": 0.5514906430085921,
+            "S3": 0.47261071238852165,
+            "S4": 0.6770325659389967
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.03",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.03,
+          "mean_loss": 0.5421001332612978,
+          "target_losses": {
+            "Q1": 0.5305283086366468,
+            "Q2": 0.5843327934742099,
+            "Q3": 0.511715633816243,
+            "S1": 0.46616932251519855,
+            "S2": 0.5516102536786596,
+            "S3": 0.47387609656096025,
+            "S4": 0.6764685241471667
+          }
+        }
+      ]
+    },
+    "test_boundary_neighbor2_holdout": {
+      "split": "test_boundary_neighbor2_holdout",
+      "n_folds": 1,
+      "reference_id178": {
+        "mean_loss": 0.5862898684706096,
+        "target_losses": {
+          "Q1": 0.5913562525914443,
+          "Q2": 0.6353066033749463,
+          "Q3": 0.6063358711638827,
+          "S1": 0.53558038497983,
+          "S2": 0.573831927652359,
+          "S3": 0.5069499097612542,
+          "S4": 0.654668129770551
+        }
+      },
+      "best": {
+        "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.03",
+        "model_spec": {
+          "name": "lr_c0_3",
+          "kind": "lr",
+          "c_value": 0.3,
+          "max_depth": null,
+          "max_leaf_nodes": null
+        },
+        "kind": "id178_fixed_blend",
+        "weight": 0.03,
+        "mean_loss": 0.5855804298120988,
+        "target_losses": {
+          "Q1": 0.5843964672146005,
+          "Q2": 0.6265893372503819,
+          "Q3": 0.6108945890433576,
+          "S1": 0.5392919604589831,
+          "S2": 0.5735419060234699,
+          "S3": 0.5106599818934844,
+          "S4": 0.6536887668004142
+        }
+      },
+      "best_delta_vs_id178": -0.0007094386585108081,
+      "top_rows": [
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.03",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.03,
+          "mean_loss": 0.5855804298120988,
+          "target_losses": {
+            "Q1": 0.5843964672146005,
+            "Q2": 0.6265893372503819,
+            "Q3": 0.6108945890433576,
+            "S1": 0.5392919604589831,
+            "S2": 0.5735419060234699,
+            "S3": 0.5106599818934844,
+            "S4": 0.6536887668004142
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.05",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.05,
+          "mean_loss": 0.5856011747921798,
+          "target_losses": {
+            "Q1": 0.5809741267047502,
+            "Q2": 0.621285378301259,
+            "Q3": 0.6143424701454681,
+            "S1": 0.542142584447914,
+            "S2": 0.5736364829747268,
+            "S3": 0.5134354341587772,
+            "S4": 0.6533917468123634
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.03",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.03,
+          "mean_loss": 0.5857070832838113,
+          "target_losses": {
+            "Q1": 0.5843811872100773,
+            "Q2": 0.6273101515503708,
+            "Q3": 0.6104921652915802,
+            "S1": 0.5388793642375236,
+            "S2": 0.5737463385447423,
+            "S3": 0.5108558848244976,
+            "S4": 0.6542844913278877
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.05",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.05,
+          "mean_loss": 0.5857387846816035,
+          "target_losses": {
+            "Q1": 0.5808678613788703,
+            "Q2": 0.6223647135370305,
+            "Q3": 0.6136001188194325,
+            "S1": 0.5413989380596812,
+            "S2": 0.57392849109938,
+            "S3": 0.5137013918283746,
+            "S4": 0.6543099780484555
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.01",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.01,
+          "mean_loss": 0.5859453086345646,
+          "target_losses": {
+            "Q1": 0.588744587520326,
+            "Q2": 0.6322932196110107,
+            "Q3": 0.607770933202435,
+            "S1": 0.5367379798141094,
+            "S2": 0.5736771557346322,
+            "S3": 0.5081252233996972,
+            "S4": 0.6542680611597422
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.07",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.07,
+          "mean_loss": 0.5859694761794199,
+          "target_losses": {
+            "Q1": 0.5782906123885971,
+            "Q2": 0.6163519552105544,
+            "Q3": 0.6181018803656856,
+            "S1": 0.5452704546196466,
+            "S2": 0.5739585543882096,
+            "S3": 0.516447260824678,
+            "S4": 0.653365615458568
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.01",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.01,
+          "mean_loss": 0.5860030178354506,
+          "target_losses": {
+            "Q1": 0.588756145946165,
+            "Q2": 0.6325604894639107,
+            "Q3": 0.6076518509208956,
+            "S1": 0.5366121115811341,
+            "S2": 0.5737552066486371,
+            "S3": 0.5082030760905019,
+            "S4": 0.6544822441969103
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.07",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.07,
+          "mean_loss": 0.5860636630523633,
+          "target_losses": {
+            "Q1": 0.5780322160960858,
+            "Q2": 0.6177063629023812,
+            "Q3": 0.6169661768050855,
+            "S1": 0.5441532184585167,
+            "S2": 0.5743000703480634,
+            "S3": 0.5167373021167648,
+            "S4": 0.6545502946396456
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.03",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.03,
+          "mean_loss": 0.5861228599172611,
+          "target_losses": {
+            "Q1": 0.587299349155983,
+            "Q2": 0.6352741072023537,
+            "Q3": 0.6066820500302835,
+            "S1": 0.5360925786750613,
+            "S2": 0.5744347883682428,
+            "S3": 0.5088187139039428,
+            "S4": 0.6542584320849607
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.05",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.05,
+          "mean_loss": 0.5861696899417889,
+          "target_losses": {
+            "Q1": 0.5851376396816605,
+            "Q2": 0.63533823251257,
+            "Q3": 0.6070051654375132,
+            "S1": 0.5364987421941372,
+            "S2": 0.5749712232166375,
+            "S3": 0.5101555166932029,
+            "S4": 0.6540813098568
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.01",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.01,
+          "mean_loss": 0.586199314181471,
+          "target_losses": {
+            "Q1": 0.5898745832171028,
+            "Q2": 0.6352785222958446,
+            "Q3": 0.6064324181287939,
+            "S1": 0.5357381168460997,
+            "S2": 0.5740051686296584,
+            "S3": 0.5075543910345677,
+            "S4": 0.6545119991182301
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.07",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.07,
+          "mean_loss": 0.5863262955883716,
+          "target_losses": {
+            "Q1": 0.583305401350541,
+            "Q2": 0.6354704173230711,
+            "Q3": 0.6073997109792336,
+            "S1": 0.5369563044303939,
+            "S2": 0.5756101907467807,
+            "S3": 0.5115633850883751,
+            "S4": 0.6539786592002057
+          }
+        }
+      ]
+    },
+    "test_boundary_neighbor5_holdout": {
+      "split": "test_boundary_neighbor5_holdout",
+      "n_folds": 1,
+      "reference_id178": {
+        "mean_loss": 0.5579861551656572,
+        "target_losses": {
+          "Q1": 0.5491406835484877,
+          "Q2": 0.573552646240741,
+          "Q3": 0.5827662249897018,
+          "S1": 0.5149017482984077,
+          "S2": 0.5532543738482324,
+          "S3": 0.5128937130660507,
+          "S4": 0.6193936961679791
+        }
+      },
+      "best": {
+        "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.03",
+        "model_spec": {
+          "name": "lr_c0_1",
+          "kind": "lr",
+          "c_value": 0.1,
+          "max_depth": null,
+          "max_leaf_nodes": null
+        },
+        "kind": "id178_fixed_blend",
+        "weight": 0.03,
+        "mean_loss": 0.5577438928194972,
+        "target_losses": {
+          "Q1": 0.5444327532895201,
+          "Q2": 0.5693342055057417,
+          "Q3": 0.5848709997400007,
+          "S1": 0.5142331274874589,
+          "S2": 0.5552789100763885,
+          "S3": 0.514502719624667,
+          "S4": 0.6215545340127036
+        }
+      },
+      "best_delta_vs_id178": -0.00024226234615998266,
+      "top_rows": [
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.03",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.03,
+          "mean_loss": 0.5577438928194972,
+          "target_losses": {
+            "Q1": 0.5444327532895201,
+            "Q2": 0.5693342055057417,
+            "Q3": 0.5848709997400007,
+            "S1": 0.5142331274874589,
+            "S2": 0.5552789100763885,
+            "S3": 0.514502719624667,
+            "S4": 0.6215545340127036
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.01",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.01,
+          "mean_loss": 0.5578083794203517,
+          "target_losses": {
+            "Q1": 0.5472861796315447,
+            "Q2": 0.5720807761483705,
+            "Q3": 0.5833969892678182,
+            "S1": 0.5146222604458442,
+            "S2": 0.5538548285769477,
+            "S3": 0.5133586892166725,
+            "S4": 0.6200589326552637
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.03",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.03,
+          "mean_loss": 0.5578141431794029,
+          "target_losses": {
+            "Q1": 0.5440938148609387,
+            "Q2": 0.5685532641550237,
+            "Q3": 0.5852316381588458,
+            "S1": 0.5147315629890009,
+            "S2": 0.5554373193037278,
+            "S3": 0.5146747078622141,
+            "S4": 0.6219766949260698
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.01",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.01,
+          "mean_loss": 0.5578199255231676,
+          "target_losses": {
+            "Q1": 0.5471505495220369,
+            "Q2": 0.5718008154021315,
+            "Q3": 0.5834987540021693,
+            "S1": 0.5147823126148966,
+            "S2": 0.5539073694772431,
+            "S3": 0.5134116474396464,
+            "S4": 0.62018803020405
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.01",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.01,
+          "mean_loss": 0.557937524239524,
+          "target_losses": {
+            "Q1": 0.5485274653901113,
+            "Q2": 0.5739623268317197,
+            "Q3": 0.5826019836582355,
+            "S1": 0.51503965782323,
+            "S2": 0.5533921585476527,
+            "S3": 0.5126847704834621,
+            "S4": 0.6193543069422568
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.03",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.03,
+          "mean_loss": 0.5579569884867986,
+          "target_losses": {
+            "Q1": 0.5476492461928281,
+            "Q2": 0.5748419570246858,
+            "Q3": 0.5823814547412088,
+            "S1": 0.5153663327692043,
+            "S2": 0.5537276436477017,
+            "S3": 0.5124005846612619,
+            "S4": 0.6193317003707001
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.05",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.05,
+          "mean_loss": 0.5580130799480002,
+          "target_losses": {
+            "Q1": 0.5424069990850654,
+            "Q2": 0.5668410588800147,
+            "Q3": 0.5866194131232007,
+            "S1": 0.5140583854006443,
+            "S2": 0.5569776825871938,
+            "S3": 0.5159214130705522,
+            "S4": 0.6232666074893312
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.05",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.05,
+          "mean_loss": 0.5581152039894794,
+          "target_losses": {
+            "Q1": 0.5471486233473776,
+            "Q2": 0.5758007706490569,
+            "Q3": 0.5822962906031792,
+            "S1": 0.5157596839961922,
+            "S2": 0.5541418723058563,
+            "S3": 0.5122773318557421,
+            "S4": 0.6193818551689518
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.05",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.05,
+          "mean_loss": 0.5581840448090434,
+          "target_losses": {
+            "Q1": 0.5419210015619611,
+            "Q2": 0.5656297034234075,
+            "Q3": 0.5873090495441714,
+            "S1": 0.5149186084410933,
+            "S2": 0.5572522485961802,
+            "S3": 0.5162312080830675,
+            "S4": 0.6240264940134228
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.07",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.07,
+          "mean_loss": 0.5583977671998425,
+          "target_losses": {
+            "Q1": 0.5469551674710058,
+            "Q2": 0.5768375398960208,
+            "Q3": 0.582337916830392,
+            "S1": 0.5162185442996072,
+            "S2": 0.5546336311126363,
+            "S3": 0.5122990144674554,
+            "S4": 0.6195025563217799
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.07",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.07,
+          "mean_loss": 0.5585770687282521,
+          "target_losses": {
+            "Q1": 0.5410003215880651,
+            "Q2": 0.5645915085196441,
+            "Q3": 0.5886334397504044,
+            "S1": 0.5140863920884439,
+            "S2": 0.5589316322877542,
+            "S3": 0.5176043381662739,
+            "S4": 0.6251918486971793
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.07",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.07,
+          "mean_loss": 0.558887914994669,
+          "target_losses": {
+            "Q1": 0.5404073589722964,
+            "Q2": 0.5630129403276599,
+            "Q3": 0.5897188482995112,
+            "S1": 0.5153312748510561,
+            "S2": 0.55934017806822,
+            "S3": 0.5180722247374495,
+            "S4": 0.6263325797064906
+          }
+        }
+      ]
+    },
+    "loso_10": {
+      "split": "loso_10",
+      "n_folds": 10,
+      "reference_id178": {
+        "mean_loss": 0.5386377373903545,
+        "target_losses": {
+          "Q1": 0.5519157186538463,
+          "Q2": 0.5566793351664245,
+          "Q3": 0.5670897848363183,
+          "S1": 0.47163044694164036,
+          "S2": 0.529556132747474,
+          "S3": 0.4908930389002769,
+          "S4": 0.6026997044865013
+        }
+      },
+      "best": {
+        "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.03",
+        "model_spec": {
+          "name": "lr_c0_3",
+          "kind": "lr",
+          "c_value": 0.3,
+          "max_depth": null,
+          "max_leaf_nodes": null
+        },
+        "kind": "id178_fixed_blend",
+        "weight": 0.03,
+        "mean_loss": 0.5382697024431664,
+        "target_losses": {
+          "Q1": 0.5510183929591038,
+          "Q2": 0.5545280872960855,
+          "Q3": 0.5662868531870339,
+          "S1": 0.4698765603424671,
+          "S2": 0.5310120695857471,
+          "S3": 0.49332693187334004,
+          "S4": 0.6018390218583873
+        }
+      },
+      "best_delta_vs_id178": -0.0003680349471880673,
+      "top_rows": [
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.03",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.03,
+          "mean_loss": 0.5382697024431664,
+          "target_losses": {
+            "Q1": 0.5510183929591038,
+            "Q2": 0.5545280872960855,
+            "Q3": 0.5662868531870339,
+            "S1": 0.4698765603424671,
+            "S2": 0.5310120695857471,
+            "S3": 0.49332693187334004,
+            "S4": 0.6018390218583873
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.01",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.01,
+          "mean_loss": 0.5383633432959816,
+          "target_losses": {
+            "Q1": 0.5514238318757725,
+            "Q2": 0.5558569975527271,
+            "Q3": 0.5667213320604558,
+            "S1": 0.4707921185471634,
+            "S2": 0.5299150978214092,
+            "S3": 0.49148805021495484,
+            "S4": 0.6023459749993886
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.01",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.01,
+          "mean_loss": 0.5384626999196199,
+          "target_losses": {
+            "Q1": 0.5514712999480844,
+            "Q2": 0.5561177187709164,
+            "Q3": 0.5667932392546212,
+            "S1": 0.4711368593532357,
+            "S2": 0.5298209675970201,
+            "S3": 0.4914759702314306,
+            "S4": 0.6024228442820305
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.03",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.03,
+          "mean_loss": 0.5384955174356097,
+          "target_losses": {
+            "Q1": 0.5511083822142975,
+            "Q2": 0.5552633615942542,
+            "Q3": 0.5664540844304531,
+            "S1": 0.4707160386173285,
+            "S2": 0.5306709701034568,
+            "S3": 0.4932283333745475,
+            "S4": 0.6020274517149302
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.05",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.05,
+          "mean_loss": 0.5386711474652065,
+          "target_losses": {
+            "Q1": 0.5512113661674753,
+            "Q2": 0.553594390325973,
+            "Q3": 0.5662340217997007,
+            "S1": 0.4696559907744339,
+            "S2": 0.532567833131729,
+            "S3": 0.4958406795866248,
+            "S4": 0.6015937504705087
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.01",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.01,
+          "mean_loss": 0.5387637973345706,
+          "target_losses": {
+            "Q1": 0.5515023323827204,
+            "Q2": 0.5569276902885869,
+            "Q3": 0.567077397570396,
+            "S1": 0.4718973186170171,
+            "S2": 0.5298106081941786,
+            "S3": 0.4912940892332179,
+            "S4": 0.6028371450558778
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.05",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.05,
+          "mean_loss": 0.5389458065377457,
+          "target_losses": {
+            "Q1": 0.5512833767633859,
+            "Q2": 0.5547449051861421,
+            "Q3": 0.5664354399568722,
+            "S1": 0.470816941506497,
+            "S2": 0.5319085786272962,
+            "S3": 0.4955920997988264,
+            "S4": 0.6018393039252001
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.03",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.03,
+          "mean_loss": 0.5391601793949653,
+          "target_losses": {
+            "Q1": 0.5509751698799866,
+            "Q2": 0.5575223633968396,
+            "Q3": 0.5671280613343496,
+            "S1": 0.47258738785420235,
+            "S2": 0.5304516221227972,
+            "S3": 0.49227881148795744,
+            "S4": 0.6031778396886247
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_3_w0.07",
+          "model_spec": {
+            "name": "lr_c0_3",
+            "kind": "lr",
+            "c_value": 0.3,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.07,
+          "mean_loss": 0.5394950671864619,
+          "target_losses": {
+            "Q1": 0.5518897055251772,
+            "Q2": 0.5530317836717125,
+            "Q3": 0.5665419850735186,
+            "S1": 0.4699463516690025,
+            "S2": 0.5345443975400912,
+            "S3": 0.49890639513152857,
+            "S4": 0.6016048516942016
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.05",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.05,
+          "mean_loss": 0.5397261294565406,
+          "target_losses": {
+            "Q1": 0.5507643615300338,
+            "Q2": 0.5582428547750145,
+            "Q3": 0.5672758493374036,
+            "S1": 0.47346254241002156,
+            "S2": 0.5312549056549053,
+            "S3": 0.49347842044776763,
+            "S4": 0.6036039720406382
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_lr_c0_1_w0.07",
+          "model_spec": {
+            "name": "lr_c0_1",
+            "kind": "lr",
+            "c_value": 0.1,
+            "max_depth": null,
+            "max_leaf_nodes": null
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.07,
+          "mean_loss": 0.5397524783280881,
+          "target_losses": {
+            "Q1": 0.5518888391132073,
+            "Q2": 0.5545412036136264,
+            "Q3": 0.5667196132342776,
+            "S1": 0.47130674001143374,
+            "S2": 0.5335012605785139,
+            "S3": 0.49845496104189163,
+            "S4": 0.6018547307036665
+          }
+        },
+        {
+          "candidate": "blend_id178_sequence_summary_hgb_l7_w0.07",
+          "model_spec": {
+            "name": "hgb_l7",
+            "kind": "hgb",
+            "c_value": null,
+            "max_depth": null,
+            "max_leaf_nodes": 7
+          },
+          "kind": "id178_fixed_blend",
+          "weight": 0.07,
+          "mean_loss": 0.5404427698731433,
+          "target_losses": {
+            "Q1": 0.5508069485209987,
+            "Q2": 0.5590841290393124,
+            "Q3": 0.5675170968808567,
+            "S1": 0.47450212541176995,
+            "S2": 0.5322077085569485,
+            "S3": 0.4948682780836987,
+            "S4": 0.6041131026184183
+          }
+        }
+      ]
+    }
+  },
+  "primary_split_passes_vs_id178": {
+    "subject_hole_5": true,
+    "actual_test_band_holdout": true,
+    "test_boundary_neighbor2_holdout": true,
+    "test_boundary_neighbor5_holdout": true,
+    "loso_10": true
+  },
+  "stable_best_counts_on_primary_splits": {
+    "blend_id178_sequence_summary_lr_c0_3_w0.03": 3,
+    "blend_id178_sequence_summary_lr_c0_3_w0.07": 1,
+    "blend_id178_sequence_summary_lr_c0_1_w0.03": 1
+  },
+  "decision": {
+    "promote_submission_candidate": false,
+    "create_id340": false,
+    "any_sequence_candidate_beats_id178_on_all_primary_splits": true,
+    "why": "This is still a report-only split probe. Even if a fixed blend improves one split, ID340 requires stable gains across the frozen primary lenses plus public-risk geometry before artifact creation."
+  },
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_dacon_submission_made": true
+}

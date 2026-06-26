@@ -1,0 +1,528 @@
+{
+  "created_at_kst": "2026-06-23 18:07:16 UTC+09:00",
+  "diagnostic": "post_id341_missing_target_signal_inventory",
+  "purpose": "Inventory the Q2/Q3/S3 gap after ID341 and separate local promotable evidence from upstream rebuild leads.",
+  "inputs": {
+    "target_gap": "reports/post_id341_target_gap_budget_20260618.json",
+    "upstream_priority": "reports/post_id341_upstream_source_priority_matrix_20260618.json",
+    "phase2_spec": "reports/post_id341_phase2_raw_source_execution_spec_20260618.json",
+    "data_coverage": "reports/post_id341_data_source_coverage_audit_20260618.json",
+    "local_closure": "reports/post_id341_local_source_closure_synthesis_20260618.json",
+    "prelaunch": "reports/post_id341_kaggle_prelaunch_readiness_gate_20260618.json"
+  },
+  "constants": {
+    "id178_public": 0.6014113009,
+    "public_058_review_cutoff": 0.59,
+    "focus_targets": [
+      "Q2",
+      "Q3",
+      "S3"
+    ],
+    "secondary_targets": [
+      "S1",
+      "S2"
+    ]
+  },
+  "target_inventory": {
+    "Q2": {
+      "local": {
+        "strict_selected": false,
+        "watch_selected": false,
+        "local_selected_row_count": 0,
+        "best_local_row": null,
+        "local_status": "missing"
+      },
+      "upstream": {
+        "best_historical_upstream_row": {
+          "id": 287,
+          "layer": "public_anchor_layer",
+          "action": null,
+          "status_clean": "cv_lb_gap_risk",
+          "dependency_read": "known public-collapse calibration artifact",
+          "local_cv": 0.378934,
+          "artifact_exists": true,
+          "fold_wins_vs_341": 23,
+          "fold_count": 23,
+          "worst_fold_delta_vs_341": -0.10012797922340153,
+          "target_delta_vs_178": -0.19825402431449202,
+          "target_delta_vs_341": -0.19787548205166217
+        },
+        "clean_root_id221_row": {
+          "id": 221,
+          "layer": "upstream_model_layer",
+          "action": null,
+          "status_clean": "generated_unsubmitted",
+          "dependency_read": "root public-feature-similarity overlay; prerequisite for ID226/ID238 lineage",
+          "local_cv": 0.53299,
+          "artifact_exists": true,
+          "fold_wins_vs_341": 21,
+          "fold_count": 23,
+          "worst_fold_delta_vs_341": 0.0022890324953465657,
+          "target_delta_vs_178": -0.006508414576138266,
+          "target_delta_vs_341": -0.006129872313308415
+        },
+        "clean_backbone_id226_row": {
+          "id": 226,
+          "layer": "upstream_model_layer",
+          "action": null,
+          "status_clean": "generated_unsubmitted",
+          "dependency_read": "primary target-wise convex backbone; prerequisite for ID227/228/237 and downstream A1/B1",
+          "local_cv": 0.491771,
+          "artifact_exists": true,
+          "fold_wins_vs_341": 23,
+          "fold_count": 23,
+          "worst_fold_delta_vs_341": -0.024718751280781937,
+          "target_delta_vs_178": -0.06499415447750512,
+          "target_delta_vs_341": -0.06461561221467527
+        },
+        "historical_row_count": 18
+      },
+      "recommended_action": "route_to_clean_id221_then_id226_no_submit_upstream_rebuild"
+    },
+    "Q3": {
+      "local": {
+        "strict_selected": false,
+        "watch_selected": false,
+        "local_selected_row_count": 0,
+        "best_local_row": null,
+        "local_status": "missing"
+      },
+      "upstream": {
+        "best_historical_upstream_row": {
+          "id": 287,
+          "layer": "public_anchor_layer",
+          "action": null,
+          "status_clean": "cv_lb_gap_risk",
+          "dependency_read": "known public-collapse calibration artifact",
+          "local_cv": 0.378934,
+          "artifact_exists": true,
+          "fold_wins_vs_341": 23,
+          "fold_count": 23,
+          "worst_fold_delta_vs_341": -0.10012797922340153,
+          "target_delta_vs_178": -0.2206003037485122,
+          "target_delta_vs_341": -0.2206003037485122
+        },
+        "clean_root_id221_row": {
+          "id": 221,
+          "layer": "upstream_model_layer",
+          "action": null,
+          "status_clean": "generated_unsubmitted",
+          "dependency_read": "root public-feature-similarity overlay; prerequisite for ID226/ID238 lineage",
+          "local_cv": 0.53299,
+          "artifact_exists": true,
+          "fold_wins_vs_341": 21,
+          "fold_count": 23,
+          "worst_fold_delta_vs_341": 0.0022890324953465657,
+          "target_delta_vs_178": -0.0048587523179582925,
+          "target_delta_vs_341": -0.0048587523179582925
+        },
+        "clean_backbone_id226_row": {
+          "id": 226,
+          "layer": "upstream_model_layer",
+          "action": null,
+          "status_clean": "generated_unsubmitted",
+          "dependency_read": "primary target-wise convex backbone; prerequisite for ID227/228/237 and downstream A1/B1",
+          "local_cv": 0.491771,
+          "artifact_exists": true,
+          "fold_wins_vs_341": 23,
+          "fold_count": 23,
+          "worst_fold_delta_vs_341": -0.024718751280781937,
+          "target_delta_vs_178": -0.051075415541679936,
+          "target_delta_vs_341": -0.051075415541679936
+        },
+        "historical_row_count": 18
+      },
+      "recommended_action": "route_to_clean_id221_then_id226_no_submit_upstream_rebuild"
+    },
+    "S3": {
+      "local": {
+        "strict_selected": false,
+        "watch_selected": false,
+        "local_selected_row_count": 0,
+        "best_local_row": null,
+        "local_status": "missing"
+      },
+      "upstream": {
+        "best_historical_upstream_row": {
+          "id": 226,
+          "layer": "upstream_model_layer",
+          "action": null,
+          "status_clean": "generated_unsubmitted",
+          "dependency_read": "primary target-wise convex backbone; prerequisite for ID227/228/237 and downstream A1/B1",
+          "local_cv": 0.491771,
+          "artifact_exists": true,
+          "fold_wins_vs_341": 23,
+          "fold_count": 23,
+          "worst_fold_delta_vs_341": -0.024718751280781937,
+          "target_delta_vs_178": -0.02577807595581938,
+          "target_delta_vs_341": -0.02577807595581938
+        },
+        "clean_root_id221_row": {
+          "id": 221,
+          "layer": "upstream_model_layer",
+          "action": null,
+          "status_clean": "generated_unsubmitted",
+          "dependency_read": "root public-feature-similarity overlay; prerequisite for ID226/ID238 lineage",
+          "local_cv": 0.53299,
+          "artifact_exists": true,
+          "fold_wins_vs_341": 21,
+          "fold_count": 23,
+          "worst_fold_delta_vs_341": 0.0022890324953465657,
+          "target_delta_vs_178": -0.001403660113440064,
+          "target_delta_vs_341": -0.001403660113440064
+        },
+        "clean_backbone_id226_row": {
+          "id": 226,
+          "layer": "upstream_model_layer",
+          "action": null,
+          "status_clean": "generated_unsubmitted",
+          "dependency_read": "primary target-wise convex backbone; prerequisite for ID227/228/237 and downstream A1/B1",
+          "local_cv": 0.491771,
+          "artifact_exists": true,
+          "fold_wins_vs_341": 23,
+          "fold_count": 23,
+          "worst_fold_delta_vs_341": -0.024718751280781937,
+          "target_delta_vs_178": -0.02577807595581938,
+          "target_delta_vs_341": -0.02577807595581938
+        },
+        "historical_row_count": 18
+      },
+      "recommended_action": "route_to_clean_id221_then_id226_no_submit_upstream_rebuild"
+    },
+    "S1": {
+      "local": {
+        "strict_selected": false,
+        "watch_selected": true,
+        "local_selected_row_count": 2,
+        "best_local_row": {
+          "source": "sleep_evening_combined_sources",
+          "branch": "selected_configs.sleep_boundary.S1",
+          "target": "S1",
+          "candidate": "S1_id178_lr_c0_2_w0.03",
+          "model": "lr_c0_2",
+          "anchor": "id178",
+          "weight": 0.03,
+          "primary_wins_vs_id341": 4,
+          "mean_delta_vs_id341": -0.0014815385466301566,
+          "max_delta_vs_id341": 0.0005650110834438671,
+          "min_delta_vs_id341": -0.0035436558064434465,
+          "split_deltas_vs_id341": {
+            "subject_hole_5": -0.0016553097465476507,
+            "actual_test_band_holdout": -0.0008815612826073571,
+            "test_boundary_neighbor2_holdout": -0.0018921769809961964,
+            "test_boundary_neighbor5_holdout": -0.0035436558064434465,
+            "loso_10": 0.0005650110834438671
+          }
+        },
+        "local_status": "watch_only"
+      },
+      "upstream": {
+        "best_historical_upstream_row": {
+          "id": 287,
+          "layer": "public_anchor_layer",
+          "action": null,
+          "status_clean": "cv_lb_gap_risk",
+          "dependency_read": "known public-collapse calibration artifact",
+          "local_cv": 0.378934,
+          "artifact_exists": true,
+          "fold_wins_vs_341": 23,
+          "fold_count": 23,
+          "worst_fold_delta_vs_341": -0.10012797922340153,
+          "target_delta_vs_178": -0.16961012851294244,
+          "target_delta_vs_341": -0.16961012851294244
+        },
+        "clean_root_id221_row": {
+          "id": 221,
+          "layer": "upstream_model_layer",
+          "action": null,
+          "status_clean": "generated_unsubmitted",
+          "dependency_read": "root public-feature-similarity overlay; prerequisite for ID226/ID238 lineage",
+          "local_cv": 0.53299,
+          "artifact_exists": true,
+          "fold_wins_vs_341": 21,
+          "fold_count": 23,
+          "worst_fold_delta_vs_341": 0.0022890324953465657,
+          "target_delta_vs_178": -0.004513016221633581,
+          "target_delta_vs_341": -0.004513016221633581
+        },
+        "clean_backbone_id226_row": {
+          "id": 226,
+          "layer": "upstream_model_layer",
+          "action": null,
+          "status_clean": "generated_unsubmitted",
+          "dependency_read": "primary target-wise convex backbone; prerequisite for ID227/228/237 and downstream A1/B1",
+          "local_cv": 0.491771,
+          "artifact_exists": true,
+          "fold_wins_vs_341": 23,
+          "fold_count": 23,
+          "worst_fold_delta_vs_341": -0.024718751280781937,
+          "target_delta_vs_178": -0.03821814972142579,
+          "target_delta_vs_341": -0.03821814972142579
+        },
+        "historical_row_count": 18
+      },
+      "recommended_action": "do_not_promote_watch_only_signal_without_all_primary_confirmation"
+    },
+    "S2": {
+      "local": {
+        "strict_selected": false,
+        "watch_selected": true,
+        "local_selected_row_count": 2,
+        "best_local_row": {
+          "source": "sleep_evening_combined_sources",
+          "branch": "selected_configs.sleep_boundary.S2",
+          "target": "S2",
+          "candidate": "S2_id178_lr_c0_05_w0.1",
+          "model": "lr_c0_05",
+          "anchor": "id178",
+          "weight": 0.1,
+          "primary_wins_vs_id341": 4,
+          "mean_delta_vs_id341": -0.00246033810834545,
+          "max_delta_vs_id341": 0.00029911400460180815,
+          "min_delta_vs_id341": -0.005733341342940457,
+          "split_deltas_vs_id341": {
+            "subject_hole_5": -0.0002349682295833544,
+            "actual_test_band_holdout": -0.0014946352284876951,
+            "test_boundary_neighbor2_holdout": -0.005733341342940457,
+            "test_boundary_neighbor5_holdout": -0.005137859745317552,
+            "loso_10": 0.00029911400460180815
+          }
+        },
+        "local_status": "watch_only"
+      },
+      "upstream": {
+        "best_historical_upstream_row": {
+          "id": 287,
+          "layer": "public_anchor_layer",
+          "action": null,
+          "status_clean": "cv_lb_gap_risk",
+          "dependency_read": "known public-collapse calibration artifact",
+          "local_cv": 0.378934,
+          "artifact_exists": true,
+          "fold_wins_vs_341": 23,
+          "fold_count": 23,
+          "worst_fold_delta_vs_341": -0.10012797922340153,
+          "target_delta_vs_178": -0.17955777030951264,
+          "target_delta_vs_341": -0.17955777030951264
+        },
+        "clean_root_id221_row": {
+          "id": 221,
+          "layer": "upstream_model_layer",
+          "action": null,
+          "status_clean": "generated_unsubmitted",
+          "dependency_read": "root public-feature-similarity overlay; prerequisite for ID226/ID238 lineage",
+          "local_cv": 0.53299,
+          "artifact_exists": true,
+          "fold_wins_vs_341": 21,
+          "fold_count": 23,
+          "worst_fold_delta_vs_341": 0.0022890324953465657,
+          "target_delta_vs_178": -0.0006755780901908093,
+          "target_delta_vs_341": -0.0006755780901908093
+        },
+        "clean_backbone_id226_row": {
+          "id": 226,
+          "layer": "upstream_model_layer",
+          "action": null,
+          "status_clean": "generated_unsubmitted",
+          "dependency_read": "primary target-wise convex backbone; prerequisite for ID227/228/237 and downstream A1/B1",
+          "local_cv": 0.491771,
+          "artifact_exists": true,
+          "fold_wins_vs_341": 23,
+          "fold_count": 23,
+          "worst_fold_delta_vs_341": -0.024718751280781937,
+          "target_delta_vs_178": -0.05238901375510674,
+          "target_delta_vs_341": -0.05238901375510674
+        },
+        "historical_row_count": 18
+      },
+      "recommended_action": "do_not_promote_watch_only_signal_without_all_primary_confirmation"
+    }
+  },
+  "source_closures": {
+    "phase2_block_a_q1_s4_sleep_residual_bridge": {
+      "path": "reports/phase2_block_a_q1_s4_sleep_residual_bridge_post_id341_20260618.json",
+      "exists": true,
+      "selected_targets": [
+        "Q1"
+      ],
+      "selected_target_count": 1,
+      "best_proxy": null,
+      "projected_public_proxy_from_id341": 0.6036170749968561,
+      "public_058_reviewable": false,
+      "public_058_plausible": null,
+      "reviewable_low_movement_candidate_exists": null,
+      "create_submission_artifact": false,
+      "submit_now": false,
+      "push_kaggle_now": false,
+      "run_kaggle_now": false
+    },
+    "phase2_block_b_s2_sleep_recovery_retry": {
+      "path": "reports/phase2_block_b_s2_sleep_recovery_retry_post_id341_20260618.json",
+      "exists": true,
+      "selected_targets": [],
+      "selected_target_count": 0,
+      "best_proxy": null,
+      "projected_public_proxy_from_id341": 0.6038297835,
+      "public_058_reviewable": false,
+      "public_058_plausible": null,
+      "reviewable_low_movement_candidate_exists": null,
+      "create_submission_artifact": false,
+      "submit_now": false,
+      "push_kaggle_now": false,
+      "run_kaggle_now": false
+    },
+    "usage_temporal_microstructure": {
+      "path": "reports/phase3_usage_temporal_microstructure_smoke_post_id341_20260618.json",
+      "exists": true,
+      "selected_targets": [],
+      "selected_target_count": 0,
+      "best_proxy": null,
+      "projected_public_proxy_from_id341": 0.6038297835,
+      "public_058_reviewable": false,
+      "public_058_plausible": null,
+      "reviewable_low_movement_candidate_exists": null,
+      "create_submission_artifact": false,
+      "submit_now": false,
+      "push_kaggle_now": false,
+      "run_kaggle_now": false
+    },
+    "routine_stability_place_entropy": {
+      "path": "reports/routine_stability_place_entropy_smoke_post_id341_20260618.json",
+      "exists": true,
+      "selected_targets": [],
+      "selected_target_count": null,
+      "best_proxy": null,
+      "projected_public_proxy_from_id341": null,
+      "public_058_reviewable": null,
+      "public_058_plausible": false,
+      "reviewable_low_movement_candidate_exists": false,
+      "create_submission_artifact": false,
+      "submit_now": false,
+      "push_kaggle_now": false,
+      "run_kaggle_now": null
+    },
+    "place_social_novelty": {
+      "path": "reports/place_social_novelty_smoke_fixedlist_post_id341_20260618.json",
+      "exists": true,
+      "selected_targets": [],
+      "selected_target_count": null,
+      "best_proxy": null,
+      "projected_public_proxy_from_id341": null,
+      "public_058_reviewable": null,
+      "public_058_plausible": false,
+      "reviewable_low_movement_candidate_exists": false,
+      "create_submission_artifact": false,
+      "submit_now": false,
+      "push_kaggle_now": false,
+      "run_kaggle_now": null
+    },
+    "sensor_adherence_dropout": {
+      "path": "reports/sensor_adherence_dropout_smoke_post_id341_20260618.json",
+      "exists": true,
+      "selected_targets": [],
+      "selected_target_count": null,
+      "best_proxy": null,
+      "projected_public_proxy_from_id341": null,
+      "public_058_reviewable": null,
+      "public_058_plausible": false,
+      "reviewable_low_movement_candidate_exists": false,
+      "create_submission_artifact": false,
+      "submit_now": false,
+      "push_kaggle_now": false,
+      "run_kaggle_now": null
+    },
+    "external_etri_prior": {
+      "path": "reports/external_etri_prior_smoke_post_id341_20260618.json",
+      "exists": true,
+      "selected_targets": null,
+      "selected_target_count": null,
+      "best_proxy": 0.6015636731586781,
+      "projected_public_proxy_from_id341": null,
+      "public_058_reviewable": null,
+      "public_058_plausible": null,
+      "reviewable_low_movement_candidate_exists": null,
+      "create_submission_artifact": false,
+      "submit_now": false,
+      "push_kaggle_now": false,
+      "run_kaggle_now": null
+    },
+    "combined_new_source_gate": {
+      "path": "reports/combined_new_source_gate_post_id341_20260618.json",
+      "exists": true,
+      "selected_targets": null,
+      "selected_target_count": null,
+      "best_proxy": 0.6014904915736343,
+      "projected_public_proxy_from_id341": null,
+      "public_058_reviewable": null,
+      "public_058_plausible": false,
+      "reviewable_low_movement_candidate_exists": true,
+      "create_submission_artifact": false,
+      "submit_now": false,
+      "push_kaggle_now": false,
+      "run_kaggle_now": null
+    },
+    "combined_sleep_evening_external_prior_gate": {
+      "path": "reports/combined_sleep_evening_external_prior_gate_post_id341_20260618.json",
+      "exists": true,
+      "selected_targets": null,
+      "selected_target_count": null,
+      "best_proxy": 0.6014904915736343,
+      "projected_public_proxy_from_id341": null,
+      "public_058_reviewable": null,
+      "public_058_plausible": false,
+      "reviewable_low_movement_candidate_exists": false,
+      "create_submission_artifact": false,
+      "submit_now": false,
+      "push_kaggle_now": false,
+      "run_kaggle_now": null
+    }
+  },
+  "evidence_flags": {
+    "data_source_coverage_ready": true,
+    "all_major_sources_present": true,
+    "external_direct_concat_allowed": false,
+    "phase2_ready": null,
+    "local_source_stack_closed_for_submission_artifact": true,
+    "any_local_lane_promotable": false,
+    "prelaunch_ready_for_explicit_approval": true,
+    "requires_explicit_user_approval": true
+  },
+  "decision": {
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "focus_targets": [
+      "Q2",
+      "Q3",
+      "S3"
+    ],
+    "focus_missing_locally": [
+      "Q2",
+      "Q3",
+      "S3"
+    ],
+    "focus_has_upstream_backbone_signal": [
+      "Q2",
+      "Q3",
+      "S3"
+    ],
+    "secondary_watch_only_targets": [
+      "S1",
+      "S2"
+    ],
+    "local_q2_q3_s3_promotable": false,
+    "external_direct_concat_allowed": false,
+    "prelaunch_ready_for_explicit_approval": true,
+    "requires_explicit_user_approval": true,
+    "recommended_next_action": "Do not create a local ID342. Q2/Q3/S3 have no current local selected rows; the only meaningful Q2/Q3/S3 surface is the report-first clean ID221→ID226 upstream rebuild, gated by explicit Kaggle approval."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

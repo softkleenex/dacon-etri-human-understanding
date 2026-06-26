@@ -22,6 +22,9 @@ Use Python 3.10+. Ruff is authoritative: 120-character line length, double quote
 ## Testing Guidelines
 Use pytest. Add or update `tests/test_*.py` when changing data loading, features, model utilities, or validation. Prefer small deterministic fixtures over full competition data. Before handoff, run `make format`, `make lint`, and `make test`; if a heavy ML path cannot be run locally, document the exact skipped verification and why.
 
+## Agent Workflow Guardrails
+Before new modeling work, read `docs/WORKFLOW_REVIEW.md`, `docs/PUBLIC_055_PLAN.md`, and `docs/EXPERIMENT_OPERATIONS.md`. Do not run `scripts/runner_bot.py`, `scripts/orchestrate_sota.py`, or `make dacon-submit` without explicit user approval naming the exact submission file and memo. Treat public-anchor blends, full-OOF residual recombinations, and candidates with large CV/LB gaps as high risk even when local CV improves. Use a fresh session after broad audit/documentation work before starting model changes.
+
 ## Commit & Pull Request Guidelines
 History uses Conventional Commit-style prefixes: `feat:`, `fix:`, `docs:`, `chore:`. Keep messages imperative and specific, e.g. `feat: add target-specific rolling features`. PRs should describe the change, motivation, verification, and CV/leaderboard impact. Link related issues or experiment notes, and include screenshots only for notebook/report visual changes.
 

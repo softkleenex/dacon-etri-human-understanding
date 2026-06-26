@@ -1,0 +1,37 @@
+{
+  "created_at_kst": "2026-06-18 04:03:14 UTC+09:00",
+  "diagnostic": "post_id341_a1_qfree_lane_closure",
+  "inputs": [
+    "reports/a1_q240_free_nested_source_replay_post_id338_20260618.json",
+    "reports/a1_q240_free_target_salvage_post_id341_20260618.json",
+    "reports/a1_s4_salvage_geometry_gate_post_id341_20260618.json",
+    "reports/a1_s4_id178_anchor_micro_scan_post_id341_20260618.json"
+  ],
+  "findings": {
+    "full_qfree_source_replay_survives": false,
+    "target_salvage": [
+      "S4"
+    ],
+    "s4_direct_id235_geometry_pass": false,
+    "s4_direct_id235_risk_tier": "reject_high_public_risk",
+    "id178_anchor_s4_has_artifact_review_variant": false,
+    "id178_anchor_s4_best": {
+      "name": "id178_s4_id239_prob_w0.0025",
+      "local_cv": 0.5384922519889789,
+      "proxy": 0.6039261613449818,
+      "proxy_delta_vs_id341": 9.637781664240119e-05
+    }
+  },
+  "decision": {
+    "close_local_a1_qfree_artifact_lane": true,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "public_058_plausible_candidate_exists": false,
+    "best_current_control_candidate": "ID341",
+    "next_local_lane": "new_source_family_or_validation_design, not more A1 qfree artifact recombination",
+    "next_kaggle_lane_if_compute_spent": "true upstream model-level rebuild of IDs 221/226/227/228/237 before replaying A1; do not use existing OOF artifacts as clean sources",
+    "reason": "A1 q240-free has one real S4 signal, but direct ID235 S4 salvage is high public-risk and ID178-anchored S4 micro variants fail to beat the ID341 proxy. Further local artifact recombination would preserve the same validation failure mode."
+  },
+  "no_submission_created": true,
+  "no_dacon_submission_made": true
+}

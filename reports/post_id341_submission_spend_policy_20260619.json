@@ -1,0 +1,230 @@
+{
+  "created_at_kst": "2026-06-23 18:06:00 UTC+09:00",
+  "diagnostic": "post_id341_submission_spend_policy",
+  "purpose": "Give a deterministic answer to whether a DACON submission should be spent now, without creating or submitting any artifact.",
+  "inputs": {
+    "manual_probe": {
+      "path": "reports/post_id341_manual_submission_probe_decision_20260619.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 31740,
+      "decision": {
+        "manual_submission_probe_decision_ready": true,
+        "public_058_plausible_candidate_exists": false,
+        "default_action": "do_not_submit",
+        "submit_now": false,
+        "create_submission_artifact": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "lowest_risk_probe_id": 341,
+        "lowest_risk_probe_file": "submission_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.csv",
+        "lowest_risk_probe_artifact_contract_ready": true,
+        "lowest_proxy_focus_id": 340,
+        "lowest_proxy_focus_file": "submission_id_340_id178_q2_seqsum_lr_c03_w001_safety_cv0.538426_unsubmitted.csv",
+        "lowest_proxy_focus_not_recommended_reason": "ID340 has the lowest transfer proxy among the 337-341 focus probes, but ID341 is the safer manual sanity probe because it has much smaller movement from the confirmed ID178 public anchor.",
+        "lowest_local_cv_focus_id": 339,
+        "lowest_local_cv_focus_file": "submission_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.csv",
+        "lowest_local_cv_focus_not_recommended_reason": "ID339 has the lowest local CV among the 337-341 focus probes, but it moves much more from ID178 and has a worse transfer proxy; this is exactly the failure mode seen in ID287/ID329.",
+        "requires_explicit_user_approval_before_dacon_submit": true,
+        "recommended_primary_next_action": "Use the explicit-approved no-submit Kaggle/Linux upstream rebuild. If the user instead explicitly chooses to spend one DACON public sanity probe, use the exact ID341 CSV and record the result.",
+        "kaggle_prelaunch_ready_for_explicit_approval": true
+      }
+    },
+    "safe_wait": {
+      "path": "reports/post_id341_safe_wait_state_contract_20260619.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 14848,
+      "decision": {
+        "safe_wait_state_contract_ready": true,
+        "safe_wait_state_ready": true,
+        "default_action": "do_not_submit",
+        "score_relevant_open_route": "explicit_approved_clean_upstream_id221_to_id226",
+        "requires_exact_kaggle_approval_phrase": true,
+        "kaggle_approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+        "separate_heavy_compute_phrase_required": true,
+        "heavy_compute_approval_phrase": "Self-supervised subject-state heavy compute no-submit 실행 승인",
+        "manual_probe_if_user_spends_submission": null,
+        "manual_probe_id": null,
+        "manual_probe_sha256_12": "1c0237b4fd37",
+        "manual_probe_is_public_058_evidence": false,
+        "public_058_reviewable": false,
+        "create_submission_artifact": false,
+        "modify_submission_log": false,
+        "create_id342_or_new_submission_id": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Do not submit or create a new submission ID. The ID341/337/340 micro-probes have already been spent and remain near 0.60, and existing ID342 is diagnostic-only. For score-relevant work, use only the registered upstream rebuild review chain."
+      }
+    },
+    "public058_promotion": {
+      "path": "reports/post_id341_public058_artifact_promotion_contract_20260619.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 5096,
+      "decision": {
+        "promotion_contract_ready": true,
+        "public058_artifact_contract_review_open": false,
+        "artifact_promotion_allowed_now": false,
+        "requires_separate_exact_candidate_approval": true,
+        "requires_exact_csv_notebook_base_log_lineage": true,
+        "create_submission_artifact": false,
+        "create_base_prediction_artifacts": false,
+        "create_notebook_history_artifact": false,
+        "modify_submission_log": false,
+        "create_id342_or_new_submission_id": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Do not promote artifacts. Keep waiting for approved no-submit remote evidence or repair gates."
+      }
+    },
+    "public_local_gap": {
+      "path": "reports/post_id341_public_local_gap_diagnosis_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 10741,
+      "decision": {
+        "public_local_gap_diagnosis_ready": true,
+        "mac_m4_environment_primary_explanation": false,
+        "any_watch_candidate_passes_public_058_recent_floor_proxy": false,
+        "any_watch_candidate_passes_public_058_recent_stress_proxy": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "local_cv_needed_for_public_058_recent_floor": 0.517445,
+        "local_cv_needed_for_public_058_recent_stress": 0.494927,
+        "next_action": "Do not promote local CV-only candidates. The next score-relevant move remains the explicit-approved no-submit Kaggle/Linux upstream rebuild, followed by a separate Public-0.58 artifact-contract review only if pulled reports are safe, beat the current confirmed public anchor band, and show min_proxy <= 0.58; ID178-only improvement above 0.58 is a lead, not ID342."
+      }
+    },
+    "next_route": {
+      "path": "reports/post_id341_next_material_route_triage_20260619.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 39360,
+      "decision": {
+        "next_material_route_triage_ready": true,
+        "local_no_approval_score_route_exists": false,
+        "no_new_local_lane_opened": true,
+        "recommended_primary_next_action": "explicit_approved_clean_upstream_id221_to_id226",
+        "requires_explicit_kaggle_approval": true,
+        "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+        "secondary_heavy_route_requires_separate_approval": true,
+        "heavy_approval_phrase": "Self-supervised subject-state heavy compute no-submit 실행 승인",
+        "sleep_proxy_threshold_residual_backlog_feasible": true,
+        "sleep_proxy_threshold_residual_open_now": false,
+        "manual_probe_if_user_spends_submission": null,
+        "manual_probe_is_public_058_evidence": false,
+        "public_058_reviewable": false,
+        "create_feature_matrix": false,
+        "train_model_now": false,
+        "create_submission_artifact": false,
+        "modify_submission_log": false,
+        "create_id342_or_new_submission_id": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "open_score_route_count": 1,
+        "next_action": "Do not reopen local recombination. Wait for the exact Kaggle no-submit upstream approval, or keep only design-level backlog triage with no feature matrix/model/submission artifacts."
+      }
+    }
+  },
+  "public_truth_anchors": {
+    "id178_public": 0.6014113009,
+    "id329_public": 0.6017908577,
+    "id287_public": 0.6698787318,
+    "id337_public": 0.6006206286219425,
+    "id340_public": 0.601379175253277,
+    "target_public": 0.58
+  },
+  "submission_log_invariants": {
+    "submission_log_path": "submissions/submission_log.csv",
+    "rows": 342,
+    "max_id": 342,
+    "ids_are_unique": true,
+    "rows_id_ge_342": 1,
+    "rows_id_341": 1,
+    "recorded_id342_row_count": 1,
+    "recorded_id342_row_ok": true,
+    "post_manual_submission_ids": [
+      342
+    ],
+    "ready_for_existing_id342_state": true,
+    "next_numeric_id_if_later_authorized": 343
+  },
+  "sanity_probe_candidate": {
+    "id": 341,
+    "submission_file": "submission_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.csv",
+    "local_cv": 0.538584,
+    "model_description": "ID178 Q2-only seq-summary lr_c0_3 w0.0025",
+    "artifact": {
+      "submission_file": "submission_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.ipynb",
+      "csv_path": "submissions/submission_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.csv",
+      "csv_exists": true,
+      "csv_shape": [
+        250,
+        10
+      ],
+      "csv_columns": [
+        "subject_id",
+        "sleep_date",
+        "lifelog_date",
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "csv_na_total": 0,
+      "notebook_path": "notebooks/history/submission_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.ipynb",
+      "notebook_exists": true,
+      "duplicate_file_count": 1,
+      "is_submitted_bool": true,
+      "public_lb": null,
+      "artifact_ready": false
+    }
+  },
+  "evidence_flags": {
+    "all_required_inputs_parse": true,
+    "no_public_058_candidate": true,
+    "no_submit_consensus": true,
+    "id341_is_manual_probe": true,
+    "id341_artifact_ready": false,
+    "submission_log_ready_for_existing_id342_state": true,
+    "kaggle_route_requires_exact_approval": true
+  },
+  "decision": {
+    "submission_spend_policy_ready": true,
+    "score_improvement_submission_recommended": false,
+    "public_sanity_probe_recommended_by_default": false,
+    "public_sanity_probe_if_user_insists_id": null,
+    "public_sanity_probe_if_user_insists_file": null,
+    "requires_exact_dacon_csv_approval": true,
+    "allowed_dacon_submit_now": false,
+    "allowed_kaggle_network_now": false,
+    "allowed_new_submission_artifact_now": false,
+    "public_058_plausible_candidate_exists": false,
+    "recommended_primary_next_action": "Wait for exact no-submit Kaggle upstream rebuild approval, not DACON submission.",
+    "operator_answer": "Do not spend a DACON submission for score improvement now. ID341/337/340 already show that the current micro-probe family remains near 0.60, not Public 0.58.",
+    "reasons": [
+      "ID337 is now the best confirmed recent public micro-probe, but only by a tiny margin over ID178 and still near 0.60.",
+      "No current local candidate passes the Public 0.58 recent-gap floor or stress proxy.",
+      "The Public-0.58 artifact-promotion contract is closed.",
+      "The only score-relevant open route is the explicitly approved no-submit Kaggle upstream rebuild.",
+      "ID341 is no longer a fresh sanity-probe CSV because it is already marked submitted locally."
+    ]
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

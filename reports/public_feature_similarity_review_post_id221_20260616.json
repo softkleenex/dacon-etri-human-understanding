@@ -1,0 +1,127 @@
+{
+  "created_at": "2026-06-16",
+  "purpose": "Post-ID221 review of the clean public feature-similarity overlay and the external Public 0.5917 notebook signal.",
+  "current_best_clean_branch": {
+    "id": 221,
+    "submission_file": "submission_id_221_id218_public_feature_similarity_overlay_cv0.532990_unsubmitted.csv",
+    "notebook_file": "notebooks/history/submission_221_id218_public_feature_similarity_overlay_cv0.532990_unsubmitted.ipynb",
+    "metadata_file": "reports/experiment_221_id218_public_feature_similarity_overlay_cv0.532990_unsubmitted.json",
+    "base_id": 218,
+    "local_cv": 0.5329901873426955,
+    "robustness_score": 0.5648106632093344,
+    "strict_subject_hole_comparable": false,
+    "target_scores": {
+      "Q1": 0.5440614992051677,
+      "Q2": 0.5501709205902863,
+      "Q3": 0.5622310325183602,
+      "S1": 0.4671174307200069,
+      "S2": 0.5288805546572832,
+      "S3": 0.48948937878683685,
+      "S4": 0.588980494920928
+    },
+    "target_deltas_vs_id218": {
+      "Q1": -0.0039531425470179515,
+      "Q2": -0.0005177711092612114,
+      "Q3": -0.0005369460621310607,
+      "S1": -0.00012802368452347057,
+      "S2": -0.0006356300712133667,
+      "S3": -0.0010557810073491547,
+      "S4": -0.0009635488464945219
+    },
+    "overall_delta_vs_id218": -0.0011129776182844386,
+    "robustness_delta_vs_id218": -0.0008218612200002751,
+    "modified_targets": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "selected_configs": {
+      "Q1": {
+        "name": "screen_app_k1_dw0_w0.07",
+        "family": "screen_app",
+        "k": 1,
+        "date_weight": 0.0,
+        "blend_weight": 0.07
+      },
+      "Q2": {
+        "name": "date_time_k1_dw0.1_w0.03",
+        "family": "date_time",
+        "k": 1,
+        "date_weight": 0.1,
+        "blend_weight": 0.03
+      },
+      "Q3": {
+        "name": "date_time_k1_dw0_w0.03",
+        "family": "date_time",
+        "k": 1,
+        "date_weight": 0.0,
+        "blend_weight": 0.03
+      },
+      "S1": {
+        "name": "date_time_k1_dw0.03_w0.02",
+        "family": "date_time",
+        "k": 1,
+        "date_weight": 0.03,
+        "blend_weight": 0.02
+      },
+      "S2": {
+        "name": "move_gps_k7_dw0.03_w0.07",
+        "family": "move_gps",
+        "k": 7,
+        "date_weight": 0.03,
+        "blend_weight": 0.07
+      },
+      "S3": {
+        "name": "screen_app_k1_dw0.03_w0.05",
+        "family": "screen_app",
+        "k": 1,
+        "date_weight": 0.03,
+        "blend_weight": 0.05
+      },
+      "S4": {
+        "name": "light_hr_k3_dw0.03_w0.07",
+        "family": "light_hr",
+        "k": 3,
+        "date_weight": 0.03,
+        "blend_weight": 0.07
+      }
+    },
+    "caution": "Public-structure local full-grid selection; not nested and not public proof."
+  },
+  "leaderboard_truth": {
+    "best_confirmed_public_id": 178,
+    "best_confirmed_public_score": 0.6014113009,
+    "public_055_status": "not achieved; ID221 is unsubmitted and not public proof",
+    "submitted_reference": "ID178 local 0.538638 -> Public 0.6014113009"
+  },
+  "external_public05917_notebook_takeaway": {
+    "source_notebook": "/Volumes/samsd/download_samsd/[Public_0.5917] LGBM+XGB 앵커·Subject-hole CV·안정성 피처선별·블렌드.ipynb",
+    "claimed_public_score": 0.5917,
+    "claimed_local_oof": 0.514,
+    "claimed_local_public_gap": 0.0777,
+    "reproducible_as_is": false,
+    "assessment": "Useful as validation-repair and anchor-stability guidance, not as a replacement pipeline.",
+    "transferable_ideas": [
+      "Use conservative anchor blending rather than high-variance residual dominance.",
+      "Compare subject-hole and within-subject temporal validation lenses before trusting local CV.",
+      "Prefer stability-selected features and low-variance models for leaderboard-facing candidates.",
+      "Rank candidates by public-gap risk signals: prediction extremeness, anchor distance, and target-wise drift."
+    ]
+  },
+  "decision": {
+    "preferred_clean_candidate": 221,
+    "preferred_bridge_candidate_before_new_bridge": 219,
+    "frontier_bridge_candidate_before_new_bridge": 220,
+    "why": "ID221 improves every target and the robustness lens versus ID218 without inheriting the ID172 bridge, but the gain is small and selected on a public-structure grid."
+  },
+  "next_actions": [
+    "Do not submit ID221 as a claimed public-0.55 candidate without explicit approval; it is a cleaner local candidate only.",
+    "Use the external notebook mainly to repair validation: compare current interleaved public-structure CV with subject-hole/stability-selected lenses.",
+    "Run a low-memory bridge carry-forward from ID221 to ID172 only as a counterprobe, then compare robustness before considering submission.",
+    "If broad stability feature selection is needed, push to Kaggle rather than local memory-heavy loops."
+  ]
+}

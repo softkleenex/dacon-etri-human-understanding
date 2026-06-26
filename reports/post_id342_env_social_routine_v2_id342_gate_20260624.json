@@ -1,0 +1,948 @@
+{
+  "created_at_kst": "2026-06-24 04:54:48 UTC+09:00",
+  "diagnostic": "post_id342_env_social_routine_v2_id342_gate",
+  "purpose": "Retest the Q2/Q3/S3 env-social-routine v2 feature lane against ID342 under fold-internal validation.",
+  "research_sources": [
+    {
+      "title": "ETRI Lifelog Dataset 2024",
+      "url": "https://arxiv.org/html/2508.03698v1",
+      "relevance": "Dataset paper frames the task around continuous sensing for sleep quality and stress."
+    },
+    {
+      "title": "Human Understanding AI Paper Challenge 2024 - Dataset Design",
+      "url": "https://cfiles.dacon.co.kr/competitions/236690/Human%20Understanding%20AI%20Paper%20Challenge%202024%20-%20Dataset%20Design.pdf",
+      "relevance": "DACON/ETRI design note emphasizes daily experiences, sleep patterns, emotional states, and stress."
+    },
+    {
+      "title": "Monitoring Daily Sleep, Mood, and Affect Using Digital Technologies and Wearables",
+      "url": "https://www.mdpi.com/1424-8220/24/14/4701",
+      "relevance": "Systematic review motivates day-to-day sleep/affect dynamics under ambulatory monitoring."
+    },
+    {
+      "title": "Detection and monitoring of stress using wearables: a systematic review",
+      "url": "https://www.frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2024.1478851/full",
+      "relevance": "Wearable stress review supports low-level feature computation and cautious validation."
+    }
+  ],
+  "inputs": {
+    "feature_metadata_report": "reports/post_id341_q2q3s3_feature_generation_metadata_smoke_20260618.json",
+    "post_id341_model_smoke": "reports/post_id341_q2q3s3_fold_internal_model_smoke_20260618.json",
+    "split_manifest": "reports/id340_validation_split_manifest_20260618.json",
+    "validation_lens_report": "reports/post_id342_public_alignment_validation_lens_20260624.json",
+    "stable_lens_triage_report": "reports/post_id342_stable_lens_existing_candidate_triage_20260624.json",
+    "id342_oof": "artifacts/base_predictions/base_oof_id_342_id178_id221_featuresim_shrink050_cv0.534000.csv"
+  },
+  "feature_metadata": {
+    "source_metadata": {
+      "wifi": {
+        "source": "ch2025_mWifi.parquet",
+        "raw_rows": 76336,
+        "daily_rows": 792,
+        "observed_nested_items": 1270006,
+        "feature_columns": 15
+      },
+      "ble": {
+        "source": "ch2025_mBle.parquet",
+        "raw_rows": 21830,
+        "daily_rows": 754,
+        "observed_nested_items": 437054,
+        "feature_columns": 15
+      },
+      "usage": {
+        "source": "ch2025_mUsageStats.parquet",
+        "raw_rows": 45197,
+        "daily_rows": 800,
+        "observed_nested_items": 158426,
+        "feature_columns": 20
+      },
+      "gps": {
+        "source": "ch2025_mGps.parquet",
+        "raw_rows": 800611,
+        "daily_rows": 766,
+        "observed_nested_items": 8546932,
+        "feature_columns": 11,
+        "exact_lat_lon_means_exported": false
+      },
+      "screen": {
+        "source": "ch2025_mScreenStatus.parquet",
+        "raw_rows": 939653,
+        "daily_rows": 810,
+        "feature_columns": 9
+      },
+      "activity": {
+        "source": "ch2025_mActivity.parquet",
+        "raw_rows": 961062,
+        "daily_rows": 810,
+        "feature_columns": 14
+      },
+      "ambience": {
+        "source": "ch2025_mAmbience.parquet",
+        "raw_rows": 476577,
+        "daily_rows": 809,
+        "observed_nested_items": 4765770,
+        "feature_columns": 14
+      }
+    },
+    "aligned_train_rows": 450,
+    "feature_columns": 494,
+    "raw_feature_columns": 247,
+    "missing_indicator_columns": 247,
+    "mean_missing_rate": 0.022060278902384167
+  },
+  "config": {
+    "model_specs": [
+      {
+        "name": "lr_c0_02",
+        "kind": "lr",
+        "c_value": 0.02
+      },
+      {
+        "name": "lr_c0_08",
+        "kind": "lr",
+        "c_value": 0.08
+      },
+      {
+        "name": "lr_c0_20",
+        "kind": "lr",
+        "c_value": 0.2
+      }
+    ],
+    "split_names": [
+      "subject_hole_5",
+      "actual_test_band_holdout",
+      "test_boundary_neighbor2_holdout",
+      "test_boundary_neighbor5_holdout",
+      "loso_10"
+    ],
+    "blend_weights": [
+      0.005,
+      0.01,
+      0.025,
+      0.05
+    ],
+    "config_win_floor": 4,
+    "config_mean_delta_ceiling": -5e-05,
+    "config_max_delta_ceiling": 0.00075,
+    "public_proxy_review_ceiling": 0.592
+  },
+  "anchor_rows": [
+    {
+      "target": "Q2",
+      "split_name": "subject_hole_5",
+      "id342_loss": 0.5516085991310917
+    },
+    {
+      "target": "Q2",
+      "split_name": "actual_test_band_holdout",
+      "id342_loss": 0.5706055701927011
+    },
+    {
+      "target": "Q2",
+      "split_name": "test_boundary_neighbor2_holdout",
+      "id342_loss": 0.6130556794954476
+    },
+    {
+      "target": "Q2",
+      "split_name": "test_boundary_neighbor5_holdout",
+      "id342_loss": 0.5672634945337472
+    },
+    {
+      "target": "Q2",
+      "split_name": "loso_10",
+      "id342_loss": 0.5516085991310917
+    },
+    {
+      "target": "Q3",
+      "split_name": "subject_hole_5",
+      "id342_loss": 0.5632259042854845
+    },
+    {
+      "target": "Q3",
+      "split_name": "actual_test_band_holdout",
+      "id342_loss": 0.514548850569324
+    },
+    {
+      "target": "Q3",
+      "split_name": "test_boundary_neighbor2_holdout",
+      "id342_loss": 0.6063862866978805
+    },
+    {
+      "target": "Q3",
+      "split_name": "test_boundary_neighbor5_holdout",
+      "id342_loss": 0.5833753098643744
+    },
+    {
+      "target": "Q3",
+      "split_name": "loso_10",
+      "id342_loss": 0.5632259042854845
+    },
+    {
+      "target": "S3",
+      "split_name": "subject_hole_5",
+      "id342_loss": 0.48994468343497904
+    },
+    {
+      "target": "S3",
+      "split_name": "actual_test_band_holdout",
+      "id342_loss": 0.471610051027991
+    },
+    {
+      "target": "S3",
+      "split_name": "test_boundary_neighbor2_holdout",
+      "id342_loss": 0.5053185090253905
+    },
+    {
+      "target": "S3",
+      "split_name": "test_boundary_neighbor5_holdout",
+      "id342_loss": 0.5117752307455081
+    },
+    {
+      "target": "S3",
+      "split_name": "loso_10",
+      "id342_loss": 0.489944683434979
+    }
+  ],
+  "selected_target_configs": {
+    "Q2": {
+      "target": "Q2",
+      "candidate": "blend_id342_envsocial_lr_c0_20_w0.025",
+      "model_spec": {
+        "name": "lr_c0_20",
+        "kind": "lr",
+        "c_value": 0.2
+      },
+      "weight": 0.025,
+      "primary_wins_vs_id342": 5,
+      "mean_delta_vs_id342": -0.0011766899259677776,
+      "min_delta_vs_id342": -0.003642931910088798,
+      "max_delta_vs_id342": -9.479649188137707e-05,
+      "split_deltas_vs_id342": {
+        "subject_hole_5": -0.0002337774292505701,
+        "actual_test_band_holdout": -0.0013039491309353446,
+        "test_boundary_neighbor2_holdout": -0.003642931910088798,
+        "test_boundary_neighbor5_holdout": -0.0006079946676827985,
+        "loso_10": -9.479649188137707e-05
+      },
+      "split_losses": {
+        "subject_hole_5": 0.5513748217018412,
+        "actual_test_band_holdout": 0.5693016210617657,
+        "test_boundary_neighbor2_holdout": 0.6094127475853588,
+        "test_boundary_neighbor5_holdout": 0.5666554998660644,
+        "loso_10": 0.5515138026392103
+      }
+    }
+  },
+  "top_rows_by_target": {
+    "Q2": [
+      {
+        "target": "Q2",
+        "candidate": "blend_id342_envsocial_lr_c0_20_w0.025",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.025,
+        "primary_wins_vs_id342": 5,
+        "mean_delta_vs_id342": -0.0011766899259677776,
+        "min_delta_vs_id342": -0.003642931910088798,
+        "max_delta_vs_id342": -9.479649188137707e-05,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": -0.0002337774292505701,
+          "actual_test_band_holdout": -0.0013039491309353446,
+          "test_boundary_neighbor2_holdout": -0.003642931910088798,
+          "test_boundary_neighbor5_holdout": -0.0006079946676827985,
+          "loso_10": -9.479649188137707e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5513748217018412,
+          "actual_test_band_holdout": 0.5693016210617657,
+          "test_boundary_neighbor2_holdout": 0.6094127475853588,
+          "test_boundary_neighbor5_holdout": 0.5666554998660644,
+          "loso_10": 0.5515138026392103
+        }
+      },
+      {
+        "target": "Q2",
+        "candidate": "blend_id342_envsocial_lr_c0_08_w0.025",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "weight": 0.025,
+        "primary_wins_vs_id342": 5,
+        "mean_delta_vs_id342": -0.0011093640662273474,
+        "min_delta_vs_id342": -0.003201308472866371,
+        "max_delta_vs_id342": -2.1589886145645387e-05,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": -2.1589886145645387e-05,
+          "actual_test_band_holdout": -0.001436155902491132,
+          "test_boundary_neighbor2_holdout": -0.003201308472866371,
+          "test_boundary_neighbor5_holdout": -0.0007344616270290594,
+          "loso_10": -0.00015330444260452936
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5515870092449461,
+          "actual_test_band_holdout": 0.56916941429021,
+          "test_boundary_neighbor2_holdout": 0.6098543710225812,
+          "test_boundary_neighbor5_holdout": 0.5665290329067182,
+          "loso_10": 0.5514552946884872
+        }
+      },
+      {
+        "target": "Q2",
+        "candidate": "blend_id342_envsocial_lr_c0_20_w0.01",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.01,
+        "primary_wins_vs_id342": 5,
+        "mean_delta_vs_id342": -0.0005380645570512322,
+        "min_delta_vs_id342": -0.0015346110960257064,
+        "max_delta_vs_id342": -0.0001110716094933073,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": -0.00014648040254761074,
+          "actual_test_band_holdout": -0.0005747772300278564,
+          "test_boundary_neighbor2_holdout": -0.0015346110960257064,
+          "test_boundary_neighbor5_holdout": -0.00032338244716167974,
+          "loso_10": -0.0001110716094933073
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5514621187285441,
+          "actual_test_band_holdout": 0.5700307929626732,
+          "test_boundary_neighbor2_holdout": 0.6115210683994219,
+          "test_boundary_neighbor5_holdout": 0.5669401120865856,
+          "loso_10": 0.5514975275215984
+        }
+      },
+      {
+        "target": "Q2",
+        "candidate": "blend_id342_envsocial_lr_c0_08_w0.01",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "weight": 0.01,
+        "primary_wins_vs_id342": 5,
+        "mean_delta_vs_id342": -0.000502081820261946,
+        "min_delta_vs_id342": -0.0013464069477292506,
+        "max_delta_vs_id342": -5.1770018045016464e-05,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": -5.1770018045016464e-05,
+          "actual_test_band_holdout": -0.000621482124721795,
+          "test_boundary_neighbor2_holdout": -0.0013464069477292506,
+          "test_boundary_neighbor5_holdout": -0.00036428238495733734,
+          "loso_10": -0.0001264676258563302
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5515568291130467,
+          "actual_test_band_holdout": 0.5699840880679793,
+          "test_boundary_neighbor2_holdout": 0.6117092725477183,
+          "test_boundary_neighbor5_holdout": 0.5668992121487899,
+          "loso_10": 0.5514821315052354
+        }
+      },
+      {
+        "target": "Q2",
+        "candidate": "blend_id342_envsocial_lr_c0_20_w0.005",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.005,
+        "primary_wins_vs_id342": 5,
+        "mean_delta_vs_id342": -0.00028056441314454615,
+        "min_delta_vs_id342": -0.0007805894340996433,
+        "max_delta_vs_id342": -6.815107993185521e-05,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": -8.219385040941773e-05,
+          "actual_test_band_holdout": -0.00029638778029250634,
+          "test_boundary_neighbor2_holdout": -0.0007805894340996433,
+          "test_boundary_neighbor5_holdout": -0.00017549992098930822,
+          "loso_10": -6.815107993185521e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5515264052806823,
+          "actual_test_band_holdout": 0.5703091824124086,
+          "test_boundary_neighbor2_holdout": 0.612275090061348,
+          "test_boundary_neighbor5_holdout": 0.5670879946127579,
+          "loso_10": 0.5515404480511599
+        }
+      },
+      {
+        "target": "Q2",
+        "candidate": "blend_id342_envsocial_lr_c0_08_w0.005",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "weight": 0.005,
+        "primary_wins_vs_id342": 5,
+        "mean_delta_vs_id342": -0.0002610264236642346,
+        "min_delta_vs_id342": -0.0006844974679719451,
+        "max_delta_vs_id342": -3.3161037320206255e-05,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": -3.3161037320206255e-05,
+          "actual_test_band_holdout": -0.0003186946220561371,
+          "test_boundary_neighbor2_holdout": -0.0006844974679719451,
+          "test_boundary_neighbor5_holdout": -0.00019428927904729942,
+          "loso_10": -7.448971192558496e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5515754380937715,
+          "actual_test_band_holdout": 0.570286875570645,
+          "test_boundary_neighbor2_holdout": 0.6123711820274756,
+          "test_boundary_neighbor5_holdout": 0.5670692052547,
+          "loso_10": 0.5515341094191661
+        }
+      },
+      {
+        "target": "Q2",
+        "candidate": "blend_id342_envsocial_lr_c0_20_w0.05",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.05,
+        "primary_wins_vs_id342": 4,
+        "mean_delta_vs_id342": -0.0018174049082350541,
+        "min_delta_vs_id342": -0.006673497113968918,
+        "max_delta_vs_id342": 0.00038510532616720106,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": -3.710928698164029e-05,
+          "actual_test_band_holdout": -0.0021764953688307997,
+          "test_boundary_neighbor2_holdout": -0.006673497113968918,
+          "test_boundary_neighbor5_holdout": -0.0005850280975611133,
+          "loso_10": 0.00038510532616720106
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5515714898441101,
+          "actual_test_band_holdout": 0.5684290748238703,
+          "test_boundary_neighbor2_holdout": 0.6063821823814787,
+          "test_boundary_neighbor5_holdout": 0.5666784664361861,
+          "loso_10": 0.5519937044572589
+        }
+      },
+      {
+        "target": "Q2",
+        "candidate": "blend_id342_envsocial_lr_c0_02_w0.01",
+        "model_spec": {
+          "name": "lr_c0_02",
+          "kind": "lr",
+          "c_value": 0.02
+        },
+        "weight": 0.01,
+        "primary_wins_vs_id342": 4,
+        "mean_delta_vs_id342": -0.0003703607643183116,
+        "min_delta_vs_id342": -0.0010831293885783522,
+        "max_delta_vs_id342": 0.00010699854441409418,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": 0.00010699854441409418,
+          "actual_test_band_holdout": -0.0004941832328362317,
+          "test_boundary_neighbor2_holdout": -0.0010831293885783522,
+          "test_boundary_neighbor5_holdout": -0.0003412464431546969,
+          "loso_10": -4.0243301436371226e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5517155976755058,
+          "actual_test_band_holdout": 0.5701113869598649,
+          "test_boundary_neighbor2_holdout": 0.6119725501068692,
+          "test_boundary_neighbor5_holdout": 0.5669222480905926,
+          "loso_10": 0.5515683558296554
+        }
+      }
+    ],
+    "Q3": [
+      {
+        "target": "Q3",
+        "candidate": "blend_id342_envsocial_lr_c0_02_w0.005",
+        "model_spec": {
+          "name": "lr_c0_02",
+          "kind": "lr",
+          "c_value": 0.02
+        },
+        "weight": 0.005,
+        "primary_wins_vs_id342": 0,
+        "mean_delta_vs_id342": 0.0002539854632263694,
+        "min_delta_vs_id342": 0.0001615320435101042,
+        "max_delta_vs_id342": 0.0003621087572303061,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": 0.0002194679609696104,
+          "actual_test_band_holdout": 0.0001615320435101042,
+          "test_boundary_neighbor2_holdout": 0.0003621087572303061,
+          "test_boundary_neighbor5_holdout": 0.00035990353396220254,
+          "loso_10": 0.0001669150204596237
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5634453722464541,
+          "actual_test_band_holdout": 0.5147103826128341,
+          "test_boundary_neighbor2_holdout": 0.6067483954551108,
+          "test_boundary_neighbor5_holdout": 0.5837352133983366,
+          "loso_10": 0.5633928193059441
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id342_envsocial_lr_c0_08_w0.005",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "weight": 0.005,
+        "primary_wins_vs_id342": 0,
+        "mean_delta_vs_id342": 0.000311044438282293,
+        "min_delta_vs_id342": 0.00016891992209699946,
+        "max_delta_vs_id342": 0.0005420620941700705,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": 0.00027644405500348856,
+          "actual_test_band_holdout": 0.0001819633730505421,
+          "test_boundary_neighbor2_holdout": 0.0005420620941700705,
+          "test_boundary_neighbor5_holdout": 0.0003858327470903644,
+          "loso_10": 0.00016891992209699946
+        },
+        "split_losses": {
+          "subject_hole_5": 0.563502348340488,
+          "actual_test_band_holdout": 0.5147308139423745,
+          "test_boundary_neighbor2_holdout": 0.6069283487920506,
+          "test_boundary_neighbor5_holdout": 0.5837611426114647,
+          "loso_10": 0.5633948242075815
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id342_envsocial_lr_c0_20_w0.005",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.005,
+        "primary_wins_vs_id342": 0,
+        "mean_delta_vs_id342": 0.0003336432517311083,
+        "min_delta_vs_id342": 0.0001947895841561964,
+        "max_delta_vs_id342": 0.0005650384362827499,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": 0.0002816498706063042,
+          "actual_test_band_holdout": 0.0003132154659130082,
+          "test_boundary_neighbor2_holdout": 0.0005650384362827499,
+          "test_boundary_neighbor5_holdout": 0.0003135229016972829,
+          "loso_10": 0.0001947895841561964
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5635075541560908,
+          "actual_test_band_holdout": 0.514862066035237,
+          "test_boundary_neighbor2_holdout": 0.6069513251341633,
+          "test_boundary_neighbor5_holdout": 0.5836888327660716,
+          "loso_10": 0.5634206938696407
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id342_envsocial_lr_c0_02_w0.01",
+        "model_spec": {
+          "name": "lr_c0_02",
+          "kind": "lr",
+          "c_value": 0.02
+        },
+        "weight": 0.01,
+        "primary_wins_vs_id342": 0,
+        "mean_delta_vs_id342": 0.0005176961670115387,
+        "min_delta_vs_id342": 0.0003343320483134571,
+        "max_delta_vs_id342": 0.0007345162018759233,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": 0.00044851166904036344,
+          "actual_test_band_holdout": 0.0003343320483134571,
+          "test_boundary_neighbor2_holdout": 0.0007345162018759233,
+          "test_boundary_neighbor5_holdout": 0.0007281599126390814,
+          "loso_10": 0.0003429610031888686
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5636744159545248,
+          "actual_test_band_holdout": 0.5148831826176374,
+          "test_boundary_neighbor2_holdout": 0.6071208028997565,
+          "test_boundary_neighbor5_holdout": 0.5841034697770134,
+          "loso_10": 0.5635688652886733
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id342_envsocial_lr_c0_08_w0.01",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "weight": 0.01,
+        "primary_wins_vs_id342": 0,
+        "mean_delta_vs_id342": 0.000635755328502019,
+        "min_delta_vs_id342": 0.00035016563519774113,
+        "max_delta_vs_id342": 0.0011001857762514833,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": 0.0005661818442084243,
+          "actual_test_band_holdout": 0.0003773191053626501,
+          "test_boundary_neighbor2_holdout": 0.0011001857762514833,
+          "test_boundary_neighbor5_holdout": 0.0007849242814897961,
+          "loso_10": 0.00035016563519774113
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5637920861296929,
+          "actual_test_band_holdout": 0.5149261696746866,
+          "test_boundary_neighbor2_holdout": 0.607486472474132,
+          "test_boundary_neighbor5_holdout": 0.5841602341458642,
+          "loso_10": 0.5635760699206822
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id342_envsocial_lr_c0_20_w0.01",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.01,
+        "primary_wins_vs_id342": 0,
+        "mean_delta_vs_id342": 0.0006837818981881183,
+        "min_delta_vs_id342": 0.00040431568445009614,
+        "max_delta_vs_id342": 0.001149538293440222,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": 0.000579733989579112,
+          "actual_test_band_holdout": 0.0006408016304209063,
+          "test_boundary_neighbor2_holdout": 0.001149538293440222,
+          "test_boundary_neighbor5_holdout": 0.0006445198930502549,
+          "loso_10": 0.00040431568445009614
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5638056382750636,
+          "actual_test_band_holdout": 0.5151896521997449,
+          "test_boundary_neighbor2_holdout": 0.6075358249913207,
+          "test_boundary_neighbor5_holdout": 0.5840198297574246,
+          "loso_10": 0.5636302199699346
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id342_envsocial_lr_c0_02_w0.025",
+        "model_spec": {
+          "name": "lr_c0_02",
+          "kind": "lr",
+          "c_value": 0.02
+        },
+        "weight": 0.025,
+        "primary_wins_vs_id342": 0,
+        "mean_delta_vs_id342": 0.0013661358746219765,
+        "min_delta_vs_id342": 0.0009188071440580092,
+        "max_delta_vs_id342": 0.0019122723618864024,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": 0.0011916889572254341,
+          "actual_test_band_holdout": 0.0009188071440580092,
+          "test_boundary_neighbor2_holdout": 0.0019122723618864024,
+          "test_boundary_neighbor5_holdout": 0.0018825938258344443,
+          "loso_10": 0.0009253170841055924
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5644175932427099,
+          "actual_test_band_holdout": 0.515467657713382,
+          "test_boundary_neighbor2_holdout": 0.6082985590597669,
+          "test_boundary_neighbor5_holdout": 0.5852579036902088,
+          "loso_10": 0.5641512213695901
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id342_envsocial_lr_c0_08_w0.025",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "weight": 0.025,
+        "primary_wins_vs_id342": 0,
+        "mean_delta_vs_id342": 0.0016905673848550905,
+        "min_delta_vs_id342": 0.000967198332032071,
+        "max_delta_vs_id342": 0.0028689657172857874,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": 0.001513552722485767,
+          "actual_test_band_holdout": 0.0010422832141809835,
+          "test_boundary_neighbor2_holdout": 0.0028689657172857874,
+          "test_boundary_neighbor5_holdout": 0.0020608369382908442,
+          "loso_10": 0.000967198332032071
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5647394570079702,
+          "actual_test_band_holdout": 0.515591133783505,
+          "test_boundary_neighbor2_holdout": 0.6092552524151663,
+          "test_boundary_neighbor5_holdout": 0.5854361468026652,
+          "loso_10": 0.5641931026175165
+        }
+      }
+    ],
+    "S3": [
+      {
+        "target": "S3",
+        "candidate": "blend_id342_envsocial_lr_c0_02_w0.005",
+        "model_spec": {
+          "name": "lr_c0_02",
+          "kind": "lr",
+          "c_value": 0.02
+        },
+        "weight": 0.005,
+        "primary_wins_vs_id342": 0,
+        "mean_delta_vs_id342": 0.0005027305849258146,
+        "min_delta_vs_id342": 0.0003417325775574853,
+        "max_delta_vs_id342": 0.000829040553110505,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": 0.0003417325775574853,
+          "actual_test_band_holdout": 0.0005451085432465752,
+          "test_boundary_neighbor2_holdout": 0.000829040553110505,
+          "test_boundary_neighbor5_holdout": 0.0004378789700761887,
+          "loso_10": 0.0003598922806383187
+        },
+        "split_losses": {
+          "subject_hole_5": 0.49028641601253653,
+          "actual_test_band_holdout": 0.47215515957123755,
+          "test_boundary_neighbor2_holdout": 0.506147549578501,
+          "test_boundary_neighbor5_holdout": 0.5122131097155843,
+          "loso_10": 0.4903045757156173
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id342_envsocial_lr_c0_20_w0.005",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.005,
+        "primary_wins_vs_id342": 0,
+        "mean_delta_vs_id342": 0.0005979093551818804,
+        "min_delta_vs_id342": 0.00025753886134521897,
+        "max_delta_vs_id342": 0.0010428011116595526,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": 0.00036707578597861,
+          "actual_test_band_holdout": 0.0005679472161044252,
+          "test_boundary_neighbor2_holdout": 0.0010428011116595526,
+          "test_boundary_neighbor5_holdout": 0.0007541838008215951,
+          "loso_10": 0.00025753886134521897
+        },
+        "split_losses": {
+          "subject_hole_5": 0.49031175922095765,
+          "actual_test_band_holdout": 0.4721779982440954,
+          "test_boundary_neighbor2_holdout": 0.5063613101370501,
+          "test_boundary_neighbor5_holdout": 0.5125294145463297,
+          "loso_10": 0.4902022222963242
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id342_envsocial_lr_c0_08_w0.005",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "weight": 0.005,
+        "primary_wins_vs_id342": 0,
+        "mean_delta_vs_id342": 0.0006004892746139911,
+        "min_delta_vs_id342": 0.0003234552957743775,
+        "max_delta_vs_id342": 0.0010118866123236536,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": 0.0003980595745089466,
+          "actual_test_band_holdout": 0.0006058445163014126,
+          "test_boundary_neighbor2_holdout": 0.0010118866123236536,
+          "test_boundary_neighbor5_holdout": 0.0006632003741615655,
+          "loso_10": 0.0003234552957743775
+        },
+        "split_losses": {
+          "subject_hole_5": 0.490342743009488,
+          "actual_test_band_holdout": 0.4722158955442924,
+          "test_boundary_neighbor2_holdout": 0.5063303956377142,
+          "test_boundary_neighbor5_holdout": 0.5124384311196697,
+          "loso_10": 0.49026813873075337
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id342_envsocial_lr_c0_02_w0.01",
+        "model_spec": {
+          "name": "lr_c0_02",
+          "kind": "lr",
+          "c_value": 0.02
+        },
+        "weight": 0.01,
+        "primary_wins_vs_id342": 0,
+        "mean_delta_vs_id342": 0.0010184772518972763,
+        "min_delta_vs_id342": 0.0007028166421682025,
+        "max_delta_vs_id342": 0.0016623394577190975,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": 0.0007028166421682025,
+          "actual_test_band_holdout": 0.0010947102489093363,
+          "test_boundary_neighbor2_holdout": 0.0016623394577190975,
+          "test_boundary_neighbor5_holdout": 0.0008805868655357152,
+          "loso_10": 0.0007519330451540296
+        },
+        "split_losses": {
+          "subject_hole_5": 0.49064750007714725,
+          "actual_test_band_holdout": 0.4727047612769003,
+          "test_boundary_neighbor2_holdout": 0.5069808484831096,
+          "test_boundary_neighbor5_holdout": 0.5126558176110438,
+          "loso_10": 0.490696616480133
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id342_envsocial_lr_c0_20_w0.01",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "weight": 0.01,
+        "primary_wins_vs_id342": 0,
+        "mean_delta_vs_id342": 0.0012160944313975518,
+        "min_delta_vs_id342": 0.0005586107440553323,
+        "max_delta_vs_id342": 0.0020959732691923083,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": 0.0007595732218381723,
+          "actual_test_band_holdout": 0.0011465456133907814,
+          "test_boundary_neighbor2_holdout": 0.0020959732691923083,
+          "test_boundary_neighbor5_holdout": 0.0015197693085111652,
+          "loso_10": 0.0005586107440553323
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4907042566568172,
+          "actual_test_band_holdout": 0.47275659664138175,
+          "test_boundary_neighbor2_holdout": 0.5074144822945829,
+          "test_boundary_neighbor5_holdout": 0.5132950000540193,
+          "loso_10": 0.4905032941790343
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id342_envsocial_lr_c0_08_w0.01",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "weight": 0.01,
+        "primary_wins_vs_id342": 0,
+        "mean_delta_vs_id342": 0.001217850670877796,
+        "min_delta_vs_id342": 0.0006849592949271233,
+        "max_delta_vs_id342": 0.0020313801871811865,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": 0.0008184584856915089,
+          "actual_test_band_holdout": 0.0012197109762234204,
+          "test_boundary_neighbor2_holdout": 0.0020313801871811865,
+          "test_boundary_neighbor5_holdout": 0.0013347444103657402,
+          "loso_10": 0.0006849592949271233
+        },
+        "split_losses": {
+          "subject_hole_5": 0.49076314192067055,
+          "actual_test_band_holdout": 0.4728297620042144,
+          "test_boundary_neighbor2_holdout": 0.5073498892125717,
+          "test_boundary_neighbor5_holdout": 0.5131099751558739,
+          "loso_10": 0.4906296427299061
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id342_envsocial_lr_c0_02_w0.025",
+        "model_spec": {
+          "name": "lr_c0_02",
+          "kind": "lr",
+          "c_value": 0.02
+        },
+        "weight": 0.025,
+        "primary_wins_vs_id342": 0,
+        "mean_delta_vs_id342": 0.002635163055879697,
+        "min_delta_vs_id342": 0.001883010230242843,
+        "max_delta_vs_id342": 0.004187932338866385,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": 0.001883010230242843,
+          "actual_test_band_holdout": 0.002770459976992601,
+          "test_boundary_neighbor2_holdout": 0.004187932338866385,
+          "test_boundary_neighbor5_holdout": 0.002237626537708204,
+          "loso_10": 0.0020967861955884515
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4918276936652219,
+          "actual_test_band_holdout": 0.4743805110049836,
+          "test_boundary_neighbor2_holdout": 0.5095064413642569,
+          "test_boundary_neighbor5_holdout": 0.5140128572832163,
+          "loso_10": 0.49204146963056744
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id342_envsocial_lr_c0_08_w0.025",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "weight": 0.025,
+        "primary_wins_vs_id342": 0,
+        "mean_delta_vs_id342": 0.0031620092086446228,
+        "min_delta_vs_id342": 0.001971113169610683,
+        "max_delta_vs_id342": 0.005135831561348114,
+        "split_deltas_vs_id342": {
+          "subject_hole_5": 0.00219409286647837,
+          "actual_test_band_holdout": 0.0031095971882703077,
+          "test_boundary_neighbor2_holdout": 0.005135831561348114,
+          "test_boundary_neighbor5_holdout": 0.0033994112575156388,
+          "loso_10": 0.001971113169610683
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4921387763014574,
+          "actual_test_band_holdout": 0.4747196482162613,
+          "test_boundary_neighbor2_holdout": 0.5104543405867387,
+          "test_boundary_neighbor5_holdout": 0.5151746420030238,
+          "loso_10": 0.4919157966045897
+        }
+      }
+    ]
+  },
+  "scan_row_count": 225,
+  "decision": {
+    "model_smoke_completed": true,
+    "target_focus": [
+      "Q2",
+      "Q3",
+      "S3"
+    ],
+    "selected_targets": [
+      "Q2"
+    ],
+    "selected_target_count": 1,
+    "any_env_social_routine_signal_found": true,
+    "all_focus_targets_covered": false,
+    "estimated_all_target_delta_vs_id342": -0.00016809856085253967,
+    "projected_public_proxy": 0.5959151533391475,
+    "gap_to_public_055_proxy": 0.04591515333914742,
+    "public_proxy_reviewable": false,
+    "public_055_evidence": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Selected rows are too small or too narrow for promotion; require a separate geometry/artifact gate before any remote action."
+  },
+  "no_full_test_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_made": true,
+  "no_kaggle_run_made": true,
+  "no_dacon_submission_made": true
+}

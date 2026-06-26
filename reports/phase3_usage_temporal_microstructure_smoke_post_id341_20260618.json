@@ -1,0 +1,2658 @@
+{
+  "created_at_kst": "2026-06-18 08:29:14 UTC+09:00",
+  "diagnostic": "phase3_usage_temporal_microstructure_smoke_post_id341",
+  "purpose": "Test a materially different raw source after block-A/block-B closure: coarse category/time-bin microstructure from mUsageStats without direct app-name columns.",
+  "raw_usage_path": "data/raw/ch2025_data_items/ch2025_mUsageStats.parquet",
+  "phase2_block_a_gap_report": "reports/phase2_block_a_q1_proxy_gap_post_id341_20260618.json",
+  "phase2_block_b_report": "reports/phase2_block_b_s2_sleep_recovery_retry_post_id341_20260618.json",
+  "feature_coverage": {
+    "raw_rows": 45197,
+    "event_rows": 158426,
+    "record_rows": 45197,
+    "subject_count": 10,
+    "timestamp_min": "2024-06-09 11:00:00",
+    "timestamp_max": "2024-11-19 22:10:00",
+    "unique_app_names": 585,
+    "category_event_counts": {
+      "other": 58078,
+      "system_home": 34548,
+      "communication": 31601,
+      "media_search": 17585,
+      "routine_health": 10539,
+      "finance_shop": 6075
+    },
+    "daily_feature_rows": 690,
+    "daily_feature_columns": 89,
+    "n_train_rows": 450,
+    "n_test_rows": 250,
+    "usage_feature_columns": 302,
+    "train_rows_with_any_usage": 450,
+    "test_rows_with_any_usage": 250,
+    "train_missing_mean": 0.028830022075055188,
+    "test_missing_mean": 0.016728476821192054,
+    "top_missing_features": {
+      "utm_early_00_06_cat_system_home_time_sum_log1p": 0.1288888888888889,
+      "utm_early_00_06_top_app_time_log1p": 0.1288888888888889,
+      "utm_early_00_06_time_share": 0.1288888888888889,
+      "utm_early_00_06_time_sum_log1p": 0.1288888888888889,
+      "utm_early_00_06_cat_system_home_time_sum": 0.1288888888888889,
+      "utm_early_00_06_cat_routine_health_time_sum": 0.1288888888888889,
+      "utm_early_00_06_cat_other_time_sum": 0.1288888888888889,
+      "utm_early_00_06_cat_media_search_time_sum": 0.1288888888888889,
+      "utm_early_00_06_cat_finance_shop_time_sum": 0.1288888888888889,
+      "utm_early_00_06_cat_communication_time_sum": 0.1288888888888889,
+      "utm_early_00_06_entropy": 0.1288888888888889,
+      "utm_early_00_06_app_time_total": 0.1288888888888889
+    }
+  },
+  "target_scan_focus": [
+    "Q2",
+    "Q3",
+    "S1",
+    "S2",
+    "S4"
+  ],
+  "model_specs": [
+    {
+      "name": "lr_c0_03",
+      "kind": "lr",
+      "c_value": 0.03,
+      "max_iter": null,
+      "max_leaf_nodes": null,
+      "l2_regularization": null,
+      "max_depth": null,
+      "min_samples_leaf": null,
+      "n_estimators": null
+    },
+    {
+      "name": "lr_c0_12",
+      "kind": "lr",
+      "c_value": 0.12,
+      "max_iter": null,
+      "max_leaf_nodes": null,
+      "l2_regularization": null,
+      "max_depth": null,
+      "min_samples_leaf": null,
+      "n_estimators": null
+    },
+    {
+      "name": "hgb_l4_l2_5",
+      "kind": "hgb",
+      "c_value": null,
+      "max_iter": 55,
+      "max_leaf_nodes": 4,
+      "l2_regularization": 5.0,
+      "max_depth": null,
+      "min_samples_leaf": null,
+      "n_estimators": null
+    }
+  ],
+  "blend_weights": [
+    0.005,
+    0.01,
+    0.025,
+    0.05
+  ],
+  "selection_rule": {
+    "config_win_floor": 4,
+    "config_mean_delta_ceiling": -5e-05,
+    "config_max_delta_ceiling": 0.0005,
+    "final_primary_wins_floor": 5,
+    "final_projected_proxy_below_id178_public": 0.6014113009
+  },
+  "top_scan_by_target": {
+    "Q2": [
+      {
+        "target": "Q2",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "Q2_id341_usage_temporal_hgb_l4_l2_5_w0.005",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 7.310539991367548e-06,
+        "min_delta_vs_id341": -0.0003673369455164943,
+        "max_delta_vs_id341": 0.00017923222048532583,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0001420780443067704,
+          "actual_test_band_holdout": 1.1662458017314137e-05,
+          "test_boundary_neighbor2_holdout": -0.0003673369455164943,
+          "test_boundary_neighbor5_holdout": 7.091692266392169e-05,
+          "loso_10": 0.00017923222048532583
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5564428709479015,
+          "actual_test_band_holdout": 0.5838264542145046,
+          "test_boundary_neighbor2_holdout": 0.6338704342838496,
+          "test_boundary_neighbor5_holdout": 0.5731622048212521,
+          "loso_10": 0.5564800251240799
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q2_id341_usage_temporal_hgb_l4_l2_5_w0.01",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 2.254186133949787e-05,
+        "min_delta_vs_id341": -0.0007230050156101786,
+        "max_delta_vs_id341": 0.0003661978306257474,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0002896061144527229,
+          "actual_test_band_holdout": 3.128339289193427e-05,
+          "test_boundary_neighbor2_holdout": -0.0007230050156101786,
+          "test_boundary_neighbor5_holdout": 0.0001486269843372634,
+          "loso_10": 0.0003661978306257474
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5565903990180474,
+          "actual_test_band_holdout": 0.5838460751493793,
+          "test_boundary_neighbor2_holdout": 0.6335147662137559,
+          "test_boundary_neighbor5_holdout": 0.5732399148829255,
+          "loso_10": 0.5566669907342203
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.025,
+        "candidate": "Q2_id341_usage_temporal_hgb_l4_l2_5_w0.025",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.00011437488352030733,
+        "min_delta_vs_id341": -0.0017225478243342307,
+        "max_delta_vs_id341": 0.000972187451560802,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0007642993454055613,
+          "actual_test_band_holdout": 0.00013667607886835853,
+          "test_boundary_neighbor2_holdout": -0.0017225478243342307,
+          "test_boundary_neighbor5_holdout": 0.00042125936610104553,
+          "loso_10": 0.000972187451560802
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5570650922490002,
+          "actual_test_band_holdout": 0.5839514678353557,
+          "test_boundary_neighbor2_holdout": 0.6325152234050319,
+          "test_boundary_neighbor5_holdout": 0.5735125472646893,
+          "loso_10": 0.5572729803551554
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.05,
+        "candidate": "Q2_id341_usage_temporal_hgb_l4_l2_5_w0.05",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.00041381091917678246,
+        "min_delta_vs_id341": -0.0031772821252123995,
+        "max_delta_vs_id341": 0.0021255472674798215,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0016592456914599207,
+          "actual_test_band_holdout": 0.0004608351226725871,
+          "test_boundary_neighbor2_holdout": -0.0031772821252123995,
+          "test_boundary_neighbor5_holdout": 0.0010007086394839826,
+          "loso_10": 0.0021255472674798215
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5579600385950546,
+          "actual_test_band_holdout": 0.5842756268791599,
+          "test_boundary_neighbor2_holdout": 0.6310604891041537,
+          "test_boundary_neighbor5_holdout": 0.5740919965380722,
+          "loso_10": 0.5584263401710744
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.025,
+        "candidate": "Q2_id178_usage_temporal_hgb_l4_l2_5_w0.025",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0007314077269497509,
+        "min_delta_vs_id341": -0.0007119822814650734,
+        "max_delta_vs_id341": 0.0013282425190007663,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0011241612602310713,
+          "actual_test_band_holdout": 0.001056289927361287,
+          "test_boundary_neighbor2_holdout": -0.0007119822814650734,
+          "test_boundary_neighbor5_holdout": 0.0008603272096207037,
+          "loso_10": 0.0013282425190007663
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5574249541638258,
+          "actual_test_band_holdout": 0.5848710816838486,
+          "test_boundary_neighbor2_holdout": 0.633525788947901,
+          "test_boundary_neighbor5_holdout": 0.5739516151082089,
+          "loso_10": 0.5576290354225953
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.05,
+        "candidate": "Q2_id178_usage_temporal_hgb_l4_l2_5_w0.05",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0009981791655659933,
+        "min_delta_vs_id341": -0.0022200480993960214,
+        "max_delta_vs_id341": 0.0024607646954635243,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.002001270376034814,
+          "actual_test_band_holdout": 0.001330537980139268,
+          "test_boundary_neighbor2_holdout": -0.0022200480993960214,
+          "test_boundary_neighbor5_holdout": 0.0014183708755883817,
+          "loso_10": 0.0024607646954635243
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5583020632796295,
+          "actual_test_band_holdout": 0.5851453297366266,
+          "test_boundary_neighbor2_holdout": 0.6320177231299701,
+          "test_boundary_neighbor5_holdout": 0.5745096587741766,
+          "loso_10": 0.5587615575990581
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "Q2_id341_usage_temporal_lr_c0_03_w0.005",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00019629874866031738,
+        "min_delta_vs_id341": 0.00010863348030087927,
+        "max_delta_vs_id341": 0.00024032027699616432,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00010863348030087927,
+          "actual_test_band_holdout": 0.00024032027699616432,
+          "test_boundary_neighbor2_holdout": 0.00021704296482738528,
+          "test_boundary_neighbor5_holdout": 0.00023082488656211986,
+          "loso_10": 0.00018467213461503817
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5564094263838956,
+          "actual_test_band_holdout": 0.5840551120334835,
+          "test_boundary_neighbor2_holdout": 0.6344548141941935,
+          "test_boundary_neighbor5_holdout": 0.5733221127851503,
+          "loso_10": 0.5564854650382096
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "lr_c0_12",
+        "model_spec": {
+          "name": "lr_c0_12",
+          "kind": "lr",
+          "c_value": 0.12,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "Q2_id341_usage_temporal_lr_c0_12_w0.005",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00025257231312982855,
+        "min_delta_vs_id341": 9.278530252176953e-05,
+        "max_delta_vs_id341": 0.0003468468873965014,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 9.278530252176953e-05,
+          "actual_test_band_holdout": 0.00029495623754038913,
+          "test_boundary_neighbor2_holdout": 0.0003468468873965014,
+          "test_boundary_neighbor5_holdout": 0.00034156449989297677,
+          "loso_10": 0.00018670863829750584
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5563935782061165,
+          "actual_test_band_holdout": 0.5841097479940277,
+          "test_boundary_neighbor2_holdout": 0.6345846181167626,
+          "test_boundary_neighbor5_holdout": 0.5734328523984812,
+          "loso_10": 0.5564875015418921
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q2_id341_usage_temporal_lr_c0_03_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0004029348813139544,
+        "min_delta_vs_id341": 0.00022533103149913192,
+        "max_delta_vs_id341": 0.0004869003523726434,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00022533103149913192,
+          "actual_test_band_holdout": 0.0004869003523726434,
+          "test_boundary_neighbor2_holdout": 0.00044515368817665824,
+          "test_boundary_neighbor5_holdout": 0.0004756558258134369,
+          "loso_10": 0.00038163350870790147
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5565261239350938,
+          "actual_test_band_holdout": 0.58430169210886,
+          "test_boundary_neighbor2_holdout": 0.6346829249175427,
+          "test_boundary_neighbor5_holdout": 0.5735669437244016,
+          "loso_10": 0.5566824264123025
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "lr_c0_12",
+        "model_spec": {
+          "name": "lr_c0_12",
+          "kind": "lr",
+          "c_value": 0.12,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q2_id341_usage_temporal_lr_c0_12_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0005185333907411493,
+        "min_delta_vs_id341": 0.00019652866295116755,
+        "max_delta_vs_id341": 0.0007072097839644353,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00019652866295116755,
+          "actual_test_band_holdout": 0.0005990785711325053,
+          "test_boundary_neighbor2_holdout": 0.0007072097839644353,
+          "test_boundary_neighbor5_holdout": 0.0007008766657851107,
+          "loso_10": 0.0003889732698725279
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5564973215665459,
+          "actual_test_band_holdout": 0.5844138703276198,
+          "test_boundary_neighbor2_holdout": 0.6349449810133305,
+          "test_boundary_neighbor5_holdout": 0.5737921645643733,
+          "loso_10": 0.5566897661734671
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "candidate": "Q2_id178_usage_temporal_hgb_l4_l2_5_w0.005",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0006522867493728545,
+        "min_delta_vs_id341": 0.0005168133240114337,
+        "max_delta_vs_id341": 0.0009743475196671847,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0005168133240114337,
+          "actual_test_band_holdout": 0.0009743475196671847,
+          "test_boundary_neighbor2_holdout": 0.0006893986701005383,
+          "test_boundary_neighbor5_holdout": 0.0005277438472118812,
+          "loso_10": 0.000553130385873235
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5568176062276061,
+          "actual_test_band_holdout": 0.5847891392761545,
+          "test_boundary_neighbor2_holdout": 0.6349271698994666,
+          "test_boundary_neighbor5_holdout": 0.5736190317458001,
+          "loso_10": 0.5568539232894678
+        }
+      },
+      {
+        "target": "Q2",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "Q2_id178_usage_temporal_hgb_l4_l2_5_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0006603669558977287,
+        "min_delta_vs_id341": 0.0003218646812466197,
+        "max_delta_vs_id341": 0.0009829120527721225,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0006605704772331134,
+          "actual_test_band_holdout": 0.0009829120527721225,
+          "test_boundary_neighbor2_holdout": 0.0003218646812466197,
+          "test_boundary_neighbor5_holdout": 0.0006009595805421819,
+          "loso_10": 0.0007355279876946064
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5569613633808278,
+          "actual_test_band_holdout": 0.5847977038092594,
+          "test_boundary_neighbor2_holdout": 0.6345596359106127,
+          "test_boundary_neighbor5_holdout": 0.5736922474791304,
+          "loso_10": 0.5570363208912892
+        }
+      }
+    ],
+    "Q3": [
+      {
+        "target": "Q3",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "candidate": "Q3_id178_usage_temporal_hgb_l4_l2_5_w0.005",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.00011015866134080898,
+        "min_delta_vs_id341": -0.00021847187991319572,
+        "max_delta_vs_id341": 0.0003565267984572129,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 9.09316293069562e-05,
+          "actual_test_band_holdout": 0.0003565267984572129,
+          "test_boundary_neighbor2_holdout": -0.00021847187991319572,
+          "test_boundary_neighbor5_holdout": 0.0001763259533298367,
+          "loso_10": 0.00014548080552323484
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5671807164656253,
+          "actual_test_band_holdout": 0.509657750962735,
+          "test_boundary_neighbor2_holdout": 0.6061173992839695,
+          "test_boundary_neighbor5_holdout": 0.5829425509430316,
+          "loso_10": 0.5672352656418416
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "Q3_id341_usage_temporal_hgb_l4_l2_5_w0.005",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.00011015866134080898,
+        "min_delta_vs_id341": -0.00021847187991319572,
+        "max_delta_vs_id341": 0.0003565267984572129,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 9.09316293069562e-05,
+          "actual_test_band_holdout": 0.0003565267984572129,
+          "test_boundary_neighbor2_holdout": -0.00021847187991319572,
+          "test_boundary_neighbor5_holdout": 0.0001763259533298367,
+          "loso_10": 0.00014548080552323484
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5671807164656253,
+          "actual_test_band_holdout": 0.509657750962735,
+          "test_boundary_neighbor2_holdout": 0.6061173992839695,
+          "test_boundary_neighbor5_holdout": 0.5829425509430316,
+          "loso_10": 0.5672352656418416
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "Q3_id178_usage_temporal_hgb_l4_l2_5_w0.01",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.00022612981797278663,
+        "min_delta_vs_id341": -0.00042909226367415787,
+        "max_delta_vs_id341": 0.0007178983449750431,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00018715247043277206,
+          "actual_test_band_holdout": 0.0007178983449750431,
+          "test_boundary_neighbor2_holdout": -0.00042909226367415787,
+          "test_boundary_neighbor5_holdout": 0.00035742216921763603,
+          "loso_10": 0.00029726836891263986
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5672769373067511,
+          "actual_test_band_holdout": 0.5100191225092529,
+          "test_boundary_neighbor2_holdout": 0.6059067789002085,
+          "test_boundary_neighbor5_holdout": 0.5831236471589194,
+          "loso_10": 0.567387053205231
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q3_id341_usage_temporal_hgb_l4_l2_5_w0.01",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.00022612981797278663,
+        "min_delta_vs_id341": -0.00042909226367415787,
+        "max_delta_vs_id341": 0.0007178983449750431,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00018715247043277206,
+          "actual_test_band_holdout": 0.0007178983449750431,
+          "test_boundary_neighbor2_holdout": -0.00042909226367415787,
+          "test_boundary_neighbor5_holdout": 0.00035742216921763603,
+          "loso_10": 0.00029726836891263986
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5672769373067511,
+          "actual_test_band_holdout": 0.5100191225092529,
+          "test_boundary_neighbor2_holdout": 0.6059067789002085,
+          "test_boundary_neighbor5_holdout": 0.5831236471589194,
+          "loso_10": 0.567387053205231
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "lr_c0_12",
+        "model_spec": {
+          "name": "lr_c0_12",
+          "kind": "lr",
+          "c_value": 0.12,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "candidate": "Q3_id178_usage_temporal_lr_c0_12_w0.005",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.00024149771641082118,
+        "min_delta_vs_id341": -0.00019056383616444794,
+        "max_delta_vs_id341": 0.00042907040906992044,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00031361223726023013,
+          "actual_test_band_holdout": 0.00031540467856372434,
+          "test_boundary_neighbor2_holdout": -0.00019056383616444794,
+          "test_boundary_neighbor5_holdout": 0.00042907040906992044,
+          "loso_10": 0.00033996509332467895
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5674033970735786,
+          "actual_test_band_holdout": 0.5096166288428415,
+          "test_boundary_neighbor2_holdout": 0.6061453073277182,
+          "test_boundary_neighbor5_holdout": 0.5831952953987717,
+          "loso_10": 0.567429749929643
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "lr_c0_12",
+        "model_spec": {
+          "name": "lr_c0_12",
+          "kind": "lr",
+          "c_value": 0.12,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "Q3_id341_usage_temporal_lr_c0_12_w0.005",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.00024149771641082118,
+        "min_delta_vs_id341": -0.00019056383616444794,
+        "max_delta_vs_id341": 0.00042907040906992044,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00031361223726023013,
+          "actual_test_band_holdout": 0.00031540467856372434,
+          "test_boundary_neighbor2_holdout": -0.00019056383616444794,
+          "test_boundary_neighbor5_holdout": 0.00042907040906992044,
+          "loso_10": 0.00033996509332467895
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5674033970735786,
+          "actual_test_band_holdout": 0.5096166288428415,
+          "test_boundary_neighbor2_holdout": 0.6061453073277182,
+          "test_boundary_neighbor5_holdout": 0.5831952953987717,
+          "loso_10": 0.567429749929643
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "candidate": "Q3_id178_usage_temporal_lr_c0_03_w0.005",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0002776750794804883,
+        "min_delta_vs_id341": -2.6547369675888888e-05,
+        "max_delta_vs_id341": 0.00048485583908364216,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0002889783436885729,
+          "actual_test_band_holdout": 0.00036100554125062523,
+          "test_boundary_neighbor2_holdout": -2.6547369675888888e-05,
+          "test_boundary_neighbor5_holdout": 0.00048485583908364216,
+          "loso_10": 0.00028008304305549014
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5673787631800069,
+          "actual_test_band_holdout": 0.5096622297055284,
+          "test_boundary_neighbor2_holdout": 0.6063093237942068,
+          "test_boundary_neighbor5_holdout": 0.5832510808287854,
+          "loso_10": 0.5673698678793738
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "Q3_id341_usage_temporal_lr_c0_03_w0.005",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0002776750794804883,
+        "min_delta_vs_id341": -2.6547369675888888e-05,
+        "max_delta_vs_id341": 0.00048485583908364216,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0002889783436885729,
+          "actual_test_band_holdout": 0.00036100554125062523,
+          "test_boundary_neighbor2_holdout": -2.6547369675888888e-05,
+          "test_boundary_neighbor5_holdout": 0.00048485583908364216,
+          "loso_10": 0.00028008304305549014
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5673787631800069,
+          "actual_test_band_holdout": 0.5096622297055284,
+          "test_boundary_neighbor2_holdout": 0.6063093237942068,
+          "test_boundary_neighbor5_holdout": 0.5832510808287854,
+          "loso_10": 0.5673698678793738
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "lr_c0_12",
+        "model_spec": {
+          "name": "lr_c0_12",
+          "kind": "lr",
+          "c_value": 0.12,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "Q3_id178_usage_temporal_lr_c0_12_w0.01",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0004947226819108641,
+        "min_delta_vs_id341": -0.00036596169152003366,
+        "max_delta_vs_id341": 0.0008688303577045753,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0006378716291717268,
+          "actual_test_band_holdout": 0.0006410486313774832,
+          "test_boundary_neighbor2_holdout": -0.00036596169152003366,
+          "test_boundary_neighbor5_holdout": 0.0008688303577045753,
+          "loso_10": 0.0006918244828205689
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5677276564654901,
+          "actual_test_band_holdout": 0.5099422727956553,
+          "test_boundary_neighbor2_holdout": 0.6059699094723626,
+          "test_boundary_neighbor5_holdout": 0.5836350553474063,
+          "loso_10": 0.5677816093191389
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "lr_c0_12",
+        "model_spec": {
+          "name": "lr_c0_12",
+          "kind": "lr",
+          "c_value": 0.12,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q3_id341_usage_temporal_lr_c0_12_w0.01",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0004947226819108641,
+        "min_delta_vs_id341": -0.00036596169152003366,
+        "max_delta_vs_id341": 0.0008688303577045753,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0006378716291717268,
+          "actual_test_band_holdout": 0.0006410486313774832,
+          "test_boundary_neighbor2_holdout": -0.00036596169152003366,
+          "test_boundary_neighbor5_holdout": 0.0008688303577045753,
+          "loso_10": 0.0006918244828205689
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5677276564654901,
+          "actual_test_band_holdout": 0.5099422727956553,
+          "test_boundary_neighbor2_holdout": 0.6059699094723626,
+          "test_boundary_neighbor5_holdout": 0.5836350553474063,
+          "loso_10": 0.5677816093191389
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "Q3_id178_usage_temporal_lr_c0_03_w0.01",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0005639245540411508,
+        "min_delta_vs_id341": -4.184969823850526e-05,
+        "max_delta_vs_id341": 0.0009775191048897458,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.000585842407043291,
+          "actual_test_band_holdout": 0.0007292656604487302,
+          "test_boundary_neighbor2_holdout": -4.184969823850526e-05,
+          "test_boundary_neighbor5_holdout": 0.0009775191048897458,
+          "loso_10": 0.0005688452960624923
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5676756272433616,
+          "actual_test_band_holdout": 0.5100304898247265,
+          "test_boundary_neighbor2_holdout": 0.6062940214656442,
+          "test_boundary_neighbor5_holdout": 0.5837437440945915,
+          "loso_10": 0.5676586301323808
+        }
+      },
+      {
+        "target": "Q3",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "Q3_id341_usage_temporal_lr_c0_03_w0.01",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0005639245540411508,
+        "min_delta_vs_id341": -4.184969823850526e-05,
+        "max_delta_vs_id341": 0.0009775191048897458,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.000585842407043291,
+          "actual_test_band_holdout": 0.0007292656604487302,
+          "test_boundary_neighbor2_holdout": -4.184969823850526e-05,
+          "test_boundary_neighbor5_holdout": 0.0009775191048897458,
+          "loso_10": 0.0005688452960624923
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5676756272433616,
+          "actual_test_band_holdout": 0.5100304898247265,
+          "test_boundary_neighbor2_holdout": 0.6062940214656442,
+          "test_boundary_neighbor5_holdout": 0.5837437440945915,
+          "loso_10": 0.5676586301323808
+        }
+      }
+    ],
+    "S1": [
+      {
+        "target": "S1",
+        "model": "lr_c0_12",
+        "model_spec": {
+          "name": "lr_c0_12",
+          "kind": "lr",
+          "c_value": 0.12,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "candidate": "S1_id178_usage_temporal_lr_c0_12_w0.005",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0001953217403705576,
+        "min_delta_vs_id341": 0.00012138001110673091,
+        "max_delta_vs_id341": 0.0003843241469829173,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00013763080997619692,
+          "actual_test_band_holdout": 0.0003843241469829173,
+          "test_boundary_neighbor2_holdout": 0.00012138001110673091,
+          "test_boundary_neighbor5_holdout": 0.00020711031895226384,
+          "loso_10": 0.00012616341483467908
+        },
+        "split_losses": {
+          "subject_hole_5": 0.47176807775161655,
+          "actual_test_band_holdout": 0.465760087976157,
+          "test_boundary_neighbor2_holdout": 0.5357017649909367,
+          "test_boundary_neighbor5_holdout": 0.51510885861736,
+          "loso_10": 0.47175661035647504
+        }
+      },
+      {
+        "target": "S1",
+        "model": "lr_c0_12",
+        "model_spec": {
+          "name": "lr_c0_12",
+          "kind": "lr",
+          "c_value": 0.12,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "S1_id341_usage_temporal_lr_c0_12_w0.005",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0001953217403705576,
+        "min_delta_vs_id341": 0.00012138001110673091,
+        "max_delta_vs_id341": 0.0003843241469829173,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00013763080997619692,
+          "actual_test_band_holdout": 0.0003843241469829173,
+          "test_boundary_neighbor2_holdout": 0.00012138001110673091,
+          "test_boundary_neighbor5_holdout": 0.00020711031895226384,
+          "loso_10": 0.00012616341483467908
+        },
+        "split_losses": {
+          "subject_hole_5": 0.47176807775161655,
+          "actual_test_band_holdout": 0.465760087976157,
+          "test_boundary_neighbor2_holdout": 0.5357017649909367,
+          "test_boundary_neighbor5_holdout": 0.51510885861736,
+          "loso_10": 0.47175661035647504
+        }
+      },
+      {
+        "target": "S1",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "candidate": "S1_id178_usage_temporal_hgb_l4_l2_5_w0.005",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0002352706797656645,
+        "min_delta_vs_id341": 6.94786641522449e-05,
+        "max_delta_vs_id341": 0.00046247389426934404,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 6.94786641522449e-05,
+          "actual_test_band_holdout": 0.00046247389426934404,
+          "test_boundary_neighbor2_holdout": 0.00028090686614457017,
+          "test_boundary_neighbor5_holdout": 0.00024282157496735568,
+          "loso_10": 0.00012067239929480778
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4716999256057926,
+          "actual_test_band_holdout": 0.4658382377234434,
+          "test_boundary_neighbor2_holdout": 0.5358612918459745,
+          "test_boundary_neighbor5_holdout": 0.5151445698733751,
+          "loso_10": 0.47175111934093517
+        }
+      },
+      {
+        "target": "S1",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "S1_id341_usage_temporal_hgb_l4_l2_5_w0.005",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0002352706797656645,
+        "min_delta_vs_id341": 6.94786641522449e-05,
+        "max_delta_vs_id341": 0.00046247389426934404,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 6.94786641522449e-05,
+          "actual_test_band_holdout": 0.00046247389426934404,
+          "test_boundary_neighbor2_holdout": 0.00028090686614457017,
+          "test_boundary_neighbor5_holdout": 0.00024282157496735568,
+          "loso_10": 0.00012067239929480778
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4716999256057926,
+          "actual_test_band_holdout": 0.4658382377234434,
+          "test_boundary_neighbor2_holdout": 0.5358612918459745,
+          "test_boundary_neighbor5_holdout": 0.5151445698733751,
+          "loso_10": 0.47175111934093517
+        }
+      },
+      {
+        "target": "S1",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "candidate": "S1_id178_usage_temporal_lr_c0_03_w0.005",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0002505987298672685,
+        "min_delta_vs_id341": 0.00014881962514157188,
+        "max_delta_vs_id341": 0.0005580040125488517,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00015983173447065013,
+          "actual_test_band_holdout": 0.0005580040125488517,
+          "test_boundary_neighbor2_holdout": 0.00014881962514157188,
+          "test_boundary_neighbor5_holdout": 0.0002002285980424734,
+          "loso_10": 0.00018610967913279541
+        },
+        "split_losses": {
+          "subject_hole_5": 0.471790278676111,
+          "actual_test_band_holdout": 0.4659337678417229,
+          "test_boundary_neighbor2_holdout": 0.5357292046049715,
+          "test_boundary_neighbor5_holdout": 0.5151019768964502,
+          "loso_10": 0.47181655662077315
+        }
+      },
+      {
+        "target": "S1",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "S1_id341_usage_temporal_lr_c0_03_w0.005",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0002505987298672685,
+        "min_delta_vs_id341": 0.00014881962514157188,
+        "max_delta_vs_id341": 0.0005580040125488517,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00015983173447065013,
+          "actual_test_band_holdout": 0.0005580040125488517,
+          "test_boundary_neighbor2_holdout": 0.00014881962514157188,
+          "test_boundary_neighbor5_holdout": 0.0002002285980424734,
+          "loso_10": 0.00018610967913279541
+        },
+        "split_losses": {
+          "subject_hole_5": 0.471790278676111,
+          "actual_test_band_holdout": 0.4659337678417229,
+          "test_boundary_neighbor2_holdout": 0.5357292046049715,
+          "test_boundary_neighbor5_holdout": 0.5151019768964502,
+          "loso_10": 0.47181655662077315
+        }
+      },
+      {
+        "target": "S1",
+        "model": "lr_c0_12",
+        "model_spec": {
+          "name": "lr_c0_12",
+          "kind": "lr",
+          "c_value": 0.12,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S1_id178_usage_temporal_lr_c0_12_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0004044227433597003,
+        "min_delta_vs_id341": 0.0002503654993224469,
+        "max_delta_vs_id341": 0.0007754446100146639,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00029003564216739663,
+          "actual_test_band_holdout": 0.0007754446100146639,
+          "test_boundary_neighbor2_holdout": 0.0002503654993224469,
+          "test_boundary_neighbor5_holdout": 0.0004239078807883878,
+          "loso_10": 0.00028236008450560623
+        },
+        "split_losses": {
+          "subject_hole_5": 0.47192048258380775,
+          "actual_test_band_holdout": 0.4661512084391887,
+          "test_boundary_neighbor2_holdout": 0.5358307504791524,
+          "test_boundary_neighbor5_holdout": 0.5153256561791961,
+          "loso_10": 0.47191280702614596
+        }
+      },
+      {
+        "target": "S1",
+        "model": "lr_c0_12",
+        "model_spec": {
+          "name": "lr_c0_12",
+          "kind": "lr",
+          "c_value": 0.12,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S1_id341_usage_temporal_lr_c0_12_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0004044227433597003,
+        "min_delta_vs_id341": 0.0002503654993224469,
+        "max_delta_vs_id341": 0.0007754446100146639,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00029003564216739663,
+          "actual_test_band_holdout": 0.0007754446100146639,
+          "test_boundary_neighbor2_holdout": 0.0002503654993224469,
+          "test_boundary_neighbor5_holdout": 0.0004239078807883878,
+          "loso_10": 0.00028236008450560623
+        },
+        "split_losses": {
+          "subject_hole_5": 0.47192048258380775,
+          "actual_test_band_holdout": 0.4661512084391887,
+          "test_boundary_neighbor2_holdout": 0.5358307504791524,
+          "test_boundary_neighbor5_holdout": 0.5153256561791961,
+          "loso_10": 0.47191280702614596
+        }
+      },
+      {
+        "target": "S1",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S1_id178_usage_temporal_hgb_l4_l2_5_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00047771146264007357,
+        "min_delta_vs_id341": 0.00015135566237539644,
+        "max_delta_vs_id341": 0.0009280541539883336,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00015135566237539644,
+          "actual_test_band_holdout": 0.0009280541539883336,
+          "test_boundary_neighbor2_holdout": 0.0005649196522123923,
+          "test_boundary_neighbor5_holdout": 0.0004895799790035626,
+          "loso_10": 0.000254647865620683
+        },
+        "split_losses": {
+          "subject_hole_5": 0.47178180260401575,
+          "actual_test_band_holdout": 0.4663038179831624,
+          "test_boundary_neighbor2_holdout": 0.5361453046320424,
+          "test_boundary_neighbor5_holdout": 0.5153913282774113,
+          "loso_10": 0.47188509480726104
+        }
+      },
+      {
+        "target": "S1",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S1_id341_usage_temporal_hgb_l4_l2_5_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00047771146264007357,
+        "min_delta_vs_id341": 0.00015135566237539644,
+        "max_delta_vs_id341": 0.0009280541539883336,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00015135566237539644,
+          "actual_test_band_holdout": 0.0009280541539883336,
+          "test_boundary_neighbor2_holdout": 0.0005649196522123923,
+          "test_boundary_neighbor5_holdout": 0.0004895799790035626,
+          "loso_10": 0.000254647865620683
+        },
+        "split_losses": {
+          "subject_hole_5": 0.47178180260401575,
+          "actual_test_band_holdout": 0.4663038179831624,
+          "test_boundary_neighbor2_holdout": 0.5361453046320424,
+          "test_boundary_neighbor5_holdout": 0.5153913282774113,
+          "loso_10": 0.47188509480726104
+        }
+      },
+      {
+        "target": "S1",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S1_id178_usage_temporal_lr_c0_03_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0005110840407845929,
+        "min_delta_vs_id341": 0.0003032289308873004,
+        "max_delta_vs_id341": 0.0011206017601422813,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.000332393325760183,
+          "actual_test_band_holdout": 0.0011206017601422813,
+          "test_boundary_neighbor2_holdout": 0.0003032289308873004,
+          "test_boundary_neighbor5_holdout": 0.0004070253852063166,
+          "loso_10": 0.00039217080192688325
+        },
+        "split_losses": {
+          "subject_hole_5": 0.47196284026740054,
+          "actual_test_band_holdout": 0.46649636558931634,
+          "test_boundary_neighbor2_holdout": 0.5358836139107173,
+          "test_boundary_neighbor5_holdout": 0.515308773683614,
+          "loso_10": 0.47202261774356724
+        }
+      },
+      {
+        "target": "S1",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S1_id341_usage_temporal_lr_c0_03_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0005110840407845929,
+        "min_delta_vs_id341": 0.0003032289308873004,
+        "max_delta_vs_id341": 0.0011206017601422813,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.000332393325760183,
+          "actual_test_band_holdout": 0.0011206017601422813,
+          "test_boundary_neighbor2_holdout": 0.0003032289308873004,
+          "test_boundary_neighbor5_holdout": 0.0004070253852063166,
+          "loso_10": 0.00039217080192688325
+        },
+        "split_losses": {
+          "subject_hole_5": 0.47196284026740054,
+          "actual_test_band_holdout": 0.46649636558931634,
+          "test_boundary_neighbor2_holdout": 0.5358836139107173,
+          "test_boundary_neighbor5_holdout": 0.515308773683614,
+          "loso_10": 0.47202261774356724
+        }
+      }
+    ],
+    "S2": [
+      {
+        "target": "S2",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "candidate": "S2_id178_usage_temporal_lr_c0_03_w0.005",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.00022168199683609836,
+        "min_delta_vs_id341": -1.9952261762878898e-05,
+        "max_delta_vs_id341": 0.000394369392713978,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0002497145328483885,
+          "actual_test_band_holdout": 0.000394369392713978,
+          "test_boundary_neighbor2_holdout": -1.9952261762878898e-05,
+          "test_boundary_neighbor5_holdout": 0.00012646182107278747,
+          "loso_10": 0.0003578164993082167
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5298058472803223,
+          "actual_test_band_holdout": 0.5518807112854058,
+          "test_boundary_neighbor2_holdout": 0.5738119753905961,
+          "test_boundary_neighbor5_holdout": 0.5533808356693052,
+          "loso_10": 0.5299139492467823
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "S2_id341_usage_temporal_lr_c0_03_w0.005",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.00022168199683609836,
+        "min_delta_vs_id341": -1.9952261762878898e-05,
+        "max_delta_vs_id341": 0.000394369392713978,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0002497145328483885,
+          "actual_test_band_holdout": 0.000394369392713978,
+          "test_boundary_neighbor2_holdout": -1.9952261762878898e-05,
+          "test_boundary_neighbor5_holdout": 0.00012646182107278747,
+          "loso_10": 0.0003578164993082167
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5298058472803223,
+          "actual_test_band_holdout": 0.5518807112854058,
+          "test_boundary_neighbor2_holdout": 0.5738119753905961,
+          "test_boundary_neighbor5_holdout": 0.5533808356693052,
+          "loso_10": 0.5299139492467823
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S2_id178_usage_temporal_lr_c0_03_w0.01",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0004482200263328684,
+        "min_delta_vs_id341": -3.523375423941655e-05,
+        "max_delta_vs_id341": 0.0007933738877283769,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.000502824047167949,
+          "actual_test_band_holdout": 0.0007933738877283769,
+          "test_boundary_neighbor2_holdout": -3.523375423941655e-05,
+          "test_boundary_neighbor5_holdout": 0.0002569658114843776,
+          "loso_10": 0.000723170139523055
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5300589567946419,
+          "actual_test_band_holdout": 0.5522797157804202,
+          "test_boundary_neighbor2_holdout": 0.5737966938981196,
+          "test_boundary_neighbor5_holdout": 0.5535113396597168,
+          "loso_10": 0.5302793028869971
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S2_id341_usage_temporal_lr_c0_03_w0.01",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.0004482200263328684,
+        "min_delta_vs_id341": -3.523375423941655e-05,
+        "max_delta_vs_id341": 0.0007933738877283769,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.000502824047167949,
+          "actual_test_band_holdout": 0.0007933738877283769,
+          "test_boundary_neighbor2_holdout": -3.523375423941655e-05,
+          "test_boundary_neighbor5_holdout": 0.0002569658114843776,
+          "loso_10": 0.000723170139523055
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5300589567946419,
+          "actual_test_band_holdout": 0.5522797157804202,
+          "test_boundary_neighbor2_holdout": 0.5737966938981196,
+          "test_boundary_neighbor5_holdout": 0.5535113396597168,
+          "loso_10": 0.5302793028869971
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.025,
+        "candidate": "S2_id178_usage_temporal_lr_c0_03_w0.025",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.001156839103963203,
+        "min_delta_vs_id341": -5.32091035125859e-05,
+        "max_delta_vs_id341": 0.002018161688786546,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0012824507601137958,
+          "actual_test_band_holdout": 0.002018161688786546,
+          "test_boundary_neighbor2_holdout": -5.32091035125859e-05,
+          "test_boundary_neighbor5_holdout": 0.0006726848472426994,
+          "loso_10": 0.0018641073271855602
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5308385835075877,
+          "actual_test_band_holdout": 0.5535045035814784,
+          "test_boundary_neighbor2_holdout": 0.5737787185488464,
+          "test_boundary_neighbor5_holdout": 0.5539270586954751,
+          "loso_10": 0.5314202400746596
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.025,
+        "candidate": "S2_id341_usage_temporal_lr_c0_03_w0.025",
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 0.001156839103963203,
+        "min_delta_vs_id341": -5.32091035125859e-05,
+        "max_delta_vs_id341": 0.002018161688786546,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0012824507601137958,
+          "actual_test_band_holdout": 0.002018161688786546,
+          "test_boundary_neighbor2_holdout": -5.32091035125859e-05,
+          "test_boundary_neighbor5_holdout": 0.0006726848472426994,
+          "loso_10": 0.0018641073271855602
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5308385835075877,
+          "actual_test_band_holdout": 0.5535045035814784,
+          "test_boundary_neighbor2_holdout": 0.5737787185488464,
+          "test_boundary_neighbor5_holdout": 0.5539270586954751,
+          "loso_10": 0.5314202400746596
+        }
+      },
+      {
+        "target": "S2",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "candidate": "S2_id178_usage_temporal_hgb_l4_l2_5_w0.005",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00011864252715243495,
+        "min_delta_vs_id341": 7.753861143600105e-06,
+        "max_delta_vs_id341": 0.0002380578855314397,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0002193469624319766,
+          "actual_test_band_holdout": 0.00010312515524946164,
+          "test_boundary_neighbor2_holdout": 2.4928771405696715e-05,
+          "test_boundary_neighbor5_holdout": 7.753861143600105e-06,
+          "loso_10": 0.0002380578855314397
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5297754797099059,
+          "actual_test_band_holdout": 0.5515894670479413,
+          "test_boundary_neighbor2_holdout": 0.5738568564237647,
+          "test_boundary_neighbor5_holdout": 0.553262127709376,
+          "loso_10": 0.5297941906330055
+        }
+      },
+      {
+        "target": "S2",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "S2_id341_usage_temporal_hgb_l4_l2_5_w0.005",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00011864252715243495,
+        "min_delta_vs_id341": 7.753861143600105e-06,
+        "max_delta_vs_id341": 0.0002380578855314397,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0002193469624319766,
+          "actual_test_band_holdout": 0.00010312515524946164,
+          "test_boundary_neighbor2_holdout": 2.4928771405696715e-05,
+          "test_boundary_neighbor5_holdout": 7.753861143600105e-06,
+          "loso_10": 0.0002380578855314397
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5297754797099059,
+          "actual_test_band_holdout": 0.5515894670479413,
+          "test_boundary_neighbor2_holdout": 0.5738568564237647,
+          "test_boundary_neighbor5_holdout": 0.553262127709376,
+          "loso_10": 0.5297941906330055
+        }
+      },
+      {
+        "target": "S2",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S2_id178_usage_temporal_hgb_l4_l2_5_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00024655453089490466,
+        "min_delta_vs_id341": 2.4645857769622914e-05,
+        "max_delta_vs_id341": 0.00048749407741532913,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00044394821876214685,
+          "actual_test_band_holdout": 0.00021547038642777405,
+          "test_boundary_neighbor2_holdout": 6.121411409965027e-05,
+          "test_boundary_neighbor5_holdout": 2.4645857769622914e-05,
+          "loso_10": 0.00048749407741532913
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5300000809662361,
+          "actual_test_band_holdout": 0.5517018122791196,
+          "test_boundary_neighbor2_holdout": 0.5738931417664587,
+          "test_boundary_neighbor5_holdout": 0.553279019706002,
+          "loso_10": 0.5300436268248894
+        }
+      },
+      {
+        "target": "S2",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S2_id341_usage_temporal_hgb_l4_l2_5_w0.01",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00024655453089490466,
+        "min_delta_vs_id341": 2.4645857769622914e-05,
+        "max_delta_vs_id341": 0.00048749407741532913,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00044394821876214685,
+          "actual_test_band_holdout": 0.00021547038642777405,
+          "test_boundary_neighbor2_holdout": 6.121411409965027e-05,
+          "test_boundary_neighbor5_holdout": 2.4645857769622914e-05,
+          "loso_10": 0.00048749407741532913
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5300000809662361,
+          "actual_test_band_holdout": 0.5517018122791196,
+          "test_boundary_neighbor2_holdout": 0.5738931417664587,
+          "test_boundary_neighbor5_holdout": 0.553279019706002,
+          "loso_10": 0.5300436268248894
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_12",
+        "model_spec": {
+          "name": "lr_c0_12",
+          "kind": "lr",
+          "c_value": 0.12,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "candidate": "S2_id178_usage_temporal_lr_c0_12_w0.005",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0003078252828630834,
+        "min_delta_vs_id341": 7.260546972220894e-05,
+        "max_delta_vs_id341": 0.0005674723891629929,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0003277106636743188,
+          "actual_test_band_holdout": 0.0005674723891629929,
+          "test_boundary_neighbor2_holdout": 7.260546972220894e-05,
+          "test_boundary_neighbor5_holdout": 0.00018852985790562826,
+          "loso_10": 0.0003828080338502682
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5298838434111482,
+          "actual_test_band_holdout": 0.5520538142818548,
+          "test_boundary_neighbor2_holdout": 0.5739045331220812,
+          "test_boundary_neighbor5_holdout": 0.553442903706138,
+          "loso_10": 0.5299389407813243
+        }
+      },
+      {
+        "target": "S2",
+        "model": "lr_c0_12",
+        "model_spec": {
+          "name": "lr_c0_12",
+          "kind": "lr",
+          "c_value": 0.12,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "S2_id341_usage_temporal_lr_c0_12_w0.005",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0003078252828630834,
+        "min_delta_vs_id341": 7.260546972220894e-05,
+        "max_delta_vs_id341": 0.0005674723891629929,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0003277106636743188,
+          "actual_test_band_holdout": 0.0005674723891629929,
+          "test_boundary_neighbor2_holdout": 7.260546972220894e-05,
+          "test_boundary_neighbor5_holdout": 0.00018852985790562826,
+          "loso_10": 0.0003828080338502682
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5298838434111482,
+          "actual_test_band_holdout": 0.5520538142818548,
+          "test_boundary_neighbor2_holdout": 0.5739045331220812,
+          "test_boundary_neighbor5_holdout": 0.553442903706138,
+          "loso_10": 0.5299389407813243
+        }
+      }
+    ],
+    "S4": [
+      {
+        "target": "S4",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "candidate": "S4_id178_usage_temporal_hgb_l4_l2_5_w0.005",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 2.3277526668130654e-05,
+        "min_delta_vs_id341": -0.00011294860304622567,
+        "max_delta_vs_id341": 0.00012009158404358011,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00012009158404358011,
+          "actual_test_band_holdout": -5.820611112117291e-05,
+          "test_boundary_neighbor2_holdout": -0.00011294860304622567,
+          "test_boundary_neighbor5_holdout": 6.419290864201344e-05,
+          "loso_10": 0.0001032578548224583
+        },
+        "split_losses": {
+          "subject_hole_5": 0.602819796070545,
+          "actual_test_band_holdout": 0.6772780617514667,
+          "test_boundary_neighbor2_holdout": 0.6545551811675048,
+          "test_boundary_neighbor5_holdout": 0.6194578890766211,
+          "loso_10": 0.6028029623413238
+        }
+      },
+      {
+        "target": "S4",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "S4_id341_usage_temporal_hgb_l4_l2_5_w0.005",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 2.3277526668130654e-05,
+        "min_delta_vs_id341": -0.00011294860304622567,
+        "max_delta_vs_id341": 0.00012009158404358011,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00012009158404358011,
+          "actual_test_band_holdout": -5.820611112117291e-05,
+          "test_boundary_neighbor2_holdout": -0.00011294860304622567,
+          "test_boundary_neighbor5_holdout": 6.419290864201344e-05,
+          "loso_10": 0.0001032578548224583
+        },
+        "split_losses": {
+          "subject_hole_5": 0.602819796070545,
+          "actual_test_band_holdout": 0.6772780617514667,
+          "test_boundary_neighbor2_holdout": 0.6545551811675048,
+          "test_boundary_neighbor5_holdout": 0.6194578890766211,
+          "loso_10": 0.6028029623413238
+        }
+      },
+      {
+        "target": "S4",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "candidate": "S4_id178_usage_temporal_hgb_l4_l2_5_w0.01",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 5.0791518391180014e-05,
+        "min_delta_vs_id341": -0.0002219781466837878,
+        "max_delta_vs_id341": 0.00024301004593063613,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00024301004593063613,
+          "actual_test_band_holdout": -0.0001125457526185425,
+          "test_boundary_neighbor2_holdout": -0.0002219781466837878,
+          "test_boundary_neighbor5_holdout": 0.00013251272117886792,
+          "loso_10": 0.0002129587241487263
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6029427145324321,
+          "actual_test_band_holdout": 0.6772237221099693,
+          "test_boundary_neighbor2_holdout": 0.6544461516238672,
+          "test_boundary_neighbor5_holdout": 0.619526208889158,
+          "loso_10": 0.6029126632106501
+        }
+      },
+      {
+        "target": "S4",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "candidate": "S4_id341_usage_temporal_hgb_l4_l2_5_w0.01",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 5.0791518391180014e-05,
+        "min_delta_vs_id341": -0.0002219781466837878,
+        "max_delta_vs_id341": 0.00024301004593063613,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00024301004593063613,
+          "actual_test_band_holdout": -0.0001125457526185425,
+          "test_boundary_neighbor2_holdout": -0.0002219781466837878,
+          "test_boundary_neighbor5_holdout": 0.00013251272117886792,
+          "loso_10": 0.0002129587241487263
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6029427145324321,
+          "actual_test_band_holdout": 0.6772237221099693,
+          "test_boundary_neighbor2_holdout": 0.6544461516238672,
+          "test_boundary_neighbor5_holdout": 0.619526208889158,
+          "loso_10": 0.6029126632106501
+        }
+      },
+      {
+        "target": "S4",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.025,
+        "candidate": "S4_id178_usage_temporal_hgb_l4_l2_5_w0.025",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.00015838868175408472,
+        "min_delta_vs_id341": -0.0005258322147090322,
+        "max_delta_vs_id341": 0.0006285463844153405,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0006285463844153405,
+          "actual_test_band_holdout": -0.00025261174950286236,
+          "test_boundary_neighbor2_holdout": -0.0005258322147090322,
+          "test_boundary_neighbor5_holdout": 0.00036193138811912995,
+          "loso_10": 0.0005799096004478477
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6033282508709168,
+          "actual_test_band_holdout": 0.677083656113085,
+          "test_boundary_neighbor2_holdout": 0.654142297555842,
+          "test_boundary_neighbor5_holdout": 0.6197556275560983,
+          "loso_10": 0.6032796140869492
+        }
+      },
+      {
+        "target": "S4",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.025,
+        "candidate": "S4_id341_usage_temporal_hgb_l4_l2_5_w0.025",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.00015838868175408472,
+        "min_delta_vs_id341": -0.0005258322147090322,
+        "max_delta_vs_id341": 0.0006285463844153405,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0006285463844153405,
+          "actual_test_band_holdout": -0.00025261174950286236,
+          "test_boundary_neighbor2_holdout": -0.0005258322147090322,
+          "test_boundary_neighbor5_holdout": 0.00036193138811912995,
+          "loso_10": 0.0005799096004478477
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6033282508709168,
+          "actual_test_band_holdout": 0.677083656113085,
+          "test_boundary_neighbor2_holdout": 0.654142297555842,
+          "test_boundary_neighbor5_holdout": 0.6197556275560983,
+          "loso_10": 0.6032796140869492
+        }
+      },
+      {
+        "target": "S4",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.05,
+        "candidate": "S4_id178_usage_temporal_hgb_l4_l2_5_w0.05",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.0004192045000409372,
+        "min_delta_vs_id341": -0.0009563950532778254,
+        "max_delta_vs_id341": 0.0013260225827933514,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0013260225827933514,
+          "actual_test_band_holdout": -0.00041094701544375223,
+          "test_boundary_neighbor2_holdout": -0.0009563950532778254,
+          "test_boundary_neighbor5_holdout": 0.0008241176043589649,
+          "loso_10": 0.0013132243817739475
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6040257270692948,
+          "actual_test_band_holdout": 0.6769253208471441,
+          "test_boundary_neighbor2_holdout": 0.6537117347172732,
+          "test_boundary_neighbor5_holdout": 0.6202178137723381,
+          "loso_10": 0.6040129288682753
+        }
+      },
+      {
+        "target": "S4",
+        "model": "hgb_l4_l2_5",
+        "model_spec": {
+          "name": "hgb_l4_l2_5",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 55,
+          "max_leaf_nodes": 4,
+          "l2_regularization": 5.0,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.05,
+        "candidate": "S4_id341_usage_temporal_hgb_l4_l2_5_w0.05",
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.0004192045000409372,
+        "min_delta_vs_id341": -0.0009563950532778254,
+        "max_delta_vs_id341": 0.0013260225827933514,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0013260225827933514,
+          "actual_test_band_holdout": -0.00041094701544375223,
+          "test_boundary_neighbor2_holdout": -0.0009563950532778254,
+          "test_boundary_neighbor5_holdout": 0.0008241176043589649,
+          "loso_10": 0.0013132243817739475
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6040257270692948,
+          "actual_test_band_holdout": 0.6769253208471441,
+          "test_boundary_neighbor2_holdout": 0.6537117347172732,
+          "test_boundary_neighbor5_holdout": 0.6202178137723381,
+          "loso_10": 0.6040129288682753
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "candidate": "S4_id178_usage_temporal_lr_c0_03_w0.005",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00013321473941911853,
+        "min_delta_vs_id341": 7.603755802065848e-05,
+        "max_delta_vs_id341": 0.00021134785350829244,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 9.074298563227501e-05,
+          "actual_test_band_holdout": 0.00021134785350829244,
+          "test_boundary_neighbor2_holdout": 7.603755802065848e-05,
+          "test_boundary_neighbor5_holdout": 0.00017851745841568345,
+          "loso_10": 0.00010942784151868334
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6027904474721337,
+          "actual_test_band_holdout": 0.6775476157160961,
+          "test_boundary_neighbor2_holdout": 0.6547441673285717,
+          "test_boundary_neighbor5_holdout": 0.6195722136263948,
+          "loso_10": 0.60280913232802
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_03",
+        "model_spec": {
+          "name": "lr_c0_03",
+          "kind": "lr",
+          "c_value": 0.03,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "S4_id341_usage_temporal_lr_c0_03_w0.005",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.00013321473941911853,
+        "min_delta_vs_id341": 7.603755802065848e-05,
+        "max_delta_vs_id341": 0.00021134785350829244,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 9.074298563227501e-05,
+          "actual_test_band_holdout": 0.00021134785350829244,
+          "test_boundary_neighbor2_holdout": 7.603755802065848e-05,
+          "test_boundary_neighbor5_holdout": 0.00017851745841568345,
+          "loso_10": 0.00010942784151868334
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6027904474721337,
+          "actual_test_band_holdout": 0.6775476157160961,
+          "test_boundary_neighbor2_holdout": 0.6547441673285717,
+          "test_boundary_neighbor5_holdout": 0.6195722136263948,
+          "loso_10": 0.60280913232802
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_12",
+        "model_spec": {
+          "name": "lr_c0_12",
+          "kind": "lr",
+          "c_value": 0.12,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "candidate": "S4_id178_usage_temporal_lr_c0_12_w0.005",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0001590913161845453,
+        "min_delta_vs_id341": 8.050072239051964e-05,
+        "max_delta_vs_id341": 0.00031302559534418517,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 9.987812420020337e-05,
+          "actual_test_band_holdout": 0.00031302559534418517,
+          "test_boundary_neighbor2_holdout": 8.050072239051964e-05,
+          "test_boundary_neighbor5_holdout": 0.00018799997370833044,
+          "loso_10": 0.00011405216527948792
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6027995826107017,
+          "actual_test_band_holdout": 0.677649293457932,
+          "test_boundary_neighbor2_holdout": 0.6547486304929415,
+          "test_boundary_neighbor5_holdout": 0.6195816961416875,
+          "loso_10": 0.6028137566517808
+        }
+      },
+      {
+        "target": "S4",
+        "model": "lr_c0_12",
+        "model_spec": {
+          "name": "lr_c0_12",
+          "kind": "lr",
+          "c_value": 0.12,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null,
+          "max_depth": null,
+          "min_samples_leaf": null,
+          "n_estimators": null
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "candidate": "S4_id341_usage_temporal_lr_c0_12_w0.005",
+        "primary_wins_vs_id341": 0,
+        "mean_delta_vs_id341": 0.0001590913161845453,
+        "min_delta_vs_id341": 8.050072239051964e-05,
+        "max_delta_vs_id341": 0.00031302559534418517,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 9.987812420020337e-05,
+          "actual_test_band_holdout": 0.00031302559534418517,
+          "test_boundary_neighbor2_holdout": 8.050072239051964e-05,
+          "test_boundary_neighbor5_holdout": 0.00018799997370833044,
+          "loso_10": 0.00011405216527948792
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6027995826107017,
+          "actual_test_band_holdout": 0.677649293457932,
+          "test_boundary_neighbor2_holdout": 0.6547486304929415,
+          "test_boundary_neighbor5_holdout": 0.6195816961416875,
+          "loso_10": 0.6028137566517808
+        }
+      }
+    ]
+  },
+  "selected_configs": {},
+  "assembled_candidate": {
+    "selected_configs": {},
+    "split_reports": {
+      "subject_hole_5": {
+        "candidate": {
+          "mean_loss": 0.538583659924236,
+          "target_losses": {
+            "Q1": 0.5519157186538463,
+            "Q2": 0.5563007929035947,
+            "Q3": 0.5670897848363183,
+            "S1": 0.47163044694164036,
+            "S2": 0.5295561327474739,
+            "S3": 0.49089303890027697,
+            "S4": 0.6026997044865015
+          },
+          "target_valid_n": {
+            "Q1": 450,
+            "Q2": 450,
+            "Q3": 450,
+            "S1": 450,
+            "S2": 450,
+            "S3": 450,
+            "S4": 450
+          }
+        },
+        "reference_id178": {
+          "mean_loss": 0.5386377373903545,
+          "target_losses": {
+            "Q1": 0.5519157186538463,
+            "Q2": 0.5566793351664244,
+            "Q3": 0.5670897848363183,
+            "S1": 0.47163044694164036,
+            "S2": 0.5295561327474739,
+            "S3": 0.49089303890027697,
+            "S4": 0.6026997044865015
+          },
+          "target_valid_n": {
+            "Q1": 450,
+            "Q2": 450,
+            "Q3": 450,
+            "S1": 450,
+            "S2": 450,
+            "S3": 450,
+            "S4": 450
+          }
+        },
+        "reference_id341": {
+          "mean_loss": 0.538583659924236,
+          "target_losses": {
+            "Q1": 0.5519157186538463,
+            "Q2": 0.5563007929035947,
+            "Q3": 0.5670897848363183,
+            "S1": 0.47163044694164036,
+            "S2": 0.5295561327474739,
+            "S3": 0.49089303890027697,
+            "S4": 0.6026997044865015
+          },
+          "target_valid_n": {
+            "Q1": 450,
+            "Q2": 450,
+            "Q3": 450,
+            "S1": 450,
+            "S2": 450,
+            "S3": 450,
+            "S4": 450
+          }
+        },
+        "delta_vs_id178": -5.407746611851838e-05,
+        "delta_vs_id341": 0.0,
+        "beats_id341": false
+      },
+      "actual_test_band_holdout": {
+        "candidate": {
+          "mean_loss": 0.5414645216345798,
+          "target_losses": {
+            "Q1": 0.530937300428846,
+            "Q2": 0.5838147917564873,
+            "Q3": 0.5093012241642778,
+            "S1": 0.46537576382917406,
+            "S2": 0.5514863418926919,
+            "S3": 0.47199996150799395,
+            "S4": 0.6773362678625878
+          },
+          "target_valid_n": {
+            "Q1": 98,
+            "Q2": 98,
+            "Q3": 98,
+            "S1": 98,
+            "S2": 98,
+            "S3": 98,
+            "S4": 98
+          }
+        },
+        "reference_id178": {
+          "mean_loss": 0.5416036568651422,
+          "target_losses": {
+            "Q1": 0.530937300428846,
+            "Q2": 0.5847887383704241,
+            "Q3": 0.5093012241642778,
+            "S1": 0.46537576382917406,
+            "S2": 0.5514863418926919,
+            "S3": 0.47199996150799395,
+            "S4": 0.6773362678625878
+          },
+          "target_valid_n": {
+            "Q1": 98,
+            "Q2": 98,
+            "Q3": 98,
+            "S1": 98,
+            "S2": 98,
+            "S3": 98,
+            "S4": 98
+          }
+        },
+        "reference_id341": {
+          "mean_loss": 0.5414645216345798,
+          "target_losses": {
+            "Q1": 0.530937300428846,
+            "Q2": 0.5838147917564873,
+            "Q3": 0.5093012241642778,
+            "S1": 0.46537576382917406,
+            "S2": 0.5514863418926919,
+            "S3": 0.47199996150799395,
+            "S4": 0.6773362678625878
+          },
+          "target_valid_n": {
+            "Q1": 98,
+            "Q2": 98,
+            "Q3": 98,
+            "S1": 98,
+            "S2": 98,
+            "S3": 98,
+            "S4": 98
+          }
+        },
+        "delta_vs_id178": -0.00013913523056241495,
+        "delta_vs_id341": 0.0,
+        "beats_id341": false
+      },
+      "test_boundary_neighbor2_holdout": {
+        "candidate": {
+          "mean_loss": 0.5861371781640982,
+          "target_losses": {
+            "Q1": 0.5913562525914443,
+            "Q2": 0.6342377712293661,
+            "Q3": 0.6063358711638827,
+            "S1": 0.53558038497983,
+            "S2": 0.573831927652359,
+            "S3": 0.5069499097612542,
+            "S4": 0.654668129770551
+          },
+          "target_valid_n": {
+            "Q1": 82,
+            "Q2": 82,
+            "Q3": 82,
+            "S1": 82,
+            "S2": 82,
+            "S3": 82,
+            "S4": 82
+          }
+        },
+        "reference_id178": {
+          "mean_loss": 0.5862898684706096,
+          "target_losses": {
+            "Q1": 0.5913562525914443,
+            "Q2": 0.6353066033749463,
+            "Q3": 0.6063358711638827,
+            "S1": 0.53558038497983,
+            "S2": 0.573831927652359,
+            "S3": 0.5069499097612542,
+            "S4": 0.654668129770551
+          },
+          "target_valid_n": {
+            "Q1": 82,
+            "Q2": 82,
+            "Q3": 82,
+            "S1": 82,
+            "S2": 82,
+            "S3": 82,
+            "S4": 82
+          }
+        },
+        "reference_id341": {
+          "mean_loss": 0.5861371781640982,
+          "target_losses": {
+            "Q1": 0.5913562525914443,
+            "Q2": 0.6342377712293661,
+            "Q3": 0.6063358711638827,
+            "S1": 0.53558038497983,
+            "S2": 0.573831927652359,
+            "S3": 0.5069499097612542,
+            "S4": 0.654668129770551
+          },
+          "target_valid_n": {
+            "Q1": 82,
+            "Q2": 82,
+            "Q3": 82,
+            "S1": 82,
+            "S2": 82,
+            "S3": 82,
+            "S4": 82
+          }
+        },
+        "delta_vs_id178": -0.00015269030651143822,
+        "delta_vs_id341": 0.0,
+        "beats_id341": false
+      },
+      "test_boundary_neighbor5_holdout": {
+        "candidate": {
+          "mean_loss": 0.557920246831064,
+          "target_losses": {
+            "Q1": 0.5491406835484877,
+            "Q2": 0.5730912878985882,
+            "Q3": 0.5827662249897018,
+            "S1": 0.5149017482984077,
+            "S2": 0.5532543738482324,
+            "S3": 0.5128937130660507,
+            "S4": 0.6193936961679791
+          },
+          "target_valid_n": {
+            "Q1": 172,
+            "Q2": 172,
+            "Q3": 172,
+            "S1": 172,
+            "S2": 172,
+            "S3": 172,
+            "S4": 172
+          }
+        },
+        "reference_id178": {
+          "mean_loss": 0.5579861551656572,
+          "target_losses": {
+            "Q1": 0.5491406835484877,
+            "Q2": 0.573552646240741,
+            "Q3": 0.5827662249897018,
+            "S1": 0.5149017482984077,
+            "S2": 0.5532543738482324,
+            "S3": 0.5128937130660507,
+            "S4": 0.6193936961679791
+          },
+          "target_valid_n": {
+            "Q1": 172,
+            "Q2": 172,
+            "Q3": 172,
+            "S1": 172,
+            "S2": 172,
+            "S3": 172,
+            "S4": 172
+          }
+        },
+        "reference_id341": {
+          "mean_loss": 0.557920246831064,
+          "target_losses": {
+            "Q1": 0.5491406835484877,
+            "Q2": 0.5730912878985882,
+            "Q3": 0.5827662249897018,
+            "S1": 0.5149017482984077,
+            "S2": 0.5532543738482324,
+            "S3": 0.5128937130660507,
+            "S4": 0.6193936961679791
+          },
+          "target_valid_n": {
+            "Q1": 172,
+            "Q2": 172,
+            "Q3": 172,
+            "S1": 172,
+            "S2": 172,
+            "S3": 172,
+            "S4": 172
+          }
+        },
+        "delta_vs_id178": -6.59083345931899e-05,
+        "delta_vs_id341": 0.0,
+        "beats_id341": false
+      },
+      "loso_10": {
+        "candidate": {
+          "mean_loss": 0.538583659924236,
+          "target_losses": {
+            "Q1": 0.5519157186538463,
+            "Q2": 0.5563007929035946,
+            "Q3": 0.5670897848363183,
+            "S1": 0.47163044694164036,
+            "S2": 0.529556132747474,
+            "S3": 0.4908930389002769,
+            "S4": 0.6026997044865013
+          },
+          "target_valid_n": {
+            "Q1": 450,
+            "Q2": 450,
+            "Q3": 450,
+            "S1": 450,
+            "S2": 450,
+            "S3": 450,
+            "S4": 450
+          }
+        },
+        "reference_id178": {
+          "mean_loss": 0.5386377373903545,
+          "target_losses": {
+            "Q1": 0.5519157186538463,
+            "Q2": 0.5566793351664245,
+            "Q3": 0.5670897848363183,
+            "S1": 0.47163044694164036,
+            "S2": 0.529556132747474,
+            "S3": 0.4908930389002769,
+            "S4": 0.6026997044865013
+          },
+          "target_valid_n": {
+            "Q1": 450,
+            "Q2": 450,
+            "Q3": 450,
+            "S1": 450,
+            "S2": 450,
+            "S3": 450,
+            "S4": 450
+          }
+        },
+        "reference_id341": {
+          "mean_loss": 0.538583659924236,
+          "target_losses": {
+            "Q1": 0.5519157186538463,
+            "Q2": 0.5563007929035946,
+            "Q3": 0.5670897848363183,
+            "S1": 0.47163044694164036,
+            "S2": 0.529556132747474,
+            "S3": 0.4908930389002769,
+            "S4": 0.6026997044865013
+          },
+          "target_valid_n": {
+            "Q1": 450,
+            "Q2": 450,
+            "Q3": 450,
+            "S1": 450,
+            "S2": 450,
+            "S3": 450,
+            "S4": 450
+          }
+        },
+        "delta_vs_id178": -5.407746611851838e-05,
+        "delta_vs_id341": 0.0,
+        "beats_id341": false
+      }
+    },
+    "primary_deltas_vs_id341": {
+      "subject_hole_5": 0.0,
+      "actual_test_band_holdout": 0.0,
+      "test_boundary_neighbor2_holdout": 0.0,
+      "test_boundary_neighbor5_holdout": 0.0,
+      "loso_10": 0.0
+    },
+    "primary_wins_vs_id341": 0,
+    "all_primary_splits_beat_id341": false,
+    "mean_primary_delta_vs_id341": 0.0,
+    "max_primary_delta_vs_id341": 0.0
+  },
+  "test_geometry": null,
+  "decision": {
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "selected_target_count": 0,
+    "selected_targets": [],
+    "usage_temporal_has_config_signal": false,
+    "all_primary_splits_beat_id341": false,
+    "primary_wins_vs_id341": 0,
+    "mean_primary_delta_vs_id341": 0.0,
+    "max_primary_delta_vs_id341": 0.0,
+    "projected_public_proxy_from_id341": 0.6038297835,
+    "beats_id178_public_anchor_proxy": false,
+    "final_usage_temporal_gate_pass": false,
+    "public_058_reviewable": false,
+    "next_action": "If the usage-temporal gate fails, do not create ID342 from mUsageStats microstructure. If it finds a small target-specific signal, keep it report-only until it can combine with an independent source and beat ID178 proxy under the transfer gate."
+  },
+  "no_direct_app_name_model_columns": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

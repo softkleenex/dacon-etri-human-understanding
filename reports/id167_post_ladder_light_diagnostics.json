@@ -1,0 +1,68 @@
+{
+  "diagnostic": "id167_post_ladder_light_diagnostics",
+  "created_utc": "2026-06-15T23:43:37.153603+00:00",
+  "base_id": 167,
+  "base_local_cv": 0.5622797786771463,
+  "summary": "No promoted ID168 artifact: tested selector/blend, repeated rules, threshold residuals, hourly sequence, GPS routine, WiFi/BLE env tokens, and ambience context. None improved ID167 under the relevant diagnostic lens; high-risk public-calibration artifacts still dominate sub-0.53 local probes.",
+  "artifact_selector": {
+    "recent_cleanish_candidates": "142,147,148,151,153,155,158,160,162,164,165,166,167",
+    "best_recent_cv": 0.567594542135151,
+    "interpretation": "Fold-nested selector over recent non-calibration candidates worsened ID167.",
+    "all_candidate_best_cv": 0.52426923224353,
+    "all_candidate_interpretation": "The sub-0.53 result is dominated by public-structure calibration artifacts ID136/ID126, so it is not strict-local proof. It was not promoted."
+  },
+  "repeat_rule_scan": {
+    "best_cv": 0.5622797786771463,
+    "best_run": "tree base=166 preset=id166_s12_shallow_tree_rules targets=S1,S2, equivalent to existing ID167",
+    "interpretation": "Reapplying existing threshold/tree rules on ID167 did not improve."
+  },
+  "threshold_residual_scan_id167": {
+    "n_numeric_features": 292,
+    "max_target_loss_improvement": 1.4752273888030132e-05,
+    "best_candidate": {
+      "target": "Q2",
+      "feature": "act_morn_active",
+      "threshold": 0.011111111111111112,
+      "direction": "ge/lt",
+      "weight": 0.02
+    },
+    "interpretation": "Single-threshold residuals are exhausted; global CV gain would be negligible."
+  },
+  "hourly_sequence_id167": {
+    "report": "reports/strict_hourly_sequence_overlay_diagnostic_id167.json",
+    "targets": [
+      "Q2",
+      "Q3",
+      "S3",
+      "S4"
+    ],
+    "result": "Full and nested selection chose ID167 base for Q2/Q3/S3; S4 nested worsened to 0.617375.",
+    "peak_rss_bytes": 1719746560
+  },
+  "public_sequence_probe": {
+    "base_123_cv": 0.5595008591137564,
+    "base_133_cv": 0.5462212537057505,
+    "base_136_cv": 0.5242116725029883,
+    "base_163_cv": 0.5221357091770388,
+    "interpretation": "S3/S4 hourly sequence helps older ID123 but worsens stronger calibration/public probes such as ID136/ID163."
+  },
+  "context_overlay_id167": {
+    "q3_gps_routine": "base selected in all folds/full OOF",
+    "q2_env_token_report": "reports/strict_q2_env_token_compact_diagnostic_id167.json",
+    "q2_env_token": "base selected in all folds/full OOF",
+    "q2_ambience_report": "reports/strict_q2_ambience_context_diagnostic_id167.json",
+    "q2_ambience": "base selected in all folds/full OOF",
+    "q3_ambience_report": "reports/strict_q3_ambience_context_diagnostic_id167.json",
+    "q3_ambience": "base selected in all folds/full OOF",
+    "s4_ambience_report": "reports/strict_s4_ambience_context_diagnostic_id167.json",
+    "s4_ambience_cv": 0.5627424717387898,
+    "s4_ambience_interpretation": "Nested selection sometimes chose ambience blends, but validation worsened versus ID167.",
+    "peak_rss_bytes": 4731813888
+  },
+  "kaggle_status": {
+    "cli": ".venv/bin/kaggle available; shell kaggle not on PATH",
+    "kernel": "softkleenex/dacon-etri-strict-runner COMPLETE",
+    "runner_caution": "Strict_Remote_Experiment_Runner.ipynb still contains old Chronos command; do not push unchanged."
+  },
+  "decision": "Do not create ID168 from these diagnostics. Next high-value action is either an explicitly approved DACON probe from the public-structure ladder (ID163/ID136 risk rung) or a genuinely new remote representation, not more local threshold/KNN/hourly/context overlays."
+}

@@ -1,0 +1,1652 @@
+{
+  "created_at_kst": "2026-06-19 05:48:04 UTC+09:00",
+  "diagnostic": "post_id341_gps_path_topology_feature_matrix_smoke_contract",
+  "report_only": true,
+  "source_family": "gps_path_topology_sequence_v1",
+  "target_focus": [
+    "Q3",
+    "S3"
+  ],
+  "purpose": "Freeze the contract for a future GPS topology feature-matrix writer while keeping the current turn report-only, no-model, no-submission, and no-Kaggle-network.",
+  "inputs": {
+    "gps_feature_generation_dryrun": {
+      "created_at_kst": "2026-06-19 04:41:02 UTC+09:00",
+      "diagnostic": "post_id341_gps_path_topology_feature_generation_dryrun",
+      "report_only": true,
+      "source_family": "gps_path_topology_sequence_v1",
+      "inputs": {
+        "feature_spec_report": {
+          "path": "reports/post_id341_gps_path_topology_feature_spec_20260619.json",
+          "exists": true,
+          "feature_spec_ready": true,
+          "next_local_allowed_step": "report_only_feature_generation_dryrun"
+        },
+        "raw_sources": {
+          "mGps": "data/raw/ch2025_data_items/ch2025_mGps.parquet",
+          "mWifi": "data/raw/ch2025_data_items/ch2025_mWifi.parquet",
+          "mBle": "data/raw/ch2025_data_items/ch2025_mBle.parquet",
+          "mActivity": "data/raw/ch2025_data_items/ch2025_mActivity.parquet"
+        }
+      },
+      "row_alignment": {
+        "expected_rows": 700,
+        "dryrun_rows": 700,
+        "exact_key_alignment": true,
+        "duplicate_keys": 0,
+        "train_rows": 450,
+        "test_rows": 250
+      },
+      "coverage": {
+        "by_split": {
+          "test": {
+            "rows": 250,
+            "gps_topology_ready_rows": 234,
+            "gps_topology_ready_rate": 0.936,
+            "place_context_ready_rows": 246,
+            "place_context_ready_rate": 0.984,
+            "median_gps_rows": 1376.0,
+            "median_gps_payload_points": 13957.0
+          },
+          "train": {
+            "rows": 450,
+            "gps_topology_ready_rows": 420,
+            "gps_topology_ready_rate": 0.9333333333333333,
+            "place_context_ready_rows": 439,
+            "place_context_ready_rate": 0.9755555555555555,
+            "median_gps_rows": 1371.0,
+            "median_gps_payload_points": 12568.5
+          }
+        },
+        "overall_gps_topology_ready_rate": 0.9342857142857143,
+        "overall_place_context_ready_rate": 0.9785714285714285
+      },
+      "feature_columns": {
+        "feature_column_count": 32,
+        "max_allowed_first_matrix_columns": 64,
+        "within_first_matrix_bound": true,
+        "missing_declared_features": [],
+        "extra_features": [],
+        "features": [
+          "gps_rows",
+          "gps_payload_points",
+          "gps_coordinate_payload_rows",
+          "gps_active_hours",
+          "gps_evening_rows_18_23",
+          "gps_night_rows_00_05",
+          "gps_gap_count_gt15m",
+          "gps_longest_gap_minutes",
+          "gps_observed_span_minutes",
+          "gps_speed_p50",
+          "gps_speed_p90",
+          "gps_speed_max",
+          "gps_low_speed_payload_share",
+          "gps_high_speed_payload_share",
+          "gps_lat_span",
+          "gps_lon_span",
+          "gps_bbox_area_proxy",
+          "gps_payload_quality_flag",
+          "activity_rows",
+          "activity_active_code_count",
+          "activity_top_code_share",
+          "activity_late_rows_18_23",
+          "wifi_rows",
+          "wifi_token_count_capped64",
+          "wifi_top_token_share",
+          "wifi_payload_points",
+          "ble_rows",
+          "ble_token_count_capped64",
+          "ble_top_token_share",
+          "ble_payload_points",
+          "place_context_rows",
+          "place_context_token_count_capped128"
+        ]
+      },
+      "cardinality_bounds": {
+        "wifi_cardinality": {
+          "source": "mWifi",
+          "prefix": "wifi",
+          "cap": 64,
+          "subjects": 10,
+          "max_raw_tokens_per_subject": 24373,
+          "subjects_over_cap_before_capping": 10,
+          "max_tokens_after_capping": 64
+        },
+        "ble_cardinality": {
+          "source": "mBle",
+          "prefix": "ble",
+          "cap": 64,
+          "subjects": 10,
+          "max_raw_tokens_per_subject": 119814,
+          "subjects_over_cap_before_capping": 10,
+          "max_tokens_after_capping": 64
+        }
+      },
+      "safety_contract": {
+        "feature_matrix_written": false,
+        "feature_parquet_written": false,
+        "predictions_created": false,
+        "submission_csv_created": false,
+        "submission_log_modified": false,
+        "model_trained": false,
+        "kaggle_run_executed": false,
+        "dacon_submission_executed": false,
+        "uses_target_labels": false,
+        "uses_oof_predictions": false,
+        "uses_public_scores": false
+      },
+      "decision": {
+        "dryrun_passed": true,
+        "source_family": "gps_path_topology_sequence_v1",
+        "target_focus": [
+          "Q3",
+          "S3"
+        ],
+        "row_alignment_exact": true,
+        "feature_column_count": 32,
+        "feature_column_bound_passed": true,
+        "train_gps_topology_ready_rate": 0.9333333333333333,
+        "test_gps_topology_ready_rate": 0.936,
+        "public_058_evidence": false,
+        "feature_matrix_allowed_now": false,
+        "train_model_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_local_allowed_step": "feature_matrix_smoke_contract_or_kaggle_upstream_rebuild",
+        "next_action": "GPS topology can be materialized in memory with aligned rows and bounded columns, but this remains non-score evidence. Do not create ID342 or train locally; either write a separate feature-matrix smoke contract or use the explicit-approved clean upstream Kaggle rebuild for score-relevant work."
+      },
+      "path": "reports/post_id341_gps_path_topology_feature_generation_dryrun_20260619.json",
+      "exists": true,
+      "parse_ok": true
+    },
+    "no_approval_frontier": {
+      "created_at_kst": "2026-06-19 05:05:44 UTC+09:00",
+      "diagnostic": "post_id341_no_approval_frontier",
+      "purpose": "Consolidate the no-approval frontier after ID178/287/329/341 evidence, local closures, and Kaggle prelaunch checks.",
+      "inputs": {
+        "public_gap": "reports/post_id341_public_local_gap_diagnosis_20260618.json",
+        "transfer_gate": "reports/post_id341_transfer_gate_v2_joint_risk_20260618.json",
+        "target_gap_budget": "reports/post_id341_target_gap_budget_20260618.json",
+        "missing_target_inventory": "reports/post_id341_missing_target_signal_inventory_20260618.json",
+        "q3s3_remaining": "reports/post_id341_q3s3_remaining_route_inventory_20260618.json",
+        "clean_backbone_closure": "reports/post_id341_clean_backbone_lane_closure_20260618.json",
+        "phase2_block_a_gap": "reports/phase2_block_a_q1_proxy_gap_post_id341_20260618.json",
+        "phase2_block_b": "reports/phase2_block_b_s2_sleep_recovery_retry_post_id341_20260618.json",
+        "phase3_usage": "reports/phase3_usage_temporal_microstructure_smoke_post_id341_20260618.json",
+        "phase3_ambience": "reports/phase3_ambience_context_closure_post_id341_20260618.json",
+        "local_smoke_freshness": "reports/post_id341_local_smoke_freshness_gate_20260618.json",
+        "external_public05917_residual": "reports/post_id341_external_public05917_residual_audit_20260619.json",
+        "q2q3s3_paper_family": "reports/post_id341_q2q3s3_paper_family_fold_smoke_20260619.json",
+        "q3s3_anchor_failure_profile": "reports/post_id341_q3s3_anchor_failure_profile_20260619.json",
+        "prelaunch": "reports/post_id341_kaggle_prelaunch_readiness_gate_20260618.json",
+        "guarded_remote_contract": "reports/kaggle_guarded_remote_contract_audit_20260618.json"
+      },
+      "report_status": {
+        "public_gap": {
+          "exists": true,
+          "parse_ok": true
+        },
+        "transfer_gate": {
+          "exists": true,
+          "parse_ok": true
+        },
+        "target_gap_budget": {
+          "exists": true,
+          "parse_ok": true
+        },
+        "missing_target_inventory": {
+          "exists": true,
+          "parse_ok": true
+        },
+        "q3s3_remaining": {
+          "exists": true,
+          "parse_ok": true
+        },
+        "clean_backbone_closure": {
+          "exists": true,
+          "parse_ok": true
+        },
+        "phase2_block_a_gap": {
+          "exists": true,
+          "parse_ok": true
+        },
+        "phase2_block_b": {
+          "exists": true,
+          "parse_ok": true
+        },
+        "phase3_usage": {
+          "exists": true,
+          "parse_ok": true
+        },
+        "phase3_ambience": {
+          "exists": true,
+          "parse_ok": true
+        },
+        "local_smoke_freshness": {
+          "exists": true,
+          "parse_ok": true
+        },
+        "external_public05917_residual": {
+          "exists": true,
+          "parse_ok": true
+        },
+        "q2q3s3_paper_family": {
+          "exists": true,
+          "parse_ok": true
+        },
+        "q3s3_anchor_failure_profile": {
+          "exists": true,
+          "parse_ok": true
+        },
+        "prelaunch": {
+          "exists": true,
+          "parse_ok": true
+        },
+        "guarded_remote_contract": {
+          "exists": true,
+          "parse_ok": true
+        }
+      },
+      "public_anchor_summary": {
+        "submission_log_exists": true,
+        "plausible_public_rows": 23,
+        "best_public_anchor": {
+          "id": 178,
+          "submission_file": "submission_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638_unsubmitted.csv",
+          "local_cv": 0.538638,
+          "public": 0.6014113009,
+          "cv_lb_gap": 0.0627733009
+        },
+        "recent_public_anchors": [
+          {
+            "id": 178,
+            "submission_file": "submission_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638_unsubmitted.csv",
+            "local_cv": 0.538638,
+            "public": 0.6014113009,
+            "cv_lb_gap": 0.0627733009
+          },
+          {
+            "id": 287,
+            "submission_file": "submission_id_287_post285_base282_fixedtemp_balanced_cv0.378934_unsubmitted.csv",
+            "local_cv": 0.378934,
+            "public": 0.6698787318,
+            "cv_lb_gap": 0.2909447318
+          },
+          {
+            "id": 329,
+            "submission_file": "submission_id_329_post328_combo4_cap080_budget050_practical_cv0.516718_unsubmitted.csv",
+            "local_cv": 0.516718,
+            "public": 0.6017908577,
+            "cv_lb_gap": 0.0850728576999999
+          }
+        ]
+      },
+      "local_closure_checks": {
+        "public_gap_blocks_local_cv_only_promotion": true,
+        "transfer_gate_has_no_public_058_candidate": true,
+        "target_gap_has_no_public_058_budget": true,
+        "missing_targets_route_to_upstream": true,
+        "q3s3_local_no_approval_closed": true,
+        "clean_backbone_closed": true,
+        "phase2_block_a_not_public_058": true,
+        "phase2_block_b_closed": true,
+        "phase3_usage_closed": true,
+        "phase3_ambience_closed": true,
+        "external_public05917_direct_route_closed": true,
+        "q2q3s3_paper_family_local_lane_closed": true,
+        "q3s3_oof_gain_direct_submit_blocked": true
+      },
+      "prelaunch_checks": {
+        "local_runner_smoke_fresh": true,
+        "guarded_remote_contract_pass": true,
+        "prelaunch_ready_for_explicit_approval": true,
+        "prelaunch_requires_explicit_user_approval": true
+      },
+      "decision": {
+        "no_approval_frontier_ready": true,
+        "all_local_no_approval_score_routes_closed": true,
+        "no_approval_score_route_exists": false,
+        "only_score_relevant_open_route": "explicit_approved_clean_upstream_id221_to_id226",
+        "requires_explicit_kaggle_approval": true,
+        "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+        "prelaunch_ready_for_explicit_approval": true,
+        "manual_probe_if_user_spends_submission": "submission_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.csv",
+        "manual_probe_is_public_058_evidence": false,
+        "public_058_reviewable": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Without explicit approval, do not create ID342 or submit a local candidate. The score-relevant route is the approved no-submit Kaggle upstream rebuild; otherwise continue only with report-only design for genuinely new raw/sequence source families."
+      },
+      "no_model_trained": true,
+      "no_predictions_created": true,
+      "no_submission_created": true,
+      "no_base_prediction_artifact_created": true,
+      "no_notebook_history_artifact_created": true,
+      "no_submission_log_row_created": true,
+      "no_kaggle_push_or_run_made": true,
+      "no_dacon_submission_made": true,
+      "path": "reports/post_id341_no_approval_frontier_20260619.json",
+      "exists": true,
+      "parse_ok": true
+    },
+    "local_smoke_freshness": {
+      "created_at_kst": "2026-06-19 05:35:13 UTC+09:00",
+      "diagnostic": "post_id341_local_smoke_freshness_gate",
+      "purpose": "Verify the latest local no-network runner smoke still matches current runner/package inputs.",
+      "inputs": {
+        "smoke_report": {
+          "path": "reports/post_id341_kaggle_runner_local_smoke_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 29299,
+          "created_at_kst": "2026-06-19 05:30:51 UTC+09:00",
+          "decision": {
+            "local_runner_smoke_passed": true,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "next_action": "Local runner smoke passed; explicit approval is still required for any Kaggle network run."
+          },
+          "error": null
+        },
+        "smoke_intake_report": {
+          "path": "reports/post_id341_kaggle_local_runner_smoke_intake_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 23559,
+          "created_at_kst": "2026-06-19 05:30:51 UTC+09:00",
+          "decision": {
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "output_pending": false,
+            "all_expected_reports_present": true,
+            "runner_manifest_required": true,
+            "runner_manifest_present": true,
+            "runner_manifest_ok": true,
+            "runner_manifest_missing_or_invalid": false,
+            "unexpected_submission_like_files_present": false,
+            "remote_forbidden_actions_present": false,
+            "remote_review_signal_present": false,
+            "artifact_contract_review_allowed": false,
+            "public_058_reviewable": false,
+            "next_action": "Do not create artifacts; inspect missing reports, runner manifest, suspicious files, or failed remote gates first."
+          },
+          "error": null
+        },
+        "smoke_script": "scripts/run_post_id341_kaggle_runner_local_smoke.py"
+      },
+      "recorded_input_fingerprint_count": 31,
+      "current_input_fingerprint_count": 31,
+      "fingerprint_diff": {
+        "missing_now": [],
+        "new_now": [],
+        "changed": []
+      },
+      "checks": {
+        "smoke_report_passed": true,
+        "smoke_intake_safe": true,
+        "fingerprints_recorded": true,
+        "fingerprints_match_current_inputs": true
+      },
+      "decision": {
+        "local_runner_smoke_fresh": true,
+        "requires_local_runner_smoke_rerun": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Local runner smoke is fresh; explicit approval is still required for any Kaggle network run."
+      },
+      "no_model_trained": true,
+      "no_predictions_created": true,
+      "no_submission_created": true,
+      "no_base_prediction_artifact_created": true,
+      "no_notebook_history_artifact_created": true,
+      "no_submission_log_row_created": true,
+      "no_kaggle_push_or_run_made": true,
+      "no_dacon_submission_made": true,
+      "path": "reports/post_id341_local_smoke_freshness_gate_20260618.json",
+      "exists": true,
+      "parse_ok": true
+    },
+    "prelaunch_gate": {
+      "created_at_kst": "2026-06-19 05:31:25 UTC+09:00",
+      "diagnostic": "post_id341_kaggle_prelaunch_readiness_gate",
+      "purpose": "Aggregate all local no-submit readiness evidence before an explicit-approved Kaggle/Linux parity run. This gate does not authorize remote execution by itself.",
+      "inputs": {
+        "approval_note": {
+          "path": "reports/post_id341_kaggle_launch_approval_note_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 6631,
+          "decision": {
+            "approval_note_ready": true,
+            "execute_kaggle_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "requires_explicit_user_approval": true,
+            "next_action": "Ask for explicit approval of the exact command sequence before running Kaggle. Without approval, keep the repo in no-submit report-only mode."
+          },
+          "error": null
+        },
+        "execution_packet": {
+          "path": "reports/kaggle_upstream_execution_packet_post_id341_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 26346,
+          "decision": {
+            "ready_for_explicit_approval": true,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "next_action": "Await explicit approval for the exact Kaggle command sequence, or continue designing a materially different local raw source without creating ID342."
+          },
+          "error": null
+        },
+        "source_zip_selftest": {
+          "path": "reports/kaggle_source_zip_selftest_post_id341_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 12368,
+          "decision": {
+            "selftest_passed": true,
+            "ready_for_explicit_kaggle_approval": true,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "next_action": "If the user explicitly approves, run the guarded sequence: ALLOW_KAGGLE_REMOTE=true make kaggle-push-code; ALLOW_KAGGLE_REMOTE=true make kaggle-check-base-dataset-files; ALLOW_KAGGLE_REMOTE=true make kaggle-push-upstream-rebuild-runner; ALLOW_KAGGLE_REMOTE=true make kaggle-kernel-status-upstream-rebuild; ALLOW_KAGGLE_REMOTE=true make kaggle-wait-and-pull-upstream-rebuild-output; then make kaggle-review-upstream-rebuild-output. Otherwise keep working locally without creating ID342."
+          },
+          "error": null
+        },
+        "runner_intake_contract": {
+          "path": "reports/post_id341_kaggle_runner_intake_contract_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 9065,
+          "decision": {
+            "runner_intake_contract_pass": true,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "artifact_contract_review_allowed": false,
+            "next_action": "Runner staging matches the intake gate; explicit user approval is still required for Kaggle push/run."
+          },
+          "error": null
+        },
+        "runner_q3s3_negative_map_handoff_contract": {
+          "remote_negative_map": "remote_post_id341_q3s3_negative_evidence_map_20260618.json",
+          "remote_fold_nested_sibling_bridge": "remote_post_id341_q3s3_fold_nested_sibling_bridge_smoke_20260619.json",
+          "remote_remaining_inventory": "remote_post_id341_q3s3_remaining_route_inventory_20260618.json",
+          "negative_map_name_present": true,
+          "fold_nested_sibling_name_present": true,
+          "remaining_inventory_name_present": true,
+          "negative_map_declared_before_inventory": true,
+          "fold_nested_sibling_declared_between_negative_and_inventory": true,
+          "negative_map_generation_command_present": true,
+          "fold_nested_sibling_generation_command_present": true,
+          "remaining_inventory_uses_negative_map_arg": true,
+          "remaining_inventory_uses_fold_nested_sibling_arg": true,
+          "negative_map_staged_in_report_roots": true,
+          "fold_nested_sibling_staged_in_report_roots": true,
+          "negative_map_asserts_eight_closed_lanes": true,
+          "q3s3_negative_map_handoff_pass": true
+        },
+        "guarded_remote_contract": {
+          "path": "reports/kaggle_guarded_remote_contract_audit_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 8022,
+          "decision": {
+            "guarded_remote_contract_pass": true,
+            "execute_kaggle_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "next_action": "Guarded remote contract is consistent; explicit approval is still required for any Kaggle network step."
+          },
+          "error": null
+        },
+        "remote_fail_closed_dryrun_audit": {
+          "path": "reports/kaggle_remote_fail_closed_dryrun_audit_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 5118,
+          "decision": {
+            "remote_fail_closed_dryrun_pass": true,
+            "requires_explicit_user_approval": true,
+            "execute_kaggle_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "next_action": "Remote targets fail closed without approval; explicit approval is still required before any Kaggle network step."
+          },
+          "error": null
+        },
+        "public_local_gap_diagnosis": {
+          "path": "reports/post_id341_public_local_gap_diagnosis_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 10536,
+          "decision": {
+            "public_local_gap_diagnosis_ready": true,
+            "mac_m4_environment_primary_explanation": false,
+            "any_watch_candidate_passes_public_058_recent_floor_proxy": false,
+            "any_watch_candidate_passes_public_058_recent_stress_proxy": false,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "local_cv_needed_for_public_058_recent_floor": 0.517227,
+            "local_cv_needed_for_public_058_recent_stress": 0.494927,
+            "next_action": "Do not promote local CV-only candidates. The next score-relevant move remains the explicit-approved no-submit Kaggle/Linux upstream rebuild, followed by a separate Public-0.58 artifact-contract review only if pulled reports are safe, beat ID178, and show min_proxy <= 0.58; ID178-only improvement above 0.58 is a lead, not ID342."
+          },
+          "error": null
+        },
+        "data_source_coverage_audit": {
+          "path": "reports/post_id341_data_source_coverage_audit_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 20920,
+          "decision": {
+            "data_source_coverage_audit_ready": true,
+            "all_major_sources_present": true,
+            "all_required_evidence_reports_present": true,
+            "upstream_runner_references_required_source_checks": true,
+            "data_source_coverage_ready": true,
+            "external_direct_concat_allowed": false,
+            "external_prior_reviewable": false,
+            "local_source_stack_closed_for_submission_artifact": true,
+            "public_058_local_cv_only_gate_passed": false,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "next_action": "Data/source coverage is accounted for locally. Do not concatenate external rows or create ID342; the next score-relevant step remains explicit-approved no-submit Kaggle/Linux upstream rebuild."
+          },
+          "error": null
+        },
+        "missing_target_signal_inventory": {
+          "path": "reports/post_id341_missing_target_signal_inventory_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 20092,
+          "decision": {
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "focus_targets": [
+              "Q2",
+              "Q3",
+              "S3"
+            ],
+            "focus_missing_locally": [
+              "Q2",
+              "Q3",
+              "S3"
+            ],
+            "focus_has_upstream_backbone_signal": [
+              "Q2",
+              "Q3",
+              "S3"
+            ],
+            "secondary_watch_only_targets": [
+              "S1",
+              "S2"
+            ],
+            "local_q2_q3_s3_promotable": false,
+            "external_direct_concat_allowed": false,
+            "prelaunch_ready_for_explicit_approval": true,
+            "requires_explicit_user_approval": true,
+            "recommended_next_action": "Do not create a local ID342. Q2/Q3/S3 have no current local selected rows; the only meaningful Q2/Q3/S3 surface is the report-first clean ID221→ID226 upstream rebuild, gated by explicit Kaggle approval."
+          },
+          "error": null
+        },
+        "q2q3s3_source_hypothesis_matrix": {
+          "path": "reports/post_id341_q2q3s3_source_hypothesis_matrix_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 13957,
+          "decision": {
+            "q2q3s3_source_hypothesis_matrix_ready": true,
+            "all_focus_targets_missing_locally": true,
+            "all_focus_targets_have_historical_id226_signal": true,
+            "all_focus_targets_id226_win_all_folds_vs_341": true,
+            "processed_feature_coverage_sufficient_for_design": true,
+            "external_direct_concat_allowed": false,
+            "local_q2q3s3_artifact_promotable": false,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "requires_explicit_kaggle_approval": true,
+            "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+            "recommended_next_action": "Keep local ID342 closed. Use this matrix as the score-relevant design compass for the explicit-approved no-submit Kaggle upstream rebuild; only pulled reports that beat ID178 and pass Public-0.58 review gates may open a separate artifact-contract review."
+          },
+          "error": null
+        },
+        "q2q3s3_local_fallback_chain": {
+          "path": "reports/post_id341_q2q3s3_local_fallback_chain_contract_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 10201,
+          "decision": {
+            "local_fallback_chain_contract_pass": true,
+            "primary_score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+            "fallback_no_approval_route": "local_or_kaggle_q2q3s3_env_social_routine_v2_design",
+            "missing_targets": [
+              "Q2",
+              "Q3",
+              "S3"
+            ],
+            "selected_local_context_targets": [
+              "Q2"
+            ],
+            "q3_s3_still_uncovered": true,
+            "local_q2_lead_context_only": true,
+            "public_058_evidence": false,
+            "local_artifact_allowed": false,
+            "requires_explicit_kaggle_approval": true,
+            "execute_kaggle_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "next_action": "Keep the Q2 local lead as context only; pursue the explicit-approved clean ID221→ID226 upstream rebuild for Q2/Q3/S3 coverage, or design a materially different Q3/S3 source without creating ID342."
+          },
+          "error": null
+        },
+        "q3s3_local_lane_closure": {
+          "path": "reports/post_id341_q3s3_local_lane_closure_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 2734,
+          "decision": {
+            "local_q2_component_keep_as_context": true,
+            "q3_s3_uncovered_after_local_fallback": [
+              "Q3",
+              "S3"
+            ],
+            "local_fallback_closed_for_submission_artifact": true,
+            "local_artifact_allowed": false,
+            "public_058_evidence": false,
+            "primary_next_score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+            "requires_explicit_kaggle_approval": true,
+            "prelaunch_ready_for_explicit_approval": true,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "next_action": "Do not create a local submission artifact from Q2-only context. The next score-relevant path is the explicit-approved clean ID221→ID226 no-submit upstream rebuild; without that approval, only document new genuinely independent Q3/S3 hypotheses, not broader local tuning."
+          },
+          "error": null
+        },
+        "q3s3_semantic_routine_lane_closure": {
+          "path": "reports/post_id341_q3s3_semantic_routine_lane_closure_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 2147,
+          "decision": {
+            "semantic_routine_lane_closure_passed": true,
+            "q3_s3_still_uncovered": [
+              "Q3",
+              "S3"
+            ],
+            "local_semantic_routine_artifact_allowed": false,
+            "public_058_evidence": false,
+            "primary_next_score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+            "requires_explicit_kaggle_approval": true,
+            "prelaunch_ready_for_explicit_approval": true,
+            "execute_kaggle_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "next_action": "Do not create ID342 from semantic-routine Q3/S3 features. The lane is structurally computable but failed fold-internal target selection. Continue only through the explicit-approved clean upstream ID221→ID226 no-submit rebuild, or design a materially different source."
+          },
+          "error": null
+        },
+        "q3s3_remaining_route_inventory": {
+          "path": "reports/post_id341_q3s3_remaining_route_inventory_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 20369,
+          "decision": {
+            "q3s3_remaining_route_inventory_ready": true,
+            "target_focus": [
+              "Q3",
+              "S3"
+            ],
+            "q3_s3_still_uncovered": true,
+            "fold_nested_sibling_bridge_closed": true,
+            "local_no_approval_score_route_exists": false,
+            "only_score_relevant_open_route": "explicit_approved_clean_upstream_id221_to_id226",
+            "requires_explicit_kaggle_approval": true,
+            "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+            "manual_probe_if_user_spends_submission": "submission_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.csv",
+            "public_058_evidence": false,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "next_action": "Do not create a local ID342 from closed Q3/S3 lanes. The next score-relevant action is the explicit-approved no-submit Kaggle upstream rebuild; otherwise continue with report-only design/tests."
+          },
+          "error": null
+        },
+        "local_smoke_freshness_gate": {
+          "path": "reports/post_id341_local_smoke_freshness_gate_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 2954,
+          "decision": {
+            "local_runner_smoke_fresh": true,
+            "requires_local_runner_smoke_rerun": false,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "next_action": "Local runner smoke is fresh; explicit approval is still required for any Kaggle network run."
+          },
+          "error": null
+        },
+        "output_intake_gate": {
+          "path": "reports/post_id341_kaggle_output_intake_gate_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 13546,
+          "decision": {
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "output_pending": true,
+            "all_expected_reports_present": false,
+            "runner_manifest_required": false,
+            "runner_manifest_present": false,
+            "runner_manifest_ok": false,
+            "runner_manifest_missing_or_invalid": false,
+            "unexpected_submission_like_files_present": false,
+            "remote_forbidden_actions_present": false,
+            "remote_review_signal_present": false,
+            "artifact_contract_review_allowed": false,
+            "public_058_reviewable": false,
+            "next_action": "Outputs are pending; do not create artifacts."
+          },
+          "error": null
+        },
+        "post_pull_review_chain_contract": {
+          "path": "reports/post_id341_post_pull_review_chain_contract_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 5520,
+          "decision": {
+            "post_pull_review_chain_contract_pass": true,
+            "output_pending": true,
+            "artifact_contract_review_allowed": false,
+            "public_058_reviewable": false,
+            "execute_kaggle_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "next_action": "Post-pull review chain is pending-safe; explicit approval is still required before any Kaggle network step."
+          },
+          "error": null
+        },
+        "runner_score_relevance_contract": {
+          "path": "reports/post_id341_runner_score_relevance_contract_20260618.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 11740,
+          "decision": {
+            "runner_score_relevance_contract_pass": true,
+            "score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+            "missing_targets": [
+              "Q2",
+              "Q3",
+              "S3"
+            ],
+            "execute_kaggle_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "next_action": "Runner is score-relevant and pending-safe; explicit approval is still required for Kaggle execution."
+          },
+          "error": null
+        },
+        "kernel_metadata": {
+          "path": "notebooks/kaggle_upstream_rebuild_runner/kernel-metadata.json",
+          "exists": true,
+          "parse_ok": true,
+          "bytes": 469,
+          "decision": {},
+          "error": null,
+          "id": "softkleenex/dacon-etri-upstream-rebuild-post-id341",
+          "code_file": "Upstream_Rebuild_Post_ID341_Runner.ipynb",
+          "enable_gpu": false,
+          "enable_tpu": false,
+          "dataset_sources": [
+            "softkleenex/dacon-etri-human-base"
+          ],
+          "is_private": true,
+          "safe_for_cpu_no_submit_runner": true
+        }
+      },
+      "dry_runs": [
+        {
+          "cmd": "make -n kaggle-approval-contract-test",
+          "returncode": 0,
+          "passed": true,
+          "stdout_tail": ".venv/bin/ruff check tests/test_kaggle_remote_make_guards.py tests/test_kaggle_guarded_remote_contract_audit.py tests/test_kaggle_remote_fail_closed_dryrun_audit.py tests/test_post_id341_kaggle_output_intake_gate.py tests/test_post_id341_kaggle_prelaunch_gate.py tests/test_post_id341_kaggle_remote_summary.py tests/test_post_id341_kaggle_runner_intake_contract.py tests/test_post_id341_kaggle_source_package_contract.py tests/test_post_id341_post_pull_review_chain_contract.py tests/test_post_id341_remote_artifact_review_threshold.py tests/test_post_id341_remote_next_action.py tests/test_post_id341_operator_handoff_contract.py scripts/audit_kaggle_guarded_remote_contract.py scripts/audit_kaggle_remote_fail_closed_dryrun.py scripts/diagnose_kaggle_source_zip_selftest_post_id341.py scripts/diagnose_kaggle_upstream_execution_packet_post_id341.py scripts/diagnose_post_id341_kaggle_launch_approval_note.py scripts/diagnose_post_id341_kaggle_output_intake_gate.py scripts/diagnose_post_id341_kaggle_prelaunch_readiness_gate.py scripts/diagnose_post_id341_kaggle_runner_intake_contract.py scripts/diagnose_post_id341_post_pull_review_chain_contract.py scripts/diagnose_post_id341_operator_handoff_contract.py scripts/summarize_post_id341_kaggle_remote_results.py scripts/decide_post_id341_remote_next_action.py scripts/decide_post_id341_remote_artifact_review_threshold.py\n.venv/bin/ruff format --check tests/test_kaggle_remote_make_guards.py tests/test_kaggle_guarded_remote_contract_audit.py tests/test_kaggle_remote_fail_closed_dryrun_audit.py tests/test_post_id341_kaggle_output_intake_gate.py tests/test_post_id341_kaggle_prelaunch_gate.py tests/test_post_id341_kaggle_remote_summary.py tests/test_post_id341_kaggle_runner_intake_contract.py tests/test_post_id341_kaggle_source_package_contract.py tests/test_post_id341_post_pull_review_chain_contract.py tests/test_post_id341_remote_artifact_review_threshold.py tests/test_post_id341_remote_next_action.py tests/test_post_id341_operator_handoff_contract.py scripts/audit_kaggle_guarded_remote_contract.py scripts/audit_kaggle_remote_fail_closed_dryrun.py scripts/diagnose_kaggle_source_zip_selftest_post_id341.py scripts/diagnose_kaggle_upstream_execution_packet_post_id341.py scripts/diagnose_post_id341_kaggle_launch_approval_note.py scripts/diagnose_post_id341_kaggle_output_intake_gate.py scripts/diagnose_post_id341_kaggle_prelaunch_readiness_gate.py scripts/diagnose_post_id341_kaggle_runner_intake_contract.py scripts/diagnose_post_id341_post_pull_review_chain_contract.py scripts/diagnose_post_id341_operator_handoff_contract.py scripts/summarize_post_id341_kaggle_remote_results.py scripts/decide_post_id341_remote_next_action.py scripts/decide_post_id341_remote_artifact_review_threshold.py\nPYTHONPATH=. .venv/bin/pytest -q tests/test_kaggle_remote_make_guards.py tests/test_kaggle_guarded_remote_contract_audit.py tests/test_kaggle_remote_fail_closed_dryrun_audit.py tests/test_post_id341_kaggle_output_intake_gate.py tests/test_post_id341_kaggle_prelaunch_gate.py tests/test_post_id341_kaggle_remote_summary.py tests/test_post_id341_kaggle_runner_intake_contract.py tests/test_post_id341_kaggle_source_package_contract.py tests/test_post_id341_post_pull_review_chain_contract.py tests/test_post_id341_remote_artifact_review_threshold.py tests/test_post_id341_remote_next_action.py tests/test_post_id341_operator_handoff_contract.py\n",
+          "stderr_tail": ""
+        },
+        {
+          "cmd": "make -n kaggle-upstream-prelaunch-local",
+          "returncode": 0,
+          "passed": true,
+          "stdout_tail": "ke_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_q3s3_subject_drift_gate.py --output reports/post_id341_q3s3_subject_drift_gate_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_q3s3_event_cadence_smoke.py --output reports/post_id341_q3s3_event_cadence_smoke_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_q3s3_local_lane_closure.py --output reports/post_id341_q3s3_local_lane_closure_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_q3s3_negative_evidence_map.py --output reports/post_id341_q3s3_negative_evidence_map_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_q3s3_fold_nested_sibling_bridge_smoke.py --output reports/post_id341_q3s3_fold_nested_sibling_bridge_smoke_20260619.json\n.venv/bin/python scripts/diagnose_post_id341_q3s3_remaining_route_inventory.py --output reports/post_id341_q3s3_remaining_route_inventory_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_q2q3s3_local_fallback_chain_contract.py --output reports/post_id341_q2q3s3_local_fallback_chain_contract_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_external_public05917_residual_audit.py --output reports/post_id341_external_public05917_residual_audit_20260619.json\n.venv/bin/python scripts/diagnose_post_id341_kaggle_runner_intake_contract.py --output reports/post_id341_kaggle_runner_intake_contract_20260618.json\n.venv/bin/python scripts/diagnose_kaggle_upstream_execution_packet_post_id341.py --output reports/kaggle_upstream_execution_packet_post_id341_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_local_source_closure_synthesis.py --output reports/post_id341_local_source_closure_synthesis_20260618.json\n.venv/bin/python scripts/diagnose_kaggle_source_zip_selftest_post_id341.py --output reports/kaggle_source_zip_selftest_post_id341_20260618.json\n.venv/bin/python scripts/diagnose_kaggle_upstream_execution_packet_post_id341.py --output reports/kaggle_upstream_execution_packet_post_id341_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_local_source_closure_synthesis.py --output reports/post_id341_local_source_closure_synthesis_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_kaggle_launch_approval_note.py --output reports/post_id341_kaggle_launch_approval_note_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_kaggle_output_intake_gate.py --output reports/post_id341_kaggle_output_intake_gate_20260618.json\n.venv/bin/python scripts/summarize_post_id341_kaggle_remote_results.py --output reports/post_id341_kaggle_remote_result_summary_20260618.json\n.venv/bin/python scripts/decide_post_id341_remote_next_action.py --output reports/post_id341_remote_next_action_decision_20260618.json\n.venv/bin/python scripts/decide_post_id341_remote_artifact_review_threshold.py --output reports/post_id341_remote_artifact_review_threshold_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_post_pull_review_chain_contract.py --output reports/post_id341_post_pull_review_chain_contract_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_runner_score_relevance_contract.py --output reports/post_id341_runner_score_relevance_contract_20260618.json\n.venv/bin/python scripts/audit_kaggle_guarded_remote_contract.py --output reports/kaggle_guarded_remote_contract_audit_20260618.json\n.venv/bin/python scripts/audit_kaggle_remote_fail_closed_dryrun.py --output reports/kaggle_remote_fail_closed_dryrun_audit_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_local_smoke_freshness_gate.py --output reports/post_id341_local_smoke_freshness_gate_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_kaggle_prelaunch_readiness_gate.py --output reports/post_id341_kaggle_prelaunch_readiness_gate_20260618.json\n.venv/bin/python scripts/diagnose_post_id341_no_approval_frontier.py --output reports/post_id341_no_approval_frontier_20260619.json\n.venv/bin/python scripts/diagnose_post_id341_operator_handoff_contract.py --output reports/post_id341_operator_handoff_contract_20260619.json\n",
+          "stderr_tail": ""
+        },
+        {
+          "cmd": "make -n ALLOW_KAGGLE_REMOTE=true kaggle-push-code",
+          "returncode": 0,
+          "passed": true,
+          "stdout_tail": "if [ \"true\" != \"true\" ]; then \\\n\t\techo \"Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\"; \\\n\t\texit 2; \\\n\tfi\nmkdir -p build/kaggle_dataset\nrm -rf build/kaggle_dataset/*\nzip -r build/kaggle_dataset/source.zip src conf scripts pyproject.toml README.md Makefile dataset-metadata.json reports data/raw data/processed data/external artifacts/base_predictions submissions -x \"*/__pycache__/*\" \"*.pyc\" \".DS_Store\" \"*/.DS_Store\" \".pytest_cache/*\" \".ruff_cache/*\"\nif [ -f dataset-metadata.json ]; then cp dataset-metadata.json build/kaggle_dataset/; fi\necho \"Packaged project files into build/kaggle_dataset/\"\nif [ ! -f dataset-metadata.json ]; then echo \"Error: dataset-metadata.json not found in root. Run make kaggle-init-code first.\"; exit 1; fi\n.venv/bin/python scripts/pre_flight_check.py\n.venv/bin/kaggle datasets version -p build/kaggle_dataset -m \"Update source code\"\n",
+          "stderr_tail": ""
+        },
+        {
+          "cmd": "make -n ALLOW_KAGGLE_REMOTE=true kaggle-check-base-dataset-files",
+          "returncode": 0,
+          "passed": true,
+          "stdout_tail": "if [ \"true\" != \"true\" ]; then \\\n\t\techo \"Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\"; \\\n\t\texit 2; \\\n\tfi\n.venv/bin/kaggle datasets files softkleenex/dacon-etri-human-base\n",
+          "stderr_tail": ""
+        },
+        {
+          "cmd": "make -n ALLOW_KAGGLE_REMOTE=true kaggle-push-upstream-rebuild-runner",
+          "returncode": 0,
+          "passed": true,
+          "stdout_tail": "/Library/Developer/CommandLineTools/usr/bin/make kaggle-push-only KAGGLE_NOTEBOOK_DIR=notebooks/kaggle_upstream_rebuild_runner KAGGLE_SLUG=softkleenex/dacon-etri-upstream-rebuild-post-id341 KAGGLE_ENABLE_GPU=false KAGGLE_ENABLE_TPU=false\nif [ \"true\" != \"true\" ]; then \\\n\t\techo \"Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\"; \\\n\t\texit 2; \\\n\tfi\nsed -i '' -e \"s|\\\"id\\\": \\\".*\\\"|\\\"id\\\": \\\"softkleenex/dacon-etri-upstream-rebuild-post-id341\\\"|\" notebooks/kaggle_upstream_rebuild_runner/kernel-metadata.json\nsed -i '' -e \"s|\\\"title\\\": \\\".*\\\"|\\\"title\\\": \\\"dacon-etri-upstream-rebuild-post-id341\\\"|\" notebooks/kaggle_upstream_rebuild_runner/kernel-metadata.json\nsed -i '' -e \"s|\\\"enable_gpu\\\": [a-zA-Z]*|\\\"enable_gpu\\\": false|\" notebooks/kaggle_upstream_rebuild_runner/kernel-metadata.json\nsed -i '' -e \"s|\\\"enable_tpu\\\": [a-zA-Z]*|\\\"enable_tpu\\\": false|\" notebooks/kaggle_upstream_rebuild_runner/kernel-metadata.json\n.venv/bin/python scripts/pre_flight_check.py --notebook_dir notebooks/kaggle_upstream_rebuild_runner --research\n.venv/bin/kaggle kernels push -p notebooks/kaggle_upstream_rebuild_runner\necho \"Kernel softkleenex/dacon-etri-upstream-rebuild-post-id341 pushed successfully on Kaggle. GPU=false, TPU=false.\"\n",
+          "stderr_tail": ""
+        },
+        {
+          "cmd": "make -n ALLOW_KAGGLE_REMOTE=true kaggle-kernel-status-upstream-rebuild",
+          "returncode": 0,
+          "passed": true,
+          "stdout_tail": "if [ \"true\" != \"true\" ]; then \\\n\t\techo \"Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\"; \\\n\t\texit 2; \\\n\tfi\n.venv/bin/kaggle kernels status softkleenex/dacon-etri-upstream-rebuild-post-id341\n",
+          "stderr_tail": ""
+        },
+        {
+          "cmd": "make -n ALLOW_KAGGLE_REMOTE=true kaggle-wait-and-pull-upstream-rebuild-output",
+          "returncode": 0,
+          "passed": true,
+          "stdout_tail": "if [ \"true\" != \"true\" ]; then \\\n\t\techo \"Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\"; \\\n\t\texit 2; \\\n\tfi\n/Library/Developer/CommandLineTools/usr/bin/make kaggle-wait-and-pull KAGGLE_SLUG=softkleenex/dacon-etri-upstream-rebuild-post-id341 PULL_DIR=build/kaggle_outputs/upstream_rebuild_post_id341\nif [ \"true\" != \"true\" ]; then \\\n\t\techo \"Error: Kaggle remote action blocked. Re-run with ALLOW_KAGGLE_REMOTE=true after explicit approval.\"; \\\n\t\texit 2; \\\n\tfi\necho \"Waiting for Kaggle kernel softkleenex/dacon-etri-upstream-rebuild-post-id341 to finish...\"\nwhile true; do \\\n\t\tstatus_output=\"$(.venv/bin/kaggle kernels status softkleenex/dacon-etri-upstream-rebuild-post-id341 2>&1)\"; \\\n\t\techo \"$status_output\"; \\\n\t\tif echo \"$status_output\" | grep -Eiq 'complete|success'; then \\\n\t\t\tbreak; \\\n\t\tfi; \\\n\t\tif echo \"$status_output\" | grep -Eiq 'running|queued|pending'; then \\\n\t\t\techo \"Kernel is not complete yet... sleeping for 60 seconds.\"; \\\n\t\t\tsleep 60; \\\n\t\telse \\\n\t\t\techo \"Kernel status is not complete/running/queued/pending; refusing to pull outputs.\"; \\\n\t\t\texit 3; \\\n\t\tfi; \\\n\tdone; \\\n\techo \"Kernel finished. Pulling output...\"; \\\n\t.venv/bin/kaggle kernels output softkleenex/dacon-etri-upstream-rebuild-post-id341 -p build/kaggle_outputs/upstream_rebuild_post_id341 --force\necho \"Downloaded outputs to build/kaggle_outputs/upstream_rebuild_post_id341 directory.\"\n",
+          "stderr_tail": ""
+        },
+        {
+          "cmd": "make -n kaggle-review-upstream-rebuild-output",
+          "returncode": 0,
+          "passed": true,
+          "stdout_tail": ".venv/bin/python scripts/diagnose_post_id341_kaggle_output_intake_gate.py --output reports/post_id341_kaggle_output_intake_gate_20260618.json\n.venv/bin/python scripts/summarize_post_id341_kaggle_remote_results.py --output reports/post_id341_kaggle_remote_result_summary_20260618.json\n.venv/bin/python scripts/decide_post_id341_remote_next_action.py --output reports/post_id341_remote_next_action_decision_20260618.json\n.venv/bin/python scripts/decide_post_id341_remote_artifact_review_threshold.py --output reports/post_id341_remote_artifact_review_threshold_20260618.json\n",
+          "stderr_tail": ""
+        }
+      ],
+      "checks": {
+        "approval_note_ready": true,
+        "requires_explicit_user_approval": true,
+        "execution_packet_ready": true,
+        "source_zip_selftest_ready": true,
+        "runner_intake_contract_pass": true,
+        "runner_q3s3_negative_map_handoff_ready": true,
+        "guarded_remote_contract_pass": true,
+        "remote_fail_closed_dryrun_pass": true,
+        "public_local_gap_ready": true,
+        "public_local_gap_blocks_local_cv_only_promotion": true,
+        "data_source_coverage_ready": true,
+        "data_source_external_concat_blocked": true,
+        "data_source_local_stack_closed": true,
+        "missing_target_inventory_ready": true,
+        "q2q3s3_source_hypothesis_matrix_ready": true,
+        "q2q3s3_local_fallback_chain_ready": true,
+        "q3s3_local_lane_closure_ready": true,
+        "q3s3_semantic_routine_lane_closure_ready": true,
+        "q3s3_remaining_route_inventory_ready": true,
+        "local_runner_smoke_fresh": true,
+        "output_intake_pending_and_clean": true,
+        "post_pull_review_chain_ready": true,
+        "runner_score_relevance_ready": true,
+        "kernel_metadata_safe": true,
+        "remote_result_summary_script_exists": true,
+        "remote_next_action_script_exists": true,
+        "dry_runs_pass": true,
+        "no_forbidden_local_decision": true
+      },
+      "exact_command_sequence_after_explicit_approval": [
+        "ALLOW_KAGGLE_REMOTE=true make kaggle-push-code",
+        "ALLOW_KAGGLE_REMOTE=true make kaggle-check-base-dataset-files",
+        "ALLOW_KAGGLE_REMOTE=true make kaggle-push-upstream-rebuild-runner",
+        "ALLOW_KAGGLE_REMOTE=true make kaggle-kernel-status-upstream-rebuild",
+        "ALLOW_KAGGLE_REMOTE=true make kaggle-wait-and-pull-upstream-rebuild-output",
+        "make kaggle-review-upstream-rebuild-output"
+      ],
+      "local_pre_approval_command_sequence": [
+        "make kaggle-approval-contract-test",
+        "make kaggle-upstream-prelaunch-local"
+      ],
+      "decision": {
+        "prelaunch_ready_for_explicit_approval": true,
+        "requires_explicit_user_approval": true,
+        "execute_kaggle_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "artifact_contract_review_allowed": false,
+        "next_action": "Await explicit approval of the exact command sequence, then run the no-submit Kaggle/Linux parity path."
+      },
+      "no_model_trained": true,
+      "no_predictions_created": true,
+      "no_submission_created": true,
+      "no_base_prediction_artifact_created": true,
+      "no_notebook_history_artifact_created": true,
+      "no_submission_log_row_created": true,
+      "no_kaggle_push_or_run_made": true,
+      "no_dacon_submission_made": true,
+      "path": "reports/post_id341_kaggle_prelaunch_readiness_gate_20260618.json",
+      "exists": true,
+      "parse_ok": true
+    },
+    "existing_feature_matrix_schema_report": {
+      "created_at_kst": "2026-06-19 05:47:55 UTC+09:00",
+      "diagnostic": "post_id341_gps_path_topology_features_v1_schema",
+      "report_only": false,
+      "source_family": "gps_path_topology_sequence_v1",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ],
+      "purpose": "Validate and register the single allowed no-model/no-submission GPS path-topology feature matrix.",
+      "inputs": {
+        "contract_report": "reports/post_id341_gps_path_topology_feature_matrix_smoke_contract_20260619.json",
+        "raw_feature_family": "mGps + mActivity + mWifi + mBle daily topology/context aggregates"
+      },
+      "artifact": {
+        "matrix_path": "data/processed/post_id341_gps_path_topology_features_v1.parquet",
+        "schema_report_path": "reports/post_id341_gps_path_topology_features_v1_schema.json",
+        "matrix_exists": true,
+        "matrix_size_bytes": 114472,
+        "matrix_sha256": "c3915ce60754f9da5395550644753cf9f35966a2a88357e459c3c33fb04a3ae9"
+      },
+      "contract_checks": {
+        "contract_report_parse_ok": true,
+        "contract_ready_or_already_materialized": true,
+        "source_family_matches": true,
+        "target_focus_matches": true,
+        "matrix_path_matches_contract": true,
+        "schema_path_matches_contract": true,
+        "row_bound_matches_contract": true,
+        "column_bound_matches_contract": true,
+        "no_model_allowed_by_contract": true,
+        "no_submission_allowed_by_contract": true,
+        "no_submission_log_allowed_by_contract": true,
+        "no_kaggle_allowed_by_contract": true,
+        "no_dacon_allowed_by_contract": true
+      },
+      "validation": {
+        "checks": {
+          "row_count_exact": true,
+          "row_alignment_exact": true,
+          "duplicate_keys_absent": true,
+          "train_rows_exact": true,
+          "test_rows_exact": true,
+          "key_columns_first": true,
+          "feature_columns_exact_declared_order": true,
+          "feature_column_count_bounded": true,
+          "no_target_or_prediction_columns": true,
+          "all_feature_columns_numeric_or_bool": true,
+          "no_missing_feature_values": true,
+          "all_feature_values_finite": true,
+          "split_values_expected": true,
+          "coverage_passes": true,
+          "cardinality_capped": true
+        },
+        "allowed_boundary_passed": true,
+        "row_alignment": {
+          "expected_rows": 700,
+          "dryrun_rows": 700,
+          "exact_key_alignment": true,
+          "duplicate_keys": 0,
+          "train_rows": 450,
+          "test_rows": 250
+        },
+        "coverage": {
+          "by_split": {
+            "test": {
+              "rows": 250,
+              "gps_topology_ready_rows": 234,
+              "gps_topology_ready_rate": 0.936,
+              "place_context_ready_rows": 246,
+              "place_context_ready_rate": 0.984,
+              "median_gps_rows": 1376.0,
+              "median_gps_payload_points": 13957.0
+            },
+            "train": {
+              "rows": 450,
+              "gps_topology_ready_rows": 420,
+              "gps_topology_ready_rate": 0.9333333333333333,
+              "place_context_ready_rows": 439,
+              "place_context_ready_rate": 0.9755555555555555,
+              "median_gps_rows": 1371.0,
+              "median_gps_payload_points": 12568.5
+            }
+          },
+          "overall_gps_topology_ready_rate": 0.9342857142857143,
+          "overall_place_context_ready_rate": 0.9785714285714285
+        },
+        "feature_columns": {
+          "feature_column_count": 32,
+          "max_allowed_first_matrix_columns": 64,
+          "within_first_matrix_bound": true,
+          "missing_declared_features": [],
+          "extra_features": [],
+          "features": [
+            "gps_rows",
+            "gps_payload_points",
+            "gps_coordinate_payload_rows",
+            "gps_active_hours",
+            "gps_evening_rows_18_23",
+            "gps_night_rows_00_05",
+            "gps_gap_count_gt15m",
+            "gps_longest_gap_minutes",
+            "gps_observed_span_minutes",
+            "gps_speed_p50",
+            "gps_speed_p90",
+            "gps_speed_max",
+            "gps_low_speed_payload_share",
+            "gps_high_speed_payload_share",
+            "gps_lat_span",
+            "gps_lon_span",
+            "gps_bbox_area_proxy",
+            "gps_payload_quality_flag",
+            "activity_rows",
+            "activity_active_code_count",
+            "activity_top_code_share",
+            "activity_late_rows_18_23",
+            "wifi_rows",
+            "wifi_token_count_capped64",
+            "wifi_top_token_share",
+            "wifi_payload_points",
+            "ble_rows",
+            "ble_token_count_capped64",
+            "ble_top_token_share",
+            "ble_payload_points",
+            "place_context_rows",
+            "place_context_token_count_capped128"
+          ]
+        },
+        "forbidden_columns": [],
+        "numeric_or_bool_feature_columns": [
+          "gps_rows",
+          "gps_payload_points",
+          "gps_coordinate_payload_rows",
+          "gps_active_hours",
+          "gps_evening_rows_18_23",
+          "gps_night_rows_00_05",
+          "gps_gap_count_gt15m",
+          "gps_longest_gap_minutes",
+          "gps_observed_span_minutes",
+          "gps_speed_p50",
+          "gps_speed_p90",
+          "gps_speed_max",
+          "gps_low_speed_payload_share",
+          "gps_high_speed_payload_share",
+          "gps_lat_span",
+          "gps_lon_span",
+          "gps_bbox_area_proxy",
+          "gps_payload_quality_flag",
+          "activity_rows",
+          "activity_active_code_count",
+          "activity_top_code_share",
+          "activity_late_rows_18_23",
+          "wifi_rows",
+          "wifi_token_count_capped64",
+          "wifi_top_token_share",
+          "wifi_payload_points",
+          "ble_rows",
+          "ble_token_count_capped64",
+          "ble_top_token_share",
+          "ble_payload_points",
+          "place_context_rows",
+          "place_context_token_count_capped128"
+        ],
+        "cardinality_bounds": {
+          "wifi_cardinality": {
+            "source": "mWifi",
+            "prefix": "wifi",
+            "cap": 64,
+            "subjects": 10,
+            "max_raw_tokens_per_subject": 24373,
+            "subjects_over_cap_before_capping": 10,
+            "max_tokens_after_capping": 64
+          },
+          "ble_cardinality": {
+            "source": "mBle",
+            "prefix": "ble",
+            "cap": 64,
+            "subjects": 10,
+            "max_raw_tokens_per_subject": 119814,
+            "subjects_over_cap_before_capping": 10,
+            "max_tokens_after_capping": 64
+          }
+        }
+      },
+      "schema": [
+        {
+          "name": "subject_id",
+          "dtype": "str",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 10
+        },
+        {
+          "name": "lifelog_date",
+          "dtype": "str",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 166
+        },
+        {
+          "name": "split",
+          "dtype": "str",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 2
+        },
+        {
+          "name": "gps_rows",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 327,
+          "min": 0.0,
+          "max": 1440.0,
+          "mean": 1143.73
+        },
+        {
+          "name": "gps_payload_points",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 647,
+          "min": 0.0,
+          "max": 22720.0,
+          "mean": 12209.902857142857
+        },
+        {
+          "name": "gps_coordinate_payload_rows",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 327,
+          "min": 0.0,
+          "max": 1440.0,
+          "mean": 1143.73
+        },
+        {
+          "name": "gps_active_hours",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 23,
+          "min": 0.0,
+          "max": 24.0,
+          "mean": 21.23857142857143
+        },
+        {
+          "name": "gps_evening_rows_18_23",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 183,
+          "min": 0.0,
+          "max": 360.0,
+          "mean": 283.79285714285714
+        },
+        {
+          "name": "gps_night_rows_00_05",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 154,
+          "min": 0.0,
+          "max": 360.0,
+          "mean": 273.93857142857144
+        },
+        {
+          "name": "gps_gap_count_gt15m",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 21,
+          "min": 0.0,
+          "max": 20.0,
+          "mean": 2.7185714285714284
+        },
+        {
+          "name": "gps_longest_gap_minutes",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 195,
+          "min": 0.0,
+          "max": 1008.0,
+          "mean": 69.47142857142858
+        },
+        {
+          "name": "gps_observed_span_minutes",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 106,
+          "min": 0.0,
+          "max": 1439.0,
+          "mean": 1314.9357142857143
+        },
+        {
+          "name": "gps_speed_p50",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 607,
+          "min": 0.0,
+          "max": 4.70355,
+          "mean": 0.1379185
+        },
+        {
+          "name": "gps_speed_p90",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 646,
+          "min": 0.0,
+          "max": 6.709390000000001,
+          "mean": 0.3102685214285715
+        },
+        {
+          "name": "gps_speed_max",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 659,
+          "min": 0.0,
+          "max": 246.7145,
+          "mean": 25.617115714285713
+        },
+        {
+          "name": "gps_low_speed_payload_share",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 642,
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.6309043416474517
+        },
+        {
+          "name": "gps_high_speed_payload_share",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 569,
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.058705025488214276
+        },
+        {
+          "name": "gps_lat_span",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 661,
+          "min": 0.0,
+          "max": 1.9935776,
+          "mean": 0.12258695371428571
+        },
+        {
+          "name": "gps_lon_span",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 661,
+          "min": 0.0,
+          "max": 2.457683,
+          "mean": 0.10703881614285714
+        },
+        {
+          "name": "gps_bbox_area_proxy",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 661,
+          "min": 0.0,
+          "max": 4.8995817767008,
+          "mean": 0.06179483895069328
+        },
+        {
+          "name": "gps_payload_quality_flag",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 2,
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.9342857142857143
+        },
+        {
+          "name": "activity_rows",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 172,
+          "min": 390.0,
+          "max": 1440.0,
+          "mean": 1372.9457142857143
+        },
+        {
+          "name": "activity_active_code_count",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 6,
+          "min": 1.0,
+          "max": 6.0,
+          "mean": 3.892857142857143
+        },
+        {
+          "name": "activity_top_code_share",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 548,
+          "min": 0.40982456140350876,
+          "max": 1.0,
+          "mean": 0.8355242003707557
+        },
+        {
+          "name": "activity_late_rows_18_23",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 91,
+          "min": 0.0,
+          "max": 360.0,
+          "mean": 342.0985714285714
+        },
+        {
+          "name": "wifi_rows",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 99,
+          "min": 0.0,
+          "max": 144.0,
+          "mean": 109.05142857142857
+        },
+        {
+          "name": "wifi_token_count_capped64",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 34,
+          "min": 0.0,
+          "max": 64.0,
+          "mean": 59.77428571428572
+        },
+        {
+          "name": "wifi_top_token_share",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 666,
+          "min": 0.0,
+          "max": 0.16883116883116883,
+          "mean": 0.04418211433118394
+        },
+        {
+          "name": "wifi_payload_points",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 599,
+          "min": 0.0,
+          "max": 5413.0,
+          "mean": 1814.2942857142857
+        },
+        {
+          "name": "ble_rows",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 78,
+          "min": 0.0,
+          "max": 98.0,
+          "mean": 31.185714285714287
+        },
+        {
+          "name": "ble_token_count_capped64",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 36,
+          "min": 0.0,
+          "max": 64.0,
+          "mean": 57.575714285714284
+        },
+        {
+          "name": "ble_top_token_share",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 624,
+          "min": 0.0,
+          "max": 0.5,
+          "mean": 0.05871741853690957
+        },
+        {
+          "name": "ble_payload_points",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 505,
+          "min": 0.0,
+          "max": 3698.0,
+          "mean": 624.3628571428571
+        },
+        {
+          "name": "place_context_rows",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 144,
+          "min": 0.0,
+          "max": 242.0,
+          "mean": 140.23714285714286
+        },
+        {
+          "name": "place_context_token_count_capped128",
+          "dtype": "float64",
+          "non_null_count": 700,
+          "null_count": 0,
+          "unique_count": 62,
+          "min": 0.0,
+          "max": 128.0,
+          "mean": 117.35
+        }
+      ],
+      "decision": {
+        "feature_matrix_materialized": true,
+        "matrix_written_now": true,
+        "source_family": "gps_path_topology_sequence_v1",
+        "target_focus": [
+          "Q3",
+          "S3"
+        ],
+        "allowed_boundary_passed": true,
+        "contract_passed": true,
+        "row_count": 700,
+        "feature_column_count": 32,
+        "public_058_evidence": false,
+        "score_route_opened": false,
+        "train_model_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_local_allowed_step": "validate_feature_matrix_then_stop_or_wait_for_explicit_kaggle_approval",
+        "next_action": "Feature matrix is registered as non-score infrastructure only. Do not create ID342, train a model, submit to DACON, or run Kaggle from this artifact without a separate approved contract."
+      },
+      "safety_contract": {
+        "feature_matrix_written": true,
+        "predictions_created": false,
+        "submission_csv_created": false,
+        "submission_log_modified": false,
+        "base_prediction_artifact_created": false,
+        "notebook_history_artifact_created": false,
+        "model_trained": false,
+        "kaggle_run_executed": false,
+        "dacon_submission_executed": false,
+        "uses_target_labels": false,
+        "uses_oof_predictions": false,
+        "uses_public_scores": false
+      },
+      "path": "reports/post_id341_gps_path_topology_features_v1_schema.json",
+      "exists": true,
+      "parse_ok": true
+    }
+  },
+  "checks": {
+    "input_contract": {
+      "gps_feature_generation_dryrun": true,
+      "no_approval_frontier": true,
+      "local_smoke_freshness": true,
+      "prelaunch_gate": true
+    },
+    "dryrun_contract": {
+      "dryrun_passed": true,
+      "source_family_matches": true,
+      "target_focus_matches": true,
+      "row_alignment_exact": true,
+      "feature_columns_bounded": true,
+      "coverage_passes": true,
+      "cardinality_capped": true,
+      "dryrun_wrote_no_artifacts": true,
+      "dryrun_all_action_flags_false": true
+    },
+    "frontier_contract": {
+      "frontier_ready": true,
+      "local_score_routes_closed": true,
+      "no_approval_score_route_absent": true,
+      "score_route_requires_kaggle_approval": true,
+      "public_058_not_reviewable": true,
+      "frontier_all_action_flags_false": true
+    },
+    "smoke_contract": {
+      "local_smoke_fresh": true,
+      "local_smoke_rerun_not_required": true,
+      "prelaunch_ready_for_explicit_approval": true,
+      "prelaunch_still_requires_approval": true,
+      "prelaunch_artifact_review_closed": true,
+      "smoke_and_prelaunch_action_flags_false": true
+    },
+    "existing_registered_output_contract": {
+      "schema_report_parse_ok": true,
+      "schema_diagnostic_matches": true,
+      "schema_source_family_matches": true,
+      "schema_target_focus_matches": true,
+      "schema_matrix_path_matches": true,
+      "schema_matrix_exists": true,
+      "schema_feature_matrix_materialized": true,
+      "schema_allowed_boundary_passed": true,
+      "schema_row_and_column_bounds_match": true,
+      "schema_score_actions_closed": true,
+      "schema_safety_flags_closed": true
+    },
+    "path_contract": {
+      "proposed_matrix_path_is_unique": true,
+      "proposed_schema_path_is_unique": true,
+      "proposed_matrix_absent_or_registered_existing": true,
+      "proposed_schema_absent_or_registered_existing": true,
+      "proposed_matrix_under_data_processed": true,
+      "proposed_schema_under_reports": true
+    }
+  },
+  "allowed_future_write_contract": {
+    "allowed_matrix_path": "data/processed/post_id341_gps_path_topology_features_v1.parquet",
+    "allowed_schema_report_path": "reports/post_id341_gps_path_topology_features_v1_schema.json",
+    "allowed_rows_exact": 700,
+    "allowed_feature_columns_max": 64,
+    "required_key_columns": [
+      "subject_id",
+      "lifelog_date",
+      "split"
+    ],
+    "required_feature_family": "gps_path_topology_sequence_v1",
+    "required_target_focus": [
+      "Q3",
+      "S3"
+    ],
+    "must_revalidate_after_write": true,
+    "must_not_include_target_labels": true,
+    "must_not_include_oof_predictions": true,
+    "must_not_include_submission_predictions": true,
+    "must_not_train_model": true,
+    "must_not_create_submission_artifact": true,
+    "must_not_modify_submission_log": true,
+    "must_not_run_kaggle": true,
+    "must_not_submit_dacon": true
+  },
+  "decision": {
+    "feature_matrix_smoke_contract_ready": true,
+    "source_family": "gps_path_topology_sequence_v1",
+    "target_focus": [
+      "Q3",
+      "S3"
+    ],
+    "feature_matrix_write_allowed_now": false,
+    "feature_matrix_write_allowed_next_under_contract": false,
+    "feature_matrix_already_materialized_under_contract": true,
+    "allowed_future_matrix_path": "data/processed/post_id341_gps_path_topology_features_v1.parquet",
+    "allowed_future_schema_report_path": "reports/post_id341_gps_path_topology_features_v1_schema.json",
+    "public_058_evidence": false,
+    "score_route_opened": false,
+    "train_model_now": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_local_allowed_step": "validate_gps_feature_matrix_then_stop_no_model_no_submission",
+    "next_action": "The registered GPS feature matrix already exists and passed schema validation. Stop here unless a separate model/submission contract is opened."
+  },
+  "no_feature_matrix_written": true,
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

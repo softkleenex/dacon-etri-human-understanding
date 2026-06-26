@@ -1,0 +1,60 @@
+{
+  "report": "kaggle_offload_status_and_next_lanes_post_id339",
+  "created_at_kst": "2026-06-18 02:28:32 UTC+09:00",
+  "cli": {
+    "project_cli": ".venv/bin/kaggle",
+    "version": "2.1.1",
+    "bare_kaggle_on_shell_path": false,
+    "warning": "CLI works through Makefile/project path, but Kaggle warns that 2.1.1 is older than 2.2.2. No upgrade was performed."
+  },
+  "remote_status": {
+    "softkleenex/dacon-etri-sequence-source-post-id335": "COMPLETE",
+    "softkleenex/dacon-etri-sequence-anchor-probe-post-id335": "COMPLETE"
+  },
+  "pulled_outputs": {
+    "sequence_source_manifest_created_utc": "2026-06-17T15:14:43.896350+00:00",
+    "sequence_source_jobs": 6,
+    "sequence_source_dir": "build/kaggle_outputs/sequence_source_post_id335 (transient; removed after manifest inspection to keep structure audit clean)",
+    "sequence_anchor_manifest_created_utc": "2026-06-17T15:33:53.844283+00:00",
+    "sequence_anchor_jobs": 4,
+    "sequence_anchor_dir": "build/kaggle_outputs/sequence_anchor_probe_post_id335 (transient; removed after manifest inspection to keep structure audit clean)",
+    "transient_pull_cleaned_after_inspection": true
+  },
+  "submission_decision": {
+    "matrix": "reports/post_id339_submission_decision_matrix_20260618.md",
+    "recommended_if_user_forces_one_probe": "ID337",
+    "id337_file": "submission_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066_unsubmitted.csv",
+    "id339_status": "local-gain candidate but worse conservative public-risk proxy",
+    "no_dacon_submission_made": true
+  },
+  "next_kaggle_lanes": [
+    {
+      "lane": "candidate_parity_post_id339",
+      "priority": 1,
+      "compute": "Kaggle CPU, no GPU/TPU required",
+      "purpose": "Reproduce ID337/ID339 candidate construction and metrics remotely before treating either as a trusted public probe.",
+      "outputs": "JSON/MD parity report only; no CSV promotion, no submission log row, no DACON submission.",
+      "why": "This directly addresses Mac/local environment concerns without adding public-guided model complexity."
+    },
+    {
+      "lane": "dl_environment_parity_before_any_mac_dl_promotion",
+      "priority": 2,
+      "compute": "Kaggle CPU/GPU depending on model, but report-only",
+      "purpose": "If any TensorFlow/Keras/PyTorch-MPS local artifact is considered, compare same seed/data slice against Kaggle/CPU reference first.",
+      "outputs": "prediction-correlation and log-loss-delta report only.",
+      "why": "Mac M4/MPS/Metal behavior can be a confounder for DL artifacts, though it is not the direct cause of ID339."
+    },
+    {
+      "lane": "new_model_heavy_training",
+      "priority": 3,
+      "compute": "Kaggle only after parity/selection gate",
+      "purpose": "Only after validation/selection gates stop contradicting public behavior.",
+      "outputs": "report-only first; promotion requires full contract and approval.",
+      "why": "ID287/ID329 showed that adding complexity before validation repair is wasteful."
+    }
+  ],
+  "decision": {
+    "push_new_kaggle_job_now": false,
+    "reason": "Existing outputs were pulled and inspected successfully, then transient build outputs were removed to keep the repository structure clean. The next useful Kaggle job should be a deliberately scoped parity runner, not another broad model sweep, and should be prepared as report-only before any push."
+  }
+}

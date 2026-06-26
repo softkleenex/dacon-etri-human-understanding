@@ -1,0 +1,90 @@
+{
+  "created_at_kst": "2026-06-16",
+  "purpose": "Candidate tier manifest after ID239-ID243 ID238 recalibration frontier.",
+  "public_truth": {
+    "best_confirmed_public_id": 178,
+    "best_confirmed_public_score": 0.6014113009,
+    "id178_local": 0.538638,
+    "id178_public_gap": 0.0627733009,
+    "public_055_proven": false
+  },
+  "new_candidates": {
+    "id239": "ID238 isotonic recalibration, local 0.437967.",
+    "id240": "ID238 q80 non-S3 plus S4 isotonic, local 0.417349.",
+    "id241": "ID238 q160 non-S3 plus S4 isotonic, local 0.383459.",
+    "id242": "ID238 q240 non-S3 plus S4 isotonic, local 0.357651, current raw local minimum.",
+    "id243": "ID238 q240 all including S4 q240, local 0.360420, less S4 extreme than ID242."
+  },
+  "ranked_by_recommendation": [
+    235,
+    238,
+    243,
+    242,
+    241,
+    240,
+    239
+  ],
+  "recommendation": "ID235 remains the balanced next Public-0.55 probe. ID238 is the aggressive recombination probe. ID242/ID243 are extreme local-frontier calibration stress tests and should not be treated as public proof despite very low local CV.",
+  "candidate_rows": [
+    {
+      "id": 235,
+      "submission_file": "submission_id_235_id226_tempgrid_s4q40_frontier_cv0.482255_unsubmitted.csv",
+      "local_cv": 0.48225524243015083,
+      "robustness_score": 0.5115175028054054,
+      "id178_gap_estimate": 0.5450285433301508,
+      "risk_note": "balanced mid-risk score-margin card; still the saner public probe"
+    },
+    {
+      "id": 238,
+      "submission_file": "submission_id_238_id227_clean_anchor_logit_oracle_frontier_cv0.462365_unsubmitted.csv",
+      "local_cv": 0.4623650212416277,
+      "robustness_score": 0.49365837110082356,
+      "id178_gap_estimate": 0.5251383221416277,
+      "risk_note": "aggressive local frontier before recalibration; full-OOF oracle recombination"
+    },
+    {
+      "id": 239,
+      "submission_file": "submission_id_239_id238_iso_recal_frontier_cv0.437967_unsubmitted.csv",
+      "local_cv": 0.4379674200277118,
+      "robustness_score": 0.4680533096419871,
+      "id178_gap_estimate": 0.5007407209277117,
+      "risk_note": "ID238 isotonic recalibration; first sub-0.44 frontier, high overfit risk"
+    },
+    {
+      "id": 240,
+      "submission_file": "submission_id_240_id238_q80_s4iso_recal_frontier_cv0.417349_unsubmitted.csv",
+      "local_cv": 0.41734947101271486,
+      "robustness_score": 0.44483940330568383,
+      "id178_gap_estimate": 0.48012277191271485,
+      "risk_note": "ID238 q80 non-S3 + S4 isotonic; sub-0.42 quantile frontier"
+    },
+    {
+      "id": 241,
+      "submission_file": "submission_id_241_id238_q160_s4iso_recal_frontier_cv0.383459_unsubmitted.csv",
+      "local_cv": 0.3834593248651115,
+      "robustness_score": 0.4066211209491742,
+      "id178_gap_estimate": 0.44623262576511147,
+      "risk_note": "ID238 q160 non-S3 + S4 isotonic; sub-0.39 ultra-risk frontier"
+    },
+    {
+      "id": 242,
+      "submission_file": "submission_id_242_id238_q240_s4iso_recal_frontier_cv0.357651_unsubmitted.csv",
+      "local_cv": 0.35765072486726873,
+      "robustness_score": 0.38773996977749836,
+      "id178_gap_estimate": 0.4204240257672687,
+      "risk_note": "current raw local minimum; q240 non-S3 + S4 isotonic, severe overfit/S4 extremeness risk"
+    },
+    {
+      "id": 243,
+      "submission_file": "submission_id_243_id238_q240_all_recal_frontier_cv0.360420_unsubmitted.csv",
+      "local_cv": 0.3604198012086374,
+      "robustness_score": 0.39028492543387083,
+      "id178_gap_estimate": 0.4231931021086374,
+      "risk_note": "q240-all alternative; slightly worse local than ID242 but less S4 isotonic extremeness"
+    }
+  ],
+  "supporting_reports": [
+    "reports/post_id243_id238_recalibration_frontier_robustness_20260616.json",
+    "reports/post_id238_clean_anchor_logit_oracle_robustness_20260616.json"
+  ]
+}

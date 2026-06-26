@@ -1,0 +1,918 @@
+{
+  "created_at_kst": "2026-06-24 03:19:56 UTC+09:00",
+  "diagnostic": "post_id342_sleep_boundary_q3s3_rescue_smoke",
+  "purpose": "Re-test direct sleep-boundary/SOL features against ID342 for Q3/S3 only.",
+  "sequence_distance_smoke_report": "reports/post_id342_sequence_summary_distance_kernel_smoke_20260624.json",
+  "anchor": "ID342",
+  "validation": {
+    "primary_splits": [
+      "subject_hole_5",
+      "actual_test_band_holdout",
+      "test_boundary_neighbor2_holdout",
+      "test_boundary_neighbor5_holdout",
+      "loso_10"
+    ],
+    "model_specs": [
+      {
+        "name": "lr_c0_05",
+        "kind": "lr",
+        "c_value": 0.05,
+        "max_iter": null,
+        "max_leaf_nodes": null,
+        "l2_regularization": null
+      },
+      {
+        "name": "lr_c0_2",
+        "kind": "lr",
+        "c_value": 0.2,
+        "max_iter": null,
+        "max_leaf_nodes": null,
+        "l2_regularization": null
+      },
+      {
+        "name": "hgb_l5_l2_2",
+        "kind": "hgb",
+        "c_value": null,
+        "max_iter": 70,
+        "max_leaf_nodes": 5,
+        "l2_regularization": 2.0
+      }
+    ],
+    "blend_weights": [
+      0.005,
+      0.01,
+      0.02,
+      0.03,
+      0.05,
+      0.1
+    ],
+    "target_win_floor": 4,
+    "target_mean_delta_ceiling": -5e-05,
+    "target_max_delta_ceiling": 0.00075
+  },
+  "feature_contract": {
+    "domain_read": "S3 is sleep-onset-latency guideline adherence; Q3 is pre-sleep stress. This smoke emphasizes screen-off, charging, low movement, light drop, and heart-rate boundary features.",
+    "coverage": {
+      "n_rows": 700,
+      "n_train_rows": 450,
+      "n_test_rows": 250,
+      "n_feature_columns": 294,
+      "n_raw_numeric_columns": 147,
+      "train_missing_mean": 0.06866213151927436,
+      "test_missing_mean": 0.0673061224489796,
+      "top_missing_features": {
+        "sbt_hr_std_night_24_30": 0.8044444444444444,
+        "sbt_hr_evening_minus_night": 0.8022222222222222,
+        "sbt_hr_morning_minus_night": 0.7866666666666666,
+        "sbt_hr_min_night_24_30": 0.76,
+        "sbt_hr_mean_night_24_30": 0.76,
+        "sbt_hr_std_late_22_24": 0.6644444444444444,
+        "sbt_hr_mean_late_22_24": 0.6355555555555555,
+        "sbt_hr_min_late_22_24": 0.6355555555555555,
+        "sbt_pedo_low_step_gap_hours": 0.5044444444444445,
+        "sbt_pedo_step_sum_night_24_30": 0.3888888888888889,
+        "sbt_pedo_has_step_ratio_night_24_30": 0.3888888888888889,
+        "sbt_wlight_mean_night_24_30": 0.3511111111111111
+      }
+    },
+    "feature_families": {
+      "all": {
+        "feature_count": 294,
+        "example_features": [
+          "sbt_screen_all_12_36_count",
+          "sbt_screen_all_12_36_sum",
+          "sbt_screen_all_12_36_mean",
+          "sbt_screen_eve_18_22_count",
+          "sbt_screen_eve_18_22_sum",
+          "sbt_screen_eve_18_22_mean",
+          "sbt_screen_late_22_24_count",
+          "sbt_screen_late_22_24_sum",
+          "sbt_screen_late_22_24_mean",
+          "sbt_screen_night_24_30_count",
+          "sbt_screen_night_24_30_sum",
+          "sbt_screen_night_24_30_mean"
+        ]
+      },
+      "sol_light_screen_motion": {
+        "feature_count": 202,
+        "example_features": [
+          "sbt_screen_all_12_36_count",
+          "sbt_screen_all_12_36_sum",
+          "sbt_screen_all_12_36_mean",
+          "sbt_screen_eve_18_22_count",
+          "sbt_screen_eve_18_22_sum",
+          "sbt_screen_eve_18_22_mean",
+          "sbt_screen_late_22_24_count",
+          "sbt_screen_late_22_24_sum",
+          "sbt_screen_late_22_24_mean",
+          "sbt_screen_night_24_30_count",
+          "sbt_screen_night_24_30_sum",
+          "sbt_screen_night_24_30_mean"
+        ]
+      },
+      "stress_hr_activity_screen": {
+        "feature_count": 142,
+        "example_features": [
+          "sbt_screen_all_12_36_count",
+          "sbt_screen_all_12_36_sum",
+          "sbt_screen_all_12_36_mean",
+          "sbt_screen_eve_18_22_count",
+          "sbt_screen_eve_18_22_sum",
+          "sbt_screen_eve_18_22_mean",
+          "sbt_screen_late_22_24_count",
+          "sbt_screen_late_22_24_sum",
+          "sbt_screen_late_22_24_mean",
+          "sbt_screen_night_24_30_count",
+          "sbt_screen_night_24_30_sum",
+          "sbt_screen_night_24_30_mean"
+        ]
+      }
+    }
+  },
+  "target_reports": {
+    "Q3": {
+      "target": "Q3",
+      "best": {
+        "target": "Q3",
+        "config": "Q3_id342_sleep_boundary_stress_hr_activity_screen_hgb_l5_l2_2_w0.005",
+        "feature_family": "stress_hr_activity_screen",
+        "feature_count": 142,
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "weight": 0.005,
+        "wins": 0,
+        "mean_delta": 0.0001754196820273446,
+        "max_delta": 0.00031736198829279694,
+        "min_delta": 3.743490386465265e-05,
+        "split_deltas": {
+          "subject_hole_5": 0.0001889452555768889,
+          "actual_test_band_holdout": 0.00031736198829279694,
+          "test_boundary_neighbor2_holdout": 3.743490386465265e-05,
+          "test_boundary_neighbor5_holdout": 0.0001971211318704258,
+          "loso_10": 0.00013623513053195868
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5634148495410614,
+          "actual_test_band_holdout": 0.5148662125576168,
+          "test_boundary_neighbor2_holdout": 0.6064237216017452,
+          "test_boundary_neighbor5_holdout": 0.5835724309962448,
+          "loso_10": 0.5633621394160164
+        },
+        "split_anchor_losses": {
+          "subject_hole_5": 0.5632259042854845,
+          "actual_test_band_holdout": 0.514548850569324,
+          "test_boundary_neighbor2_holdout": 0.6063862866978805,
+          "test_boundary_neighbor5_holdout": 0.5833753098643744,
+          "loso_10": 0.5632259042854845
+        },
+        "eligible": false
+      },
+      "eligible_count": 0,
+      "selected": null,
+      "top_rows": [
+        {
+          "target": "Q3",
+          "config": "Q3_id342_sleep_boundary_stress_hr_activity_screen_hgb_l5_l2_2_w0.005",
+          "feature_family": "stress_hr_activity_screen",
+          "feature_count": 142,
+          "model_spec": {
+            "name": "hgb_l5_l2_2",
+            "kind": "hgb",
+            "c_value": null,
+            "max_iter": 70,
+            "max_leaf_nodes": 5,
+            "l2_regularization": 2.0
+          },
+          "weight": 0.005,
+          "wins": 0,
+          "mean_delta": 0.0001754196820273446,
+          "max_delta": 0.00031736198829279694,
+          "min_delta": 3.743490386465265e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.0001889452555768889,
+            "actual_test_band_holdout": 0.00031736198829279694,
+            "test_boundary_neighbor2_holdout": 3.743490386465265e-05,
+            "test_boundary_neighbor5_holdout": 0.0001971211318704258,
+            "loso_10": 0.00013623513053195868
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5634148495410614,
+            "actual_test_band_holdout": 0.5148662125576168,
+            "test_boundary_neighbor2_holdout": 0.6064237216017452,
+            "test_boundary_neighbor5_holdout": 0.5835724309962448,
+            "loso_10": 0.5633621394160164
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_sleep_boundary_stress_hr_activity_screen_lr_c0_05_w0.005",
+          "feature_family": "stress_hr_activity_screen",
+          "feature_count": 142,
+          "model_spec": {
+            "name": "lr_c0_05",
+            "kind": "lr",
+            "c_value": 0.05,
+            "max_iter": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null
+          },
+          "weight": 0.005,
+          "wins": 0,
+          "mean_delta": 0.00018395689182886253,
+          "max_delta": 0.00042076809876789856,
+          "min_delta": 2.8157699226483146e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.00023364955509896923,
+            "actual_test_band_holdout": 0.00042076809876789856,
+            "test_boundary_neighbor2_holdout": 2.8157699226483146e-05,
+            "test_boundary_neighbor5_holdout": 8.99656447460595e-05,
+            "loso_10": 0.0001472434613049023
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5634595538405834,
+            "actual_test_band_holdout": 0.5149696186680919,
+            "test_boundary_neighbor2_holdout": 0.606414444397107,
+            "test_boundary_neighbor5_holdout": 0.5834652755091204,
+            "loso_10": 0.5633731477467894
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_sleep_boundary_sol_light_screen_motion_hgb_l5_l2_2_w0.005",
+          "feature_family": "sol_light_screen_motion",
+          "feature_count": 202,
+          "model_spec": {
+            "name": "hgb_l5_l2_2",
+            "kind": "hgb",
+            "c_value": null,
+            "max_iter": 70,
+            "max_leaf_nodes": 5,
+            "l2_regularization": 2.0
+          },
+          "weight": 0.005,
+          "wins": 0,
+          "mean_delta": 0.0001998131414295834,
+          "max_delta": 0.0003519023006035571,
+          "min_delta": 7.172323787063561e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.00022436520934365767,
+            "actual_test_band_holdout": 0.0003519023006035571,
+            "test_boundary_neighbor2_holdout": 7.172323787063561e-05,
+            "test_boundary_neighbor5_holdout": 0.00015117173291789854,
+            "loso_10": 0.00019990322641216807
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5634502694948281,
+            "actual_test_band_holdout": 0.5149007528699275,
+            "test_boundary_neighbor2_holdout": 0.6064580099357512,
+            "test_boundary_neighbor5_holdout": 0.5835264815972923,
+            "loso_10": 0.5634258075118966
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_sleep_boundary_all_hgb_l5_l2_2_w0.005",
+          "feature_family": "all",
+          "feature_count": 294,
+          "model_spec": {
+            "name": "hgb_l5_l2_2",
+            "kind": "hgb",
+            "c_value": null,
+            "max_iter": 70,
+            "max_leaf_nodes": 5,
+            "l2_regularization": 2.0
+          },
+          "weight": 0.005,
+          "wins": 0,
+          "mean_delta": 0.0002051235331087309,
+          "max_delta": 0.00038277597309954725,
+          "min_delta": 0.00010113209629536435,
+          "split_deltas": {
+            "subject_hole_5": 0.000202588563796402,
+            "actual_test_band_holdout": 0.00038277597309954725,
+            "test_boundary_neighbor2_holdout": 0.00010113209629536435,
+            "test_boundary_neighbor5_holdout": 0.00015664717329200162,
+            "loso_10": 0.0001824738590603392
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5634284928492809,
+            "actual_test_band_holdout": 0.5149316265424235,
+            "test_boundary_neighbor2_holdout": 0.6064874187941759,
+            "test_boundary_neighbor5_holdout": 0.5835319570376664,
+            "loso_10": 0.5634083781445448
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_sleep_boundary_stress_hr_activity_screen_lr_c0_2_w0.005",
+          "feature_family": "stress_hr_activity_screen",
+          "feature_count": 142,
+          "model_spec": {
+            "name": "lr_c0_2",
+            "kind": "lr",
+            "c_value": 0.2,
+            "max_iter": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null
+          },
+          "weight": 0.005,
+          "wins": 0,
+          "mean_delta": 0.00022715470507741475,
+          "max_delta": 0.0004393271228727569,
+          "min_delta": 0.000130568605320458,
+          "split_deltas": {
+            "subject_hole_5": 0.00027535773666642616,
+            "actual_test_band_holdout": 0.0004393271228727569,
+            "test_boundary_neighbor2_holdout": 0.00013154844300033997,
+            "test_boundary_neighbor5_holdout": 0.00015897161752709277,
+            "loso_10": 0.000130568605320458
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5635012620221509,
+            "actual_test_band_holdout": 0.5149881776921967,
+            "test_boundary_neighbor2_holdout": 0.6065178351408809,
+            "test_boundary_neighbor5_holdout": 0.5835342814819015,
+            "loso_10": 0.5633564728908049
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_sleep_boundary_sol_light_screen_motion_lr_c0_05_w0.005",
+          "feature_family": "sol_light_screen_motion",
+          "feature_count": 202,
+          "model_spec": {
+            "name": "lr_c0_05",
+            "kind": "lr",
+            "c_value": 0.05,
+            "max_iter": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null
+          },
+          "weight": 0.005,
+          "wins": 0,
+          "mean_delta": 0.00029544834399959364,
+          "max_delta": 0.0005394135340139883,
+          "min_delta": 0.00011836532965858737,
+          "split_deltas": {
+            "subject_hole_5": 0.00020499448692867794,
+            "actual_test_band_holdout": 0.0005394135340139883,
+            "test_boundary_neighbor2_holdout": 0.00042240845858643183,
+            "test_boundary_neighbor5_holdout": 0.00019205991081028273,
+            "loso_10": 0.00011836532965858737
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5634308987724131,
+            "actual_test_band_holdout": 0.515088264103338,
+            "test_boundary_neighbor2_holdout": 0.606808695156467,
+            "test_boundary_neighbor5_holdout": 0.5835673697751846,
+            "loso_10": 0.5633442696151431
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_sleep_boundary_all_lr_c0_05_w0.005",
+          "feature_family": "all",
+          "feature_count": 294,
+          "model_spec": {
+            "name": "lr_c0_05",
+            "kind": "lr",
+            "c_value": 0.05,
+            "max_iter": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null
+          },
+          "weight": 0.005,
+          "wins": 0,
+          "mean_delta": 0.0003085665282859029,
+          "max_delta": 0.0006400972264232196,
+          "min_delta": 1.3125638186561872e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.00013894345328335778,
+            "actual_test_band_holdout": 0.0006400972264232196,
+            "test_boundary_neighbor2_holdout": 0.0006181319804275942,
+            "test_boundary_neighbor5_holdout": 0.0001325343431087811,
+            "loso_10": 1.3125638186561872e-05
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5633648477387678,
+            "actual_test_band_holdout": 0.5151889477957472,
+            "test_boundary_neighbor2_holdout": 0.6070044186783081,
+            "test_boundary_neighbor5_holdout": 0.5835078442074831,
+            "loso_10": 0.563239029923671
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        },
+        {
+          "target": "Q3",
+          "config": "Q3_id342_sleep_boundary_all_lr_c0_2_w0.005",
+          "feature_family": "all",
+          "feature_count": 294,
+          "model_spec": {
+            "name": "lr_c0_2",
+            "kind": "lr",
+            "c_value": 0.2,
+            "max_iter": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.00033658591633858317,
+          "max_delta": 0.0007207975103656894,
+          "min_delta": -1.0486904476025849e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.00019427668855964697,
+            "actual_test_band_holdout": 0.0007123759732757806,
+            "test_boundary_neighbor2_holdout": 0.0007207975103656894,
+            "test_boundary_neighbor5_holdout": 6.59663139678246e-05,
+            "loso_10": -1.0486904476025849e-05
+          },
+          "split_losses": {
+            "subject_hole_5": 0.5634201809740441,
+            "actual_test_band_holdout": 0.5152612265425998,
+            "test_boundary_neighbor2_holdout": 0.6071070842082462,
+            "test_boundary_neighbor5_holdout": 0.5834412761783422,
+            "loso_10": 0.5632154173810084
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.5632259042854845,
+            "actual_test_band_holdout": 0.514548850569324,
+            "test_boundary_neighbor2_holdout": 0.6063862866978805,
+            "test_boundary_neighbor5_holdout": 0.5833753098643744,
+            "loso_10": 0.5632259042854845
+          },
+          "eligible": false
+        }
+      ]
+    },
+    "S3": {
+      "target": "S3",
+      "best": {
+        "target": "S3",
+        "config": "S3_id342_sleep_boundary_all_hgb_l5_l2_2_w0.005",
+        "feature_family": "all",
+        "feature_count": 294,
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "weight": 0.005,
+        "wins": 1,
+        "mean_delta": 0.00010065124760116895,
+        "max_delta": 0.0002603653901145364,
+        "min_delta": -0.00017945931311802443,
+        "split_deltas": {
+          "subject_hole_5": 0.00011200940801098236,
+          "actual_test_band_holdout": 0.00016083070947409128,
+          "test_boundary_neighbor2_holdout": 0.00014951004352425912,
+          "test_boundary_neighbor5_holdout": -0.00017945931311802443,
+          "loso_10": 0.0002603653901145364
+        },
+        "split_losses": {
+          "subject_hole_5": 0.49005669284299,
+          "actual_test_band_holdout": 0.47177088173746506,
+          "test_boundary_neighbor2_holdout": 0.5054680190689148,
+          "test_boundary_neighbor5_holdout": 0.5115957714323901,
+          "loso_10": 0.4902050488250935
+        },
+        "split_anchor_losses": {
+          "subject_hole_5": 0.48994468343497904,
+          "actual_test_band_holdout": 0.471610051027991,
+          "test_boundary_neighbor2_holdout": 0.5053185090253905,
+          "test_boundary_neighbor5_holdout": 0.5117752307455081,
+          "loso_10": 0.489944683434979
+        },
+        "eligible": false
+      },
+      "eligible_count": 0,
+      "selected": null,
+      "top_rows": [
+        {
+          "target": "S3",
+          "config": "S3_id342_sleep_boundary_all_hgb_l5_l2_2_w0.005",
+          "feature_family": "all",
+          "feature_count": 294,
+          "model_spec": {
+            "name": "hgb_l5_l2_2",
+            "kind": "hgb",
+            "c_value": null,
+            "max_iter": 70,
+            "max_leaf_nodes": 5,
+            "l2_regularization": 2.0
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.00010065124760116895,
+          "max_delta": 0.0002603653901145364,
+          "min_delta": -0.00017945931311802443,
+          "split_deltas": {
+            "subject_hole_5": 0.00011200940801098236,
+            "actual_test_band_holdout": 0.00016083070947409128,
+            "test_boundary_neighbor2_holdout": 0.00014951004352425912,
+            "test_boundary_neighbor5_holdout": -0.00017945931311802443,
+            "loso_10": 0.0002603653901145364
+          },
+          "split_losses": {
+            "subject_hole_5": 0.49005669284299,
+            "actual_test_band_holdout": 0.47177088173746506,
+            "test_boundary_neighbor2_holdout": 0.5054680190689148,
+            "test_boundary_neighbor5_holdout": 0.5115957714323901,
+            "loso_10": 0.4902050488250935
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_sleep_boundary_sol_light_screen_motion_hgb_l5_l2_2_w0.005",
+          "feature_family": "sol_light_screen_motion",
+          "feature_count": 202,
+          "model_spec": {
+            "name": "hgb_l5_l2_2",
+            "kind": "hgb",
+            "c_value": null,
+            "max_iter": 70,
+            "max_leaf_nodes": 5,
+            "l2_regularization": 2.0
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.0001087687895102718,
+          "max_delta": 0.0002425534770345572,
+          "min_delta": -0.0001540017844123831,
+          "split_deltas": {
+            "subject_hole_5": 0.00012393999222487517,
+            "actual_test_band_holdout": 0.00018358811469698644,
+            "test_boundary_neighbor2_holdout": 0.0001477641480073233,
+            "test_boundary_neighbor5_holdout": -0.0001540017844123831,
+            "loso_10": 0.0002425534770345572
+          },
+          "split_losses": {
+            "subject_hole_5": 0.4900686234272039,
+            "actual_test_band_holdout": 0.47179363914268796,
+            "test_boundary_neighbor2_holdout": 0.5054662731733979,
+            "test_boundary_neighbor5_holdout": 0.5116212289610957,
+            "loso_10": 0.49018723691201355
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_sleep_boundary_stress_hr_activity_screen_hgb_l5_l2_2_w0.005",
+          "feature_family": "stress_hr_activity_screen",
+          "feature_count": 142,
+          "model_spec": {
+            "name": "hgb_l5_l2_2",
+            "kind": "hgb",
+            "c_value": null,
+            "max_iter": 70,
+            "max_leaf_nodes": 5,
+            "l2_regularization": 2.0
+          },
+          "weight": 0.005,
+          "wins": 1,
+          "mean_delta": 0.00012127231377765391,
+          "max_delta": 0.00023544892154991892,
+          "min_delta": -6.918759855689682e-05,
+          "split_deltas": {
+            "subject_hole_5": 6.603257907383808e-05,
+            "actual_test_band_holdout": 0.00023206863831154445,
+            "test_boundary_neighbor2_holdout": 0.0001419990285098649,
+            "test_boundary_neighbor5_holdout": -6.918759855689682e-05,
+            "loso_10": 0.00023544892154991892
+          },
+          "split_losses": {
+            "subject_hole_5": 0.4900107160140529,
+            "actual_test_band_holdout": 0.4718421196663025,
+            "test_boundary_neighbor2_holdout": 0.5054605080539004,
+            "test_boundary_neighbor5_holdout": 0.5117060431469512,
+            "loso_10": 0.4901801323565289
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_sleep_boundary_stress_hr_activity_screen_lr_c0_2_w0.005",
+          "feature_family": "stress_hr_activity_screen",
+          "feature_count": 142,
+          "model_spec": {
+            "name": "lr_c0_2",
+            "kind": "lr",
+            "c_value": 0.2,
+            "max_iter": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null
+          },
+          "weight": 0.005,
+          "wins": 0,
+          "mean_delta": 0.00019643236946936815,
+          "max_delta": 0.000287831721888121,
+          "min_delta": 6.762873423749038e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.000287831721888121,
+            "actual_test_band_holdout": 6.762873423749038e-05,
+            "test_boundary_neighbor2_holdout": 0.00023389900471515457,
+            "test_boundary_neighbor5_holdout": 0.0001648815909358614,
+            "loso_10": 0.00022792079557021339
+          },
+          "split_losses": {
+            "subject_hole_5": 0.49023251515686717,
+            "actual_test_band_holdout": 0.47167767976222846,
+            "test_boundary_neighbor2_holdout": 0.5055524080301057,
+            "test_boundary_neighbor5_holdout": 0.511940112336444,
+            "loso_10": 0.4901726042305492
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_sleep_boundary_all_hgb_l5_l2_2_w0.01",
+          "feature_family": "all",
+          "feature_count": 294,
+          "model_spec": {
+            "name": "hgb_l5_l2_2",
+            "kind": "hgb",
+            "c_value": null,
+            "max_iter": 70,
+            "max_leaf_nodes": 5,
+            "l2_regularization": 2.0
+          },
+          "weight": 0.01,
+          "wins": 1,
+          "mean_delta": 0.00020870085177240316,
+          "max_delta": 0.0005329498986221259,
+          "min_delta": -0.0003485469024274712,
+          "split_deltas": {
+            "subject_hole_5": 0.00022903570515225846,
+            "actual_test_band_holdout": 0.00032558229308443654,
+            "test_boundary_neighbor2_holdout": 0.0003044832644306661,
+            "test_boundary_neighbor5_holdout": -0.0003485469024274712,
+            "loso_10": 0.0005329498986221259
+          },
+          "split_losses": {
+            "subject_hole_5": 0.4901737191401313,
+            "actual_test_band_holdout": 0.4719356333210754,
+            "test_boundary_neighbor2_holdout": 0.5056229922898212,
+            "test_boundary_neighbor5_holdout": 0.5114266838430807,
+            "loso_10": 0.4904776333336011
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_sleep_boundary_stress_hr_activity_screen_lr_c0_05_w0.005",
+          "feature_family": "stress_hr_activity_screen",
+          "feature_count": 142,
+          "model_spec": {
+            "name": "lr_c0_05",
+            "kind": "lr",
+            "c_value": 0.05,
+            "max_iter": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null
+          },
+          "weight": 0.005,
+          "wins": 0,
+          "mean_delta": 0.00020887746758362357,
+          "max_delta": 0.00025876026820137454,
+          "min_delta": 0.00010233703395645666,
+          "split_deltas": {
+            "subject_hole_5": 0.00025876026820137454,
+            "actual_test_band_holdout": 0.0002067724039102048,
+            "test_boundary_neighbor2_holdout": 0.00023070409375103296,
+            "test_boundary_neighbor5_holdout": 0.00010233703395645666,
+            "loso_10": 0.00024581353809904893
+          },
+          "split_losses": {
+            "subject_hole_5": 0.4902034437031804,
+            "actual_test_band_holdout": 0.4718168234319012,
+            "test_boundary_neighbor2_holdout": 0.5055492131191416,
+            "test_boundary_neighbor5_holdout": 0.5118775677794646,
+            "loso_10": 0.49019049697307804
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_sleep_boundary_sol_light_screen_motion_lr_c0_05_w0.005",
+          "feature_family": "sol_light_screen_motion",
+          "feature_count": 202,
+          "model_spec": {
+            "name": "lr_c0_05",
+            "kind": "lr",
+            "c_value": 0.05,
+            "max_iter": null,
+            "max_leaf_nodes": null,
+            "l2_regularization": null
+          },
+          "weight": 0.005,
+          "wins": 0,
+          "mean_delta": 0.0002183902921036318,
+          "max_delta": 0.0003823066190202229,
+          "min_delta": 4.411803033477213e-05,
+          "split_deltas": {
+            "subject_hole_5": 0.00034778268592783323,
+            "actual_test_band_holdout": 4.411803033477213e-05,
+            "test_boundary_neighbor2_holdout": 0.00019023230333792274,
+            "test_boundary_neighbor5_holdout": 0.00012751182189740806,
+            "loso_10": 0.0003823066190202229
+          },
+          "split_losses": {
+            "subject_hole_5": 0.4902924661209069,
+            "actual_test_band_holdout": 0.47165416905832575,
+            "test_boundary_neighbor2_holdout": 0.5055087413287285,
+            "test_boundary_neighbor5_holdout": 0.5119027425674055,
+            "loso_10": 0.4903269900539992
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        },
+        {
+          "target": "S3",
+          "config": "S3_id342_sleep_boundary_sol_light_screen_motion_hgb_l5_l2_2_w0.01",
+          "feature_family": "sol_light_screen_motion",
+          "feature_count": 202,
+          "model_spec": {
+            "name": "hgb_l5_l2_2",
+            "kind": "hgb",
+            "c_value": null,
+            "max_iter": 70,
+            "max_leaf_nodes": 5,
+            "l2_regularization": 2.0
+          },
+          "weight": 0.01,
+          "wins": 1,
+          "mean_delta": 0.00022500244878723708,
+          "max_delta": 0.0004972503649643967,
+          "min_delta": -0.00029746944310071743,
+          "split_deltas": {
+            "subject_hole_5": 0.0002529094960165845,
+            "actual_test_band_holdout": 0.00037101288207475047,
+            "test_boundary_neighbor2_holdout": 0.00030130894398117114,
+            "test_boundary_neighbor5_holdout": -0.00029746944310071743,
+            "loso_10": 0.0004972503649643967
+          },
+          "split_losses": {
+            "subject_hole_5": 0.49019759293099563,
+            "actual_test_band_holdout": 0.4719810639100657,
+            "test_boundary_neighbor2_holdout": 0.5056198179693717,
+            "test_boundary_neighbor5_holdout": 0.5114777613024074,
+            "loso_10": 0.4904419337999434
+          },
+          "split_anchor_losses": {
+            "subject_hole_5": 0.48994468343497904,
+            "actual_test_band_holdout": 0.471610051027991,
+            "test_boundary_neighbor2_holdout": 0.5053185090253905,
+            "test_boundary_neighbor5_holdout": 0.5117752307455081,
+            "loso_10": 0.489944683434979
+          },
+          "eligible": false
+        }
+      ]
+    }
+  },
+  "partial_signal_rows": {
+    "Q3": [],
+    "S3": []
+  },
+  "decision": {
+    "selected_targets": [],
+    "q3_selected": false,
+    "s3_selected": false,
+    "all_focus_targets_selected": false,
+    "mean_primary_delta_vs_id342": 0.0,
+    "max_primary_delta_vs_id342": 0.0,
+    "projected_public_proxy_from_id342": 0.5960832519,
+    "gap_to_public_055_after_proxy": 0.046083251899999955,
+    "sleep_boundary_has_q3s3_signal": false,
+    "partial_signal_targets": [],
+    "q3_partial_signal_unstable": false,
+    "s3_partial_signal_unstable": false,
+    "final_sleep_boundary_gate_pass": false,
+    "public_055_evidence": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "If this gate fails, keep sleep-boundary/SOL features as closed ID342-aware Q3/S3 evidence. If both targets pass, use Kaggle no-submit for parity only."
+  },
+  "in_memory_validation_predictions_only": true,
+  "no_prediction_file_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_dacon_submission_made": true
+}

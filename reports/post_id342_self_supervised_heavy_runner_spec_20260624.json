@@ -1,0 +1,274 @@
+{
+  "approved_command_sequence": [
+    {
+      "after_exact_approval": true,
+      "allowed_now": true,
+      "command": "make post-id342-self-supervised-heavy-contract",
+      "step": 1,
+      "why": "Refresh the contract and verify approval boundary."
+    },
+    {
+      "after_exact_approval": true,
+      "allowed_now": false,
+      "command": "create dedicated runner files under notebooks/kaggle_self_supervised_subject_state_runner/",
+      "step": 2,
+      "why": "The upstream rebuild runner is not a heavy embedding runner."
+    },
+    {
+      "after_exact_approval": true,
+      "allowed_now": false,
+      "command": "ALLOW_KAGGLE_REMOTE=true make kaggle-push-self-supervised-subject-state-runner",
+      "step": 3,
+      "why": "Push no-submit runner only after exact approval and local contracts pass."
+    },
+    {
+      "after_exact_approval": true,
+      "allowed_now": false,
+      "command": "ALLOW_KAGGLE_REMOTE=true make kaggle-wait-and-pull-self-supervised-subject-state-output",
+      "step": 4,
+      "why": "Pull reports only; do not create submissions."
+    },
+    {
+      "after_exact_approval": true,
+      "allowed_now": false,
+      "command": "make post-id342-self-supervised-remote-review",
+      "step": 5,
+      "why": "Review remote reports before any future artifact contract."
+    }
+  ],
+  "created_at_kst": "2026-06-24 09:17:07 UTC+09:00",
+  "data_contract": {
+    "dataset_sources": [
+      "softkleenex/dacon-etri-human-base",
+      "softkleenex/dacon-etri-upstream-patch-post-id341"
+    ],
+    "downstream_labels": "train labels only inside fold-internal downstream smoke",
+    "forbidden_inputs": [
+      "DACON public leaderboard scores",
+      "submission predictions from ID287/ID329 donors",
+      "target labels for embedding selection",
+      "test target labels or same-row true sibling labels"
+    ],
+    "label_free_pretraining_rows": "train+test lifelog days may be tokenized without target labels",
+    "raw_modalities": [
+      "mACStatus",
+      "mActivity",
+      "mAmbience",
+      "mBle",
+      "mGps",
+      "mLight",
+      "mScreenStatus",
+      "mUsageStats",
+      "mWifi",
+      "wHr",
+      "wLight",
+      "wPedo"
+    ],
+    "row_keys": [
+      "subject_id",
+      "sleep_date",
+      "lifelog_date"
+    ],
+    "target_focus": [
+      "Q2",
+      "Q3",
+      "S3"
+    ]
+  },
+  "decision": {
+    "create_runner_files_now": false,
+    "create_submission_artifact_now": false,
+    "dacon_submit_now": false,
+    "dedicated_runner_required": true,
+    "existing_upstream_runner_is_sufficient": false,
+    "heavy_approval_phrase": "Self-supervised subject-state heavy compute no-submit \uc2e4\ud589 \uc2b9\uc778",
+    "modify_submission_log_now": false,
+    "next_action": "Spec is ready. Do not create or push the runner until the exact heavy approval phrase is provided.",
+    "proposed_kaggle_slug": "softkleenex/dacon-etri-self-supervised-subject-state-post-id342",
+    "proposed_notebook_dir": "notebooks/kaggle_self_supervised_subject_state_runner",
+    "push_kaggle_now": false,
+    "requires_exact_heavy_compute_approval": true,
+    "run_kaggle_now": false,
+    "runner_spec_ready": true,
+    "source_family": "self_supervised_subject_state_embedding_v1",
+    "target_focus": [
+      "Q2",
+      "Q3",
+      "S3"
+    ]
+  },
+  "diagnostic": "post_id342_self_supervised_heavy_runner_spec",
+  "forbidden_actions_now": {
+    "create_runner_notebook_now": false,
+    "create_submission_artifact": false,
+    "fit_embedding_now": false,
+    "modify_submission_log": false,
+    "push_kaggle_now": false,
+    "read_full_raw_streams_now": false,
+    "run_kaggle_now": false,
+    "submit_now": false,
+    "train_downstream_model_now": false,
+    "write_feature_matrix_now": false,
+    "write_oof_or_test_predictions_now": false
+  },
+  "input_reports": {
+    "docs_records_audit": {
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/docs_records_audit.json"
+    },
+    "goal_state_audit": {
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_goal_state_audit_20260624.json"
+    },
+    "heavy_contract": {
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_self_supervised_heavy_compute_contract_20260624.json"
+    },
+    "remaining_route_synthesis": {
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_remaining_route_synthesis_20260624.json"
+    },
+    "research_packet": {
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_self_supervised_route_research_packet_20260624.json"
+    }
+  },
+  "local_resource_snapshot": {
+    "local_execution_recommendation": "Do not run heavy embedding locally; use Kaggle only after exact heavy approval.",
+    "resource_check_completed_before_this_spec": true,
+    "total_memory_bytes": 25769803776,
+    "total_memory_gib": 24.0
+  },
+  "model_contract": {
+    "architecture_scope": "small modality-specific encoders plus shared transformer/temporal aggregator",
+    "preferred_objective": "cross_modal_masked_reconstruction",
+    "reproducibility": {
+      "fixed_seeds": [
+        45502,
+        45503
+      ],
+      "save_config_json": true,
+      "save_no_submit_manifest": true
+    },
+    "resource_cap": {
+      "device": "Kaggle CPU first unless a separate GPU note is written",
+      "max_embedding_dim": 64,
+      "max_epochs_first_run": 12,
+      "max_transformer_layers": 2,
+      "max_wall_clock_hours": 5
+    },
+    "secondary_objective": "time_order_or_day_segment_contrastive_loss",
+    "token_granularity": [
+      "day grid: 24 hourly bins",
+      "evening grid: 18:00-03:00 finer bins",
+      "sleep-transition grid: light/screen/charge/activity/HR state changes around sleep_date"
+    ]
+  },
+  "no_dacon_submission_made": true,
+  "no_embedding_fit": true,
+  "no_feature_matrix_created": true,
+  "no_full_raw_stream_read": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_runner_files_created": true,
+  "no_submission_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "prerequisites": {
+    "dedicated_runner_required": true,
+    "docs_audit_clean": true,
+    "goal_not_achieved": true,
+    "heavy_contract_blocks_execution_now": true,
+    "heavy_contract_ready": true,
+    "post_id342_routes_closed_except_heavy": true,
+    "research_packet_ready": true,
+    "upstream_runner_not_sufficient": true
+  },
+  "purpose": "Define the dedicated no-submit Kaggle heavy runner needed after exact approval.",
+  "report_only": true,
+  "research_sources": [
+    {
+      "runner_implication": "Use strict participant/date-aware folds and treat validation/test cohort shift as first-class risk.",
+      "source": "ETRI Human Understanding AI Paper Challenge 2024 dataset design",
+      "url": "https://arxiv.org/html/2403.16509v1"
+    },
+    {
+      "runner_implication": "Prefer cross-modal masking over single-channel reconstruction so missing sensor streams become part of the objective.",
+      "source": "MoCA: Multi-modal Cross-masked Autoencoder for Time Series in Digital Health",
+      "url": "https://arxiv.org/html/2506.02260v3"
+    },
+    {
+      "runner_implication": "Keep modality-specific encoders and cross-modal latent masking separate from downstream target labels.",
+      "source": "CroSSL: Cross-modal Self-Supervised Learning for Time-series Signals",
+      "url": "https://arxiv.org/pdf/2307.16847"
+    },
+    {
+      "runner_implication": "Evaluate subject-state transfer and personalization explicitly for Q3 instead of relying on pooled local CV.",
+      "source": "Personalization of Stress Mobile Sensing using Self-Supervised Learning",
+      "url": "https://arxiv.org/abs/2308.02731"
+    },
+    {
+      "runner_implication": "Represent synchronized lifelog channels as day/evening/sleep-transition state grids rather than isolated scalar proxies.",
+      "source": "PixleepFlow",
+      "url": "https://arxiv.org/html/2502.17469v2"
+    }
+  ],
+  "runner_files_after_approval": [
+    {
+      "after_exact_approval": true,
+      "create_now": false,
+      "path": "notebooks/kaggle_self_supervised_subject_state_runner/kernel-metadata.json",
+      "purpose": "Kaggle kernel metadata with GPU/TPU disabled unless separately justified."
+    },
+    {
+      "after_exact_approval": true,
+      "create_now": false,
+      "path": "notebooks/kaggle_self_supervised_subject_state_runner/Self_Supervised_Subject_State_Post_ID342.ipynb",
+      "purpose": "No-submit notebook that stages data, fits label-free embeddings, and writes review reports only."
+    },
+    {
+      "after_exact_approval": true,
+      "create_now": false,
+      "path": "scripts/run_post_id342_self_supervised_subject_state_no_submit.py",
+      "purpose": "Reusable runner script invoked by the Kaggle notebook; should not produce submission CSVs."
+    },
+    {
+      "after_exact_approval": true,
+      "create_now": false,
+      "path": "reports/post_id342_self_supervised_remote_*",
+      "purpose": "Remote report-only outputs for embedding fit, fold-internal downstream smoke, and stop decisions."
+    }
+  ],
+  "validation_contract": [
+    {
+      "criterion": "Embedding fit uses no target labels, no OOF predictions, and no public-score feedback.",
+      "gate": "embedding_purity",
+      "stop_if_fail": true
+    },
+    {
+      "criterion": "Q3/S3 downstream smoke must beat ID342 on stable near-anchor lenses.",
+      "gate": "fold_internal_downstream",
+      "stop_if_fail": true
+    },
+    {
+      "criterion": "The gain must not appear only when ID287/ID329-like failed frontier geometry is included.",
+      "gate": "failed_frontier_resistance",
+      "stop_if_fail": true
+    },
+    {
+      "criterion": "Projected public proxy must be materially below the 0.596 band before artifact review.",
+      "gate": "public_gap_budget",
+      "stop_if_fail": true
+    },
+    {
+      "criterion": "No submission CSV, base prediction artifact, notebook history artifact, or log row is created by this runner.",
+      "gate": "artifact_separation",
+      "stop_if_fail": true
+    }
+  ]
+}

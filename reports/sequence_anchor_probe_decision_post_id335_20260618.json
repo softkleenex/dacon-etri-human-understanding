@@ -1,0 +1,58 @@
+{
+  "report": "sequence_anchor_probe_decision_post_id335",
+  "created_utc": "2026-06-17T15:35:40.617053+00:00",
+  "source_summary": "reports/kaggle_sequence_anchor_probe_remote_summary_post_id335_20260618.json",
+  "input_dir": "artifacts/kaggle_outputs/sequence_anchor_probe_post_id335",
+  "anchor_replay": {
+    "178": {
+      "base_mean": 0.5386377373903545,
+      "s1_best": "blend_lr_c0_1_0.15",
+      "s1_improvement": 0.00681959912425506,
+      "s1_only_estimated_mean": 0.5376635089440324,
+      "targetwise_best_mean": 0.5376283872871246,
+      "targetwise_total_improvement": 0.001009350103229889,
+      "path": "artifacts/kaggle_outputs/sequence_anchor_probe_post_id335/kaggle_outputs/id178_random_conv_sequence_post_id335_anchor_s1_nk512_seed45502_20260618.json"
+    },
+    "179": {
+      "base_mean": 0.5382899278463247,
+      "s1_best": "blend_lr_c0_1_0.15",
+      "s1_improvement": 0.005050686921817316,
+      "s1_only_estimated_mean": 0.5375684011432079,
+      "targetwise_best_mean": 0.5375418004264217,
+      "targetwise_total_improvement": 0.0007481274199029331,
+      "path": "artifacts/kaggle_outputs/sequence_anchor_probe_post_id335/kaggle_outputs/id179_random_conv_sequence_post_id335_anchor_s1_nk512_seed45502_20260618.json"
+    },
+    "190": {
+      "base_mean": 0.5379559121210985,
+      "s1_best": "blend_lr_c0_1_0.1",
+      "s1_improvement": 0.001384557562935651,
+      "s1_only_estimated_mean": 0.5377581181835362,
+      "targetwise_best_mean": 0.5377229965266282,
+      "targetwise_total_improvement": 0.000232915594470251,
+      "path": "artifacts/kaggle_outputs/sequence_anchor_probe_post_id335/kaggle_outputs/id190_random_conv_sequence_post_id335_anchor_s1_nk512_seed45502_20260618.json"
+    },
+    "191": {
+      "base_mean": 0.5380094767789797,
+      "s1_best": "blend_lr_c0_1_0.1",
+      "s1_improvement": 0.0023056201591394876,
+      "s1_only_estimated_mean": 0.5376801024705312,
+      "targetwise_best_mean": 0.537653501753745,
+      "targetwise_total_improvement": 0.00035597502523465607,
+      "path": "artifacts/kaggle_outputs/sequence_anchor_probe_post_id335/kaggle_outputs/id191_random_conv_sequence_post_id335_anchor_s1_nk512_seed45502_20260618.json"
+    }
+  },
+  "interpretation": [
+    "The S1 nk512 seed45502 signal survives replay on ID178/179/190/191 anchors.",
+    "The best targetwise replay is ID179 with targetwise mean 0.537542, but this still uses the public-structure diagnostic lens.",
+    "The cleanest public-anchor candidate would be ID178 + S1-only seed45502/lr_c0_1/weight0.15, estimated local mean 0.537664.",
+    "The best local same-family candidate would be ID179 + S1-only seed45502/lr_c0_1/weight0.15, estimated local mean 0.537568.",
+    "Neither candidate is a Public 0.58 claim; the ID178/ID287/ID329 evidence still says public transfer is fragile."
+  ],
+  "recommendation": {
+    "do_not_auto_submit": true,
+    "do_not_promote_yet": true,
+    "next_if_promoting": "Create a separate S1-only artifact with a unique ID, matched CSV/notebook/log/base_oof/base_test/report, then run movement/projection gates before asking for DACON submission approval.",
+    "preferred_first_artifact_if_approved": "ID178 + S1-only seed45502/lr_c0_1/weight0.15 because ID178 has known public score and the change is target-local.",
+    "alternate_artifact": "ID179 + S1-only seed45502/lr_c0_1/weight0.15 for slightly better local CV but less public anchoring."
+  }
+}

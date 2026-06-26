@@ -1,0 +1,311 @@
+{
+  "created_at_kst": "2026-06-23 18:07:39 UTC+09:00",
+  "diagnostic": "post_id341_q3s3_semantic_routine_v2_design",
+  "purpose": "Define a materially different no-submit Q3/S3 source hypothesis after the physio-light-onset lane failed: semantic novelty, routine disruption, and ordered sleep-onset state transitions.",
+  "inputs": {
+    "q3s3_physio_light_onset_smoke": {
+      "path": "reports/post_id341_q3s3_physio_light_onset_smoke_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 21694,
+      "decision": {
+        "model_smoke_completed": true,
+        "target_focus": [
+          "Q3",
+          "S3"
+        ],
+        "selected_targets": [],
+        "q3_signal_found": false,
+        "s3_signal_found": false,
+        "all_q3s3_targets_covered": false,
+        "public_058_evidence": false,
+        "next_local_allowed_step": "close_physio_light_onset_lane",
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "If a selected target appears, run only a no-artifact geometry gate. Otherwise close this local lane and return to the explicit-approved upstream rebuild path for missing Q3/S3 coverage."
+      },
+      "error": null
+    },
+    "q2q3s3_source_hypothesis_matrix": {
+      "path": "reports/post_id341_q2q3s3_source_hypothesis_matrix_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 13957,
+      "decision": {
+        "q2q3s3_source_hypothesis_matrix_ready": true,
+        "all_focus_targets_missing_locally": true,
+        "all_focus_targets_have_historical_id226_signal": true,
+        "all_focus_targets_id226_win_all_folds_vs_341": true,
+        "processed_feature_coverage_sufficient_for_design": true,
+        "external_direct_concat_allowed": false,
+        "local_q2q3s3_artifact_promotable": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "requires_explicit_kaggle_approval": true,
+        "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+        "recommended_next_action": "Keep local ID342 closed. Use this matrix as the score-relevant design compass for the explicit-approved no-submit Kaggle upstream rebuild; only pulled reports that beat ID178 and pass Public-0.58 review gates may open a separate artifact-contract review."
+      },
+      "error": null
+    },
+    "data_source_coverage": {
+      "path": "reports/post_id341_data_source_coverage_audit_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 21538,
+      "decision": {
+        "data_source_coverage_audit_ready": true,
+        "all_major_sources_present": true,
+        "all_required_evidence_reports_present": true,
+        "upstream_runner_references_required_source_checks": true,
+        "data_source_coverage_ready": true,
+        "external_direct_concat_allowed": false,
+        "external_prior_reviewable": false,
+        "local_source_stack_closed_for_submission_artifact": true,
+        "public_058_local_cv_only_gate_passed": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_action": "Data/source coverage is accounted for locally. Do not concatenate external rows or create ID342; the next score-relevant step remains explicit-approved no-submit Kaggle/Linux upstream rebuild."
+      },
+      "error": null
+    }
+  },
+  "raw_schema_summary": {
+    "schemas": {
+      "mUsageStats": {
+        "path": "data/raw/ch2025_data_items/ch2025_mUsageStats.parquet",
+        "exists": true,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "app_name",
+          "total_time"
+        ],
+        "num_rows": 45197,
+        "error": null
+      },
+      "mWifi": {
+        "path": "data/raw/ch2025_data_items/ch2025_mWifi.parquet",
+        "exists": true,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "bssid",
+          "rssi"
+        ],
+        "num_rows": 76336,
+        "error": null
+      },
+      "mBle": {
+        "path": "data/raw/ch2025_data_items/ch2025_mBle.parquet",
+        "exists": true,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "address",
+          "device_class",
+          "rssi"
+        ],
+        "num_rows": 21830,
+        "error": null
+      },
+      "mGps": {
+        "path": "data/raw/ch2025_data_items/ch2025_mGps.parquet",
+        "exists": true,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "altitude",
+          "latitude",
+          "longitude",
+          "speed"
+        ],
+        "num_rows": 800611,
+        "error": null
+      },
+      "mAmbience": {
+        "path": "data/raw/ch2025_data_items/ch2025_mAmbience.parquet",
+        "exists": true,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "element"
+        ],
+        "num_rows": 476577,
+        "error": null
+      },
+      "mScreenStatus": {
+        "path": "data/raw/ch2025_data_items/ch2025_mScreenStatus.parquet",
+        "exists": true,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "m_screen_use"
+        ],
+        "num_rows": 939653,
+        "error": null
+      },
+      "mActivity": {
+        "path": "data/raw/ch2025_data_items/ch2025_mActivity.parquet",
+        "exists": true,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "m_activity"
+        ],
+        "num_rows": 961062,
+        "error": null
+      },
+      "mACStatus": {
+        "path": "data/raw/ch2025_data_items/ch2025_mACStatus.parquet",
+        "exists": true,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "m_charging"
+        ],
+        "num_rows": 939896,
+        "error": null
+      },
+      "mLight": {
+        "path": "data/raw/ch2025_data_items/ch2025_mLight.parquet",
+        "exists": true,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "m_light"
+        ],
+        "num_rows": 96258,
+        "error": null
+      },
+      "wLight": {
+        "path": "data/raw/ch2025_data_items/ch2025_wLight.parquet",
+        "exists": true,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "w_light"
+        ],
+        "num_rows": 633741,
+        "error": null
+      },
+      "wPedo": {
+        "path": "data/raw/ch2025_data_items/ch2025_wPedo.parquet",
+        "exists": true,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "step",
+          "step_frequency",
+          "running_step",
+          "walking_step",
+          "distance",
+          "speed",
+          "burned_calories"
+        ],
+        "num_rows": 748100,
+        "error": null
+      },
+      "wHr": {
+        "path": "data/raw/ch2025_data_items/ch2025_wHr.parquet",
+        "exists": true,
+        "columns": [
+          "subject_id",
+          "timestamp",
+          "element"
+        ],
+        "num_rows": 382918,
+        "error": null
+      }
+    },
+    "all_required_files_present": true,
+    "all_required_schemas_readable": true,
+    "total_rows": 6122179
+  },
+  "feature_blueprint": [
+    {
+      "target": "Q3",
+      "family": "semantic_app_social_place_novelty",
+      "sources": [
+        "mUsageStats",
+        "mWifi",
+        "mBle",
+        "mGps",
+        "mAmbience"
+      ],
+      "feature_shapes": [
+        "subject-relative evening app-category entropy and late-night category switch count",
+        "wifi/ble neighbor novelty count versus the subject's recent same-week baseline",
+        "gps place-cluster novelty and evening route-fragmentation proxy without storing raw coordinates",
+        "ambience state-change rate around the evening-to-late boundary",
+        "cross-modal novelty burst: app switch + new proximity device + place transition within a short window"
+      ],
+      "why_distinct_from_closed_lane": "The closed physio-light-onset lane used physiological/light/onset aggregates. This family treats stress as social/context novelty and routine disruption, matching the paper hint that Q3 benefits from mUsageStats and wPedo-style daily-window context.",
+      "fail_fast_rule": "Report-only metadata smoke first; then fold-internal no-artifact model smoke only if feature coverage is complete. Stop unless Q3 beats ID341 in at least 4/5 primary splits with low joint-risk warnings."
+    },
+    {
+      "target": "S3",
+      "family": "sleep_onset_state_machine",
+      "sources": [
+        "mScreenStatus",
+        "mActivity",
+        "mACStatus",
+        "mLight",
+        "wLight",
+        "wPedo",
+        "wHr"
+      ],
+      "feature_shapes": [
+        "first sustained quiet-dark-screen-off run after 20:00 and its duration",
+        "screen-off to charging-on latency and charging-state stability before sleep",
+        "last movement then first dark interval transition gap",
+        "state-machine transition counts among active/screen/charging/light buckets from 20:00 to 03:00",
+        "subject-relative onset regularity: deviation from each subject's typical quiet-window timing"
+      ],
+      "why_distinct_from_closed_lane": "The closed lane summarized independent sensor levels. This one models ordered transitions and sustained states, which is closer to the sleep-onset-latency label mechanism.",
+      "fail_fast_rule": "Run metadata/cardinality smoke first. Stop unless S3 produces a low-movement fold-internal improvement; do not use Q1/S4 sleep-quality movement as a proxy for S3."
+    }
+  ],
+  "checks": {
+    "closed_physio_light_onset_lane_confirmed": true,
+    "source_matrix_ready": true,
+    "data_sources_ready": true,
+    "materially_different_from_physio_light_onset": true,
+    "external_direct_concat_blocked": true,
+    "no_artifact_actions": true
+  },
+  "decision": {
+    "design_ready": true,
+    "target_focus": [
+      "Q3",
+      "S3"
+    ],
+    "selected_targets": [],
+    "q3_signal_found": false,
+    "s3_signal_found": false,
+    "public_058_evidence": false,
+    "materially_different_from_physio_light_onset": true,
+    "external_direct_concat_allowed": false,
+    "next_local_allowed_step": "metadata_cardinality_and_state_transition_smoke_only",
+    "requires_explicit_kaggle_approval_for_heavy_execution": true,
+    "execute_kaggle_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "next_action": "Do not create ID342. If continuing locally, run only a small metadata/cardinality smoke for the semantic routine/state-machine features. Move to heavy feature extraction only with explicit Kaggle approval or after a separate no-artifact local resource check."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

@@ -1,0 +1,187 @@
+{
+  "created_at": "2026-06-16",
+  "purpose": "Candidate-tier manifest after ID206 wavelet/spectral cleaner update.",
+  "ground_truth_warning": {
+    "id178_public_lb": 0.6014113009,
+    "meaning": "ID206 improves local public-structure clean-branch score, but Public 0.55 remains unproven without DACON submission."
+  },
+  "current_cleaner_branch": {
+    "candidate_ids": [
+      206,
+      203,
+      200,
+      198,
+      193,
+      191,
+      179
+    ],
+    "preferred_order": [
+      206,
+      203,
+      200,
+      198,
+      193,
+      191,
+      179
+    ],
+    "interpretation": "ID206 is the current lowest cleaner/non-ID172-calibration branch, adding a small wavelet/spectral repair to ID203."
+  },
+  "current_moderate_bridge": {
+    "candidate_ids": [
+      204,
+      201,
+      199,
+      194,
+      205,
+      202,
+      195,
+      192,
+      181,
+      182,
+      180
+    ],
+    "preferred_order": [
+      204,
+      201,
+      199,
+      194,
+      205,
+      202,
+      195,
+      192,
+      181,
+      182,
+      180
+    ],
+    "interpretation": "ID204 remains the preferred moderate-low delta06 bridge and ID205 the stronger/riskier delta08 bridge until the ID206 cleaner anchor is explicitly carried into bridge variants."
+  },
+  "tiers": {
+    "cleaner_anchor_like": {
+      "candidate_ids": [
+        206,
+        203,
+        200,
+        198,
+        193,
+        191,
+        179
+      ]
+    },
+    "moderate_low_counterprobe": {
+      "candidate_ids": [
+        204,
+        201,
+        199,
+        194
+      ]
+    },
+    "moderate_counterprobe": {
+      "candidate_ids": [
+        205,
+        202,
+        195,
+        192,
+        181,
+        182,
+        180
+      ]
+    },
+    "bold_counterprobe": {
+      "candidate_ids": [
+        196,
+        197,
+        183,
+        184,
+        185
+      ]
+    },
+    "extreme_counterprobe_only": {
+      "candidate_ids": [
+        186,
+        187,
+        188,
+        189,
+        172
+      ]
+    }
+  },
+  "id206_review": {
+    "base_id": 203,
+    "local_cv_before": 0.5359801333026634,
+    "local_cv_after": 0.5357639123296409,
+    "modified_targets": [
+      "Q3",
+      "S2",
+      "S4"
+    ],
+    "target_scores_after": {
+      "Q1": 0.5482579081715612,
+      "Q2": 0.5506886916995475,
+      "Q3": 0.5628770675141632,
+      "S1": 0.4677372079771736,
+      "S2": 0.5295161847284966,
+      "S3": 0.4905526802245998,
+      "S4": 0.6007176459919449
+    },
+    "selected_configs": {
+      "Q1": {
+        "kind": "base"
+      },
+      "Q2": {
+        "kind": "base"
+      },
+      "Q3": {
+        "kind": "blend",
+        "feature_set": "wavelet_spectral",
+        "model": "lr_c0_1",
+        "weight": 0.05
+      },
+      "S1": {
+        "kind": "base"
+      },
+      "S2": {
+        "kind": "blend",
+        "feature_set": "wavelet_spectral",
+        "model": "lr_c0_3",
+        "weight": 0.005
+      },
+      "S3": {
+        "kind": "base"
+      },
+      "S4": {
+        "kind": "blend",
+        "feature_set": "wavelet_spectral",
+        "model": "lr_c0_3",
+        "weight": 0.05
+      }
+    },
+    "diagnostic_report": "reports/id203_wavelet_spectral_sequence_diagnostic_20260616.json",
+    "submission_file": "submission_id_206_id203_wavelet_spectral_sequence_overlay_cv0.535764_unsubmitted.csv"
+  },
+  "robustness": {
+    "diagnostic_report": "reports/id178_id206_split_robustness_diagnostic_20260616.json",
+    "id203_robustness_score": 0.5688389618569121,
+    "id206_robustness_score": 0.5687597721582598,
+    "interpretation": "ID206 slightly improves the same robustness formula versus ID203, but this remains an OOF fragility lens rather than public proof."
+  },
+  "artifact_contract": {
+    "submission_file": "submission_id_206_id203_wavelet_spectral_sequence_overlay_cv0.535764_unsubmitted.csv",
+    "notebook_file": "notebooks/history/submission_206_id203_wavelet_spectral_sequence_overlay_cv0.535764_unsubmitted.ipynb",
+    "report_file": "reports/experiment_206_id203_wavelet_spectral_sequence_overlay_cv0.535764_unsubmitted.json",
+    "base_oof_file": "artifacts/base_predictions/base_oof_id_206_id203_wavelet_spectral_sequence_overlay_cv0.535764.csv",
+    "base_test_file": "artifacts/base_predictions/base_test_id_206_id203_wavelet_spectral_sequence_overlay_cv0.535764.csv",
+    "local_cv": 0.5357639123296409,
+    "strict_subject_hole_comparable": false
+  },
+  "recommended_next_actions": [
+    "Use ID206 as the cleaner reference for future non-extreme diagnostics.",
+    "If continuing the ID172 bridge ladder, create ID207/ID208 by carrying ID206 into the existing delta06/delta08 bridge weights, then compare risk against ID204/ID205.",
+    "Do not submit any candidate without explicit user approval; ID178 public failure remains the key warning."
+  ],
+  "supporting_reports": [
+    "reports/experiment_206_id203_wavelet_spectral_sequence_overlay_cv0.535764_unsubmitted.json",
+    "reports/id203_wavelet_spectral_sequence_diagnostic_20260616.json",
+    "reports/wavelet_spectral_sequence_review_post_id206_20260616.json",
+    "reports/id178_id206_split_robustness_diagnostic_20260616.json"
+  ]
+}

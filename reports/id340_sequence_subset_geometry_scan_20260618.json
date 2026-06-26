@@ -1,0 +1,3493 @@
+{
+  "created_at_kst": "2026-06-18 03:38:15 UTC+09:00",
+  "diagnostic": "id340_sequence_subset_geometry_scan",
+  "purpose": "Find a safer target subset/weight for the ID340 sequence-summary source after the all-target exact design failed proxy-vs-ID337.",
+  "source_model": {
+    "name": "lr_c0_3",
+    "kind": "lr",
+    "c_value": 0.3,
+    "max_depth": null,
+    "max_leaf_nodes": null
+  },
+  "weights": [
+    0.01,
+    0.02,
+    0.03,
+    0.05,
+    0.07
+  ],
+  "target_sets": {
+    "q123": [
+      "Q1",
+      "Q2",
+      "Q3"
+    ],
+    "q123_s1": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "S1"
+    ],
+    "q123_s1_s4": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "S1",
+      "S4"
+    ],
+    "all": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "q2_only": [
+      "Q2"
+    ],
+    "q23": [
+      "Q2",
+      "Q3"
+    ],
+    "s1_only": [
+      "S1"
+    ]
+  },
+  "sequence_feature_summary": {
+    "n_sequence_rows": 809,
+    "n_total_channels": 68,
+    "n_summary_features": 2108,
+    "feature_family_count": 31
+  },
+  "source_prediction_details": {
+    "Q1": {
+      "positive_rate_train": 0.4955555555555556,
+      "source_train_mean": 0.49727904757439,
+      "source_test_mean": 0.511354894632345,
+      "source_test_min": 1.9829661819289556e-09,
+      "source_test_max": 0.9999936730013242,
+      "source_test_std": 0.40170789766795095
+    },
+    "Q2": {
+      "positive_rate_train": 0.5622222222222222,
+      "source_train_mean": 0.5582600174147201,
+      "source_test_mean": 0.5356493719401534,
+      "source_test_min": 1.9819077536185087e-07,
+      "source_test_max": 0.9999891844196257,
+      "source_test_std": 0.3963210860689783
+    },
+    "Q3": {
+      "positive_rate_train": 0.6,
+      "source_train_mean": 0.5938630454520771,
+      "source_test_mean": 0.6019766565887849,
+      "source_test_min": 0.00014851806595477692,
+      "source_test_max": 0.9999999999297775,
+      "source_test_std": 0.3898213962126527
+    },
+    "S1": {
+      "positive_rate_train": 0.6822222222222222,
+      "source_train_mean": 0.6705754875312,
+      "source_test_mean": 0.6090637025565809,
+      "source_test_min": 7.274736043875593e-07,
+      "source_test_max": 0.9999983361402562,
+      "source_test_std": 0.3944533232855296
+    },
+    "S2": {
+      "positive_rate_train": 0.6511111111111111,
+      "source_train_mean": 0.6407866386714876,
+      "source_test_mean": 0.6184001930157761,
+      "source_test_min": 4.376016240774096e-05,
+      "source_test_max": 0.999998563664527,
+      "source_test_std": 0.39825646516355984
+    },
+    "S3": {
+      "positive_rate_train": 0.6622222222222223,
+      "source_train_mean": 0.6528177143762693,
+      "source_test_mean": 0.632494110144614,
+      "source_test_min": 0.0006471986163362816,
+      "source_test_max": 0.9999992072312339,
+      "source_test_std": 0.3655513910509008
+    },
+    "S4": {
+      "positive_rate_train": 0.56,
+      "source_train_mean": 0.5557231133910692,
+      "source_test_mean": 0.6125886653973769,
+      "source_test_min": 4.513130218956142e-07,
+      "source_test_max": 0.9999987213677104,
+      "source_test_std": 0.37468689189891335
+    }
+  },
+  "id337_proxy": 0.6050222139833282,
+  "id339_proxy": 0.609547092560233,
+  "variants": [
+    {
+      "name": "q2_only_w0.01",
+      "target_set": "q2_only",
+      "targets": [
+        "Q2"
+      ],
+      "weight": 0.01,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.538426136315474,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0002116010748804964,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5396120244315795,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.000135191820093028,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5411053257839773,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0004983310811649266,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5858593850757616,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.00043048339484796916,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5577358936172844,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.000250261548372821,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5385202605883977,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0001174768019567285,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.538426136315474,
+      "geometry": {
+        "mean_delta_vs_178": 0.0004940372186930471,
+        "max_delta_vs_178": 0.008101779532933812,
+        "mean_delta_vs_329": 0.01934478182448396,
+        "max_delta_vs_329": 0.07919238997096245,
+        "mean_delta_vs_335": 0.007886346310718606,
+        "max_delta_vs_335": 0.11194917233304491,
+        "projection_failed": -0.00033889377836937915,
+        "prediction_mean": 0.6039429782889266,
+        "prediction_std": 0.21907472523486807
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6040620400221042,
+      "proxy_delta_vs_id337": -0.0009601739612240534,
+      "proxy_delta_vs_id339": -0.0054850525381288096,
+      "full_geometry_pass": true,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.0,
+          "Q2": 0.008101779532933812,
+          "Q3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.0,
+          "Q2": 0.0034582605308513302,
+          "Q3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "q23_w0.01",
+      "target_set": "q23",
+      "targets": [
+        "Q2",
+        "Q3"
+      ],
+      "weight": 0.01,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5384415524928176,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0001961848975369218,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.539607509351983,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.0001397068996895623,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5412203846378506,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.00038327222729162,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.586064393938412,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.00022547453219756708,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5578405406190655,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.00014561454659167694,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5384676244775604,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0001701129127941181,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5384415524928176,
+      "geometry": {
+        "mean_delta_vs_178": 0.0009817950236796849,
+        "max_delta_vs_178": 0.008670251172085197,
+        "mean_delta_vs_329": 0.019184308801948942,
+        "max_delta_vs_329": 0.08056986721869253,
+        "mean_delta_vs_335": 0.008374104115705243,
+        "max_delta_vs_335": 0.11194917233304491,
+        "projection_failed": -0.0006155772452822998,
+        "prediction_mean": 0.6038934296946773,
+        "prediction_std": 0.2188961607484493
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6041844954608545,
+      "proxy_delta_vs_id337": -0.0008377185224737183,
+      "proxy_delta_vs_id339": -0.005362597099378474,
+      "full_geometry_pass": true,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.0,
+          "Q2": 0.008101779532933812,
+          "Q3": 0.008670251172085197,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.0,
+          "Q2": 0.0034582605308513302,
+          "Q3": 0.003414304634906465,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "q123_w0.01",
+      "target_set": "q123",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ],
+      "weight": 0.01,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5383497447890723,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0002879926012822054,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5395611506500719,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.0001860656016006157,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5408721464471776,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0007315104179645981,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5856912989282523,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0005985695423572635,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5575562357581438,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.0004299194075133572,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5383973549378355,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0002403824525190057,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5383497447890723,
+      "geometry": {
+        "mean_delta_vs_178": 0.001439075527476183,
+        "max_delta_vs_178": 0.009435356853535692,
+        "mean_delta_vs_329": 0.019224495701570907,
+        "max_delta_vs_329": 0.08056986721869253,
+        "mean_delta_vs_335": 0.008831384619501741,
+        "max_delta_vs_335": 0.11194917233304491,
+        "projection_failed": -0.0012174248295046355,
+        "prediction_mean": 0.6038925077061625,
+        "prediction_std": 0.21875873827854247
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6043074397656957,
+      "proxy_delta_vs_id337": -0.0007147742176325522,
+      "proxy_delta_vs_id339": -0.005239652794537308,
+      "full_geometry_pass": true,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.009435356853535692,
+          "Q2": 0.008101779532933812,
+          "Q3": 0.008670251172085197,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.003200963526575485,
+          "Q2": 0.0034582605308513302,
+          "Q3": 0.003414304634906465,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "q2_only_w0.02",
+      "target_set": "q2_only",
+      "targets": [
+        "Q2"
+      ],
+      "weight": 0.02,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5382267859094234,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0004109514809310655,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5394916359840183,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.0002555802676542651,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5406256888953705,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0009779679697716759,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5854445177539517,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0008453507166579222,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5574979638623639,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.00048819130329325056,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5384180253039549,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.00021971208639959272,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5382267859094234,
+      "geometry": {
+        "mean_delta_vs_178": 0.0009880744373860937,
+        "max_delta_vs_178": 0.01620355906586765,
+        "mean_delta_vs_329": 0.019387214666486137,
+        "max_delta_vs_329": 0.07993060463245583,
+        "mean_delta_vs_335": 0.008380383529411652,
+        "max_delta_vs_335": 0.11194917233304491,
+        "projection_failed": -0.0006777875567387685,
+        "prediction_mean": 0.6039137584194684,
+        "prediction_std": 0.21896940893361888
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.604384049472515,
+      "proxy_delta_vs_id337": -0.0006381645108132217,
+      "proxy_delta_vs_id339": -0.005163043087717978,
+      "full_geometry_pass": true,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.0,
+          "Q2": 0.01620355906586765,
+          "Q3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.0,
+          "Q2": 0.006916521061702657,
+          "Q3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "q123_s1_w0.01",
+      "target_set": "q123_s1",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1"
+      ],
+      "weight": 0.01,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5382875570158595,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0003501803744949683,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5395290675816626,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.00021814867000991,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5409547511501379,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0006489057150043109,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5858566696188635,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0004331988517460861,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5575391735176423,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.00044698164801493245,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5382775937386245,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.00036014365172998275,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5382875570158595,
+      "geometry": {
+        "mean_delta_vs_178": 0.0018172351262520526,
+        "max_delta_vs_178": 0.009435356853535692,
+        "mean_delta_vs_329": 0.019250231572590922,
+        "max_delta_vs_329": 0.08056986721869253,
+        "mean_delta_vs_335": 0.008956801228081394,
+        "max_delta_vs_335": 0.11096527876233009,
+        "projection_failed": -0.001440472419310595,
+        "prediction_mean": 0.6037849075672627,
+        "prediction_std": 0.21873971201812975
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6043926937471079,
+      "proxy_delta_vs_id337": -0.0006295202362203156,
+      "proxy_delta_vs_id339": -0.005154398813125072,
+      "full_geometry_pass": true,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.009435356853535692,
+          "Q2": 0.008101779532933812,
+          "Q3": 0.008670251172085197,
+          "S1": 0.008884745228036062,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.003200963526575485,
+          "Q2": 0.0034582605308513302,
+          "Q3": 0.003414304634906465,
+          "S1": 0.0026471171914310893,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "q123_s1_s4_w0.01",
+      "target_set": "q123_s1_s4",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S4"
+      ],
+      "weight": 0.01,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5382772208932777,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.00036051649707680156,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5395132547489816,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.00023396150269094917,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5408437398475403,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0007599170176019188,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5857995169601766,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0004903515104329736,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5576526498085096,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.000333505357147601,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5382270609547511,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0004106764356033299,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5382772208932777,
+      "geometry": {
+        "mean_delta_vs_178": 0.0022608015304280177,
+        "max_delta_vs_178": 0.009435356853535692,
+        "mean_delta_vs_329": 0.019255641770156907,
+        "max_delta_vs_329": 0.08056986721869253,
+        "mean_delta_vs_335": 0.009085877310011847,
+        "max_delta_vs_335": 0.11096527876233009,
+        "projection_failed": -0.0012630633373395686,
+        "prediction_mean": 0.6038556788081054,
+        "prediction_std": 0.21872147715196494
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.604490711171832,
+      "proxy_delta_vs_id337": -0.0005315028114962761,
+      "proxy_delta_vs_id339": -0.005056381388401032,
+      "full_geometry_pass": true,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.009435356853535692,
+          "Q2": 0.008101779532933812,
+          "Q3": 0.008670251172085197,
+          "S1": 0.008884745228036062,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.007136074852207908
+        },
+        "mean": {
+          "Q1": 0.003200963526575485,
+          "Q2": 0.0034582605308513302,
+          "Q3": 0.003414304634906465,
+          "S1": 0.0026471171914310893,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0031049648292317553
+        }
+      }
+    },
+    {
+      "name": "q23_w0.02",
+      "target_set": "q23",
+      "targets": [
+        "Q2",
+        "Q3"
+      ],
+      "weight": 0.02,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5382679240108048,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0003698133795496661,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5394969704453282,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.00025024580634436244,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5408670756588106,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0007365812063315769,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5858667184489488,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.00042315002166082305,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5577201096427941,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.0002660455228631342,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5383273232859797,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0003104141043748232,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5382679240108048,
+      "geometry": {
+        "mean_delta_vs_178": 0.001963590047359371,
+        "max_delta_vs_178": 0.017340502344170505,
+        "mean_delta_vs_329": 0.019129701988341335,
+        "max_delta_vs_329": 0.08194734446642271,
+        "mean_delta_vs_335": 0.00935589913938493,
+        "max_delta_vs_335": 0.11194917233304491,
+        "projection_failed": -0.0012311544905646231,
+        "prediction_mean": 0.6038146612309697,
+        "prediction_std": 0.21862286247271284
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6046266528727547,
+      "proxy_delta_vs_id337": -0.00039556111057348353,
+      "proxy_delta_vs_id339": -0.00492043968747824,
+      "full_geometry_pass": true,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.0,
+          "Q2": 0.01620355906586765,
+          "Q3": 0.017340502344170505,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.0,
+          "Q2": 0.006916521061702657,
+          "Q3": 0.006828609269812942,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "all_w0.01",
+      "target_set": "all",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "weight": 0.01,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5384415731948203,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0001961641955341431,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.539783301533344,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": 3.608528167142744e-05,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5409650738016393,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.000638583063502951,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5859453086345646,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.00034455983604497753,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5578199255231676,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.00016622964248957928,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5383633432959816,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0002743940943729095,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5384415731948203,
+      "geometry": {
+        "mean_delta_vs_178": 0.003135163928465749,
+        "max_delta_vs_178": 0.009522099664150185,
+        "mean_delta_vs_329": 0.01934524144544354,
+        "max_delta_vs_329": 0.08056986721869253,
+        "mean_delta_vs_335": 0.009960239708049577,
+        "max_delta_vs_335": 0.11096527876233009,
+        "projection_failed": -0.0015921425636499951,
+        "prediction_mean": 0.6038203727543023,
+        "prediction_std": 0.2183808323863236
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6046924074436886,
+      "proxy_delta_vs_id337": -0.00032980653963965434,
+      "proxy_delta_vs_id339": -0.0048546851165444105,
+      "full_geometry_pass": true,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.009435356853535692,
+          "Q2": 0.008101779532933812,
+          "Q3": 0.008670251172085197,
+          "S1": 0.008884745228036062,
+          "S2": 0.009212607848399501,
+          "S3": 0.009522099664150185,
+          "S4": 0.007136074852207908
+        },
+        "mean": {
+          "Q1": 0.003200963526575485,
+          "Q2": 0.0034582605308513302,
+          "Q3": 0.003414304634906465,
+          "S1": 0.0026471171914310893,
+          "S2": 0.0031360830401881003,
+          "S3": 0.0029844537460760197,
+          "S4": 0.0031049648292317553
+        }
+      }
+    },
+    {
+      "name": "q2_only_w0.03",
+      "target_set": "q2_only",
+      "targets": [
+        "Q2"
+      ],
+      "weight": 0.03,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5380392092215448,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0005985281688096755,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5393854444267854,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.0003617718248871693,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5401637068491633,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0014399500159789635,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.585044544738529,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0012453237320806387,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5572719577248405,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.0007141974408166885,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5383304162660204,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0003073211243340701,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5380392092215448,
+      "geometry": {
+        "mean_delta_vs_178": 0.0014821116560791415,
+        "max_delta_vs_178": 0.024305338598801435,
+        "mean_delta_vs_329": 0.01948142062992272,
+        "max_delta_vs_329": 0.08283908839104515,
+        "mean_delta_vs_335": 0.008874420748104699,
+        "max_delta_vs_335": 0.11194917233304491,
+        "projection_failed": -0.0010166813351081482,
+        "prediction_mean": 0.6038845385500105,
+        "prediction_std": 0.21887442315260497
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6047319034636116,
+      "proxy_delta_vs_id337": -0.0002903105197166189,
+      "proxy_delta_vs_id339": -0.004815189096621375,
+      "full_geometry_pass": true,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.0,
+          "Q2": 0.024305338598801435,
+          "Q3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.0,
+          "Q2": 0.01037478159255399,
+          "Q3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "q123_w0.02",
+      "target_set": "q123",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ],
+      "weight": 0.02,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5381014207564335,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0005363166339209524,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5394205816776826,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.000326634573989959,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.540241279660776,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0013623772043662719,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5851642853939897,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0011255830766199182,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5571987218595105,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.0007874333061467231,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5382159298288369,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.00042180756151755094,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5381014207564335,
+      "geometry": {
+        "mean_delta_vs_178": 0.0028781510549523662,
+        "max_delta_vs_178": 0.018870713707071385,
+        "mean_delta_vs_329": 0.019238242839616785,
+        "max_delta_vs_329": 0.08194734446642271,
+        "mean_delta_vs_335": 0.010270460146977923,
+        "max_delta_vs_335": 0.11194917233304491,
+        "projection_failed": -0.002434849659009293,
+        "prediction_mean": 0.6038128172539404,
+        "prediction_std": 0.21835713474163893
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6048747948465998,
+      "proxy_delta_vs_id337": -0.00014741913672844387,
+      "proxy_delta_vs_id339": -0.0046722977136332,
+      "full_geometry_pass": true,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.018870713707071385,
+          "Q2": 0.01620355906586765,
+          "Q3": 0.017340502344170505,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.006401927053150966,
+          "Q2": 0.006916521061702657,
+          "Q3": 0.006828609269812942,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "q123_s1_w0.02",
+      "target_set": "q123_s1",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1"
+      ],
+      "weight": 0.02,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5379998432934686,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0006378940968858604,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5393664596863067,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.00038075656536584734,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5404138447011958,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0011898121639464243,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5855065735327043,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0007832949379052989,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5571736590774716,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.0008124960881855658,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5380157936130041,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0006219437773503644,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5379998432934686,
+      "geometry": {
+        "mean_delta_vs_178": 0.003634470252504107,
+        "max_delta_vs_178": 0.018870713707071385,
+        "mean_delta_vs_329": 0.01945290392601814,
+        "max_delta_vs_329": 0.08194734446642271,
+        "mean_delta_vs_335": 0.010550810416146304,
+        "max_delta_vs_335": 0.10998138519161516,
+        "projection_failed": -0.002880944838621212,
+        "prediction_mean": 0.6035976169761406,
+        "prediction_std": 0.21832603023639424
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6050583579569733,
+      "proxy_delta_vs_id337": 3.614397364504196e-05,
+      "proxy_delta_vs_id339": -0.004488734603259714,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.018870713707071385,
+          "Q2": 0.01620355906586765,
+          "Q3": 0.017340502344170505,
+          "S1": 0.017769490456072012,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.006401927053150966,
+          "Q2": 0.006916521061702657,
+          "Q3": 0.006828609269812942,
+          "S1": 0.005294234382862186,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "q23_w0.03",
+      "target_set": "q23",
+      "targets": [
+        "Q2",
+        "Q3"
+      ],
+      "weight": 0.03,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5381161593236089,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.000521578066745576,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5394144992791682,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.0003327169725043655,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5405424339779816,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0010612228871605955,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5856957901498826,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0005940783207269984,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5576241596061466,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.00036199555951055284,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5382157117446941,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.00042202564566040657,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5381161593236089,
+      "geometry": {
+        "mean_delta_vs_178": 0.0029453850710390566,
+        "max_delta_vs_178": 0.026010753516255702,
+        "mean_delta_vs_329": 0.019235368696307542,
+        "max_delta_vs_329": 0.08332482171415279,
+        "mean_delta_vs_335": 0.010337694163064615,
+        "max_delta_vs_335": 0.11194917233304491,
+        "projection_failed": -0.0018467317358469247,
+        "prediction_mean": 0.6037358927672622,
+        "prediction_std": 0.21837054080261006
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.605081632166381,
+      "proxy_delta_vs_id337": 5.941818305277291e-05,
+      "proxy_delta_vs_id339": -0.004465460393851983,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.0,
+          "Q2": 0.024305338598801435,
+          "Q3": 0.026010753516255702,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.0,
+          "Q2": 0.01037478159255399,
+          "Q3": 0.010242913904719405,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "q123_s1_s4_w0.02",
+      "target_set": "q123_s1_s4",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S4"
+      ],
+      "weight": 0.02,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5379869503219725,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0006507870683819528,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5393459717027395,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.0004012445489330885,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5402052208992754,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0013984359658668621,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5854028810349251,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0008869874356844942,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5574101798389923,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.0005759753266648682,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5379243205341949,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0007134168561595544,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5379869503219725,
+      "geometry": {
+        "mean_delta_vs_178": 0.004521603060856038,
+        "max_delta_vs_178": 0.018870713707071385,
+        "mean_delta_vs_329": 0.019513724968801098,
+        "max_delta_vs_329": 0.08194734446642271,
+        "mean_delta_vs_335": 0.01086017155868125,
+        "max_delta_vs_335": 0.10998138519161516,
+        "projection_failed": -0.002526126674679157,
+        "prediction_mean": 0.6037391594578263,
+        "prediction_std": 0.21829769526524637
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6052583928582334,
+      "proxy_delta_vs_id337": 0.00023617887490512413,
+      "proxy_delta_vs_id339": -0.004288699701999632,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.018870713707071385,
+          "Q2": 0.01620355906586765,
+          "Q3": 0.017340502344170505,
+          "S1": 0.017769490456072012,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.014272149704415704
+        },
+        "mean": {
+          "Q1": 0.006401927053150966,
+          "Q2": 0.006916521061702657,
+          "Q3": 0.006828609269812942,
+          "S1": 0.005294234382862186,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.006209929658463514
+        }
+      }
+    },
+    {
+      "name": "q2_only_w0.05",
+      "target_set": "q2_only",
+      "targets": [
+        "Q2"
+      ],
+      "weight": 0.05,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5376977614140992,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0009399759762552806,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5392136085410769,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.0005336077105956294,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5392891933358899,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.002314463529252353,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5842868363172257,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0020030321533839324,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5568543061917524,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.0011318489739048365,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5381970309845757,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.00044070640577875686,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5376977614140992,
+      "geometry": {
+        "mean_delta_vs_178": 0.0024701860934652356,
+        "max_delta_vs_178": 0.04050889766466911,
+        "mean_delta_vs_329": 0.019877210625682328,
+        "max_delta_vs_329": 0.0886560559082239,
+        "mean_delta_vs_335": 0.009862495185490795,
+        "max_delta_vs_335": 0.11194917233304491,
+        "projection_failed": -0.0016944688918469181,
+        "prediction_mean": 0.603826098811094,
+        "prediction_std": 0.21871549552467678
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6054442016913159,
+      "proxy_delta_vs_id337": 0.0004219877079876255,
+      "proxy_delta_vs_id339": -0.004102890868917131,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.0,
+          "Q2": 0.04050889766466911,
+          "Q3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.0,
+          "Q2": 0.017291302654256647,
+          "Q3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "q123_w0.03",
+      "target_set": "q123",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ],
+      "weight": 0.03,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5378903119211172,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0007474254692372284,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.539323006371104,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.00042420988056857123,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5396926782433281,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0019109786218141078,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5847015350960476,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0015883333745619899,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5569031783650683,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.0010829768005888862,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5380875223597309,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0005502150306235798,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5378903119211172,
+      "geometry": {
+        "mean_delta_vs_178": 0.0043172265824285485,
+        "max_delta_vs_178": 0.028306070560607077,
+        "mean_delta_vs_329": 0.019439295414931678,
+        "max_delta_vs_329": 0.08332482171415279,
+        "mean_delta_vs_335": 0.011709535674454105,
+        "max_delta_vs_335": 0.11194917233304491,
+        "projection_failed": -0.0036522744885139347,
+        "prediction_mean": 0.6037331268017181,
+        "prediction_std": 0.21798571245025294
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6054571343624854,
+      "proxy_delta_vs_id337": 0.0004349203791571554,
+      "proxy_delta_vs_id339": -0.004089958197747601,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.028306070560607077,
+          "Q2": 0.024305338598801435,
+          "Q3": 0.026010753516255702,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.009602890579726445,
+          "Q2": 0.01037478159255399,
+          "Q3": 0.010242913904719405,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "all_w0.02",
+      "target_set": "all",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "weight": 0.02,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5383481419274166,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.00028959546293783056,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5399073867780607,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": 0.0001601705263881703,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5404644314691182,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0011392253960240684,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5857115910110036,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0005782774596060358,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5577664000265364,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.00021975513912075861,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.538248003147265,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0003897342430895234,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5383481419274166,
+      "geometry": {
+        "mean_delta_vs_178": 0.006270327856931501,
+        "max_delta_vs_178": 0.01904419932830037,
+        "mean_delta_vs_329": 0.01994308030197072,
+        "max_delta_vs_329": 0.08194734446642271,
+        "mean_delta_vs_335": 0.012608896354756715,
+        "max_delta_vs_335": 0.10998138519161516,
+        "projection_failed": -0.0031842851273000254,
+        "prediction_mean": 0.60366854735022,
+        "prediction_std": 0.21763348399145283
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6056817978805543,
+      "proxy_delta_vs_id337": 0.0006595838972260903,
+      "proxy_delta_vs_id339": -0.003865294679678666,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.018870713707071385,
+          "Q2": 0.01620355906586765,
+          "Q3": 0.017340502344170505,
+          "S1": 0.017769490456072012,
+          "S2": 0.01842521569679889,
+          "S3": 0.01904419932830037,
+          "S4": 0.014272149704415704
+        },
+        "mean": {
+          "Q1": 0.006401927053150966,
+          "Q2": 0.006916521061702657,
+          "Q3": 0.006828609269812942,
+          "S1": 0.005294234382862186,
+          "S2": 0.0062721660803762005,
+          "S3": 0.005968907492152041,
+          "S4": 0.006209929658463514
+        }
+      }
+    },
+    {
+      "name": "q123_s1_w0.03",
+      "target_set": "q123_s1",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1"
+      ],
+      "weight": 0.03,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5377671352363176,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0008706021540368925,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.539256558707289,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.0004906575443835992,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5399624232192514,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0016412336458908605,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5852317601644981,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.001058108306111527,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5568788661780102,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.0011072889876470038,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5378369671312775,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0008007702590769883,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5377671352363176,
+      "geometry": {
+        "mean_delta_vs_178": 0.005451705378756159,
+        "max_delta_vs_178": 0.028306070560607077,
+        "mean_delta_vs_329": 0.01989080848433913,
+        "max_delta_vs_329": 0.08332482171415279,
+        "mean_delta_vs_335": 0.012163268435725107,
+        "max_delta_vs_335": 0.11332375276274731,
+        "projection_failed": -0.0043214172579318175,
+        "prediction_mean": 0.6034103263850185,
+        "prediction_std": 0.21794952229678066
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6057428407432301,
+      "proxy_delta_vs_id337": 0.0007206267599019212,
+      "proxy_delta_vs_id339": -0.003804251817002835,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.028306070560607077,
+          "Q2": 0.024305338598801435,
+          "Q3": 0.026010753516255702,
+          "S1": 0.026654235684107963,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.009602890579726445,
+          "Q2": 0.01037478159255399,
+          "Q3": 0.010242913904719405,
+          "S1": 0.007941351574293274,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "q123_s1_s4_w0.03",
+      "target_set": "q123_s1_s4",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S4"
+      ],
+      "weight": 0.03,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5377594137488076,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0008783236415468298,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5392421727160782,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.0005050435355943295,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5396691647057795,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0019344921593626996,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5850918511687643,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0011980173018453222,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5572478660005945,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.0007382891650626888,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5377140124701184,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0009237249202360687,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5377594137488076,
+      "geometry": {
+        "mean_delta_vs_178": 0.006782404591284054,
+        "max_delta_vs_178": 0.028306070560607077,
+        "mean_delta_vs_329": 0.02006262965690834,
+        "max_delta_vs_329": 0.08332482171415279,
+        "mean_delta_vs_335": 0.012684159045404115,
+        "max_delta_vs_335": 0.11332375276274731,
+        "projection_failed": -0.003789190012018737,
+        "prediction_mean": 0.6036226401075468,
+        "prediction_std": 0.21791927460899757
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6060493402637918,
+      "proxy_delta_vs_id337": 0.0010271262804635306,
+      "proxy_delta_vs_id339": -0.0034977522964412255,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.028306070560607077,
+          "Q2": 0.024305338598801435,
+          "Q3": 0.026010753516255702,
+          "S1": 0.026654235684107963,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.021408224556623612
+        },
+        "mean": {
+          "Q1": 0.009602890579726445,
+          "Q2": 0.01037478159255399,
+          "Q3": 0.010242913904719405,
+          "S1": 0.007941351574293274,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.009314894487695267
+        }
+      }
+    },
+    {
+      "name": "q23_w0.05",
+      "target_set": "q23",
+      "targets": [
+        "Q2",
+        "Q3"
+      ],
+      "weight": 0.05,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5378758632835345,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0007618741068199375,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5393300262902411,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.00041718996143147447,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.539974771775294,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0016288850898482643,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.585430636171738,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0008592322988716372,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5575032811281052,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.00048287403755198355,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5380747791222018,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.000562958268152669,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5378758632835345,
+      "geometry": {
+        "mean_delta_vs_178": 0.0049089751183984285,
+        "max_delta_vs_178": 0.0433512558604261,
+        "mean_delta_vs_329": 0.019924610248897596,
+        "max_delta_vs_329": 0.0886560559082239,
+        "mean_delta_vs_335": 0.012301284210423986,
+        "max_delta_vs_335": 0.11194917233304491,
+        "projection_failed": -0.003077886226411552,
+        "prediction_mean": 0.6035783558398471,
+        "prediction_std": 0.21792911266665926
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6060555862015523,
+      "proxy_delta_vs_id337": 0.0010333722182240823,
+      "proxy_delta_vs_id339": -0.003491506358680674,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.0,
+          "Q2": 0.04050889766466911,
+          "Q3": 0.0433512558604261,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.0,
+          "Q2": 0.017291302654256647,
+          "Q3": 0.017071523174532345,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "q2_only_w0.07",
+      "target_set": "q2_only",
+      "targets": [
+        "Q2"
+      ],
+      "weight": 0.07,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5373990222945314,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.001238715095823073,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5390930371078034,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.0006541791438691158,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5384757597059356,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.003127897159206583,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5835820615899822,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.002707806880627439,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5564804828923599,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.0015056722732973427,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5381166586053957,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0005210787849587728,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5373990222945314,
+      "geometry": {
+        "mean_delta_vs_178": 0.0034582605308513285,
+        "max_delta_vs_178": 0.05671245673053674,
+        "mean_delta_vs_329": 0.020486474959020347,
+        "max_delta_vs_329": 0.09447302342540259,
+        "mean_delta_vs_335": 0.010850569622876886,
+        "max_delta_vs_335": 0.11194917233304491,
+        "projection_failed": -0.0023722564485856817,
+        "prediction_mean": 0.6037676590721778,
+        "prediction_std": 0.21859803259268124
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6061735778660263,
+      "proxy_delta_vs_id337": 0.0011513638826980976,
+      "proxy_delta_vs_id339": -0.0033735146942066585,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.0,
+          "Q2": 0.05671245673053674,
+          "Q3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.0,
+          "Q2": 0.0242078237159593,
+          "Q3": 0.0,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "q123_w0.05",
+      "target_set": "q123",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ],
+      "weight": 0.05,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5375723824678112,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0010653549225432268,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5392489304514692,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.0004982858002033907,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.538797977868901,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0028056789962411788,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5839474753307815,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0023423931398280917,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5564718979871728,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.0015142571784844128,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5379741573384346,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0006635800519199098,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5375723824678112,
+      "geometry": {
+        "mean_delta_vs_178": 0.007195377637380915,
+        "max_delta_vs_178": 0.04717678426767857,
+        "mean_delta_vs_329": 0.02039975763471847,
+        "max_delta_vs_329": 0.0886560559082239,
+        "mean_delta_vs_335": 0.014587686729406475,
+        "max_delta_vs_335": 0.11194917233304491,
+        "projection_failed": -0.006087124147523234,
+        "prediction_mean": 0.6035737458972736,
+        "prediction_std": 0.2173340179854494
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6066922447567754,
+      "proxy_delta_vs_id337": 0.0016700307734471842,
+      "proxy_delta_vs_id339": -0.002854847803457572,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.04717678426767857,
+          "Q2": 0.04050889766466911,
+          "Q3": 0.0433512558604261,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.016004817632877415,
+          "Q2": 0.017291302654256647,
+          "Q3": 0.017071523174532345,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "all_w0.03",
+      "target_set": "all",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "weight": 0.03,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5383460244918444,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.00029171289851004367,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5401152092012809,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": 0.0003679929496083201,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5400825804450898,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0015210764200523919,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5855804298120988,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0007094386585108081,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5578141431794029,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.0001720119862542724,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5382697024431664,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0003680349471880673,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5383460244918444,
+      "geometry": {
+        "mean_delta_vs_178": 0.00940549178539725,
+        "max_delta_vs_178": 0.028566298992450778,
+        "mean_delta_vs_329": 0.020999175650682638,
+        "max_delta_vs_329": 0.08488723748139915,
+        "mean_delta_vs_335": 0.01530724623951731,
+        "max_delta_vs_335": 0.11332375276274731,
+        "projection_failed": -0.004776427690950039,
+        "prediction_mean": 0.6035167219461375,
+        "prediction_std": 0.21694895453980015
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6067234729944672,
+      "proxy_delta_vs_id337": 0.0017012590111389336,
+      "proxy_delta_vs_id339": -0.0028236195657658225,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.028306070560607077,
+          "Q2": 0.024305338598801435,
+          "Q3": 0.026010753516255702,
+          "S1": 0.026654235684107963,
+          "S2": 0.02763782354519828,
+          "S3": 0.028566298992450778,
+          "S4": 0.021408224556623612
+        },
+        "mean": {
+          "Q1": 0.009602890579726445,
+          "Q2": 0.01037478159255399,
+          "Q3": 0.010242913904719405,
+          "S1": 0.007941351574293274,
+          "S2": 0.009408249120564307,
+          "S3": 0.008953361238228062,
+          "S4": 0.009314894487695267
+        }
+      }
+    },
+    {
+      "name": "q23_w0.07",
+      "target_set": "q23",
+      "targets": [
+        "Q2",
+        "Q3"
+      ],
+      "weight": 0.07,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5377166176371355,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0009211197532189574,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5393477010022837,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.00039951524938885985,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5395099105306843,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0020937463344579132,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5852629200473826,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0010269484232270365,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5574737147937612,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.0005124403718960169,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5380384014964243,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0005993358939301308,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5377166176371355,
+      "geometry": {
+        "mean_delta_vs_178": 0.006872565165757797,
+        "max_delta_vs_178": 0.06069175820459649,
+        "mean_delta_vs_329": 0.021049738047581774,
+        "max_delta_vs_329": 0.09447302342540259,
+        "mean_delta_vs_335": 0.014264874257783357,
+        "max_delta_vs_335": 0.11194917233304491,
+        "projection_failed": -0.004309040716976165,
+        "prediction_mean": 0.603420818912432,
+        "prediction_std": 0.21757238878628465
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6070692684696422,
+      "proxy_delta_vs_id337": 0.002047054486313926,
+      "proxy_delta_vs_id339": -0.00247782409059083,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.0,
+          "Q2": 0.05671245673053674,
+          "Q3": 0.06069175820459649,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.0,
+          "Q2": 0.0242078237159593,
+          "Q3": 0.02390013244434528,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "q123_s1_w0.05",
+      "target_set": "q123_s1",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1"
+      ],
+      "weight": 0.05,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5374485533311264,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0011891840592280767,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5391858419107164,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.0005613743409561556,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5392832938830727,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0023203629820695015,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5848849323976507,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0014049360729588845,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.556474306578985,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.0015118485866721931,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5376920921716908,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0009456452186636932,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5374485533311264,
+      "geometry": {
+        "mean_delta_vs_178": 0.009086175631260266,
+        "max_delta_vs_178": 0.04717678426767857,
+        "mean_delta_vs_329": 0.021395701504683368,
+        "max_delta_vs_329": 0.0886560559082239,
+        "mean_delta_vs_335": 0.015424215541669586,
+        "max_delta_vs_335": 0.1240854941199504,
+        "projection_failed": -0.00720236209655304,
+        "prediction_mean": 0.6030357452027741,
+        "prediction_std": 0.21730878175404905
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6071878958250261,
+      "proxy_delta_vs_id337": 0.002165681841697853,
+      "proxy_delta_vs_id339": -0.002359196735206903,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.04717678426767857,
+          "Q2": 0.04050889766466911,
+          "Q3": 0.0433512558604261,
+          "S1": 0.044423726140179975,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.016004817632877415,
+          "Q2": 0.017291302654256647,
+          "Q3": 0.017071523174532345,
+          "S1": 0.013235585957155458,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "q123_s1_s4_w0.05",
+      "target_set": "q123_s1_s4",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S4"
+      ],
+      "weight": 0.05,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.537474198813796,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0011635385765584871,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5392148111483932,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.0005324051032793431,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5388582788128978,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.002745378052244396,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5847025919750525,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0015872764955571217,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5571361348426198,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.0008500203230373815,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5375340987408347,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0011036386495197892,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.537474198813796,
+      "geometry": {
+        "mean_delta_vs_178": 0.011304007652140092,
+        "max_delta_vs_178": 0.04717678426767857,
+        "mean_delta_vs_329": 0.02199333684488769,
+        "max_delta_vs_329": 0.0886560559082239,
+        "mean_delta_vs_335": 0.01645610460809951,
+        "max_delta_vs_335": 0.1240854941199504,
+        "projection_failed": -0.006315316686697908,
+        "prediction_mean": 0.6033896014069882,
+        "prediction_std": 0.21729943652558265
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.607723629696836,
+      "proxy_delta_vs_id337": 0.002701415713507793,
+      "proxy_delta_vs_id339": -0.001823462863396963,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.04717678426767857,
+          "Q2": 0.04050889766466911,
+          "Q3": 0.0433512558604261,
+          "S1": 0.044423726140179975,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.035680374261039316
+        },
+        "mean": {
+          "Q1": 0.016004817632877415,
+          "Q2": 0.017291302654256647,
+          "Q3": 0.017071523174532345,
+          "S1": 0.013235585957155458,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.015524824146158783
+        }
+      }
+    },
+    {
+      "name": "q123_w0.07",
+      "target_set": "q123",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ],
+      "weight": 0.07,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5373844121286712,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0012533252616833135,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5393260965735983,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.00042111967807423323,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5381279781373517,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.003475678727790532,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5833964000184044,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0028934684522051723,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5562260969971625,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.0017600581684946714,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.538034685335186,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0006030520551685292,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5373844121286712,
+      "geometry": {
+        "mean_delta_vs_178": 0.010073528692333281,
+        "max_delta_vs_178": 0.06604749797474996,
+        "mean_delta_vs_329": 0.021878429081728653,
+        "max_delta_vs_329": 0.09447302342540259,
+        "mean_delta_vs_335": 0.017465837784358836,
+        "max_delta_vs_335": 0.11194917233304491,
+        "projection_failed": -0.008521973806532517,
+        "prediction_mean": 0.6034143649928292,
+        "prediction_std": 0.21680474901852514
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6079736692224743,
+      "proxy_delta_vs_id337": 0.0029514552391460835,
+      "proxy_delta_vs_id339": -0.0015734233377586726,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.06604749797474996,
+          "Q2": 0.05671245673053674,
+          "Q3": 0.06069175820459649,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.022406744686028383,
+          "Q2": 0.0242078237159593,
+          "Q3": 0.02390013244434528,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "q123_s1_w0.07",
+      "target_set": "q123_s1",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1"
+      ],
+      "weight": 0.07,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.537306611867917,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0013311255224375262,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5393021515534706,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.0004450646982019357,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5388565649466097,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.002747091918532507,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5847806956812355,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0015091727893741247,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5562874579332551,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.0016986972324021243,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5377941002962376,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0008436370941168336,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.537306611867917,
+      "geometry": {
+        "mean_delta_vs_178": 0.01272064588376437,
+        "max_delta_vs_178": 0.06604749797474996,
+        "mean_delta_vs_329": 0.02349788437047374,
+        "max_delta_vs_329": 0.09447302342540259,
+        "mean_delta_vs_335": 0.018742322865105743,
+        "max_delta_vs_335": 0.1348472354771536,
+        "projection_failed": -0.01008330693517424,
+        "prediction_mean": 0.6026611640205299,
+        "prediction_std": 0.21681881534561626
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6086855914276887,
+      "proxy_delta_vs_id337": 0.003663377444360516,
+      "proxy_delta_vs_id339": -0.0008615011325442401,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.06604749797474996,
+          "Q2": 0.05671245673053674,
+          "Q3": 0.06069175820459649,
+          "S1": 0.06219321659625199,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.022406744686028383,
+          "Q2": 0.0242078237159593,
+          "Q3": 0.02390013244434528,
+          "S1": 0.018529820340017645,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "q123_s1_s4_w0.07",
+      "target_set": "q123_s1_s4",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S4"
+      ],
+      "weight": 0.07,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5373961330749234,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0012416043154310774,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5394144591658744,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -0.0003327570857981632,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5383478740961273,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.0032557827690149477,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.584594622208095,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0016952462625146048,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5572787270101853,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -0.0007074281554718675,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5376376927544806,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0010000446358738868,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": true,
+      "subject_hole_loss": 0.5373961330749234,
+      "geometry": {
+        "mean_delta_vs_178": 0.015825610712996128,
+        "max_delta_vs_178": 0.06604749797474996,
+        "mean_delta_vs_329": 0.024741544700886603,
+        "max_delta_vs_329": 0.09447302342540259,
+        "mean_delta_vs_335": 0.02043809557377485,
+        "max_delta_vs_335": 0.1348472354771536,
+        "projection_failed": -0.008841443361377052,
+        "prediction_mean": 0.6031565627064296,
+        "prediction_std": 0.21686352660650335
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6094681765165527,
+      "proxy_delta_vs_id337": 0.00444596253322449,
+      "proxy_delta_vs_id339": -7.891604368026606e-05,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.06604749797474996,
+          "Q2": 0.05671245673053674,
+          "Q3": 0.06069175820459649,
+          "S1": 0.06219321659625199,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.04995252396545502
+        },
+        "mean": {
+          "Q1": 0.022406744686028383,
+          "Q2": 0.0242078237159593,
+          "Q3": 0.02390013244434528,
+          "S1": 0.018529820340017645,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.021734753804622295
+        }
+      }
+    },
+    {
+      "name": "s1_only_w0.01",
+      "target_set": "s1_only",
+      "targets": [
+        "S1"
+      ],
+      "weight": 0.01,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5385755496171417,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -6.218777321276292e-05,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5397151331832634,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -3.208306840918329e-05,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5416862615681025,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": 8.260470296028721e-05,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5864552391612209,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": 0.0001653706906112884,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5579690929251556,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -1.7062240501575232e-05,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5385179761911435,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.00011976119921097705,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": false,
+      "subject_hole_loss": 0.5385755496171417,
+      "geometry": {
+        "mean_delta_vs_178": 0.0003781595987758699,
+        "max_delta_vs_178": 0.008884745228036062,
+        "mean_delta_vs_329": 0.019397614615804887,
+        "max_delta_vs_329": 0.07919238997096245,
+        "mean_delta_vs_335": 0.00751772570060521,
+        "max_delta_vs_335": 0.11096527876233009,
+        "projection_failed": -0.00022304758980595967,
+        "prediction_mean": 0.6038645980194849,
+        "prediction_std": 0.21917140749726247
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6040603477114056,
+      "proxy_delta_vs_id337": -0.000961866271922629,
+      "proxy_delta_vs_id339": -0.005486744848827385,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.0,
+          "Q2": 0.0,
+          "Q3": 0.0,
+          "S1": 0.008884745228036062,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.0,
+          "Q2": 0.0,
+          "Q3": 0.0,
+          "S1": 0.0026471171914310893,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "s1_only_w0.02",
+      "target_set": "s1_only",
+      "targets": [
+        "S1"
+      ],
+      "weight": 0.02,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5385361599273897,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.00010157746296479697,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5396930942602965,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -5.412199137599938e-05,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.541776221905562,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": 0.00017256504041973653,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5866321566093242,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": 0.00034228813871461927,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5579610923836185,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -2.506278203873169e-05,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5384376011745217,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.0002001362158328135,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": false,
+      "subject_hole_loss": 0.5385361599273897,
+      "geometry": {
+        "mean_delta_vs_178": 0.0007563191975517408,
+        "max_delta_vs_178": 0.017769490456072012,
+        "mean_delta_vs_329": 0.019586539831186224,
+        "max_delta_vs_329": 0.07919238997096245,
+        "mean_delta_vs_335": 0.007672659361193937,
+        "max_delta_vs_335": 0.10998138519161516,
+        "projection_failed": -0.0004460951796119189,
+        "prediction_mean": 0.6037569978805851,
+        "prediction_std": 0.21915952741827954
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6043807754710676,
+      "proxy_delta_vs_id337": -0.000641438512260617,
+      "proxy_delta_vs_id339": -0.005166317089165373,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.0,
+          "Q2": 0.0,
+          "Q3": 0.0,
+          "S1": 0.017769490456072012,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.0,
+          "Q2": 0.0,
+          "Q3": 0.0,
+          "S1": 0.005294234382862186,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "s1_only_w0.03",
+      "target_set": "s1_only",
+      "targets": [
+        "S1"
+      ],
+      "weight": 0.03,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5385145607055548,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.00012317668479966404,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5396807685878574,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -6.6447663815139e-05,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5418734018410654,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": 0.0002697449759231363,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5868200935390601,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": 0.0005302250684504628,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5579618429785992,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": -2.431218705800653e-05,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5383871821619013,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.00025055522845318645,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": false,
+      "subject_hole_loss": 0.5385145607055548,
+      "geometry": {
+        "mean_delta_vs_178": 0.0011344787963276102,
+        "max_delta_vs_178": 0.026654235684107963,
+        "mean_delta_vs_329": 0.019823391814192324,
+        "max_delta_vs_329": 0.07919238997096245,
+        "mean_delta_vs_335": 0.007846041853296558,
+        "max_delta_vs_335": 0.11332375276274731,
+        "projection_failed": -0.0006691427694178823,
+        "prediction_mean": 0.6036493977416851,
+        "prediction_std": 0.21915471807831735
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6047050373721398,
+      "proxy_delta_vs_id337": -0.0003171766111884633,
+      "proxy_delta_vs_id339": -0.0048420551880932194,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.0,
+          "Q2": 0.0,
+          "Q3": 0.0,
+          "S1": 0.026654235684107963,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.0,
+          "Q2": 0.0,
+          "Q3": 0.0,
+          "S1": 0.007941351574293274,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "s1_only_w0.05",
+      "target_set": "s1_only",
+      "targets": [
+        "S1"
+      ],
+      "weight": 0.05,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5385139082536697,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.00012382913668473883,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.53968412771092,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -6.308854075254278e-05,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5420889728793139,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": 0.00048531601417167725,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5872273255374788,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": 0.0009374570668692073,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5579885637574694,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": 2.4085918122196404e-06,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5383556722236108,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.00028206516674367244,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": false,
+      "subject_hole_loss": 0.5385139082536697,
+      "geometry": {
+        "mean_delta_vs_178": 0.0018907979938793515,
+        "max_delta_vs_178": 0.044423726140179975,
+        "mean_delta_vs_329": 0.020367822614749766,
+        "max_delta_vs_329": 0.07919238997096245,
+        "mean_delta_vs_335": 0.008228837904288671,
+        "max_delta_vs_335": 0.1240854941199504,
+        "projection_failed": -0.0011152379490298062,
+        "prediction_mean": 0.6034341974638854,
+        "prediction_std": 0.219166312793013
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6053592193210475,
+      "proxy_delta_vs_id337": 0.0003370053377192983,
+      "proxy_delta_vs_id339": -0.004187873239185458,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.0,
+          "Q2": 0.0,
+          "Q3": 0.0,
+          "S1": 0.044423726140179975,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.0,
+          "Q2": 0.0,
+          "Q3": 0.0,
+          "S1": 0.013235585957155458,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "s1_only_w0.07",
+      "target_set": "s1_only",
+      "targets": [
+        "S1"
+      ],
+      "weight": 0.07,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5385599371296004,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -7.780026075410174e-05,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5397232712315448,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": -2.39450201277025e-05,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5423322436744004,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": 0.000728586809258136,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5876741641334406,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": 0.0013842956628310477,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5580475161017499,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": 6.136093609265814e-05,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5383971523514063,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -0.00024058503894819339,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": false,
+      "subject_hole_loss": 0.5385599371296004,
+      "geometry": {
+        "mean_delta_vs_178": 0.002647117191431092,
+        "max_delta_vs_178": 0.06219321659625199,
+        "mean_delta_vs_329": 0.02099133403352995,
+        "max_delta_vs_329": 0.07919238997096245,
+        "mean_delta_vs_335": 0.008668794172772464,
+        "max_delta_vs_335": 0.1348472354771536,
+        "projection_failed": -0.0015613331286417212,
+        "prediction_mean": 0.6032189971860856,
+        "prediction_std": 0.2192061871531578
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6060197277194131,
+      "proxy_delta_vs_id337": 0.0009975137360849207,
+      "proxy_delta_vs_id339": -0.0035273648408198355,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.0,
+          "Q2": 0.0,
+          "Q3": 0.0,
+          "S1": 0.06219321659625199,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        },
+        "mean": {
+          "Q1": 0.0,
+          "Q2": 0.0,
+          "Q3": 0.0,
+          "S1": 0.018529820340017645,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      }
+    },
+    {
+      "name": "all_w0.05",
+      "target_set": "all",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "weight": 0.05,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5385873150216597,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": -5.042236869479133e-05,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.5407687129218882,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": 0.0010214966702156714,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5396283721517946,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.001975284713347625,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5856011747921798,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.0006886936784298303,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.5581840448090434,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": 0.0001978896433861843,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5386711474652065,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": 3.341007485202496e-05,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": false,
+      "subject_hole_loss": 0.5385873150216597,
+      "geometry": {
+        "mean_delta_vs_178": 0.01567581964232875,
+        "max_delta_vs_178": 0.04761049832075115,
+        "mean_delta_vs_329": 0.02419309022920232,
+        "max_delta_vs_329": 0.09179139811047377,
+        "mean_delta_vs_335": 0.02082791659828817,
+        "max_delta_vs_335": 0.1240854941199504,
+        "projection_failed": -0.007960712818250082,
+        "prediction_mean": 0.6032130711379725,
+        "prediction_std": 0.2157706891184266
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6089036048787719,
+      "proxy_delta_vs_id337": 0.0038813908954437037,
+      "proxy_delta_vs_id339": -0.0006434876814610524,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.04717678426767857,
+          "Q2": 0.04050889766466911,
+          "Q3": 0.0433512558604261,
+          "S1": 0.044423726140179975,
+          "S2": 0.04606303924199728,
+          "S3": 0.04761049832075115,
+          "S4": 0.035680374261039316
+        },
+        "mean": {
+          "Q1": 0.016004817632877415,
+          "Q2": 0.017291302654256647,
+          "Q3": 0.017071523174532345,
+          "S1": 0.013235585957155458,
+          "S2": 0.01568041520094051,
+          "S3": 0.014922268730380103,
+          "S4": 0.015524824146158783
+        }
+      }
+    },
+    {
+      "name": "all_w0.07",
+      "target_set": "all",
+      "targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "weight": 0.07,
+      "split_rows": [
+        {
+          "split": "subject_hole_5",
+          "mean_loss": 0.5391258729895583,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": 0.00048813559920379834,
+          "is_primary": true
+        },
+        {
+          "split": "subject_timeseries_5",
+          "mean_loss": 0.541722345071083,
+          "id178_loss": 0.5397472162516725,
+          "delta_vs_id178": 0.001975128819410421,
+          "is_primary": false
+        },
+        {
+          "split": "actual_test_band_holdout",
+          "mean_loss": 0.5395380483024226,
+          "id178_loss": 0.5416036568651422,
+          "delta_vs_id178": -0.002065608562719645,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor2_holdout",
+          "mean_loss": 0.5859694761794199,
+          "id178_loss": 0.5862898684706096,
+          "delta_vs_id178": -0.00032039229118974166,
+          "is_primary": true
+        },
+        {
+          "split": "test_boundary_neighbor5_holdout",
+          "mean_loss": 0.558887914994669,
+          "id178_loss": 0.5579861551656572,
+          "delta_vs_id178": 0.0009017598290118611,
+          "is_primary": true
+        },
+        {
+          "split": "loso_10",
+          "mean_loss": 0.5394950671864619,
+          "id178_loss": 0.5386377373903545,
+          "delta_vs_id178": 0.00085732979610742,
+          "is_primary": true
+        }
+      ],
+      "primary_gate_pass": false,
+      "subject_hole_loss": 0.5391258729895583,
+      "geometry": {
+        "mean_delta_vs_178": 0.02194614749926025,
+        "max_delta_vs_178": 0.06665469764905174,
+        "mean_delta_vs_329": 0.028416242191354614,
+        "max_delta_vs_329": 0.09909548565699422,
+        "mean_delta_vs_335": 0.026558632360038973,
+        "max_delta_vs_335": 0.1348472354771536,
+        "projection_failed": -0.011144997945550097,
+        "prediction_mean": 0.6029094203298075,
+        "prediction_std": 0.21485020868951663
+      },
+      "risk_tier": "reviewable_low_movement",
+      "conservative_public_risk_proxy": 0.6111700750229417,
+      "proxy_delta_vs_id337": 0.006147861039613511,
+      "proxy_delta_vs_id339": 0.0016229824627087552,
+      "full_geometry_pass": false,
+      "public_058_plausible": false,
+      "test_delta_vs_id178_by_target": {
+        "max": {
+          "Q1": 0.06604749797474996,
+          "Q2": 0.05671245673053674,
+          "Q3": 0.06069175820459649,
+          "S1": 0.06219321659625199,
+          "S2": 0.06448825493879617,
+          "S3": 0.06665469764905174,
+          "S4": 0.04995252396545502
+        },
+        "mean": {
+          "Q1": 0.022406744686028383,
+          "Q2": 0.0242078237159593,
+          "Q3": 0.02390013244434528,
+          "S1": 0.018529820340017645,
+          "S2": 0.021952581281316712,
+          "S3": 0.02089117622253215,
+          "S4": 0.021734753804622295
+        }
+      }
+    }
+  ],
+  "best_variant": {
+    "name": "q2_only_w0.01",
+    "target_set": "q2_only",
+    "targets": [
+      "Q2"
+    ],
+    "weight": 0.01,
+    "split_rows": [
+      {
+        "split": "subject_hole_5",
+        "mean_loss": 0.538426136315474,
+        "id178_loss": 0.5386377373903545,
+        "delta_vs_id178": -0.0002116010748804964,
+        "is_primary": true
+      },
+      {
+        "split": "subject_timeseries_5",
+        "mean_loss": 0.5396120244315795,
+        "id178_loss": 0.5397472162516725,
+        "delta_vs_id178": -0.000135191820093028,
+        "is_primary": false
+      },
+      {
+        "split": "actual_test_band_holdout",
+        "mean_loss": 0.5411053257839773,
+        "id178_loss": 0.5416036568651422,
+        "delta_vs_id178": -0.0004983310811649266,
+        "is_primary": true
+      },
+      {
+        "split": "test_boundary_neighbor2_holdout",
+        "mean_loss": 0.5858593850757616,
+        "id178_loss": 0.5862898684706096,
+        "delta_vs_id178": -0.00043048339484796916,
+        "is_primary": true
+      },
+      {
+        "split": "test_boundary_neighbor5_holdout",
+        "mean_loss": 0.5577358936172844,
+        "id178_loss": 0.5579861551656572,
+        "delta_vs_id178": -0.000250261548372821,
+        "is_primary": true
+      },
+      {
+        "split": "loso_10",
+        "mean_loss": 0.5385202605883977,
+        "id178_loss": 0.5386377373903545,
+        "delta_vs_id178": -0.0001174768019567285,
+        "is_primary": true
+      }
+    ],
+    "primary_gate_pass": true,
+    "subject_hole_loss": 0.538426136315474,
+    "geometry": {
+      "mean_delta_vs_178": 0.0004940372186930471,
+      "max_delta_vs_178": 0.008101779532933812,
+      "mean_delta_vs_329": 0.01934478182448396,
+      "max_delta_vs_329": 0.07919238997096245,
+      "mean_delta_vs_335": 0.007886346310718606,
+      "max_delta_vs_335": 0.11194917233304491,
+      "projection_failed": -0.00033889377836937915,
+      "prediction_mean": 0.6039429782889266,
+      "prediction_std": 0.21907472523486807
+    },
+    "risk_tier": "reviewable_low_movement",
+    "conservative_public_risk_proxy": 0.6040620400221042,
+    "proxy_delta_vs_id337": -0.0009601739612240534,
+    "proxy_delta_vs_id339": -0.0054850525381288096,
+    "full_geometry_pass": true,
+    "public_058_plausible": false,
+    "test_delta_vs_id178_by_target": {
+      "max": {
+        "Q1": 0.0,
+        "Q2": 0.008101779532933812,
+        "Q3": 0.0,
+        "S1": 0.0,
+        "S2": 0.0,
+        "S3": 0.0,
+        "S4": 0.0
+      },
+      "mean": {
+        "Q1": 0.0,
+        "Q2": 0.0034582605308513302,
+        "Q3": 0.0,
+        "S1": 0.0,
+        "S2": 0.0,
+        "S3": 0.0,
+        "S4": 0.0
+      }
+    }
+  },
+  "decision": {
+    "promote_submission_candidate_now": false,
+    "create_id340_artifact_now": false,
+    "submit_now": false,
+    "has_variant_for_artifact_review": true,
+    "best_variant": "q2_only_w0.01",
+    "read": "A variant can move to artifact-review only if it passes all primary split lenses and improves the conservative proxy versus ID337/ID339. This scan still creates no artifact."
+  },
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_dacon_submission_made": true
+}

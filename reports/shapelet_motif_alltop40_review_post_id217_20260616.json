@@ -1,0 +1,109 @@
+{
+  "created_at": "2026-06-16",
+  "purpose": "Review after ID215 all-top40 shapelet/motif overlay and ID216/ID217 bridge updates.",
+  "external_public05917_notebook": {
+    "review_report": "reports/external_public05917_notebook_review_20260616.json",
+    "interpretation": "Useful as validation-repair/stability guidance, not as a reproducible plug-and-play pipeline. Claimed Public 0.5917 is better than ID178 Public 0.6014113009 but still far from 0.55 and has a large claimed local-public gap."
+  },
+  "id215": {
+    "base_id": 212,
+    "local_cv_before": 0.5344686176174946,
+    "local_cv_after": 0.5341352898167411,
+    "robust_before": 0.5669941976205726,
+    "robust_after": 0.5658633405717717,
+    "modified_targets": [
+      "Q1",
+      "S1",
+      "S4"
+    ],
+    "selected_configs": {
+      "Q1": {
+        "kind": "blend",
+        "feature_set": "shapelet_motif",
+        "model": "et_d4",
+        "weight": 0.01
+      },
+      "Q2": {
+        "kind": "base"
+      },
+      "Q3": {
+        "kind": "base"
+      },
+      "S1": {
+        "kind": "blend",
+        "feature_set": "shapelet_motif",
+        "model": "et_d4",
+        "weight": 0.07
+      },
+      "S2": {
+        "kind": "base"
+      },
+      "S3": {
+        "kind": "base"
+      },
+      "S4": {
+        "kind": "blend",
+        "feature_set": "shapelet_motif",
+        "model": "lr_c0_1",
+        "weight": 0.1
+      }
+    },
+    "target_scores_after": {
+      "Q1": 0.5480654699794858,
+      "Q2": 0.5506886916995475,
+      "Q3": 0.5628770675141632,
+      "S1": 0.46724545440453036,
+      "S2": 0.5295161847284966,
+      "S3": 0.4905526802245998,
+      "S4": 0.5900014801663643
+    },
+    "submission_file": "submission_id_215_id212_shapelet_motif_alltop40_sequence_overlay_cv0.534135_unsubmitted.csv",
+    "notebook_file": "notebooks/history/submission_215_id212_shapelet_motif_alltop40_sequence_overlay_cv0.534135_unsubmitted.ipynb",
+    "diagnostic_report": "reports/id212_shapelet_motif_alltop40_sequence_diagnostic_20260616.json",
+    "interpretation": "Current best clean/non-ID172 public-structure branch. Small but broad robustness-positive update over ID212."
+  },
+  "id216_delta06": {
+    "base_id": 215,
+    "extreme_id": 172,
+    "local_cv": 0.5228752409636209,
+    "robustness_score": 0.5540292877518838,
+    "comparison_id213_local_cv": 0.5232866958766459,
+    "comparison_id213_robustness_score": 0.5552224484643223,
+    "submission_file": "submission_id_216_id215_targetwise_delta06_id172_extreme_probe_cv0.522875_unsubmitted.csv",
+    "notebook_file": "notebooks/history/submission_216_id215_targetwise_delta06_id172_extreme_probe_cv0.522875_unsubmitted.ipynb",
+    "interpretation": "Preferred moderate-low bridge if a counterprobe is discussed, but it inherits non-nested ID172 calibration risk."
+  },
+  "id217_delta08": {
+    "base_id": 215,
+    "extreme_id": 172,
+    "local_cv": 0.5195564679403938,
+    "robustness_score": 0.5505732942399605,
+    "comparison_id214_local_cv": 0.5199816216938604,
+    "comparison_id214_robustness_score": 0.551764906499453,
+    "submission_file": "submission_id_217_id215_targetwise_delta08_id172_extreme_probe_cv0.519556_unsubmitted.csv",
+    "notebook_file": "notebooks/history/submission_217_id215_targetwise_delta08_id172_extreme_probe_cv0.519556_unsubmitted.ipynb",
+    "interpretation": "Current lowest bridge/frontier local score after ID189/ID172 extremes, but riskier than ID216 because of larger ID172 exposure."
+  },
+  "robustness": {
+    "diagnostic_report": "reports/id178_id217_split_robustness_diagnostic_20260616.json",
+    "id212_to_id215": {
+      "overall_before": 0.5344686176174946,
+      "overall_after": 0.5341352898167411,
+      "robust_before": 0.5669941976205726,
+      "robust_after": 0.5658633405717717
+    },
+    "id213_to_id216": {
+      "overall_before": 0.5232866958766459,
+      "overall_after": 0.5228752409636209,
+      "robust_before": 0.5552224484643223,
+      "robust_after": 0.5540292877518838
+    },
+    "id214_to_id217": {
+      "overall_before": 0.5199816216938604,
+      "overall_after": 0.5195564679403938,
+      "robust_before": 0.551764906499453,
+      "robust_after": 0.5505732942399605
+    }
+  },
+  "warning": "ID215 is cleaner but still public-structure/non-strict. ID216/ID217 inherit non-nested ID172 calibration risk. No DACON submission was made."
+}

@@ -1,0 +1,89 @@
+{
+  "created_at_kst": "2026-06-19 00:50:08 UTC+09:00",
+  "diagnostic": "post_id341_q3s3_sibling_target_bridge_design",
+  "purpose": "Convert Q3/S3 sibling-label anatomy into a leakage-safe upstream design contract.",
+  "inputs": {
+    "target_anatomy": "reports/post_id341_q3s3_target_anatomy_20260619.json",
+    "negative_evidence_map": "reports/post_id341_q3s3_negative_evidence_map_20260618.json",
+    "fallback_chain": "reports/post_id341_q2q3s3_local_fallback_chain_contract_20260618.json",
+    "no_approval_frontier": "reports/post_id341_no_approval_frontier_20260619.json",
+    "operator_handoff": "reports/post_id341_operator_handoff_contract_20260619.json"
+  },
+  "target_focus": [
+    "Q3",
+    "S3"
+  ],
+  "bridge_rows": [
+    {
+      "bridge": "q3_from_q2_subjective_state_sibling",
+      "target": "Q3",
+      "sibling_target": "Q2",
+      "label_corr": 0.3401292217410808,
+      "evidence": "Q3 stress and Q2 fatigue share a subjective evening-state axis.",
+      "allowed_use": "future_upstream_fold_nested_design_only",
+      "blocked_local_shortcut": "Do not blend current Q2 predictions or Q2 labels into Q3 outside a fold-nested rebuild.",
+      "requires_test_time_sibling_prediction": true,
+      "requires_fold_nested_oof": true,
+      "create_artifact_now": false
+    },
+    {
+      "bridge": "s3_from_s2_objective_sleep_sibling",
+      "target": "S3",
+      "sibling_target": "S2",
+      "label_corr": 0.39402250407091105,
+      "evidence": "S3 sleep-onset-latency guideline and S2 sleep-efficiency guideline share objective sleep-quality structure.",
+      "allowed_use": "future_upstream_fold_nested_design_only",
+      "blocked_local_shortcut": "Do not blend current S2 predictions or S2 labels into S3 outside a fold-nested rebuild.",
+      "requires_test_time_sibling_prediction": true,
+      "requires_fold_nested_oof": true,
+      "create_artifact_now": false
+    }
+  ],
+  "leakage_controls": [
+    "Sibling target labels may not be used as direct features for the same row.",
+    "Any sibling-target prediction feature must be generated out-of-fold for train rows and by a separately fitted test-time sibling model.",
+    "Current full-OOF/local artifact recombinations are not sufficient evidence for ID342.",
+    "A sibling bridge can only be evaluated inside the explicit-approved upstream rebuild or a future no-artifact fold-nested local smoke."
+  ],
+  "checks": {
+    "all_inputs_ready": true,
+    "anatomy_ready": true,
+    "q3_sibling_is_q2": true,
+    "s3_sibling_is_s2": true,
+    "q3_corr_is_material": true,
+    "s3_corr_is_material": true,
+    "local_q3s3_lanes_closed": true,
+    "q3_s3_still_uncovered": true,
+    "q2_context_only": true,
+    "no_approval_score_route_closed": true,
+    "operator_handoff_ready": true,
+    "operator_requires_exact_approval": true
+  },
+  "decision": {
+    "sibling_bridge_design_ready": true,
+    "target_focus": [
+      "Q3",
+      "S3"
+    ],
+    "material_sibling_structure_found": true,
+    "local_artifact_allowed": false,
+    "public_058_evidence": false,
+    "requires_fold_nested_rebuild": true,
+    "recommended_route": "explicit_approved_clean_upstream_id221_to_id226",
+    "requires_explicit_kaggle_approval": true,
+    "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Carry Q3<-Q2 and S3<-S2 sibling bridges only as fold-nested upstream design requirements. Do not create ID342 or blend sibling predictions locally from existing artifacts."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

@@ -1,0 +1,84 @@
+{
+  "created_at_kst": "2026-06-18 04:08:39 UTC+09:00",
+  "diagnostic": "post_id341_family_priority",
+  "public_anchor_context": {
+    "id178_public": 0.6014113009,
+    "id287_public": 0.6698787318,
+    "id329_public": 0.6017908577,
+    "read": "Recent public evidence says local CV below ~0.54 is not enough; transfer proxy and anchor movement dominate candidate selection."
+  },
+  "current_control_candidate": {
+    "id": 341,
+    "file": "submission_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.csv",
+    "local_cv": 0.538583659924236,
+    "proxy": 0.6038297835283394,
+    "public_058_plausible": false,
+    "role": "lowest-risk ID178-neighborhood control/probe, explicit approval only"
+  },
+  "lanes": [
+    {
+      "lane": "sequence_micro_control",
+      "status": "hold_as_control",
+      "evidence": [
+        "reports/id341_q2_seqsum_w00025_public_risk_gate_20260618.md"
+      ],
+      "best_read": "ID341 beats ID340/337/339 proxy but remains around 0.604; not a Public 0.58 path by itself.",
+      "next_action": "Do not keep shrinking sequence micro weights unless a new source lowers proxy below ID341 and changes more than numerical noise."
+    },
+    {
+      "lane": "demographic_static_target_overlay",
+      "status": "closed_for_artifact",
+      "evidence": [
+        "reports/demographic_target_overlay_post_id341_20260618.md"
+      ],
+      "best_read": "promoted_targets=[], proxy_delta_vs_id341=+0.000000",
+      "next_action": "Keep demographic/static features as analysis context only; no local artifact recombination from this branch."
+    },
+    {
+      "lane": "A1_q240_free_bridge",
+      "status": "closed_for_local_artifact",
+      "evidence": [
+        "reports/post_id341_a1_qfree_lane_closure_20260618.md"
+      ],
+      "best_read": "S4 survives target replay, but ID178-anchor S4 best proxy=0.603926, delta_vs_ID341=+0.000096",
+      "next_action": "Only revisit with true upstream model-level Kaggle rebuild; do not use existing OOF artifacts as clean sources."
+    },
+    {
+      "lane": "B1_pair_logit_bridge",
+      "status": "blocked_until_source_rebuild",
+      "evidence": [
+        "reports/b1_pair_blend_source_dependency_audit_20260618.md"
+      ],
+      "best_read": "Selector signal is contaminated by high/extreme non-nested dependencies including ID242/252 chain.",
+      "next_action": "Requires rebuilding below source IDs 254/255/256/257/258/266, not more local blending."
+    },
+    {
+      "lane": "raw_tabular_source_rebuild",
+      "status": "deprioritized",
+      "evidence": [
+        "reports/id340_source_rebuild_split_probe_20260618.md"
+      ],
+      "best_read": "Raw/tabular source failed all primary ID340 split lenses against ID178.",
+      "next_action": "Do not spend local cycles unless feature representation changes materially."
+    },
+    {
+      "lane": "true_upstream_kaggle_rebuild",
+      "status": "next_heavy_candidate",
+      "evidence": [
+        "reports/post_id341_a1_qfree_lane_closure_20260618.md",
+        "reports/b1_pair_blend_source_dependency_audit_20260618.md"
+      ],
+      "best_read": "If compute is spent, it must rebuild upstream model-level sources/folds, not replay existing OOF artifacts.",
+      "next_action": "Prepare a report-only Kaggle runner blueprint for upstream source rebuild with no DACON submission path."
+    }
+  ],
+  "decision": {
+    "submit_now": false,
+    "create_artifact_now": false,
+    "public_058_plausible_candidate_exists": false,
+    "best_control_probe_if_user_forces_submission": "ID341 for lowest-movement sanity probe; ID337 only if specifically probing S1 sequence signal.",
+    "next_recommended_work": "Prepare/report a Kaggle upstream model-level rebuild blueprint, or design a genuinely new feature source; stop local artifact recombination lanes that reuse existing OOF shortcuts."
+  },
+  "no_submission_created": true,
+  "no_dacon_submission_made": true
+}

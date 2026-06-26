@@ -1,0 +1,2850 @@
+{
+  "airkorea_cache": "data/external/weather/airkorea_2024/airkorea_2024_daejeon_hourly.csv",
+  "airkorea_cache_exists": true,
+  "airkorea_metadata": {
+    "airkorea_cache": "data/external/weather/airkorea_2024/airkorea_2024_daejeon_hourly.csv",
+    "cache_rows": 114192,
+    "columns": [
+      "region",
+      "network",
+      "station_code",
+      "station_name",
+      "datetime",
+      "so2",
+      "co",
+      "o3",
+      "no2",
+      "pm10",
+      "pm25",
+      "address",
+      "source_file"
+    ],
+    "competition_window_rows": 54600,
+    "competition_window_station_count": 13,
+    "competition_window_unique_hours": 4200,
+    "pollutants": [
+      "so2",
+      "co",
+      "o3",
+      "no2",
+      "pm10",
+      "pm25"
+    ],
+    "secret_values_stored": false,
+    "source_note": "Historical 2024 AirKorea hourly Daejeon rows extracted from the user-provided archive.",
+    "station_count": 13,
+    "station_names": [
+      "관평동",
+      "구성동",
+      "노은동",
+      "대성동",
+      "대흥동1",
+      "둔산동",
+      "문창동",
+      "문평동",
+      "상대동(대전)",
+      "성남동1",
+      "월평동",
+      "읍내동",
+      "정림동"
+    ],
+    "time_max": "2025-01-01 00:00:00",
+    "time_min": "2024-01-01 01:00:00"
+  },
+  "anchor": {
+    "id": 342,
+    "public_score": 0.5960832519
+  },
+  "created_at_kst": "2026-06-25 17:48:58 UTC+09:00",
+  "decision": {
+    "airkorea_2024_context_gate_pass": false,
+    "airkorea_cache_available": true,
+    "best_candidate": "airkorea_selected_station_s4_hgb_l7_w0.025",
+    "best_family": "airkorea_selected_station",
+    "best_gap_to_public_055": 0.046056064509662265,
+    "best_max_delta": 0.0008191504115554471,
+    "best_mean_delta": -0.00019031173236392363,
+    "best_projected_public_proxy": 0.5960560645096623,
+    "best_target": "S4",
+    "best_wins": 3,
+    "create_submission_artifact_now": false,
+    "dacon_gate_pass_count": 0,
+    "dacon_submit_now": false,
+    "local_gate_pass_count": 0,
+    "missing_failed_frontier_refs": [],
+    "modify_submission_log_now": false,
+    "next_action": "Promote nothing unless a row clears the Public-0.58 review proxy and a separate artifact contract. This gate is external-source evidence only.",
+    "push_kaggle_now": false,
+    "review_gate_pass_count": 0,
+    "reviewed_candidates": 216,
+    "run_kaggle_now": false
+  },
+  "diagnostic": "post_id342_airkorea_2024_context_gate",
+  "feature_metadata": {
+    "base_feature_columns": 1056,
+    "families": {
+      "airkorea_all": {
+        "feature_count": 3168,
+        "feature_sample": [
+          "air_day_12_23_allmean_so2_mean",
+          "air_day_12_23_allmean_so2_max",
+          "air_day_12_23_allmean_so2_min",
+          "air_day_12_23_allmean_so2_std",
+          "air_day_12_23_allmean_so2_p95",
+          "air_day_12_23_allmean_so2_range",
+          "air_day_12_23_allmean_so2_hours_ge_0p003",
+          "air_day_12_23_allmean_so2_hours_ge_0p005",
+          "air_day_12_23_allmean_co_mean",
+          "air_day_12_23_allmean_co_max",
+          "air_day_12_23_allmean_co_min",
+          "air_day_12_23_allmean_co_std",
+          "air_day_12_23_allmean_co_p95",
+          "air_day_12_23_allmean_co_range",
+          "air_day_12_23_allmean_co_hours_ge_0p5",
+          "air_day_12_23_allmean_co_hours_ge_0p8"
+        ],
+        "mean_missing_rate": 0.030117845117845116,
+        "model_feature_count": 160,
+        "model_feature_sample": [
+          "air_sleep_core_22_06_allmean_pm25_hours_ge_25p0",
+          "air_sleep_core_22_06_allmean_pm25_hours_ge_25p0__dev_past3",
+          "air_sleep_core_22_06_allmean_pm25_hours_ge_25p0__lag1",
+          "air_sleep_core_22_06_allmean_pm25_hours_ge_35p0",
+          "air_sleep_core_22_06_allmean_pm25_hours_ge_35p0__dev_past3",
+          "air_sleep_core_22_06_allmean_pm25_hours_ge_35p0__lag1",
+          "air_sleep_core_22_06_allmean_pm25_max",
+          "air_sleep_core_22_06_allmean_pm25_max__dev_past3",
+          "air_sleep_core_22_06_allmean_pm25_max__lag1",
+          "air_sleep_core_22_06_allmean_pm25_mean",
+          "air_sleep_core_22_06_allmean_pm25_mean__dev_past3",
+          "air_sleep_core_22_06_allmean_pm25_mean__lag1",
+          "air_sleep_core_22_06_allmean_pm25_min",
+          "air_sleep_core_22_06_allmean_pm25_min__dev_past3",
+          "air_sleep_core_22_06_allmean_pm25_min__lag1",
+          "air_sleep_core_22_06_allmean_pm25_p95"
+        ]
+      },
+      "airkorea_dunsan_station": {
+        "feature_count": 576,
+        "feature_sample": [
+          "air_day_12_23_dunsan_so2_mean",
+          "air_day_12_23_dunsan_so2_max",
+          "air_day_12_23_dunsan_so2_min",
+          "air_day_12_23_dunsan_so2_std",
+          "air_day_12_23_dunsan_so2_p95",
+          "air_day_12_23_dunsan_so2_range",
+          "air_day_12_23_dunsan_so2_hours_ge_0p003",
+          "air_day_12_23_dunsan_so2_hours_ge_0p005",
+          "air_day_12_23_dunsan_co_mean",
+          "air_day_12_23_dunsan_co_max",
+          "air_day_12_23_dunsan_co_min",
+          "air_day_12_23_dunsan_co_std",
+          "air_day_12_23_dunsan_co_p95",
+          "air_day_12_23_dunsan_co_range",
+          "air_day_12_23_dunsan_co_hours_ge_0p5",
+          "air_day_12_23_dunsan_co_hours_ge_0p8"
+        ],
+        "mean_missing_rate": 0.044814814814814814,
+        "model_feature_count": 160,
+        "model_feature_sample": [
+          "air_sleep_core_22_06_dunsan_pm25_mean",
+          "air_sleep_core_22_06_dunsan_pm25_mean__dev_past3",
+          "air_sleep_core_22_06_dunsan_pm25_mean__lag1",
+          "air_sleep_core_22_06_dunsan_pm25_max",
+          "air_sleep_core_22_06_dunsan_pm25_max__dev_past3",
+          "air_sleep_core_22_06_dunsan_pm25_max__lag1",
+          "air_sleep_core_22_06_dunsan_pm25_p95",
+          "air_sleep_core_22_06_dunsan_pm25_p95__dev_past3",
+          "air_sleep_core_22_06_dunsan_pm25_p95__lag1",
+          "air_sleep_core_22_06_dunsan_pm25_hours_ge_25p0",
+          "air_sleep_core_22_06_dunsan_pm25_hours_ge_25p0__dev_past3",
+          "air_sleep_core_22_06_dunsan_pm25_hours_ge_25p0__lag1",
+          "air_sleep_core_22_06_dunsan_pm25_hours_ge_35p0",
+          "air_sleep_core_22_06_dunsan_pm25_hours_ge_35p0__dev_past3",
+          "air_sleep_core_22_06_dunsan_pm25_hours_ge_35p0__lag1",
+          "air_sleep_core_22_06_dunsan_pm25_std"
+        ]
+      },
+      "airkorea_oxidant_traffic": {
+        "feature_count": 1584,
+        "feature_sample": [
+          "air_day_12_23_allmean_co_mean",
+          "air_day_12_23_allmean_co_max",
+          "air_day_12_23_allmean_co_min",
+          "air_day_12_23_allmean_co_std",
+          "air_day_12_23_allmean_co_p95",
+          "air_day_12_23_allmean_co_range",
+          "air_day_12_23_allmean_co_hours_ge_0p5",
+          "air_day_12_23_allmean_co_hours_ge_0p8",
+          "air_day_12_23_allmean_o3_mean",
+          "air_day_12_23_allmean_o3_max",
+          "air_day_12_23_allmean_o3_min",
+          "air_day_12_23_allmean_o3_std",
+          "air_day_12_23_allmean_o3_p95",
+          "air_day_12_23_allmean_o3_range",
+          "air_day_12_23_allmean_o3_hours_ge_0p06",
+          "air_day_12_23_allmean_o3_hours_ge_0p08"
+        ],
+        "mean_missing_rate": 0.027384960718294053,
+        "model_feature_count": 160,
+        "model_feature_sample": [
+          "air_sleep_core_22_06_allmean_o3_hours_ge_0p06",
+          "air_sleep_core_22_06_allmean_o3_hours_ge_0p06__dev_past3",
+          "air_sleep_core_22_06_allmean_o3_hours_ge_0p06__lag1",
+          "air_sleep_core_22_06_allmean_o3_hours_ge_0p08",
+          "air_sleep_core_22_06_allmean_o3_hours_ge_0p08__dev_past3",
+          "air_sleep_core_22_06_allmean_o3_hours_ge_0p08__lag1",
+          "air_sleep_core_22_06_allmean_o3_max",
+          "air_sleep_core_22_06_allmean_o3_max__dev_past3",
+          "air_sleep_core_22_06_allmean_o3_max__lag1",
+          "air_sleep_core_22_06_allmean_o3_mean",
+          "air_sleep_core_22_06_allmean_o3_mean__dev_past3",
+          "air_sleep_core_22_06_allmean_o3_mean__lag1",
+          "air_sleep_core_22_06_allmean_o3_min",
+          "air_sleep_core_22_06_allmean_o3_min__dev_past3",
+          "air_sleep_core_22_06_allmean_o3_min__lag1",
+          "air_sleep_core_22_06_allmean_o3_p95"
+        ]
+      },
+      "airkorea_particulate_burden": {
+        "feature_count": 1056,
+        "feature_sample": [
+          "air_day_12_23_allmean_pm10_mean",
+          "air_day_12_23_allmean_pm10_max",
+          "air_day_12_23_allmean_pm10_min",
+          "air_day_12_23_allmean_pm10_std",
+          "air_day_12_23_allmean_pm10_p95",
+          "air_day_12_23_allmean_pm10_range",
+          "air_day_12_23_allmean_pm10_hours_ge_50p0",
+          "air_day_12_23_allmean_pm10_hours_ge_80p0",
+          "air_day_12_23_allmean_pm25_mean",
+          "air_day_12_23_allmean_pm25_max",
+          "air_day_12_23_allmean_pm25_min",
+          "air_day_12_23_allmean_pm25_std",
+          "air_day_12_23_allmean_pm25_p95",
+          "air_day_12_23_allmean_pm25_range",
+          "air_day_12_23_allmean_pm25_hours_ge_25p0",
+          "air_day_12_23_allmean_pm25_hours_ge_35p0"
+        ],
+        "mean_missing_rate": 0.03272727272727273,
+        "model_feature_count": 160,
+        "model_feature_sample": [
+          "air_sleep_core_22_06_allmean_pm25_hours_ge_25p0",
+          "air_sleep_core_22_06_allmean_pm25_hours_ge_25p0__dev_past3",
+          "air_sleep_core_22_06_allmean_pm25_hours_ge_25p0__lag1",
+          "air_sleep_core_22_06_allmean_pm25_hours_ge_35p0",
+          "air_sleep_core_22_06_allmean_pm25_hours_ge_35p0__dev_past3",
+          "air_sleep_core_22_06_allmean_pm25_hours_ge_35p0__lag1",
+          "air_sleep_core_22_06_allmean_pm25_max",
+          "air_sleep_core_22_06_allmean_pm25_max__dev_past3",
+          "air_sleep_core_22_06_allmean_pm25_max__lag1",
+          "air_sleep_core_22_06_allmean_pm25_mean",
+          "air_sleep_core_22_06_allmean_pm25_mean__dev_past3",
+          "air_sleep_core_22_06_allmean_pm25_mean__lag1",
+          "air_sleep_core_22_06_allmean_pm25_min",
+          "air_sleep_core_22_06_allmean_pm25_min__dev_past3",
+          "air_sleep_core_22_06_allmean_pm25_min__lag1",
+          "air_sleep_core_22_06_allmean_pm25_p95"
+        ]
+      },
+      "airkorea_selected_station": {
+        "feature_count": 1728,
+        "feature_sample": [
+          "air_day_12_23_dunsan_so2_mean",
+          "air_day_12_23_dunsan_so2_max",
+          "air_day_12_23_dunsan_so2_min",
+          "air_day_12_23_dunsan_so2_std",
+          "air_day_12_23_dunsan_so2_p95",
+          "air_day_12_23_dunsan_so2_range",
+          "air_day_12_23_dunsan_so2_hours_ge_0p003",
+          "air_day_12_23_dunsan_so2_hours_ge_0p005",
+          "air_day_12_23_dunsan_co_mean",
+          "air_day_12_23_dunsan_co_max",
+          "air_day_12_23_dunsan_co_min",
+          "air_day_12_23_dunsan_co_std",
+          "air_day_12_23_dunsan_co_p95",
+          "air_day_12_23_dunsan_co_range",
+          "air_day_12_23_dunsan_co_hours_ge_0p5",
+          "air_day_12_23_dunsan_co_hours_ge_0p8"
+        ],
+        "mean_missing_rate": 0.04287037037037037,
+        "model_feature_count": 160,
+        "model_feature_sample": [
+          "air_sleep_core_22_06_dunsan_pm25_mean",
+          "air_sleep_core_22_06_dunsan_pm25_mean__dev_past3",
+          "air_sleep_core_22_06_dunsan_pm25_mean__lag1",
+          "air_sleep_core_22_06_dunsan_pm25_max",
+          "air_sleep_core_22_06_dunsan_pm25_max__dev_past3",
+          "air_sleep_core_22_06_dunsan_pm25_max__lag1",
+          "air_sleep_core_22_06_dunsan_pm25_p95",
+          "air_sleep_core_22_06_dunsan_pm25_p95__dev_past3",
+          "air_sleep_core_22_06_dunsan_pm25_p95__lag1",
+          "air_sleep_core_22_06_dunsan_pm25_hours_ge_25p0",
+          "air_sleep_core_22_06_dunsan_pm25_hours_ge_25p0__dev_past3",
+          "air_sleep_core_22_06_dunsan_pm25_hours_ge_25p0__lag1",
+          "air_sleep_core_22_06_dunsan_pm25_hours_ge_35p0",
+          "air_sleep_core_22_06_dunsan_pm25_hours_ge_35p0__dev_past3",
+          "air_sleep_core_22_06_dunsan_pm25_hours_ge_35p0__lag1",
+          "air_sleep_core_22_06_dunsan_pm25_std"
+        ]
+      },
+      "airkorea_station_dispersion": {
+        "feature_count": 864,
+        "feature_sample": [
+          "air_day_12_23_allmax_so2_mean",
+          "air_day_12_23_allmax_so2_max",
+          "air_day_12_23_allmax_so2_min",
+          "air_day_12_23_allmax_so2_std",
+          "air_day_12_23_allmax_so2_p95",
+          "air_day_12_23_allmax_so2_range",
+          "air_day_12_23_allmax_so2_hours_ge_0p003",
+          "air_day_12_23_allmax_so2_hours_ge_0p005",
+          "air_day_12_23_allmax_co_mean",
+          "air_day_12_23_allmax_co_max",
+          "air_day_12_23_allmax_co_min",
+          "air_day_12_23_allmax_co_std",
+          "air_day_12_23_allmax_co_p95",
+          "air_day_12_23_allmax_co_range",
+          "air_day_12_23_allmax_co_hours_ge_0p5",
+          "air_day_12_23_allmax_co_hours_ge_0p8"
+        ],
+        "mean_missing_rate": 0.014814814814814812,
+        "model_feature_count": 160,
+        "model_feature_sample": [
+          "air_sleep_core_22_06_allmax_pm25_mean",
+          "air_sleep_core_22_06_allmax_pm25_mean__dev_past3",
+          "air_sleep_core_22_06_allmax_pm25_mean__lag1",
+          "air_sleep_core_22_06_allmax_pm25_hours_ge_25p0",
+          "air_sleep_core_22_06_allmax_pm25_hours_ge_25p0__dev_past3",
+          "air_sleep_core_22_06_allmax_pm25_hours_ge_25p0__lag1",
+          "air_sleep_core_22_06_allmax_pm25_hours_ge_35p0",
+          "air_sleep_core_22_06_allmax_pm25_hours_ge_35p0__dev_past3",
+          "air_sleep_core_22_06_allmax_pm25_hours_ge_35p0__lag1",
+          "air_sleep_core_22_06_allmax_pm25_max",
+          "air_sleep_core_22_06_allmax_pm25_max__dev_past3",
+          "air_sleep_core_22_06_allmax_pm25_max__lag1",
+          "air_sleep_core_22_06_allmax_pm25_min",
+          "air_sleep_core_22_06_allmax_pm25_min__dev_past3",
+          "air_sleep_core_22_06_allmax_pm25_min__lag1",
+          "air_sleep_core_22_06_allmax_pm25_p95"
+        ]
+      }
+    },
+    "lag_deviation_columns": 2112,
+    "rows": 450,
+    "selected_stations": {
+      "dunsan": "둔산동",
+      "guseong": "구성동",
+      "wolpyeong": "월평동"
+    },
+    "thresholds": {
+      "co": [
+        0.5,
+        0.8
+      ],
+      "no2": [
+        0.03,
+        0.05
+      ],
+      "o3": [
+        0.06,
+        0.08
+      ],
+      "pm10": [
+        50.0,
+        80.0
+      ],
+      "pm25": [
+        25.0,
+        35.0
+      ],
+      "so2": [
+        0.003,
+        0.005
+      ]
+    },
+    "unique_dates": 151,
+    "windows": {
+      "day_12_23": [
+        0,
+        12,
+        0,
+        23
+      ],
+      "full_lifelog_12_11": [
+        0,
+        12,
+        1,
+        11
+      ],
+      "night_00_11": [
+        1,
+        0,
+        1,
+        11
+      ],
+      "sleep_core_22_06": [
+        0,
+        22,
+        1,
+        6
+      ]
+    }
+  },
+  "no_base_prediction_artifact_created": true,
+  "no_dacon_submission_made": true,
+  "no_feature_matrix_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_prediction_file_created": true,
+  "no_submission_created": true,
+  "no_submission_log_row_created": true,
+  "purpose": "Gate historical Daejeon AirKorea pollution context against ID342.",
+  "top_rows": [
+    {
+      "config": "airkorea_selected_station_s4_hgb_l7_w0.025",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3320719354356761,
+          "id329": 0.22864054224922412
+        },
+        "subject_hole_5": {
+          "id287": -0.3063322509457558,
+          "id329": 0.2628724785890733
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_selected_station",
+      "feature_count": 160,
+      "gap_to_public_055": 0.046056064509662265,
+      "local_gate_pass": false,
+      "max_delta": 0.0008191504115554471,
+      "max_failed_direction_corr": 0.2628724785890733,
+      "mean_delta": -0.00019031173236392363,
+      "min_delta": -0.0013114986855252697,
+      "model_feature_count": 120,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5960560645096623,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0013114986855252697,
+        "loso_10": 0.0008191504115554471,
+        "subject_hole_5": 0.00039555543221125866,
+        "test_boundary_neighbor2_holdout": -0.00047804017387587106,
+        "test_boundary_neighbor5_holdout": -0.0003767256461851831
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.025,
+      "wins": 3
+    },
+    {
+      "config": "airkorea_selected_station_s4_hgb_l7_w0.05",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3320719354356756,
+          "id329": 0.22864054224922384
+        },
+        "subject_hole_5": {
+          "id287": -0.30633225094575545,
+          "id329": 0.26287247858907303
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_selected_station",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04606179624538376,
+      "local_gate_pass": false,
+      "max_delta": 0.0018168420223226844,
+      "max_failed_direction_corr": 0.26287247858907303,
+      "mean_delta": -0.00015018958231358682,
+      "min_delta": -0.002343707601806133,
+      "model_feature_count": 120,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5960617962453838,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.002343707601806133,
+        "loso_10": 0.0018168420223226844,
+        "subject_hole_5": 0.000980590455286201,
+        "test_boundary_neighbor2_holdout": -0.0007275828049679856,
+        "test_boundary_neighbor5_holdout": -0.00047708998240270084
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.05,
+      "wins": 3
+    },
+    {
+      "config": "airkorea_selected_station_s4_hgb_l7_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.33207193543567454,
+          "id329": 0.22864054224922467
+        },
+        "subject_hole_5": {
+          "id287": -0.30633225094575484,
+          "id329": 0.26287247858907226
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_selected_station",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04606822837454516,
+      "local_gate_pass": false,
+      "max_delta": 0.0003055306224160059,
+      "max_failed_direction_corr": 0.26287247858907226,
+      "mean_delta": -0.00010516467818324493,
+      "min_delta": -0.0005602703124422126,
+      "model_feature_count": 120,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5960682283745452,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0005602703124422126,
+        "loso_10": 0.0003055306224160059,
+        "subject_hole_5": 0.00013461147692017672,
+        "test_boundary_neighbor2_holdout": -0.00022002663278186674,
+        "test_boundary_neighbor5_holdout": -0.00018566854502832797
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 3
+    },
+    {
+      "config": "airkorea_selected_station_s4_hgb_l7_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.33207193543567687,
+          "id329": 0.22864054224922234
+        },
+        "subject_hole_5": {
+          "id287": -0.30633225094575484,
+          "id329": 0.26287247858907564
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_selected_station",
+      "feature_count": 160,
+      "gap_to_public_055": 0.046075030287261565,
+      "local_gate_pass": false,
+      "max_delta": 0.00014901215851448324,
+      "max_failed_direction_corr": 0.26287247858907564,
+      "mean_delta": -5.75512891685781e-05,
+      "min_delta": -0.00028628156415366757,
+      "model_feature_count": 120,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5960750302872616,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00028628156415366757,
+        "loso_10": 0.00014901215851448324,
+        "subject_hole_5": 6.328983363990126e-05,
+        "test_boundary_neighbor2_holdout": -0.00011494295193748005,
+        "test_boundary_neighbor5_holdout": -9.883392190612739e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 3
+    },
+    {
+      "config": "airkorea_station_dispersion_q3_lr_c0_10_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.25527134604083407,
+          "id329": 0.3796755952486338
+        },
+        "subject_hole_5": {
+          "id287": -0.22705476895420643,
+          "id329": 0.3856890972856826
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_station_dispersion",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04608463443577282,
+      "local_gate_pass": false,
+      "max_delta": 0.00032900210434749777,
+      "max_failed_direction_corr": 0.3856890972856826,
+      "mean_delta": 9.67775041018637e-06,
+      "min_delta": -0.00029131515477720527,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960846344357729,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": 0.00032900210434749777,
+        "loso_10": 8.11651760984633e-05,
+        "subject_hole_5": 8.648215634343703e-05,
+        "test_boundary_neighbor2_holdout": -0.00029131515477720527,
+        "test_boundary_neighbor5_holdout": -0.000156945529961261
+      },
+      "target": "Q3",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 2
+    },
+    {
+      "config": "airkorea_station_dispersion_q3_lr_c0_10_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.25527134604083507,
+          "id329": 0.3796755952486323
+        },
+        "subject_hole_5": {
+          "id287": -0.22705476895420756,
+          "id329": 0.3856890972856834
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_station_dispersion",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04608737781657635,
+      "local_gate_pass": false,
+      "max_delta": 0.0006678705528561091,
+      "max_failed_direction_corr": 0.3856890972856834,
+      "mean_delta": 2.8881416034365338e-05,
+      "min_delta": -0.0005711386779413408,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960873778165764,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": 0.0006678705528561091,
+        "loso_10": 0.00017038655895140753,
+        "subject_hole_5": 0.00018042028245290886,
+        "test_boundary_neighbor2_holdout": -0.0005711386779413408,
+        "test_boundary_neighbor5_holdout": -0.000303131636147258
+      },
+      "target": "Q3",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 2
+    },
+    {
+      "config": "airkorea_station_dispersion_s4_lr_c0_10_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.32234818373583374,
+          "id329": 0.2361915679205272
+        },
+        "subject_hole_5": {
+          "id287": -0.29379676239547836,
+          "id329": 0.26302197131067345
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_station_dispersion",
+      "feature_count": 160,
+      "gap_to_public_055": 0.046087759201102196,
+      "local_gate_pass": false,
+      "max_delta": 0.00016460744037116726,
+      "max_failed_direction_corr": 0.26302197131067345,
+      "mean_delta": 3.1551107715865887e-05,
+      "min_delta": -0.00022741155883321262,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960877592011022,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00022741155883321262,
+        "loso_10": 0.00016460744037116726,
+        "subject_hole_5": 0.00014651723733349886,
+        "test_boundary_neighbor2_holdout": 0.00010935673757705988,
+        "test_boundary_neighbor5_holdout": -3.531431786918393e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 2
+    },
+    {
+      "config": "airkorea_particulate_burden_s4_hgb_l7_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.33895325007666505,
+          "id329": 0.2330186319944101
+        },
+        "subject_hole_5": {
+          "id287": -0.3197768785933108,
+          "id329": 0.26242658295851706
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_particulate_burden",
+      "feature_count": 160,
+      "gap_to_public_055": 0.046087831365930865,
+      "local_gate_pass": false,
+      "max_delta": 0.00017025556990624136,
+      "max_failed_direction_corr": 0.26242658295851706,
+      "mean_delta": 3.205626151610019e-05,
+      "min_delta": -0.00015528531541164625,
+      "model_feature_count": 120,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5960878313659309,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00015528531541164625,
+        "loso_10": 0.00017025556990624136,
+        "subject_hole_5": 0.00011010697355373633,
+        "test_boundary_neighbor2_holdout": -8.73879834134561e-05,
+        "test_boundary_neighbor5_holdout": 0.00012259206294562563
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 2
+    },
+    {
+      "config": "airkorea_all_s4_hgb_l7_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.33895325007666505,
+          "id329": 0.2330186319944101
+        },
+        "subject_hole_5": {
+          "id287": -0.3197768785933108,
+          "id329": 0.26242658295851706
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_all",
+      "feature_count": 160,
+      "gap_to_public_055": 0.046087831365930865,
+      "local_gate_pass": false,
+      "max_delta": 0.00017025556990624136,
+      "max_failed_direction_corr": 0.26242658295851706,
+      "mean_delta": 3.205626151610019e-05,
+      "min_delta": -0.00015528531541164625,
+      "model_feature_count": 120,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5960878313659309,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00015528531541164625,
+        "loso_10": 0.00017025556990624136,
+        "subject_hole_5": 0.00011010697355373633,
+        "test_boundary_neighbor2_holdout": -8.73879834134561e-05,
+        "test_boundary_neighbor5_holdout": 0.00012259206294562563
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 2
+    },
+    {
+      "config": "airkorea_station_dispersion_s4_lr_c0_03_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.35318675985519044,
+          "id329": 0.26479469200031125
+        },
+        "subject_hole_5": {
+          "id287": -0.3318221402837716,
+          "id329": 0.28725161110760783
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_station_dispersion",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04608846261092825,
+      "local_gate_pass": false,
+      "max_delta": 0.00016870990665007746,
+      "max_failed_direction_corr": 0.28725161110760783,
+      "mean_delta": 3.647497649825748e-05,
+      "min_delta": -0.00022247068792669022,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960884626109283,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00022247068792669022,
+        "loso_10": 0.00016870990665007746,
+        "subject_hole_5": 0.00016782164128126276,
+        "test_boundary_neighbor2_holdout": 6.192995681664204e-05,
+        "test_boundary_neighbor5_holdout": 6.384065669995387e-06
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_particulate_burden_s4_lr_c0_03_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.350740765632041,
+          "id329": 0.2639382157427815
+        },
+        "subject_hole_5": {
+          "id287": -0.31639209241440996,
+          "id329": 0.2962452123632863
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_particulate_burden",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04608873495010879,
+      "local_gate_pass": false,
+      "max_delta": 0.00016143866920781402,
+      "max_failed_direction_corr": 0.2962452123632863,
+      "mean_delta": 3.838135076150717e-05,
+      "min_delta": -0.0002478047373977166,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960887349501088,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0002478047373977166,
+        "loso_10": 0.00016143866920781402,
+        "subject_hole_5": 0.00011955378168582165,
+        "test_boundary_neighbor2_holdout": 2.6450612489847813e-05,
+        "test_boundary_neighbor5_holdout": 0.00013226842782176895
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_all_s4_lr_c0_03_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.350740765632041,
+          "id329": 0.2639382157427815
+        },
+        "subject_hole_5": {
+          "id287": -0.31639209241440996,
+          "id329": 0.2962452123632863
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_all",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04608873495010879,
+      "local_gate_pass": false,
+      "max_delta": 0.00016143866920781402,
+      "max_failed_direction_corr": 0.2962452123632863,
+      "mean_delta": 3.838135076150717e-05,
+      "min_delta": -0.0002478047373977166,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960887349501088,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0002478047373977166,
+        "loso_10": 0.00016143866920781402,
+        "subject_hole_5": 0.00011955378168582165,
+        "test_boundary_neighbor2_holdout": 2.6450612489847813e-05,
+        "test_boundary_neighbor5_holdout": 0.00013226842782176895
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_particulate_burden_s4_lr_c0_10_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.31439534476041714,
+          "id329": 0.23139363711120642
+        },
+        "subject_hole_5": {
+          "id287": -0.26717151924929067,
+          "id329": 0.269794490090123
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_particulate_burden",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04608919980882131,
+      "local_gate_pass": false,
+      "max_delta": 0.0001788724906176542,
+      "max_failed_direction_corr": 0.269794490090123,
+      "mean_delta": 4.1635361749370324e-05,
+      "min_delta": -0.00022768100002512615,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960891998088214,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00022768100002512615,
+        "loso_10": 0.0001131014303245026,
+        "subject_hole_5": 5.585007937469744e-05,
+        "test_boundary_neighbor2_holdout": 8.803380845512354e-05,
+        "test_boundary_neighbor5_holdout": 0.0001788724906176542
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_all_s4_lr_c0_10_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.31439534476041714,
+          "id329": 0.23139363711120642
+        },
+        "subject_hole_5": {
+          "id287": -0.26717151924929067,
+          "id329": 0.269794490090123
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_all",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04608919980882131,
+      "local_gate_pass": false,
+      "max_delta": 0.0001788724906176542,
+      "max_failed_direction_corr": 0.269794490090123,
+      "mean_delta": 4.1635361749370324e-05,
+      "min_delta": -0.00022768100002512615,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960891998088214,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00022768100002512615,
+        "loso_10": 0.0001131014303245026,
+        "subject_hole_5": 5.585007937469744e-05,
+        "test_boundary_neighbor2_holdout": 8.803380845512354e-05,
+        "test_boundary_neighbor5_holdout": 0.0001788724906176542
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_station_dispersion_q3_lr_c0_03_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.2887670311311358,
+          "id329": 0.4223264367798708
+        },
+        "subject_hole_5": {
+          "id287": -0.2683095435878557,
+          "id329": 0.4330984680126158
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_station_dispersion",
+      "feature_count": 160,
+      "gap_to_public_055": 0.046091670710045274,
+      "local_gate_pass": false,
+      "max_delta": 0.00039645223191731027,
+      "max_failed_direction_corr": 0.4330984680126158,
+      "mean_delta": 5.8931670317474706e-05,
+      "min_delta": -0.0002554149552141949,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960916707100453,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": 0.00039645223191731027,
+        "loso_10": 0.00010929759142996875,
+        "subject_hole_5": 0.00011983005231008814,
+        "test_boundary_neighbor2_holdout": -0.0002554149552141949,
+        "test_boundary_neighbor5_holdout": -7.550656885579876e-05
+      },
+      "target": "Q3",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 2
+    },
+    {
+      "config": "airkorea_station_dispersion_s4_lr_c0_10_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3223481837358342,
+          "id329": 0.23619156792052431
+        },
+        "subject_hole_5": {
+          "id287": -0.2937967623954767,
+          "id329": 0.26302197131067195
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_station_dispersion",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04609355176408425,
+      "local_gate_pass": false,
+      "max_delta": 0.00033689336757258825,
+      "max_failed_direction_corr": 0.26302197131067195,
+      "mean_delta": 7.209904859037942e-05,
+      "min_delta": -0.0004428888654365304,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960935517640843,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0004428888654365304,
+        "loso_10": 0.00033689336757258825,
+        "subject_hole_5": 0.00029957327091834074,
+        "test_boundary_neighbor2_holdout": 0.0002265471085883819,
+        "test_boundary_neighbor5_holdout": -5.9629638690883446e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 2
+    },
+    {
+      "config": "airkorea_particulate_burden_s4_hgb_l7_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.33895325007666366,
+          "id329": 0.2330186319944084
+        },
+        "subject_hole_5": {
+          "id287": -0.3197768785933076,
+          "id329": 0.2624265829585165
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_particulate_burden",
+      "feature_count": 160,
+      "gap_to_public_055": 0.0460936008390338,
+      "local_gate_pass": false,
+      "max_delta": 0.00034746759223591717,
+      "max_failed_direction_corr": 0.2624265829585165,
+      "mean_delta": 7.244257323717474e-05,
+      "min_delta": -0.00030095590589429566,
+      "model_feature_count": 120,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5960936008390338,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00030095590589429566,
+        "loso_10": 0.00034746759223591717,
+        "subject_hole_5": 0.00022728359000590004,
+        "test_boundary_neighbor2_holdout": -0.00016674699228458323,
+        "test_boundary_neighbor5_holdout": 0.00025516458212293536
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 2
+    },
+    {
+      "config": "airkorea_all_s4_hgb_l7_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.33895325007666366,
+          "id329": 0.2330186319944084
+        },
+        "subject_hole_5": {
+          "id287": -0.3197768785933076,
+          "id329": 0.2624265829585165
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_all",
+      "feature_count": 160,
+      "gap_to_public_055": 0.0460936008390338,
+      "local_gate_pass": false,
+      "max_delta": 0.00034746759223591717,
+      "max_failed_direction_corr": 0.2624265829585165,
+      "mean_delta": 7.244257323717474e-05,
+      "min_delta": -0.00030095590589429566,
+      "model_feature_count": 120,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5960936008390338,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00030095590589429566,
+        "loso_10": 0.00034746759223591717,
+        "subject_hole_5": 0.00022728359000590004,
+        "test_boundary_neighbor2_holdout": -0.00016674699228458323,
+        "test_boundary_neighbor5_holdout": 0.00025516458212293536
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 2
+    },
+    {
+      "config": "airkorea_station_dispersion_s4_lr_c0_03_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3531867598551873,
+          "id329": 0.26479469200031147
+        },
+        "subject_hole_5": {
+          "id287": -0.3318221402837694,
+          "id329": 0.28725161110760966
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_station_dispersion",
+      "feature_count": 160,
+      "gap_to_public_055": 0.046094730968044395,
+      "local_gate_pass": false,
+      "max_delta": 0.0003438624620020203,
+      "max_failed_direction_corr": 0.28725161110760966,
+      "mean_delta": 8.035347631076827e-05,
+      "min_delta": -0.0004349928026577965,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960947309680444,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0004349928026577965,
+        "loso_10": 0.0003438624620020203,
+        "subject_hole_5": 0.00034111711553086455,
+        "test_boundary_neighbor2_holdout": 0.00013013000164097122,
+        "test_boundary_neighbor5_holdout": 2.1650605037781823e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_particulate_burden_s4_lr_c0_03_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3507407656320379,
+          "id329": 0.26393821574278126
+        },
+        "subject_hole_5": {
+          "id287": -0.3163920924144067,
+          "id329": 0.2962452123632833
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_particulate_burden",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04609525323390884,
+      "local_gate_pass": false,
+      "max_delta": 0.00032935885620277716,
+      "max_failed_direction_corr": 0.2962452123632833,
+      "mean_delta": 8.400933736207872e-05,
+      "min_delta": -0.0004883169369530593,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960952532339089,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0004883169369530593,
+        "loso_10": 0.00032935885620277716,
+        "subject_hole_5": 0.00024482377823742407,
+        "test_boundary_neighbor2_holdout": 6.0038030211706506e-05,
+        "test_boundary_neighbor5_holdout": 0.0002741429591115452
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_all_s4_lr_c0_03_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3507407656320379,
+          "id329": 0.26393821574278126
+        },
+        "subject_hole_5": {
+          "id287": -0.3163920924144067,
+          "id329": 0.2962452123632833
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_all",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04609525323390884,
+      "local_gate_pass": false,
+      "max_delta": 0.00032935885620277716,
+      "max_failed_direction_corr": 0.2962452123632833,
+      "mean_delta": 8.400933736207872e-05,
+      "min_delta": -0.0004883169369530593,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960952532339089,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0004883169369530593,
+        "loso_10": 0.00032935885620277716,
+        "subject_hole_5": 0.00024482377823742407,
+        "test_boundary_neighbor2_holdout": 6.0038030211706506e-05,
+        "test_boundary_neighbor5_holdout": 0.0002741429591115452
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_selected_station_s4_lr_c0_03_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.34953843000964885,
+          "id329": 0.24117495358794716
+        },
+        "subject_hole_5": {
+          "id287": -0.31427479487637056,
+          "id329": 0.27759577177098865
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_selected_station",
+      "feature_count": 160,
+      "gap_to_public_055": 0.046095328770010324,
+      "local_gate_pass": false,
+      "max_delta": 0.00018646935163224576,
+      "max_failed_direction_corr": 0.27759577177098865,
+      "mean_delta": 8.45380900726278e-05,
+      "min_delta": -0.00017502735729602037,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960953287700104,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00017502735729602037,
+        "loso_10": 0.00018646935163224576,
+        "subject_hole_5": 0.00014305828238769802,
+        "test_boundary_neighbor2_holdout": 9.803198081059783e-05,
+        "test_boundary_neighbor5_holdout": 0.00017015819282861777
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_particulate_burden_s4_lr_c0_10_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3143953447604145,
+          "id329": 0.23139363711120745
+        },
+        "subject_hole_5": {
+          "id287": -0.2671715192492916,
+          "id329": 0.2697944900901203
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_particulate_burden",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04609632607302472,
+      "local_gate_pass": false,
+      "max_delta": 0.00036894037337786845,
+      "max_failed_direction_corr": 0.2697944900901203,
+      "mean_delta": 9.151921117367401e-05,
+      "min_delta": -0.00044785904758515294,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960963260730248,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00044785904758515294,
+        "loso_10": 0.00023404578242824936,
+        "subject_hole_5": 0.00011861231458698551,
+        "test_boundary_neighbor2_holdout": 0.00018385663306041966,
+        "test_boundary_neighbor5_holdout": 0.00036894037337786845
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_all_s4_lr_c0_10_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3143953447604145,
+          "id329": 0.23139363711120745
+        },
+        "subject_hole_5": {
+          "id287": -0.2671715192492916,
+          "id329": 0.2697944900901203
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_all",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04609632607302472,
+      "local_gate_pass": false,
+      "max_delta": 0.00036894037337786845,
+      "max_failed_direction_corr": 0.2697944900901203,
+      "mean_delta": 9.151921117367401e-05,
+      "min_delta": -0.00044785904758515294,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960963260730248,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00044785904758515294,
+        "loso_10": 0.00023404578242824936,
+        "subject_hole_5": 0.00011861231458698551,
+        "test_boundary_neighbor2_holdout": 0.00018385663306041966,
+        "test_boundary_neighbor5_holdout": 0.00036894037337786845
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_station_dispersion_s4_hgb_l7_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3797759921373724,
+          "id329": 0.22407811188234947
+        },
+        "subject_hole_5": {
+          "id287": -0.3311876476710385,
+          "id329": 0.26854465479439843
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_station_dispersion",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04609653192418839,
+      "local_gate_pass": false,
+      "max_delta": 0.00026205949221891345,
+      "max_failed_direction_corr": 0.26854465479439843,
+      "mean_delta": 9.296016931870099e-05,
+      "min_delta": -0.0001272401287595315,
+      "model_feature_count": 120,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5960965319241884,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0001272401287595315,
+        "loso_10": 0.00026205949221891345,
+        "subject_hole_5": 0.0001566632704501636,
+        "test_boundary_neighbor2_holdout": 3.602936374869081e-05,
+        "test_boundary_neighbor5_holdout": 0.0001372888489352686
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_selected_station_s4_lr_c0_10_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3247171228911372,
+          "id329": 0.2077549225670614
+        },
+        "subject_hole_5": {
+          "id287": -0.27281647969747963,
+          "id329": 0.25629186787246866
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_selected_station",
+      "feature_count": 160,
+      "gap_to_public_055": 0.0460972901092942,
+      "local_gate_pass": false,
+      "max_delta": 0.00024918415428587526,
+      "max_failed_direction_corr": 0.25629186787246866,
+      "mean_delta": 9.826746505965378e-05,
+      "min_delta": -0.00015310345915320323,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960972901092942,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00015310345915320323,
+        "loso_10": 0.00017844605574468542,
+        "subject_hole_5": 8.8838906352251e-05,
+        "test_boundary_neighbor2_holdout": 0.00012797166806866045,
+        "test_boundary_neighbor5_holdout": 0.00024918415428587526
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_oxidant_traffic_s3_lr_c0_10_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.10256126654338203,
+          "id329": -0.20564848216757625
+        },
+        "subject_hole_5": {
+          "id287": -0.06030573139023949,
+          "id329": -0.17735492942074257
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_oxidant_traffic",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04609786507763347,
+      "local_gate_pass": false,
+      "max_delta": 0.00024400457094891914,
+      "max_failed_direction_corr": -0.06030573139023949,
+      "mean_delta": 0.00010229224343438759,
+      "min_delta": -2.907483941805289e-05,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960978650776335,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": 0.00024400457094891914,
+        "loso_10": 0.00011279429768984439,
+        "subject_hole_5": 9.441848463959124e-05,
+        "test_boundary_neighbor2_holdout": -2.907483941805289e-05,
+        "test_boundary_neighbor5_holdout": 8.931870331163605e-05
+      },
+      "target": "S3",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_dunsan_station_s4_hgb_l7_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.35690415056159425,
+          "id329": 0.2531829825532777
+        },
+        "subject_hole_5": {
+          "id287": -0.29718599697577247,
+          "id329": 0.263441117490073
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_dunsan_station",
+      "feature_count": 160,
+      "gap_to_public_055": 0.046098302617645914,
+      "local_gate_pass": false,
+      "max_delta": 0.00023396295972311076,
+      "max_failed_direction_corr": 0.263441117490073,
+      "mean_delta": 0.000105355023521847,
+      "min_delta": 2.4419627789318277e-05,
+      "model_feature_count": 120,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.596098302617646,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": 8.374898396790176e-05,
+        "loso_10": 0.00023396295972311076,
+        "subject_hole_5": 0.00013274807425989188,
+        "test_boundary_neighbor2_holdout": 2.4419627789318277e-05,
+        "test_boundary_neighbor5_holdout": 5.189547186901233e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 0
+    },
+    {
+      "config": "airkorea_dunsan_station_s4_lr_c0_03_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.38163711980742265,
+          "id329": 0.2634785470121028
+        },
+        "subject_hole_5": {
+          "id287": -0.34815893570224893,
+          "id329": 0.3051679147393606
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_dunsan_station",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04609920119434552,
+      "local_gate_pass": false,
+      "max_delta": 0.00029656265431377005,
+      "max_failed_direction_corr": 0.3051679147393606,
+      "mean_delta": 0.00011164506041927424,
+      "min_delta": -0.00019489411194917317,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960992011943456,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00019489411194917317,
+        "loso_10": 0.00029656265431377005,
+        "subject_hole_5": 0.0002196810789948378,
+        "test_boundary_neighbor2_holdout": 4.821319927450496e-05,
+        "test_boundary_neighbor5_holdout": 0.00018866248146243159
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_oxidant_traffic_s4_lr_c0_03_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.4079988497587391,
+          "id329": 0.23527580585207317
+        },
+        "subject_hole_5": {
+          "id287": -0.3833502441174659,
+          "id329": 0.2601871562020438
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_oxidant_traffic",
+      "feature_count": 160,
+      "gap_to_public_055": 0.046099303466161534,
+      "local_gate_pass": false,
+      "max_delta": 0.00021055332417574402,
+      "max_failed_direction_corr": 0.2601871562020438,
+      "mean_delta": 0.00011236096313069766,
+      "min_delta": -0.00014120693968222575,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960993034661616,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00014120693968222575,
+        "loso_10": 0.00021055332417574402,
+        "subject_hole_5": 0.0001708948547967104,
+        "test_boundary_neighbor2_holdout": 0.00016887927336339814,
+        "test_boundary_neighbor5_holdout": 0.00015268430299986147
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_oxidant_traffic_s4_hgb_l7_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3703712860468329,
+          "id329": 0.20969445203423057
+        },
+        "subject_hole_5": {
+          "id287": -0.3498579607309453,
+          "id329": 0.23886160374434312
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_oxidant_traffic",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04609945811923033,
+      "local_gate_pass": false,
+      "max_delta": 0.0002843288628254781,
+      "max_failed_direction_corr": 0.23886160374434312,
+      "mean_delta": 0.00011344353461286704,
+      "min_delta": -7.713103987516678e-05,
+      "model_feature_count": 120,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5960994581192304,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -7.713103987516678e-05,
+        "loso_10": 0.00018120655798992136,
+        "subject_hole_5": 0.0001633320728593457,
+        "test_boundary_neighbor2_holdout": 0.0002843288628254781,
+        "test_boundary_neighbor5_holdout": 1.5481219264756874e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_particulate_burden_q3_hgb_l7_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.31572681813898895,
+          "id329": 0.3999624082625027
+        },
+        "subject_hole_5": {
+          "id287": -0.3242869639716778,
+          "id329": 0.3678831489848508
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_particulate_burden",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04610044913646627,
+      "local_gate_pass": false,
+      "max_delta": 0.00036042471376229734,
+      "max_failed_direction_corr": 0.3999624082625027,
+      "mean_delta": 0.00012038065526418507,
+      "min_delta": -0.0003240807030259196,
+      "model_feature_count": 120,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5961004491364663,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": 0.00036042471376229734,
+        "loso_10": 0.00021970851882968656,
+        "subject_hole_5": 0.00033569180465231607,
+        "test_boundary_neighbor2_holdout": -0.0003240807030259196,
+        "test_boundary_neighbor5_holdout": 1.0158942102544977e-05
+      },
+      "target": "Q3",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_all_q3_hgb_l7_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.31572681813898895,
+          "id329": 0.3999624082625027
+        },
+        "subject_hole_5": {
+          "id287": -0.3242869639716778,
+          "id329": 0.3678831489848508
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_all",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04610044913646627,
+      "local_gate_pass": false,
+      "max_delta": 0.00036042471376229734,
+      "max_failed_direction_corr": 0.3999624082625027,
+      "mean_delta": 0.00012038065526418507,
+      "min_delta": -0.0003240807030259196,
+      "model_feature_count": 120,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5961004491364663,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": 0.00036042471376229734,
+        "loso_10": 0.00021970851882968656,
+        "subject_hole_5": 0.00033569180465231607,
+        "test_boundary_neighbor2_holdout": -0.0003240807030259196,
+        "test_boundary_neighbor5_holdout": 1.0158942102544977e-05
+      },
+      "target": "Q3",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_dunsan_station_s4_lr_c0_10_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.374066999101625,
+          "id329": 0.22349183009337495
+        },
+        "subject_hole_5": {
+          "id287": -0.3355478248862765,
+          "id329": 0.2795564836019068
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_dunsan_station",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04610058376150672,
+      "local_gate_pass": false,
+      "max_delta": 0.00031885552761623526,
+      "max_failed_direction_corr": 0.2795564836019068,
+      "mean_delta": 0.00012132303054719351,
+      "min_delta": -0.0001848483251488675,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5961005837615068,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0001848483251488675,
+        "loso_10": 0.00031885552761623526,
+        "subject_hole_5": 0.00020992256744756244,
+        "test_boundary_neighbor2_holdout": 7.081751678605919e-05,
+        "test_boundary_neighbor5_holdout": 0.00019186786603497819
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_oxidant_traffic_s4_lr_c0_10_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.39862403775414357,
+          "id329": 0.20658395549558609
+        },
+        "subject_hole_5": {
+          "id287": -0.36277229380140924,
+          "id329": 0.23519681071293638
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_oxidant_traffic",
+      "feature_count": 160,
+      "gap_to_public_055": 0.046101121267854706,
+      "local_gate_pass": false,
+      "max_delta": 0.00021127775603424492,
+      "max_failed_direction_corr": 0.23519681071293638,
+      "mean_delta": 0.00012508557498298601,
+      "min_delta": -0.0001469560477129761,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5961011212678547,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0001469560477129761,
+        "loso_10": 0.00021127775603424492,
+        "subject_hole_5": 0.0001596125659443226,
+        "test_boundary_neighbor2_holdout": 0.0002005936734762459,
+        "test_boundary_neighbor5_holdout": 0.00020089992717309268
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_station_dispersion_q3_lr_c0_03_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.2887670311311356,
+          "id329": 0.4223264367798698
+        },
+        "subject_hole_5": {
+          "id287": -0.268309543587853,
+          "id329": 0.4330984680126168
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_station_dispersion",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04610126771848422,
+      "local_gate_pass": false,
+      "max_delta": 0.0008008498096500061,
+      "max_failed_direction_corr": 0.4330984680126168,
+      "mean_delta": 0.00012611072938946145,
+      "min_delta": -0.0005006752569716166,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5961012677184843,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": 0.0008008498096500061,
+        "loso_10": 0.00022579516689658075,
+        "subject_hole_5": 0.00024637369912283713,
+        "test_boundary_neighbor2_holdout": -0.0005006752569716166,
+        "test_boundary_neighbor5_holdout": -0.00014178977175050012
+      },
+      "target": "Q3",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 2
+    },
+    {
+      "config": "airkorea_station_dispersion_q3_lr_c0_10_w0.025",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.25527134604083457,
+          "id329": 0.3796755952486327
+        },
+        "subject_hole_5": {
+          "id287": -0.22705476895420687,
+          "id329": 0.3856890972856833
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_station_dispersion",
+      "feature_count": 160,
+      "gap_to_public_055": 0.046103542883585535,
+      "local_gate_pass": false,
+      "max_delta": 0.0017417627682110304,
+      "max_failed_direction_corr": 0.3856890972856833,
+      "mean_delta": 0.0001420368850987952,
+      "min_delta": -0.0013437666902320622,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5961035428835856,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": 0.0017417627682110304,
+        "loso_10": 0.00048531853293531935,
+        "subject_hole_5": 0.00050614841051011,
+        "test_boundary_neighbor2_holdout": -0.0013437666902320622,
+        "test_boundary_neighbor5_holdout": -0.0006792785959304215
+      },
+      "target": "Q3",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.025,
+      "wins": 2
+    },
+    {
+      "config": "airkorea_oxidant_traffic_s3_lr_c0_03_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.1330410393966039,
+          "id329": -0.2382551113237859
+        },
+        "subject_hole_5": {
+          "id287": -0.10040371533947724,
+          "id329": -0.21653534924216838
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_oxidant_traffic",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04610639046505138,
+      "local_gate_pass": false,
+      "max_delta": 0.00027361378429824335,
+      "max_failed_direction_corr": -0.10040371533947724,
+      "mean_delta": 0.00016196995535979752,
+      "min_delta": 9.079922339672031e-05,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5961063904650514,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": 0.00027361378429824335,
+        "loso_10": 0.00016923268956453574,
+        "subject_hole_5": 0.00014509914958676928,
+        "test_boundary_neighbor2_holdout": 9.079922339672031e-05,
+        "test_boundary_neighbor5_holdout": 0.00013110492995271894
+      },
+      "target": "S3",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 0
+    },
+    {
+      "config": "airkorea_oxidant_traffic_q3_lr_c0_03_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3083611218549941,
+          "id329": 0.40711656069653196
+        },
+        "subject_hole_5": {
+          "id287": -0.2903935467255448,
+          "id329": 0.41860195479142925
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_oxidant_traffic",
+      "feature_count": 160,
+      "gap_to_public_055": 0.0461071433504765,
+      "local_gate_pass": false,
+      "max_delta": 0.00037079420342522873,
+      "max_failed_direction_corr": 0.41860195479142925,
+      "mean_delta": 0.00016724015333551278,
+      "min_delta": -6.0381290619138106e-05,
+      "model_feature_count": 160,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5961071433504765,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": 0.00037079420342522873,
+        "loso_10": 0.0001992925771703291,
+        "subject_hole_5": 0.00022830037377352674,
+        "test_boundary_neighbor2_holdout": -6.0381290619138106e-05,
+        "test_boundary_neighbor5_holdout": 9.819490292761746e-05
+      },
+      "target": "Q3",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "airkorea_station_dispersion_s3_hgb_l7_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.14729196487589663,
+          "id329": -0.24016763403502675
+        },
+        "subject_hole_5": {
+          "id287": -0.11628302960225317,
+          "id329": -0.20656516215760817
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "airkorea_station_dispersion",
+      "feature_count": 160,
+      "gap_to_public_055": 0.04610717125491115,
+      "local_gate_pass": false,
+      "max_delta": 0.00032957194285798685,
+      "max_failed_direction_corr": -0.11628302960225317,
+      "mean_delta": 0.00016743548437808675,
+      "min_delta": 8.107840184073956e-05,
+      "model_feature_count": 120,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5961071712549112,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": 0.00032957194285798685,
+        "loso_10": 0.00011737427065716677,
+        "subject_hole_5": 8.107840184073956e-05,
+        "test_boundary_neighbor2_holdout": 0.00019644334422364018,
+        "test_boundary_neighbor5_holdout": 0.0001127094623109004
+      },
+      "target": "S3",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 0
+    }
+  ],
+  "validation": {
+    "blend_weights": [
+      0.005,
+      0.01,
+      0.025,
+      0.05
+    ],
+    "dacon_public_target": 0.55,
+    "focus_targets": [
+      "Q3",
+      "S3",
+      "S4"
+    ],
+    "max_failed_direction_corr": 0.2,
+    "model_specs": [
+      {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      }
+    ],
+    "primary_splits": [
+      "subject_hole_5",
+      "actual_test_band_holdout",
+      "test_boundary_neighbor2_holdout",
+      "test_boundary_neighbor5_holdout",
+      "loso_10"
+    ],
+    "review_public_threshold": 0.58,
+    "target_max_delta_ceiling": 0.00075,
+    "target_mean_delta_ceiling": -5e-05,
+    "target_win_floor": 4
+  }
+}

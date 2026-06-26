@@ -24,12 +24,16 @@ make kaggle-push-notebook
 # 3. 훈련 결과물 대기 및 다운로드
 make kaggle-wait-and-pull
 
-# 4. 제출 로그 정규화 및 안전 앙상블 생성
+# 4. Kaggle staging 결과 검토 후 strict submission_id 산출물로 승격
+# runner notebook은 generic submission.csv / legacy anchor 파일을 덮어쓰지 않고
+# kaggle_outputs/ 아래에 고유 timestamp 파일과 manifest를 남깁니다.
+
+# 5. 제출 로그 정규화 및 안전 앙상블 생성
 make normalize-submissions
 make ensemble
 
-# 5. 검토 후 명시적으로 제출
-make dacon-submit SUB_PATH=submissions/submission_ensemble_latest.csv SUB_MEMO="reviewed safe ensemble"
+# 6. 검토 후 명시적으로 제출
+ALLOW_DACON_SUBMIT=true make dacon-submit SUB_PATH=submissions/submission_ensemble_latest.csv SUB_MEMO="reviewed safe ensemble"
 ```
 
 ### 2. 동적 경로 탐색 (Auto-Discovery)

@@ -1,0 +1,1036 @@
+{
+  "purpose": "Post-ID246 controlled bridge robustness comparison after reviewing external Public_0.5917 notebook.",
+  "created_at_kst": "2026-06-16",
+  "external_notebook_assessment": {
+    "path": "/Volumes/samsd/download_samsd/[Public_0.5917] LGBM+XGB 앵커·Subject-hole CV·안정성 피처선별·블렌드.ipynb",
+    "usable_signal": "Conceptual only: anchor-preserving LGBM/XGB blend, subject-hole validation, stability filtering, and small controlled blending. The notebook has placeholder feature code and missing V152 anchor artifacts, so it is not directly reproducible as a new candidate.",
+    "action_taken": "Promoted controlled ID235-to-frontier bridge candidates ID244-ID246 instead of copying the notebook."
+  },
+  "ids": [
+    235,
+    238,
+    242,
+    243,
+    244,
+    245,
+    246
+  ],
+  "id178_public_gap_reference": 0.0627733009,
+  "robustness_score_formula": "overall + .20*(worst_subject-overall) + .15*(worst_date_quartile-overall) + .10*(worst_target-overall) + .05*max(0, late_q4-early_q1)",
+  "results": [
+    {
+      "id": 235,
+      "submission_file": "submission_id_235_id226_tempgrid_s4q40_frontier_cv0.482255_unsubmitted.csv",
+      "overall": 0.48225524243015083,
+      "robustness_score": 0.5115175028054054,
+      "id178_gap_estimate": 0.5450285433301508,
+      "target_losses": {
+        "Q1": 0.49340355274943315,
+        "Q2": 0.4881218072099432,
+        "Q3": 0.5136262960315691,
+        "S1": 0.42842098046563215,
+        "S2": 0.47322429839929947,
+        "S3": 0.46511496294445753,
+        "S4": 0.5138747992107213
+      },
+      "worst_subject_loss": 0.5837882992478466,
+      "worst_subjects": [
+        {
+          "subject_id": "id10",
+          "loss": 0.5837882992478466
+        },
+        {
+          "subject_id": "id01",
+          "loss": 0.5738825997345323
+        },
+        {
+          "subject_id": "id05",
+          "loss": 0.5236199725951846
+        },
+        {
+          "subject_id": "id08",
+          "loss": 0.5195040994219361
+        },
+        {
+          "subject_id": "id07",
+          "loss": 0.5185102259129123
+        }
+      ],
+      "worst_date_quartile_loss": 0.5056081026448599,
+      "date_quartile_losses": [
+        {
+          "date_quartile": "q1_early",
+          "loss": 0.4538076387530404
+        },
+        {
+          "date_quartile": "q2",
+          "loss": 0.5056081026448599
+        },
+        {
+          "date_quartile": "q3",
+          "loss": 0.4700812314095983
+        },
+        {
+          "date_quartile": "q4_late",
+          "loss": 0.49962292478207954
+        }
+      ],
+      "worst_target_loss": 0.5138747992107213,
+      "late_minus_early": 0.045815286029039115,
+      "test_stats": {
+        "Q1": {
+          "mean": 0.5302235566742525,
+          "std": 0.2941899402342383,
+          "p01": 0.0194671490237046,
+          "p99": 0.9824258324463846,
+          "extreme_rate_005_095": 0.172
+        },
+        "Q2": {
+          "mean": 0.5662686361251301,
+          "std": 0.2467576824040171,
+          "p01": 0.0179973802601099,
+          "p99": 0.9477355528675099,
+          "extreme_rate_005_095": 0.068
+        },
+        "Q3": {
+          "mean": 0.6517284626568797,
+          "std": 0.2617492606322148,
+          "p01": 0.0834528523582643,
+          "p99": 0.9165471476417356,
+          "extreme_rate_005_095": 0.008
+        },
+        "S1": {
+          "mean": 0.6804485591026261,
+          "std": 0.25925435233293265,
+          "p01": 0.0807360809785615,
+          "p99": 0.9824258324463846,
+          "extreme_rate_005_095": 0.12
+        },
+        "S2": {
+          "mean": 0.602391653039615,
+          "std": 0.28213190059468723,
+          "p01": 0.0807360809785615,
+          "p99": 0.9824258324463846,
+          "extreme_rate_005_095": 0.144
+        },
+        "S3": {
+          "mean": 0.6461689296796669,
+          "std": 0.24611338534008084,
+          "p01": 1e-06,
+          "p99": 0.999999,
+          "extreme_rate_005_095": 0.18
+        },
+        "S4": {
+          "mean": 0.5547051282051282,
+          "std": 0.2348046248845892,
+          "p01": 0.1153846153846153,
+          "p99": 0.9615384615384616,
+          "extreme_rate_005_095": 0.06
+        }
+      },
+      "target_methods": {
+        "Q1": {
+          "method": "temp_shift",
+          "temperature": 0.8,
+          "shift": 0.0
+        },
+        "Q2": {
+          "method": "temp_shift",
+          "temperature": 0.8,
+          "shift": -0.08
+        },
+        "Q3": {
+          "method": "temp_shift",
+          "temperature": 0.85,
+          "shift": 0.0
+        },
+        "S1": {
+          "method": "temp_shift",
+          "temperature": 0.8,
+          "shift": 0.0
+        },
+        "S2": {
+          "method": "temp_shift",
+          "temperature": 0.8,
+          "shift": 0.0
+        },
+        "S3": {
+          "method": "base"
+        },
+        "S4": {
+          "method": "quantile",
+          "q": 40
+        }
+      },
+      "base_oof_file": "artifacts/base_predictions/base_oof_id_235_id226_tempgrid_s4q40_frontier_cv0.482255.csv",
+      "base_test_file": "artifacts/base_predictions/base_test_id_235_id226_tempgrid_s4q40_frontier_cv0.482255.csv",
+      "max_test_delta_vs_blend_base": null,
+      "strict_subject_hole_comparable": false,
+      "fold_nested_calibration": false
+    },
+    {
+      "id": 238,
+      "submission_file": "submission_id_238_id227_clean_anchor_logit_oracle_frontier_cv0.462365_unsubmitted.csv",
+      "overall": 0.4623650212416278,
+      "robustness_score": 0.49365837110082356,
+      "id178_gap_estimate": 0.5251383221416278,
+      "target_losses": {
+        "Q1": 0.48508528309933024,
+        "Q2": 0.4839051478957611,
+        "Q3": 0.5099195692796594,
+        "S1": 0.4230513346347287,
+        "S2": 0.4686692255162767,
+        "S3": 0.46511496294445753,
+        "S4": 0.4008096253211809
+      },
+      "worst_subject_loss": 0.5679642041036089,
+      "worst_subjects": [
+        {
+          "subject_id": "id10",
+          "loss": 0.5679642041036089
+        },
+        {
+          "subject_id": "id01",
+          "loss": 0.5434891169461231
+        },
+        {
+          "subject_id": "id05",
+          "loss": 0.5052460984225624
+        },
+        {
+          "subject_id": "id07",
+          "loss": 0.503565981273504
+        },
+        {
+          "subject_id": "id08",
+          "loss": 0.503094518629367
+        }
+      ],
+      "worst_date_quartile_loss": 0.48724811360676934,
+      "date_quartile_losses": [
+        {
+          "date_quartile": "q1_early",
+          "loss": 0.4415361266086743
+        },
+        {
+          "date_quartile": "q2",
+          "loss": 0.48724811360676934
+        },
+        {
+          "date_quartile": "q3",
+          "loss": 0.4454987710841533
+        },
+        {
+          "date_quartile": "q4_late",
+          "loss": 0.4752480191731766
+        }
+      ],
+      "worst_target_loss": 0.5099195692796594,
+      "late_minus_early": 0.0337118925645023,
+      "test_stats": {
+        "Q1": {
+          "mean": 0.531530343226424,
+          "std": 0.28258465244247893,
+          "p01": 5.176346044017648e-05,
+          "p99": 0.9999601739878634,
+          "extreme_rate_005_095": 0.172
+        },
+        "Q2": {
+          "mean": 0.566231549839984,
+          "std": 0.2321705589056609,
+          "p01": 6.469545530712393e-06,
+          "p99": 0.9527023709214834,
+          "extreme_rate_005_095": 0.068
+        },
+        "Q3": {
+          "mean": 0.6462895504491528,
+          "std": 0.24406569580711482,
+          "p01": 0.0956979421557557,
+          "p99": 0.9087583980713448,
+          "extreme_rate_005_095": 0.008
+        },
+        "S1": {
+          "mean": 0.6820561471743022,
+          "std": 0.2450322970817152,
+          "p01": 0.11001575494933598,
+          "p99": 0.999989847404778,
+          "extreme_rate_005_095": 0.12
+        },
+        "S2": {
+          "mean": 0.6078233516317799,
+          "std": 0.2695450306349232,
+          "p01": 0.10414345864261734,
+          "p99": 0.9999961177883894,
+          "extreme_rate_005_095": 0.144
+        },
+        "S3": {
+          "mean": 0.6461689296796669,
+          "std": 0.24611338534008084,
+          "p01": 1e-06,
+          "p99": 0.999999,
+          "extreme_rate_005_095": 0.18
+        },
+        "S4": {
+          "mean": 0.5536375417224686,
+          "std": 0.2576362029886647,
+          "p01": 0.0484036693935809,
+          "p99": 0.951596330606304,
+          "extreme_rate_005_095": 0.052
+        }
+      },
+      "target_methods": {
+        "Q1": {
+          "alpha_extreme": null
+        },
+        "Q2": {
+          "alpha_extreme": null
+        },
+        "Q3": {
+          "alpha_extreme": null
+        },
+        "S1": {
+          "alpha_extreme": null
+        },
+        "S2": {
+          "alpha_extreme": null
+        },
+        "S3": {
+          "alpha_extreme": null
+        },
+        "S4": {
+          "alpha_extreme": null
+        }
+      },
+      "base_oof_file": "artifacts/base_predictions/base_oof_id_238_id227_clean_anchor_logit_oracle_frontier_cv0.462365.csv",
+      "base_test_file": "artifacts/base_predictions/base_test_id_238_id227_clean_anchor_logit_oracle_frontier_cv0.462365.csv",
+      "max_test_delta_vs_blend_base": null,
+      "strict_subject_hole_comparable": false,
+      "fold_nested_calibration": false
+    },
+    {
+      "id": 242,
+      "submission_file": "submission_id_242_id238_q240_s4iso_recal_frontier_cv0.357651_unsubmitted.csv",
+      "overall": 0.35765072486726873,
+      "robustness_score": 0.38773996977749836,
+      "id178_gap_estimate": 0.4204240257672687,
+      "target_losses": {
+        "Q1": 0.35508012688188667,
+        "Q2": 0.35280979077626007,
+        "Q3": 0.3323767658256204,
+        "S1": 0.3232954214031139,
+        "S2": 0.3437284463537535,
+        "S3": 0.46511496294445753,
+        "S4": 0.33114955988578887
+      },
+      "worst_subject_loss": 0.43324292798680547,
+      "worst_subjects": [
+        {
+          "subject_id": "id10",
+          "loss": 0.43324292798680547
+        },
+        {
+          "subject_id": "id05",
+          "loss": 0.38752664695795286
+        },
+        {
+          "subject_id": "id01",
+          "loss": 0.3843099697420517
+        },
+        {
+          "subject_id": "id07",
+          "loss": 0.38043734101584936
+        },
+        {
+          "subject_id": "id08",
+          "loss": 0.37840759607463653
+        }
+      ],
+      "worst_date_quartile_loss": 0.37710727274405226,
+      "date_quartile_losses": [
+        {
+          "date_quartile": "q1_early",
+          "loss": 0.350989306802335
+        },
+        {
+          "date_quartile": "q2",
+          "loss": 0.3469304824003516
+        },
+        {
+          "date_quartile": "q3",
+          "loss": 0.355461595291873
+        },
+        {
+          "date_quartile": "q4_late",
+          "loss": 0.37710727274405226
+        }
+      ],
+      "worst_target_loss": 0.46511496294445753,
+      "late_minus_early": 0.02611796594171728,
+      "test_stats": {
+        "Q1": {
+          "mean": 0.5203333333333332,
+          "std": 0.2633183540043413,
+          "p01": 0.1666666666666666,
+          "p99": 0.8333333333333334,
+          "extreme_rate_005_095": 0.0
+        },
+        "Q2": {
+          "mean": 0.5336666666666666,
+          "std": 0.25637407565248616,
+          "p01": 0.1666666666666666,
+          "p99": 0.8333333333333334,
+          "extreme_rate_005_095": 0.0
+        },
+        "Q3": {
+          "mean": 0.5943333333333334,
+          "std": 0.25025786700921115,
+          "p01": 0.1666666666666666,
+          "p99": 0.8333333333333334,
+          "extreme_rate_005_095": 0.0
+        },
+        "S1": {
+          "mean": 0.6046666666666668,
+          "std": 0.2538380936301283,
+          "p01": 0.1666666666666666,
+          "p99": 0.8333333333333334,
+          "extreme_rate_005_095": 0.0
+        },
+        "S2": {
+          "mean": 0.5556666666666666,
+          "std": 0.2759551090707006,
+          "p01": 0.1666666666666666,
+          "p99": 0.8333333333333334,
+          "extreme_rate_005_095": 0.0
+        },
+        "S3": {
+          "mean": 0.6461689296796669,
+          "std": 0.24611338534008084,
+          "p01": 1e-06,
+          "p99": 0.999999,
+          "extreme_rate_005_095": 0.18
+        },
+        "S4": {
+          "mean": 0.5703259894629341,
+          "std": 0.3490571362187597,
+          "p01": 1e-06,
+          "p99": 0.999999,
+          "extreme_rate_005_095": 0.456
+        }
+      },
+      "target_methods": {
+        "Q1": {
+          "method": "quantile",
+          "q": 240
+        },
+        "Q2": {
+          "method": "quantile",
+          "q": 240
+        },
+        "Q3": {
+          "method": "quantile",
+          "q": 240
+        },
+        "S1": {
+          "method": "quantile",
+          "q": 240
+        },
+        "S2": {
+          "method": "quantile",
+          "q": 240
+        },
+        "S3": {
+          "method": "base"
+        },
+        "S4": {
+          "method": "isotonic"
+        }
+      },
+      "base_oof_file": "artifacts/base_predictions/base_oof_id_242_id238_q240_s4iso_recal_frontier_cv0.357651.csv",
+      "base_test_file": "artifacts/base_predictions/base_test_id_242_id238_q240_s4iso_recal_frontier_cv0.357651.csv",
+      "max_test_delta_vs_blend_base": null,
+      "strict_subject_hole_comparable": false,
+      "fold_nested_calibration": false
+    },
+    {
+      "id": 243,
+      "submission_file": "submission_id_243_id238_q240_all_recal_frontier_cv0.360420_unsubmitted.csv",
+      "overall": 0.3604198012086374,
+      "robustness_score": 0.39028492543387083,
+      "id178_gap_estimate": 0.4231931021086374,
+      "target_losses": {
+        "Q1": 0.35508012688188667,
+        "Q2": 0.35280979077626007,
+        "Q3": 0.3323767658256204,
+        "S1": 0.3232954214031139,
+        "S2": 0.3437284463537535,
+        "S3": 0.46511496294445753,
+        "S4": 0.3505330942753696
+      },
+      "worst_subject_loss": 0.43563914188241376,
+      "worst_subjects": [
+        {
+          "subject_id": "id10",
+          "loss": 0.43563914188241376
+        },
+        {
+          "subject_id": "id05",
+          "loss": 0.38930908541475556
+        },
+        {
+          "subject_id": "id01",
+          "loss": 0.3866722172368475
+        },
+        {
+          "subject_id": "id07",
+          "loss": 0.3833046566670212
+        },
+        {
+          "subject_id": "id08",
+          "loss": 0.3818239716077886
+        }
+      ],
+      "worst_date_quartile_loss": 0.3803435023938887,
+      "date_quartile_losses": [
+        {
+          "date_quartile": "q1_early",
+          "loss": 0.35307980761171953
+        },
+        {
+          "date_quartile": "q2",
+          "loss": 0.3489079754372616
+        },
+        {
+          "date_quartile": "q3",
+          "loss": 0.3592355648596409
+        },
+        {
+          "date_quartile": "q4_late",
+          "loss": 0.3803435023938887
+        }
+      ],
+      "worst_target_loss": 0.46511496294445753,
+      "late_minus_early": 0.027263694782169168,
+      "test_stats": {
+        "Q1": {
+          "mean": 0.5203333333333332,
+          "std": 0.2633183540043413,
+          "p01": 0.1666666666666666,
+          "p99": 0.8333333333333334,
+          "extreme_rate_005_095": 0.0
+        },
+        "Q2": {
+          "mean": 0.5336666666666666,
+          "std": 0.25637407565248616,
+          "p01": 0.1666666666666666,
+          "p99": 0.8333333333333334,
+          "extreme_rate_005_095": 0.0
+        },
+        "Q3": {
+          "mean": 0.5943333333333334,
+          "std": 0.25025786700921115,
+          "p01": 0.1666666666666666,
+          "p99": 0.8333333333333334,
+          "extreme_rate_005_095": 0.0
+        },
+        "S1": {
+          "mean": 0.6046666666666668,
+          "std": 0.2538380936301283,
+          "p01": 0.1666666666666666,
+          "p99": 0.8333333333333334,
+          "extreme_rate_005_095": 0.0
+        },
+        "S2": {
+          "mean": 0.5556666666666666,
+          "std": 0.2759551090707006,
+          "p01": 0.1666666666666666,
+          "p99": 0.8333333333333334,
+          "extreme_rate_005_095": 0.0
+        },
+        "S3": {
+          "mean": 0.6461689296796669,
+          "std": 0.24611338534008084,
+          "p01": 1e-06,
+          "p99": 0.999999,
+          "extreme_rate_005_095": 0.18
+        },
+        "S4": {
+          "mean": 0.5795228826427252,
+          "std": 0.31279097489469865,
+          "p01": 0.03125,
+          "p99": 0.9864864864864864,
+          "extreme_rate_005_095": 0.288
+        }
+      },
+      "target_methods": {
+        "Q1": {
+          "method": "quantile",
+          "q": 240
+        },
+        "Q2": {
+          "method": "quantile",
+          "q": 240
+        },
+        "Q3": {
+          "method": "quantile",
+          "q": 240
+        },
+        "S1": {
+          "method": "quantile",
+          "q": 240
+        },
+        "S2": {
+          "method": "quantile",
+          "q": 240
+        },
+        "S3": {
+          "method": "base"
+        },
+        "S4": {
+          "method": "quantile",
+          "q": 240
+        }
+      },
+      "base_oof_file": "artifacts/base_predictions/base_oof_id_243_id238_q240_all_recal_frontier_cv0.360420.csv",
+      "base_test_file": "artifacts/base_predictions/base_test_id_243_id238_q240_all_recal_frontier_cv0.360420.csv",
+      "max_test_delta_vs_blend_base": null,
+      "strict_subject_hole_comparable": false,
+      "fold_nested_calibration": false
+    },
+    {
+      "id": 244,
+      "submission_file": "submission_id_244_id235_id242_alpha0225_bridge_frontier_cv0.437262_unsubmitted.csv",
+      "overall": 0.43726230379312664,
+      "robustness_score": 0.46419346025810637,
+      "id178_gap_estimate": 0.5000356046931267,
+      "target_losses": {
+        "Q1": 0.44318460432134305,
+        "Q2": 0.43758408313597386,
+        "Q3": 0.4499911973211818,
+        "S1": 0.3824921440475699,
+        "S2": 0.4234256596134495,
+        "S3": 0.46511496294445753,
+        "S4": 0.45904347516791066
+      },
+      "worst_subject_loss": 0.5339757795963709,
+      "worst_subjects": [
+        {
+          "subject_id": "id10",
+          "loss": 0.5339757795963709
+        },
+        {
+          "subject_id": "id01",
+          "loss": 0.5102659035319083
+        },
+        {
+          "subject_id": "id05",
+          "loss": 0.47571278613718765
+        },
+        {
+          "subject_id": "id07",
+          "loss": 0.4697671328403725
+        },
+        {
+          "subject_id": "id08",
+          "loss": 0.4693728880427201
+        }
+      ],
+      "worst_date_quartile_loss": 0.4552402497437785,
+      "date_quartile_losses": [
+        {
+          "date_quartile": "q1_early",
+          "loss": 0.4131101798117786
+        },
+        {
+          "date_quartile": "q2",
+          "loss": 0.4515106444185646
+        },
+        {
+          "date_quartile": "q3",
+          "loss": 0.42924326778794447
+        },
+        {
+          "date_quartile": "q4_late",
+          "loss": 0.4552402497437785
+        }
+      ],
+      "worst_target_loss": 0.46511496294445753,
+      "late_minus_early": 0.042130069931999914,
+      "test_stats": {
+        "Q1": {
+          "mean": 0.5279982564225456,
+          "std": 0.27149131829349293,
+          "p01": 0.052587040493371,
+          "p99": 0.948880020145948,
+          "extreme_rate_005_095": 0.0
+        },
+        "Q2": {
+          "mean": 0.5589331929969757,
+          "std": 0.2310829316974181,
+          "p01": 0.0514479697015851,
+          "p99": 0.9219950534723202,
+          "extreme_rate_005_095": 0.0
+        },
+        "Q3": {
+          "mean": 0.6388145585590818,
+          "std": 0.24192604761269934,
+          "p01": 0.1021759605776548,
+          "p99": 0.8978240394223451,
+          "extreme_rate_005_095": 0.0
+        },
+        "S1": {
+          "mean": 0.6633976333045353,
+          "std": 0.24290867378578437,
+          "p01": 0.1000704627583851,
+          "p99": 0.948880020145948,
+          "extreme_rate_005_095": 0.0
+        },
+        "S2": {
+          "mean": 0.5918785311057017,
+          "std": 0.2669300690029941,
+          "p01": 0.1000704627583851,
+          "p99": 0.948880020145948,
+          "extreme_rate_005_095": 0.0
+        },
+        "S3": {
+          "mean": 0.6461689296796669,
+          "std": 0.24611338534008081,
+          "p01": 1e-06,
+          "p99": 0.999999,
+          "extreme_rate_005_095": 0.18
+        },
+        "S4": {
+          "mean": 0.5582198219881346,
+          "std": 0.24443532865265358,
+          "p01": 0.0894233019230768,
+          "p99": 0.9701920826923076,
+          "extreme_rate_005_095": 0.06
+        }
+      },
+      "target_methods": {
+        "Q1": {
+          "alpha_extreme": 0.225
+        },
+        "Q2": {
+          "alpha_extreme": 0.225
+        },
+        "Q3": {
+          "alpha_extreme": 0.225
+        },
+        "S1": {
+          "alpha_extreme": 0.225
+        },
+        "S2": {
+          "alpha_extreme": 0.225
+        },
+        "S3": {
+          "alpha_extreme": 0.225
+        },
+        "S4": {
+          "alpha_extreme": 0.225
+        }
+      },
+      "base_oof_file": "artifacts/base_predictions/base_oof_id_244_id235_id242_alpha0225_bridge_frontier_cv0.437262.csv",
+      "base_test_file": "artifacts/base_predictions/base_test_id_244_id235_id242_alpha0225_bridge_frontier_cv0.437262.csv",
+      "max_test_delta_vs_blend_base": 0.14804718530271863,
+      "strict_subject_hole_comparable": false,
+      "fold_nested_calibration": false
+    },
+    {
+      "id": 245,
+      "submission_file": "submission_id_245_id235_id242_alpha0375_bridge_frontier_cv0.415035_unsubmitted.csv",
+      "overall": 0.4150346108950572,
+      "robustness_score": 0.4432756852516062,
+      "id178_gap_estimate": 0.4778079117950572,
+      "target_losses": {
+        "Q1": 0.41830995728098386,
+        "Q2": 0.4131032510758612,
+        "Q3": 0.41818088260491565,
+        "S1": 0.3626633423323407,
+        "S2": 0.39982735413796366,
+        "S3": 0.46511496294445753,
+        "S4": 0.4280425258888782
+      },
+      "worst_subject_loss": 0.5077546638025086,
+      "worst_subjects": [
+        {
+          "subject_id": "id10",
+          "loss": 0.5077546638025086
+        },
+        {
+          "subject_id": "id01",
+          "loss": 0.4774630928503737
+        },
+        {
+          "subject_id": "id05",
+          "loss": 0.4514738730751105
+        },
+        {
+          "subject_id": "id07",
+          "loss": 0.44519792408061337
+        },
+        {
+          "subject_id": "id08",
+          "loss": 0.44444520350788247
+        }
+      ],
+      "worst_date_quartile_loss": 0.4332800203187003,
+      "date_quartile_losses": [
+        {
+          "date_quartile": "q1_early",
+          "loss": 0.3942356771872558
+        },
+        {
+          "date_quartile": "q2",
+          "loss": 0.4240153332495809
+        },
+        {
+          "date_quartile": "q3",
+          "loss": 0.40863021214865775
+        },
+        {
+          "date_quartile": "q4_late",
+          "loss": 0.4332800203187003
+        }
+      ],
+      "worst_target_loss": 0.46511496294445753,
+      "late_minus_early": 0.0390443431314445,
+      "test_stats": {
+        "Q1": {
+          "mean": 0.5265147229214079,
+          "std": 0.26084518443021243,
+          "p01": 0.0746669681398153,
+          "p99": 0.9265161452789904,
+          "extreme_rate_005_095": 0.0
+        },
+        "Q2": {
+          "mean": 0.5540428975782062,
+          "std": 0.22621510494283928,
+          "p01": 0.0737483626625686,
+          "p99": 0.9048347205421937,
+          "extreme_rate_005_095": 0.0
+        },
+        "Q3": {
+          "mean": 0.6302052891605497,
+          "std": 0.2338068806264499,
+          "p01": 0.1146580327239151,
+          "p99": 0.8853419672760847,
+          "extreme_rate_005_095": 0.0
+        },
+        "S1": {
+          "mean": 0.6520303494391412,
+          "std": 0.2365979583190207,
+          "p01": 0.1129600506116009,
+          "p99": 0.9265161452789904,
+          "extreme_rate_005_095": 0.0
+        },
+        "S2": {
+          "mean": 0.5848697831497595,
+          "std": 0.26101621309966083,
+          "p01": 0.1129600506116009,
+          "p99": 0.9265161452789904,
+          "extreme_rate_005_095": 0.0
+        },
+        "S3": {
+          "mean": 0.6461689296796669,
+          "std": 0.24611338534008084,
+          "p01": 1e-06,
+          "p99": 0.999999,
+          "extreme_rate_005_095": 0.18
+        },
+        "S4": {
+          "mean": 0.5605629511768054,
+          "std": 0.25725166010244227,
+          "p01": 0.0721157596153845,
+          "p99": 0.9759611634615384,
+          "extreme_rate_005_095": 0.06
+        }
+      },
+      "target_methods": {
+        "Q1": {
+          "alpha_extreme": 0.375
+        },
+        "Q2": {
+          "alpha_extreme": 0.375
+        },
+        "Q3": {
+          "alpha_extreme": 0.375
+        },
+        "S1": {
+          "alpha_extreme": 0.375
+        },
+        "S2": {
+          "alpha_extreme": 0.375
+        },
+        "S3": {
+          "alpha_extreme": 0.375
+        },
+        "S4": {
+          "alpha_extreme": 0.375
+        }
+      },
+      "base_oof_file": "artifacts/base_predictions/base_oof_id_245_id235_id242_alpha0375_bridge_frontier_cv0.415035.csv",
+      "base_test_file": "artifacts/base_predictions/base_test_id_245_id235_id242_alpha0375_bridge_frontier_cv0.415035.csv",
+      "max_test_delta_vs_blend_base": 0.24674530883786436,
+      "strict_subject_hole_comparable": false,
+      "fold_nested_calibration": false
+    },
+    {
+      "id": 246,
+      "submission_file": "submission_id_246_id235_id243_alpha0225_bridge_frontier_cv0.438034_unsubmitted.csv",
+      "overall": 0.4380339492122386,
+      "robustness_score": 0.46492619908385424,
+      "id178_gap_estimate": 0.5008072501122386,
+      "target_losses": {
+        "Q1": 0.44318460432134305,
+        "Q2": 0.43758408313597386,
+        "Q3": 0.4499911973211818,
+        "S1": 0.3824921440475699,
+        "S2": 0.4234256596134495,
+        "S3": 0.46511496294445753,
+        "S4": 0.46444499310169474
+      },
+      "worst_subject_loss": 0.5346676186154479,
+      "worst_subjects": [
+        {
+          "subject_id": "id10",
+          "loss": 0.5346676186154479
+        },
+        {
+          "subject_id": "id01",
+          "loss": 0.5109359585769478
+        },
+        {
+          "subject_id": "id05",
+          "loss": 0.4762982449684756
+        },
+        {
+          "subject_id": "id07",
+          "loss": 0.47049155262699627
+        },
+        {
+          "subject_id": "id08",
+          "loss": 0.4703378597801734
+        }
+      ],
+      "worst_date_quartile_loss": 0.45619671856083094,
+      "date_quartile_losses": [
+        {
+          "date_quartile": "q1_early",
+          "loss": 0.41353673425157084
+        },
+        {
+          "date_quartile": "q2",
+          "loss": 0.45209486724836295
+        },
+        {
+          "date_quartile": "q3",
+          "loss": 0.4303640343382977
+        },
+        {
+          "date_quartile": "q4_late",
+          "loss": 0.45619671856083094
+        }
+      ],
+      "worst_target_loss": 0.46511496294445753,
+      "late_minus_early": 0.0426599843092601,
+      "test_stats": {
+        "Q1": {
+          "mean": 0.5279982564225456,
+          "std": 0.27149131829349293,
+          "p01": 0.052587040493371,
+          "p99": 0.948880020145948,
+          "extreme_rate_005_095": 0.0
+        },
+        "Q2": {
+          "mean": 0.5589331929969757,
+          "std": 0.2310829316974181,
+          "p01": 0.0514479697015851,
+          "p99": 0.9219950534723202,
+          "extreme_rate_005_095": 0.0
+        },
+        "Q3": {
+          "mean": 0.6388145585590818,
+          "std": 0.24192604761269934,
+          "p01": 0.1021759605776548,
+          "p99": 0.8978240394223451,
+          "extreme_rate_005_095": 0.0
+        },
+        "S1": {
+          "mean": 0.6633976333045353,
+          "std": 0.24290867378578437,
+          "p01": 0.1000704627583851,
+          "p99": 0.948880020145948,
+          "extreme_rate_005_095": 0.0
+        },
+        "S2": {
+          "mean": 0.5918785311057017,
+          "std": 0.2669300690029941,
+          "p01": 0.1000704627583851,
+          "p99": 0.948880020145948,
+          "extreme_rate_005_095": 0.0
+        },
+        "S3": {
+          "mean": 0.6461689296796669,
+          "std": 0.24611338534008081,
+          "p01": 1e-06,
+          "p99": 0.999999,
+          "extreme_rate_005_095": 0.18
+        },
+        "S4": {
+          "mean": 0.5602891229535876,
+          "std": 0.2376424009504678,
+          "p01": 0.0964543269230768,
+          "p99": 0.9646677927927928,
+          "extreme_rate_005_095": 0.06
+        }
+      },
+      "target_methods": {
+        "Q1": {
+          "alpha_extreme": 0.225
+        },
+        "Q2": {
+          "alpha_extreme": 0.225
+        },
+        "Q3": {
+          "alpha_extreme": 0.225
+        },
+        "S1": {
+          "alpha_extreme": 0.225
+        },
+        "S2": {
+          "alpha_extreme": 0.225
+        },
+        "S3": {
+          "alpha_extreme": 0.225
+        },
+        "S4": {
+          "alpha_extreme": 0.225
+        }
+      },
+      "base_oof_file": "artifacts/base_predictions/base_oof_id_246_id235_id243_alpha0225_bridge_frontier_cv0.438034.csv",
+      "base_test_file": "artifacts/base_predictions/base_test_id_246_id235_id243_alpha0225_bridge_frontier_cv0.438034.csv",
+      "max_test_delta_vs_blend_base": 0.14804718530271863,
+      "strict_subject_hole_comparable": false,
+      "fold_nested_calibration": false
+    }
+  ],
+  "ranking_by_robustness": [
+    242,
+    243,
+    245,
+    244,
+    246,
+    238,
+    235
+  ],
+  "ranked_by_recommendation": [
+    244,
+    235,
+    246,
+    245,
+    238,
+    243,
+    242
+  ],
+  "interpretation": "ID244 is the most useful new bridge: it materially lowers local/robustness versus ID235 while capping test movement around 0.15. ID245 is stronger locally but moves test predictions up to about 0.25 from ID235, so it is a higher-risk probe. ID246 is a less S4-isotonic alternative to ID244 but slightly worse locally. None of these is strict/fold-nested public proof."
+}

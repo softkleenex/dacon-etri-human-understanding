@@ -1,0 +1,1867 @@
+{
+  "diagnostic": "public_wavelet_spectral_sequence_overlay",
+  "base_id": 203,
+  "base_source": "base_oof_id_203_id200_s4_recurrence_gaf_sequence_overlay_cv0.535980.csv; base_test_id_203_id200_s4_recurrence_gaf_sequence_overlay_cv0.535980.csv",
+  "validation_lens": "public_structure_interleaved_within_subject_blocked_cv",
+  "feature_info": {
+    "n_sequence_rows": 809,
+    "n_value_channels": 34,
+    "n_total_channels": 68,
+    "n_bins": 44,
+    "n_wavelet_spectral_features": 5644,
+    "feature_family_count": 83,
+    "feature_name_sample": [
+      "active_mean__haar_s1_mean",
+      "activity_mean__haar_s1_mean",
+      "amb_inside__haar_s1_mean",
+      "amb_music__haar_s1_mean",
+      "amb_outside__haar_s1_mean",
+      "amb_speech__haar_s1_mean",
+      "amb_vehicle__haar_s1_mean",
+      "ble_count__haar_s1_mean",
+      "ble_rssi_max__haar_s1_mean",
+      "ble_rssi_mean__haar_s1_mean",
+      "charging_mean__haar_s1_mean",
+      "distance_sum__haar_s1_mean",
+      "gps_fix_count__haar_s1_mean",
+      "gps_lat_std__haar_s1_mean",
+      "gps_lon_std__haar_s1_mean",
+      "gps_speed_mean__haar_s1_mean",
+      "hr_max__haar_s1_mean",
+      "hr_mean__haar_s1_mean",
+      "hr_min__haar_s1_mean",
+      "pedo_speed_mean__haar_s1_mean",
+      "phone_light_log_max__haar_s1_mean",
+      "phone_light_log_mean__haar_s1_mean",
+      "screen_mean__haar_s1_mean",
+      "screen_sum__haar_s1_mean",
+      "step_freq_mean__haar_s1_mean",
+      "step_sum__haar_s1_mean",
+      "still_mean__haar_s1_mean",
+      "usage_app_count__haar_s1_mean",
+      "usage_total_log__haar_s1_mean",
+      "watch_light_log_max__haar_s1_mean",
+      "watch_light_log_mean__haar_s1_mean",
+      "wifi_count__haar_s1_mean",
+      "wifi_rssi_max__haar_s1_mean",
+      "wifi_rssi_mean__haar_s1_mean",
+      "present_active_mean__haar_s1_mean",
+      "present_activity_mean__haar_s1_mean",
+      "present_amb_inside__haar_s1_mean",
+      "present_amb_music__haar_s1_mean",
+      "present_amb_outside__haar_s1_mean",
+      "present_amb_speech__haar_s1_mean"
+    ],
+    "representation": "Haar-like multiscale contrasts, lagged roughness, detailed FFT shares, and window volatility over the aligned raw tensor."
+  },
+  "model_specs": [
+    {
+      "name": "lr_c0_03",
+      "kind": "lr",
+      "c_value": 0.03,
+      "max_depth": null,
+      "max_leaf_nodes": null
+    },
+    {
+      "name": "lr_c0_1",
+      "kind": "lr",
+      "c_value": 0.1,
+      "max_depth": null,
+      "max_leaf_nodes": null
+    },
+    {
+      "name": "hgb_l7",
+      "kind": "hgb",
+      "c_value": null,
+      "max_depth": null,
+      "max_leaf_nodes": 7
+    },
+    {
+      "name": "et_d5",
+      "kind": "et",
+      "c_value": null,
+      "max_depth": 5,
+      "max_leaf_nodes": null
+    },
+    {
+      "name": "lr_c0_3",
+      "kind": "lr",
+      "c_value": 0.3,
+      "max_depth": null,
+      "max_leaf_nodes": null
+    },
+    {
+      "name": "hgb_l15",
+      "kind": "hgb",
+      "c_value": null,
+      "max_depth": null,
+      "max_leaf_nodes": 15
+    }
+  ],
+  "blend_weights": [
+    0.0,
+    0.005,
+    0.01,
+    0.02,
+    0.03,
+    0.05,
+    0.07,
+    0.1,
+    0.15,
+    0.2,
+    0.25
+  ],
+  "base_scores": {
+    "Q1": 0.5482579081715612,
+    "Q2": 0.5506886916995475,
+    "Q3": 0.5639144216327321,
+    "S1": 0.4677372079771736,
+    "S2": 0.5295216690835329,
+    "S3": 0.4905526802245998,
+    "S4": 0.6011883543294968
+  },
+  "base_mean": 0.5359801333026634,
+  "targets": {
+    "Q1": {
+      "base_loss": 0.5482579081715612,
+      "best": "base",
+      "best_config": {
+        "kind": "base"
+      },
+      "best_loss": 0.5482579081715612,
+      "improvement_vs_base": 0.0,
+      "top10_selectable": [
+        [
+          "base",
+          {
+            "kind": "base",
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619
+          }
+        ],
+        [
+          "blend__wavelet_spectral__et_d5__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "et_d5",
+            "weight": 0.0,
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l15__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l15",
+            "weight": 0.0,
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l7__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l7",
+            "weight": 0.0,
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.0,
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.0,
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.0,
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__et_d5__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "et_d5",
+            "weight": 0.005,
+            "loss": 0.5484741608719913,
+            "test_mean": 0.5119590716315771,
+            "test_max_abs_delta": 0.0024564151892123576
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l7__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l7",
+            "weight": 0.005,
+            "loss": 0.5484997397061401,
+            "test_mean": 0.5119733013712036,
+            "test_max_abs_delta": 0.0025205024922939634
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l15__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l15",
+            "weight": 0.005,
+            "loss": 0.5485412042441828,
+            "test_mean": 0.5119708944267678,
+            "test_max_abs_delta": 0.0026849266067854316
+          }
+        ]
+      ],
+      "top10_all": [
+        [
+          "base",
+          {
+            "kind": "base",
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619
+          }
+        ],
+        [
+          "blend__wavelet_spectral__et_d5__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "et_d5",
+            "weight": 0.0,
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l15__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l15",
+            "weight": 0.0,
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l7__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l7",
+            "weight": 0.0,
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.0,
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.0,
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.0,
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__et_d5__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "et_d5",
+            "weight": 0.005,
+            "loss": 0.5484741608719913,
+            "test_mean": 0.5119590716315771,
+            "test_max_abs_delta": 0.0024564151892123576
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l7__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l7",
+            "weight": 0.005,
+            "loss": 0.5484997397061401,
+            "test_mean": 0.5119733013712036,
+            "test_max_abs_delta": 0.0025205024922939634
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l15__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l15",
+            "weight": 0.005,
+            "loss": 0.5485412042441828,
+            "test_mean": 0.5119708944267678,
+            "test_max_abs_delta": 0.0026849266067854316
+          }
+        ]
+      ]
+    },
+    "Q2": {
+      "base_loss": 0.5506886916995475,
+      "best": "base",
+      "best_config": {
+        "kind": "base"
+      },
+      "best_loss": 0.5506886916995475,
+      "improvement_vs_base": 0.0,
+      "top10_selectable": [
+        [
+          "base",
+          {
+            "kind": "base",
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415
+          }
+        ],
+        [
+          "blend__wavelet_spectral__et_d5__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "et_d5",
+            "weight": 0.0,
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l15__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l15",
+            "weight": 0.0,
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l7__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l7",
+            "weight": 0.0,
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.0,
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.0,
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.0,
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l15__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l15",
+            "weight": 0.005,
+            "loss": 0.5508911468033376,
+            "test_mean": 0.5538729416409002,
+            "test_max_abs_delta": 0.002709034385576514
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l7__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l7",
+            "weight": 0.005,
+            "loss": 0.5509314411680366,
+            "test_mean": 0.5537999778828735,
+            "test_max_abs_delta": 0.002896765293260689
+          }
+        ],
+        [
+          "blend__wavelet_spectral__et_d5__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "et_d5",
+            "weight": 0.005,
+            "loss": 0.5509567705135565,
+            "test_mean": 0.5537139406342262,
+            "test_max_abs_delta": 0.002488999388638037
+          }
+        ]
+      ],
+      "top10_all": [
+        [
+          "base",
+          {
+            "kind": "base",
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415
+          }
+        ],
+        [
+          "blend__wavelet_spectral__et_d5__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "et_d5",
+            "weight": 0.0,
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l15__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l15",
+            "weight": 0.0,
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l7__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l7",
+            "weight": 0.0,
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.0,
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.0,
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.0,
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l15__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l15",
+            "weight": 0.005,
+            "loss": 0.5508911468033376,
+            "test_mean": 0.5538729416409002,
+            "test_max_abs_delta": 0.002709034385576514
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l7__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l7",
+            "weight": 0.005,
+            "loss": 0.5509314411680366,
+            "test_mean": 0.5537999778828735,
+            "test_max_abs_delta": 0.002896765293260689
+          }
+        ],
+        [
+          "blend__wavelet_spectral__et_d5__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "et_d5",
+            "weight": 0.005,
+            "loss": 0.5509567705135565,
+            "test_mean": 0.5537139406342262,
+            "test_max_abs_delta": 0.002488999388638037
+          }
+        ]
+      ]
+    },
+    "Q3": {
+      "base_loss": 0.5639144216327321,
+      "best": "blend__wavelet_spectral__lr_c0_1__w0.05",
+      "best_config": {
+        "kind": "blend",
+        "feature_set": "wavelet_spectral",
+        "model": "lr_c0_1",
+        "weight": 0.05
+      },
+      "best_loss": 0.5628770675141632,
+      "improvement_vs_base": 0.0010373541185688673,
+      "top10_selectable": [
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0.05",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.05,
+            "loss": 0.5628770675141632,
+            "test_mean": 0.6311601490984878,
+            "test_max_abs_delta": 0.0426095338919287
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0.07",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.07,
+            "loss": 0.5628834170975638,
+            "test_mean": 0.6301882195907497,
+            "test_max_abs_delta": 0.059653347448700184
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.05",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.05,
+            "loss": 0.5628927655448348,
+            "test_mean": 0.6312636923642874,
+            "test_max_abs_delta": 0.042985064421800306
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.07",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.07,
+            "loss": 0.5629599525862515,
+            "test_mean": 0.6303331801628691,
+            "test_max_abs_delta": 0.06017909019052042
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0.07",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.07,
+            "loss": 0.5630228100991214,
+            "test_mean": 0.6297541539521083,
+            "test_max_abs_delta": 0.05764985626720623
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0.05",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.05,
+            "loss": 0.5630367595073839,
+            "test_mean": 0.630850102213744,
+            "test_max_abs_delta": 0.04117846876229017
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.03",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.03,
+            "loss": 0.563093653795891,
+            "test_mean": 0.6321942045657059,
+            "test_max_abs_delta": 0.02579103865308019
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0.03",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.03,
+            "loss": 0.5631080658740091,
+            "test_mean": 0.6321320786062261,
+            "test_max_abs_delta": 0.02556572033515722
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0.03",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.03,
+            "loss": 0.5632405954758791,
+            "test_mean": 0.6319460504753797,
+            "test_max_abs_delta": 0.024707081257374114
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.02",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.02,
+            "loss": 0.5632968712912506,
+            "test_mean": 0.6326594606664151,
+            "test_max_abs_delta": 0.017194025768720117
+          }
+        ]
+      ],
+      "top10_all": [
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0.05",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.05,
+            "loss": 0.5628770675141632,
+            "test_mean": 0.6311601490984878,
+            "test_max_abs_delta": 0.0426095338919287
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0.07",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.07,
+            "loss": 0.5628834170975638,
+            "test_mean": 0.6301882195907497,
+            "test_max_abs_delta": 0.059653347448700184
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.05",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.05,
+            "loss": 0.5628927655448348,
+            "test_mean": 0.6312636923642874,
+            "test_max_abs_delta": 0.042985064421800306
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.07",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.07,
+            "loss": 0.5629599525862515,
+            "test_mean": 0.6303331801628691,
+            "test_max_abs_delta": 0.06017909019052042
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0.07",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.07,
+            "loss": 0.5630228100991214,
+            "test_mean": 0.6297541539521083,
+            "test_max_abs_delta": 0.05764985626720623
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0.05",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.05,
+            "loss": 0.5630367595073839,
+            "test_mean": 0.630850102213744,
+            "test_max_abs_delta": 0.04117846876229017
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.03",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.03,
+            "loss": 0.563093653795891,
+            "test_mean": 0.6321942045657059,
+            "test_max_abs_delta": 0.02579103865308019
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0.03",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.03,
+            "loss": 0.5631080658740091,
+            "test_mean": 0.6321320786062261,
+            "test_max_abs_delta": 0.02556572033515722
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0.03",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.03,
+            "loss": 0.5632405954758791,
+            "test_mean": 0.6319460504753797,
+            "test_max_abs_delta": 0.024707081257374114
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.02",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.02,
+            "loss": 0.5632968712912506,
+            "test_mean": 0.6326594606664151,
+            "test_max_abs_delta": 0.017194025768720117
+          }
+        ]
+      ]
+    },
+    "S1": {
+      "base_loss": 0.4677372079771736,
+      "best": "base",
+      "best_config": {
+        "kind": "base"
+      },
+      "best_loss": 0.4677372079771736,
+      "improvement_vs_base": 0.0,
+      "top10_selectable": [
+        [
+          "base",
+          {
+            "kind": "base",
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863
+          }
+        ],
+        [
+          "blend__wavelet_spectral__et_d5__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "et_d5",
+            "weight": 0.0,
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l15__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l15",
+            "weight": 0.0,
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l7__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l7",
+            "weight": 0.0,
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.0,
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.0,
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.0,
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__et_d5__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "et_d5",
+            "weight": 0.005,
+            "loss": 0.46799739835195925,
+            "test_mean": 0.6822239749100601,
+            "test_max_abs_delta": 0.001800229073045112
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l15__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l15",
+            "weight": 0.005,
+            "loss": 0.4680024637432861,
+            "test_mean": 0.6824554425113699,
+            "test_max_abs_delta": 0.002389221111353035
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.005,
+            "loss": 0.4680057226332592,
+            "test_mean": 0.6817405259002297,
+            "test_max_abs_delta": 0.0036162970675062134
+          }
+        ]
+      ],
+      "top10_all": [
+        [
+          "base",
+          {
+            "kind": "base",
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863
+          }
+        ],
+        [
+          "blend__wavelet_spectral__et_d5__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "et_d5",
+            "weight": 0.0,
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l15__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l15",
+            "weight": 0.0,
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l7__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l7",
+            "weight": 0.0,
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.0,
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.0,
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.0,
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__et_d5__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "et_d5",
+            "weight": 0.005,
+            "loss": 0.46799739835195925,
+            "test_mean": 0.6822239749100601,
+            "test_max_abs_delta": 0.001800229073045112
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l15__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l15",
+            "weight": 0.005,
+            "loss": 0.4680024637432861,
+            "test_mean": 0.6824554425113699,
+            "test_max_abs_delta": 0.002389221111353035
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.005,
+            "loss": 0.4680057226332592,
+            "test_mean": 0.6817405259002297,
+            "test_max_abs_delta": 0.0036162970675062134
+          }
+        ]
+      ]
+    },
+    "S2": {
+      "base_loss": 0.5295216690835329,
+      "best": "blend__wavelet_spectral__lr_c0_3__w0.005",
+      "best_config": {
+        "kind": "blend",
+        "feature_set": "wavelet_spectral",
+        "model": "lr_c0_3",
+        "weight": 0.005
+      },
+      "best_loss": 0.5295161847284966,
+      "improvement_vs_base": 5.48435503633371e-06,
+      "top10_selectable": [
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.005,
+            "loss": 0.5295161847284966,
+            "test_mean": 0.638826606031031,
+            "test_max_abs_delta": 0.00442511309188609
+          }
+        ],
+        [
+          "base",
+          {
+            "kind": "base",
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255
+          }
+        ],
+        [
+          "blend__wavelet_spectral__et_d5__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "et_d5",
+            "weight": 0.0,
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l15__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l15",
+            "weight": 0.0,
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l7__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l7",
+            "weight": 0.0,
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.0,
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.0,
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.0,
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.005,
+            "loss": 0.5295343727083863,
+            "test_mean": 0.6387946492361297,
+            "test_max_abs_delta": 0.004370182237025455
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.01,
+            "loss": 0.5295361642455328,
+            "test_mean": 0.6387182726341366,
+            "test_max_abs_delta": 0.00885022618377207
+          }
+        ]
+      ],
+      "top10_all": [
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.005,
+            "loss": 0.5295161847284966,
+            "test_mean": 0.638826606031031,
+            "test_max_abs_delta": 0.00442511309188609
+          }
+        ],
+        [
+          "base",
+          {
+            "kind": "base",
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255
+          }
+        ],
+        [
+          "blend__wavelet_spectral__et_d5__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "et_d5",
+            "weight": 0.0,
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l15__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l15",
+            "weight": 0.0,
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l7__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l7",
+            "weight": 0.0,
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.0,
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.0,
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.0,
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.005,
+            "loss": 0.5295343727083863,
+            "test_mean": 0.6387946492361297,
+            "test_max_abs_delta": 0.004370182237025455
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.01,
+            "loss": 0.5295361642455328,
+            "test_mean": 0.6387182726341366,
+            "test_max_abs_delta": 0.00885022618377207
+          }
+        ]
+      ]
+    },
+    "S3": {
+      "base_loss": 0.4905526802245998,
+      "best": "base",
+      "best_config": {
+        "kind": "base"
+      },
+      "best_loss": 0.4905526802245998,
+      "improvement_vs_base": 0.0,
+      "top10_selectable": [
+        [
+          "base",
+          {
+            "kind": "base",
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706
+          }
+        ],
+        [
+          "blend__wavelet_spectral__et_d5__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "et_d5",
+            "weight": 0.0,
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l15__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l15",
+            "weight": 0.0,
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l7__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l7",
+            "weight": 0.0,
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.0,
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.0,
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.0,
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.005,
+            "loss": 0.4905943557603496,
+            "test_mean": 0.639318714142929,
+            "test_max_abs_delta": 0.003993688391221273
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.005,
+            "loss": 0.4906450597425265,
+            "test_mean": 0.6392676402586831,
+            "test_max_abs_delta": 0.003858633733431427
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.01,
+            "loss": 0.4906729544273648,
+            "test_mean": 0.6394405509205872,
+            "test_max_abs_delta": 0.007987376782442657
+          }
+        ]
+      ],
+      "top10_all": [
+        [
+          "base",
+          {
+            "kind": "base",
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706
+          }
+        ],
+        [
+          "blend__wavelet_spectral__et_d5__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "et_d5",
+            "weight": 0.0,
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l15__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l15",
+            "weight": 0.0,
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__hgb_l7__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "hgb_l7",
+            "weight": 0.0,
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.0,
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.0,
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.0,
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.005,
+            "loss": 0.4905943557603496,
+            "test_mean": 0.639318714142929,
+            "test_max_abs_delta": 0.003993688391221273
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0.005",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.005,
+            "loss": 0.4906450597425265,
+            "test_mean": 0.6392676402586831,
+            "test_max_abs_delta": 0.003858633733431427
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.01,
+            "loss": 0.4906729544273648,
+            "test_mean": 0.6394405509205872,
+            "test_max_abs_delta": 0.007987376782442657
+          }
+        ]
+      ]
+    },
+    "S4": {
+      "base_loss": 0.6011883543294968,
+      "best": "blend__wavelet_spectral__lr_c0_3__w0.05",
+      "best_config": {
+        "kind": "blend",
+        "feature_set": "wavelet_spectral",
+        "model": "lr_c0_3",
+        "weight": 0.05
+      },
+      "best_loss": 0.6007176459919449,
+      "improvement_vs_base": 0.0004707083375519172,
+      "top10_selectable": [
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.05",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.05,
+            "loss": 0.6007176459919449,
+            "test_mean": 0.5626269905211584,
+            "test_max_abs_delta": 0.03345252049438019
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.03",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.03,
+            "loss": 0.6007492922537581,
+            "test_mean": 0.5625669160673608,
+            "test_max_abs_delta": 0.02007151229662807
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0.05",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.05,
+            "loss": 0.6007621835396738,
+            "test_mean": 0.562441951827107,
+            "test_max_abs_delta": 0.03158325160937703
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0.03",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.03,
+            "loss": 0.6008006086735392,
+            "test_mean": 0.5624558928509299,
+            "test_max_abs_delta": 0.01894995096562624
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.02",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.02,
+            "loss": 0.6008432373167915,
+            "test_mean": 0.5625368788404619,
+            "test_max_abs_delta": 0.01338100819775212
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0.05",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.05,
+            "loss": 0.6008764295911826,
+            "test_mean": 0.562075281426504,
+            "test_max_abs_delta": 0.02932475990226946
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0.02",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.02,
+            "loss": 0.6008857189139174,
+            "test_mean": 0.5624628633628412,
+            "test_max_abs_delta": 0.0126333006437509
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.07",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.07,
+            "loss": 0.6008935320931363,
+            "test_mean": 0.5626870649749562,
+            "test_max_abs_delta": 0.04683352869213231
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0.07",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.07,
+            "loss": 0.6008990233284925,
+            "test_mean": 0.5624280108032842,
+            "test_max_abs_delta": 0.04421655225312793
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0.03",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.03,
+            "loss": 0.6009030604010882,
+            "test_mean": 0.562235890610568,
+            "test_max_abs_delta": 0.017594855941361565
+          }
+        ]
+      ],
+      "top10_all": [
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.05",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.05,
+            "loss": 0.6007176459919449,
+            "test_mean": 0.5626269905211584,
+            "test_max_abs_delta": 0.03345252049438019
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.03",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.03,
+            "loss": 0.6007492922537581,
+            "test_mean": 0.5625669160673608,
+            "test_max_abs_delta": 0.02007151229662807
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0.05",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.05,
+            "loss": 0.6007621835396738,
+            "test_mean": 0.562441951827107,
+            "test_max_abs_delta": 0.03158325160937703
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0.03",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.03,
+            "loss": 0.6008006086735392,
+            "test_mean": 0.5624558928509299,
+            "test_max_abs_delta": 0.01894995096562624
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.02",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.02,
+            "loss": 0.6008432373167915,
+            "test_mean": 0.5625368788404619,
+            "test_max_abs_delta": 0.01338100819775212
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0.05",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.05,
+            "loss": 0.6008764295911826,
+            "test_mean": 0.562075281426504,
+            "test_max_abs_delta": 0.02932475990226946
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0.02",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.02,
+            "loss": 0.6008857189139174,
+            "test_mean": 0.5624628633628412,
+            "test_max_abs_delta": 0.0126333006437509
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_3__w0.07",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_3",
+            "weight": 0.07,
+            "loss": 0.6008935320931363,
+            "test_mean": 0.5626870649749562,
+            "test_max_abs_delta": 0.04683352869213231
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_1__w0.07",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_1",
+            "weight": 0.07,
+            "loss": 0.6008990233284925,
+            "test_mean": 0.5624280108032842,
+            "test_max_abs_delta": 0.04421655225312793
+          }
+        ],
+        [
+          "blend__wavelet_spectral__lr_c0_03__w0.03",
+          {
+            "kind": "blend",
+            "feature_set": "wavelet_spectral",
+            "model": "lr_c0_03",
+            "weight": 0.03,
+            "loss": 0.6009030604010882,
+            "test_mean": 0.562235890610568,
+            "test_max_abs_delta": 0.017594855941361565
+          }
+        ]
+      ]
+    }
+  },
+  "targetwise_best_mean": 0.5357639123296409
+}

@@ -1,0 +1,1603 @@
+{
+  "created_at_kst": "2026-06-18 07:04:17 UTC+09:00",
+  "diagnostic": "combined_sleep_evening_external_prior_gate_post_id341",
+  "purpose": "Combine the surviving non-sequence weak leads around ID341: sleep-boundary, evening-load/recovery, and older-ETRI external weak priors.",
+  "inputs": {
+    "sleep_v3": "reports/sleep_boundary_transition_v3_scale_scan_post_id341_20260618.json",
+    "evening_smoke": "reports/evening_load_recovery_smoke_post_id341_20260618.json",
+    "external_prior_smoke": "reports/external_etri_prior_smoke_post_id341_20260618.json"
+  },
+  "input_reads": {
+    "sleep_best_proxy": 0.6016972511974908,
+    "evening_best_proxy": 0.601506941674763,
+    "external_best_proxy": 0.6015636731586781,
+    "external_best_proxy_row_name": "S2"
+  },
+  "selected_configs": {
+    "sleep_boundary": {
+      "Q1": {
+        "target": "Q1",
+        "model": "hgb_l5_l2_2",
+        "model_spec": {
+          "name": "hgb_l5_l2_2",
+          "kind": "hgb",
+          "c_value": null,
+          "max_iter": 70,
+          "max_leaf_nodes": 5,
+          "l2_regularization": 2.0
+        },
+        "anchor": "id178",
+        "weight": 0.05,
+        "candidate": "Q1_id178_hgb_l5_l2_2_w0.05",
+        "primary_wins_vs_id341": 4,
+        "mean_delta_vs_id341": -0.002108506476166827,
+        "min_delta_vs_id341": -0.006214597883495321,
+        "max_delta_vs_id341": 8.561712050259018e-05,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 8.561712050259018e-05,
+          "actual_test_band_holdout": -0.0009780686174335473,
+          "test_boundary_neighbor2_holdout": -0.006214597883495321,
+          "test_boundary_neighbor5_holdout": -0.0024098906657009644,
+          "loso_10": -0.001025592334706893
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5520013357743488,
+          "actual_test_band_holdout": 0.5299592318114125,
+          "test_boundary_neighbor2_holdout": 0.585141654707949,
+          "test_boundary_neighbor5_holdout": 0.5467307928827867,
+          "loso_10": 0.5508901263191394
+        }
+      },
+      "S1": {
+        "target": "S1",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.03,
+        "candidate": "S1_id178_lr_c0_2_w0.03",
+        "primary_wins_vs_id341": 4,
+        "mean_delta_vs_id341": -0.0014815385466301566,
+        "min_delta_vs_id341": -0.0035436558064434465,
+        "max_delta_vs_id341": 0.0005650110834438671,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.0016553097465476507,
+          "actual_test_band_holdout": -0.0008815612826073571,
+          "test_boundary_neighbor2_holdout": -0.0018921769809961964,
+          "test_boundary_neighbor5_holdout": -0.0035436558064434465,
+          "loso_10": 0.0005650110834438671
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4699751371950927,
+          "actual_test_band_holdout": 0.4644942025465667,
+          "test_boundary_neighbor2_holdout": 0.5336882079988338,
+          "test_boundary_neighbor5_holdout": 0.5113580924919643,
+          "loso_10": 0.4721954580250842
+        }
+      },
+      "S2": {
+        "target": "S2",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.1,
+        "candidate": "S2_id178_lr_c0_05_w0.1",
+        "primary_wins_vs_id341": 4,
+        "mean_delta_vs_id341": -0.00246033810834545,
+        "min_delta_vs_id341": -0.005733341342940457,
+        "max_delta_vs_id341": 0.00029911400460180815,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.0002349682295833544,
+          "actual_test_band_holdout": -0.0014946352284876951,
+          "test_boundary_neighbor2_holdout": -0.005733341342940457,
+          "test_boundary_neighbor5_holdout": -0.005137859745317552,
+          "loso_10": 0.00029911400460180815
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5293211645178906,
+          "actual_test_band_holdout": 0.5499917066642042,
+          "test_boundary_neighbor2_holdout": 0.5680985863094186,
+          "test_boundary_neighbor5_holdout": 0.5481165141029148,
+          "loso_10": 0.5298552467520758
+        }
+      },
+      "S4": {
+        "target": "S4",
+        "model": "lr_c0_05",
+        "model_spec": {
+          "name": "lr_c0_05",
+          "kind": "lr",
+          "c_value": 0.05,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.1,
+        "candidate": "S4_id178_lr_c0_05_w0.1",
+        "primary_wins_vs_id341": 5,
+        "mean_delta_vs_id341": -0.004967936425663955,
+        "min_delta_vs_id341": -0.011499736628970414,
+        "max_delta_vs_id341": -0.0006205919985425856,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.005184594969692924,
+          "actual_test_band_holdout": -0.011499736628970414,
+          "test_boundary_neighbor2_holdout": -0.0028362313318133214,
+          "test_boundary_neighbor5_holdout": -0.004698527199300528,
+          "loso_10": -0.0006205919985425856
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5975151095168085,
+          "actual_test_band_holdout": 0.6658365312336174,
+          "test_boundary_neighbor2_holdout": 0.6518318984387377,
+          "test_boundary_neighbor5_holdout": 0.6146951689686786,
+          "loso_10": 0.6020791124879588
+        }
+      }
+    },
+    "evening_load_recovery": {
+      "S4": {
+        "target": "S4",
+        "model": "lr_c0_2",
+        "model_spec": {
+          "name": "lr_c0_2",
+          "kind": "lr",
+          "c_value": 0.2,
+          "max_iter": null,
+          "max_leaf_nodes": null,
+          "l2_regularization": null
+        },
+        "anchor": "id178",
+        "weight": 0.05,
+        "candidate": "S4_id178_lr_c0_2_w0.05",
+        "primary_wins_vs_id341": 4,
+        "mean_delta_vs_id341": -0.0006957250584918251,
+        "min_delta_vs_id341": -0.0016302536177554838,
+        "max_delta_vs_id341": 0.0006540867439026599,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": -0.0003990775961297821,
+          "actual_test_band_holdout": -0.0016302536177554838,
+          "test_boundary_neighbor2_holdout": -0.0006571164516092631,
+          "test_boundary_neighbor5_holdout": -0.0014462643708672562,
+          "loso_10": 0.0006540867439026599
+        },
+        "split_losses": {
+          "subject_hole_5": 0.6023006268903717,
+          "actual_test_band_holdout": 0.6757060142448323,
+          "test_boundary_neighbor2_holdout": 0.6540110133189417,
+          "test_boundary_neighbor5_holdout": 0.6179474317971119,
+          "loso_10": 0.603353791230404
+        }
+      }
+    },
+    "external_prior_groups": {
+      "Q1": [
+        "Q1"
+      ],
+      "S2": [
+        "S2"
+      ],
+      "S4": [
+        "S4"
+      ],
+      "Q1_S2": [
+        "Q1",
+        "S2"
+      ],
+      "Q1_S4": [
+        "Q1",
+        "S4"
+      ],
+      "S2_S4": [
+        "S2",
+        "S4"
+      ],
+      "Q1_S2_S4": [
+        "Q1",
+        "S2",
+        "S4"
+      ]
+    }
+  },
+  "feature_coverage": {
+    "sleep_boundary": {
+      "n_rows": 700,
+      "n_train_rows": 450,
+      "n_test_rows": 250,
+      "n_feature_columns": 294,
+      "n_raw_numeric_columns": 147,
+      "train_missing_mean": 0.06866213151927436,
+      "test_missing_mean": 0.0673061224489796,
+      "top_missing_features": {
+        "sbt_hr_std_night_24_30": 0.8044444444444444,
+        "sbt_hr_evening_minus_night": 0.8022222222222222,
+        "sbt_hr_morning_minus_night": 0.7866666666666666,
+        "sbt_hr_min_night_24_30": 0.76,
+        "sbt_hr_mean_night_24_30": 0.76,
+        "sbt_hr_std_late_22_24": 0.6644444444444444,
+        "sbt_hr_mean_late_22_24": 0.6355555555555555,
+        "sbt_hr_min_late_22_24": 0.6355555555555555,
+        "sbt_pedo_low_step_gap_hours": 0.5044444444444445,
+        "sbt_pedo_step_sum_night_24_30": 0.3888888888888889,
+        "sbt_pedo_has_step_ratio_night_24_30": 0.3888888888888889,
+        "sbt_wlight_mean_night_24_30": 0.3511111111111111
+      }
+    },
+    "evening_load_recovery": {
+      "n_rows": 700,
+      "n_train_rows": 450,
+      "n_test_rows": 250,
+      "n_feature_columns": 148,
+      "base_columns_available": [
+        "pedo_total_steps",
+        "pedo_total_distance",
+        "pedo_total_calories",
+        "pedo_evening_steps",
+        "pedo_active_hours",
+        "pedo_step_freq_mean",
+        "mUsage_total_time_mins",
+        "mUsage_night_time_ratio",
+        "mUsage_dopamine_ratio",
+        "mUsage_app_entropy",
+        "mUsage_hourly_volatility",
+        "mUsage_sessions_count",
+        "usage_total_time",
+        "usage_late_time",
+        "usage_late_ratio",
+        "usage_eve_time",
+        "usage_eve_ratio",
+        "screen_on_total",
+        "screen_on_ratio",
+        "screen_night_ratio",
+        "screen_eve_ratio",
+        "screen_presleep_ratio",
+        "mlight_eve_mean",
+        "mlight_night_mean",
+        "mlight_dark_ratio",
+        "mlight_bright_ratio",
+        "wlight_eve_mean",
+        "wlight_night_mean",
+        "wlight_dark_ratio",
+        "wlight_bright_ratio",
+        "gps_moving_ratio",
+        "gps_total_disp",
+        "mGps_radius_of_gyration",
+        "mGps_spatial_entropy",
+        "mGps_homestay_ratio",
+        "amb_music_mean",
+        "amb_speech_mean",
+        "amb_silence_mean",
+        "amb_n_records",
+        "wHr_sleep_efficiency_proxy",
+        "wHr_sleep_fragmentation_index",
+        "wHr_sleep_hr_mean",
+        "wHr_sleep_hr_std",
+        "slp_hr_mean",
+        "slp_hr_std",
+        "slp_hr_rmssd",
+        "slp_hr_range",
+        "slp_hr_spike_count"
+      ],
+      "base_columns_missing": [
+        "wHr_hr_day_mean",
+        "wHr_hr_night_mean",
+        "wHr_hr_rmssd_mean",
+        "wHr_hr_mean_mean"
+      ],
+      "train_missing_mean": 0.09471471471471471,
+      "test_missing_mean": 0.08845945945945946,
+      "top_missing_features": {
+        "elr_raw_gps_moving_ratio": 1.0,
+        "elr_hr_day_minus_night": 1.0,
+        "elr_home_recovery_proxy": 1.0,
+        "elr_mobility_load": 1.0,
+        "elr_load_x_hr_recovery": 1.0,
+        "elr_dopamine_x_hr_recovery": 1.0,
+        "elr_raw_amb_silence_mean": 1.0,
+        "elr_raw_amb_speech_mean": 1.0,
+        "elr_raw_amb_music_mean": 1.0,
+        "elr_hr_day_minus_sleep": 1.0,
+        "elr_raw_slp_hr_spike_count": 0.4822222222222222,
+        "elr_hr_recovery_quality": 0.4711111111111111
+      }
+    },
+    "external_prior_train_usage": {
+      "Q1": {
+        "levels": {
+          "gender+age_decade+is_weekend": 358,
+          "gender+is_weekend": 92
+        },
+        "mean_support": 107.82222222222222
+      },
+      "Q2": {
+        "levels": {
+          "gender+age_decade+is_weekend": 358,
+          "gender+is_weekend": 92
+        },
+        "mean_support": 81.39111111111112
+      },
+      "Q3": {
+        "levels": {
+          "gender+age_decade+is_weekend": 358,
+          "gender+is_weekend": 92
+        },
+        "mean_support": 104.00888888888889
+      },
+      "S1": {
+        "levels": {
+          "gender+age_decade+is_weekend": 358,
+          "gender+is_weekend": 92
+        },
+        "mean_support": 116.45777777777778
+      },
+      "S2": {
+        "levels": {
+          "gender+age_decade+is_weekend": 358,
+          "gender+is_weekend": 92
+        },
+        "mean_support": 116.45777777777778
+      },
+      "S3": {
+        "levels": {
+          "gender+age_decade+is_weekend": 358,
+          "gender+is_weekend": 92
+        },
+        "mean_support": 82.06222222222222
+      },
+      "S4": {
+        "levels": {
+          "gender+age_decade+is_weekend": 358,
+          "gender+is_weekend": 92
+        },
+        "mean_support": 116.45777777777778
+      }
+    },
+    "external_prior_test_usage": {
+      "Q1": {
+        "levels": {
+          "gender+age_decade+is_weekend": 197,
+          "gender+is_weekend": 53
+        },
+        "mean_support": 106.752
+      },
+      "Q2": {
+        "levels": {
+          "gender+age_decade+is_weekend": 197,
+          "gender+is_weekend": 53
+        },
+        "mean_support": 81.832
+      },
+      "Q3": {
+        "levels": {
+          "gender+age_decade+is_weekend": 197,
+          "gender+is_weekend": 53
+        },
+        "mean_support": 103.196
+      },
+      "S1": {
+        "levels": {
+          "gender+age_decade+is_weekend": 197,
+          "gender+is_weekend": 53
+        },
+        "mean_support": 114.812
+      },
+      "S2": {
+        "levels": {
+          "gender+age_decade+is_weekend": 197,
+          "gender+is_weekend": 53
+        },
+        "mean_support": 114.812
+      },
+      "S3": {
+        "levels": {
+          "gender+age_decade+is_weekend": 197,
+          "gender+is_weekend": 53
+        },
+        "mean_support": 82.5
+      },
+      "S4": {
+        "levels": {
+          "gender+age_decade+is_weekend": 197,
+          "gender+is_weekend": 53
+        },
+        "mean_support": 114.812
+      }
+    }
+  },
+  "scale_grid": {
+    "sleep_scales": [
+      0.0,
+      0.025,
+      0.05,
+      0.075
+    ],
+    "evening_scales": [
+      0.0,
+      0.025,
+      0.05,
+      0.075
+    ],
+    "external_prior_scales": [
+      0.0,
+      0.0025,
+      0.005,
+      0.01,
+      0.02
+    ]
+  },
+  "review_rules": {
+    "max_delta_vs_341": 0.0075,
+    "proxy_below_id178_required_for_promotion": 0.6014113009,
+    "public_058_gate": 0.59,
+    "requires_non_positive_failed_projection": true,
+    "requires_all_primary_splits_beat_id341_for_reviewable": true
+  },
+  "top_rows": [
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.025,
+      "external_group": "Q1",
+      "external_targets": [
+        "Q1"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385814275793568,
+      "proxy_public_risk": 0.6014904915736343,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 2.7944831728712807e-05,
+      "max_delta_vs_341": 0.0006722209674955293,
+      "projection_failed": -8.898691664211943e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -2.232344879171677e-06,
+        "actual_test_band_holdout": -6.943975020989868e-06,
+        "test_boundary_neighbor2_holdout": -3.575145343992503e-06,
+        "test_boundary_neighbor5_holdout": -6.839954272308546e-06,
+        "loso_10": 9.577456790976768e-07
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.025,
+      "external_group": "S2",
+      "external_targets": [
+        "S2"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385814275793568,
+      "proxy_public_risk": 0.6014904915736343,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 2.7944831728712807e-05,
+      "max_delta_vs_341": 0.0006722209674955293,
+      "projection_failed": -8.898691664211943e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -2.232344879171677e-06,
+        "actual_test_band_holdout": -6.943975020989868e-06,
+        "test_boundary_neighbor2_holdout": -3.575145343992503e-06,
+        "test_boundary_neighbor5_holdout": -6.839954272308546e-06,
+        "loso_10": 9.577456790976768e-07
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.025,
+      "external_group": "S4",
+      "external_targets": [
+        "S4"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385814275793568,
+      "proxy_public_risk": 0.6014904915736343,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 2.7944831728712807e-05,
+      "max_delta_vs_341": 0.0006722209674955293,
+      "projection_failed": -8.898691664211943e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -2.232344879171677e-06,
+        "actual_test_band_holdout": -6.943975020989868e-06,
+        "test_boundary_neighbor2_holdout": -3.575145343992503e-06,
+        "test_boundary_neighbor5_holdout": -6.839954272308546e-06,
+        "loso_10": 9.577456790976768e-07
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.025,
+      "external_group": "Q1_S2",
+      "external_targets": [
+        "Q1",
+        "S2"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385814275793568,
+      "proxy_public_risk": 0.6014904915736343,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 2.7944831728712807e-05,
+      "max_delta_vs_341": 0.0006722209674955293,
+      "projection_failed": -8.898691664211943e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -2.232344879171677e-06,
+        "actual_test_band_holdout": -6.943975020989868e-06,
+        "test_boundary_neighbor2_holdout": -3.575145343992503e-06,
+        "test_boundary_neighbor5_holdout": -6.839954272308546e-06,
+        "loso_10": 9.577456790976768e-07
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.025,
+      "external_group": "Q1_S4",
+      "external_targets": [
+        "Q1",
+        "S4"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385814275793568,
+      "proxy_public_risk": 0.6014904915736343,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 2.7944831728712807e-05,
+      "max_delta_vs_341": 0.0006722209674955293,
+      "projection_failed": -8.898691664211943e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -2.232344879171677e-06,
+        "actual_test_band_holdout": -6.943975020989868e-06,
+        "test_boundary_neighbor2_holdout": -3.575145343992503e-06,
+        "test_boundary_neighbor5_holdout": -6.839954272308546e-06,
+        "loso_10": 9.577456790976768e-07
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.025,
+      "external_group": "S2_S4",
+      "external_targets": [
+        "S2",
+        "S4"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385814275793568,
+      "proxy_public_risk": 0.6014904915736343,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 2.7944831728712807e-05,
+      "max_delta_vs_341": 0.0006722209674955293,
+      "projection_failed": -8.898691664211943e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -2.232344879171677e-06,
+        "actual_test_band_holdout": -6.943975020989868e-06,
+        "test_boundary_neighbor2_holdout": -3.575145343992503e-06,
+        "test_boundary_neighbor5_holdout": -6.839954272308546e-06,
+        "loso_10": 9.577456790976768e-07
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.025,
+      "external_group": "Q1_S2_S4",
+      "external_targets": [
+        "Q1",
+        "S2",
+        "S4"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385814275793568,
+      "proxy_public_risk": 0.6014904915736343,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 2.7944831728712807e-05,
+      "max_delta_vs_341": 0.0006722209674955293,
+      "projection_failed": -8.898691664211943e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -2.232344879171677e-06,
+        "actual_test_band_holdout": -6.943975020989868e-06,
+        "test_boundary_neighbor2_holdout": -3.575145343992503e-06,
+        "test_boundary_neighbor5_holdout": -6.839954272308546e-06,
+        "loso_10": 9.577456790976768e-07
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.05,
+      "external_group": "Q1",
+      "external_targets": [
+        "Q1"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385792368912364,
+      "proxy_public_risk": 0.601506941674763,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 5.588966345742557e-05,
+      "max_delta_vs_341": 0.0013444419349910586,
+      "projection_failed": -9.325038869190747e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -4.42303299952318e-06,
+        "actual_test_band_holdout": -1.3829991480363013e-05,
+        "test_boundary_neighbor2_holdout": -7.086955955637464e-06,
+        "test_boundary_neighbor5_holdout": -1.3591903152865292e-05,
+        "loso_10": 1.9875049704909387e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.05,
+      "external_group": "S2",
+      "external_targets": [
+        "S2"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385792368912364,
+      "proxy_public_risk": 0.601506941674763,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 5.588966345742557e-05,
+      "max_delta_vs_341": 0.0013444419349910586,
+      "projection_failed": -9.325038869190747e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -4.42303299952318e-06,
+        "actual_test_band_holdout": -1.3829991480363013e-05,
+        "test_boundary_neighbor2_holdout": -7.086955955637464e-06,
+        "test_boundary_neighbor5_holdout": -1.3591903152865292e-05,
+        "loso_10": 1.9875049704909387e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.05,
+      "external_group": "S4",
+      "external_targets": [
+        "S4"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385792368912364,
+      "proxy_public_risk": 0.601506941674763,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 5.588966345742557e-05,
+      "max_delta_vs_341": 0.0013444419349910586,
+      "projection_failed": -9.325038869190747e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -4.42303299952318e-06,
+        "actual_test_band_holdout": -1.3829991480363013e-05,
+        "test_boundary_neighbor2_holdout": -7.086955955637464e-06,
+        "test_boundary_neighbor5_holdout": -1.3591903152865292e-05,
+        "loso_10": 1.9875049704909387e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.05,
+      "external_group": "Q1_S2",
+      "external_targets": [
+        "Q1",
+        "S2"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385792368912364,
+      "proxy_public_risk": 0.601506941674763,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 5.588966345742557e-05,
+      "max_delta_vs_341": 0.0013444419349910586,
+      "projection_failed": -9.325038869190747e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -4.42303299952318e-06,
+        "actual_test_band_holdout": -1.3829991480363013e-05,
+        "test_boundary_neighbor2_holdout": -7.086955955637464e-06,
+        "test_boundary_neighbor5_holdout": -1.3591903152865292e-05,
+        "loso_10": 1.9875049704909387e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.05,
+      "external_group": "Q1_S4",
+      "external_targets": [
+        "Q1",
+        "S4"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385792368912364,
+      "proxy_public_risk": 0.601506941674763,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 5.588966345742557e-05,
+      "max_delta_vs_341": 0.0013444419349910586,
+      "projection_failed": -9.325038869190747e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -4.42303299952318e-06,
+        "actual_test_band_holdout": -1.3829991480363013e-05,
+        "test_boundary_neighbor2_holdout": -7.086955955637464e-06,
+        "test_boundary_neighbor5_holdout": -1.3591903152865292e-05,
+        "loso_10": 1.9875049704909387e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.05,
+      "external_group": "S2_S4",
+      "external_targets": [
+        "S2",
+        "S4"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385792368912364,
+      "proxy_public_risk": 0.601506941674763,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 5.588966345742557e-05,
+      "max_delta_vs_341": 0.0013444419349910586,
+      "projection_failed": -9.325038869190747e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -4.42303299952318e-06,
+        "actual_test_band_holdout": -1.3829991480363013e-05,
+        "test_boundary_neighbor2_holdout": -7.086955955637464e-06,
+        "test_boundary_neighbor5_holdout": -1.3591903152865292e-05,
+        "loso_10": 1.9875049704909387e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.05,
+      "external_group": "Q1_S2_S4",
+      "external_targets": [
+        "Q1",
+        "S2",
+        "S4"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385792368912364,
+      "proxy_public_risk": 0.601506941674763,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 5.588966345742557e-05,
+      "max_delta_vs_341": 0.0013444419349910586,
+      "projection_failed": -9.325038869190747e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -4.42303299952318e-06,
+        "actual_test_band_holdout": -1.3829991480363013e-05,
+        "test_boundary_neighbor2_holdout": -7.086955955637464e-06,
+        "test_boundary_neighbor5_holdout": -1.3591903152865292e-05,
+        "loso_10": 1.9875049704909387e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.0,
+      "external_group": "S2",
+      "external_targets": [
+        "S2"
+      ],
+      "external_scale": 0.0025,
+      "primary_wins_vs_id341": 2,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385952867032563,
+      "proxy_public_risk": 0.601510170100436,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 6.2545431790432e-05,
+      "max_delta_vs_341": 0.0014470831994176092,
+      "projection_failed": -0.0002552361185000281,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 1.1626779020335043e-05,
+        "actual_test_band_holdout": -1.3016075384952863e-05,
+        "test_boundary_neighbor2_holdout": -8.181535556484043e-06,
+        "test_boundary_neighbor5_holdout": 1.1863891691277217e-06,
+        "loso_10": 1.1626779020335043e-05
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.0,
+      "external_group": "Q1",
+      "external_targets": [
+        "Q1"
+      ],
+      "external_scale": 0.0025,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385911942449214,
+      "proxy_public_risk": 0.6015138804122704,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 7.536598523848352e-05,
+      "max_delta_vs_341": 0.0014357620160859313,
+      "projection_failed": -0.0002920497076663818,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 7.534320685453899e-06,
+        "actual_test_band_holdout": -1.9415258235899735e-05,
+        "test_boundary_neighbor2_holdout": -4.8117258967916854e-05,
+        "test_boundary_neighbor5_holdout": -1.4154401924648674e-05,
+        "loso_10": 7.534320685453899e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.025,
+      "external_group": "S2",
+      "external_targets": [
+        "S2"
+      ],
+      "external_scale": 0.0025,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385930543583771,
+      "proxy_public_risk": 0.6015185535499546,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 9.049026351914481e-05,
+      "max_delta_vs_341": 0.0014470831994176092,
+      "projection_failed": -0.00025949959054981153,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 9.394434141163366e-06,
+        "actual_test_band_holdout": -1.996005040594273e-05,
+        "test_boundary_neighbor2_holdout": -1.1756680900476546e-05,
+        "test_boundary_neighbor5_holdout": -5.653565103180824e-06,
+        "loso_10": 1.2584524699321697e-05
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.025,
+      "external_group": "Q1",
+      "external_targets": [
+        "Q1"
+      ],
+      "external_scale": 0.0025,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385889619000422,
+      "proxy_public_risk": 0.601522263861789,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00010331081696719635,
+      "max_delta_vs_341": 0.0014357620160859313,
+      "projection_failed": -0.0002963131797161652,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 5.301975806282222e-06,
+        "actual_test_band_holdout": -2.6359233256889603e-05,
+        "test_boundary_neighbor2_holdout": -5.169240431190936e-05,
+        "test_boundary_neighbor5_holdout": -2.099435619695722e-05,
+        "loso_10": 8.492066364440554e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.075,
+      "external_group": "Q1",
+      "external_targets": [
+        "Q1"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385770878359079,
+      "proxy_public_risk": 0.6015233917758914,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 8.383449518613809e-05,
+      "max_delta_vs_341": 0.002016662902486588,
+      "projection_failed": -9.751386074169209e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -6.572088328105075e-06,
+        "actual_test_band_holdout": -2.0658087301339556e-05,
+        "test_boundary_neighbor2_holdout": -1.0535463297545178e-05,
+        "test_boundary_neighbor5_holdout": -2.0256037532084825e-05,
+        "loso_10": 3.0891612782246725e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.075,
+      "external_group": "S2",
+      "external_targets": [
+        "S2"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385770878359079,
+      "proxy_public_risk": 0.6015233917758914,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 8.383449518613809e-05,
+      "max_delta_vs_341": 0.002016662902486588,
+      "projection_failed": -9.751386074169209e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -6.572088328105075e-06,
+        "actual_test_band_holdout": -2.0658087301339556e-05,
+        "test_boundary_neighbor2_holdout": -1.0535463297545178e-05,
+        "test_boundary_neighbor5_holdout": -2.0256037532084825e-05,
+        "loso_10": 3.0891612782246725e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.075,
+      "external_group": "S4",
+      "external_targets": [
+        "S4"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385770878359079,
+      "proxy_public_risk": 0.6015233917758914,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 8.383449518613809e-05,
+      "max_delta_vs_341": 0.002016662902486588,
+      "projection_failed": -9.751386074169209e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -6.572088328105075e-06,
+        "actual_test_band_holdout": -2.0658087301339556e-05,
+        "test_boundary_neighbor2_holdout": -1.0535463297545178e-05,
+        "test_boundary_neighbor5_holdout": -2.0256037532084825e-05,
+        "loso_10": 3.0891612782246725e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.075,
+      "external_group": "Q1_S2",
+      "external_targets": [
+        "Q1",
+        "S2"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385770878359079,
+      "proxy_public_risk": 0.6015233917758914,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 8.383449518613809e-05,
+      "max_delta_vs_341": 0.002016662902486588,
+      "projection_failed": -9.751386074169209e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -6.572088328105075e-06,
+        "actual_test_band_holdout": -2.0658087301339556e-05,
+        "test_boundary_neighbor2_holdout": -1.0535463297545178e-05,
+        "test_boundary_neighbor5_holdout": -2.0256037532084825e-05,
+        "loso_10": 3.0891612782246725e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.075,
+      "external_group": "Q1_S4",
+      "external_targets": [
+        "Q1",
+        "S4"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385770878359079,
+      "proxy_public_risk": 0.6015233917758914,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 8.383449518613809e-05,
+      "max_delta_vs_341": 0.002016662902486588,
+      "projection_failed": -9.751386074169209e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -6.572088328105075e-06,
+        "actual_test_band_holdout": -2.0658087301339556e-05,
+        "test_boundary_neighbor2_holdout": -1.0535463297545178e-05,
+        "test_boundary_neighbor5_holdout": -2.0256037532084825e-05,
+        "loso_10": 3.0891612782246725e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.075,
+      "external_group": "S2_S4",
+      "external_targets": [
+        "S2",
+        "S4"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385770878359079,
+      "proxy_public_risk": 0.6015233917758914,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 8.383449518613809e-05,
+      "max_delta_vs_341": 0.002016662902486588,
+      "projection_failed": -9.751386074169209e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -6.572088328105075e-06,
+        "actual_test_band_holdout": -2.0658087301339556e-05,
+        "test_boundary_neighbor2_holdout": -1.0535463297545178e-05,
+        "test_boundary_neighbor5_holdout": -2.0256037532084825e-05,
+        "loso_10": 3.0891612782246725e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.075,
+      "external_group": "Q1_S2_S4",
+      "external_targets": [
+        "Q1",
+        "S2",
+        "S4"
+      ],
+      "external_scale": 0.0,
+      "primary_wins_vs_id341": 4,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385770878359079,
+      "proxy_public_risk": 0.6015233917758914,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 8.383449518613809e-05,
+      "max_delta_vs_341": 0.002016662902486588,
+      "projection_failed": -9.751386074169209e-05,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": -6.572088328105075e-06,
+        "actual_test_band_holdout": -2.0658087301339556e-05,
+        "test_boundary_neighbor2_holdout": -1.0535463297545178e-05,
+        "test_boundary_neighbor5_holdout": -2.0256037532084825e-05,
+        "loso_10": 3.0891612782246725e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.05,
+      "external_group": "S2",
+      "external_targets": [
+        "S2"
+      ],
+      "external_scale": 0.0025,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385908636702567,
+      "proxy_public_risk": 0.6015269369994731,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00011843509524785757,
+      "max_delta_vs_341": 0.0014470831994176092,
+      "projection_failed": -0.0002637630625995996,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 7.203746020700841e-06,
+        "actual_test_band_holdout": -2.6846066865315876e-05,
+        "test_boundary_neighbor2_holdout": -1.5268491512010485e-05,
+        "test_boundary_neighbor5_holdout": -1.2405513983626548e-05,
+        "loso_10": 1.3614283990825982e-05
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.0,
+      "external_group": "S4",
+      "external_targets": [
+        "S4"
+      ],
+      "external_scale": 0.0025,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385911799988434,
+      "proxy_public_risk": 0.6015282721545034,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00011778336430216891,
+      "max_delta_vs_341": 0.0015746393922412283,
+      "projection_failed": -0.0003748744728891335,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 7.520074607469951e-06,
+        "actual_test_band_holdout": -5.0048871522268e-05,
+        "test_boundary_neighbor2_holdout": -1.420681798636192e-05,
+        "test_boundary_neighbor5_holdout": -7.956454355362297e-06,
+        "loso_10": 7.520074607469951e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.05,
+      "external_group": "Q1",
+      "external_targets": [
+        "Q1"
+      ],
+      "external_scale": 0.0025,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385867712119218,
+      "proxy_public_risk": 0.6015306473113077,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0001312556486959091,
+      "max_delta_vs_341": 0.0014357620160859313,
+      "projection_failed": -0.00030057665176595326,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 3.111287685819697e-06,
+        "actual_test_band_holdout": -3.324524971626275e-05,
+        "test_boundary_neighbor2_holdout": -5.5204214923443296e-05,
+        "test_boundary_neighbor5_holdout": -2.7746305077402944e-05,
+        "loso_10": 9.521825655944838e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.025,
+      "external_group": "S4",
+      "external_targets": [
+        "S4"
+      ],
+      "external_scale": 0.0025,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385889421101409,
+      "proxy_public_risk": 0.6015308593897831,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0001185990395175382,
+      "max_delta_vs_341": 0.0017698504518330882,
+      "projection_failed": -0.00037913794493891687,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 5.282185904897929e-06,
+        "actual_test_band_holdout": -5.6981661566313235e-05,
+        "test_boundary_neighbor2_holdout": -1.7755512227490833e-05,
+        "test_boundary_neighbor5_holdout": -1.4739780251349366e-05,
+        "loso_10": 8.501235944646801e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.0,
+      "external_group": "Q1_S2",
+      "external_targets": [
+        "Q1",
+        "S2"
+      ],
+      "external_scale": 0.0025,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5386028210239417,
+      "proxy_public_risk": 0.6015327798960075,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00013791141702891555,
+      "max_delta_vs_341": 0.0014470831994176092,
+      "projection_failed": -0.0004625623815740739,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 1.9161099705788942e-05,
+        "actual_test_band_holdout": -3.24313336208526e-05,
+        "test_boundary_neighbor2_holdout": -5.62987945244009e-05,
+        "test_boundary_neighbor5_holdout": -1.2968012755520952e-05,
+        "loso_10": 1.9161099705788942e-05
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.025,
+      "external_group": "Q1_S2",
+      "external_targets": [
+        "Q1",
+        "S2"
+      ],
+      "external_scale": 0.0025,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5386005886790626,
+      "proxy_public_risk": 0.6015411633455261,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00016585624875762835,
+      "max_delta_vs_341": 0.0014470831994176092,
+      "projection_failed": -0.00046682585362385723,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 1.6928754826617265e-05,
+        "actual_test_band_holdout": -3.9375308641842466e-05,
+        "test_boundary_neighbor2_holdout": -5.987393986828238e-05,
+        "test_boundary_neighbor5_holdout": -1.9807967027718476e-05,
+        "loso_10": 2.0118845384775597e-05
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.075,
+      "external_group": "S2",
+      "external_targets": [
+        "S2"
+      ],
+      "external_scale": 0.0025,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385887146149282,
+      "proxy_public_risk": 0.6015421554054287,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00014637992697657008,
+      "max_delta_vs_341": 0.002016662902486588,
+      "projection_failed": -0.00026802653464938416,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 5.054690692229968e-06,
+        "actual_test_band_holdout": -3.367416268640344e-05,
+        "test_boundary_neighbor2_holdout": -1.87169988539182e-05,
+        "test_boundary_neighbor5_holdout": -1.906964836284608e-05,
+        "loso_10": 1.4715940298559715e-05
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.075,
+      "external_group": "Q1",
+      "external_targets": [
+        "Q1"
+      ],
+      "external_scale": 0.0025,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385846221565933,
+      "proxy_public_risk": 0.601546001571463,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00015920048042462163,
+      "max_delta_vs_341": 0.002016662902486588,
+      "projection_failed": -0.00030484012381573784,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 9.622323573488245e-07,
+        "actual_test_band_holdout": -4.007334553723929e-05,
+        "test_boundary_neighbor2_holdout": -5.865272226535101e-05,
+        "test_boundary_neighbor5_holdout": -3.441043945662248e-05,
+        "loso_10": 1.0623481963678572e-05
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.0,
+      "external_group": "S2_S4",
+      "external_targets": [
+        "S2",
+        "S4"
+      ],
+      "external_scale": 0.0025,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5386028067778638,
+      "proxy_public_risk": 0.6015470357840405,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00018032879609260094,
+      "max_delta_vs_341": 0.0015746393922412283,
+      "projection_failed": -0.0005453871467968254,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 1.9146853627804994e-05,
+        "actual_test_band_holdout": -6.306494690733189e-05,
+        "test_boundary_neighbor2_holdout": -2.2388353542845962e-05,
+        "test_boundary_neighbor5_holdout": -6.770065186234575e-06,
+        "loso_10": 1.9146853627804994e-05
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.05,
+      "external_group": "S4",
+      "external_targets": [
+        "S4"
+      ],
+      "external_scale": 0.0025,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385867458021812,
+      "proxy_public_risk": 0.6015489055077972,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00012408882512513647,
+      "max_delta_vs_341": 0.0024420714193286175,
+      "projection_failed": -0.00038340141698870486,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 3.0858779452858087e-06,
+        "actual_test_band_holdout": -6.385662442420781e-05,
+        "test_boundary_neighbor2_holdout": -2.124103703349256e-05,
+        "test_boundary_neighbor5_holdout": -2.1435536296077196e-05,
+        "loso_10": 9.554160231073361e-06
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.05,
+      "external_group": "Q1_S2",
+      "external_targets": [
+        "Q1",
+        "S2"
+      ],
+      "external_scale": 0.0025,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385983979909421,
+      "proxy_public_risk": 0.6015495467950448,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0001938010804863411,
+      "max_delta_vs_341": 0.0014470831994176092,
+      "projection_failed": -0.00047108932567364533,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 1.473806670615474e-05,
+        "actual_test_band_holdout": -4.6261325101326634e-05,
+        "test_boundary_neighbor2_holdout": -6.338575047992734e-05,
+        "test_boundary_neighbor5_holdout": -2.6559915908275222e-05,
+        "loso_10": 2.114860467627988e-05
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.025,
+      "external_group": "S2_S4",
+      "external_targets": [
+        "S2",
+        "S4"
+      ],
+      "external_scale": 0.0025,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5386005688891612,
+      "proxy_public_risk": 0.6015496230193202,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00018114447130797022,
+      "max_delta_vs_341": 0.0017698504518330882,
+      "projection_failed": -0.000549650618846609,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 1.6908964925232972e-05,
+        "actual_test_band_holdout": -6.99977369512661e-05,
+        "test_boundary_neighbor2_holdout": -2.5937047783974876e-05,
+        "test_boundary_neighbor5_holdout": -1.3553391082110622e-05,
+        "loso_10": 2.0128014964981844e-05
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.0,
+      "external_group": "Q1_S4",
+      "external_targets": [
+        "Q1",
+        "S4"
+      ],
+      "external_scale": 0.0025,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385987143195289,
+      "proxy_public_risk": 0.6015508819500749,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00019314934954065243,
+      "max_delta_vs_341": 0.0015746393922412283,
+      "projection_failed": -0.0005822007359631792,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 1.505439529292385e-05,
+        "actual_test_band_holdout": -6.946412975816774e-05,
+        "test_boundary_neighbor2_holdout": -6.232407695416775e-05,
+        "test_boundary_neighbor5_holdout": -2.211085628001097e-05,
+        "loso_10": 1.505439529292385e-05
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.025,
+      "external_group": "Q1_S4",
+      "external_targets": [
+        "Q1",
+        "S4"
+      ],
+      "external_scale": 0.0025,
+      "primary_wins_vs_id341": 3,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5385964764308263,
+      "proxy_public_risk": 0.6015534691853546,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.0001939650247560217,
+      "max_delta_vs_341": 0.0017698504518330882,
+      "projection_failed": -0.0005864642080129627,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 1.2816506590351828e-05,
+        "actual_test_band_holdout": -7.639691980221297e-05,
+        "test_boundary_neighbor2_holdout": -6.587277119540769e-05,
+        "test_boundary_neighbor5_holdout": -2.8894182175887018e-05,
+        "loso_10": 1.60355566301007e-05
+      }
+    },
+    {
+      "sleep_scale": 0.0,
+      "evening_scale": 0.0,
+      "external_group": "S2",
+      "external_targets": [
+        "S2"
+      ],
+      "external_scale": 0.005,
+      "primary_wins_vs_id341": 2,
+      "all_primary_splits_beat_id341": false,
+      "local_cv_subject_hole_5": 0.5386071747979357,
+      "proxy_public_risk": 0.6015636731586781,
+      "beats_id341_proxy": true,
+      "public_058_plausible": false,
+      "mean_delta_vs_341": 0.00012509086358086452,
+      "max_delta_vs_341": 0.0028941663988352184,
+      "projection_failed": -0.0004257487924077244,
+      "reviewable_low_movement_candidate": false,
+      "promotable_public_058_candidate": false,
+      "primary_deltas_vs_id341": {
+        "subject_hole_5": 2.3514873699781447e-05,
+        "actual_test_band_holdout": -2.540713666165928e-05,
+        "test_boundary_neighbor2_holdout": -1.56259683720128e-05,
+        "test_boundary_neighbor5_holdout": 2.792284953589963e-06,
+        "loso_10": 2.3514873699781447e-05
+      }
+    }
+  ],
+  "best_by_proxy": {
+    "sleep_scale": 0.0,
+    "evening_scale": 0.025,
+    "external_group": "Q1",
+    "external_targets": [
+      "Q1"
+    ],
+    "external_scale": 0.0,
+    "primary_wins_vs_id341": 4,
+    "all_primary_splits_beat_id341": false,
+    "local_cv_subject_hole_5": 0.5385814275793568,
+    "proxy_public_risk": 0.6014904915736343,
+    "beats_id341_proxy": true,
+    "public_058_plausible": false,
+    "mean_delta_vs_341": 2.7944831728712807e-05,
+    "max_delta_vs_341": 0.0006722209674955293,
+    "projection_failed": -8.898691664211943e-05,
+    "reviewable_low_movement_candidate": false,
+    "promotable_public_058_candidate": false,
+    "primary_deltas_vs_id341": {
+      "subject_hole_5": -2.232344879171677e-06,
+      "actual_test_band_holdout": -6.943975020989868e-06,
+      "test_boundary_neighbor2_holdout": -3.575145343992503e-06,
+      "test_boundary_neighbor5_holdout": -6.839954272308546e-06,
+      "loso_10": 9.577456790976768e-07
+    }
+  },
+  "best_reviewable_low_movement": null,
+  "best_below_id178_proxy": null,
+  "reviewable_rows": [],
+  "promotable_rows": [],
+  "decision": {
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "reviewable_low_movement_candidate_exists": false,
+    "proxy_below_id178_candidate_exists": false,
+    "public_058_plausible": false,
+    "best_proxy": 0.6014904915736343,
+    "best_proxy_sleep_scale": 0.0,
+    "best_proxy_evening_scale": 0.025,
+    "best_proxy_external_group": "Q1",
+    "best_proxy_external_scale": 0.0,
+    "next_action": "If this combined non-sequence weak-source gate still does not drop below ID178 public, keep the local new-source stack closed and use the explicit-approved Kaggle upstream rebuild as the next score-relevant step."
+  },
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

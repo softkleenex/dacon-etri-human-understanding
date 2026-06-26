@@ -1,0 +1,54 @@
+{
+  "report": "id338_s1_w005_public_risk_gate",
+  "created_at_kst": "2026-06-18 01:16:01 UTC+09:00",
+  "candidate_id": 338,
+  "candidate_file": "submission_id_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861_unsubmitted.csv",
+  "base_id": 179,
+  "base_file": "submission_id_179_id178_tempered_id177_random_conv_anchor_blend_cv0.538290_unsubmitted.csv",
+  "local_cv": 0.537861,
+  "local_gain_vs_base": 0.0004290000000000127,
+  "change": {
+    "target": "S1",
+    "n_kernels": 512,
+    "seed": 45502,
+    "model": "lr_c0_1",
+    "weight": 0.05,
+    "source_report": "reports/id179_s1_seed45502_weight_sensitivity_20260618.json"
+  },
+  "movement_projection": {
+    "local_cv": 0.537861,
+    "mean_delta_vs_178": 0.004659634641585283,
+    "max_delta_vs_178": 0.07398893560112152,
+    "rmse_vs_178": 0.01001750987441188,
+    "mean_delta_vs_base": 0.001315711460814471,
+    "max_delta_vs_base": 0.0356989517451658,
+    "mean_delta_vs_329": 0.020678159002177936,
+    "max_delta_vs_329": 0.0793746038103125,
+    "mean_delta_vs_335": 0.009530932866849627,
+    "max_delta_vs_335": 0.11206300976837114,
+    "projection_failed": 0.0005493210964588477,
+    "projection_329": 0.023297073416006224,
+    "projection_335": 0.07709092126272543,
+    "conservative_public_risk_proxy": 0.6068330204668168,
+    "rerank_tier": "reviewable_low_movement"
+  },
+  "identity_check": {
+    "non_target_oof_exact_vs_base": true,
+    "non_target_test_exact_vs_base": true,
+    "target_test_max_delta_vs_base": 0.0356989517451658,
+    "target_test_mean_delta_vs_base": 0.009209980225701297
+  },
+  "naive_id178_gap_projected_public": 0.6006340341096454,
+  "comparison_to_id337": {
+    "id337_local_cv": 0.5380663965590231,
+    "id337_proxy": 0.6050222139833282,
+    "local_advantage_vs_id337": 0.0002053965590230744,
+    "proxy_disadvantage_vs_id337": 0.0018108064834885251
+  },
+  "decision": {
+    "no_dacon_submission_made": true,
+    "public_058_plausible": false,
+    "controlled_public_probe_hypothesis": true,
+    "summary": "ID338 is the ID179-anchor lower-weight S1 variant. It beats ID337 locally but moves farther from ID178, so it is less conservative by public-risk proxy."
+  }
+}

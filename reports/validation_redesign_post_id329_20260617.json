@@ -1,0 +1,107 @@
+{
+  "created_at_kst": "2026-06-17 01:21:02",
+  "title": "Validation redesign after ID329 public non-improvement",
+  "public_facts": {
+    "id178": {
+      "local_cv": 0.538638,
+      "public_lb": 0.6014113009,
+      "role": "best confirmed recent public anchor"
+    },
+    "id287": {
+      "local_cv": 0.378934,
+      "public_lb": 0.6698787318,
+      "role": "failed local-frontier direction"
+    },
+    "id329": {
+      "local_cv": 0.516718,
+      "public_lb": 0.6017908577,
+      "role": "guarded practical candidate; safe but no public improvement"
+    }
+  },
+  "new_primary_goal": "First obtain a reproducible Public < 0.60 signal; Public 0.55 remains aspirational until validation explains ID178/ID287/ID329.",
+  "hard_constraints_before_new_submission": [
+    "No same-family ID330/ID331 constrained-combo submission without a new decision note explaining why ID329 feedback does not apply.",
+    "No local-frontier candidate may be promoted solely because local CV improves; ID287 makes that invalid.",
+    "Every candidate must report distance to ID178, distance to ID329, projection to ID287 failed direction, local CV, and artifact family.",
+    "A candidate must be uniquely named and matched across submission CSV, notebook, submission_log, metadata JSON, and base predictions before review."
+  ],
+  "redesigned_validation_layers": [
+    {
+      "name": "Layer 0: artifact eligibility",
+      "purpose": "Reject candidates whose provenance or file contract is unclear before considering score.",
+      "checks": [
+        "unique immutable filenames",
+        "base_oof/base_test present",
+        "notebook/log/report present",
+        "not blacklisted/risk-labelled unless explicitly reviewed"
+      ]
+    },
+    {
+      "name": "Layer 1: strict local validation",
+      "purpose": "Use only fold-safe OOF from subject-aware splits; no full-OOF residual recombination as proof.",
+      "checks": [
+        "subject-hole split",
+        "no same subject leakage",
+        "feature preprocessing fit inside folds",
+        "per-target logloss reported"
+      ]
+    },
+    {
+      "name": "Layer 2: public-anchor geometry gate",
+      "purpose": "Screen candidate movement using known public outcomes without pretending this is ground truth.",
+      "checks": [
+        "mean/max delta vs ID178",
+        "mean/max delta vs ID329",
+        "projection to ID287 failed vector",
+        "projection to ID329 tested-neutral vector",
+        "family label"
+      ]
+    },
+    {
+      "name": "Layer 3: anchor-consistency audit",
+      "purpose": "A validation proxy is not trusted unless it qualitatively explains ID178 ~= ID329 << ID287 on Public.",
+      "checks": [
+        "ID287 receives severe penalty",
+        "ID329 same-family local gain is discounted",
+        "ID178 remains a valid near-0.601 anchor"
+      ]
+    },
+    {
+      "name": "Layer 4: pre-registered submission decision",
+      "purpose": "Allow only one public probe after the above layers produce a specific reason to expect Public < 0.60.",
+      "checks": [
+        "decision note",
+        "exact SUB_PATH/SUB_MEMO",
+        "explicit user approval",
+        "no auto-submit"
+      ]
+    }
+  ],
+  "next_experiments_no_submission": [
+    {
+      "id": "V1",
+      "name": "Demographic/static-feature strict CV audit",
+      "rationale": "Untracked demographic features from the ETRI paper may be useful, but they must be evaluated under strict subject-hole validation before any public use.",
+      "success_criteria": "Improves strict fold-safe CV by target without increasing anchor-geometry risk; produces OOF/test artifacts only after review."
+    },
+    {
+      "id": "V2",
+      "name": "Public-anchor geometry reranker",
+      "rationale": "Existing candidate artifacts can be re-ranked using ID178/ID329 anchors and ID287 failed vector without making new predictions.",
+      "success_criteria": "Produces a short ranked list where ID330/ID331 are not automatically promoted and at least one candidate has a distinct family rationale."
+    },
+    {
+      "id": "V3",
+      "name": "Source/report promotion audit",
+      "rationale": "The repo has 84 untracked scripts and 600+ bulk reports; authoritative artifacts must be separated from scratch outputs.",
+      "success_criteria": "A commit/branch-ready list of files to promote, archive, or delete; no modeling side effects."
+    }
+  ],
+  "submission_stop_rule": "Stop same-family submissions after one negative public feedback event unless a new validation layer predicts the observed failure/non-improvement.",
+  "related_reports": [
+    "docs/REPO_TRIAGE_POST_ID329_20260617.md",
+    "reports/repo_triage_post_id329_20260617.json",
+    "reports/public_anchor_geometry_post_id329_20260617.json",
+    "reports/public_anchor_geometry_post_id329_20260617.md"
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "created_at": "2026-06-16T18:58:47",
+  "purpose": "Post-ID282 second-stage calibration robustness and public-gap-risk proxy for IDs 283-285.",
+  "confirmed_public_anchor": {
+    "id": 178,
+    "local_cv": 0.538638,
+    "public_lb": 0.6014113009,
+    "observed_gap": 0.0627733009,
+    "interpretation": "Added as a pessimistic local-to-public offset only; not a claim that future candidates share the same gap."
+  },
+  "risk_proxy_formula": "stability_veto_proxy = local_cv + observed_id178_gap + 0.40*max(0,max_delta_vs_id178-0.15) + 0.25*max(0,max_delta_vs_base-0.10)",
+  "candidates": [
+    {
+      "id": 283,
+      "role": "conservative_base272_temp_guard",
+      "submission_file": "submission_id_283_post282_base272_tempguard_calibration_cv0.440206_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_283_post282_base272_tempguard_calibration_cv0.440206_unsubmitted.ipynb",
+      "metadata_file": "reports/experiment_283_post282_base272_tempguard_calibration_cv0.440206_unsubmitted.json",
+      "base_id": 272,
+      "local_cv": 0.440206,
+      "confirmed_id178_gap_added_local_proxy": 0.5029793009,
+      "max_abs_delta_vs_id178": 0.20069858974071286,
+      "mean_abs_delta_vs_id178": 0.07626703908216145,
+      "max_abs_delta_vs_base": 0.0717211509654212,
+      "mean_abs_delta_vs_base": 0.020693631241878365,
+      "base_oof_file": "artifacts/base_predictions/base_oof_id_283_post282_base272_tempguard_calibration_cv0.440206.csv",
+      "base_test_file": "artifacts/base_predictions/base_test_id_283_post282_base272_tempguard_calibration_cv0.440206.csv",
+      "target_scores": {
+        "Q1": 0.4372767587036213,
+        "Q2": 0.42622713984808713,
+        "Q3": 0.43858226535074457,
+        "S1": 0.3843729084619369,
+        "S2": 0.41581927609244146,
+        "S3": 0.46801702097649933,
+        "S4": 0.5111470835429278
+      },
+      "target_summary": {
+        "Q1": {
+          "mean": 0.5228462075365058,
+          "std": 0.30679460616843834,
+          "min": 0.0216862480734554,
+          "max": 0.9795176442909356,
+          "max_abs_delta_vs_id178": 0.1664773792024304,
+          "mean_abs_delta_vs_id178": 0.083294832309861,
+          "max_abs_delta_vs_base": 0.036314749689442594,
+          "mean_abs_delta_vs_base": 0.02572981392818587
+        },
+        "Q2": {
+          "mean": 0.5669816203782218,
+          "std": 0.2791365045325366,
+          "min": 0.013054705743366,
+          "max": 0.9566739679331576,
+          "max_abs_delta_vs_id178": 0.20069858974071286,
+          "mean_abs_delta_vs_id178": 0.11020160420473889,
+          "max_abs_delta_vs_base": 0.0717211509654212,
+          "mean_abs_delta_vs_base": 0.04329722900785558
+        },
+        "Q3": {
+          "mean": 0.6759530259003181,
+          "std": 0.2644563096893791,
+          "min": 0.0366268006581099,
+          "max": 0.9522110930059268,
+          "max_abs_delta_vs_id178": 0.16635977663508528,
+          "mean_abs_delta_vs_id178": 0.08880829181227017,
+          "max_abs_delta_vs_base": 0.03631411256680042,
+          "mean_abs_delta_vs_base": 0.029961358385704222
+        },
+        "S1": {
+          "mean": 0.6963870346474355,
+          "std": 0.2460395918109728,
+          "min": 0.0701361875846767,
+          "max": 0.9867799577516688,
+          "max_abs_delta_vs_id178": 0.14998515962237352,
+          "mean_abs_delta_vs_id178": 0.05717268666981115,
+          "max_abs_delta_vs_base": 0.0,
+          "mean_abs_delta_vs_base": 0.0
+        },
+        "S2": {
+          "mean": 0.6432439550182006,
+          "std": 0.28480211012098655,
+          "min": 0.0603362846915749,
+          "max": 0.9914979608036588,
+          "max_abs_delta_vs_id178": 0.16650024641877803,
+          "mean_abs_delta_vs_id178": 0.08896243370418844,
+          "max_abs_delta_vs_base": 0.036315658630776904,
+          "mean_abs_delta_vs_base": 0.02309013882825118
+        },
+        "S3": {
+          "mean": 0.6437245919346174,
+          "std": 0.24747892496192112,
+          "min": 2.0788676252163444e-05,
+          "max": 0.9999806790572274,
+          "max_abs_delta_vs_id178": 0.1440502087649581,
+          "mean_abs_delta_vs_id178": 0.03441069752119718,
+          "max_abs_delta_vs_base": 0.0,
+          "mean_abs_delta_vs_base": 0.0
+        },
+        "S4": {
+          "mean": 0.5852839871268138,
+          "std": 0.2090516289838424,
+          "min": 0.1005680696458102,
+          "max": 0.9529100344313978,
+          "max_abs_delta_vs_id178": 0.1571534539750401,
+          "mean_abs_delta_vs_id178": 0.07101872735306335,
+          "max_abs_delta_vs_base": 0.0363156827630613,
+          "mean_abs_delta_vs_base": 0.022776878543151698
+        }
+      },
+      "caution": "Extreme-risk second-stage leaderboard-response probe. This is not strict Subject-Hole CV, not fold-nested, and likely to have severe public-gap risk.",
+      "score_pressure_proxy": 0.5029793009,
+      "stability_veto_proxy": 0.5232587367962851
+    },
+    {
+      "id": 285,
+      "role": "frontier_base278_temp_guard",
+      "submission_file": "submission_id_285_post282_base278_tempguard_calibration_cv0.356330_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_285_post282_base278_tempguard_calibration_cv0.356330_unsubmitted.ipynb",
+      "metadata_file": "reports/experiment_285_post282_base278_tempguard_calibration_cv0.356330_unsubmitted.json",
+      "base_id": 278,
+      "local_cv": 0.35633,
+      "confirmed_id178_gap_added_local_proxy": 0.4191033009,
+      "max_abs_delta_vs_id178": 0.47442801738480034,
+      "mean_abs_delta_vs_id178": 0.1395522577886736,
+      "max_abs_delta_vs_base": 0.2183469899872514,
+      "mean_abs_delta_vs_base": 0.04721236924365795,
+      "base_oof_file": "artifacts/base_predictions/base_oof_id_285_post282_base278_tempguard_calibration_cv0.356330.csv",
+      "base_test_file": "artifacts/base_predictions/base_test_id_285_post282_base278_tempguard_calibration_cv0.356330.csv",
+      "target_scores": {
+        "Q1": 0.3754418937291174,
+        "Q2": 0.2844403287845867,
+        "Q3": 0.2773253108290797,
+        "S1": 0.29797434551557406,
+        "S2": 0.3398108521048865,
+        "S3": 0.46706283604177684,
+        "S4": 0.4522578468557295
+      },
+      "target_summary": {
+        "Q1": {
+          "mean": 0.5313089107789555,
+          "std": 0.3393459292996408,
+          "min": 0.013449383886659,
+          "max": 0.9872745783628508,
+          "max_abs_delta_vs_id178": 0.30359156330559783,
+          "mean_abs_delta_vs_id178": 0.12167522403116242,
+          "max_abs_delta_vs_base": 0.03631549311564719,
+          "mean_abs_delta_vs_base": 0.02548589556908481
+        },
+        "Q2": {
+          "mean": 0.5359567898389346,
+          "std": 0.3668898723562089,
+          "min": 1e-06,
+          "max": 0.999999,
+          "max_abs_delta_vs_id178": 0.463866789604665,
+          "mean_abs_delta_vs_id178": 0.21847985477816173,
+          "max_abs_delta_vs_base": 0.21160411831301207,
+          "mean_abs_delta_vs_base": 0.11577761336987726
+        },
+        "Q3": {
+          "mean": 0.6693140738645501,
+          "std": 0.36806553051221036,
+          "min": 1e-06,
+          "max": 0.999999,
+          "max_abs_delta_vs_id178": 0.47442801738480034,
+          "mean_abs_delta_vs_id178": 0.21579687093207492,
+          "max_abs_delta_vs_base": 0.2183469899872514,
+          "mean_abs_delta_vs_base": 0.10204873599759594
+        },
+        "S1": {
+          "mean": 0.6968024572058357,
+          "std": 0.2941301065463214,
+          "min": 0.0302108360365738,
+          "max": 0.9958106606322096,
+          "max_abs_delta_vs_id178": 0.3089583385021045,
+          "mean_abs_delta_vs_id178": 0.12356415682325145,
+          "max_abs_delta_vs_base": 0.036315569618686094,
+          "mean_abs_delta_vs_base": 0.022902624075468562
+        },
+        "S2": {
+          "mean": 0.6308823372240324,
+          "std": 0.33170186156114523,
+          "min": 0.0264574690834804,
+          "max": 0.9971213582167702,
+          "max_abs_delta_vs_id178": 0.32632073400699496,
+          "mean_abs_delta_vs_id178": 0.1468510236305292,
+          "max_abs_delta_vs_base": 0.06403082854519804,
+          "mean_abs_delta_vs_base": 0.04024176353578835
+        },
+        "S3": {
+          "mean": 0.6444486180081127,
+          "std": 0.24703460040910835,
+          "min": 8.735900157347404e-06,
+          "max": 0.9999917092433102,
+          "max_abs_delta_vs_id178": 0.1440681724422903,
+          "mean_abs_delta_vs_id178": 0.03748289446959065,
+          "max_abs_delta_vs_base": 0.0,
+          "mean_abs_delta_vs_base": 0.0
+        },
+        "S4": {
+          "mean": 0.5936109059214494,
+          "std": 0.253516022310014,
+          "min": 0.0585869101719592,
+          "max": 0.9723309176472992,
+          "max_abs_delta_vs_id178": 0.30361055685979454,
+          "mean_abs_delta_vs_id178": 0.11301577985594494,
+          "max_abs_delta_vs_base": 0.0363139026918925,
+          "mean_abs_delta_vs_base": 0.024029952157790753
+        }
+      },
+      "caution": "Extreme-risk second-stage leaderboard-response probe. This is not strict Subject-Hole CV, not fold-nested, and likely to have severe public-gap risk.",
+      "score_pressure_proxy": 0.4191033009,
+      "stability_veto_proxy": 0.578461255350733
+    },
+    {
+      "id": 284,
+      "role": "mid_base280_temp_guard",
+      "submission_file": "submission_id_284_post282_base280_tempguard_calibration_cv0.385005_unsubmitted.csv",
+      "notebook_file": "notebooks/history/submission_284_post282_base280_tempguard_calibration_cv0.385005_unsubmitted.ipynb",
+      "metadata_file": "reports/experiment_284_post282_base280_tempguard_calibration_cv0.385005_unsubmitted.json",
+      "base_id": 280,
+      "local_cv": 0.385005,
+      "confirmed_id178_gap_added_local_proxy": 0.4477783009,
+      "max_abs_delta_vs_id178": 0.40929862923481086,
+      "mean_abs_delta_vs_id178": 0.11527579607119995,
+      "max_abs_delta_vs_base": 0.2136037787404962,
+      "mean_abs_delta_vs_base": 0.03654091951772762,
+      "base_oof_file": "artifacts/base_predictions/base_oof_id_284_post282_base280_tempguard_calibration_cv0.385005.csv",
+      "base_test_file": "artifacts/base_predictions/base_test_id_284_post282_base280_tempguard_calibration_cv0.385005.csv",
+      "target_scores": {
+        "Q1": 0.3876026589539705,
+        "Q2": 0.3182079080656398,
+        "Q3": 0.36228331545759423,
+        "S1": 0.3220146056605946,
+        "S2": 0.369368117800631,
+        "S3": 0.46839594363393644,
+        "S4": 0.46716519235556436
+      },
+      "target_summary": {
+        "Q1": {
+          "mean": 0.5269057806890921,
+          "std": 0.3303126355482191,
+          "min": 0.015693061199137,
+          "max": 0.9851605919302794,
+          "max_abs_delta_vs_id178": 0.2593786810748645,
+          "mean_abs_delta_vs_id178": 0.11517717208713228,
+          "max_abs_delta_vs_base": 0.036315364219727586,
+          "mean_abs_delta_vs_base": 0.026027792124631747
+        },
+        "Q2": {
+          "mean": 0.5362570174284976,
+          "std": 0.3488538038420795,
+          "min": 1e-06,
+          "max": 0.999999,
+          "max_abs_delta_vs_id178": 0.40929862923481086,
+          "mean_abs_delta_vs_id178": 0.19344059956611423,
+          "max_abs_delta_vs_base": 0.2136037787404962,
+          "mean_abs_delta_vs_base": 0.11005763447922526
+        },
+        "Q3": {
+          "mean": 0.6856744690366597,
+          "std": 0.2989337867808346,
+          "min": 0.0176012010971215,
+          "max": 0.9761605628199878,
+          "max_abs_delta_vs_id178": 0.27227520700858143,
+          "mean_abs_delta_vs_id178": 0.13726080757146866,
+          "max_abs_delta_vs_base": 0.0640277693425717,
+          "mean_abs_delta_vs_base": 0.0492685117247656
+        },
+        "S1": {
+          "mean": 0.699893649502624,
+          "std": 0.2848226267070273,
+          "min": 0.0350440565255553,
+          "max": 0.9951517528796454,
+          "max_abs_delta_vs_id178": 0.2524740399052383,
+          "mean_abs_delta_vs_id178": 0.10682568146865501,
+          "max_abs_delta_vs_base": 0.03631111055180836,
+          "mean_abs_delta_vs_base": 0.023350197510075645
+        },
+        "S2": {
+          "mean": 0.6342179762726632,
+          "std": 0.3053966984932991,
+          "min": 0.045993139962332,
+          "max": 0.9934340708668528,
+          "max_abs_delta_vs_id178": 0.2526876848768827,
+          "mean_abs_delta_vs_id178": 0.11765865996936276,
+          "max_abs_delta_vs_base": 0.036315575281481105,
+          "mean_abs_delta_vs_base": 0.023116800504509316
+        },
+        "S3": {
+          "mean": 0.6439282720672164,
+          "std": 0.24620637209481708,
+          "min": 0.0033973466186861,
+          "max": 0.9973535453996272,
+          "max_abs_delta_vs_id178": 0.13398340037133008,
+          "mean_abs_delta_vs_id178": 0.0348590918567193,
+          "max_abs_delta_vs_base": 0.0,
+          "mean_abs_delta_vs_base": 0.0
+        },
+        "S4": {
+          "mean": 0.5916188148663474,
+          "std": 0.2410034592229868,
+          "min": 0.0690382919272248,
+          "max": 0.9675242270669274,
+          "max_abs_delta_vs_id178": 0.2596241020537661,
+          "mean_abs_delta_vs_id178": 0.1017085599789473,
+          "max_abs_delta_vs_base": 0.03631472633996635,
+          "mean_abs_delta_vs_base": 0.023965500280885784
+        }
+      },
+      "caution": "Extreme-risk second-stage leaderboard-response probe. This is not strict Subject-Hole CV, not fold-nested, and likely to have severe public-gap risk.",
+      "score_pressure_proxy": 0.4477783009,
+      "stability_veto_proxy": 0.5798986972790483
+    }
+  ],
+  "recommendation": {
+    "lead_for_public_transfer": 283,
+    "lead_for_score_pressure_if_accepting_calibration_risk": 284,
+    "diagnostic_frontier_only": 285,
+    "rationale": "ID283 has the cleanest movement profile and the best stability-veto proxy among calibrated cards. ID284 is the practical score-pressure card. ID285 has the lowest local CV but its movement profile makes it a frontier diagnostic, not a safe public lead."
+  },
+  "submission_policy": "No DACON submission was made. Any leaderboard submission still requires explicit user approval."
+}

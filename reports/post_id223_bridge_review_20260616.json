@@ -1,0 +1,52 @@
+{
+  "created_at": "2026-06-16",
+  "purpose": "Bridge review after carrying ID221 into ID172 delta06/delta08 probes.",
+  "leaderboard_truth": {
+    "best_confirmed_public_id": 178,
+    "best_confirmed_public_score": 0.6014113009,
+    "public_055_status": "not achieved"
+  },
+  "clean_branch": {
+    "preferred_id": 221,
+    "local_cv": 0.5329901873426955,
+    "robustness_score": 0.5648106632093344,
+    "interpretation": "Best current clean/non-ID172 local branch; public-structure selected, not nested Subject-Hole proof."
+  },
+  "bridge_results": {
+    "id222_delta06": {
+      "submission_file": "submission_id_222_id221_targetwise_delta06_id172_extreme_probe_cv0.521966_unsubmitted.csv",
+      "local_cv": 0.521965845839045,
+      "robustness_score": 0.5531997445683329,
+      "delta_vs_id219": {
+        "overall": -0.000908471531052446,
+        "robustness_score": -0.0006787748988481557
+      },
+      "interpretation": "Slightly better than ID219 on local and robustness, but inherits ID172 non-nested calibration risk."
+    },
+    "id223_delta08": {
+      "submission_file": "submission_id_223_id221_targetwise_delta08_id172_extreme_probe_cv0.518724_unsubmitted.csv",
+      "local_cv": 0.5187238603355875,
+      "robustness_score": 0.5498163794251036,
+      "delta_vs_id220": {
+        "overall": -0.0008374534865263072,
+        "robustness_score": -0.000626011375346458
+      },
+      "interpretation": "New lowest moderate bridge robustness/local frontier after ID220, but inherits ID172 risk and should be treated as a counterprobe."
+    }
+  },
+  "decision": {
+    "preferred_clean_candidate": 221,
+    "preferred_moderate_low_bridge": 222,
+    "preferred_moderate_bridge_frontier": 223,
+    "submission_guidance": "Do not submit without explicit user approval; if submitting one risky counterprobe, ID223 is now the bridge-frontier candidate, while ID221 is the cleaner candidate."
+  },
+  "next_actions": [
+    "Run subject-hole/stability diagnostics to see whether ID221/222/223 survive a stricter validation lens.",
+    "Use Kaggle for any broad stability feature-selection sweep rather than local RAM-heavy loops.",
+    "Do not chase lower ID172-blend local CV indefinitely; public gap history suggests over-optimism grows with aggressive calibration."
+  ],
+  "supporting_reports": {
+    "robustness": "reports/id178_id223_split_robustness_diagnostic_20260616.json",
+    "id221_review": "reports/public_feature_similarity_review_post_id221_20260616.json"
+  }
+}

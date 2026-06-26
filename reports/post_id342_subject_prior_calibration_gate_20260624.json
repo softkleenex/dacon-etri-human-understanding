@@ -1,0 +1,1060 @@
+{
+  "anchor": {
+    "id": 342,
+    "public_score": 0.5960832519
+  },
+  "created_at_kst": "2026-06-24 08:28:32 UTC+09:00",
+  "decision": {
+    "best_row": {
+      "calibration_spec": {
+        "alpha": 10.0,
+        "method": "logit_subject_mean",
+        "name": "logit_subject_mean_a10_w0.1",
+        "weight": 0.1
+      },
+      "config": "Q3_logit_subject_mean_a10_w0.1",
+      "eligible": false,
+      "max_delta": 0.001608882988775373,
+      "mean_delta": 0.0009180555945762281,
+      "min_delta": 1.7443088322854905e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.514548850569324,
+        "loso_10": 0.5632259042854845,
+        "subject_hole_5": 0.5632259042854845,
+        "test_boundary_neighbor2_holdout": 0.6063862866978805,
+        "test_boundary_neighbor5_holdout": 0.5833753098643744
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.0014924632551778227,
+        "loso_10": 1.7443088322854905e-05,
+        "subject_hole_5": 0.001608882988775373,
+        "test_boundary_neighbor2_holdout": 0.0013084985196829546,
+        "test_boundary_neighbor5_holdout": 0.00016299012092213516
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.5160413138245018,
+        "loso_10": 0.5632433473738073,
+        "subject_hole_5": 0.5648347872742598,
+        "test_boundary_neighbor2_holdout": 0.6076947852175635,
+        "test_boundary_neighbor5_holdout": 0.5835382999852965
+      },
+      "target": "Q3",
+      "wins": 0
+    },
+    "create_submission_artifact": false,
+    "eligible_row_count": 0,
+    "estimated_all_target_delta_vs_id342": 0.0,
+    "gap_to_public_055_after_proxy": 0.046083251899999955,
+    "modify_submission_log": false,
+    "next_action": "Subject-prior calibration does not improve Q3/S3 against ID342 under primary lenses. Do not force participant-level priors into test predictions; use only as validation context.",
+    "projected_public_proxy_from_id342": 0.5960832519,
+    "public_055_evidence": false,
+    "push_kaggle_now": false,
+    "q3_selected": false,
+    "run_kaggle_now": false,
+    "s3_selected": false,
+    "selected_targets": [],
+    "subject_prior_calibration_gate_pass": false,
+    "submit_now": false
+  },
+  "diagnostic": "post_id342_subject_prior_calibration_gate",
+  "eligible_rows": [],
+  "no_base_prediction_artifact_created": true,
+  "no_dacon_submission": true,
+  "no_kaggle_action": true,
+  "no_new_feature_matrix_created": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_submission_log_row_created": true,
+  "purpose": "Check whether Q3/S3 should be nudged toward fold-internal subject or global priors.",
+  "research_sources": [
+    {
+      "read": "The task predicts daily sleep quality, emotional state, stress, and sleep metrics from smartphone/watch lifelog data.",
+      "title": "Human Understanding AI Paper Challenge 2024 - Dataset Design",
+      "url": "https://arxiv.org/html/2403.16509v1"
+    },
+    {
+      "read": "DACON defines Q3 as pre-sleep stress and S3 as adherence to sleep-onset-latency guidance.",
+      "title": "DACON Human Understanding AI data page",
+      "url": "https://dacon.io/en/competitions/official/236468/data"
+    },
+    {
+      "read": "Q3 is participant-relative stress, with lower-than-average stress mapped to 1; sleep metrics follow NSF-style guideline adherence.",
+      "title": "Human Understanding AI Paper Challenge 2024 - Dataset Design PDF",
+      "url": "https://cfiles.dacon.co.kr/competitions/236690/Human%20Understanding%20AI%20Paper%20Challenge%202024%20-%20Dataset%20Design.pdf"
+    }
+  ],
+  "subject_distribution_summary": {
+    "Q3": {
+      "oof_prediction_mean": 0.5959472686585562,
+      "oof_prediction_mean_by_subject": {
+        "id01": 0.615976,
+        "id02": 0.725065,
+        "id03": 0.686184,
+        "id04": 0.732864,
+        "id05": 0.69542,
+        "id06": 0.522071,
+        "id07": 0.493506,
+        "id08": 0.449042,
+        "id09": 0.433485,
+        "id10": 0.634603
+      },
+      "test_prediction_mean": 0.6329488086397036,
+      "test_prediction_mean_by_subject": {
+        "id01": 0.77661,
+        "id02": 0.704861,
+        "id03": 0.708307,
+        "id04": 0.742159,
+        "id05": 0.648067,
+        "id06": 0.766068,
+        "id07": 0.604063,
+        "id08": 0.330423,
+        "id09": 0.493709,
+        "id10": 0.457968
+      },
+      "train_label_mean": 0.6,
+      "train_label_mean_by_subject": {
+        "id01": 0.585366,
+        "id02": 0.729167,
+        "id03": 0.727273,
+        "id04": 0.77193,
+        "id05": 0.681818,
+        "id06": 0.5,
+        "id07": 0.510204,
+        "id08": 0.446429,
+        "id09": 0.439024,
+        "id10": 0.636364
+      }
+    },
+    "S3": {
+      "oof_prediction_mean": 0.6604893234737612,
+      "oof_prediction_mean_by_subject": {
+        "id01": 0.832148,
+        "id02": 0.860558,
+        "id03": 0.475941,
+        "id04": 0.514396,
+        "id05": 0.191547,
+        "id06": 0.952152,
+        "id07": 0.798811,
+        "id08": 0.675614,
+        "id09": 0.727028,
+        "id10": 0.480395
+      },
+      "test_prediction_mean": 0.6389229658269391,
+      "test_prediction_mean_by_subject": {
+        "id01": 0.765568,
+        "id02": 0.843563,
+        "id03": 0.499846,
+        "id04": 0.431435,
+        "id05": 0.191062,
+        "id06": 0.955635,
+        "id07": 0.784812,
+        "id08": 0.715494,
+        "id09": 0.60704,
+        "id10": 0.429294
+      },
+      "train_label_mean": 0.6622222222222223,
+      "train_label_mean_by_subject": {
+        "id01": 0.853659,
+        "id02": 0.895833,
+        "id03": 0.484848,
+        "id04": 0.54386,
+        "id05": 0.136364,
+        "id06": 0.958333,
+        "id07": 0.795918,
+        "id08": 0.660714,
+        "id09": 0.707317,
+        "id10": 0.484848
+      }
+    }
+  },
+  "top_rows": [
+    {
+      "calibration_spec": {
+        "alpha": 10.0,
+        "method": "logit_subject_mean",
+        "name": "logit_subject_mean_a10_w0.1",
+        "weight": 0.1
+      },
+      "config": "Q3_logit_subject_mean_a10_w0.1",
+      "eligible": false,
+      "max_delta": 0.001608882988775373,
+      "mean_delta": 0.0009180555945762281,
+      "min_delta": 1.7443088322854905e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.514548850569324,
+        "loso_10": 0.5632259042854845,
+        "subject_hole_5": 0.5632259042854845,
+        "test_boundary_neighbor2_holdout": 0.6063862866978805,
+        "test_boundary_neighbor5_holdout": 0.5833753098643744
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.0014924632551778227,
+        "loso_10": 1.7443088322854905e-05,
+        "subject_hole_5": 0.001608882988775373,
+        "test_boundary_neighbor2_holdout": 0.0013084985196829546,
+        "test_boundary_neighbor5_holdout": 0.00016299012092213516
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.5160413138245018,
+        "loso_10": 0.5632433473738073,
+        "subject_hole_5": 0.5648347872742598,
+        "test_boundary_neighbor2_holdout": 0.6076947852175635,
+        "test_boundary_neighbor5_holdout": 0.5835382999852965
+      },
+      "target": "Q3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 5.0,
+        "method": "logit_subject_mean",
+        "name": "logit_subject_mean_a5_w0.1",
+        "weight": 0.1
+      },
+      "config": "Q3_logit_subject_mean_a5_w0.1",
+      "eligible": false,
+      "max_delta": 0.001840688311790073,
+      "mean_delta": 0.0009938661342286047,
+      "min_delta": 1.7443088322854905e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.514548850569324,
+        "loso_10": 0.5632259042854845,
+        "subject_hole_5": 0.5632259042854845,
+        "test_boundary_neighbor2_holdout": 0.6063862866978805,
+        "test_boundary_neighbor5_holdout": 0.5833753098643744
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.0013762336950088327,
+        "loso_10": 1.7443088322854905e-05,
+        "subject_hole_5": 0.001840688311790073,
+        "test_boundary_neighbor2_holdout": 0.0013945683161084022,
+        "test_boundary_neighbor5_holdout": 0.0003403972599128613
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.5159250842643328,
+        "loso_10": 0.5632433473738073,
+        "subject_hole_5": 0.5650665925972745,
+        "test_boundary_neighbor2_holdout": 0.6077808550139889,
+        "test_boundary_neighbor5_holdout": 0.5837157071242872
+      },
+      "target": "Q3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 10.0,
+        "method": "prob_subject_mean",
+        "name": "prob_subject_mean_a10_w0.1",
+        "weight": 0.1
+      },
+      "config": "Q3_prob_subject_mean_a10_w0.1",
+      "eligible": false,
+      "max_delta": 0.0018094699220497779,
+      "mean_delta": 0.0010071803324925189,
+      "min_delta": 2.0185675915773693e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.514548850569324,
+        "loso_10": 0.5632259042854845,
+        "subject_hole_5": 0.5632259042854845,
+        "test_boundary_neighbor2_holdout": 0.6063862866978805,
+        "test_boundary_neighbor5_holdout": 0.5833753098643744
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.0018094699220497779,
+        "loso_10": 2.0185675915773693e-05,
+        "subject_hole_5": 0.0017443105704123552,
+        "test_boundary_neighbor2_holdout": 0.0013389151315434944,
+        "test_boundary_neighbor5_holdout": 0.00012302036254119297
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.5163583204913738,
+        "loso_10": 0.5632460899614002,
+        "subject_hole_5": 0.5649702148558968,
+        "test_boundary_neighbor2_holdout": 0.607725201829424,
+        "test_boundary_neighbor5_holdout": 0.5834983302269156
+      },
+      "target": "Q3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 2.0,
+        "method": "logit_subject_mean",
+        "name": "logit_subject_mean_a2_w0.1",
+        "weight": 0.1
+      },
+      "config": "Q3_logit_subject_mean_a2_w0.1",
+      "eligible": false,
+      "max_delta": 0.0020197002506885386,
+      "mean_delta": 0.0010596358248464277,
+      "min_delta": 1.7443088322854905e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.514548850569324,
+        "loso_10": 0.5632259042854845,
+        "subject_hole_5": 0.5632259042854845,
+        "test_boundary_neighbor2_holdout": 0.6063862866978805,
+        "test_boundary_neighbor5_holdout": 0.5833753098643744
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.0012978491368661471,
+        "loso_10": 1.7443088322854905e-05,
+        "subject_hole_5": 0.0020197002506885386,
+        "test_boundary_neighbor2_holdout": 0.0014658145034018855,
+        "test_boundary_neighbor5_holdout": 0.0004973721449527124
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.5158466997061901,
+        "loso_10": 0.5632433473738073,
+        "subject_hole_5": 0.565245604536173,
+        "test_boundary_neighbor2_holdout": 0.6078521012012824,
+        "test_boundary_neighbor5_holdout": 0.5838726820093271
+      },
+      "target": "Q3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 5.0,
+        "method": "prob_subject_mean",
+        "name": "prob_subject_mean_a5_w0.1",
+        "weight": 0.1
+      },
+      "config": "Q3_prob_subject_mean_a5_w0.1",
+      "eligible": false,
+      "max_delta": 0.001972782600670353,
+      "mean_delta": 0.0011392137836511607,
+      "min_delta": 2.0185675915773693e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.514548850569324,
+        "loso_10": 0.5632259042854845,
+        "subject_hole_5": 0.5632259042854845,
+        "test_boundary_neighbor2_holdout": 0.6063862866978805,
+        "test_boundary_neighbor5_holdout": 0.5833753098643744
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.0017451035961405514,
+        "loso_10": 2.0185675915773693e-05,
+        "subject_hole_5": 0.001972782600670353,
+        "test_boundary_neighbor2_holdout": 0.0015656702143990175,
+        "test_boundary_neighbor5_holdout": 0.0003923268311301076
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.5162939541654645,
+        "loso_10": 0.5632460899614002,
+        "subject_hole_5": 0.5651986868861548,
+        "test_boundary_neighbor2_holdout": 0.6079519569122795,
+        "test_boundary_neighbor5_holdout": 0.5837676366955045
+      },
+      "target": "Q3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 2.0,
+        "method": "prob_subject_mean",
+        "name": "prob_subject_mean_a2_w0.1",
+        "weight": 0.1
+      },
+      "config": "Q3_prob_subject_mean_a2_w0.1",
+      "eligible": false,
+      "max_delta": 0.0021436969118453497,
+      "mean_delta": 0.0012422182018364091,
+      "min_delta": 2.0185675915773693e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.514548850569324,
+        "loso_10": 0.5632259042854845,
+        "subject_hole_5": 0.5632259042854845,
+        "test_boundary_neighbor2_holdout": 0.6063862866978805,
+        "test_boundary_neighbor5_holdout": 0.5833753098643744
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.0017033163590588485,
+        "loso_10": 2.0185675915773693e-05,
+        "subject_hole_5": 0.0021436969118453497,
+        "test_boundary_neighbor2_holdout": 0.0017353714158504507,
+        "test_boundary_neighbor5_holdout": 0.0006085206465116233
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.5162521669283828,
+        "loso_10": 0.5632460899614002,
+        "subject_hole_5": 0.5653696011973298,
+        "test_boundary_neighbor2_holdout": 0.608121658113731,
+        "test_boundary_neighbor5_holdout": 0.583983830510886
+      },
+      "target": "Q3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 2.0,
+        "method": "prob_subject_mean",
+        "name": "prob_subject_mean_a2_w0.1",
+        "weight": 0.1
+      },
+      "config": "S3_prob_subject_mean_a2_w0.1",
+      "eligible": false,
+      "max_delta": 0.0023305963726094614,
+      "mean_delta": 0.0013841747674515847,
+      "min_delta": 4.170785828050416e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.471610051027991,
+        "loso_10": 0.489944683434979,
+        "subject_hole_5": 0.48994468343497904,
+        "test_boundary_neighbor2_holdout": 0.5053185090253905,
+        "test_boundary_neighbor5_holdout": 0.5117752307455081
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.001639774250224102,
+        "loso_10": 4.170785828050416e-05,
+        "subject_hole_5": 0.0023305963726094614,
+        "test_boundary_neighbor2_holdout": 0.002134611227547434,
+        "test_boundary_neighbor5_holdout": 0.0007741841285964224
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.4732498252782151,
+        "loso_10": 0.4899863912932595,
+        "subject_hole_5": 0.4922752798075885,
+        "test_boundary_neighbor2_holdout": 0.507453120252938,
+        "test_boundary_neighbor5_holdout": 0.5125494148741045
+      },
+      "target": "S3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 2.0,
+        "method": "logit_subject_mean",
+        "name": "logit_subject_mean_a2_w0.1",
+        "weight": 0.1
+      },
+      "config": "S3_logit_subject_mean_a2_w0.1",
+      "eligible": false,
+      "max_delta": 0.0023288227062436273,
+      "mean_delta": 0.0013845728442044903,
+      "min_delta": 3.504391080166869e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.471610051027991,
+        "loso_10": 0.489944683434979,
+        "subject_hole_5": 0.48994468343497904,
+        "test_boundary_neighbor2_holdout": 0.5053185090253905,
+        "test_boundary_neighbor5_holdout": 0.5117752307455081
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.0017874661144001713,
+        "loso_10": 3.504391080166869e-05,
+        "subject_hole_5": 0.0023288227062436273,
+        "test_boundary_neighbor2_holdout": 0.0020507859695799713,
+        "test_boundary_neighbor5_holdout": 0.0007207455199970125
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.47339751714239114,
+        "loso_10": 0.48997972734578066,
+        "subject_hole_5": 0.49227350614122267,
+        "test_boundary_neighbor2_holdout": 0.5073692949949705,
+        "test_boundary_neighbor5_holdout": 0.5124959762655051
+      },
+      "target": "S3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 5.0,
+        "method": "logit_subject_mean",
+        "name": "logit_subject_mean_a5_w0.1",
+        "weight": 0.1
+      },
+      "config": "S3_logit_subject_mean_a5_w0.1",
+      "eligible": false,
+      "max_delta": 0.0023602308300543773,
+      "mean_delta": 0.0015547634054042137,
+      "min_delta": 3.504391080166869e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.471610051027991,
+        "loso_10": 0.489944683434979,
+        "subject_hole_5": 0.48994468343497904,
+        "test_boundary_neighbor2_holdout": 0.5053185090253905,
+        "test_boundary_neighbor5_holdout": 0.5117752307455081
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.0023285549540265627,
+        "loso_10": 3.504391080166869e-05,
+        "subject_hole_5": 0.0023602308300543773,
+        "test_boundary_neighbor2_holdout": 0.0020830786568225568,
+        "test_boundary_neighbor5_holdout": 0.0009669086753159029
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.47393860598201754,
+        "loso_10": 0.48997972734578066,
+        "subject_hole_5": 0.4923049142650334,
+        "test_boundary_neighbor2_holdout": 0.5074015876822131,
+        "test_boundary_neighbor5_holdout": 0.512742139420824
+      },
+      "target": "S3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 5.0,
+        "method": "prob_subject_mean",
+        "name": "prob_subject_mean_a5_w0.1",
+        "weight": 0.1
+      },
+      "config": "S3_prob_subject_mean_a5_w0.1",
+      "eligible": false,
+      "max_delta": 0.0024212930958593115,
+      "mean_delta": 0.001564799918415727,
+      "min_delta": 4.170785828050416e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.471610051027991,
+        "loso_10": 0.489944683434979,
+        "subject_hole_5": 0.48994468343497904,
+        "test_boundary_neighbor2_holdout": 0.5053185090253905,
+        "test_boundary_neighbor5_holdout": 0.5117752307455081
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.002235922813223934,
+        "loso_10": 4.170785828050416e-05,
+        "subject_hole_5": 0.0024212930958593115,
+        "test_boundary_neighbor2_holdout": 0.002164685469839056,
+        "test_boundary_neighbor5_holdout": 0.0009603903548758286
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.4738459738412149,
+        "loso_10": 0.4899863912932595,
+        "subject_hole_5": 0.49236597653083836,
+        "test_boundary_neighbor2_holdout": 0.5074831944952296,
+        "test_boundary_neighbor5_holdout": 0.512735621100384
+      },
+      "target": "S3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 10.0,
+        "method": "logit_subject_mean",
+        "name": "logit_subject_mean_a10_w0.1",
+        "weight": 0.1
+      },
+      "config": "S3_logit_subject_mean_a10_w0.1",
+      "eligible": false,
+      "max_delta": 0.0030731993144624825,
+      "mean_delta": 0.0017999984813416136,
+      "min_delta": 3.504391080166869e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.471610051027991,
+        "loso_10": 0.489944683434979,
+        "subject_hole_5": 0.48994468343497904,
+        "test_boundary_neighbor2_holdout": 0.5053185090253905,
+        "test_boundary_neighbor5_holdout": 0.5117752307455081
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.0030731993144624825,
+        "loso_10": 3.504391080166869e-05,
+        "subject_hole_5": 0.0024341381001172224,
+        "test_boundary_neighbor2_holdout": 0.0021597642736347344,
+        "test_boundary_neighbor5_holdout": 0.0012978468076919603
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.47468325034245346,
+        "loso_10": 0.48997972734578066,
+        "subject_hole_5": 0.49237882153509627,
+        "test_boundary_neighbor2_holdout": 0.5074782732990253,
+        "test_boundary_neighbor5_holdout": 0.5130730775532001
+      },
+      "target": "S3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 10.0,
+        "method": "prob_subject_mean",
+        "name": "prob_subject_mean_a10_w0.1",
+        "weight": 0.1
+      },
+      "config": "S3_prob_subject_mean_a10_w0.1",
+      "eligible": false,
+      "max_delta": 0.003063838557488485,
+      "mean_delta": 0.0018425759155706323,
+      "min_delta": 4.170785828050416e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.471610051027991,
+        "loso_10": 0.489944683434979,
+        "subject_hole_5": 0.48994468343497904,
+        "test_boundary_neighbor2_holdout": 0.5053185090253905,
+        "test_boundary_neighbor5_holdout": 0.5117752307455081
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.003063838557488485,
+        "loso_10": 4.170785828050416e-05,
+        "subject_hole_5": 0.002585171284888499,
+        "test_boundary_neighbor2_holdout": 0.002257854297383788,
+        "test_boundary_neighbor5_holdout": 0.0012643075798118852
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.47467388958547946,
+        "loso_10": 0.4899863912932595,
+        "subject_hole_5": 0.49252985471986754,
+        "test_boundary_neighbor2_holdout": 0.5075763633227743,
+        "test_boundary_neighbor5_holdout": 0.51303953832532
+      },
+      "target": "S3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 10.0,
+        "method": "logit_subject_mean",
+        "name": "logit_subject_mean_a10_w0.25",
+        "weight": 0.25
+      },
+      "config": "Q3_logit_subject_mean_a10_w0.25",
+      "eligible": false,
+      "max_delta": 0.004116073488002803,
+      "mean_delta": 0.002359656137428767,
+      "min_delta": 4.496957324906514e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.514548850569324,
+        "loso_10": 0.5632259042854845,
+        "subject_hole_5": 0.5632259042854845,
+        "test_boundary_neighbor2_holdout": 0.6063862866978805,
+        "test_boundary_neighbor5_holdout": 0.5833753098643744
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.003810991876087244,
+        "loso_10": 4.496957324906514e-05,
+        "subject_hole_5": 0.004116073488002803,
+        "test_boundary_neighbor2_holdout": 0.003362225556797771,
+        "test_boundary_neighbor5_holdout": 0.0004640201930069532
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.5183598424454112,
+        "loso_10": 0.5632708738587335,
+        "subject_hole_5": 0.5673419777734873,
+        "test_boundary_neighbor2_holdout": 0.6097485122546783,
+        "test_boundary_neighbor5_holdout": 0.5838393300573813
+      },
+      "target": "Q3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 5.0,
+        "method": "logit_subject_mean",
+        "name": "logit_subject_mean_a5_w0.25",
+        "weight": 0.25
+      },
+      "config": "Q3_logit_subject_mean_a5_w0.25",
+      "eligible": false,
+      "max_delta": 0.004703617539079108,
+      "mean_delta": 0.002543449591379865,
+      "min_delta": 4.496957324906514e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.514548850569324,
+        "loso_10": 0.5632259042854845,
+        "subject_hole_5": 0.5632259042854845,
+        "test_boundary_neighbor2_holdout": 0.6063862866978805,
+        "test_boundary_neighbor5_holdout": 0.5833753098643744
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.0035119205665289366,
+        "loso_10": 4.496957324906514e-05,
+        "subject_hole_5": 0.004703617539079108,
+        "test_boundary_neighbor2_holdout": 0.0035600711985172007,
+        "test_boundary_neighbor5_holdout": 0.0008966690795250143
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.5180607711358529,
+        "loso_10": 0.5632708738587335,
+        "subject_hole_5": 0.5679295218245636,
+        "test_boundary_neighbor2_holdout": 0.6099463578963977,
+        "test_boundary_neighbor5_holdout": 0.5842719789438994
+      },
+      "target": "Q3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 10.0,
+        "method": "prob_subject_mean",
+        "name": "prob_subject_mean_a10_w0.25",
+        "weight": 0.25
+      },
+      "config": "Q3_prob_subject_mean_a10_w0.25",
+      "eligible": false,
+      "max_delta": 0.004625713525204911,
+      "mean_delta": 0.0026034103622013085,
+      "min_delta": 5.2409432260702715e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.514548850569324,
+        "loso_10": 0.5632259042854845,
+        "subject_hole_5": 0.5632259042854845,
+        "test_boundary_neighbor2_holdout": 0.6063862866978805,
+        "test_boundary_neighbor5_holdout": 0.5833753098643744
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.004625713525204911,
+        "loso_10": 5.2409432260702715e-05,
+        "subject_hole_5": 0.004481548298142957,
+        "test_boundary_neighbor2_holdout": 0.0034754565292727246,
+        "test_boundary_neighbor5_holdout": 0.00038192402612524656
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.5191745640945289,
+        "loso_10": 0.5632783137177452,
+        "subject_hole_5": 0.5677074525836274,
+        "test_boundary_neighbor2_holdout": 0.6098617432271533,
+        "test_boundary_neighbor5_holdout": 0.5837572338904996
+      },
+      "target": "Q3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 2.0,
+        "method": "logit_subject_mean",
+        "name": "logit_subject_mean_a2_w0.25",
+        "weight": 0.25
+      },
+      "config": "Q3_logit_subject_mean_a2_w0.25",
+      "eligible": false,
+      "max_delta": 0.005171597972743913,
+      "mean_delta": 0.0027170310581827286,
+      "min_delta": 4.496957324906514e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.514548850569324,
+        "loso_10": 0.5632259042854845,
+        "subject_hole_5": 0.5632259042854845,
+        "test_boundary_neighbor2_holdout": 0.6063862866978805,
+        "test_boundary_neighbor5_holdout": 0.5833753098643744
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.0033182720194366855,
+        "loso_10": 4.496957324906514e-05,
+        "subject_hole_5": 0.005171597972743913,
+        "test_boundary_neighbor2_holdout": 0.003737118221239788,
+        "test_boundary_neighbor5_holdout": 0.0013131975042441901
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.5178671225887607,
+        "loso_10": 0.5632708738587335,
+        "subject_hole_5": 0.5683975022582284,
+        "test_boundary_neighbor2_holdout": 0.6101234049191203,
+        "test_boundary_neighbor5_holdout": 0.5846885073686185
+      },
+      "target": "Q3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 5.0,
+        "method": "prob_subject_mean",
+        "name": "prob_subject_mean_a5_w0.25",
+        "weight": 0.25
+      },
+      "config": "Q3_prob_subject_mean_a5_w0.25",
+      "eligible": false,
+      "max_delta": 0.005060537180239355,
+      "mean_delta": 0.002925193182983077,
+      "min_delta": 5.2409432260702715e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.514548850569324,
+        "loso_10": 0.5632259042854845,
+        "subject_hole_5": 0.5632259042854845,
+        "test_boundary_neighbor2_holdout": 0.6063862866978805,
+        "test_boundary_neighbor5_holdout": 0.5833753098643744
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.004453988292595912,
+        "loso_10": 5.2409432260702715e-05,
+        "subject_hole_5": 0.005060537180239355,
+        "test_boundary_neighbor2_holdout": 0.004019047597092595,
+        "test_boundary_neighbor5_holdout": 0.0010399834127268193
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.5190028388619199,
+        "loso_10": 0.5632783137177452,
+        "subject_hole_5": 0.5682864414657238,
+        "test_boundary_neighbor2_holdout": 0.6104053342949731,
+        "test_boundary_neighbor5_holdout": 0.5844152932771012
+      },
+      "target": "Q3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 2.0,
+        "method": "prob_subject_mean",
+        "name": "prob_subject_mean_a2_w0.25",
+        "weight": 0.25
+      },
+      "config": "Q3_prob_subject_mean_a2_w0.25",
+      "eligible": false,
+      "max_delta": 0.005510799252956278,
+      "mean_delta": 0.0031924461058379762,
+      "min_delta": 5.2409432260702715e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.514548850569324,
+        "loso_10": 0.5632259042854845,
+        "subject_hole_5": 0.5632259042854845,
+        "test_boundary_neighbor2_holdout": 0.6063862866978805,
+        "test_boundary_neighbor5_holdout": 0.5833753098643744
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.004352252036683435,
+        "loso_10": 5.2409432260702715e-05,
+        "subject_hole_5": 0.005510799252956278,
+        "test_boundary_neighbor2_holdout": 0.004441231953846381,
+        "test_boundary_neighbor5_holdout": 0.0016055378534430842
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.5189011026060074,
+        "loso_10": 0.5632783137177452,
+        "subject_hole_5": 0.5687367035384407,
+        "test_boundary_neighbor2_holdout": 0.6108275186517269,
+        "test_boundary_neighbor5_holdout": 0.5849808477178174
+      },
+      "target": "Q3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 2.0,
+        "method": "global_subject_mean",
+        "name": "global_subject_mean_a2_w0.1",
+        "weight": 0.1
+      },
+      "config": "Q3_global_subject_mean_a2_w0.1",
+      "eligible": false,
+      "max_delta": 0.008358792673074378,
+      "mean_delta": 0.0033237681069318236,
+      "min_delta": -0.0025352095451864898,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.514548850569324,
+        "loso_10": 0.5632259042854845,
+        "subject_hole_5": 0.5632259042854845,
+        "test_boundary_neighbor2_holdout": 0.6063862866978805,
+        "test_boundary_neighbor5_holdout": 0.5833753098643744
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.008358792673074378,
+        "loso_10": 0.004348713351804978,
+        "subject_hole_5": 0.004399108822281672,
+        "test_boundary_neighbor2_holdout": -0.0025352095451864898,
+        "test_boundary_neighbor5_holdout": 0.00204743523268458
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.5229076432423984,
+        "loso_10": 0.5675746176372894,
+        "subject_hole_5": 0.5676250131077661,
+        "test_boundary_neighbor2_holdout": 0.603851077152694,
+        "test_boundary_neighbor5_holdout": 0.5854227450970589
+      },
+      "target": "Q3",
+      "wins": 1
+    },
+    {
+      "calibration_spec": {
+        "alpha": 5.0,
+        "method": "global_subject_mean",
+        "name": "global_subject_mean_a5_w0.1",
+        "weight": 0.1
+      },
+      "config": "Q3_global_subject_mean_a5_w0.1",
+      "eligible": false,
+      "max_delta": 0.008358792673074378,
+      "mean_delta": 0.0033237681069318236,
+      "min_delta": -0.0025352095451864898,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.514548850569324,
+        "loso_10": 0.5632259042854845,
+        "subject_hole_5": 0.5632259042854845,
+        "test_boundary_neighbor2_holdout": 0.6063862866978805,
+        "test_boundary_neighbor5_holdout": 0.5833753098643744
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.008358792673074378,
+        "loso_10": 0.004348713351804978,
+        "subject_hole_5": 0.004399108822281672,
+        "test_boundary_neighbor2_holdout": -0.0025352095451864898,
+        "test_boundary_neighbor5_holdout": 0.00204743523268458
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.5229076432423984,
+        "loso_10": 0.5675746176372894,
+        "subject_hole_5": 0.5676250131077661,
+        "test_boundary_neighbor2_holdout": 0.603851077152694,
+        "test_boundary_neighbor5_holdout": 0.5854227450970589
+      },
+      "target": "Q3",
+      "wins": 1
+    },
+    {
+      "calibration_spec": {
+        "alpha": 10.0,
+        "method": "global_subject_mean",
+        "name": "global_subject_mean_a10_w0.1",
+        "weight": 0.1
+      },
+      "config": "Q3_global_subject_mean_a10_w0.1",
+      "eligible": false,
+      "max_delta": 0.008358792673074378,
+      "mean_delta": 0.0033237681069318236,
+      "min_delta": -0.0025352095451864898,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.514548850569324,
+        "loso_10": 0.5632259042854845,
+        "subject_hole_5": 0.5632259042854845,
+        "test_boundary_neighbor2_holdout": 0.6063862866978805,
+        "test_boundary_neighbor5_holdout": 0.5833753098643744
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.008358792673074378,
+        "loso_10": 0.004348713351804978,
+        "subject_hole_5": 0.004399108822281672,
+        "test_boundary_neighbor2_holdout": -0.0025352095451864898,
+        "test_boundary_neighbor5_holdout": 0.00204743523268458
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.5229076432423984,
+        "loso_10": 0.5675746176372894,
+        "subject_hole_5": 0.5676250131077661,
+        "test_boundary_neighbor2_holdout": 0.603851077152694,
+        "test_boundary_neighbor5_holdout": 0.5854227450970589
+      },
+      "target": "Q3",
+      "wins": 1
+    },
+    {
+      "calibration_spec": {
+        "alpha": 2.0,
+        "method": "prob_subject_mean",
+        "name": "prob_subject_mean_a2_w0.25",
+        "weight": 0.25
+      },
+      "config": "S3_prob_subject_mean_a2_w0.25",
+      "eligible": false,
+      "max_delta": 0.006037504401425697,
+      "mean_delta": 0.003581928736335671,
+      "min_delta": 0.0001054227853241052,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.471610051027991,
+        "loso_10": 0.489944683434979,
+        "subject_hole_5": 0.48994468343497904,
+        "test_boundary_neighbor2_holdout": 0.5053185090253905,
+        "test_boundary_neighbor5_holdout": 0.5117752307455081
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.00420767535685973,
+        "loso_10": 0.0001054227853241052,
+        "subject_hole_5": 0.006037504401425697,
+        "test_boundary_neighbor2_holdout": 0.005529852610273833,
+        "test_boundary_neighbor5_holdout": 0.0020291885277949895
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.4758177263848507,
+        "loso_10": 0.4900501062203031,
+        "subject_hole_5": 0.49598218783640474,
+        "test_boundary_neighbor2_holdout": 0.5108483616356644,
+        "test_boundary_neighbor5_holdout": 0.5138044192733031
+      },
+      "target": "S3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 2.0,
+        "method": "logit_subject_mean",
+        "name": "logit_subject_mean_a2_w0.25",
+        "weight": 0.25
+      },
+      "config": "S3_logit_subject_mean_a2_w0.25",
+      "eligible": false,
+      "max_delta": 0.006018609070541858,
+      "mean_delta": 0.003582535023351363,
+      "min_delta": 8.833953756109958e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.471610051027991,
+        "loso_10": 0.489944683434979,
+        "subject_hole_5": 0.48994468343497904,
+        "test_boundary_neighbor2_holdout": 0.5053185090253905,
+        "test_boundary_neighbor5_holdout": 0.5117752307455081
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.004595291020959125,
+        "loso_10": 8.833953756109958e-05,
+        "subject_hole_5": 0.006018609070541858,
+        "test_boundary_neighbor2_holdout": 0.005304515822276867,
+        "test_boundary_neighbor5_holdout": 0.0019059196654178656
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.4762053420489501,
+        "loso_10": 0.4900330229725401,
+        "subject_hole_5": 0.4959632925055209,
+        "test_boundary_neighbor2_holdout": 0.5106230248476674,
+        "test_boundary_neighbor5_holdout": 0.513681150410926
+      },
+      "target": "S3",
+      "wins": 0
+    },
+    {
+      "calibration_spec": {
+        "alpha": 5.0,
+        "method": "logit_subject_mean",
+        "name": "logit_subject_mean_a5_w0.25",
+        "weight": 0.25
+      },
+      "config": "S3_logit_subject_mean_a5_w0.25",
+      "eligible": false,
+      "max_delta": 0.006030611982161316,
+      "mean_delta": 0.003992491346887927,
+      "min_delta": 8.833953756109958e-05,
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.471610051027991,
+        "loso_10": 0.489944683434979,
+        "subject_hole_5": 0.48994468343497904,
+        "test_boundary_neighbor2_holdout": 0.5053185090253905,
+        "test_boundary_neighbor5_holdout": 0.5117752307455081
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": 0.0059418622676015165,
+        "loso_10": 8.833953756109958e-05,
+        "subject_hole_5": 0.006030611982161316,
+        "test_boundary_neighbor2_holdout": 0.005307812646240473,
+        "test_boundary_neighbor5_holdout": 0.002593830300875233
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.4775519132955925,
+        "loso_10": 0.4900330229725401,
+        "subject_hole_5": 0.49597529541714036,
+        "test_boundary_neighbor2_holdout": 0.510626321671631,
+        "test_boundary_neighbor5_holdout": 0.5143690610463834
+      },
+      "target": "S3",
+      "wins": 0
+    }
+  ],
+  "validation": {
+    "alphas": [
+      2.0,
+      5.0,
+      10.0
+    ],
+    "blend_weights": [
+      0.1,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "primary_splits": [
+      "subject_hole_5",
+      "actual_test_band_holdout",
+      "test_boundary_neighbor2_holdout",
+      "test_boundary_neighbor5_holdout",
+      "loso_10"
+    ],
+    "target_max_delta_ceiling": 0.00075,
+    "target_mean_delta_ceiling": -5e-05,
+    "target_win_floor": 4
+  }
+}

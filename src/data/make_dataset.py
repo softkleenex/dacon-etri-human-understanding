@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 from sklearn.cluster import DBSCAN
 
+from src.features.demographics import add_official_demographics
 from src.utils.logger import get_logger
 
 logger = get_logger(__name__)
@@ -1233,6 +1234,11 @@ def build_training_dataset(metrics_df: pd.DataFrame, sensor_data_dict: dict[str,
             logger.info("Successfully merged external weather features.")
         except Exception as e:
             logger.error(f"Error merging weather features: {e}")
+
+    # 8. Add official static subject demographics from the ETRI paper.
+    # These are subject-level constants disclosed in docs/domain/etri_lifelog_2024_paper.md.
+    final_df = add_official_demographics(final_df, id_col=id_col)
+    logger.info("Successfully merged official ETRI paper demographic features.")
 
     return final_df
 

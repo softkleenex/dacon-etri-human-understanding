@@ -1,0 +1,91 @@
+{
+  "created_at": "2026-06-16",
+  "purpose": "Review after ID209 shapelet/motif sequence overlay and ID210/ID211 bridge updates.",
+  "id209": {
+    "base_id": 206,
+    "local_cv_before": 0.5357639123296409,
+    "local_cv_after": 0.5345300685479047,
+    "modified_targets": [
+      "Q1",
+      "S4"
+    ],
+    "selected_configs": {
+      "Q1": {
+        "kind": "blend",
+        "feature_set": "shapelet_motif",
+        "model": "lr_c0_1",
+        "weight": 0.03
+      },
+      "Q2": {
+        "kind": "base"
+      },
+      "Q3": {
+        "kind": "base"
+      },
+      "S1": {
+        "kind": "base"
+      },
+      "S2": {
+        "kind": "base"
+      },
+      "S3": {
+        "kind": "base"
+      },
+      "S4": {
+        "kind": "blend",
+        "feature_set": "shapelet_motif",
+        "model": "lr_c0_01",
+        "weight": 0.2
+      }
+    },
+    "target_scores_after": {
+      "Q1": 0.5480756209146977,
+      "Q2": 0.5506886916995475,
+      "Q3": 0.5628770675141632,
+      "S1": 0.4677372079771736,
+      "S2": 0.5295161847284966,
+      "S3": 0.4905526802245998,
+      "S4": 0.592263026776655
+    },
+    "submission_file": "submission_id_209_id206_shapelet_motif_sequence_overlay_cv0.534530_unsubmitted.csv",
+    "diagnostic_report": "reports/id206_shapelet_motif_sequence_diagnostic_20260616.json"
+  },
+  "id210_delta06": {
+    "base_id": 209,
+    "extreme_id": 172,
+    "local_cv": 0.5233999532055248,
+    "comparison_id207_local_cv": 0.5245180891344232,
+    "submission_file": "submission_id_210_id209_targetwise_delta06_id172_extreme_probe_cv0.523400_unsubmitted.csv",
+    "interpretation": "Same delta06 target-wise clean weights as ID207, but with ID209 as clean anchor."
+  },
+  "id211_delta08": {
+    "base_id": 209,
+    "extreme_id": 172,
+    "local_cv": 0.5201055344856742,
+    "comparison_id208_local_cv": 0.5211769609748182,
+    "submission_file": "submission_id_211_id209_targetwise_delta08_id172_extreme_probe_cv0.520106_unsubmitted.csv",
+    "interpretation": "Same delta08 target-wise clean weights as ID208, but with ID209 as clean anchor."
+  },
+  "robustness": {
+    "diagnostic_report": "reports/id178_id211_split_robustness_diagnostic_20260616.json",
+    "id206_to_id209": {
+      "overall_before": 0.5357639123296409,
+      "overall_after": 0.5345300685479047,
+      "robust_before": 0.5687597721582598,
+      "robust_after": 0.5670550739003832
+    },
+    "id207_to_id210": {
+      "overall_before": 0.5245180891344232,
+      "overall_after": 0.5233999532055247,
+      "robust_before": 0.5569203368725831,
+      "robust_after": 0.5553671568155721
+    },
+    "id208_to_id211": {
+      "overall_before": 0.5211769609748182,
+      "overall_after": 0.5201055344856742,
+      "robust_before": 0.5534187012767828,
+      "robust_after": 0.5519278522340688
+    }
+  },
+  "warning": "ID209 is a public-structure clean-branch improvement, not strict Subject-Hole proof. ID210/ID211 inherit non-nested ID172 calibration risk."
+}

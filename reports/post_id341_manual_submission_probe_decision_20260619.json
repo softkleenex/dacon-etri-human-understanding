@@ -1,0 +1,916 @@
+{
+  "created_at_kst": "2026-06-19 21:22:36 UTC+09:00",
+  "diagnostic": "post_id341_manual_submission_probe_decision",
+  "purpose": "Freeze the current manual DACON probe choice without submitting. This separates a low-risk public sanity probe from a Public-0.58 evidence claim.",
+  "inputs": {
+    "combined_transfer_joint_gate": {
+      "path": "reports/post_id341_transfer_gate_v2_joint_risk_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 122574,
+      "decision": {
+        "any_candidate_passes_combined_public_058_gate": false,
+        "public_058_plausible_candidate_exists": false,
+        "best_combined_pass_id": null,
+        "best_combined_pass_file": null,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "next_action": "No local candidate should be submitted unless it passes this combined gate and then receives a separate artifact-contract/manual approval review. If no row passes, stop same-family local recombination and move to the explicit-approved Kaggle upstream rebuild."
+      },
+      "error": null
+    },
+    "id341_public_risk_gate": {
+      "path": "reports/id341_q2_seqsum_w00025_public_risk_gate_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 2599,
+      "decision": {
+        "dacon_submission": false,
+        "public_058_plausible": false,
+        "controlled_low_movement_probe_candidate": true,
+        "requires_explicit_user_approval_before_dacon_submit": true,
+        "read": "ID341 is safer/lower-movement than ID340 by the conservative proxy, but its proxy remains around 0.604 and it is not Public 0.58 evidence."
+      },
+      "error": null
+    },
+    "kaggle_prelaunch_gate": {
+      "path": "reports/post_id341_kaggle_prelaunch_readiness_gate_20260618.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 39372,
+      "decision": {
+        "prelaunch_ready_for_explicit_approval": true,
+        "requires_explicit_user_approval": true,
+        "execute_kaggle_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "artifact_contract_review_allowed": false,
+        "next_action": "Await explicit approval of the exact command sequence, then run the no-submit Kaggle/Linux parity path."
+      },
+      "error": null
+    },
+    "submission_log": {
+      "path": "submissions/submission_log.csv",
+      "exists": true,
+      "rows": 341
+    }
+  },
+  "focus_candidate_ids": [
+    337,
+    338,
+    339,
+    340,
+    341
+  ],
+  "focus_candidates": [
+    {
+      "id": 337,
+      "submission_file": "submission_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066_unsubmitted.csv",
+      "model_description": "ID178 S1-only random-conv seed45502 overlay",
+      "local_cv": 0.538066,
+      "public_lb": null,
+      "is_submitted_bool": false,
+      "status_clean": "generated_unsubmitted",
+      "duplicate_file_count": 1,
+      "artifact_exists_column": true,
+      "csv_status": {
+        "path": "submissions/submission_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066_unsubmitted.csv",
+        "exists": true,
+        "bytes": 39859,
+        "shape": [
+          250,
+          10
+        ],
+        "columns": [
+          "subject_id",
+          "sleep_date",
+          "lifelog_date",
+          "Q1",
+          "Q2",
+          "Q3",
+          "S1",
+          "S2",
+          "S3",
+          "S4"
+        ],
+        "columns_ok": true,
+        "row_count_ok": true,
+        "target_min": 0.0484174604505683,
+        "target_max": 0.9788310768291706
+      },
+      "notebook_status": {
+        "path": "notebooks/history/submission_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066_unsubmitted.ipynb",
+        "exists": true,
+        "bytes": 1472
+      },
+      "proxy_public_risk": 0.6030296547933328,
+      "transfer_risk_tier": "recent_sequence_probe_unsubmitted",
+      "joint_risk_tier": "low_joint_warning",
+      "joint_warning_count": 0,
+      "mean_delta_vs_178": 0.0013360024029959651,
+      "max_delta_vs_178": 0.03758537674604023,
+      "max_delta_vs_341": 0.03758537674604023,
+      "combined_tier": "joint_safe_but_transfer_blocked",
+      "block_reasons": [
+        "transfer_proxy_above_public_058_gate",
+        "transfer_tier:recent_sequence_probe_unsubmitted"
+      ],
+      "artifact_contract_ready": true
+    },
+    {
+      "id": 338,
+      "submission_file": "submission_id_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861_unsubmitted.csv",
+      "model_description": "ID179 S1-only random-conv seed45502 overlay",
+      "local_cv": 0.537861,
+      "public_lb": null,
+      "is_submitted_bool": false,
+      "status_clean": "generated_unsubmitted",
+      "duplicate_file_count": 1,
+      "artifact_exists_column": true,
+      "csv_status": {
+        "path": "submissions/submission_id_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861_unsubmitted.csv",
+        "exists": true,
+        "bytes": 39858,
+        "shape": [
+          250,
+          10
+        ],
+        "columns": [
+          "subject_id",
+          "sleep_date",
+          "lifelog_date",
+          "Q1",
+          "Q2",
+          "Q3",
+          "S1",
+          "S2",
+          "S3",
+          "S4"
+        ],
+        "columns_ok": true,
+        "row_count_ok": true,
+        "target_min": 0.0484174604505683,
+        "target_max": 0.9790607617940928
+      },
+      "notebook_status": {
+        "path": "notebooks/history/submission_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861_unsubmitted.ipynb",
+        "exists": true,
+        "bytes": 1480
+      },
+      "proxy_public_risk": 0.605301522567564,
+      "transfer_risk_tier": "recent_sequence_probe_unsubmitted",
+      "joint_risk_tier": "low_joint_warning",
+      "joint_warning_count": 0,
+      "mean_delta_vs_178": 0.004659634641585283,
+      "max_delta_vs_178": 0.07398893560112152,
+      "max_delta_vs_341": 0.07398893560112152,
+      "combined_tier": "joint_safe_but_transfer_blocked",
+      "block_reasons": [
+        "transfer_proxy_above_public_058_gate",
+        "transfer_tier:recent_sequence_probe_unsubmitted"
+      ],
+      "artifact_contract_ready": true
+    },
+    {
+      "id": 339,
+      "submission_file": "submission_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.csv",
+      "model_description": "ID178 Q123 seq-summary scale0.80 + ID337 S1",
+      "local_cv": 0.536441,
+      "public_lb": null,
+      "is_submitted_bool": false,
+      "status_clean": "generated_unsubmitted",
+      "duplicate_file_count": 1,
+      "artifact_exists_column": true,
+      "csv_status": {
+        "path": "submissions/submission_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.csv",
+        "exists": true,
+        "bytes": 39990,
+        "shape": [
+          250,
+          10
+        ],
+        "columns": [
+          "subject_id",
+          "sleep_date",
+          "lifelog_date",
+          "Q1",
+          "Q2",
+          "Q3",
+          "S1",
+          "S2",
+          "S3",
+          "S4"
+        ],
+        "columns_ok": true,
+        "row_count_ok": true,
+        "target_min": 0.0484174604505683,
+        "target_max": 0.9788310768291706
+      },
+      "notebook_status": {
+        "path": "notebooks/history/submission_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.ipynb",
+        "exists": true,
+        "bytes": 1334
+      },
+      "proxy_public_risk": 0.608258781502767,
+      "transfer_risk_tier": "recent_sequence_probe_unsubmitted",
+      "joint_risk_tier": "low_joint_warning",
+      "joint_warning_count": 0,
+      "mean_delta_vs_178": 0.012602007839208288,
+      "max_delta_vs_178": 0.0970511427879002,
+      "max_delta_vs_341": 0.09502569790466678,
+      "combined_tier": "joint_safe_but_transfer_blocked",
+      "block_reasons": [
+        "transfer_proxy_above_public_058_gate",
+        "transfer_tier:recent_sequence_probe_unsubmitted"
+      ],
+      "artifact_contract_ready": true
+    },
+    {
+      "id": 340,
+      "submission_file": "submission_id_340_id178_q2_seqsum_lr_c03_w001_safety_cv0.538426_unsubmitted.csv",
+      "model_description": "ID178 Q2-only seq-summary lr_c0_3 w0.01",
+      "local_cv": 0.538426,
+      "public_lb": null,
+      "is_submitted_bool": false,
+      "status_clean": "generated_unsubmitted",
+      "duplicate_file_count": 1,
+      "artifact_exists_column": true,
+      "csv_status": {
+        "path": "submissions/submission_id_340_id178_q2_seqsum_lr_c03_w001_safety_cv0.538426_unsubmitted.csv",
+        "exists": true,
+        "bytes": 39864,
+        "shape": [
+          250,
+          10
+        ],
+        "columns": [
+          "subject_id",
+          "sleep_date",
+          "lifelog_date",
+          "Q1",
+          "Q2",
+          "Q3",
+          "S1",
+          "S2",
+          "S3",
+          "S4"
+        ],
+        "columns_ok": true,
+        "row_count_ok": true,
+        "target_min": 0.0484174604505683,
+        "target_max": 0.9799619598366446
+      },
+      "notebook_status": {
+        "path": "notebooks/history/submission_340_id178_q2_seqsum_lr_c03_w001_safety_cv0.538426_unsubmitted.ipynb",
+        "exists": true,
+        "bytes": 987
+      },
+      "proxy_public_risk": 0.6017796425555021,
+      "transfer_risk_tier": "recent_sequence_probe_unsubmitted",
+      "joint_risk_tier": "low_joint_warning",
+      "joint_warning_count": 0,
+      "mean_delta_vs_178": 0.0004940372186930473,
+      "max_delta_vs_178": 0.008101779532933812,
+      "max_delta_vs_341": 0.006076334649700393,
+      "combined_tier": "joint_safe_but_transfer_blocked",
+      "block_reasons": [
+        "transfer_proxy_above_public_058_gate",
+        "transfer_tier:recent_sequence_probe_unsubmitted"
+      ],
+      "artifact_contract_ready": true
+    },
+    {
+      "id": 341,
+      "submission_file": "submission_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.csv",
+      "model_description": "ID178 Q2-only seq-summary lr_c0_3 w0.0025",
+      "local_cv": 0.538584,
+      "public_lb": null,
+      "is_submitted_bool": false,
+      "status_clean": "generated_unsubmitted",
+      "duplicate_file_count": 1,
+      "artifact_exists_column": true,
+      "csv_status": {
+        "path": "submissions/submission_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.csv",
+        "exists": true,
+        "bytes": 39845,
+        "shape": [
+          250,
+          10
+        ],
+        "columns": [
+          "subject_id",
+          "sleep_date",
+          "lifelog_date",
+          "Q1",
+          "Q2",
+          "Q3",
+          "S1",
+          "S2",
+          "S3",
+          "S4"
+        ],
+        "columns_ok": true,
+        "row_count_ok": true,
+        "target_min": 0.0484174604505683,
+        "target_max": 0.9799619598366446
+      },
+      "notebook_status": {
+        "path": "notebooks/history/submission_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.ipynb",
+        "exists": true,
+        "bytes": 1023
+      },
+      "proxy_public_risk": 0.6038297835283394,
+      "transfer_risk_tier": "current_control_no_submit",
+      "joint_risk_tier": "low_joint_warning",
+      "joint_warning_count": 0,
+      "mean_delta_vs_178": 0.00012350930467326245,
+      "max_delta_vs_178": 0.002025444883233418,
+      "max_delta_vs_341": 0.0,
+      "combined_tier": "joint_safe_but_transfer_blocked",
+      "block_reasons": [
+        "transfer_proxy_above_public_058_gate",
+        "transfer_tier:current_control_no_submit"
+      ],
+      "artifact_contract_ready": true
+    }
+  ],
+  "safety_ranked_focus_candidates": [
+    {
+      "id": 341,
+      "submission_file": "submission_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.csv",
+      "model_description": "ID178 Q2-only seq-summary lr_c0_3 w0.0025",
+      "local_cv": 0.538584,
+      "public_lb": null,
+      "is_submitted_bool": false,
+      "status_clean": "generated_unsubmitted",
+      "duplicate_file_count": 1,
+      "artifact_exists_column": true,
+      "csv_status": {
+        "path": "submissions/submission_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.csv",
+        "exists": true,
+        "bytes": 39845,
+        "shape": [
+          250,
+          10
+        ],
+        "columns": [
+          "subject_id",
+          "sleep_date",
+          "lifelog_date",
+          "Q1",
+          "Q2",
+          "Q3",
+          "S1",
+          "S2",
+          "S3",
+          "S4"
+        ],
+        "columns_ok": true,
+        "row_count_ok": true,
+        "target_min": 0.0484174604505683,
+        "target_max": 0.9799619598366446
+      },
+      "notebook_status": {
+        "path": "notebooks/history/submission_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.ipynb",
+        "exists": true,
+        "bytes": 1023
+      },
+      "proxy_public_risk": 0.6038297835283394,
+      "transfer_risk_tier": "current_control_no_submit",
+      "joint_risk_tier": "low_joint_warning",
+      "joint_warning_count": 0,
+      "mean_delta_vs_178": 0.00012350930467326245,
+      "max_delta_vs_178": 0.002025444883233418,
+      "max_delta_vs_341": 0.0,
+      "combined_tier": "joint_safe_but_transfer_blocked",
+      "block_reasons": [
+        "transfer_proxy_above_public_058_gate",
+        "transfer_tier:current_control_no_submit"
+      ],
+      "artifact_contract_ready": true
+    },
+    {
+      "id": 340,
+      "submission_file": "submission_id_340_id178_q2_seqsum_lr_c03_w001_safety_cv0.538426_unsubmitted.csv",
+      "model_description": "ID178 Q2-only seq-summary lr_c0_3 w0.01",
+      "local_cv": 0.538426,
+      "public_lb": null,
+      "is_submitted_bool": false,
+      "status_clean": "generated_unsubmitted",
+      "duplicate_file_count": 1,
+      "artifact_exists_column": true,
+      "csv_status": {
+        "path": "submissions/submission_id_340_id178_q2_seqsum_lr_c03_w001_safety_cv0.538426_unsubmitted.csv",
+        "exists": true,
+        "bytes": 39864,
+        "shape": [
+          250,
+          10
+        ],
+        "columns": [
+          "subject_id",
+          "sleep_date",
+          "lifelog_date",
+          "Q1",
+          "Q2",
+          "Q3",
+          "S1",
+          "S2",
+          "S3",
+          "S4"
+        ],
+        "columns_ok": true,
+        "row_count_ok": true,
+        "target_min": 0.0484174604505683,
+        "target_max": 0.9799619598366446
+      },
+      "notebook_status": {
+        "path": "notebooks/history/submission_340_id178_q2_seqsum_lr_c03_w001_safety_cv0.538426_unsubmitted.ipynb",
+        "exists": true,
+        "bytes": 987
+      },
+      "proxy_public_risk": 0.6017796425555021,
+      "transfer_risk_tier": "recent_sequence_probe_unsubmitted",
+      "joint_risk_tier": "low_joint_warning",
+      "joint_warning_count": 0,
+      "mean_delta_vs_178": 0.0004940372186930473,
+      "max_delta_vs_178": 0.008101779532933812,
+      "max_delta_vs_341": 0.006076334649700393,
+      "combined_tier": "joint_safe_but_transfer_blocked",
+      "block_reasons": [
+        "transfer_proxy_above_public_058_gate",
+        "transfer_tier:recent_sequence_probe_unsubmitted"
+      ],
+      "artifact_contract_ready": true
+    },
+    {
+      "id": 337,
+      "submission_file": "submission_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066_unsubmitted.csv",
+      "model_description": "ID178 S1-only random-conv seed45502 overlay",
+      "local_cv": 0.538066,
+      "public_lb": null,
+      "is_submitted_bool": false,
+      "status_clean": "generated_unsubmitted",
+      "duplicate_file_count": 1,
+      "artifact_exists_column": true,
+      "csv_status": {
+        "path": "submissions/submission_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066_unsubmitted.csv",
+        "exists": true,
+        "bytes": 39859,
+        "shape": [
+          250,
+          10
+        ],
+        "columns": [
+          "subject_id",
+          "sleep_date",
+          "lifelog_date",
+          "Q1",
+          "Q2",
+          "Q3",
+          "S1",
+          "S2",
+          "S3",
+          "S4"
+        ],
+        "columns_ok": true,
+        "row_count_ok": true,
+        "target_min": 0.0484174604505683,
+        "target_max": 0.9788310768291706
+      },
+      "notebook_status": {
+        "path": "notebooks/history/submission_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066_unsubmitted.ipynb",
+        "exists": true,
+        "bytes": 1472
+      },
+      "proxy_public_risk": 0.6030296547933328,
+      "transfer_risk_tier": "recent_sequence_probe_unsubmitted",
+      "joint_risk_tier": "low_joint_warning",
+      "joint_warning_count": 0,
+      "mean_delta_vs_178": 0.0013360024029959651,
+      "max_delta_vs_178": 0.03758537674604023,
+      "max_delta_vs_341": 0.03758537674604023,
+      "combined_tier": "joint_safe_but_transfer_blocked",
+      "block_reasons": [
+        "transfer_proxy_above_public_058_gate",
+        "transfer_tier:recent_sequence_probe_unsubmitted"
+      ],
+      "artifact_contract_ready": true
+    },
+    {
+      "id": 338,
+      "submission_file": "submission_id_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861_unsubmitted.csv",
+      "model_description": "ID179 S1-only random-conv seed45502 overlay",
+      "local_cv": 0.537861,
+      "public_lb": null,
+      "is_submitted_bool": false,
+      "status_clean": "generated_unsubmitted",
+      "duplicate_file_count": 1,
+      "artifact_exists_column": true,
+      "csv_status": {
+        "path": "submissions/submission_id_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861_unsubmitted.csv",
+        "exists": true,
+        "bytes": 39858,
+        "shape": [
+          250,
+          10
+        ],
+        "columns": [
+          "subject_id",
+          "sleep_date",
+          "lifelog_date",
+          "Q1",
+          "Q2",
+          "Q3",
+          "S1",
+          "S2",
+          "S3",
+          "S4"
+        ],
+        "columns_ok": true,
+        "row_count_ok": true,
+        "target_min": 0.0484174604505683,
+        "target_max": 0.9790607617940928
+      },
+      "notebook_status": {
+        "path": "notebooks/history/submission_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861_unsubmitted.ipynb",
+        "exists": true,
+        "bytes": 1480
+      },
+      "proxy_public_risk": 0.605301522567564,
+      "transfer_risk_tier": "recent_sequence_probe_unsubmitted",
+      "joint_risk_tier": "low_joint_warning",
+      "joint_warning_count": 0,
+      "mean_delta_vs_178": 0.004659634641585283,
+      "max_delta_vs_178": 0.07398893560112152,
+      "max_delta_vs_341": 0.07398893560112152,
+      "combined_tier": "joint_safe_but_transfer_blocked",
+      "block_reasons": [
+        "transfer_proxy_above_public_058_gate",
+        "transfer_tier:recent_sequence_probe_unsubmitted"
+      ],
+      "artifact_contract_ready": true
+    },
+    {
+      "id": 339,
+      "submission_file": "submission_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.csv",
+      "model_description": "ID178 Q123 seq-summary scale0.80 + ID337 S1",
+      "local_cv": 0.536441,
+      "public_lb": null,
+      "is_submitted_bool": false,
+      "status_clean": "generated_unsubmitted",
+      "duplicate_file_count": 1,
+      "artifact_exists_column": true,
+      "csv_status": {
+        "path": "submissions/submission_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.csv",
+        "exists": true,
+        "bytes": 39990,
+        "shape": [
+          250,
+          10
+        ],
+        "columns": [
+          "subject_id",
+          "sleep_date",
+          "lifelog_date",
+          "Q1",
+          "Q2",
+          "Q3",
+          "S1",
+          "S2",
+          "S3",
+          "S4"
+        ],
+        "columns_ok": true,
+        "row_count_ok": true,
+        "target_min": 0.0484174604505683,
+        "target_max": 0.9788310768291706
+      },
+      "notebook_status": {
+        "path": "notebooks/history/submission_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.ipynb",
+        "exists": true,
+        "bytes": 1334
+      },
+      "proxy_public_risk": 0.608258781502767,
+      "transfer_risk_tier": "recent_sequence_probe_unsubmitted",
+      "joint_risk_tier": "low_joint_warning",
+      "joint_warning_count": 0,
+      "mean_delta_vs_178": 0.012602007839208288,
+      "max_delta_vs_178": 0.0970511427879002,
+      "max_delta_vs_341": 0.09502569790466678,
+      "combined_tier": "joint_safe_but_transfer_blocked",
+      "block_reasons": [
+        "transfer_proxy_above_public_058_gate",
+        "transfer_tier:recent_sequence_probe_unsubmitted"
+      ],
+      "artifact_contract_ready": true
+    }
+  ],
+  "proxy_ranked_focus_candidates": [
+    {
+      "id": 340,
+      "submission_file": "submission_id_340_id178_q2_seqsum_lr_c03_w001_safety_cv0.538426_unsubmitted.csv",
+      "model_description": "ID178 Q2-only seq-summary lr_c0_3 w0.01",
+      "local_cv": 0.538426,
+      "public_lb": null,
+      "is_submitted_bool": false,
+      "status_clean": "generated_unsubmitted",
+      "duplicate_file_count": 1,
+      "artifact_exists_column": true,
+      "csv_status": {
+        "path": "submissions/submission_id_340_id178_q2_seqsum_lr_c03_w001_safety_cv0.538426_unsubmitted.csv",
+        "exists": true,
+        "bytes": 39864,
+        "shape": [
+          250,
+          10
+        ],
+        "columns": [
+          "subject_id",
+          "sleep_date",
+          "lifelog_date",
+          "Q1",
+          "Q2",
+          "Q3",
+          "S1",
+          "S2",
+          "S3",
+          "S4"
+        ],
+        "columns_ok": true,
+        "row_count_ok": true,
+        "target_min": 0.0484174604505683,
+        "target_max": 0.9799619598366446
+      },
+      "notebook_status": {
+        "path": "notebooks/history/submission_340_id178_q2_seqsum_lr_c03_w001_safety_cv0.538426_unsubmitted.ipynb",
+        "exists": true,
+        "bytes": 987
+      },
+      "proxy_public_risk": 0.6017796425555021,
+      "transfer_risk_tier": "recent_sequence_probe_unsubmitted",
+      "joint_risk_tier": "low_joint_warning",
+      "joint_warning_count": 0,
+      "mean_delta_vs_178": 0.0004940372186930473,
+      "max_delta_vs_178": 0.008101779532933812,
+      "max_delta_vs_341": 0.006076334649700393,
+      "combined_tier": "joint_safe_but_transfer_blocked",
+      "block_reasons": [
+        "transfer_proxy_above_public_058_gate",
+        "transfer_tier:recent_sequence_probe_unsubmitted"
+      ],
+      "artifact_contract_ready": true
+    },
+    {
+      "id": 337,
+      "submission_file": "submission_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066_unsubmitted.csv",
+      "model_description": "ID178 S1-only random-conv seed45502 overlay",
+      "local_cv": 0.538066,
+      "public_lb": null,
+      "is_submitted_bool": false,
+      "status_clean": "generated_unsubmitted",
+      "duplicate_file_count": 1,
+      "artifact_exists_column": true,
+      "csv_status": {
+        "path": "submissions/submission_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066_unsubmitted.csv",
+        "exists": true,
+        "bytes": 39859,
+        "shape": [
+          250,
+          10
+        ],
+        "columns": [
+          "subject_id",
+          "sleep_date",
+          "lifelog_date",
+          "Q1",
+          "Q2",
+          "Q3",
+          "S1",
+          "S2",
+          "S3",
+          "S4"
+        ],
+        "columns_ok": true,
+        "row_count_ok": true,
+        "target_min": 0.0484174604505683,
+        "target_max": 0.9788310768291706
+      },
+      "notebook_status": {
+        "path": "notebooks/history/submission_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066_unsubmitted.ipynb",
+        "exists": true,
+        "bytes": 1472
+      },
+      "proxy_public_risk": 0.6030296547933328,
+      "transfer_risk_tier": "recent_sequence_probe_unsubmitted",
+      "joint_risk_tier": "low_joint_warning",
+      "joint_warning_count": 0,
+      "mean_delta_vs_178": 0.0013360024029959651,
+      "max_delta_vs_178": 0.03758537674604023,
+      "max_delta_vs_341": 0.03758537674604023,
+      "combined_tier": "joint_safe_but_transfer_blocked",
+      "block_reasons": [
+        "transfer_proxy_above_public_058_gate",
+        "transfer_tier:recent_sequence_probe_unsubmitted"
+      ],
+      "artifact_contract_ready": true
+    },
+    {
+      "id": 341,
+      "submission_file": "submission_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.csv",
+      "model_description": "ID178 Q2-only seq-summary lr_c0_3 w0.0025",
+      "local_cv": 0.538584,
+      "public_lb": null,
+      "is_submitted_bool": false,
+      "status_clean": "generated_unsubmitted",
+      "duplicate_file_count": 1,
+      "artifact_exists_column": true,
+      "csv_status": {
+        "path": "submissions/submission_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.csv",
+        "exists": true,
+        "bytes": 39845,
+        "shape": [
+          250,
+          10
+        ],
+        "columns": [
+          "subject_id",
+          "sleep_date",
+          "lifelog_date",
+          "Q1",
+          "Q2",
+          "Q3",
+          "S1",
+          "S2",
+          "S3",
+          "S4"
+        ],
+        "columns_ok": true,
+        "row_count_ok": true,
+        "target_min": 0.0484174604505683,
+        "target_max": 0.9799619598366446
+      },
+      "notebook_status": {
+        "path": "notebooks/history/submission_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.ipynb",
+        "exists": true,
+        "bytes": 1023
+      },
+      "proxy_public_risk": 0.6038297835283394,
+      "transfer_risk_tier": "current_control_no_submit",
+      "joint_risk_tier": "low_joint_warning",
+      "joint_warning_count": 0,
+      "mean_delta_vs_178": 0.00012350930467326245,
+      "max_delta_vs_178": 0.002025444883233418,
+      "max_delta_vs_341": 0.0,
+      "combined_tier": "joint_safe_but_transfer_blocked",
+      "block_reasons": [
+        "transfer_proxy_above_public_058_gate",
+        "transfer_tier:current_control_no_submit"
+      ],
+      "artifact_contract_ready": true
+    },
+    {
+      "id": 338,
+      "submission_file": "submission_id_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861_unsubmitted.csv",
+      "model_description": "ID179 S1-only random-conv seed45502 overlay",
+      "local_cv": 0.537861,
+      "public_lb": null,
+      "is_submitted_bool": false,
+      "status_clean": "generated_unsubmitted",
+      "duplicate_file_count": 1,
+      "artifact_exists_column": true,
+      "csv_status": {
+        "path": "submissions/submission_id_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861_unsubmitted.csv",
+        "exists": true,
+        "bytes": 39858,
+        "shape": [
+          250,
+          10
+        ],
+        "columns": [
+          "subject_id",
+          "sleep_date",
+          "lifelog_date",
+          "Q1",
+          "Q2",
+          "Q3",
+          "S1",
+          "S2",
+          "S3",
+          "S4"
+        ],
+        "columns_ok": true,
+        "row_count_ok": true,
+        "target_min": 0.0484174604505683,
+        "target_max": 0.9790607617940928
+      },
+      "notebook_status": {
+        "path": "notebooks/history/submission_338_id179_s1_seed45502_randomconv_w005_balanced_cv0.537861_unsubmitted.ipynb",
+        "exists": true,
+        "bytes": 1480
+      },
+      "proxy_public_risk": 0.605301522567564,
+      "transfer_risk_tier": "recent_sequence_probe_unsubmitted",
+      "joint_risk_tier": "low_joint_warning",
+      "joint_warning_count": 0,
+      "mean_delta_vs_178": 0.004659634641585283,
+      "max_delta_vs_178": 0.07398893560112152,
+      "max_delta_vs_341": 0.07398893560112152,
+      "combined_tier": "joint_safe_but_transfer_blocked",
+      "block_reasons": [
+        "transfer_proxy_above_public_058_gate",
+        "transfer_tier:recent_sequence_probe_unsubmitted"
+      ],
+      "artifact_contract_ready": true
+    },
+    {
+      "id": 339,
+      "submission_file": "submission_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.csv",
+      "model_description": "ID178 Q123 seq-summary scale0.80 + ID337 S1",
+      "local_cv": 0.536441,
+      "public_lb": null,
+      "is_submitted_bool": false,
+      "status_clean": "generated_unsubmitted",
+      "duplicate_file_count": 1,
+      "artifact_exists_column": true,
+      "csv_status": {
+        "path": "submissions/submission_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.csv",
+        "exists": true,
+        "bytes": 39990,
+        "shape": [
+          250,
+          10
+        ],
+        "columns": [
+          "subject_id",
+          "sleep_date",
+          "lifelog_date",
+          "Q1",
+          "Q2",
+          "Q3",
+          "S1",
+          "S2",
+          "S3",
+          "S4"
+        ],
+        "columns_ok": true,
+        "row_count_ok": true,
+        "target_min": 0.0484174604505683,
+        "target_max": 0.9788310768291706
+      },
+      "notebook_status": {
+        "path": "notebooks/history/submission_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.ipynb",
+        "exists": true,
+        "bytes": 1334
+      },
+      "proxy_public_risk": 0.608258781502767,
+      "transfer_risk_tier": "recent_sequence_probe_unsubmitted",
+      "joint_risk_tier": "low_joint_warning",
+      "joint_warning_count": 0,
+      "mean_delta_vs_178": 0.012602007839208288,
+      "max_delta_vs_178": 0.0970511427879002,
+      "max_delta_vs_341": 0.09502569790466678,
+      "combined_tier": "joint_safe_but_transfer_blocked",
+      "block_reasons": [
+        "transfer_proxy_above_public_058_gate",
+        "transfer_tier:recent_sequence_probe_unsubmitted"
+      ],
+      "artifact_contract_ready": true
+    }
+  ],
+  "anchor_public_truth": {
+    "id178_public": 0.6014113009,
+    "id287_public": 0.6698787318,
+    "id329_public": 0.6017908577
+  },
+  "decision": {
+    "manual_submission_probe_decision_ready": true,
+    "public_058_plausible_candidate_exists": false,
+    "default_action": "do_not_submit",
+    "submit_now": false,
+    "create_submission_artifact": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "lowest_risk_probe_id": 341,
+    "lowest_risk_probe_file": "submission_id_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.csv",
+    "lowest_risk_probe_artifact_contract_ready": true,
+    "lowest_proxy_focus_id": 340,
+    "lowest_proxy_focus_file": "submission_id_340_id178_q2_seqsum_lr_c03_w001_safety_cv0.538426_unsubmitted.csv",
+    "lowest_proxy_focus_not_recommended_reason": "ID340 has the lowest transfer proxy among the 337-341 focus probes, but ID341 is the safer manual sanity probe because it has much smaller movement from the confirmed ID178 public anchor.",
+    "lowest_local_cv_focus_id": 339,
+    "lowest_local_cv_focus_file": "submission_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.csv",
+    "lowest_local_cv_focus_not_recommended_reason": "ID339 has the lowest local CV among the 337-341 focus probes, but it moves much more from ID178 and has a worse transfer proxy; this is exactly the failure mode seen in ID287/ID329.",
+    "requires_explicit_user_approval_before_dacon_submit": true,
+    "recommended_primary_next_action": "Use the explicit-approved no-submit Kaggle/Linux upstream rebuild. If the user instead explicitly chooses to spend one DACON public sanity probe, use the exact ID341 CSV and record the result.",
+    "kaggle_prelaunch_ready_for_explicit_approval": true
+  },
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

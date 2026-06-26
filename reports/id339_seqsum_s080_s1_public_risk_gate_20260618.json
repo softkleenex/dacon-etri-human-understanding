@@ -1,0 +1,80 @@
+{
+  "report": "id339_seqsum_s080_s1_public_risk_gate",
+  "created_at_kst": "2026-06-18 02:22:37 UTC+09:00",
+  "candidate_id": 339,
+  "candidate_file": "submission_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.csv",
+  "base_id": 178,
+  "s1_source_id": 337,
+  "local_cv": 0.5364407189590721,
+  "target_scores": {
+    "Q1": 0.5490171377535173,
+    "Q2": 0.5506959875273134,
+    "Q3": 0.5645919701761016,
+    "S1": 0.46763106112231995,
+    "S2": 0.529556132747474,
+    "S3": 0.4908930389002769,
+    "S4": 0.6026997044865015
+  },
+  "change": {
+    "q_targets": [
+      "Q1",
+      "Q2",
+      "Q3"
+    ],
+    "sequence_summary_scale": 0.8,
+    "q_weights": {
+      "Q1": 0.08,
+      "Q2": 0.12,
+      "Q3": 0.08
+    },
+    "s1_source": "ID337 S1 safety",
+    "source_reports": [
+      "reports/sequence_summary_cap_sensitivity_post_a1_20260618.json",
+      "reports/experiment_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.json"
+    ]
+  },
+  "movement_projection": {
+    "mean_delta_vs_178": 0.012602007839208288,
+    "max_delta_vs_178": 0.09705114278790025,
+    "mean_delta_vs_329": 0.0230907768337277,
+    "max_delta_vs_329": 0.108980921921153,
+    "mean_delta_vs_335": 0.019149845919373767,
+    "max_delta_vs_335": 0.13051317109405403,
+    "projection_failed": -0.01200130303645047,
+    "prediction_mean": 0.6030103399088753,
+    "prediction_std": 0.21562345739648953,
+    "conservative_public_risk_proxy": 0.609547092560233,
+    "naive_id178_gap_projected_public": 0.5992137530687175,
+    "rerank_tier": "reviewable_low_movement"
+  },
+  "identity_check": {
+    "s2_s3_s4_test_exact_vs_id178": true,
+    "s2_s3_s4_oof_exact_vs_id178": true,
+    "s1_test_exact_vs_id337": true,
+    "s1_oof_exact_vs_id337": true,
+    "q123_test_max_delta_vs_id178": {
+      "Q1": 0.07545238744875427,
+      "Q2": 0.0970511427879002,
+      "Q3": 0.06710626191573801
+    },
+    "q123_test_mean_delta_vs_id178": {
+      "Q1": 0.02197478192269591,
+      "Q2": 0.03449842819299295,
+      "Q3": 0.022388827937797402
+    }
+  },
+  "comparison": {
+    "id337_local_cv": 0.5380663965590231,
+    "id337_conservative_public_risk_proxy": 0.6050222139833282,
+    "local_gain_vs_id337": 0.0016256775999510253,
+    "proxy_disadvantage_vs_id337": 0.004524878576904756,
+    "read": "ID339 is stronger locally than ID337 but less conservative by movement/proxy because Q1/Q2/Q3 move in addition to S1."
+  },
+  "decision": {
+    "no_dacon_submission_made": true,
+    "public_058_plausible": false,
+    "controlled_public_probe_hypothesis": true,
+    "submit_priority": "behind ID337 unless the user explicitly wants a higher-local, higher-movement probe",
+    "summary": "ID339 is a valid full-contract generated-unsubmitted candidate, but its conservative proxy is worse than ID337 despite better local CV. Treat it as a reviewable candidate-construction lead, not the next automatic DACON submission."
+  }
+}

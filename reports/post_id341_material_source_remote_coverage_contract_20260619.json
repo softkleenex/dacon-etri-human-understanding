@@ -1,0 +1,296 @@
+{
+  "created_at_kst": "2026-06-23 18:17:39 UTC+09:00",
+  "diagnostic": "post_id341_material_source_remote_coverage_contract",
+  "purpose": "Verify every material source-family is covered by either the no-submit runner/intake packet, a local lane-closure evidence report, or the explicit-approval score route.",
+  "inputs": {
+    "queue": "reports/post_id341_material_new_source_queue_20260619.json",
+    "runner_contract": "reports/post_id341_kaggle_runner_intake_contract_20260618.json",
+    "execution_packet": "reports/kaggle_upstream_execution_packet_post_id341_20260618.json",
+    "output_intake": "reports/post_id341_kaggle_output_intake_gate_20260618.json"
+  },
+  "coverage_rows": [
+    {
+      "name": "approved_clean_upstream_id221_to_id226",
+      "coverage_mode": "explicit_approval_remote_score_route",
+      "covered": true,
+      "remote_checks": [
+        {
+          "remote_report": "remote_post_id341_clean_id221_feature_similarity_smoke_20260618.json",
+          "runner_generates": true,
+          "runner_stages": true,
+          "runner_intake_expects": true,
+          "output_intake_expects": true,
+          "covered": true
+        },
+        {
+          "remote_report": "remote_post_id341_clean_id221_inner_selection_probe_20260618.json",
+          "runner_generates": true,
+          "runner_stages": true,
+          "runner_intake_expects": true,
+          "output_intake_expects": true,
+          "covered": true
+        },
+        {
+          "remote_report": "remote_post_id341_clean_id226_calibration_smoke_20260618.json",
+          "runner_generates": true,
+          "runner_stages": true,
+          "runner_intake_expects": true,
+          "output_intake_expects": true,
+          "covered": true
+        },
+        {
+          "remote_report": "remote_post_id341_clean_backbone_lane_closure_20260618.json",
+          "runner_generates": true,
+          "runner_stages": true,
+          "runner_intake_expects": true,
+          "output_intake_expects": true,
+          "covered": true
+        }
+      ],
+      "local_evidence": [],
+      "reason": "Score-relevant route is open only behind the exact Kaggle no-submit approval phrase."
+    },
+    {
+      "name": "gps_path_topology_sequence_v1",
+      "coverage_mode": "local_closed_evidence_only",
+      "covered": true,
+      "remote_checks": [],
+      "local_evidence": [
+        {
+          "path": "reports/post_id341_gps_path_topology_model_smoke_20260619.json",
+          "exists": true,
+          "parse_ok": true,
+          "decision": {
+            "model_smoke_completed": true,
+            "source_family": "gps_path_topology_sequence_v1",
+            "target_focus": [
+              "Q3",
+              "S3"
+            ],
+            "selected_targets": [],
+            "any_gps_topology_signal_found": false,
+            "all_focus_targets_covered": false,
+            "public_058_evidence": false,
+            "score_route_opened": false,
+            "next_local_allowed_step": "close_gps_topology_model_smoke",
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "next_action": "If selected targets exist, run a no-artifact geometry gate before any artifact contract. Otherwise close the GPS topology local model lane and return to the explicit-approved upstream route."
+          }
+        }
+      ],
+      "reason": "Local validation/model-smoke evidence closed the lane; remote runner coverage is intentionally not required."
+    },
+    {
+      "name": "circadian_hr_light_phase_shape_v1",
+      "coverage_mode": "local_closed_evidence_only",
+      "covered": true,
+      "remote_checks": [],
+      "local_evidence": [
+        {
+          "path": "reports/post_id341_circadian_hr_light_phase_model_smoke_20260619.json",
+          "exists": true,
+          "parse_ok": true,
+          "decision": {
+            "model_smoke_completed": true,
+            "source_family": "circadian_hr_light_phase_shape_v1",
+            "target_focus": [
+              "Q3",
+              "S3",
+              "S2"
+            ],
+            "selected_targets": [],
+            "any_circadian_phase_signal_found": false,
+            "all_focus_targets_covered": false,
+            "public_058_evidence": false,
+            "score_route_opened": false,
+            "next_local_allowed_step": "close_circadian_phase_model_smoke",
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "next_action": "If selected targets exist, run a no-artifact geometry gate before any artifact contract. Otherwise close the circadian HR/light local model lane and return to the explicit-approved upstream route."
+          }
+        }
+      ],
+      "reason": "Local validation/model-smoke evidence closed the lane; remote runner coverage is intentionally not required."
+    },
+    {
+      "name": "usage_semantic_burst_markov_v1",
+      "coverage_mode": "remote_required_report_only_gate",
+      "covered": true,
+      "remote_checks": [
+        {
+          "remote_report": "remote_post_id341_usage_semantic_burst_markov_feature_matrix_validation_stop_20260619.json",
+          "runner_generates": true,
+          "runner_stages": true,
+          "runner_intake_expects": true,
+          "output_intake_expects": true,
+          "covered": true
+        }
+      ],
+      "local_evidence": [],
+      "reason": "This source family must be regenerated/staged by the no-submit runner as report-only evidence."
+    },
+    {
+      "name": "proximity_ambience_cooccurrence_v1",
+      "coverage_mode": "local_closed_evidence_only",
+      "covered": true,
+      "remote_checks": [],
+      "local_evidence": [
+        {
+          "path": "reports/post_id341_proximity_ambience_cooccurrence_feature_matrix_validation_stop_20260619.json",
+          "exists": true,
+          "parse_ok": true,
+          "decision": {
+            "validation_stop_passed": true,
+            "source_family": "proximity_ambience_cooccurrence_v1",
+            "target_focus": [
+              "Q3",
+              "S3"
+            ],
+            "selected_targets": [],
+            "public_058_evidence": false,
+            "score_route_opened": false,
+            "train_model_now": false,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "next_local_allowed_step": "stop_or_wait_for_explicit_kaggle_upstream_rebuild_no_submit_approval",
+            "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+            "next_action": "Proximity/ambience matrix is validated as label-free infrastructure. Stop local no-approval work here; only an exact approved Kaggle no-submit upstream rebuild may proceed, and still may not submit."
+          }
+        }
+      ],
+      "reason": "Local validation/model-smoke evidence closed the lane; remote runner coverage is intentionally not required."
+    },
+    {
+      "name": "phone_wearable_discordance_v1",
+      "coverage_mode": "local_closed_evidence_only",
+      "covered": true,
+      "remote_checks": [],
+      "local_evidence": [
+        {
+          "path": "reports/post_id341_phone_wearable_discordance_feature_matrix_validation_stop_20260619.json",
+          "exists": true,
+          "parse_ok": true,
+          "decision": {
+            "validation_stop_passed": true,
+            "source_family": "phone_wearable_discordance_v1",
+            "target_focus": [
+              "Q2",
+              "Q3",
+              "S3"
+            ],
+            "selected_targets": [],
+            "public_058_evidence": false,
+            "score_route_opened": false,
+            "train_model_now": false,
+            "create_submission_artifact": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "next_local_allowed_step": "stop_or_wait_for_explicit_kaggle_upstream_rebuild_no_submit_approval",
+            "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+            "next_action": "Phone/wearable matrix is validated as label-free infrastructure. Stop local no-approval modeling here; only an exact approved Kaggle no-submit upstream rebuild may proceed, and still may not submit."
+          }
+        }
+      ],
+      "reason": "Local validation/model-smoke evidence closed the lane; remote runner coverage is intentionally not required."
+    },
+    {
+      "name": "self_supervised_subject_state_embedding_v1",
+      "coverage_mode": "remote_required_report_only_gate",
+      "covered": true,
+      "remote_checks": [
+        {
+          "remote_report": "remote_post_id341_self_supervised_subject_state_embedding_design_20260619.json",
+          "runner_generates": true,
+          "runner_stages": true,
+          "runner_intake_expects": true,
+          "output_intake_expects": true,
+          "covered": true
+        }
+      ],
+      "local_evidence": [],
+      "reason": "This source family must be regenerated/staged by the no-submit runner as report-only evidence."
+    },
+    {
+      "name": "sleep_proxy_threshold_residual_v1",
+      "coverage_mode": "local_closed_evidence_only",
+      "covered": true,
+      "remote_checks": [],
+      "local_evidence": [
+        {
+          "path": "reports/post_id341_sleep_proxy_threshold_residual_design_20260619.json",
+          "exists": true,
+          "parse_ok": true,
+          "decision": {
+            "sleep_proxy_threshold_residual_design_ready": true,
+            "source_family": "sleep_proxy_threshold_residual_v1",
+            "target_focus": [
+              "S2",
+              "S3",
+              "S4",
+              "Q1"
+            ],
+            "metadata_feasible": true,
+            "design_backlog_recorded": true,
+            "local_no_approval_score_route_exists": false,
+            "open_design_lane_now": false,
+            "feature_matrix_allowed_now": false,
+            "train_model_now": false,
+            "compute_target_associations_now": false,
+            "public_058_evidence": false,
+            "public_058_reviewable": false,
+            "requires_explicit_kaggle_approval_for_score_route": true,
+            "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+            "manual_probe_if_user_spends_submission": null,
+            "manual_probe_family_status": "consumed_after_id341_id340_id337_public_micro_probe_slate",
+            "create_feature_matrix": false,
+            "create_submission_artifact": false,
+            "modify_submission_log": false,
+            "create_id342_or_new_submission_id": false,
+            "submit_now": false,
+            "push_kaggle_now": false,
+            "run_kaggle_now": false,
+            "next_action": "Keep this as design backlog only. The score-relevant route remains the exact-approved Kaggle no-submit upstream rebuild."
+          }
+        }
+      ],
+      "reason": "Local validation/model-smoke evidence closed the lane; remote runner coverage is intentionally not required."
+    }
+  ],
+  "missing_remote_required_source_families": [],
+  "counts": {
+    "queue_items": 8,
+    "remote_required_source_families": 2,
+    "local_closed_source_families": 5,
+    "covered_queue_items": 8
+  },
+  "decision": {
+    "material_source_remote_coverage_contract_pass": true,
+    "all_queue_items_covered": true,
+    "no_forbidden_actions": true,
+    "only_score_relevant_open_route": "explicit_approved_clean_upstream_id221_to_id226",
+    "requires_explicit_kaggle_approval": true,
+    "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+    "public_058_evidence": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Coverage is complete; wait for exact Kaggle no-submit approval or continue report-only source design."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

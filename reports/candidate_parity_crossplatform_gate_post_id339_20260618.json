@@ -1,0 +1,136 @@
+{
+  "created_at_kst": "2026-06-18 03:04:28 UTC+09:00",
+  "diagnostic": "candidate_parity_post_id339",
+  "purpose": "Recompute ID337/ID339 and compare rebuilt predictions against stored base prediction artifacts.",
+  "environment": {
+    "python": "3.14.3 (v3.14.3:323c59a5e34, Feb  3 2026, 11:41:37) [Clang 16.0.0 (clang-1600.0.26.6)]",
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "sklearn": "1.8.0",
+    "scipy": "1.17.1"
+  },
+  "thresholds": {
+    "exact_max_abs_delta": 1e-12,
+    "review_max_abs_delta": 1e-06,
+    "review_local_cv_delta": 1e-06,
+    "review_min_correlation": 0.999999,
+    "cross_platform_max_abs_delta": 3e-05,
+    "cross_platform_local_cv_delta": 1e-05,
+    "cross_platform_min_correlation": 0.999999
+  },
+  "candidates": [
+    {
+      "candidate_id": 337,
+      "name": "ID178 S1 seed45502 random-conv weight0.05 safety",
+      "submission_file": "submission_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066_unsubmitted.csv",
+      "artifact_source": "base_oof_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066.csv; base_test_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066.csv",
+      "reference_local_cv": 0.538066,
+      "rebuilt_local_cv": 0.5380663965590231,
+      "local_cv_delta": 3.9655902306368063e-07,
+      "rebuilt_target_scores": {
+        "Q1": 0.5519157186538461,
+        "Q2": 0.5566793351664245,
+        "Q3": 0.5670897848363184,
+        "S1": 0.46763106112231995,
+        "S2": 0.529556132747474,
+        "S3": 0.4908930389002769,
+        "S4": 0.6026997044865015
+      },
+      "oof_comparison": {
+        "max_abs_delta": 1.1102230246251565e-16,
+        "mean_abs_delta": 2.061842760018148e-18,
+        "rmse_delta": 1.3556870703240551e-17,
+        "correlation": 1.0,
+        "max_abs_delta_by_target": {
+          "Q1": 0.0,
+          "Q2": 0.0,
+          "Q3": 0.0,
+          "S1": 1.1102230246251565e-16,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      },
+      "test_comparison": {
+        "max_abs_delta": 1.1102230246251565e-16,
+        "mean_abs_delta": 2.069772924479756e-18,
+        "rmse_delta": 1.3666022758495693e-17,
+        "correlation": 1.0,
+        "max_abs_delta_by_target": {
+          "Q1": 0.0,
+          "Q2": 0.0,
+          "Q3": 0.0,
+          "S1": 1.1102230246251565e-16,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      },
+      "parity_status": "review_pass",
+      "passes_review_gate": true,
+      "cross_platform_status": "cross_platform_review_pass",
+      "passes_cross_platform_gate": true
+    },
+    {
+      "candidate_id": 339,
+      "name": "ID178 Q123 sequence-summary scale0.80 + ID337 S1 safety",
+      "submission_file": "submission_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.csv",
+      "artifact_source": "base_oof_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441.csv; base_test_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441.csv",
+      "reference_local_cv": 0.536441,
+      "rebuilt_local_cv": 0.5364407189590721,
+      "local_cv_delta": -2.8104092786307433e-07,
+      "rebuilt_target_scores": {
+        "Q1": 0.5490171377535173,
+        "Q2": 0.5506959875273134,
+        "Q3": 0.5645919701761016,
+        "S1": 0.46763106112231995,
+        "S2": 0.529556132747474,
+        "S3": 0.4908930389002769,
+        "S4": 0.6026997044865015
+      },
+      "oof_comparison": {
+        "max_abs_delta": 1.1102230246251565e-16,
+        "mean_abs_delta": 4.354706630567175e-18,
+        "rmse_delta": 1.604501255700005e-17,
+        "correlation": 1.0,
+        "max_abs_delta_by_target": {
+          "Q1": 1.1102230246251565e-16,
+          "Q2": 9.71445146547012e-17,
+          "Q3": 1.1102230246251565e-16,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      },
+      "test_comparison": {
+        "max_abs_delta": 1.1102230246251565e-16,
+        "mean_abs_delta": 4.8810162261198845e-18,
+        "rmse_delta": 1.7190700780473187e-17,
+        "correlation": 0.9999999999999999,
+        "max_abs_delta_by_target": {
+          "Q1": 1.1102230246251565e-16,
+          "Q2": 8.326672684688674e-17,
+          "Q3": 8.326672684688674e-17,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      },
+      "parity_status": "review_pass",
+      "passes_review_gate": true,
+      "cross_platform_status": "cross_platform_review_pass",
+      "passes_cross_platform_gate": true
+    }
+  ],
+  "decision": {
+    "all_candidates_pass_review_gate": true,
+    "all_candidates_pass_cross_platform_gate": true,
+    "no_submission_created": true,
+    "no_dacon_submission_made": true,
+    "next_action": "Use the strict review gate for same-environment rebuilds and the cross-platform gate for Kaggle CPU or other architecture/package-version parity checks. Passing parity does not imply public-LB gain."
+  }
+}

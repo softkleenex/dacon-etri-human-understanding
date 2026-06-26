@@ -1,0 +1,412 @@
+{
+  "created_at_kst": "2026-06-25 17:58:05 UTC+09:00",
+  "current_2026_schema_matches": {
+    "family_matches": {
+      "pre_sleep_settling": {
+        "examples": [
+          "ac_presleep_charging",
+          "act_presleep_active",
+          "screen_presleep_on",
+          "screen_presleep_ratio",
+          "slp_act_active_ratio",
+          "slp_act_n_records",
+          "slp_act_still_ratio",
+          "slp_pedo_active",
+          "slp_pedo_calories",
+          "slp_pedo_mid_steps",
+          "slp_pedo_n_records",
+          "slp_pedo_steps",
+          "slp_screen_on",
+          "slp_screen_ratio",
+          "slp_wlight_dark",
+          "slp_wlight_light",
+          "slp_wlight_mean"
+        ],
+        "match_count": 17,
+        "mean_missing_rate": 0.1623529411764706
+      },
+      "sleep_hr_fragmentation": {
+        "examples": [
+          "slp_hr_awake_ratio",
+          "slp_hr_deep_ratio",
+          "slp_hr_early_mean",
+          "slp_hr_late_mean",
+          "slp_hr_light_ratio",
+          "slp_hr_max",
+          "slp_hr_mean",
+          "slp_hr_median",
+          "slp_hr_mid_mean",
+          "slp_hr_min",
+          "slp_hr_n_records",
+          "slp_hr_q25",
+          "slp_hr_q75",
+          "slp_hr_range",
+          "slp_hr_rmssd",
+          "slp_hr_spike_count",
+          "slp_hr_std",
+          "wHr_sleep_duration_awake",
+          "wHr_sleep_duration_deep",
+          "wHr_sleep_duration_light"
+        ],
+        "match_count": 29,
+        "mean_missing_rate": 0.4200000000000001
+      },
+      "social_routine_proxy": {
+        "examples": [
+          "ble_n_scans",
+          "ble_n_unique",
+          "ch2025_mAmbience_ambience_changes_mean",
+          "ch2025_mAmbience_ambience_changes_sum",
+          "ch2025_mAmbience_snd_music_max",
+          "ch2025_mAmbience_snd_music_mean",
+          "ch2025_mAmbience_snd_outdoor_max",
+          "ch2025_mAmbience_snd_outdoor_mean",
+          "ch2025_mAmbience_snd_silence_max",
+          "ch2025_mAmbience_snd_silence_mean",
+          "ch2025_mAmbience_snd_speech_max",
+          "ch2025_mAmbience_snd_speech_mean",
+          "ch2025_mAmbience_snd_vehicle_max",
+          "ch2025_mAmbience_snd_vehicle_mean",
+          "ch2025_mBle_ble_devices_max",
+          "ch2025_mBle_ble_devices_mean",
+          "ch2025_mBle_ble_devices_sum",
+          "ch2025_mBle_ble_entropy_max",
+          "ch2025_mBle_ble_entropy_mean",
+          "ch2025_mGps_gps_dist_sum"
+        ],
+        "match_count": 39,
+        "mean_missing_rate": 0.20780626780626782
+      },
+      "usage_stress_proxy": {
+        "examples": [
+          "ch2025_mScreenStatus_bedtime_screen_use_sum",
+          "ch2025_mScreenStatus_m_screen_use_mean",
+          "ch2025_mScreenStatus_m_screen_use_sum",
+          "ch2025_mScreenStatus_screen_first_hour_min",
+          "ch2025_mScreenStatus_screen_last_hour_max",
+          "ch2025_mUsageStats_app_camera_sum",
+          "ch2025_mUsageStats_app_chrome_sum",
+          "ch2025_mUsageStats_app_gallery_sum",
+          "ch2025_mUsageStats_app_game_sum",
+          "ch2025_mUsageStats_app_instagram_sum",
+          "ch2025_mUsageStats_app_kakao_sum",
+          "ch2025_mUsageStats_app_music_sum",
+          "ch2025_mUsageStats_app_naver_sum",
+          "ch2025_mUsageStats_app_netflix_sum",
+          "ch2025_mUsageStats_app_tiktok_sum",
+          "ch2025_mUsageStats_app_youtube_sum",
+          "ch2025_mUsageStats_num_apps_max",
+          "ch2025_mUsageStats_num_apps_mean",
+          "ch2025_mUsageStats_total_usage_time_mean",
+          "ch2025_mUsageStats_total_usage_time_sum"
+        ],
+        "match_count": 31,
+        "mean_missing_rate": 0.0221505376344086
+      }
+    },
+    "numeric_feature_columns": 230,
+    "processed_train_exists": true,
+    "processed_train_shape": [
+      450,
+      242
+    ]
+  },
+  "decision": {
+    "create_submission_artifact_now": false,
+    "dacon_submit_now": false,
+    "direct_2026_feature_route_available": false,
+    "direct_external_concat_allowed": false,
+    "external_etri_prior_analysis_complete": true,
+    "external_prior_gate_pass": false,
+    "external_rows_paired_2020_pm_to_next_sleep": 523,
+    "external_users_paired_2020": 22,
+    "gap_to_public_055": 0.046083251899999955,
+    "modify_submission_log_now": false,
+    "next_action": "Use the external ETRI sleep/survey files as domain prior only. Q2 fatigue has a coherent next-sleep coupling, but Q3 stress does not support a simple sleep-quality proxy and no direct 2026 feature route is opened. Do not create artifacts, Kaggle runs, or DACON submissions from this prior.",
+    "projected_public_proxy": 0.5960832519,
+    "push_kaggle_now": false,
+    "q2_fatigue_sleep_coupling_supported": true,
+    "q3_stress_sleep_coupling_supported": false,
+    "run_kaggle_now": false
+  },
+  "diagnostic": "post_id342_external_etri_sleep_survey_prior",
+  "historical_sleep_distribution": {
+    "sleep_2019_2018": {
+      "rows": 736,
+      "sleep_score_mean": 90.83561245747282,
+      "users": 46,
+      "waso_lt20m_rate": 0.28396739130434784,
+      "waso_non_null_rows": 408
+    },
+    "sleep_2020": {
+      "rows": 615,
+      "sleep_score_mean": 51.27967479674797,
+      "sol_0_30m_rate": 0.6260162601626016,
+      "sol_15_30m_rate": 0.408130081300813,
+      "users": 22,
+      "waso_lt20m_rate": 0.16097560975609757
+    }
+  },
+  "no_dacon_submission_made": true,
+  "no_feature_matrix_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_model_fit": true,
+  "no_predictions_created": true,
+  "no_raw_competition_payload_read": true,
+  "no_submission_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "paired_2020_summary": {
+    "q2_conditional": {
+      "available": true,
+      "groups": {
+        "False": {
+          "durationtosleep": 2164.361233480176,
+          "pmFatigue": 3.3612334801762116,
+          "pmStress": 3.2290748898678414,
+          "s3_sol_0_30m": 0.5903083700440529,
+          "s3_sol_15_30m": 0.3744493392070485,
+          "s4_waso_lt20m": 0.12334801762114538,
+          "sleep_score": 53.40381791483113,
+          "sleep_score_positive": 0.5066079295154186,
+          "wakeupduration": 3588.237885462555
+        },
+        "True": {
+          "durationtosleep": 1757.2972972972973,
+          "pmFatigue": 1.6824324324324325,
+          "pmStress": 2.777027027027027,
+          "s3_sol_0_30m": 0.652027027027027,
+          "s3_sol_15_30m": 0.44932432432432434,
+          "s4_waso_lt20m": 0.16216216216216217,
+          "sleep_score": 53.285472972972975,
+          "sleep_score_positive": 0.5,
+          "wakeupduration": 2842.364864864865
+        }
+      },
+      "positive_minus_negative": {
+        "durationtosleep": -407.0639361828787,
+        "pmFatigue": -1.6788010477437791,
+        "pmStress": -0.4520478628408142,
+        "s3_sol_0_30m": 0.061718656982974074,
+        "s3_sol_15_30m": 0.07487498511727586,
+        "s4_waso_lt20m": 0.038814144541016796,
+        "sleep_score": -0.11834494185815458,
+        "sleep_score_positive": -0.0066079295154185536,
+        "wakeupduration": -745.8730205976899
+      }
+    },
+    "q3_conditional": {
+      "available": true,
+      "groups": {
+        "False": {
+          "durationtosleep": 1902.4793388429753,
+          "pmFatigue": 2.6818181818181817,
+          "pmStress": 3.9545454545454546,
+          "s3_sol_0_30m": 0.6570247933884298,
+          "s3_sol_15_30m": 0.4256198347107438,
+          "s4_waso_lt20m": 0.16115702479338842,
+          "sleep_score": 54.15289256198347,
+          "sleep_score_positive": 0.5165289256198347,
+          "wakeupduration": 3134.710743801653
+        },
+        "True": {
+          "durationtosleep": 1961.1032028469751,
+          "pmFatigue": 2.1779359430604983,
+          "pmStress": 2.1281138790035588,
+          "s3_sol_0_30m": 0.597864768683274,
+          "s3_sol_15_30m": 0.4092526690391459,
+          "s4_waso_lt20m": 0.13167259786476868,
+          "sleep_score": 52.634045077105576,
+          "sleep_score_positive": 0.49110320284697506,
+          "wakeupduration": 3193.131672597865
+        }
+      },
+      "positive_minus_negative": {
+        "durationtosleep": 58.62386400399987,
+        "pmFatigue": -0.5038822387576833,
+        "pmStress": -1.8264315755418958,
+        "s3_sol_0_30m": -0.0591600247051558,
+        "s3_sol_15_30m": -0.016367165671597905,
+        "s4_waso_lt20m": -0.029484426928619745,
+        "sleep_score": -1.5188474848778952,
+        "sleep_score_positive": -0.025425722772859594,
+        "wakeupduration": 58.42092879621214
+      }
+    },
+    "rates": {
+      "q2_positive": 0.5659655831739961,
+      "q3_positive": 0.5372848948374761,
+      "s3_sol_0_30m": 0.6252390057361377,
+      "s3_sol_15_30m": 0.4168260038240918,
+      "s4_waso_lt20m": 0.14531548757170173,
+      "sleep_score_positive": 0.502868068833652
+    },
+    "rows": 523,
+    "top_correlations_abs_ge_0p08": [
+      {
+        "abs_spearman": 0.13529118372306792,
+        "n": 523,
+        "spearman": 0.13529118372306792,
+        "x": "pmEmotion",
+        "y": "breathing_disturbances_intensity"
+      },
+      {
+        "abs_spearman": 0.11870362965122909,
+        "n": 523,
+        "spearman": -0.11870362965122909,
+        "x": "pmStress",
+        "y": "snoringepisodecount"
+      },
+      {
+        "abs_spearman": 0.10857888895660842,
+        "n": 523,
+        "spearman": 0.10857888895660842,
+        "x": "pmEmotion",
+        "y": "hr_average"
+      },
+      {
+        "abs_spearman": 0.0947156834727429,
+        "n": 523,
+        "spearman": -0.0947156834727429,
+        "x": "pmFatigue",
+        "y": "hr_average"
+      },
+      {
+        "abs_spearman": 0.08549607393283193,
+        "n": 523,
+        "spearman": -0.08549607393283193,
+        "x": "pmFatigue",
+        "y": "snoringepisodecount"
+      }
+    ],
+    "users": 22
+  },
+  "pairing_policy": {
+    "pm_survey_to_sleep": "2020 PM survey date is matched to the same user on next-day sleep.date.",
+    "q2_positive": "pmFatigue <= per-user PM fatigue mean.",
+    "q3_positive": "pmStress <= per-user PM stress mean.",
+    "s3_sol_0_30m": "durationtosleep between 0 and 30 minutes.",
+    "s3_sol_15_30m": "durationtosleep between 15 and 30 minutes.",
+    "s4_waso_lt20m": "wakeupduration < 20 minutes."
+  },
+  "purpose": "Audit historical ETRI sleep/survey priors for a materially new Q3/S3/S4 source mechanism.",
+  "source_files": {
+    "sleep_2019_2018": {
+      "columns": [
+        "userId",
+        "startDt",
+        "endDt",
+        "device",
+        "sleep_score",
+        "total_sleep_time",
+        "time_in_bed",
+        "waso",
+        "wakeupcount",
+        "aal",
+        "movement_index",
+        "fragmentation_index",
+        "sleep_frag_index"
+      ],
+      "exists": true,
+      "mean_missing_rate": 0.205685618729097,
+      "path": "data/external/etri_lifelog/user_sleep_2019_2018.csv",
+      "shape": [
+        736,
+        13
+      ]
+    },
+    "sleep_2020": {
+      "columns": [
+        "userId",
+        "timezone",
+        "date",
+        "startDt",
+        "endDt",
+        "lastUpdate",
+        "wakeupduration",
+        "lightsleepduration",
+        "deepsleepduration",
+        "wakeupcount",
+        "durationtosleep",
+        "remsleepduration",
+        "durationtowakeup",
+        "hr_average",
+        "hr_min",
+        "hr_max",
+        "rr_average",
+        "rr_min",
+        "rr_max",
+        "breathing_disturbances_intensity",
+        "snoring",
+        "snoringepisodecount",
+        "sleep_score"
+      ],
+      "exists": true,
+      "mean_missing_rate": 0.0,
+      "path": "data/external/etri_lifelog/user_sleep_2020.csv",
+      "shape": [
+        615,
+        23
+      ]
+    },
+    "survey_2019_2018": {
+      "columns": [
+        "userId",
+        "amPm",
+        "inputDt",
+        "sleep",
+        "sleepProblem",
+        "dream",
+        "amCondition",
+        "amEmotion",
+        "pmEmotion",
+        "pmStress",
+        "ifUnusual",
+        "breakfast",
+        "lunch",
+        "dinner",
+        "lateSnack",
+        "amCaffeine",
+        "amCaffAmount",
+        "pmCaffeine",
+        "pmCaffAmount",
+        "alcohol",
+        "aAmount"
+      ],
+      "exists": true,
+      "mean_missing_rate": 0.5495645729108765,
+      "path": "data/external/etri_lifelog/user_survey_2019_2018.csv",
+      "shape": [
+        1285,
+        21
+      ]
+    },
+    "survey_2020": {
+      "columns": [
+        "userId",
+        "date",
+        "amPm",
+        "startInput",
+        "endInput",
+        "sleep",
+        "sleepProblem",
+        "dream",
+        "amCondition",
+        "amEmotion",
+        "pmEmotion",
+        "pmStress",
+        "pmFatigue",
+        "caffeine",
+        "cAmount(ml)",
+        "alcohol",
+        "aAmount(ml)"
+      ],
+      "exists": true,
+      "mean_missing_rate": 0.4327594452415112,
+      "path": "data/external/etri_lifelog/user_survey_2020.csv",
+      "shape": [
+        1230,
+        17
+      ]
+    }
+  }
+}

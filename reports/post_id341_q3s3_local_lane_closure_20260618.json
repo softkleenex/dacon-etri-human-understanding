@@ -1,0 +1,60 @@
+{
+  "created_at_kst": "2026-06-23 18:11:26 UTC+09:00",
+  "diagnostic": "post_id341_q3s3_local_lane_closure",
+  "purpose": "Decide whether the no-approval local Q2/Q3/S3 fallback still has a score-relevant path after Q2-only and Q3/S3 physio-light evidence.",
+  "inputs": {
+    "source_route": "reports/post_id341_q2q3s3_source_route_20260618.json",
+    "env_social_model_smoke": "reports/post_id341_q2q3s3_fold_internal_model_smoke_20260618.json",
+    "q2_geometry_gate": "reports/post_id341_q2q3s3_q2_lead_geometry_gate_20260618.json",
+    "physio_light_onset": "reports/post_id341_q3s3_physio_light_onset_smoke_20260618.json",
+    "calendar_sleep_prior": "reports/post_id341_q3s3_calendar_sleep_prior_smoke_20260618.json",
+    "subject_drift_gate": "reports/post_id341_q3s3_subject_drift_gate_20260618.json",
+    "external_prior": "reports/external_etri_prior_smoke_post_id341_20260618.json"
+  },
+  "evidence": {
+    "missing_targets_before_lane": [
+      "Q2",
+      "Q3",
+      "S3"
+    ],
+    "q2_component_context": {
+      "selected_in_model_smoke": true,
+      "reviewable_low_movement": true,
+      "best_proxy": 0.6019107525231998,
+      "public_058_plausible": false,
+      "artifact_allowed": false
+    },
+    "q3s3_physio_light_onset_closed": true,
+    "q3s3_calendar_sleep_prior_closed": true,
+    "q3s3_subject_drift_closed": true,
+    "external_prior_regularizer_only": true,
+    "primary_route": "explicit_approved_clean_upstream_id221_to_id226",
+    "fallback_route": "local_or_kaggle_q2q3s3_env_social_routine_v2_design",
+    "remote_no_submit_prelaunch_ready": true
+  },
+  "decision": {
+    "local_q2_component_keep_as_context": true,
+    "q3_s3_uncovered_after_local_fallback": [
+      "Q3",
+      "S3"
+    ],
+    "local_fallback_closed_for_submission_artifact": true,
+    "local_artifact_allowed": false,
+    "public_058_evidence": false,
+    "primary_next_score_relevant_route": "explicit_approved_clean_upstream_id221_to_id226",
+    "requires_explicit_kaggle_approval": true,
+    "prelaunch_ready_for_explicit_approval": true,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Do not create a local submission artifact from Q2-only context. The next score-relevant path is the explicit-approved clean ID221→ID226 no-submit upstream rebuild; without that approval, only document new genuinely independent Q3/S3 hypotheses, not broader local tuning."
+  },
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_made": true,
+  "no_kaggle_run_made": true,
+  "no_dacon_submission_made": true
+}

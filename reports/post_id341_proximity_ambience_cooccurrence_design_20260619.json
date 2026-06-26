@@ -1,0 +1,152 @@
+{
+  "created_at_kst": "2026-06-23 18:15:53 UTC+09:00",
+  "diagnostic": "post_id341_proximity_ambience_cooccurrence_design",
+  "report_only": true,
+  "source_family": "proximity_ambience_cooccurrence_v1",
+  "target_focus": [
+    "Q3",
+    "S3"
+  ],
+  "context_status": {
+    "all_context_reports_present": true,
+    "all_context_reports_action_safe": true,
+    "no_approval_score_route_exists_false": true,
+    "only_score_relevant_open_route": "explicit_approved_clean_upstream_id221_to_id226",
+    "prelaunch_ready_for_explicit_approval": true,
+    "q3_s3_still_uncovered": true,
+    "all_local_q3s3_lanes_closed": true,
+    "usage_validation_stop_passed": true,
+    "usage_stop_opened_no_score_route": true,
+    "local_source_stack_closed": true
+  },
+  "raw_schema": {
+    "mWifi": {
+      "path": "data/raw/ch2025_data_items/ch2025_mWifi.parquet",
+      "exists": true,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "bssid",
+        "rssi"
+      ],
+      "num_rows": 76336,
+      "error": null
+    },
+    "mBle": {
+      "path": "data/raw/ch2025_data_items/ch2025_mBle.parquet",
+      "exists": true,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "address",
+        "device_class",
+        "rssi"
+      ],
+      "num_rows": 21830,
+      "error": null
+    },
+    "mAmbience": {
+      "path": "data/raw/ch2025_data_items/ch2025_mAmbience.parquet",
+      "exists": true,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "element"
+      ],
+      "num_rows": 476577,
+      "error": null
+    },
+    "mScreenStatus": {
+      "path": "data/raw/ch2025_data_items/ch2025_mScreenStatus.parquet",
+      "exists": true,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_screen_use"
+      ],
+      "num_rows": 939653,
+      "error": null
+    }
+  },
+  "source_blueprint": [
+    {
+      "group": "proximity_signature_stability",
+      "sources": [
+        "mWifi",
+        "mBle"
+      ],
+      "feature_intent": [
+        "count-only WiFi/BLE scan richness by evening and late windows",
+        "hashed-never-persisted proximity signature repeat rate within subject/day",
+        "near-device burst density from RSSI thresholds, without storing raw network identifier values"
+      ],
+      "target_hypothesis": "S3/Q3 may react to social/place density and late-day context shifts rather than raw GPS paths."
+    },
+    {
+      "group": "speech_crowd_inside_outside_context",
+      "sources": [
+        "mAmbience"
+      ],
+      "feature_intent": [
+        "speech/conversation/crowd scores as social context indicators",
+        "inside/outside and vehicle/music scores as coarse environment states",
+        "late-evening ambience volatility instead of daily aggregate ambience totals"
+      ],
+      "target_hypothesis": "S3 and Q3 can plausibly depend on social stimulation and environment recovery pressure."
+    },
+    {
+      "group": "cross_sensor_cooccurrence",
+      "sources": [
+        "mWifi",
+        "mBle",
+        "mAmbience",
+        "mScreenStatus"
+      ],
+      "feature_intent": [
+        "10-minute-bin co-occurrence of proximity scans with speech/crowd ambience",
+        "screen-on persistence when proximity/social ambience is active",
+        "subject-relative novelty of proximity+ambience state sequences"
+      ],
+      "target_hypothesis": "This is materially different from closed GPS topology, usage Markov, and ambience-only lanes."
+    }
+  ],
+  "material_difference": {
+    "vs_gps_path_topology": "Uses no coordinate/path topology; proximity IDs are only ephemeral count/signature inputs.",
+    "vs_usage_semantic_burst_markov": "Uses WiFi/BLE/social ambience co-occurrence, not app-category Markov chains.",
+    "vs_phase3_ambience_context": "Requires cross-sensor proximity+ambience timing, not ambience-only daily context.",
+    "vs_event_cadence_or_dropout": "Uses context co-occurrence intensity, not missingness or generic event cadence alone."
+  },
+  "privacy_and_leakage_guards": [
+    "Do not persist raw WiFi/BLE identifiers or exact proximity token values in reports or feature matrices.",
+    "Use predeclared ambience groups and RSSI thresholds; no target-guided vocabulary selection.",
+    "Any later model smoke must fit preprocessing fold-internally and may only report split losses.",
+    "No submission artifact, base prediction artifact, notebook/history artifact, or submission-log row is authorized."
+  ],
+  "decision": {
+    "design_ready": true,
+    "source_family": "proximity_ambience_cooccurrence_v1",
+    "target_focus": [
+      "Q3",
+      "S3"
+    ],
+    "selected_targets": [],
+    "public_058_evidence": false,
+    "score_route_opened": false,
+    "feature_matrix_allowed_now": false,
+    "train_model_now": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_local_allowed_step": "proximity_ambience_cooccurrence_metadata_smoke_no_features",
+    "next_action": "Run only the report-only metadata/co-occurrence smoke next; do not write a feature matrix, train, create ID342, run Kaggle, or submit."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

@@ -1,0 +1,912 @@
+{
+  "created_at_kst": "2026-06-18 05:30:02 UTC+09:00",
+  "diagnostic": "post_id341_clean_id221_inner_selection_probe",
+  "purpose": "Select ID221-like feature-similarity configs inside frozen outer-training folds only, then score outer-valid rows.",
+  "candidate_grid": {
+    "per_target_family": "historical ID221 target family only",
+    "k_values": [
+      1,
+      3,
+      7
+    ],
+    "date_weights": [
+      0.0,
+      0.03,
+      0.1
+    ],
+    "blend_weights": [
+      0.005,
+      0.01,
+      0.02,
+      0.03,
+      0.05,
+      0.07
+    ],
+    "base_guard": true
+  },
+  "full_oof": {
+    "candidate_loss": 0.5349227294092082,
+    "delta_vs_id178": -0.0037150079811463232,
+    "delta_vs_id218": 0.0008195644482281716,
+    "delta_vs_historical_id221": 0.0019325420665126103,
+    "delta_vs_id341": -0.003660930515027805
+  },
+  "split_gate": {
+    "split_summary": {
+      "subject_hole_5": {
+        "mean_loss": 0.5342336576962724,
+        "delta_vs_id178": -0.004257769542668233,
+        "delta_vs_id218": 0.00027221473321692446,
+        "delta_vs_id221": 0.0014079719249264545,
+        "delta_vs_id341": -0.004203349489049701
+      },
+      "subject_timeseries_5": {
+        "mean_loss": 0.5362513773416984,
+        "delta_vs_id178": -0.0034958389099742247,
+        "delta_vs_id218": 0.0006807547560390148,
+        "delta_vs_id221": 0.001732946704334759,
+        "delta_vs_id341": -0.003436429627204063
+      },
+      "actual_test_band_holdout": {
+        "mean_loss": 0.5397001421899528,
+        "delta_vs_id178": -0.001903514675189455,
+        "delta_vs_id218": 0.0007162922233209246,
+        "delta_vs_id221": 0.0020416054399050587,
+        "delta_vs_id341": -0.00176437944462704
+      },
+      "test_boundary_neighbor2_holdout": {
+        "mean_loss": 0.5786400778587854,
+        "delta_vs_id178": -0.007649790611824248,
+        "delta_vs_id218": 0.0011225811795636531,
+        "delta_vs_id221": 0.004432247882524054,
+        "delta_vs_id341": -0.007497100305312809
+      },
+      "test_boundary_neighbor5_holdout": {
+        "mean_loss": 0.5559759356198496,
+        "delta_vs_id178": -0.002010219545807601,
+        "delta_vs_id218": -4.845066382053176e-05,
+        "delta_vs_id221": 0.0011942745203079586,
+        "delta_vs_id341": -0.0019443112112144112
+      },
+      "loso_10": {
+        "mean_loss": 0.5384225537235943,
+        "delta_vs_id178": -0.004042206849371272,
+        "delta_vs_id218": 0.0007963209781022884,
+        "delta_vs_id221": 0.0017516551684107818,
+        "delta_vs_id341": -0.003987014407710055
+      }
+    },
+    "primary_pass": {
+      "id178": true,
+      "id218": false,
+      "id221": false,
+      "id341": true
+    }
+  },
+  "selection_summary": {
+    "active_selection_count": 78,
+    "total_selection_slots": 161,
+    "selected_counts_top": [
+      [
+        "base",
+        83
+      ],
+      [
+        "date_time_k1_dw0_w0.03",
+        22
+      ],
+      [
+        "screen_app_k1_dw0_w0.05",
+        8
+      ],
+      [
+        "date_time_k1_dw0.1_w0.03",
+        6
+      ],
+      [
+        "screen_app_k1_dw0.03_w0.05",
+        6
+      ],
+      [
+        "date_time_k1_dw0.03_w0.02",
+        5
+      ],
+      [
+        "screen_app_k1_dw0_w0.03",
+        4
+      ],
+      [
+        "light_hr_k3_dw0.03_w0.07",
+        3
+      ],
+      [
+        "date_time_k1_dw0_w0.01",
+        3
+      ],
+      [
+        "date_time_k1_dw0.03_w0.01",
+        3
+      ],
+      [
+        "move_gps_k7_dw0.03_w0.03",
+        2
+      ],
+      [
+        "light_hr_k3_dw0_w0.07",
+        2
+      ],
+      [
+        "light_hr_k3_dw0_w0.01",
+        2
+      ],
+      [
+        "date_time_k1_dw0.1_w0.01",
+        2
+      ],
+      [
+        "light_hr_k3_dw0.03_w0.005",
+        1
+      ],
+      [
+        "date_time_k1_dw0_w0.02",
+        1
+      ],
+      [
+        "screen_app_k1_dw0.03_w0.01",
+        1
+      ],
+      [
+        "date_time_k1_dw0_w0.005",
+        1
+      ],
+      [
+        "screen_app_k1_dw0.03_w0.005",
+        1
+      ],
+      [
+        "move_gps_k7_dw0.03_w0.07",
+        1
+      ]
+    ],
+    "selected_by_target_top": {
+      "Q1": [
+        [
+          "base",
+          22
+        ],
+        [
+          "screen_app_k1_dw0_w0.03",
+          1
+        ]
+      ],
+      "Q2": [
+        [
+          "base",
+          9
+        ],
+        [
+          "date_time_k1_dw0.1_w0.03",
+          6
+        ],
+        [
+          "date_time_k1_dw0_w0.03",
+          4
+        ],
+        [
+          "date_time_k1_dw0.1_w0.01",
+          2
+        ],
+        [
+          "date_time_k1_dw0_w0.01",
+          1
+        ],
+        [
+          "date_time_k1_dw0.1_w0.005",
+          1
+        ]
+      ],
+      "Q3": [
+        [
+          "date_time_k1_dw0_w0.03",
+          18
+        ],
+        [
+          "base",
+          3
+        ],
+        [
+          "date_time_k1_dw0_w0.005",
+          1
+        ],
+        [
+          "date_time_k1_dw0_w0.01",
+          1
+        ]
+      ],
+      "S1": [
+        [
+          "base",
+          12
+        ],
+        [
+          "date_time_k1_dw0.03_w0.02",
+          5
+        ],
+        [
+          "date_time_k1_dw0.03_w0.01",
+          3
+        ],
+        [
+          "date_time_k1_dw0_w0.02",
+          1
+        ],
+        [
+          "date_time_k1_dw0_w0.01",
+          1
+        ],
+        [
+          "date_time_k1_dw0.03_w0.005",
+          1
+        ]
+      ],
+      "S2": [
+        [
+          "base",
+          20
+        ],
+        [
+          "move_gps_k7_dw0.03_w0.03",
+          2
+        ],
+        [
+          "move_gps_k7_dw0.03_w0.07",
+          1
+        ]
+      ],
+      "S3": [
+        [
+          "screen_app_k1_dw0_w0.05",
+          8
+        ],
+        [
+          "screen_app_k1_dw0.03_w0.05",
+          6
+        ],
+        [
+          "base",
+          4
+        ],
+        [
+          "screen_app_k1_dw0_w0.03",
+          3
+        ],
+        [
+          "screen_app_k1_dw0.03_w0.01",
+          1
+        ],
+        [
+          "screen_app_k1_dw0.03_w0.005",
+          1
+        ]
+      ],
+      "S4": [
+        [
+          "base",
+          13
+        ],
+        [
+          "light_hr_k3_dw0.03_w0.07",
+          3
+        ],
+        [
+          "light_hr_k3_dw0_w0.07",
+          2
+        ],
+        [
+          "light_hr_k3_dw0_w0.01",
+          2
+        ],
+        [
+          "light_hr_k3_dw0.03_w0.005",
+          1
+        ],
+        [
+          "light_hr_k3_dw0.03_w0.03",
+          1
+        ],
+        [
+          "light_hr_k3_dw0_w0.03",
+          1
+        ]
+      ]
+    },
+    "full_train_selected": {
+      "Q1": {
+        "selected": {
+          "name": "base",
+          "kind": "base"
+        },
+        "inner_top": [
+          {
+            "name": "base",
+            "loss": 0.5480146417521856,
+            "config": {
+              "name": "base",
+              "kind": "base"
+            }
+          },
+          {
+            "name": "screen_app_k1_dw0_w0.005",
+            "loss": 0.5485467619644137,
+            "config": {
+              "name": "screen_app_k1_dw0_w0.005",
+              "family": "screen_app",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.005
+            }
+          },
+          {
+            "name": "screen_app_k1_dw0_w0.01",
+            "loss": 0.549103428516026,
+            "config": {
+              "name": "screen_app_k1_dw0_w0.01",
+              "family": "screen_app",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.01
+            }
+          },
+          {
+            "name": "screen_app_k1_dw0_w0.03",
+            "loss": 0.5515721535933251,
+            "config": {
+              "name": "screen_app_k1_dw0_w0.03",
+              "family": "screen_app",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.03
+            }
+          },
+          {
+            "name": "screen_app_k1_dw0_w0.07",
+            "loss": 0.5576462474108761,
+            "config": {
+              "name": "screen_app_k1_dw0_w0.07",
+              "family": "screen_app",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.07
+            }
+          }
+        ]
+      },
+      "Q2": {
+        "selected": {
+          "name": "base",
+          "kind": "base"
+        },
+        "inner_top": [
+          {
+            "name": "base",
+            "loss": 0.5506886916995475,
+            "config": {
+              "name": "base",
+              "kind": "base"
+            }
+          },
+          {
+            "name": "date_time_k1_dw0_w0.005",
+            "loss": 0.5507244355385545,
+            "config": {
+              "name": "date_time_k1_dw0_w0.005",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.005
+            }
+          },
+          {
+            "name": "date_time_k1_dw0_w0.01",
+            "loss": 0.5507897962486659,
+            "config": {
+              "name": "date_time_k1_dw0_w0.01",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.01
+            }
+          },
+          {
+            "name": "date_time_k1_dw0.1_w0.005",
+            "loss": 0.5507948338519117,
+            "config": {
+              "name": "date_time_k1_dw0.1_w0.005",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.1,
+              "blend_weight": 0.005
+            }
+          },
+          {
+            "name": "date_time_k1_dw0.1_w0.01",
+            "loss": 0.5509314666749695,
+            "config": {
+              "name": "date_time_k1_dw0.1_w0.01",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.1,
+              "blend_weight": 0.01
+            }
+          },
+          {
+            "name": "date_time_k1_dw0_w0.03",
+            "loss": 0.5513410233091808,
+            "config": {
+              "name": "date_time_k1_dw0_w0.03",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.03
+            }
+          },
+          {
+            "name": "date_time_k1_dw0.1_w0.03",
+            "loss": 0.5517757719813144,
+            "config": {
+              "name": "date_time_k1_dw0.1_w0.03",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.1,
+              "blend_weight": 0.03
+            }
+          }
+        ]
+      },
+      "Q3": {
+        "selected": {
+          "name": "date_time_k1_dw0_w0.03",
+          "family": "date_time",
+          "k": 1,
+          "date_weight": 0.0,
+          "blend_weight": 0.03
+        },
+        "inner_top": [
+          {
+            "name": "date_time_k1_dw0_w0.03",
+            "loss": 0.5620568494124786,
+            "config": {
+              "name": "date_time_k1_dw0_w0.03",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.03
+            }
+          },
+          {
+            "name": "date_time_k1_dw0_w0.01",
+            "loss": 0.5624013248702117,
+            "config": {
+              "name": "date_time_k1_dw0_w0.01",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.01
+            }
+          },
+          {
+            "name": "date_time_k1_dw0_w0.005",
+            "loss": 0.5625679801747945,
+            "config": {
+              "name": "date_time_k1_dw0_w0.005",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.005
+            }
+          },
+          {
+            "name": "base",
+            "loss": 0.5627679785804912,
+            "config": {
+              "name": "base",
+              "kind": "base"
+            }
+          }
+        ]
+      },
+      "S1": {
+        "selected": {
+          "name": "base",
+          "kind": "base"
+        },
+        "inner_top": [
+          {
+            "name": "base",
+            "loss": 0.46724545440453036,
+            "config": {
+              "name": "base",
+              "kind": "base"
+            }
+          },
+          {
+            "name": "date_time_k1_dw0.03_w0.005",
+            "loss": 0.46724659476611635,
+            "config": {
+              "name": "date_time_k1_dw0.03_w0.005",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.005
+            }
+          },
+          {
+            "name": "date_time_k1_dw0.03_w0.01",
+            "loss": 0.46727145691232946,
+            "config": {
+              "name": "date_time_k1_dw0.03_w0.01",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.01
+            }
+          },
+          {
+            "name": "date_time_k1_dw0.03_w0.02",
+            "loss": 0.46739071665207477,
+            "config": {
+              "name": "date_time_k1_dw0.03_w0.02",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.02
+            }
+          },
+          {
+            "name": "date_time_k1_dw0_w0.005",
+            "loss": 0.4673914968723954,
+            "config": {
+              "name": "date_time_k1_dw0_w0.005",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.005
+            }
+          },
+          {
+            "name": "date_time_k1_dw0_w0.01",
+            "loss": 0.4675608628928143,
+            "config": {
+              "name": "date_time_k1_dw0_w0.01",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.01
+            }
+          },
+          {
+            "name": "date_time_k1_dw0_w0.02",
+            "loss": 0.4679680123042273,
+            "config": {
+              "name": "date_time_k1_dw0_w0.02",
+              "family": "date_time",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.02
+            }
+          }
+        ]
+      },
+      "S2": {
+        "selected": {
+          "name": "base",
+          "kind": "base"
+        },
+        "inner_top": [
+          {
+            "name": "base",
+            "loss": 0.5295161847284966,
+            "config": {
+              "name": "base",
+              "kind": "base"
+            }
+          },
+          {
+            "name": "move_gps_k7_dw0.03_w0.005",
+            "loss": 0.5296348309912806,
+            "config": {
+              "name": "move_gps_k7_dw0.03_w0.005",
+              "family": "move_gps",
+              "k": 7,
+              "date_weight": 0.03,
+              "blend_weight": 0.005
+            }
+          },
+          {
+            "name": "move_gps_k7_dw0_w0.005",
+            "loss": 0.5296350452699938,
+            "config": {
+              "name": "move_gps_k7_dw0_w0.005",
+              "family": "move_gps",
+              "k": 7,
+              "date_weight": 0.0,
+              "blend_weight": 0.005
+            }
+          },
+          {
+            "name": "move_gps_k7_dw0.03_w0.01",
+            "loss": 0.5297577939277307,
+            "config": {
+              "name": "move_gps_k7_dw0.03_w0.01",
+              "family": "move_gps",
+              "k": 7,
+              "date_weight": 0.03,
+              "blend_weight": 0.01
+            }
+          },
+          {
+            "name": "move_gps_k7_dw0_w0.01",
+            "loss": 0.5297584142104577,
+            "config": {
+              "name": "move_gps_k7_dw0_w0.01",
+              "family": "move_gps",
+              "k": 7,
+              "date_weight": 0.0,
+              "blend_weight": 0.01
+            }
+          },
+          {
+            "name": "move_gps_k7_dw0.03_w0.03",
+            "loss": 0.5302925812411196,
+            "config": {
+              "name": "move_gps_k7_dw0.03_w0.03",
+              "family": "move_gps",
+              "k": 7,
+              "date_weight": 0.03,
+              "blend_weight": 0.03
+            }
+          },
+          {
+            "name": "move_gps_k7_dw0_w0.03",
+            "loss": 0.5302966948847282,
+            "config": {
+              "name": "move_gps_k7_dw0_w0.03",
+              "family": "move_gps",
+              "k": 7,
+              "date_weight": 0.0,
+              "blend_weight": 0.03
+            }
+          },
+          {
+            "name": "move_gps_k7_dw0.03_w0.07",
+            "loss": 0.5315664694025587,
+            "config": {
+              "name": "move_gps_k7_dw0.03_w0.07",
+              "family": "move_gps",
+              "k": 7,
+              "date_weight": 0.03,
+              "blend_weight": 0.07
+            }
+          }
+        ]
+      },
+      "S3": {
+        "selected": {
+          "name": "screen_app_k1_dw0.03_w0.05",
+          "family": "screen_app",
+          "k": 1,
+          "date_weight": 0.03,
+          "blend_weight": 0.05
+        },
+        "inner_top": [
+          {
+            "name": "screen_app_k1_dw0.03_w0.05",
+            "loss": 0.48753928353835096,
+            "config": {
+              "name": "screen_app_k1_dw0.03_w0.05",
+              "family": "screen_app",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.05
+            }
+          },
+          {
+            "name": "screen_app_k1_dw0_w0.05",
+            "loss": 0.48812188727550354,
+            "config": {
+              "name": "screen_app_k1_dw0_w0.05",
+              "family": "screen_app",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.05
+            }
+          },
+          {
+            "name": "screen_app_k1_dw0.03_w0.03",
+            "loss": 0.4885192095500943,
+            "config": {
+              "name": "screen_app_k1_dw0.03_w0.03",
+              "family": "screen_app",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.03
+            }
+          },
+          {
+            "name": "screen_app_k1_dw0_w0.03",
+            "loss": 0.48886569224777043,
+            "config": {
+              "name": "screen_app_k1_dw0_w0.03",
+              "family": "screen_app",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.03
+            }
+          },
+          {
+            "name": "screen_app_k1_dw0.03_w0.01",
+            "loss": 0.4897937039909488,
+            "config": {
+              "name": "screen_app_k1_dw0.03_w0.01",
+              "family": "screen_app",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.01
+            }
+          },
+          {
+            "name": "screen_app_k1_dw0_w0.01",
+            "loss": 0.48990818423340693,
+            "config": {
+              "name": "screen_app_k1_dw0_w0.01",
+              "family": "screen_app",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.01
+            }
+          },
+          {
+            "name": "screen_app_k1_dw0.03_w0.005",
+            "loss": 0.4901597321752339,
+            "config": {
+              "name": "screen_app_k1_dw0.03_w0.005",
+              "family": "screen_app",
+              "k": 1,
+              "date_weight": 0.03,
+              "blend_weight": 0.005
+            }
+          },
+          {
+            "name": "screen_app_k1_dw0_w0.005",
+            "loss": 0.4902168463823403,
+            "config": {
+              "name": "screen_app_k1_dw0_w0.005",
+              "family": "screen_app",
+              "k": 1,
+              "date_weight": 0.0,
+              "blend_weight": 0.005
+            }
+          }
+        ]
+      },
+      "S4": {
+        "selected": {
+          "name": "base",
+          "kind": "base"
+        },
+        "inner_top": [
+          {
+            "name": "base",
+            "loss": 0.5899440437674225,
+            "config": {
+              "name": "base",
+              "kind": "base"
+            }
+          },
+          {
+            "name": "light_hr_k3_dw0_w0.005",
+            "loss": 0.5899518014978743,
+            "config": {
+              "name": "light_hr_k3_dw0_w0.005",
+              "family": "light_hr",
+              "k": 3,
+              "date_weight": 0.0,
+              "blend_weight": 0.005
+            }
+          },
+          {
+            "name": "light_hr_k3_dw0_w0.01",
+            "loss": 0.5899705806011462,
+            "config": {
+              "name": "light_hr_k3_dw0_w0.01",
+              "family": "light_hr",
+              "k": 3,
+              "date_weight": 0.0,
+              "blend_weight": 0.01
+            }
+          },
+          {
+            "name": "light_hr_k3_dw0.03_w0.005",
+            "loss": 0.5899845846224065,
+            "config": {
+              "name": "light_hr_k3_dw0.03_w0.005",
+              "family": "light_hr",
+              "k": 3,
+              "date_weight": 0.03,
+              "blend_weight": 0.005
+            }
+          },
+          {
+            "name": "light_hr_k3_dw0.03_w0.01",
+            "loss": 0.5900358004057833,
+            "config": {
+              "name": "light_hr_k3_dw0.03_w0.01",
+              "family": "light_hr",
+              "k": 3,
+              "date_weight": 0.03,
+              "blend_weight": 0.01
+            }
+          },
+          {
+            "name": "light_hr_k3_dw0_w0.03",
+            "loss": 0.5901537732269306,
+            "config": {
+              "name": "light_hr_k3_dw0_w0.03",
+              "family": "light_hr",
+              "k": 3,
+              "date_weight": 0.0,
+              "blend_weight": 0.03
+            }
+          },
+          {
+            "name": "light_hr_k3_dw0.03_w0.03",
+            "loss": 0.5903453718991432,
+            "config": {
+              "name": "light_hr_k3_dw0.03_w0.03",
+              "family": "light_hr",
+              "k": 3,
+              "date_weight": 0.03,
+              "blend_weight": 0.03
+            }
+          },
+          {
+            "name": "light_hr_k3_dw0_w0.07",
+            "loss": 0.5910210917985472,
+            "config": {
+              "name": "light_hr_k3_dw0_w0.07",
+              "family": "light_hr",
+              "k": 3,
+              "date_weight": 0.0,
+              "blend_weight": 0.07
+            }
+          }
+        ]
+      }
+    }
+  },
+  "test_geometry_preview_no_artifact": {
+    "mean_delta_vs_id178": 0.036173324336050944,
+    "max_delta_vs_id178": 0.22651850519844996,
+    "mean_delta_vs_id341": 0.03605279087547833,
+    "max_delta_vs_id341": 0.22651850519844996,
+    "projection_failed_id287": -0.015445257644157316,
+    "projection_gap_id329": 0.34844564237704917
+  },
+  "decision": {
+    "inner_selection_improves_id218": false,
+    "beats_id178_primary": true,
+    "beats_id341_primary": true,
+    "beats_historical_id221_primary": false,
+    "promote_artifact": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_heavy_rebuild_now": false,
+    "next_action": "If this probe improves ID218 and keeps low failed-direction exposure, implement the same inner-selection contract in the Kaggle clean-backbone runner. Otherwise treat clean ID221 as an anchor/control only."
+  },
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_dacon_submission_made": true
+}

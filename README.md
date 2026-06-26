@@ -7,10 +7,11 @@ This repository contains the codebase and workspace for the **ETRI Human Underst
 - **Objective:** Predict 7 targets (Q1~Q3: Sleep Quality, Fatigue, Stress; S1~S4: Sleep Metrics) using multimodal lifelog data.
 - **Task Type:** Multi-task Binary Classification (0 or 1 for each metric) optimized for **Average Log-Loss**.
 - **Data Source:** Smartphone ('m' prefix) and Smartwatch ('w' prefix) sensor/usage logs over 700 days, with 450 days of labels.
+- **Current status:** Public `0.55` is not yet proven. See [Workflow Review and Session Handoff](docs/WORKFLOW_REVIEW.md) before running new experiments.
 
 ## 🧠 Core Architecture
 
-To achieve the highly competitive 0.5 Log-Loss target, this project employs advanced multi-track modeling:
+This project uses a multi-track modeling stack, but candidate promotion is gated by validation and public-gap risk rather than local score alone:
 1. **Machine Learning Pipeline (`CatBoost` + `Optuna`)**: Uses GroupKFold cross-validation and Bayesian optimization (via Optuna) to find the best tree-based hyperparameters while avoiding data leakage.
 2. **Deep Learning Pipeline (`PyTorch Lightning`)**: Implements a `MultiTaskLSTM` with a **Temporal Attention Layer** to capture longitudinal patterns across days, outputting to 7 task-specific heads.
 3. **Advanced Feature Engineering**: Incorporates Cross-Sensor interactions (e.g., HR vs Activity), Ambient Sound parsing, App Usage Bag-of-Words, and Time-Series Rolling/Lag windows.
@@ -39,7 +40,7 @@ To achieve the highly competitive 0.5 Log-Loss target, this project employs adva
 
 ## ☁️ Kaggle Cloud Workflow & Automation
 
-We leverage Kaggle's free GPU (P100/T4) for heavy model training and tuning. This workflow is completely hardened with **pre-flight checks** and **automated submission bots**.
+We leverage Kaggle's free compute for heavy model training and tuning. Cloud runs must remain staging-only until a human explicitly approves a DACON submission.
 
 1. **Push Source Code to Kaggle Dataset:**
    Zips the `src` and `conf` folders and uploads them. **Pre-flight checks** run automatically to ensure valid configurations and paths.
@@ -61,8 +62,10 @@ We leverage Kaggle's free GPU (P100/T4) for heavy model training and tuning. Thi
    make ensemble
    make docs-audit
    make audit
-   make dacon-submit SUB_PATH=submissions/submission_ensemble_latest.csv SUB_MEMO="reviewed safe ensemble"
+   ALLOW_DACON_SUBMIT=true make dacon-submit SUB_PATH=submissions/submission_ensemble_latest.csv SUB_MEMO="reviewed safe ensemble"
    ```
+
+Do not run auto-submission scripts or `make dacon-submit` without an explicit `SUB_PATH`, `SUB_MEMO`, user approval, and `ALLOW_DACON_SUBMIT=true`.
 
 ## 🤝 Ensembling & Validation
 
@@ -75,7 +78,9 @@ We leverage Kaggle's free GPU (P100/T4) for heavy model training and tuning. Thi
 
 ## 📖 Key Documentation
 - [Root Document Roles](docs/ROOT_DOCUMENTS.md)
+- [Workflow Review and Session Handoff](docs/WORKFLOW_REVIEW.md)
 - [Master Plan](docs/MASTER_PLAN.md)
+- [Public 0.55 Plan](docs/PUBLIC_055_PLAN.md)
 - [Data Dictionary](docs/competition/DATA_DICTIONARY.md)
 - [Submission Log](submissions/submission_log.csv)
 - [Kaggle Environment & Troubleshooting](docs/infrastructure/cloud_env/guide.md)

@@ -1,0 +1,2624 @@
+{
+  "anchor": {
+    "id": 342,
+    "public_score": 0.5960832519
+  },
+  "created_at_kst": "2026-06-25 16:07:44 UTC+09:00",
+  "decision": {
+    "best_candidate": "kma_weather_precip_pressure_s4_lr_c0_10_w0.05",
+    "best_family": "kma_weather_precip_pressure",
+    "best_gap_to_public_055": 0.046006236431684555,
+    "best_max_delta": 0.0005154992083421517,
+    "best_mean_delta": -0.0005391082782077117,
+    "best_projected_public_proxy": 0.5960062364316846,
+    "best_target": "S4",
+    "best_wins": 2,
+    "create_submission_artifact_now": false,
+    "dacon_gate_pass_count": 0,
+    "dacon_submit_now": false,
+    "local_gate_pass_count": 0,
+    "missing_failed_frontier_refs": [],
+    "modify_submission_log_now": false,
+    "next_action": "Promote nothing unless a row clears the Public-0.58 review proxy and a separate artifact contract. This gate is weather-source evidence only.",
+    "push_kaggle_now": false,
+    "review_gate_pass_count": 0,
+    "reviewed_candidates": 144,
+    "run_kaggle_now": false,
+    "weather_cache_available": true,
+    "weather_context_gate_pass": false
+  },
+  "diagnostic": "post_id342_kma_weather_context_gate",
+  "feature_metadata": {
+    "base_weather_columns": 100,
+    "families": {
+      "kma_weather_all": {
+        "feature_count": 300,
+        "feature_sample": [
+          "kma_day_12_23_temp_mean",
+          "kma_day_12_23_temp_max",
+          "kma_day_12_23_temp_min",
+          "kma_day_12_23_temp_std",
+          "kma_day_12_23_temp_range",
+          "kma_day_12_23_hot_hours_ge26",
+          "kma_day_12_23_hot_hours_ge28",
+          "kma_day_12_23_cool_hours_lt15",
+          "kma_day_12_23_humidity_mean",
+          "kma_day_12_23_humidity_max",
+          "kma_day_12_23_humid_hours_ge70",
+          "kma_day_12_23_temp_humidity_load_mean",
+          "kma_day_12_23_hot_humid_hours",
+          "kma_day_12_23_rain_sum",
+          "kma_day_12_23_rain_max",
+          "kma_day_12_23_rain_hours"
+        ],
+        "mean_missing_rate": 0.015051851851851851
+      },
+      "kma_weather_precip_pressure": {
+        "feature_count": 108,
+        "feature_sample": [
+          "kma_day_12_23_rain_sum",
+          "kma_day_12_23_rain_max",
+          "kma_day_12_23_rain_hours",
+          "kma_day_12_23_wind_mean",
+          "kma_day_12_23_wind_max",
+          "kma_day_12_23_pa_mean",
+          "kma_day_12_23_pa_range",
+          "kma_day_12_23_ps_mean",
+          "kma_day_12_23_ps_range",
+          "kma_night_00_11_rain_sum",
+          "kma_night_00_11_rain_max",
+          "kma_night_00_11_rain_hours",
+          "kma_night_00_11_wind_mean",
+          "kma_night_00_11_wind_max",
+          "kma_night_00_11_pa_mean",
+          "kma_night_00_11_pa_range"
+        ],
+        "mean_missing_rate": 0.014814814814814812
+      },
+      "kma_weather_solar_ground": {
+        "feature_count": 36,
+        "feature_sample": [
+          "kma_day_12_23_ss_sum",
+          "kma_day_12_23_icsr_sum",
+          "kma_day_12_23_ground_temp_mean",
+          "kma_night_00_11_ss_sum",
+          "kma_night_00_11_icsr_sum",
+          "kma_night_00_11_ground_temp_mean",
+          "kma_sleep_core_22_06_ss_sum",
+          "kma_sleep_core_22_06_icsr_sum",
+          "kma_sleep_core_22_06_ground_temp_mean",
+          "kma_full_lifelog_12_11_ss_sum",
+          "kma_full_lifelog_12_11_icsr_sum",
+          "kma_full_lifelog_12_11_ground_temp_mean",
+          "kma_day_12_23_ss_sum__lag1",
+          "kma_day_12_23_ss_sum__dev_past3",
+          "kma_day_12_23_icsr_sum__lag1",
+          "kma_day_12_23_icsr_sum__dev_past3"
+        ],
+        "mean_missing_rate": 0.016790123456790124
+      },
+      "kma_weather_thermal_load": {
+        "feature_count": 156,
+        "feature_sample": [
+          "kma_day_12_23_temp_mean",
+          "kma_day_12_23_temp_max",
+          "kma_day_12_23_temp_min",
+          "kma_day_12_23_temp_std",
+          "kma_day_12_23_temp_range",
+          "kma_day_12_23_hot_hours_ge26",
+          "kma_day_12_23_hot_hours_ge28",
+          "kma_day_12_23_humidity_mean",
+          "kma_day_12_23_humidity_max",
+          "kma_day_12_23_humid_hours_ge70",
+          "kma_day_12_23_temp_humidity_load_mean",
+          "kma_day_12_23_hot_humid_hours",
+          "kma_day_12_23_ground_temp_mean",
+          "kma_night_00_11_temp_mean",
+          "kma_night_00_11_temp_max",
+          "kma_night_00_11_temp_min"
+        ],
+        "mean_missing_rate": 0.01527065527065527
+      }
+    },
+    "lag_deviation_columns": 200,
+    "rows": 450,
+    "unique_dates": 151,
+    "windows": {
+      "day_12_23": [
+        0,
+        12,
+        0,
+        23
+      ],
+      "full_lifelog_12_11": [
+        0,
+        12,
+        1,
+        11
+      ],
+      "night_00_11": [
+        1,
+        0,
+        1,
+        11
+      ],
+      "sleep_core_22_06": [
+        0,
+        22,
+        1,
+        6
+      ]
+    }
+  },
+  "no_base_prediction_artifact_created": true,
+  "no_dacon_submission_made": true,
+  "no_feature_matrix_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_prediction_file_created": true,
+  "no_submission_created": true,
+  "no_submission_log_row_created": true,
+  "purpose": "Gate external KMA ASOS weather context against ID342.",
+  "top_rows": [
+    {
+      "config": "kma_weather_precip_pressure_s4_lr_c0_10_w0.05",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.31969475693083976,
+          "id329": 0.23591746508503508
+        },
+        "subject_hole_5": {
+          "id287": -0.29122777335083583,
+          "id329": 0.2693674043867159
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_precip_pressure",
+      "feature_count": 108,
+      "gap_to_public_055": 0.046006236431684555,
+      "local_gate_pass": false,
+      "max_delta": 0.0005154992083421517,
+      "max_failed_direction_corr": 0.2693674043867159,
+      "mean_delta": -0.0005391082782077117,
+      "min_delta": -0.00292339345330328,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960062364316846,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00292339345330328,
+        "loso_10": 0.0005154992083421517,
+        "subject_hole_5": 0.0003249722899967278,
+        "test_boundary_neighbor2_holdout": -0.0007813363602466872,
+        "test_boundary_neighbor5_holdout": 0.00016871692417252948
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.05,
+      "wins": 2
+    },
+    {
+      "config": "kma_weather_precip_pressure_s4_lr_c0_10_w0.025",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.31969475693084026,
+          "id329": 0.23591746508503544
+        },
+        "subject_hole_5": {
+          "id287": -0.291227773350836,
+          "id329": 0.26936740438671597
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_precip_pressure",
+      "feature_count": 108,
+      "gap_to_public_055": 0.04602944180671098,
+      "local_gate_pass": false,
+      "max_delta": 0.00015993537660241586,
+      "max_failed_direction_corr": 0.26936740438671597,
+      "mean_delta": -0.00037667065302262606,
+      "min_delta": -0.0015918396203263852,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.596029441806711,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0015918396203263852,
+        "loso_10": 0.00015993537660241586,
+        "subject_hole_5": 6.129470830440464e-05,
+        "test_boundary_neighbor2_holdout": -0.0004936769413326214,
+        "test_boundary_neighbor5_holdout": -1.906678836094411e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.025,
+      "wins": 3
+    },
+    {
+      "config": "kma_weather_thermal_load_s4_lr_c0_10_w0.05",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.31851756651293645,
+          "id329": 0.22119619563291973
+        },
+        "subject_hole_5": {
+          "id287": -0.2741850345172508,
+          "id329": 0.2666236868174319
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_thermal_load",
+      "feature_count": 156,
+      "gap_to_public_055": 0.04603629863572167,
+      "local_gate_pass": false,
+      "max_delta": 0.000734799883083892,
+      "max_failed_direction_corr": 0.2666236868174319,
+      "mean_delta": -0.0003286728499480196,
+      "min_delta": -0.002420306884021395,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960362986357217,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.002420306884021395,
+        "loso_10": 0.0006586758219210287,
+        "subject_hole_5": 0.000734799883083892,
+        "test_boundary_neighbor2_holdout": 0.00022138844205799035,
+        "test_boundary_neighbor5_holdout": -0.0008379215127816142
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.05,
+      "wins": 2
+    },
+    {
+      "config": "kma_weather_thermal_load_s4_lr_c0_10_w0.025",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.31851756651293717,
+          "id329": 0.22119619563291984
+        },
+        "subject_hole_5": {
+          "id287": -0.27418503451725135,
+          "id329": 0.2666236868174319
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_thermal_load",
+      "feature_count": 156,
+      "gap_to_public_055": 0.046043830073163705,
+      "local_gate_pass": false,
+      "max_delta": 0.00028191602775407,
+      "max_failed_direction_corr": 0.2666236868174319,
+      "mean_delta": -0.0002759527878540391,
+      "min_delta": -0.0013485760905551647,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960438300731637,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0013485760905551647,
+        "loso_10": 0.00023110876219767373,
+        "subject_hole_5": 0.00028191602775407,
+        "test_boundary_neighbor2_holdout": 5.01884590142776e-06,
+        "test_boundary_neighbor5_holdout": -0.0005492314845682023
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.025,
+      "wins": 2
+    },
+    {
+      "config": "kma_weather_precip_pressure_s4_lr_c0_10_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3196947569308386,
+          "id329": 0.23591746508503603
+        },
+        "subject_hole_5": {
+          "id287": -0.291227773350835,
+          "id329": 0.26936740438671614
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_precip_pressure",
+      "feature_count": 108,
+      "gap_to_public_055": 0.04605788449355608,
+      "local_gate_pass": false,
+      "max_delta": 3.9647280356880366e-05,
+      "max_failed_direction_corr": 0.26936740438671614,
+      "mean_delta": -0.000177571845106983,
+      "min_delta": -0.0006696724840857815,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960578844935561,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0006696724840857815,
+        "loso_10": 3.9647280356880366e-05,
+        "subject_hole_5": -8.612297413002068e-07,
+        "test_boundary_neighbor2_holdout": -0.00022339415592254053,
+        "test_boundary_neighbor5_holdout": -3.3578636142173046e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 4
+    },
+    {
+      "config": "kma_weather_precip_pressure_s4_lr_c0_03_w0.025",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.35720074415740344,
+          "id329": 0.2529584461721624
+        },
+        "subject_hole_5": {
+          "id287": -0.32959590273946715,
+          "id329": 0.29399138886033804
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_precip_pressure",
+      "feature_count": 108,
+      "gap_to_public_055": 0.04605884277692329,
+      "local_gate_pass": false,
+      "max_delta": 0.00043659881236890463,
+      "max_failed_direction_corr": 0.29399138886033804,
+      "mean_delta": -0.0001708638615366409,
+      "min_delta": -0.0013619681057213118,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960588427769233,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0013619681057213118,
+        "loso_10": 0.00043659881236890463,
+        "subject_hole_5": 0.00032762148280796044,
+        "test_boundary_neighbor2_holdout": -0.0003855953243707688,
+        "test_boundary_neighbor5_holdout": 0.000129023827232011
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.025,
+      "wins": 2
+    },
+    {
+      "config": "kma_weather_precip_pressure_s4_lr_c0_03_w0.05",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.35720074415740316,
+          "id329": 0.25295844617216184
+        },
+        "subject_hole_5": {
+          "id287": -0.32959590273946693,
+          "id329": 0.29399138886033793
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_precip_pressure",
+      "feature_count": 108,
+      "gap_to_public_055": 0.04606104652344967,
+      "local_gate_pass": false,
+      "max_delta": 0.001040277950593027,
+      "max_failed_direction_corr": 0.29399138886033793,
+      "mean_delta": -0.00015543763585192937,
+      "min_delta": -0.002501656362025817,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960610465234497,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.002501656362025817,
+        "loso_10": 0.001040277950593027,
+        "subject_hole_5": 0.0008239195250494546,
+        "test_boundary_neighbor2_holdout": -0.0005913380051107975,
+        "test_boundary_neighbor5_holdout": 0.00045160871223448584
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.05,
+      "wins": 2
+    },
+    {
+      "config": "kma_weather_thermal_load_s4_lr_c0_10_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.318517566512936,
+          "id329": 0.2211961956329194
+        },
+        "subject_hole_5": {
+          "id287": -0.27418503451725,
+          "id329": 0.2666236868174326
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_thermal_load",
+      "feature_count": 156,
+      "gap_to_public_055": 0.046063485529287296,
+      "local_gate_pass": false,
+      "max_delta": 9.144439176034247e-05,
+      "max_failed_direction_corr": 0.2666236868174326,
+      "mean_delta": -0.00013836459498854924,
+      "min_delta": -0.000574125314173779,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960634855292873,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.000574125314173779,
+        "loso_10": 6.791930697791493e-05,
+        "subject_hole_5": 9.144439176034247e-05,
+        "test_boundary_neighbor2_holdout": -2.4389865137641742e-05,
+        "test_boundary_neighbor5_holdout": -0.0002526714943695829
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 3
+    },
+    {
+      "config": "kma_weather_all_s4_lr_c0_10_w0.025",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.2735640030710038,
+          "id329": 0.169097548426611
+        },
+        "subject_hole_5": {
+          "id287": -0.24658665362783702,
+          "id329": 0.22283868170376475
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_all",
+      "feature_count": 300,
+      "gap_to_public_055": 0.04606471574897031,
+      "local_gate_pass": false,
+      "max_delta": 0.00051927049060152,
+      "max_failed_direction_corr": 0.22283868170376475,
+      "mean_delta": -0.00012975305720734908,
+      "min_delta": -0.0008346969082814182,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960647157489704,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0008346969082814182,
+        "loso_10": -0.00023889363549267628,
+        "subject_hole_5": -0.0002572672732067405,
+        "test_boundary_neighbor2_holdout": 0.00016282204034256953,
+        "test_boundary_neighbor5_holdout": 0.00051927049060152
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.025,
+      "wins": 3
+    },
+    {
+      "config": "kma_weather_precip_pressure_s4_lr_c0_10_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.31969475693084126,
+          "id329": 0.23591746508503614
+        },
+        "subject_hole_5": {
+          "id287": -0.29122777335083433,
+          "id329": 0.2693674043867186
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_precip_pressure",
+      "feature_count": 108,
+      "gap_to_public_055": 0.046069911842943845,
+      "local_gate_pass": false,
+      "max_delta": 1.5690873755080936e-05,
+      "max_failed_direction_corr": 0.2693674043867186,
+      "mean_delta": -9.338039939275067e-05,
+      "min_delta": -0.0003404829422657407,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960699118429439,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0003404829422657407,
+        "loso_10": 1.5690873755080936e-05,
+        "subject_hole_5": -4.762683707526527e-06,
+        "test_boundary_neighbor2_holdout": -0.00011612864006260715,
+        "test_boundary_neighbor5_holdout": -2.1218604682959885e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 4
+    },
+    {
+      "config": "kma_weather_precip_pressure_s4_lr_c0_03_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3572007441574014,
+          "id329": 0.2529584461721622
+        },
+        "subject_hole_5": {
+          "id287": -0.3295959027394664,
+          "id329": 0.29399138886033743
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_precip_pressure",
+      "feature_count": 108,
+      "gap_to_public_055": 0.04607015183955809,
+      "local_gate_pass": false,
+      "max_delta": 0.00015387795460286569,
+      "max_failed_direction_corr": 0.29399138886033743,
+      "mean_delta": -9.170042309338821e-05,
+      "min_delta": -0.0005728664237747427,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960701518395581,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0005728664237747427,
+        "loso_10": 0.00015387795460286569,
+        "subject_hole_5": 0.00010995431430915747,
+        "test_boundary_neighbor2_holdout": -0.0001767723659845677,
+        "test_boundary_neighbor5_holdout": 2.7304405380346175e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 2
+    },
+    {
+      "config": "kma_weather_all_s4_lr_c0_10_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.27356400307100237,
+          "id329": 0.16909754842661134
+        },
+        "subject_hole_5": {
+          "id287": -0.24658665362783533,
+          "id329": 0.22283868170376617
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_all",
+      "feature_count": 300,
+      "gap_to_public_055": 0.04607097850040498,
+      "local_gate_pass": false,
+      "max_delta": 0.0001762070965564133,
+      "max_failed_direction_corr": 0.22283868170376617,
+      "mean_delta": -8.591379716464953e-05,
+      "min_delta": -0.00037708506570610645,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.596070978500405,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00037708506570610645,
+        "loso_10": -0.00012899352503847883,
+        "subject_hole_5": -0.00013341857182180838,
+        "test_boundary_neighbor2_holdout": 3.37210801867327e-05,
+        "test_boundary_neighbor5_holdout": 0.0001762070965564133
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 3
+    },
+    {
+      "config": "kma_weather_thermal_load_s4_lr_c0_10_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3185175665129376,
+          "id329": 0.22119619563292095
+        },
+        "subject_hole_5": {
+          "id287": -0.27418503451725207,
+          "id329": 0.26662368681743154
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_thermal_load",
+      "feature_count": 156,
+      "gap_to_public_055": 0.04607268661056996,
+      "local_gate_pass": false,
+      "max_delta": 4.2093791979502804e-05,
+      "max_failed_direction_corr": 0.26662368681743154,
+      "mean_delta": -7.395702601009635e-05,
+      "min_delta": -0.00029298066142169343,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.59607268661057,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00029298066142169343,
+        "loso_10": 2.978381259266527e-05,
+        "subject_hole_5": 4.2093791979502804e-05,
+        "test_boundary_neighbor2_holdout": -1.6689650643608722e-05,
+        "test_boundary_neighbor5_holdout": -0.00013199242255734767
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 3
+    },
+    {
+      "config": "kma_weather_precip_pressure_s4_lr_c0_03_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.35720074415740666,
+          "id329": 0.25295844617216273
+        },
+        "subject_hole_5": {
+          "id287": -0.32959590273946904,
+          "id329": 0.29399138886033777
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_precip_pressure",
+      "feature_count": 108,
+      "gap_to_public_055": 0.046076132702828954,
+      "local_gate_pass": false,
+      "max_delta": 7.341366144841821e-05,
+      "max_failed_direction_corr": 0.29399138886033777,
+      "mean_delta": -4.98343801972112e-05,
+      "min_delta": -0.00029124195413676723,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.596076132702829,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00029124195413676723,
+        "loso_10": 7.341366144841821e-05,
+        "subject_hole_5": 5.138249506264625e-05,
+        "test_boundary_neighbor2_holdout": -9.2228731969346e-05,
+        "test_boundary_neighbor5_holdout": 9.502628608992758e-06
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 2
+    },
+    {
+      "config": "kma_weather_all_s4_lr_c0_10_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.27356400307100565,
+          "id329": 0.16909754842661098
+        },
+        "subject_hole_5": {
+          "id287": -0.24658665362783957,
+          "id329": 0.22283868170376597
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_all",
+      "feature_count": 300,
+      "gap_to_public_055": 0.04607628684398013,
+      "local_gate_pass": false,
+      "max_delta": 8.274382855744111e-05,
+      "max_failed_direction_corr": 0.22283868170376597,
+      "mean_delta": -4.875539213906599e-05,
+      "min_delta": -0.00019592176039029408,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960762868439802,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00019592176039029408,
+        "loso_10": -7.01858567526692e-05,
+        "subject_hole_5": -7.190742743723444e-05,
+        "test_boundary_neighbor2_holdout": 1.149425532742665e-05,
+        "test_boundary_neighbor5_holdout": 8.274382855744111e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 3
+    },
+    {
+      "config": "kma_weather_solar_ground_s4_lr_c0_03_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.38953626610670944,
+          "id329": 0.23612042756063634
+        },
+        "subject_hole_5": {
+          "id287": -0.3583865993085636,
+          "id329": 0.2865313900591771
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_solar_ground",
+      "feature_count": 36,
+      "gap_to_public_055": 0.04608219657867785,
+      "local_gate_pass": false,
+      "max_delta": 0.0003051141600479701,
+      "max_failed_direction_corr": 0.2865313900591771,
+      "mean_delta": -7.3872492544868605e-06,
+      "min_delta": -0.00046770870747558924,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960821965786779,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00046770870747558924,
+        "loso_10": 0.0003051141600479701,
+        "subject_hole_5": 0.00028902431978727883,
+        "test_boundary_neighbor2_holdout": -0.00015502596379080025,
+        "test_boundary_neighbor5_holdout": -8.340054841293743e-06
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 3
+    },
+    {
+      "config": "kma_weather_solar_ground_s4_lr_c0_03_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3895362661067101,
+          "id329": 0.23612042756063664
+        },
+        "subject_hole_5": {
+          "id287": -0.3583865993085635,
+          "id329": 0.28653139005917855
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_solar_ground",
+      "feature_count": 36,
+      "gap_to_public_055": 0.046082301719745256,
+      "local_gate_pass": false,
+      "max_delta": 0.00014970368785915955,
+      "max_failed_direction_corr": 0.28653139005917855,
+      "mean_delta": -6.651261782963935e-06,
+      "min_delta": -0.00023757232914789483,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960823017197453,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00023757232914789483,
+        "loso_10": 0.00014970368785915955,
+        "subject_hole_5": 0.00014220505718509635,
+        "test_boundary_neighbor2_holdout": -8.00645330826244e-05,
+        "test_boundary_neighbor5_holdout": -7.528191728556344e-06
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 3
+    },
+    {
+      "config": "kma_weather_thermal_load_s4_lr_c0_03_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3633784455025258,
+          "id329": 0.24433859422659052
+        },
+        "subject_hole_5": {
+          "id287": -0.32497670782730714,
+          "id329": 0.2895576240894778
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_thermal_load",
+      "feature_count": 156,
+      "gap_to_public_055": 0.0460825613163367,
+      "local_gate_pass": false,
+      "max_delta": 0.00011621353624036157,
+      "max_failed_direction_corr": 0.2895576240894778,
+      "mean_delta": -4.834085642912988e-06,
+      "min_delta": -0.00019645670221635214,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960825613163367,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00019645670221635214,
+        "loso_10": 0.00010353074919056127,
+        "subject_hole_5": 0.00011621353624036157,
+        "test_boundary_neighbor2_holdout": 1.4262415412691354e-05,
+        "test_boundary_neighbor5_holdout": -6.172042684182699e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 2
+    },
+    {
+      "config": "kma_weather_thermal_load_s4_lr_c0_03_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3633784455025231,
+          "id329": 0.2443385942265883
+        },
+        "subject_hole_5": {
+          "id287": -0.32497670782730276,
+          "id329": 0.2895576240894787
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_thermal_load",
+      "feature_count": 156,
+      "gap_to_public_055": 0.046082938572486465,
+      "local_gate_pass": false,
+      "max_delta": 0.00023804740833854865,
+      "max_failed_direction_corr": 0.2895576240894787,
+      "mean_delta": -2.1932925941658963e-06,
+      "min_delta": -0.00038360188998376454,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960829385724865,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00038360188998376454,
+        "loso_10": 0.0002138773243303138,
+        "subject_hole_5": 0.00023804740833854865,
+        "test_boundary_neighbor2_holdout": 3.542276123824628e-05,
+        "test_boundary_neighbor5_holdout": -0.00011471206689417368
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 2
+    },
+    {
+      "config": "kma_weather_all_s4_lr_c0_03_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3201797906030787,
+          "id329": 0.19223824969036696
+        },
+        "subject_hole_5": {
+          "id287": -0.2936428368660321,
+          "id329": 0.24718670085721006
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_all",
+      "feature_count": 300,
+      "gap_to_public_055": 0.0460831449453859,
+      "local_gate_pass": false,
+      "max_delta": 6.10831750871288e-05,
+      "max_failed_direction_corr": 0.24718670085721006,
+      "mean_delta": -7.486822981128683e-07,
+      "min_delta": -0.00013813668261453138,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.596083144945386,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00013813668261453138,
+        "loso_10": 7.690809481153416e-06,
+        "subject_hole_5": 1.2210029033732361e-05,
+        "test_boundary_neighbor2_holdout": 5.340925752195247e-05,
+        "test_boundary_neighbor5_holdout": 6.10831750871288e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "kma_weather_solar_ground_s4_lr_c0_10_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3767019104671242,
+          "id329": 0.21707561025887415
+        },
+        "subject_hole_5": {
+          "id287": -0.3377099986064514,
+          "id329": 0.27043597199616376
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_solar_ground",
+      "feature_count": 36,
+      "gap_to_public_055": 0.04608350274310691,
+      "local_gate_pass": false,
+      "max_delta": 0.00013419082329590992,
+      "max_failed_direction_corr": 0.27043597199616376,
+      "mean_delta": 1.7559017488899542e-06,
+      "min_delta": -0.0001927295372816662,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.596083502743107,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0001927295372816662,
+        "loso_10": 0.00013419082329590992,
+        "subject_hole_5": 0.00011978491996011975,
+        "test_boundary_neighbor2_holdout": -4.209835684532148e-05,
+        "test_boundary_neighbor5_holdout": -1.0368340384592223e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 3
+    },
+    {
+      "config": "kma_weather_all_s4_lr_c0_03_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.32017979060307666,
+          "id329": 0.19223824969036782
+        },
+        "subject_hole_5": {
+          "id287": -0.29364283686602793,
+          "id329": 0.24718670085721198
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_all",
+      "feature_count": 300,
+      "gap_to_public_055": 0.04608429340638098,
+      "local_gate_pass": false,
+      "max_delta": 0.00013048770258894393,
+      "max_failed_direction_corr": 0.24718670085721198,
+      "mean_delta": 7.290544667504229e-06,
+      "min_delta": -0.00026485443860513325,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.596084293406381,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00026485443860513325,
+        "loso_10": 2.396670127946532e-05,
+        "subject_hole_5": 3.224436246818119e-05,
+        "test_boundary_neighbor2_holdout": 0.00011460839560606395,
+        "test_boundary_neighbor5_holdout": 0.00013048770258894393
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 1
+    },
+    {
+      "config": "kma_weather_solar_ground_s4_lr_c0_10_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3767019104671214,
+          "id329": 0.21707561025887465
+        },
+        "subject_hole_5": {
+          "id287": -0.3377099986064491,
+          "id329": 0.27043597199616426
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_solar_ground",
+      "feature_count": 36,
+      "gap_to_public_055": 0.04608464648716948,
+      "local_gate_pass": false,
+      "max_delta": 0.00027462868512484473,
+      "max_failed_direction_corr": 0.27043597199616426,
+      "mean_delta": 9.762110186706251e-06,
+      "min_delta": -0.000377740766530299,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960846464871695,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.000377740766530299,
+        "loso_10": 0.00027462868512484473,
+        "subject_hole_5": 0.0002444730561301789,
+        "test_boundary_neighbor2_holdout": -7.913423575411915e-05,
+        "test_boundary_neighbor5_holdout": -1.3416188037074228e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 3
+    },
+    {
+      "config": "kma_weather_solar_ground_s4_hgb_l7_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.36714761929391154,
+          "id329": 0.20535055327406423
+        },
+        "subject_hole_5": {
+          "id287": -0.3212628600821447,
+          "id329": 0.2592703696237101
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_solar_ground",
+      "feature_count": 36,
+      "gap_to_public_055": 0.04608487220616864,
+      "local_gate_pass": false,
+      "max_delta": 0.00015064093375860566,
+      "max_failed_direction_corr": 0.2592703696237101,
+      "mean_delta": 1.1342143180570474e-05,
+      "min_delta": -0.00019418371277424296,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5960848722061687,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00019418371277424296,
+        "loso_10": 0.0001269579626471673,
+        "subject_hole_5": 0.00015064093375860566,
+        "test_boundary_neighbor2_holdout": -2.0507448246442905e-05,
+        "test_boundary_neighbor5_holdout": -6.1970194822347224e-06
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 3
+    },
+    {
+      "config": "kma_weather_all_s4_lr_c0_10_w0.05",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.27356400307100337,
+          "id329": 0.16909754842661104
+        },
+        "subject_hole_5": {
+          "id287": -0.24658665362783663,
+          "id329": 0.22283868170376459
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_all",
+      "feature_count": 300,
+      "gap_to_public_055": 0.04608501684207866,
+      "local_gate_pass": false,
+      "max_delta": 0.0012911983469686694,
+      "max_failed_direction_corr": 0.22283868170376459,
+      "mean_delta": 1.2354594550800791e-05,
+      "min_delta": -0.0013252100605625206,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960850168420787,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0013252100605625206,
+        "loso_10": -0.00020952601555201955,
+        "subject_hole_5": -0.00027032961209183526,
+        "test_boundary_neighbor2_holdout": 0.0005756403139917099,
+        "test_boundary_neighbor5_holdout": 0.0012911983469686694
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.05,
+      "wins": 3
+    },
+    {
+      "config": "kma_weather_solar_ground_s4_lr_c0_03_w0.025",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3895362661067106,
+          "id329": 0.23612042756063567
+        },
+        "subject_hole_5": {
+          "id287": -0.35838659930856404,
+          "id329": 0.28653139005917677
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_solar_ground",
+      "feature_count": 36,
+      "gap_to_public_055": 0.046086847065115455,
+      "local_gate_pass": false,
+      "max_delta": 0.0008049928373629056,
+      "max_failed_direction_corr": 0.28653139005917677,
+      "mean_delta": 2.5166155808542533e-05,
+      "min_delta": -0.0011145993843908464,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960868470651155,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0011145993843908464,
+        "loso_10": 0.0008049928373629056,
+        "subject_hole_5": 0.0007567052582715394,
+        "test_boundary_neighbor2_holdout": -0.00034981920996279836,
+        "test_boundary_neighbor5_holdout": 2.8551277761912353e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.025,
+      "wins": 2
+    },
+    {
+      "config": "kma_weather_solar_ground_s4_hgb_l7_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3671476192939101,
+          "id329": 0.20535055327406476
+        },
+        "subject_hole_5": {
+          "id287": -0.32126286008214244,
+          "id329": 0.25927036962370775
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_solar_ground",
+      "feature_count": 36,
+      "gap_to_public_055": 0.04608767084877041,
+      "local_gate_pass": false,
+      "max_delta": 0.0003078068539944523,
+      "max_failed_direction_corr": 0.25927036962370775,
+      "mean_delta": 3.0932641393133234e-05,
+      "min_delta": -0.0003795788126725874,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5960876708487705,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0003795788126725874,
+        "loso_10": 0.0002618128149206589,
+        "subject_hole_5": 0.0003078068539944523,
+        "test_boundary_neighbor2_holdout": -3.350183893546799e-05,
+        "test_boundary_neighbor5_holdout": -1.8758103413896166e-06
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 3
+    },
+    {
+      "config": "kma_weather_thermal_load_s4_lr_c0_03_w0.025",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.36337844550252446,
+          "id329": 0.24433859422658893
+        },
+        "subject_hole_5": {
+          "id287": -0.3249767078273051,
+          "id329": 0.28955762408947816
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_thermal_load",
+      "feature_count": 156,
+      "gap_to_public_055": 0.04609032193768736,
+      "local_gate_pass": false,
+      "max_delta": 0.0006365640164986974,
+      "max_failed_direction_corr": 0.28955762408947816,
+      "mean_delta": 4.9490263811891036e-05,
+      "min_delta": -0.0008905904425585698,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960903219376874,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0008905904425585698,
+        "loso_10": 0.0005848893448892056,
+        "subject_hole_5": 0.0006365640164986974,
+        "test_boundary_neighbor2_holdout": 0.00013941773233916432,
+        "test_boundary_neighbor5_holdout": -0.00022282933210904243
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.025,
+      "wins": 2
+    },
+    {
+      "config": "kma_weather_thermal_load_s4_hgb_l7_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3644779526511033,
+          "id329": 0.21328097866312373
+        },
+        "subject_hole_5": {
+          "id287": -0.3444986660260535,
+          "id329": 0.2745658865009921
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_thermal_load",
+      "feature_count": 156,
+      "gap_to_public_055": 0.046092396373501376,
+      "local_gate_pass": false,
+      "max_delta": 0.0002138879173746444,
+      "max_failed_direction_corr": 0.2745658865009921,
+      "mean_delta": 6.401131450985975e-05,
+      "min_delta": -7.41858148909369e-05,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5960923963735014,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -7.41858148909369e-05,
+        "loso_10": 0.0002138879173746444,
+        "subject_hole_5": 0.0001841676839884343,
+        "test_boundary_neighbor2_holdout": 4.910653504375251e-05,
+        "test_boundary_neighbor5_holdout": -5.291974896659557e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 2
+    },
+    {
+      "config": "kma_weather_all_s4_hgb_l7_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3611041192403939,
+          "id329": 0.2152222979682827
+        },
+        "subject_hole_5": {
+          "id287": -0.33210997073933696,
+          "id329": 0.25747970279080096
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_all",
+      "feature_count": 300,
+      "gap_to_public_055": 0.04609254333852064,
+      "local_gate_pass": false,
+      "max_delta": 0.00018686916900934047,
+      "max_failed_direction_corr": 0.25747970279080096,
+      "mean_delta": 6.50400696446507e-05,
+      "min_delta": -3.9675193249211205e-05,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5960925433385207,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": 2.0021782264234567e-05,
+        "loso_10": 0.00018686916900934047,
+        "subject_hole_5": 0.00015620664913473803,
+        "test_boundary_neighbor2_holdout": -3.9675193249211205e-05,
+        "test_boundary_neighbor5_holdout": 1.7779410641516336e-06
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "kma_weather_solar_ground_s4_lr_c0_10_w0.025",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3767019104671235,
+          "id329": 0.21707561025887442
+        },
+        "subject_hole_5": {
+          "id287": -0.33770999860645107,
+          "id329": 0.2704359719961626
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_solar_ground",
+      "feature_count": 36,
+      "gap_to_public_055": 0.04609332265770838,
+      "local_gate_pass": false,
+      "max_delta": 0.0007327658265866566,
+      "max_failed_direction_corr": 0.2704359719961626,
+      "mean_delta": 7.049530395861759e-05,
+      "min_delta": -0.0008876588490612791,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5960933226577084,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0008876588490612791,
+        "loso_10": 0.0007327658265866566,
+        "subject_hole_5": 0.0006474762471411211,
+        "test_boundary_neighbor2_holdout": -0.00016037377819300147,
+        "test_boundary_neighbor5_holdout": 2.0267073319590878e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.025,
+      "wins": 2
+    },
+    {
+      "config": "kma_weather_all_s4_lr_c0_03_w0.025",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3201797906030776,
+          "id329": 0.1922382496903677
+        },
+        "subject_hole_5": {
+          "id287": -0.29364283686603,
+          "id329": 0.2471867008572108
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_all",
+      "feature_count": 300,
+      "gap_to_public_055": 0.046095095645733886,
+      "local_gate_pass": false,
+      "max_delta": 0.0003874665549069567,
+      "max_failed_direction_corr": 0.2471867008572108,
+      "mean_delta": 8.290622013731319e-05,
+      "min_delta": -0.0005781068534552736,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5960950956457339,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0005781068534552736,
+        "loso_10": 0.00012319875227495558,
+        "subject_hole_5": 0.00013819520016711273,
+        "test_boundary_neighbor2_holdout": 0.0003437774467928145,
+        "test_boundary_neighbor5_holdout": 0.0003874665549069567
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.025,
+      "wins": 1
+    },
+    {
+      "config": "kma_weather_precip_pressure_s4_hgb_l7_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.362597167938666,
+          "id329": 0.2284592025327923
+        },
+        "subject_hole_5": {
+          "id287": -0.3172232900291405,
+          "id329": 0.2661992712062054
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_precip_pressure",
+      "feature_count": 108,
+      "gap_to_public_055": 0.04609525991158103,
+      "local_gate_pass": false,
+      "max_delta": 0.00021573441430799978,
+      "max_failed_direction_corr": 0.2661992712062054,
+      "mean_delta": 8.405608106754059e-05,
+      "min_delta": -0.00010539471285098134,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5960952599115811,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00010539471285098134,
+        "loso_10": 0.00021573441430799978,
+        "subject_hole_5": 0.00012619424249815658,
+        "test_boundary_neighbor2_holdout": 0.0002138756402546571,
+        "test_boundary_neighbor5_holdout": -3.012917887212918e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 2
+    },
+    {
+      "config": "kma_weather_all_q3_lr_c0_10_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.25909479573785804,
+          "id329": 0.2909255974620262
+        },
+        "subject_hole_5": {
+          "id287": -0.24217757021981587,
+          "id329": 0.299033254522068
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_all",
+      "feature_count": 300,
+      "gap_to_public_055": 0.04610134524409848,
+      "local_gate_pass": false,
+      "max_delta": 0.0004129959329274291,
+      "max_failed_direction_corr": 0.299033254522068,
+      "mean_delta": 0.0001266534086896698,
+      "min_delta": -0.00030568613990678006,
+      "model_spec": {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      "projected_public_proxy": 0.5961013452440985,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": 0.0004129959329274291,
+        "loso_10": 0.00023442852038391138,
+        "subject_hole_5": 0.00030727038569378085,
+        "test_boundary_neighbor2_holdout": -0.00030568613990678006,
+        "test_boundary_neighbor5_holdout": -1.5741655649992303e-05
+      },
+      "target": "Q3",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 2
+    },
+    {
+      "config": "kma_weather_thermal_load_s4_hgb_l7_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.36447795265110117,
+          "id329": 0.21328097866312318
+        },
+        "subject_hole_5": {
+          "id287": -0.3444986660260505,
+          "id329": 0.27456588650099206
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_thermal_load",
+      "feature_count": 156,
+      "gap_to_public_055": 0.046102768758441104,
+      "local_gate_pass": false,
+      "max_delta": 0.0004357876016078954,
+      "max_failed_direction_corr": 0.27456588650099206,
+      "mean_delta": 0.0001366180090880409,
+      "min_delta": -0.0001384488753847224,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5961027687584411,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0001384488753847224,
+        "loso_10": 0.0004357876016078954,
+        "subject_hole_5": 0.0003748989318463902,
+        "test_boundary_neighbor2_holdout": 0.00010639850593663347,
+        "test_boundary_neighbor5_holdout": -9.554611856599227e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 2
+    },
+    {
+      "config": "kma_weather_solar_ground_s4_hgb_l7_w0.025",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.36714761929391077,
+          "id329": 0.2053505532740649
+        },
+        "subject_hole_5": {
+          "id287": -0.32126286008214316,
+          "id329": 0.2592703696237075
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_solar_ground",
+      "feature_count": 36,
+      "gap_to_public_055": 0.04610296604518105,
+      "local_gate_pass": false,
+      "max_delta": 0.0008176348905305497,
+      "max_failed_direction_corr": 0.2592703696237075,
+      "mean_delta": 0.0001379990162678535,
+      "min_delta": -0.0008842885664949174,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5961029660451811,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0008842885664949174,
+        "loso_10": 0.0007127051425158681,
+        "subject_hole_5": 0.0008176348905305497,
+        "test_boundary_neighbor2_holdout": -2.8387108531036098e-05,
+        "test_boundary_neighbor5_holdout": 7.233072331880308e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.025,
+      "wins": 2
+    },
+    {
+      "config": "kma_weather_all_s4_hgb_l7_w0.01",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.36110411924039026,
+          "id329": 0.21522229796828302
+        },
+        "subject_hole_5": {
+          "id287": -0.3321099707393328,
+          "id329": 0.2574797027908018
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_all",
+      "feature_count": 300,
+      "gap_to_public_055": 0.04610309551953051,
+      "local_gate_pass": false,
+      "max_delta": 0.00038171257301578,
+      "max_failed_direction_corr": 0.2574797027908018,
+      "mean_delta": 0.00013890533671412353,
+      "min_delta": -7.07759810948394e-05,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      },
+      "projected_public_proxy": 0.5961030955195306,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": 4.93358629960472e-05,
+        "loso_10": 0.00038171257301578,
+        "subject_hole_5": 0.00031958473421389577,
+        "test_boundary_neighbor2_holdout": -7.07759810948394e-05,
+        "test_boundary_neighbor5_holdout": 1.4669494439734088e-05
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 1
+    },
+    {
+      "config": "kma_weather_all_q3_lr_c0_03_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.27784793533276786,
+          "id329": 0.34479027305005516
+        },
+        "subject_hole_5": {
+          "id287": -0.2682949128692677,
+          "id329": 0.3453625892659916
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_all",
+      "feature_count": 300,
+      "gap_to_public_055": 0.04610442066766962,
+      "local_gate_pass": false,
+      "max_delta": 0.00044734480851793545,
+      "max_failed_direction_corr": 0.3453625892659916,
+      "mean_delta": 0.0001481813736877724,
+      "min_delta": -0.0002135490077200819,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5961044206676697,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": 0.00044734480851793545,
+        "loso_10": 0.0002087213693379164,
+        "subject_hole_5": 0.0002737739897665792,
+        "test_boundary_neighbor2_holdout": -0.0002135490077200819,
+        "test_boundary_neighbor5_holdout": 2.4615708536512848e-05
+      },
+      "target": "Q3",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "kma_weather_thermal_load_q3_lr_c0_03_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3171122163378256,
+          "id329": 0.445844677424843
+        },
+        "subject_hole_5": {
+          "id287": -0.29207012636336604,
+          "id329": 0.42499934635642717
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_thermal_load",
+      "feature_count": 156,
+      "gap_to_public_055": 0.04610541547341751,
+      "local_gate_pass": false,
+      "max_delta": 0.00045736777428928566,
+      "max_failed_direction_corr": 0.445844677424843,
+      "mean_delta": 0.00015514501392288604,
+      "min_delta": -0.00014452821339294708,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5961054154734176,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": 0.00045736777428928566,
+        "loso_10": 0.00020215059899364451,
+        "subject_hole_5": 0.00019089950657857901,
+        "test_boundary_neighbor2_holdout": -0.00014452821339294708,
+        "test_boundary_neighbor5_holdout": 6.983540314586811e-05
+      },
+      "target": "Q3",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    },
+    {
+      "config": "kma_weather_solar_ground_q3_lr_c0_03_w0.005",
+      "dacon_gate_pass": false,
+      "failed_direction_corr": {
+        "actual_test_band_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "loso_10": {
+          "id287": -0.3254033111838049,
+          "id329": 0.42514826551835627
+        },
+        "subject_hole_5": {
+          "id287": -0.30745167153145664,
+          "id329": 0.4383748027296139
+        },
+        "test_boundary_neighbor2_holdout": {
+          "id287": null,
+          "id329": null
+        },
+        "test_boundary_neighbor5_holdout": {
+          "id287": null,
+          "id329": null
+        }
+      },
+      "family_name": "kma_weather_solar_ground",
+      "feature_count": 36,
+      "gap_to_public_055": 0.046106575336748445,
+      "local_gate_pass": false,
+      "max_delta": 0.0004600246690599219,
+      "max_failed_direction_corr": 0.4383748027296139,
+      "mean_delta": 0.00016326405723956494,
+      "min_delta": -0.00010576669085227142,
+      "model_spec": {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      "projected_public_proxy": 0.5961065753367485,
+      "review_gate_pass": false,
+      "split_deltas": {
+        "actual_test_band_holdout": 0.0004600246690599219,
+        "loso_10": 0.0002035205324127931,
+        "subject_hole_5": 0.0001606309764371483,
+        "test_boundary_neighbor2_holdout": -0.00010576669085227142,
+        "test_boundary_neighbor5_holdout": 9.791079914023282e-05
+      },
+      "target": "Q3",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 1
+    }
+  ],
+  "validation": {
+    "blend_weights": [
+      0.005,
+      0.01,
+      0.025,
+      0.05
+    ],
+    "dacon_public_target": 0.55,
+    "focus_targets": [
+      "Q3",
+      "S3",
+      "S4"
+    ],
+    "max_failed_direction_corr": 0.2,
+    "model_specs": [
+      {
+        "c_value": 0.03,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_03"
+      },
+      {
+        "c_value": 0.1,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_10"
+      },
+      {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 7,
+        "name": "hgb_l7"
+      }
+    ],
+    "primary_splits": [
+      "subject_hole_5",
+      "actual_test_band_holdout",
+      "test_boundary_neighbor2_holdout",
+      "test_boundary_neighbor5_holdout",
+      "loso_10"
+    ],
+    "review_public_threshold": 0.58,
+    "target_max_delta_ceiling": 0.00075,
+    "target_mean_delta_ceiling": -5e-05,
+    "target_win_floor": 4
+  },
+  "weather_cache": "data/external/weather/kma_asos_hourly_20240601_20241122.csv",
+  "weather_cache_exists": true,
+  "weather_metadata": {
+    "cache_rows": 4200,
+    "columns": [
+      "tm",
+      "rnum",
+      "stnId",
+      "stnNm",
+      "ta",
+      "taQcflg",
+      "rn",
+      "rnQcflg",
+      "ws",
+      "wsQcflg",
+      "wd",
+      "wdQcflg",
+      "hm",
+      "hmQcflg",
+      "pv",
+      "td",
+      "pa",
+      "paQcflg",
+      "ps",
+      "psQcflg",
+      "ss",
+      "ssQcflg",
+      "icsr",
+      "dsnw",
+      "hr3Fhsc",
+      "dc10Tca",
+      "dc10LmcsCa",
+      "clfmAbbrCd",
+      "lcsCh",
+      "vs",
+      "gndSttCd",
+      "dmstMtphNo",
+      "ts",
+      "tsQcflg",
+      "m005Te",
+      "m01Te",
+      "m02Te",
+      "m03Te"
+    ],
+    "secret_values_stored": false,
+    "station_ids": [
+      "133"
+    ],
+    "station_names": [
+      "\ub300\uc804"
+    ],
+    "time_max": "2024-11-22 23:00:00",
+    "time_min": "2024-06-01 00:00:00",
+    "weather_cache": "data/external/weather/kma_asos_hourly_20240601_20241122.csv"
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "created_at_kst": "2026-06-23 18:16:30 UTC+09:00",
+  "diagnostic": "post_id341_proximity_ambience_cooccurrence_feature_generation_dryrun",
+  "report_only": true,
+  "source_family": "proximity_ambience_cooccurrence_v1",
+  "target_focus": [
+    "Q3",
+    "S3"
+  ],
+  "purpose": "Assemble the frozen proximity/ambience co-occurrence feature schema in memory only, verify exact 700-row alignment and bounded finite columns, then stop before any persisted feature matrix or model.",
+  "input_reports": {
+    "feature_spec": {
+      "path": "reports/post_id341_proximity_ambience_cooccurrence_feature_spec_20260619.json",
+      "exists": true,
+      "parse_ok": true
+    }
+  },
+  "raw_inputs": {
+    "wifi": "data/raw/ch2025_data_items/ch2025_mWifi.parquet",
+    "ble": "data/raw/ch2025_data_items/ch2025_mBle.parquet",
+    "ambience": "data/raw/ch2025_data_items/ch2025_mAmbience.parquet",
+    "screen": "data/raw/ch2025_data_items/ch2025_mScreenStatus.parquet"
+  },
+  "feature_frame_summary": {
+    "row_count": 700,
+    "train_rows": 450,
+    "test_rows": 250,
+    "column_count_including_keys": 84,
+    "feature_column_count": 80,
+    "expected_feature_column_count": 80,
+    "feature_columns_match_spec": true,
+    "duplicate_key_rows": 0,
+    "finite_all_values": true,
+    "nan_count": 0,
+    "feature_min": 0.0,
+    "feature_max": 5413.0,
+    "zero_variance_feature_count": 1,
+    "nonzero_feature_count": 80
+  },
+  "feature_groups": [
+    {
+      "name": "wifi_proximity_richness",
+      "metric_count": 3,
+      "metrics": [
+        "wifi_bins",
+        "wifi_devices_sum",
+        "wifi_strong_sum"
+      ]
+    },
+    {
+      "name": "ble_proximity_richness",
+      "metric_count": 3,
+      "metrics": [
+        "ble_bins",
+        "ble_devices_sum",
+        "ble_strong_sum"
+      ]
+    },
+    {
+      "name": "ambience_social_place",
+      "metric_count": 5,
+      "metrics": [
+        "speech_max",
+        "speech_mean",
+        "crowd_max",
+        "place_max",
+        "vehicle_music_max"
+      ]
+    },
+    {
+      "name": "cross_sensor_cooccurrence",
+      "metric_count": 4,
+      "metrics": [
+        "proximity_social_bins",
+        "proximity_place_bins",
+        "screen_proximity_bins",
+        "social_screen_proximity_bins"
+      ]
+    }
+  ],
+  "windows": {
+    "all_day": {
+      "hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "description": "full lifelog day"
+    },
+    "morning": {
+      "hours": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "description": "06:00-11:59 recovery/start context"
+    },
+    "afternoon": {
+      "hours": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "description": "12:00-17:59 daytime social/place context"
+    },
+    "evening": {
+      "hours": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "description": "18:00-23:59 late-day stimulation"
+    },
+    "late": {
+      "hours": [
+        22,
+        23,
+        0,
+        1,
+        2,
+        3
+      ],
+      "description": "22:00-03:59 late reactivation band"
+    }
+  },
+  "leakage_and_privacy_contract": {
+    "labels_loaded": false,
+    "oof_or_test_predictions_loaded": false,
+    "public_scores_used": false,
+    "raw_proximity_identifier_columns_created": false,
+    "raw_proximity_identifier_values_persisted": false,
+    "feature_frame_persisted": false,
+    "feature_matrix_written": false,
+    "all_missing_values_filled_with_zero_or_flags": true
+  },
+  "checks": {
+    "spec_contract_ready": true,
+    "row_alignment_passed": true,
+    "schema_passed": true,
+    "values_passed": true,
+    "privacy_guard_passed": true,
+    "does_not_write_feature_matrix": true,
+    "does_not_train_model": true,
+    "does_not_create_submission_artifact": true
+  },
+  "decision": {
+    "feature_generation_dryrun_passed": true,
+    "source_family": "proximity_ambience_cooccurrence_v1",
+    "target_focus": [
+      "Q3",
+      "S3"
+    ],
+    "selected_targets": [],
+    "feature_count": 80,
+    "public_058_evidence": false,
+    "score_route_opened": false,
+    "feature_matrix_allowed_now": false,
+    "train_model_now": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_local_allowed_step": "report_only_proximity_ambience_cooccurrence_feature_matrix_smoke_contract",
+    "next_action": "Dry run passed. A future no-approval step may only write a report-only feature-matrix smoke contract; do not write a feature matrix, train, create ID342, run Kaggle, or submit."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_feature_matrix_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

@@ -1,0 +1,462 @@
+{
+  "after_approval_files": [
+    {
+      "create_after_exact_approval": true,
+      "create_now": false,
+      "exists_now": false,
+      "path": "notebooks/kaggle_self_supervised_subject_state_runner/kernel-metadata.json"
+    },
+    {
+      "create_after_exact_approval": true,
+      "create_now": false,
+      "exists_now": false,
+      "path": "notebooks/kaggle_self_supervised_subject_state_runner/Self_Supervised_Subject_State_Post_ID342.ipynb"
+    },
+    {
+      "create_after_exact_approval": true,
+      "create_now": false,
+      "exists_now": false,
+      "path": "scripts/run_post_id342_self_supervised_subject_state_no_submit.py"
+    }
+  ],
+  "after_approval_make_targets": [
+    {
+      "exists_now": false,
+      "required_after_exact_approval": true,
+      "required_now": false,
+      "status": "after_approval_gap",
+      "target": "post-id342-self-supervised-subject-state-local-smoke"
+    },
+    {
+      "exists_now": false,
+      "required_after_exact_approval": true,
+      "required_now": false,
+      "status": "after_approval_gap",
+      "target": "kaggle-push-self-supervised-subject-state-runner"
+    },
+    {
+      "exists_now": false,
+      "required_after_exact_approval": true,
+      "required_now": false,
+      "status": "after_approval_gap",
+      "target": "kaggle-wait-and-pull-self-supervised-subject-state-output"
+    },
+    {
+      "exists_now": false,
+      "required_after_exact_approval": true,
+      "required_now": false,
+      "status": "after_approval_gap",
+      "target": "post-id342-self-supervised-remote-review"
+    }
+  ],
+  "created_at_kst": "2026-06-24 10:21:15 UTC+09:00",
+  "decision": {
+    "after_approval_gap_count": 7,
+    "after_approval_make_targets_missing": true,
+    "after_approval_runner_files_missing": true,
+    "create_runner_files_now": false,
+    "create_submission_artifact_now": false,
+    "dacon_submit_now": false,
+    "fit_embedding_now": false,
+    "heavy_approval_phrase": "Self-supervised subject-state heavy compute no-submit 실행 승인",
+    "heavy_implementation_feasibility_ready": true,
+    "modify_submission_log_now": false,
+    "next_action": "Implementation dependencies and raw inputs are ready, but runner files and no-submit Make targets should be created only after exact heavy approval.",
+    "push_kaggle_now": false,
+    "raw_inputs_present": true,
+    "read_raw_parquet_payloads_now": false,
+    "requires_exact_heavy_compute_approval": true,
+    "run_kaggle_now": false,
+    "runtime_dependencies_ready": true
+  },
+  "dependency_rows": [
+    {
+      "declared": true,
+      "distribution": "numpy",
+      "error": null,
+      "installed": true,
+      "module": "numpy",
+      "purpose": "array/tensor staging",
+      "version": "2.4.4"
+    },
+    {
+      "declared": true,
+      "distribution": "pandas",
+      "error": null,
+      "installed": true,
+      "module": "pandas",
+      "purpose": "metadata and label table handling",
+      "version": "3.0.2"
+    },
+    {
+      "declared": true,
+      "distribution": "pyarrow",
+      "error": null,
+      "installed": true,
+      "module": "pyarrow",
+      "purpose": "parquet schema/payload reader",
+      "version": "24.0.0"
+    },
+    {
+      "declared": true,
+      "distribution": "polars",
+      "error": null,
+      "installed": true,
+      "module": "polars",
+      "purpose": "streaming tabular feature/token staging",
+      "version": "1.40.1"
+    },
+    {
+      "declared": true,
+      "distribution": "torch",
+      "error": null,
+      "installed": true,
+      "module": "torch",
+      "purpose": "masked encoder implementation",
+      "version": "2.11.0"
+    },
+    {
+      "declared": true,
+      "distribution": "pytorch-lightning",
+      "error": null,
+      "installed": true,
+      "module": "pytorch_lightning",
+      "purpose": "optional training loop structure",
+      "version": "2.6.1"
+    },
+    {
+      "declared": true,
+      "distribution": "scikit-learn",
+      "error": null,
+      "installed": true,
+      "module": "sklearn",
+      "purpose": "fold-internal downstream heads",
+      "version": "1.8.0"
+    },
+    {
+      "declared": true,
+      "distribution": "scipy",
+      "error": null,
+      "installed": true,
+      "module": "scipy",
+      "purpose": "sparse/statistical utilities",
+      "version": "1.17.1"
+    },
+    {
+      "declared": true,
+      "distribution": "joblib",
+      "error": null,
+      "installed": true,
+      "module": "joblib",
+      "purpose": "small parallel preprocessing tasks",
+      "version": "1.5.3"
+    },
+    {
+      "declared": true,
+      "distribution": "kaggle",
+      "error": null,
+      "installed": true,
+      "module": "kaggle",
+      "purpose": "future no-submit remote push/status/pull",
+      "version": "2.1.1"
+    },
+    {
+      "declared": true,
+      "distribution": "nbformat",
+      "error": null,
+      "installed": true,
+      "module": "nbformat",
+      "purpose": "future notebook materialization",
+      "version": "5.10.4"
+    }
+  ],
+  "diagnostic": "post_id342_heavy_implementation_feasibility",
+  "forbidden_actions_now": {
+    "create_predictions": false,
+    "create_runner_files": false,
+    "create_submission_artifact": false,
+    "fit_embedding": false,
+    "modify_submission_log": false,
+    "pull_kaggle_output": false,
+    "push_kaggle": false,
+    "read_raw_parquet_payloads": false,
+    "run_kaggle": false,
+    "submit_dacon": false,
+    "train_model": false,
+    "write_feature_matrix": false,
+    "write_token_cache": false
+  },
+  "implementation_tasks": [
+    {
+      "after_exact_approval": true,
+      "allowed_now": false,
+      "evidence": [
+        "notebooks/kaggle_self_supervised_subject_state_runner/kernel-metadata.json",
+        "notebooks/kaggle_self_supervised_subject_state_runner/Self_Supervised_Subject_State_Post_ID342.ipynb",
+        "scripts/run_post_id342_self_supervised_subject_state_no_submit.py"
+      ],
+      "guard": "Create only the dedicated no-submit runner files; no submission artifact path.",
+      "order": 1,
+      "task": "materialize_runner_files"
+    },
+    {
+      "after_exact_approval": true,
+      "allowed_now": false,
+      "evidence": [
+        "post-id342-self-supervised-subject-state-local-smoke",
+        "kaggle-push-self-supervised-subject-state-runner",
+        "kaggle-wait-and-pull-self-supervised-subject-state-output",
+        "post-id342-self-supervised-remote-review"
+      ],
+      "guard": "Targets must require explicit remote approval and produce report-only outputs.",
+      "order": 2,
+      "task": "add_after_approval_make_targets"
+    },
+    {
+      "after_exact_approval": true,
+      "allowed_now": false,
+      "evidence": [
+        "post-id342-self-supervised-subject-state-local-smoke"
+      ],
+      "guard": "Smoke must prove no CSV/log/artifact side effects before any Kaggle push.",
+      "order": 3,
+      "task": "local_no_network_runner_smoke"
+    },
+    {
+      "after_exact_approval": true,
+      "allowed_now": false,
+      "evidence": [
+        "kaggle-push-self-supervised-subject-state-runner"
+      ],
+      "guard": "Remote output must be reviewed against heavy success thresholds before artifact discussion.",
+      "order": 4,
+      "task": "remote_no_submit_run"
+    }
+  ],
+  "input_reports": {
+    "domain_token_contract": {
+      "decision": {
+        "create_runner_files_now": false,
+        "create_submission_artifact_now": false,
+        "dacon_submit_now": false,
+        "domain_token_contract_ready": true,
+        "fit_embedding_now": false,
+        "heavy_approval_phrase": "Self-supervised subject-state heavy compute no-submit 실행 승인",
+        "modify_submission_log_now": false,
+        "next_action": "Use this contract to implement the no-submit runner only after exact heavy approval.",
+        "primary_score_targets": [
+          "Q3",
+          "S3"
+        ],
+        "push_kaggle_now": false,
+        "read_raw_parquet_payloads_now": false,
+        "requires_exact_heavy_compute_approval": true,
+        "run_kaggle_now": false,
+        "secondary_sanity_target": "Q2",
+        "target_focus": [
+          "Q2",
+          "Q3",
+          "S3"
+        ],
+        "write_feature_matrix_now": false,
+        "write_token_cache_now": false
+      },
+      "diagnostic": "post_id342_subject_state_domain_token_contract",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_subject_state_domain_token_contract_20260624.json"
+    },
+    "external_research_priority": {
+      "decision": {
+        "create_runner_files_now": false,
+        "create_submission_artifact_now": false,
+        "dacon_submit_now": false,
+        "external_research_priority_ready": true,
+        "heavy_approval_phrase": "Self-supervised subject-state heavy compute no-submit 실행 승인",
+        "heavy_compute_allowed_now": false,
+        "heavy_route_research_updated": true,
+        "modify_submission_log_now": false,
+        "next_action": "Keep execution closed. If exact heavy approval is later provided, prioritize a missingness-aware cross-modal masked subject-state runner over image-only, alpha, temperature, or donor routes.",
+        "push_kaggle_now": false,
+        "requires_exact_heavy_compute_approval": true,
+        "run_kaggle_now": false,
+        "top_priority_route": "aim_cross_modal_masked_subject_state"
+      },
+      "diagnostic": "post_id342_external_research_priority",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_external_research_priority_20260624.json"
+    },
+    "kaggle_cli_health": {
+      "decision": {
+        "auth_network_slug_blocker_observed": false,
+        "create_submission_artifact_now": false,
+        "dacon_submit_now": false,
+        "dataset_listing_ok": true,
+        "installed_kaggle_version": "2.1.1",
+        "kaggle_cli_health_ready": true,
+        "latest_warning_version": "2.2.2",
+        "modify_submission_log_now": false,
+        "next_action": "Kaggle CLI is usable for required status/list checks; only the outdated-version warning remains.",
+        "outdated_warning_seen": true,
+        "pull_kaggle_output_now": false,
+        "push_kaggle_now": false,
+        "remote_checked": true,
+        "run_kaggle_now": false,
+        "upstream_kernel_complete": true
+      },
+      "diagnostic": "post_id342_kaggle_cli_health",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_kaggle_cli_health_20260624.json"
+    },
+    "raw_schema_contract": {
+      "decision": {
+        "create_submission_artifact_now": false,
+        "dacon_submit_now": false,
+        "domain_token_contract_ready": true,
+        "fit_embedding_now": false,
+        "heavy_approval_phrase": "Self-supervised subject-state heavy compute no-submit 실행 승인",
+        "metadata_only_read": true,
+        "modify_submission_log_now": false,
+        "next_action": "Raw schemas match the domain-token contract; implement no-submit tokenization only after exact approval.",
+        "primary_score_targets": [
+          "Q3",
+          "S3"
+        ],
+        "push_kaggle_now": false,
+        "raw_payload_rows_read": 0,
+        "raw_schema_contract_ready": true,
+        "read_raw_parquet_payloads_now": false,
+        "requires_exact_heavy_compute_approval": true,
+        "run_kaggle_now": false,
+        "secondary_sanity_target": "Q2",
+        "target_focus": [
+          "Q2",
+          "Q3",
+          "S3"
+        ],
+        "write_feature_matrix_now": false,
+        "write_token_cache_now": false
+      },
+      "diagnostic": "post_id342_subject_state_raw_schema_contract",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_subject_state_raw_schema_contract_20260624.json"
+    },
+    "runner_spec": {
+      "decision": {
+        "create_runner_files_now": false,
+        "create_submission_artifact_now": false,
+        "dacon_submit_now": false,
+        "dedicated_runner_required": true,
+        "existing_upstream_runner_is_sufficient": false,
+        "heavy_approval_phrase": "Self-supervised subject-state heavy compute no-submit 실행 승인",
+        "modify_submission_log_now": false,
+        "next_action": "Spec is ready. Do not create or push the runner until the exact heavy approval phrase is provided.",
+        "proposed_kaggle_slug": "softkleenex/dacon-etri-self-supervised-subject-state-post-id342",
+        "proposed_notebook_dir": "notebooks/kaggle_self_supervised_subject_state_runner",
+        "push_kaggle_now": false,
+        "requires_exact_heavy_compute_approval": true,
+        "run_kaggle_now": false,
+        "runner_spec_ready": true,
+        "source_family": "self_supervised_subject_state_embedding_v1",
+        "target_focus": [
+          "Q2",
+          "Q3",
+          "S3"
+        ]
+      },
+      "diagnostic": "post_id342_self_supervised_heavy_runner_spec",
+      "exists": true,
+      "parse_ok": true,
+      "path": "reports/post_id342_self_supervised_heavy_runner_spec_20260624.json"
+    }
+  },
+  "no_dacon_submission_made": true,
+  "no_embedding_fit": true,
+  "no_feature_matrix_created": true,
+  "no_kaggle_output_pull_made": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_raw_payload_read": true,
+  "no_runner_files_created": true,
+  "no_submission_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "prerequisites": {
+    "core_dependencies_installed": true,
+    "domain_token_contract_ready": true,
+    "external_research_priority_ready": true,
+    "input_reports_parse": true,
+    "kaggle_cli_usable": true,
+    "raw_payload_not_read": true,
+    "raw_schema_contract_ready": true,
+    "required_raw_files_present": true,
+    "runner_spec_ready": true
+  },
+  "purpose": "Check implementation readiness for the approved-later missingness-aware heavy route.",
+  "raw_file_rows": [
+    {
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_mACStatus.parquet",
+      "payload_read": false
+    },
+    {
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_mActivity.parquet",
+      "payload_read": false
+    },
+    {
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_mAmbience.parquet",
+      "payload_read": false
+    },
+    {
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_mBle.parquet",
+      "payload_read": false
+    },
+    {
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_mGps.parquet",
+      "payload_read": false
+    },
+    {
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_mLight.parquet",
+      "payload_read": false
+    },
+    {
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_mScreenStatus.parquet",
+      "payload_read": false
+    },
+    {
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_mUsageStats.parquet",
+      "payload_read": false
+    },
+    {
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_mWifi.parquet",
+      "payload_read": false
+    },
+    {
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_wHr.parquet",
+      "payload_read": false
+    },
+    {
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_wLight.parquet",
+      "payload_read": false
+    },
+    {
+      "exists": true,
+      "path": "data/raw/ch2025_data_items/ch2025_wPedo.parquet",
+      "payload_read": false
+    }
+  ],
+  "report_only": true
+}

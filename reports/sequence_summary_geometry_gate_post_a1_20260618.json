@@ -1,0 +1,294 @@
+{
+  "created_at_kst": "2026-06-18 02:08:00 UTC+09:00",
+  "diagnostic": "sequence_summary_geometry_gate_post_a1",
+  "selector_info": {
+    "base_source": "base_oof_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638.csv; base_test_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638.csv",
+    "modified_targets": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "S1"
+    ],
+    "unchanged_targets": [
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "selected_configs": {
+      "Q1": {
+        "kind": "blend",
+        "model": "lr_c0_3",
+        "weight": 0.1
+      },
+      "Q2": {
+        "kind": "blend",
+        "model": "lr_c0_3",
+        "weight": 0.15
+      },
+      "Q3": {
+        "kind": "blend",
+        "model": "lr_c0_1",
+        "weight": 0.1
+      },
+      "S1": {
+        "kind": "blend",
+        "model": "lr_c0_3",
+        "weight": 0.05
+      },
+      "S2": {
+        "kind": "base"
+      },
+      "S3": {
+        "kind": "base"
+      },
+      "S4": {
+        "kind": "base"
+      }
+    },
+    "diagnostic_reports": [
+      "reports/id178_sequence_summary_embedding_post_a1_20260618.json"
+    ],
+    "n_sequence_rows": 809,
+    "n_value_channels": 34,
+    "n_total_channels": 68,
+    "n_summary_features": 2108,
+    "feature_family_count": 31,
+    "target_details": {
+      "Q1": {
+        "config": {
+          "kind": "blend",
+          "model": "lr_c0_3",
+          "weight": 0.1
+        },
+        "base_loss": 0.5519157186538461,
+        "raw_sequence_summary_loss": 1.3226612370526876,
+        "selected_loss": 0.5490441459220898,
+        "test_prediction_mean_before": 0.512000295352656,
+        "test_prediction_mean_after": 0.5112236050728882,
+        "test_prediction_max_abs_delta": 0.09431548431094261
+      },
+      "Q2": {
+        "config": {
+          "kind": "blend",
+          "model": "lr_c0_3",
+          "weight": 0.15
+        },
+        "base_loss": 0.5566793351664245,
+        "raw_sequence_summary_loss": 1.13619663824932,
+        "selected_loss": 0.5506886916995475,
+        "test_prediction_mean_before": 0.5561032837681077,
+        "test_prediction_mean_after": 0.553652736316415,
+        "test_prediction_max_abs_delta": 0.1213139284848753
+      },
+      "Q3": {
+        "config": {
+          "kind": "blend",
+          "model": "lr_c0_1",
+          "weight": 0.1
+        },
+        "base_loss": 0.5670897848363184,
+        "raw_sequence_summary_loss": 1.0132157194667037,
+        "selected_loss": 0.5645456596035325,
+        "test_prediction_mean_before": 0.6366606681154913,
+        "test_prediction_mean_after": 0.6337219098748995,
+        "test_prediction_max_abs_delta": 0.08388282739467251
+      },
+      "S1": {
+        "config": {
+          "kind": "blend",
+          "model": "lr_c0_3",
+          "weight": 0.05
+        },
+        "base_loss": 0.47163044694164047,
+        "raw_sequence_summary_loss": 1.1132501414263374,
+        "selected_loss": 0.4700741241105044,
+        "test_prediction_mean_before": 0.6843838008766049,
+        "test_prediction_mean_after": 0.6806745193120133,
+        "test_prediction_max_abs_delta": 0.04216647586706179
+      },
+      "S2": {
+        "config": {
+          "kind": "base"
+        },
+        "base_loss": 0.529556132747474,
+        "selected_loss": 0.529556132747474
+      },
+      "S3": {
+        "config": {
+          "kind": "base"
+        },
+        "base_loss": 0.4908930389002769,
+        "selected_loss": 0.4908930389002769
+      },
+      "S4": {
+        "config": {
+          "kind": "base"
+        },
+        "base_loss": 0.6026997044865015,
+        "selected_loss": 0.6026997044865015
+      }
+    },
+    "selection_contract": "ID178 predictions are blended target-wise with deterministic sequence-summary embedding models. Target/model/weight choices are selected from listed local public-structure diagnostics.",
+    "caution": "Public-structure/non-strict sequence-summary overlay; not strict Subject-Hole evidence."
+  },
+  "candidates": [
+    {
+      "name": "id178_q123_sequence_summary_plus_id337_s1_safety_gate",
+      "overall": 0.5364369192116775,
+      "target_scores": {
+        "Q1": 0.5490441459220898,
+        "Q2": 0.5506886916995475,
+        "Q3": 0.5645456596035325,
+        "S1": 0.46763106112231995,
+        "S2": 0.529556132747474,
+        "S3": 0.4908930389002769,
+        "S4": 0.6026997044865015
+      },
+      "robust_score": 0.5619646418318167,
+      "slice_summary": {
+        "worst_subject": "id10",
+        "worst_subject_loss": 0.628195024600169,
+        "worst_date_bin": "q4",
+        "worst_date_loss": 0.5631979965811952,
+        "worst_target": "S4",
+        "worst_target_loss": 0.6026997044865015,
+        "late_minus_early": 0.06707772912398452
+      },
+      "geometry": {
+        "mean_delta_vs_178": 0.015418509198261368,
+        "max_delta_vs_178": 0.1213139284848753,
+        "mean_delta_vs_329": 0.02512648990804468,
+        "max_delta_vs_329": 0.12834838491605124,
+        "mean_delta_vs_335": 0.021966347278426845,
+        "max_delta_vs_335": 0.13051317109405403,
+        "projection_failed": -0.014863166670556092,
+        "prediction_mean": 0.6028341685953882,
+        "prediction_std": 0.21512741688252893
+      },
+      "max_delta_vs_178_by_target": {
+        "Q1": 0.09431548431094261,
+        "Q2": 0.1213139284848753,
+        "Q3": 0.08388282739467251,
+        "S1": 0.03758537674604023,
+        "S2": 0.0,
+        "S3": 0.0,
+        "S4": 0.0
+      },
+      "modified_targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1"
+      ],
+      "read": "public-anchor Q1/Q2/Q3 sequence-summary plus ID337 S1 low-movement random-conv"
+    },
+    {
+      "name": "id178_q123s1_sequence_summary_gate",
+      "overall": 0.5367859282099895,
+      "target_scores": {
+        "Q1": 0.5490441459220898,
+        "Q2": 0.5506886916995475,
+        "Q3": 0.5645456596035325,
+        "S1": 0.4700741241105044,
+        "S2": 0.529556132747474,
+        "S3": 0.4908930389002769,
+        "S4": 0.6026997044865015
+      },
+      "robust_score": 0.5625006209481335,
+      "slice_summary": {
+        "worst_subject": "id10",
+        "worst_subject_loss": 0.6286279724845947,
+        "worst_date_bin": "q4",
+        "worst_date_loss": 0.5645042713602955,
+        "worst_target": "S4",
+        "worst_target_loss": 0.6026997044865015,
+        "late_minus_early": 0.06915586187946093
+      },
+      "geometry": {
+        "mean_delta_vs_178": 0.015680746955225058,
+        "max_delta_vs_178": 0.1213139284848753,
+        "mean_delta_vs_329": 0.02531881322026648,
+        "max_delta_vs_329": 0.12834838491605124,
+        "mean_delta_vs_335": 0.022083692901825908,
+        "max_delta_vs_335": 0.12868314212755239,
+        "projection_failed": -0.01554880663129227,
+        "prediction_mean": 0.6025614442245785,
+        "prediction_std": 0.21526154165021474
+      },
+      "max_delta_vs_178_by_target": {
+        "Q1": 0.09431548431094261,
+        "Q2": 0.1213139284848753,
+        "Q3": 0.08388282739467251,
+        "S1": 0.04216647586706179,
+        "S2": 0.0,
+        "S3": 0.0,
+        "S4": 0.0
+      },
+      "modified_targets": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "S1"
+      ],
+      "read": "public-anchor sequence-summary on Q1/Q2/Q3/S1"
+    },
+    {
+      "name": "id178_q123_sequence_summary_gate",
+      "overall": 0.537008260043009,
+      "target_scores": {
+        "Q1": 0.5490441459220898,
+        "Q2": 0.5506886916995475,
+        "Q3": 0.5645456596035325,
+        "S1": 0.47163044694164047,
+        "S2": 0.529556132747474,
+        "S3": 0.4908930389002769,
+        "S4": 0.6026997044865015
+      },
+      "robust_score": 0.5624156488434044,
+      "slice_summary": {
+        "worst_subject": "id10",
+        "worst_subject_loss": 0.6286056718527254,
+        "worst_date_bin": "q4",
+        "worst_date_loss": 0.5634613895725386,
+        "worst_target": "S4",
+        "worst_target_loss": 0.6026997044865015,
+        "late_minus_early": 0.06716701012933601
+      },
+      "geometry": {
+        "mean_delta_vs_178": 0.014082506795265402,
+        "max_delta_vs_178": 0.1213139284848753,
+        "mean_delta_vs_329": 0.02468044069897351,
+        "max_delta_vs_329": 0.12834838491605124,
+        "mean_delta_vs_335": 0.021474815887290957,
+        "max_delta_vs_335": 0.1213139284848753,
+        "projection_failed": -0.01430931817052821,
+        "prediction_mean": 0.6030913415909488,
+        "prediction_std": 0.21542009025940212
+      },
+      "max_delta_vs_178_by_target": {
+        "Q1": 0.09431548431094261,
+        "Q2": 0.1213139284848753,
+        "Q3": 0.08388282739467251,
+        "S1": 0.0,
+        "S2": 0.0,
+        "S3": 0.0,
+        "S4": 0.0
+      },
+      "modified_targets": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ],
+      "read": "public-anchor Q1/Q2/Q3 sequence-summary only"
+    }
+  ],
+  "decision": {
+    "best_candidate": "id178_q123_sequence_summary_plus_id337_s1_safety_gate",
+    "create_submission_artifact": false,
+    "public_058_plausible": false,
+    "passes_internal_promotion_screen": false,
+    "reason": "Sequence-summary gives a real local improvement over ID178, but Q2 movement reaches about 0.12 and the branch changes multiple targets. Treat this as a stronger candidate-construction lead, not an automatic ID339 promotion."
+  },
+  "no_submission_created": true,
+  "no_dacon_submission_made": true
+}

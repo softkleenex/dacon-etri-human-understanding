@@ -1,0 +1,426 @@
+{
+  "created_at_kst": "2026-06-23 18:07:58 UTC+09:00",
+  "diagnostic": "post_id341_q2q3s3_env_social_routine_v2_design",
+  "purpose": "Freeze a Q2/Q3/S3-first env/social/routine source design before any new local smoke or Kaggle run.",
+  "inputs": {
+    "q2q3s3_route": "reports/post_id341_q2q3s3_source_route_20260618.json",
+    "missing_target_inventory": "reports/post_id341_missing_target_signal_inventory_20260618.json",
+    "target_gap_budget": "reports/post_id341_target_gap_budget_20260618.json",
+    "public_local_gap": "reports/post_id341_public_local_gap_diagnosis_20260618.json",
+    "local_source_closure": "reports/post_id341_local_source_closure_synthesis_20260618.json",
+    "usage_temporal": "reports/phase3_usage_temporal_microstructure_smoke_post_id341_20260618.json",
+    "place_social": "reports/place_social_novelty_smoke_fixedlist_post_id341_20260618.json",
+    "sensor_adherence": "reports/sensor_adherence_dropout_smoke_post_id341_20260618.json",
+    "data_source_coverage": "reports/post_id341_data_source_coverage_audit_20260618.json"
+  },
+  "evidence": {
+    "route_primary": "explicit_approved_clean_upstream_id221_to_id226",
+    "route_fallback": "local_or_kaggle_q2q3s3_env_social_routine_v2_design",
+    "missing_targets": [
+      "Q2",
+      "Q3",
+      "S3"
+    ],
+    "q1_s4_only_is_insufficient": true,
+    "local_cv_needed_for_public_058_recent_floor": 0.517445,
+    "local_cv_needed_for_public_058_recent_stress": 0.494927,
+    "local_source_stack_closed": true,
+    "usage_temporal_selected_targets": [],
+    "place_social_selected_targets": [],
+    "sensor_adherence_selected_targets": [],
+    "data_source_coverage_ready": true
+  },
+  "raw_source_profiles": {
+    "mWifi": {
+      "path": "data/raw/ch2025_data_items/ch2025_mWifi.parquet",
+      "rows": 76336,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "bssid",
+        "rssi"
+      ],
+      "size_mb": 3.799,
+      "timestamp_summary": {
+        "subject_count": 10,
+        "timestamp_min": "2024-06-03 12:57:00",
+        "timestamp_max": "2024-11-19 23:57:00",
+        "date_count": 166,
+        "null_timestamp_rows": 0
+      },
+      "cardinality": {
+        "m_wifi": {
+          "nested_list_struct": true,
+          "row_count": 76336,
+          "empty_rows": 0,
+          "mean_items_per_row": 16.63705198071683,
+          "max_items_per_row": 199,
+          "bssid": {
+            "unique": 125239,
+            "observed_items": 1270006,
+            "top_values": {
+              "00:23:aa:58:95:e4": 7315,
+              "88:3c:1c:a7:a2:17": 7283,
+              "42:23:aa:58:95:e4": 7282,
+              "80:ca:4b:0d:3b:66": 7254,
+              "00:23:aa:58:95:e5": 7224
+            }
+          },
+          "rssi": {
+            "unique": 99,
+            "observed_items": 1270006,
+            "top_values": {
+              "-84": 47915,
+              "-83": 46414,
+              "-81": 45837,
+              "-82": 45044,
+              "-87": 42144
+            }
+          }
+        }
+      }
+    },
+    "mBle": {
+      "path": "data/raw/ch2025_data_items/ch2025_mBle.parquet",
+      "rows": 21830,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "address",
+        "device_class",
+        "rssi"
+      ],
+      "size_mb": 3.878,
+      "timestamp_summary": {
+        "subject_count": 10,
+        "timestamp_min": "2024-06-03 13:07:00",
+        "timestamp_max": "2024-11-19 21:27:00",
+        "date_count": 166,
+        "null_timestamp_rows": 0
+      },
+      "cardinality": {
+        "m_ble": {
+          "nested_list_struct": true,
+          "row_count": 21830,
+          "empty_rows": 2,
+          "mean_items_per_row": 20.020797068254694,
+          "max_items_per_row": 196,
+          "address": {
+            "unique": 350456,
+            "observed_items": 437054,
+            "top_values": {
+              "E8:CA:C8:C8:E4:1A": 1889,
+              "40:CA:63:DB:F2:FB": 1851,
+              "50:FD:D5:01:6D:43": 1808,
+              "64:12:36:25:0A:75": 1789,
+              "F8:4E:58:7E:E9:D9": 1766
+            }
+          },
+          "device_class": {
+            "unique": 18,
+            "observed_items": 437054,
+            "top_values": {
+              "0": 385700,
+              "7936": 45002,
+              "1796": 2524,
+              "": 1144,
+              "1084": 967
+            }
+          },
+          "rssi": {
+            "unique": 103,
+            "observed_items": 437054,
+            "top_values": {
+              "-88": 18490,
+              "-86": 17904,
+              "-78": 17195,
+              "-82": 17049,
+              "-80": 16859
+            }
+          }
+        }
+      }
+    },
+    "mGps": {
+      "path": "data/raw/ch2025_data_items/ch2025_mGps.parquet",
+      "rows": 800611,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "altitude",
+        "latitude",
+        "longitude",
+        "speed"
+      ],
+      "size_mb": 68.592,
+      "timestamp_summary": {
+        "subject_count": 10,
+        "timestamp_min": "2024-06-03 12:57:00",
+        "timestamp_max": "2024-11-19 23:59:00",
+        "date_count": 166,
+        "null_timestamp_rows": 0
+      },
+      "cardinality": {}
+    },
+    "mUsageStats": {
+      "path": "data/raw/ch2025_data_items/ch2025_mUsageStats.parquet",
+      "rows": 45197,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "app_name",
+        "total_time"
+      ],
+      "size_mb": 0.955,
+      "timestamp_summary": {
+        "subject_count": 10,
+        "timestamp_min": "2024-06-09 11:00:00",
+        "timestamp_max": "2024-11-19 22:10:00",
+        "date_count": 160,
+        "null_timestamp_rows": 0
+      },
+      "cardinality": {
+        "m_usage_stats": {
+          "nested_list_struct": true,
+          "row_count": 45197,
+          "empty_rows": 0,
+          "mean_items_per_row": 3.505232648184614,
+          "max_items_per_row": 21,
+          "app_name": {
+            "unique": 586,
+            "observed_items": 158426,
+            "top_values": {
+              "One UI 홈": 29114,
+              "카카오톡": 17548,
+              "시스템 UI": 16388,
+              "NAVER": 7361,
+              " 캐시워크": 5042
+            }
+          },
+          "total_time": {
+            "unique": 102266,
+            "observed_items": 158426,
+            "top_values": {
+              "83": 51,
+              "82": 49,
+              "69": 44,
+              "90": 44,
+              "85": 43
+            }
+          }
+        }
+      }
+    },
+    "mAmbience": {
+      "path": "data/raw/ch2025_data_items/ch2025_mAmbience.parquet",
+      "rows": 476577,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "element"
+      ],
+      "size_mb": 14.155,
+      "timestamp_summary": {
+        "subject_count": 10,
+        "timestamp_min": "2024-06-03 13:00:10",
+        "timestamp_max": "2024-11-19 23:58:10",
+        "date_count": 166,
+        "null_timestamp_rows": 0
+      },
+      "cardinality": {
+        "m_ambience": {
+          "nested_label_score_list": true,
+          "row_count": 476577,
+          "empty_rows": 0,
+          "mean_items_per_row": 10.0,
+          "max_items_per_row": 10,
+          "label_unique": 517,
+          "label_observed_items": 4765770,
+          "top_labels": {
+            "Inside, small room": 419651,
+            "Speech": 396387,
+            "Silence": 354232,
+            "Music": 352983,
+            "Narration, monologue": 335203
+          },
+          "score_mean": 0.10003849955127521
+        }
+      }
+    },
+    "mActivity": {
+      "path": "data/raw/ch2025_data_items/ch2025_mActivity.parquet",
+      "rows": 961062,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_activity"
+      ],
+      "size_mb": 4.427,
+      "timestamp_summary": {
+        "subject_count": 10,
+        "timestamp_min": "2024-06-03 12:57:00",
+        "timestamp_max": "2024-11-19 23:59:00",
+        "date_count": 166,
+        "null_timestamp_rows": 0
+      },
+      "cardinality": {
+        "m_activity": {
+          "unique": 6,
+          "null_rows": 0,
+          "top_values": {
+            "3": 785792,
+            "4": 71502,
+            "0": 70506,
+            "7": 31404,
+            "1": 1056
+          }
+        }
+      }
+    },
+    "mScreenStatus": {
+      "path": "data/raw/ch2025_data_items/ch2025_mScreenStatus.parquet",
+      "rows": 939653,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_screen_use"
+      ],
+      "size_mb": 4.359,
+      "timestamp_summary": {
+        "subject_count": 10,
+        "timestamp_min": "2024-06-03 12:57:00",
+        "timestamp_max": "2024-11-19 23:59:00",
+        "date_count": 166,
+        "null_timestamp_rows": 0
+      },
+      "cardinality": {
+        "m_screen_use": {
+          "unique": 2,
+          "null_rows": 0,
+          "top_values": {
+            "0": 725047,
+            "1": 214606
+          }
+        }
+      }
+    }
+  },
+  "feature_blocks": [
+    {
+      "block": "routine_stability_clock_v2",
+      "target_focus": [
+        "Q2",
+        "Q3",
+        "S3"
+      ],
+      "raw_inputs": [
+        "mScreenStatus",
+        "mActivity",
+        "mUsageStats"
+      ],
+      "feature_families": [
+        "hourly screen-on/off rhythm distance from subject training-fold routine",
+        "activity-state transition entropy by morning/day/evening/night bins",
+        "weekday-adjusted app-use total-time rhythm without direct app-name model columns",
+        "rolling 3-day and 7-day routine deviation fitted inside each outer fold"
+      ],
+      "why_q2q3s3": "Q2/Q3/S3 need behavioral regularity and mental-state context rather than another sleep-boundary overlay; these features model routine stability without borrowing label-derived OOF movement."
+    },
+    {
+      "block": "place_social_novelty_v2",
+      "target_focus": [
+        "Q2",
+        "Q3",
+        "S3"
+      ],
+      "raw_inputs": [
+        "mWifi",
+        "mBle",
+        "mGps"
+      ],
+      "feature_families": [
+        "Wi-Fi/BLE novelty counts using fold-trained top-k or hashing buckets only",
+        "home-like anchor consistency inferred from within-subject frequent place buckets",
+        "GPS movement radius, speed quantiles, and stationary ratio by daypart",
+        "place-transition entropy and next-day smoothness features available without labels"
+      ],
+      "why_q2q3s3": "Previous place/social standalone smoke selected no target, so v2 must combine novelty, regularity, and daypart transitions instead of direct BSSID/address memorization."
+    },
+    {
+      "block": "ambient_load_recovery_context_v2",
+      "target_focus": [
+        "Q2",
+        "Q3"
+      ],
+      "raw_inputs": [
+        "mAmbience",
+        "mUsageStats",
+        "mActivity"
+      ],
+      "feature_families": [
+        "speech/music/silence ratios by daypart from ambience element",
+        "late-day app-use load and app category entropy using fold-local category maps",
+        "ambient-context change points before sleep-date boundary",
+        "interaction-free single-family summaries first; no broad stacker until split evidence exists"
+      ],
+      "why_q2q3s3": "Q2/Q3 are the missing questionnaire targets most plausibly tied to social/context load. This block is deliberately Q2/Q3-first and should not be evaluated as a generic all-target tuner."
+    }
+  ],
+  "validation_contract": {
+    "outer_splits_required": [
+      "subject_hole_5",
+      "actual_test_band_holdout",
+      "test_boundary_neighbor2_holdout",
+      "test_boundary_neighbor5_holdout",
+      "loso_10"
+    ],
+    "fit_inside_fold_only": [
+      "top-k Wi-Fi/BLE/app categories",
+      "hash bucket dictionaries when used",
+      "subject routine baselines",
+      "scalers/imputers",
+      "feature selection and target selection"
+    ],
+    "forbidden_shortcuts": [
+      "direct BSSID/address/app-name one-hot columns fitted on full train+test",
+      "full-OOF target selection",
+      "public-LB-guided thresholding",
+      "external row concatenation",
+      "creating ID342 from a local-only feature design"
+    ],
+    "promotion_gate": {
+      "selected_targets_must_include_any_of": [
+        "Q2",
+        "Q3",
+        "S3"
+      ],
+      "all_primary_split_wins_required_for_promoted_target": 5,
+      "projected_proxy_must_beat_id178_public": 0.6014113009,
+      "public_058_review_cutoff": 0.59,
+      "artifact_review_is_separate": true
+    }
+  },
+  "decision": {
+    "design_ready": true,
+    "target_focus": [
+      "Q2",
+      "Q3",
+      "S3"
+    ],
+    "next_local_allowed_step": "feature_generation_metadata_smoke_only",
+    "next_kaggle_allowed_step": "only_after_explicit_no_submit_approval",
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "train_model_now": false,
+    "next_action": "Implement only a Q2/Q3/S3 env-social-routine feature-generation smoke next, or run the approved clean upstream rebuild if the user gives the exact Kaggle no-submit approval phrase. Do not create a submission artifact from this design."
+  },
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

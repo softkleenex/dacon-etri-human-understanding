@@ -1,0 +1,319 @@
+{
+  "created_at_kst": "2026-06-23 20:00:14 UTC+09:00",
+  "diagnostic": "post_id341_upstream_rebuild_blueprint",
+  "purpose": "Freeze the report-only Kaggle upstream rebuild contract after local OOF artifact lanes closed.",
+  "required_file_checks": [
+    {
+      "path": "dataset-metadata.json",
+      "exists": true
+    },
+    {
+      "path": "pyproject.toml",
+      "exists": true
+    },
+    {
+      "path": "Makefile",
+      "exists": true
+    },
+    {
+      "path": "reports/post_id341_family_priority_20260618.json",
+      "exists": true
+    },
+    {
+      "path": "reports/post_id341_a1_qfree_lane_closure_20260618.json",
+      "exists": true
+    },
+    {
+      "path": "reports/b1_pair_blend_source_dependency_audit_20260618.json",
+      "exists": true
+    },
+    {
+      "path": "reports/id340_validation_split_manifest_20260618.json",
+      "exists": true
+    }
+  ],
+  "missing_required_files": [],
+  "source_records": {
+    "upstream_model_layer": [
+      {
+        "id": 221,
+        "metadata_path": "reports/experiment_221_id218_public_feature_similarity_overlay_cv0.532990_unsubmitted.json",
+        "exists": true,
+        "method": "Target-wise public feature-similarity overlay on ID218",
+        "local_cv": 0.5329901873426955,
+        "validation_lens": "public_structure_interleaved_within_subject_blocked_cv",
+        "selection_contract": "ID218 predictions are blended target-wise with same-subject feature-similarity anchors selected from the listed public-structure grid report.",
+        "direct_upstream_ids": []
+      },
+      {
+        "id": 226,
+        "metadata_path": "reports/experiment_226_id221_id172_targetwise_best_convex_frontier_cv0.491771_unsubmitted.json",
+        "exists": true,
+        "method": "Refined-anchor tempered extreme-calibration public probe",
+        "local_cv": 0.4917706300324268,
+        "validation_lens": null,
+        "selection_contract": "All seven targets are fixed blends between ID221 and ID172. Default clean weight is 0.05; target overrides are {'Q1': 0.0, 'Q2': 0.0, 'Q3': 0.0, 'S1': 0.0, 'S2': 0.0, 'S3': 0.0, 'S4': 0.307}.",
+        "direct_upstream_ids": []
+      },
+      {
+        "id": 227,
+        "metadata_path": "reports/experiment_227_id226_second_stage_iso_q160_ultra_frontier_cv0.464409_unsubmitted.json",
+        "exists": true,
+        "method": "Second-stage full-OOF calibration on ID226",
+        "local_cv": 0.4644089469355674,
+        "validation_lens": "public_structure_second_stage_full_oof_calibration_not_nested",
+        "selection_contract": "ID226 predictions are transformed by target-wise second-stage full-OOF calibrators. The same OOF rows are used to select, fit, and score calibration.",
+        "direct_upstream_ids": []
+      },
+      {
+        "id": 228,
+        "metadata_path": "reports/experiment_228_id226_second_stage_iso_only_tempered_frontier_cv0.482245_unsubmitted.json",
+        "exists": true,
+        "method": "Second-stage full-OOF calibration on ID226",
+        "local_cv": 0.48224476927251697,
+        "validation_lens": "public_structure_second_stage_full_oof_calibration_not_nested",
+        "selection_contract": "ID226 predictions are transformed by target-wise second-stage full-OOF calibrators. The same OOF rows are used to select, fit, and score calibration.",
+        "direct_upstream_ids": []
+      },
+      {
+        "id": 237,
+        "metadata_path": "reports/experiment_237_id226_tempgrid_s4q160_frontier_cv0.466691_unsubmitted.json",
+        "exists": true,
+        "method": "Second-stage full-OOF calibration on ID226",
+        "local_cv": 0.4666910250880139,
+        "validation_lens": "public_structure_second_stage_full_oof_calibration_not_nested",
+        "selection_contract": "ID226 predictions are transformed by target-wise second-stage full-OOF calibrators. The same OOF rows are used to select, fit, and score calibration.",
+        "direct_upstream_ids": []
+      }
+    ],
+    "a1_replay_layer": [
+      {
+        "id": 238,
+        "metadata_path": "reports/experiment_238_id227_clean_anchor_logit_oracle_frontier_cv0.462365_unsubmitted.json",
+        "exists": true,
+        "method": "Target-wise full-OOF pair probability/logit blend probe",
+        "local_cv": 0.4623650212416277,
+        "validation_lens": "public_structure_full_oof_targetwise_pair_prob_logit_blend_oracle",
+        "selection_contract": "Target-wise pair blend configs are selected from a full-OOF diagnostic report, then applied to the matching OOF/test artifacts.",
+        "direct_upstream_ids": [
+          221,
+          226,
+          227,
+          228
+        ]
+      },
+      {
+        "id": 239,
+        "metadata_path": "reports/experiment_239_id238_iso_recal_frontier_cv0.437967_unsubmitted.json",
+        "exists": true,
+        "method": "Second-stage full-OOF calibration on ID238",
+        "local_cv": 0.4379674200277118,
+        "validation_lens": "public_structure_second_stage_full_oof_calibration_not_nested",
+        "selection_contract": "ID238 predictions are transformed by target-wise second-stage full-OOF calibrators. The same OOF rows are used to select, fit, and score calibration.",
+        "direct_upstream_ids": []
+      },
+      {
+        "id": 241,
+        "metadata_path": "reports/experiment_241_id238_q160_s4iso_recal_frontier_cv0.383459_unsubmitted.json",
+        "exists": true,
+        "method": "Second-stage full-OOF calibration on ID238",
+        "local_cv": 0.3834593248651115,
+        "validation_lens": "public_structure_second_stage_full_oof_calibration_not_nested",
+        "selection_contract": "ID238 predictions are transformed by target-wise second-stage full-OOF calibrators. The same OOF rows are used to select, fit, and score calibration.",
+        "direct_upstream_ids": []
+      }
+    ],
+    "b1_blocked_layer": [
+      {
+        "id": 254,
+        "metadata_path": "reports/experiment_254_id178_anchor_cap015_frontier_bridge_cv0.471985_unsubmitted.json",
+        "exists": true,
+        "method": "Confirmed-public-anchor target-wise delta-capped bridge",
+        "local_cv": 0.4719845178698597,
+        "validation_lens": null,
+        "selection_contract": "Move target-wise from confirmed public anchor ID178 toward stronger local artifacts while enforcing max test delta <= 0.150 versus the anchor.",
+        "direct_upstream_ids": []
+      },
+      {
+        "id": 255,
+        "metadata_path": "reports/experiment_255_id178_anchor_fine_cap012_frontier_bridge_cv0.469816_unsubmitted.json",
+        "exists": true,
+        "method": "Confirmed-public-anchor target-wise delta-capped bridge",
+        "local_cv": 0.46981644018967833,
+        "validation_lens": null,
+        "selection_contract": "Move target-wise from confirmed public anchor ID178 toward stronger local artifacts while enforcing max test delta <= 0.120 versus the anchor.",
+        "direct_upstream_ids": []
+      },
+      {
+        "id": 256,
+        "metadata_path": "reports/experiment_256_id178_anchor_fine_cap014_frontier_bridge_cv0.464121_unsubmitted.json",
+        "exists": true,
+        "method": "Confirmed-public-anchor target-wise delta-capped bridge",
+        "local_cv": 0.4641210627902079,
+        "validation_lens": null,
+        "selection_contract": "Move target-wise from confirmed public anchor ID178 toward stronger local artifacts while enforcing max test delta <= 0.140 versus the anchor.",
+        "direct_upstream_ids": []
+      },
+      {
+        "id": 257,
+        "metadata_path": "reports/experiment_257_id178_anchor_fine_cap018_frontier_bridge_cv0.433079_unsubmitted.json",
+        "exists": true,
+        "method": "Confirmed-public-anchor target-wise delta-capped bridge",
+        "local_cv": 0.43307930451753546,
+        "validation_lens": null,
+        "selection_contract": "Move target-wise from confirmed public anchor ID178 toward stronger local artifacts while enforcing max test delta <= 0.180 versus the anchor.",
+        "direct_upstream_ids": []
+      },
+      {
+        "id": 258,
+        "metadata_path": "reports/experiment_258_id178_anchor_clean_cap016_frontier_bridge_cv0.457647_unsubmitted.json",
+        "exists": true,
+        "method": "Confirmed-public-anchor target-wise delta-capped bridge",
+        "local_cv": 0.4576465985681844,
+        "validation_lens": null,
+        "selection_contract": "Move target-wise from confirmed public anchor ID178 toward stronger local artifacts while enforcing max test delta <= 0.160 versus the anchor.",
+        "direct_upstream_ids": []
+      },
+      {
+        "id": 266,
+        "metadata_path": "reports/experiment_266_id178_direct_lite_fine_cap015_blend_cv0.457894_unsubmitted.json",
+        "exists": true,
+        "method": "Target-wise full-OOF pair probability/logit blend probe",
+        "local_cv": 0.45789444039842836,
+        "validation_lens": "public_structure_full_oof_targetwise_pair_prob_logit_blend_oracle",
+        "selection_contract": "Target-wise pair blend configs are selected from a full-OOF diagnostic report, then applied to the matching OOF/test artifacts.",
+        "direct_upstream_ids": [
+          255,
+          258
+        ]
+      }
+    ],
+    "public_anchor_layer": [
+      {
+        "id": 178,
+        "metadata_path": "reports/experiment_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638_unsubmitted.json",
+        "exists": true,
+        "method": "Target-wise multiseed random-conv sequence overlay on ID173",
+        "local_cv": 0.5386377373903545,
+        "validation_lens": null,
+        "selection_contract": "ID173 predictions are blended target-wise with deterministic random-convolution sequence models. Target/seed/kernel-count/model/weight choices are selected from listed local public-structure diagnostics, so this is a tuned public-structure probe, not nested evidence.",
+        "direct_upstream_ids": []
+      },
+      {
+        "id": 287,
+        "metadata_path": "reports/experiment_287_post285_base282_fixedtemp_balanced_cv0.378934_unsubmitted.json",
+        "exists": true,
+        "method": "Second-stage full-OOF calibration on ID282",
+        "local_cv": 0.3789340585237949,
+        "validation_lens": "public_structure_second_stage_full_oof_calibration_not_nested",
+        "selection_contract": "ID282 predictions are transformed by target-wise second-stage full-OOF calibrators. The same OOF rows are used to select, fit, and score calibration.",
+        "direct_upstream_ids": []
+      },
+      {
+        "id": 329,
+        "metadata_path": "reports/experiment_329_post328_combo4_cap080_budget050_practical_cv0.516718_unsubmitted.json",
+        "exists": true,
+        "method": "Aggregate failed-direction budget public recovery probe",
+        "local_cv": 0.5167183408136238,
+        "validation_lens": null,
+        "selection_contract": "Select per-target residual artifacts from aggregate failed-direction budget scan at cap=0.080, lambda_penalty=0.05.",
+        "direct_upstream_ids": []
+      },
+      {
+        "id": 335,
+        "metadata_path": "reports/experiment_335_id178_alpha_s4half_stressguard_cv0.539690_unsubmitted.json",
+        "exists": true,
+        "method": "Target-wise attenuation between ID173 base and ID178 sequence overlay; S4 uses alpha 0.5.",
+        "local_cv": 0.5396899345175763,
+        "validation_lens": null,
+        "selection_contract": null,
+        "direct_upstream_ids": []
+      },
+      {
+        "id": 341,
+        "metadata_path": "reports/experiment_341_id178_q2_seqsum_lr_c03_w00025_micro_safety_cv0.538584_unsubmitted.json",
+        "exists": true,
+        "method": "ID178 Q2-only sequence-summary lr_c0_3 weight 0.0025",
+        "local_cv": 0.538583659924236,
+        "validation_lens": null,
+        "selection_contract": "ID178 is kept as the public anchor. Only Q2 is blended with the full-train sequence-summary lr_c0_3 source at weight 0.0025. OOF Q2 uses the frozen subject_hole_5 split source; test predictions use the full-train source. No DACON submission was made.",
+        "direct_upstream_ids": []
+      }
+    ]
+  },
+  "phases": [
+    {
+      "phase": "environment_and_payload_smoke",
+      "compute": "Kaggle CPU, no GPU/TPU",
+      "purpose": "Unpack project payload, verify data/raw + artifacts/base_predictions + frozen reports exist.",
+      "must_output": [
+        "payload_manifest.json",
+        "environment_versions.json"
+      ]
+    },
+    {
+      "phase": "frozen_split_reconstruction",
+      "compute": "CPU",
+      "purpose": "Load id340_validation_split_manifest and verify fold row counts, subject coverage, and target prevalence.",
+      "must_output": [
+        "frozen_split_audit.json",
+        "frozen_split_audit.md"
+      ]
+    },
+    {
+      "phase": "upstream_source_model_rebuild",
+      "compute": "CPU first; GPU disabled unless a later DL-specific parity note exists",
+      "purpose": "Rebuild model-level approximations below IDs 221/226/227/228/237 inside frozen folds. Do not select/finalize using outer validation rows.",
+      "must_output": [
+        "source_rebuild_oof.parquet",
+        "source_rebuild_metrics.json",
+        "source_rebuild_metrics.md"
+      ]
+    },
+    {
+      "phase": "a1_b1_replay_from_rebuilt_sources",
+      "compute": "CPU",
+      "purpose": "Replay A1 qfree and B1 pair/logit selectors using rebuilt OOF sources only.",
+      "must_output": [
+        "a1_b1_replay_metrics.json",
+        "a1_b1_replay_metrics.md"
+      ]
+    },
+    {
+      "phase": "transfer_gate_only_no_artifact",
+      "compute": "CPU",
+      "purpose": "Compare any rebuilt-source candidate against ID178/287/329/335/341 geometry and ID341 proxy.",
+      "must_output": [
+        "transfer_gate_post_rebuild.json",
+        "transfer_gate_post_rebuild.md"
+      ]
+    }
+  ],
+  "hard_gates": [
+    "No DACON submission from the Kaggle runner.",
+    "No generated submission CSV or submission_log row from the Kaggle runner.",
+    "No full-OOF calibration or target selector may use the same rows for fit/select/score.",
+    "A rebuilt candidate must beat ID341 proxy 0.6038297835 before local artifact review.",
+    "Any promoted artifact after pullback requires unique ID > 341 and the full artifact contract."
+  ],
+  "kaggle_runner": {
+    "planned_notebook_dir": "notebooks/kaggle_upstream_rebuild_runner",
+    "planned_slug": "softkleenex/dacon-etri-upstream-rebuild-post-id341",
+    "enable_gpu": false,
+    "enable_tpu": false,
+    "dataset_sources": [
+      "softkleenex/dacon-etri-human-base",
+      "softkleenex/dacon-etri-upstream-patch-post-id341"
+    ],
+    "push_now": false
+  },
+  "decision": {
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "blueprint_ready": true,
+    "next_action": "Create a report-only Kaggle runner scaffold for this blueprint, validate pre-flight locally, then ask before any kernel push/run if a long rebuild will be launched."
+  },
+  "no_submission_created": true,
+  "no_dacon_submission_made": true
+}

@@ -1,0 +1,1016 @@
+{
+  "created_at_kst": "2026-06-19 09:36:51 UTC+09:00",
+  "diagnostic": "post_id341_circadian_hr_light_phase_model_smoke",
+  "purpose": "Run a lightweight fold-internal no-submit model smoke on the registered circadian HR/light feature matrix, comparing Q3/S3/S2 against ID178/ID341 OOF anchors.",
+  "source_family": "circadian_hr_light_phase_shape_v1",
+  "target_focus": [
+    "Q3",
+    "S3",
+    "S2"
+  ],
+  "inputs": {
+    "feature_matrix": "data/processed/post_id341_circadian_hr_light_phase_features_v1.parquet",
+    "schema_report": "reports/post_id341_circadian_hr_light_phase_features_v1_schema.json",
+    "model_smoke_contract": "reports/post_id341_circadian_hr_light_phase_model_smoke_contract_20260619.json"
+  },
+  "contract": {
+    "schema_report": {
+      "path": "reports/post_id341_circadian_hr_light_phase_features_v1_schema.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 20181,
+      "decision": {
+        "feature_matrix_materialized": true,
+        "matrix_written_now": true,
+        "source_family": "circadian_hr_light_phase_shape_v1",
+        "target_focus": [
+          "Q3",
+          "S3",
+          "S2"
+        ],
+        "allowed_boundary_passed": true,
+        "contract_passed": true,
+        "row_count": 700,
+        "feature_column_count": 48,
+        "public_058_evidence": false,
+        "score_route_opened": false,
+        "train_model_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_local_allowed_step": "validate_circadian_feature_matrix_then_stop_or_wait_for_explicit_kaggle_approval",
+        "next_action": "Feature matrix is registered as non-score infrastructure only. Do not create ID342, train a model, submit to DACON, or run Kaggle from this artifact without a separate approved contract."
+      },
+      "error": null
+    },
+    "model_smoke_contract_report": {
+      "path": "reports/post_id341_circadian_hr_light_phase_model_smoke_contract_20260619.json",
+      "exists": true,
+      "parse_ok": true,
+      "bytes": 162279,
+      "decision": {
+        "model_smoke_contract_ready": true,
+        "source_family": "circadian_hr_light_phase_shape_v1",
+        "target_focus": [
+          "Q3",
+          "S3",
+          "S2"
+        ],
+        "model_smoke_run_allowed_now": false,
+        "model_smoke_run_allowed_next_under_contract": true,
+        "allowed_future_model_smoke_script": "scripts/diagnose_post_id341_circadian_hr_light_phase_model_smoke.py",
+        "public_058_evidence": false,
+        "score_route_opened": false,
+        "train_model_now": false,
+        "create_submission_artifact": false,
+        "submit_now": false,
+        "push_kaggle_now": false,
+        "run_kaggle_now": false,
+        "next_local_allowed_step": "run_circadian_feature_matrix_model_smoke_under_contract_no_artifact",
+        "next_action": "A future script may run only the bounded in-memory circadian model smoke and then stop. No ID342, submission artifact, Kaggle run, or DACON submission is allowed."
+      },
+      "error": null
+    },
+    "checks": {
+      "schema_exists_and_parse_ok": true,
+      "model_contract_exists_and_parse_ok": true,
+      "matrix_materialized": true,
+      "schema_source_family_matches": true,
+      "schema_target_focus_matches": true,
+      "schema_boundary_passed": true,
+      "schema_score_actions_closed": true,
+      "model_contract_ready": true,
+      "model_contract_allows_future_smoke": true,
+      "model_contract_does_not_train_now": true,
+      "model_contract_actions_closed": true,
+      "matrix_path_exists": true
+    },
+    "contract_ready_for_model_smoke": true
+  },
+  "feature_metadata": {
+    "matrix_path": "data/processed/post_id341_circadian_hr_light_phase_features_v1.parquet",
+    "aligned_train_rows": 450,
+    "feature_columns": 48,
+    "feature_column_names": [
+      "phase_strong_day_flag",
+      "phase_weak_day_flag",
+      "whr_rows",
+      "whr_hours",
+      "wlight_hours",
+      "mlight_hours",
+      "wpedo_hours",
+      "phase_missing_source_count",
+      "hr_night_median",
+      "hr_morning_median",
+      "hr_afternoon_median",
+      "hr_evening_median",
+      "hr_day_night_amplitude",
+      "hr_morning_rise_slope",
+      "hr_evening_decay_slope",
+      "hr_curve_roughness",
+      "hr_rest_window_low_quantile",
+      "hr_high_load_minutes_proxy",
+      "wlight_first_nonzero_hour",
+      "wlight_last_nonzero_hour",
+      "wlight_morning_exposure_sum",
+      "wlight_afternoon_exposure_sum",
+      "wlight_evening_exposure_sum",
+      "wlight_night_exposure_sum",
+      "wlight_day_night_contrast",
+      "wlight_evening_delay_ratio",
+      "mlight_dark_minutes_proxy",
+      "mlight_longest_dark_gap_hours",
+      "mlight_night_light_burst_count",
+      "mlight_evening_light_share",
+      "mlight_morning_light_share",
+      "mlight_wearable_light_disagreement",
+      "steps_morning_sum",
+      "steps_afternoon_sum",
+      "steps_evening_sum",
+      "steps_night_sum",
+      "first_active_hour",
+      "last_active_hour",
+      "activity_fragmentation_count",
+      "late_activity_ratio",
+      "rest_window_length_proxy",
+      "activity_phase_centroid_hour",
+      "hr_light_phase_lag_proxy",
+      "activity_light_phase_lag_proxy",
+      "night_light_with_high_hr_minutes_proxy",
+      "evening_activity_with_bright_light_proxy",
+      "morning_light_without_activity_proxy",
+      "strong_phase_cross_modal_consistency_score"
+    ],
+    "missing_rate": 0.0,
+    "forbidden_feature_columns": [],
+    "test_rows_present_but_unused_for_model_smoke": 250
+  },
+  "config": {
+    "model_specs": [
+      {
+        "name": "lr_c0_02",
+        "kind": "lr",
+        "c_value": 0.02
+      },
+      {
+        "name": "lr_c0_08",
+        "kind": "lr",
+        "c_value": 0.08
+      },
+      {
+        "name": "lr_c0_20",
+        "kind": "lr",
+        "c_value": 0.2
+      }
+    ],
+    "split_names": [
+      "subject_hole_5",
+      "actual_test_band_holdout",
+      "test_boundary_neighbor2_holdout",
+      "test_boundary_neighbor5_holdout",
+      "loso_10"
+    ],
+    "blend_weights": [
+      0.005,
+      0.01,
+      0.025,
+      0.05
+    ],
+    "config_win_floor": 4,
+    "config_mean_delta_ceiling": -5e-05,
+    "config_max_delta_ceiling": 0.00075
+  },
+  "anchor_rows": [
+    {
+      "target": "Q3",
+      "split_name": "subject_hole_5",
+      "id178_loss": 0.5670897848363183,
+      "id341_loss": 0.5670897848363183
+    },
+    {
+      "target": "Q3",
+      "split_name": "actual_test_band_holdout",
+      "id178_loss": 0.5093012241642778,
+      "id341_loss": 0.5093012241642778
+    },
+    {
+      "target": "Q3",
+      "split_name": "test_boundary_neighbor2_holdout",
+      "id178_loss": 0.6063358711638827,
+      "id341_loss": 0.6063358711638827
+    },
+    {
+      "target": "Q3",
+      "split_name": "test_boundary_neighbor5_holdout",
+      "id178_loss": 0.5827662249897018,
+      "id341_loss": 0.5827662249897018
+    },
+    {
+      "target": "Q3",
+      "split_name": "loso_10",
+      "id178_loss": 0.5670897848363183,
+      "id341_loss": 0.5670897848363183
+    },
+    {
+      "target": "S3",
+      "split_name": "subject_hole_5",
+      "id178_loss": 0.49089303890027697,
+      "id341_loss": 0.49089303890027697
+    },
+    {
+      "target": "S3",
+      "split_name": "actual_test_band_holdout",
+      "id178_loss": 0.47199996150799395,
+      "id341_loss": 0.47199996150799395
+    },
+    {
+      "target": "S3",
+      "split_name": "test_boundary_neighbor2_holdout",
+      "id178_loss": 0.5069499097612542,
+      "id341_loss": 0.5069499097612542
+    },
+    {
+      "target": "S3",
+      "split_name": "test_boundary_neighbor5_holdout",
+      "id178_loss": 0.5128937130660507,
+      "id341_loss": 0.5128937130660507
+    },
+    {
+      "target": "S3",
+      "split_name": "loso_10",
+      "id178_loss": 0.4908930389002769,
+      "id341_loss": 0.4908930389002769
+    },
+    {
+      "target": "S2",
+      "split_name": "subject_hole_5",
+      "id178_loss": 0.5295561327474739,
+      "id341_loss": 0.5295561327474739
+    },
+    {
+      "target": "S2",
+      "split_name": "actual_test_band_holdout",
+      "id178_loss": 0.5514863418926919,
+      "id341_loss": 0.5514863418926919
+    },
+    {
+      "target": "S2",
+      "split_name": "test_boundary_neighbor2_holdout",
+      "id178_loss": 0.573831927652359,
+      "id341_loss": 0.573831927652359
+    },
+    {
+      "target": "S2",
+      "split_name": "test_boundary_neighbor5_holdout",
+      "id178_loss": 0.5532543738482324,
+      "id341_loss": 0.5532543738482324
+    },
+    {
+      "target": "S2",
+      "split_name": "loso_10",
+      "id178_loss": 0.529556132747474,
+      "id341_loss": 0.529556132747474
+    }
+  ],
+  "selected_target_configs": {},
+  "top_rows_by_target": {
+    "Q3": [
+      {
+        "target": "Q3",
+        "candidate": "blend_id178_circadian_phase_lr_c0_20_w0.005",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 7.045830179897017e-06,
+        "min_delta_vs_id341": -9.829382000670073e-05,
+        "max_delta_vs_id341": 0.00013344894427713694,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00013344894427713694,
+          "actual_test_band_holdout": -6.669738327647057e-05,
+          "test_boundary_neighbor2_holdout": -9.829382000670073e-05,
+          "test_boundary_neighbor5_holdout": 3.458405669398701e-05,
+          "loso_10": 3.218735321153243e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5672232337805955,
+          "actual_test_band_holdout": 0.5092345267810013,
+          "test_boundary_neighbor2_holdout": 0.606237577343876,
+          "test_boundary_neighbor5_holdout": 0.5828008090463958,
+          "loso_10": 0.5671219721895299
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id341_circadian_phase_lr_c0_20_w0.005",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 7.045830179897017e-06,
+        "min_delta_vs_id341": -9.829382000670073e-05,
+        "max_delta_vs_id341": 0.00013344894427713694,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00013344894427713694,
+          "actual_test_band_holdout": -6.669738327647057e-05,
+          "test_boundary_neighbor2_holdout": -9.829382000670073e-05,
+          "test_boundary_neighbor5_holdout": 3.458405669398701e-05,
+          "loso_10": 3.218735321153243e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5672232337805955,
+          "actual_test_band_holdout": 0.5092345267810013,
+          "test_boundary_neighbor2_holdout": 0.606237577343876,
+          "test_boundary_neighbor5_holdout": 0.5828008090463958,
+          "loso_10": 0.5671219721895299
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id178_circadian_phase_lr_c0_08_w0.005",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 1.3662928474800218e-05,
+        "min_delta_vs_id341": -0.00013115577109901189,
+        "max_delta_vs_id341": 0.00013151833818136893,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00013151833818136893,
+          "actual_test_band_holdout": -8.817454520859691e-06,
+          "test_boundary_neighbor2_holdout": -0.00013115577109901189,
+          "test_boundary_neighbor5_holdout": 4.3095441677465374e-05,
+          "loso_10": 3.367408813503836e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5672213031744997,
+          "actual_test_band_holdout": 0.509292406709757,
+          "test_boundary_neighbor2_holdout": 0.6062047153927836,
+          "test_boundary_neighbor5_holdout": 0.5828093204313792,
+          "loso_10": 0.5671234589244534
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id341_circadian_phase_lr_c0_08_w0.005",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 1.3662928474800218e-05,
+        "min_delta_vs_id341": -0.00013115577109901189,
+        "max_delta_vs_id341": 0.00013151833818136893,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00013151833818136893,
+          "actual_test_band_holdout": -8.817454520859691e-06,
+          "test_boundary_neighbor2_holdout": -0.00013115577109901189,
+          "test_boundary_neighbor5_holdout": 4.3095441677465374e-05,
+          "loso_10": 3.367408813503836e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5672213031744997,
+          "actual_test_band_holdout": 0.509292406709757,
+          "test_boundary_neighbor2_holdout": 0.6062047153927836,
+          "test_boundary_neighbor5_holdout": 0.5828093204313792,
+          "loso_10": 0.5671234589244534
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id178_circadian_phase_lr_c0_20_w0.01",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 2.1489205070346352e-05,
+        "min_delta_vs_id341": -0.00018867917227949338,
+        "max_delta_vs_id341": 0.0002739407945822059,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0002739407945822059,
+          "actual_test_band_holdout": -0.00012686008012408045,
+          "test_boundary_neighbor2_holdout": -0.00018867917227949338,
+          "test_boundary_neighbor5_holdout": 7.583012923861876e-05,
+          "loso_10": 7.321435393448095e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5673637256309005,
+          "actual_test_band_holdout": 0.5091743640841537,
+          "test_boundary_neighbor2_holdout": 0.6061471919916032,
+          "test_boundary_neighbor5_holdout": 0.5828420551189404,
+          "loso_10": 0.5671629991902528
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id341_circadian_phase_lr_c0_20_w0.01",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 2.1489205070346352e-05,
+        "min_delta_vs_id341": -0.00018867917227949338,
+        "max_delta_vs_id341": 0.0002739407945822059,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0002739407945822059,
+          "actual_test_band_holdout": -0.00012686008012408045,
+          "test_boundary_neighbor2_holdout": -0.00018867917227949338,
+          "test_boundary_neighbor5_holdout": 7.583012923861876e-05,
+          "loso_10": 7.321435393448095e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5673637256309005,
+          "actual_test_band_holdout": 0.5091743640841537,
+          "test_boundary_neighbor2_holdout": 0.6061471919916032,
+          "test_boundary_neighbor5_holdout": 0.5828420551189404,
+          "loso_10": 0.5671629991902528
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id178_circadian_phase_lr_c0_08_w0.01",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 3.380817060967267e-05,
+        "min_delta_vs_id341": -0.0002554676303552217,
+        "max_delta_vs_id341": 0.000269365321357129,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.000269365321357129,
+          "actual_test_band_holdout": -1.19100114133186e-05,
+          "test_boundary_neighbor2_holdout": -0.0002554676303552217,
+          "test_boundary_neighbor5_holdout": 9.18784941077444e-05,
+          "loso_10": 7.517467935203026e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5673591501576755,
+          "actual_test_band_holdout": 0.5092893141528645,
+          "test_boundary_neighbor2_holdout": 0.6060804035335274,
+          "test_boundary_neighbor5_holdout": 0.5828581034838095,
+          "loso_10": 0.5671649595156704
+        }
+      },
+      {
+        "target": "Q3",
+        "candidate": "blend_id341_circadian_phase_lr_c0_08_w0.01",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 3.380817060967267e-05,
+        "min_delta_vs_id341": -0.0002554676303552217,
+        "max_delta_vs_id341": 0.000269365321357129,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.000269365321357129,
+          "actual_test_band_holdout": -1.19100114133186e-05,
+          "test_boundary_neighbor2_holdout": -0.0002554676303552217,
+          "test_boundary_neighbor5_holdout": 9.18784941077444e-05,
+          "loso_10": 7.517467935203026e-05
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5673591501576755,
+          "actual_test_band_holdout": 0.5092893141528645,
+          "test_boundary_neighbor2_holdout": 0.6060804035335274,
+          "test_boundary_neighbor5_holdout": 0.5828581034838095,
+          "loso_10": 0.5671649595156704
+        }
+      }
+    ],
+    "S3": [
+      {
+        "target": "S3",
+        "candidate": "blend_id178_circadian_phase_lr_c0_20_w0.005",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 6.265823375158907e-05,
+        "min_delta_vs_id341": -4.6564671270399316e-05,
+        "max_delta_vs_id341": 0.0002053806730889507,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 2.031060935753226e-05,
+          "actual_test_band_holdout": -4.6564671270399316e-05,
+          "test_boundary_neighbor2_holdout": 0.0002053806730889507,
+          "test_boundary_neighbor5_holdout": -3.63211589349266e-05,
+          "loso_10": 0.00017048571651678834
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4909133495096345,
+          "actual_test_band_holdout": 0.47195339683672355,
+          "test_boundary_neighbor2_holdout": 0.5071552904343432,
+          "test_boundary_neighbor5_holdout": 0.5128573919071158,
+          "loso_10": 0.4910635246167937
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id341_circadian_phase_lr_c0_20_w0.005",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 6.265823375158907e-05,
+        "min_delta_vs_id341": -4.6564671270399316e-05,
+        "max_delta_vs_id341": 0.0002053806730889507,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 2.031060935753226e-05,
+          "actual_test_band_holdout": -4.6564671270399316e-05,
+          "test_boundary_neighbor2_holdout": 0.0002053806730889507,
+          "test_boundary_neighbor5_holdout": -3.63211589349266e-05,
+          "loso_10": 0.00017048571651678834
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4909133495096345,
+          "actual_test_band_holdout": 0.47195339683672355,
+          "test_boundary_neighbor2_holdout": 0.5071552904343432,
+          "test_boundary_neighbor5_holdout": 0.5128573919071158,
+          "loso_10": 0.4910635246167937
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id178_circadian_phase_lr_c0_20_w0.01",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.00013449550671548182,
+        "min_delta_vs_id341": -8.849256997189858e-05,
+        "max_delta_vs_id341": 0.00041577101235013014,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 4.652413788247545e-05,
+          "actual_test_band_holdout": -8.849256997189858e-05,
+          "test_boundary_neighbor2_holdout": 0.00041577101235013014,
+          "test_boundary_neighbor5_holdout": -6.22263981404636e-05,
+          "loso_10": 0.00036090135145716573
+        },
+        "split_losses": {
+          "subject_hole_5": 0.49093956303815944,
+          "actual_test_band_holdout": 0.47191146893802205,
+          "test_boundary_neighbor2_holdout": 0.5073656807736043,
+          "test_boundary_neighbor5_holdout": 0.5128314866679102,
+          "loso_10": 0.4912539402517341
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id341_circadian_phase_lr_c0_20_w0.01",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.00013449550671548182,
+        "min_delta_vs_id341": -8.849256997189858e-05,
+        "max_delta_vs_id341": 0.00041577101235013014,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 4.652413788247545e-05,
+          "actual_test_band_holdout": -8.849256997189858e-05,
+          "test_boundary_neighbor2_holdout": 0.00041577101235013014,
+          "test_boundary_neighbor5_holdout": -6.22263981404636e-05,
+          "loso_10": 0.00036090135145716573
+        },
+        "split_losses": {
+          "subject_hole_5": 0.49093956303815944,
+          "actual_test_band_holdout": 0.47191146893802205,
+          "test_boundary_neighbor2_holdout": 0.5073656807736043,
+          "test_boundary_neighbor5_holdout": 0.5128314866679102,
+          "loso_10": 0.4912539402517341
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id178_circadian_phase_lr_c0_20_w0.025",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "anchor": "id178",
+        "weight": 0.025,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.00040294177159965193,
+        "min_delta_vs_id341": -0.00018676192661537527,
+        "max_delta_vs_id341": 0.0010766755846549625,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0001593524552029879,
+          "actual_test_band_holdout": -0.00018676192661537527,
+          "test_boundary_neighbor2_holdout": 0.0010766755846549625,
+          "test_boundary_neighbor5_holdout": -7.944530557091323e-05,
+          "loso_10": 0.0010448880503265978
+        },
+        "split_losses": {
+          "subject_hole_5": 0.49105239135547996,
+          "actual_test_band_holdout": 0.4718131995813786,
+          "test_boundary_neighbor2_holdout": 0.5080265853459092,
+          "test_boundary_neighbor5_holdout": 0.5128142677604798,
+          "loso_10": 0.4919379269506035
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id341_circadian_phase_lr_c0_20_w0.025",
+        "model_spec": {
+          "name": "lr_c0_20",
+          "kind": "lr",
+          "c_value": 0.2
+        },
+        "anchor": "id341",
+        "weight": 0.025,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.00040294177159965193,
+        "min_delta_vs_id341": -0.00018676192661537527,
+        "max_delta_vs_id341": 0.0010766755846549625,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0001593524552029879,
+          "actual_test_band_holdout": -0.00018676192661537527,
+          "test_boundary_neighbor2_holdout": 0.0010766755846549625,
+          "test_boundary_neighbor5_holdout": -7.944530557091323e-05,
+          "loso_10": 0.0010448880503265978
+        },
+        "split_losses": {
+          "subject_hole_5": 0.49105239135547996,
+          "actual_test_band_holdout": 0.4718131995813786,
+          "test_boundary_neighbor2_holdout": 0.5080265853459092,
+          "test_boundary_neighbor5_holdout": 0.5128142677604798,
+          "loso_10": 0.4919379269506035
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id178_circadian_phase_lr_c0_08_w0.005",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 5.696466304557779e-05,
+        "min_delta_vs_id341": -7.870723668501611e-05,
+        "max_delta_vs_id341": 0.00017252742690754275,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 2.6783448856815273e-05,
+          "actual_test_band_holdout": 4.555575844222837e-06,
+          "test_boundary_neighbor2_holdout": 0.00017252742690754275,
+          "test_boundary_neighbor5_holdout": -7.870723668501611e-05,
+          "loso_10": 0.0001596641003043242
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4909198223491338,
+          "actual_test_band_holdout": 0.47200451708383817,
+          "test_boundary_neighbor2_holdout": 0.5071224371881617,
+          "test_boundary_neighbor5_holdout": 0.5128150058293657,
+          "loso_10": 0.49105270300058124
+        }
+      },
+      {
+        "target": "S3",
+        "candidate": "blend_id341_circadian_phase_lr_c0_08_w0.005",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 5.696466304557779e-05,
+        "min_delta_vs_id341": -7.870723668501611e-05,
+        "max_delta_vs_id341": 0.00017252742690754275,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 2.6783448856815273e-05,
+          "actual_test_band_holdout": 4.555575844222837e-06,
+          "test_boundary_neighbor2_holdout": 0.00017252742690754275,
+          "test_boundary_neighbor5_holdout": -7.870723668501611e-05,
+          "loso_10": 0.0001596641003043242
+        },
+        "split_losses": {
+          "subject_hole_5": 0.4909198223491338,
+          "actual_test_band_holdout": 0.47200451708383817,
+          "test_boundary_neighbor2_holdout": 0.5071224371881617,
+          "test_boundary_neighbor5_holdout": 0.5128150058293657,
+          "loso_10": 0.49105270300058124
+        }
+      }
+    ],
+    "S2": [
+      {
+        "target": "S2",
+        "candidate": "blend_id178_circadian_phase_lr_c0_02_w0.005",
+        "model_spec": {
+          "name": "lr_c0_02",
+          "kind": "lr",
+          "c_value": 0.02
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 5.7776006389453904e-05,
+        "min_delta_vs_id341": -6.214723949415912e-05,
+        "max_delta_vs_id341": 0.0001587370874117644,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00015382799009910908,
+          "actual_test_band_holdout": -6.214723949415912e-05,
+          "test_boundary_neighbor2_holdout": -4.725345740252962e-05,
+          "test_boundary_neighbor5_holdout": 8.571565133308479e-05,
+          "loso_10": 0.0001587370874117644
+        },
+        "split_losses": {
+          "subject_hole_5": 0.529709960737573,
+          "actual_test_band_holdout": 0.5514241946531977,
+          "test_boundary_neighbor2_holdout": 0.5737846741949565,
+          "test_boundary_neighbor5_holdout": 0.5533400894995655,
+          "loso_10": 0.5297148698348858
+        }
+      },
+      {
+        "target": "S2",
+        "candidate": "blend_id341_circadian_phase_lr_c0_02_w0.005",
+        "model_spec": {
+          "name": "lr_c0_02",
+          "kind": "lr",
+          "c_value": 0.02
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 5.7776006389453904e-05,
+        "min_delta_vs_id341": -6.214723949415912e-05,
+        "max_delta_vs_id341": 0.0001587370874117644,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00015382799009910908,
+          "actual_test_band_holdout": -6.214723949415912e-05,
+          "test_boundary_neighbor2_holdout": -4.725345740252962e-05,
+          "test_boundary_neighbor5_holdout": 8.571565133308479e-05,
+          "loso_10": 0.0001587370874117644
+        },
+        "split_losses": {
+          "subject_hole_5": 0.529709960737573,
+          "actual_test_band_holdout": 0.5514241946531977,
+          "test_boundary_neighbor2_holdout": 0.5737846741949565,
+          "test_boundary_neighbor5_holdout": 0.5533400894995655,
+          "loso_10": 0.5297148698348858
+        }
+      },
+      {
+        "target": "S2",
+        "candidate": "blend_id178_circadian_phase_lr_c0_02_w0.01",
+        "model_spec": {
+          "name": "lr_c0_02",
+          "kind": "lr",
+          "c_value": 0.02
+        },
+        "anchor": "id178",
+        "weight": 0.01,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.0001263216267811007,
+        "min_delta_vs_id341": -0.00010999669724520711,
+        "max_delta_vs_id341": 0.0003292167261559342,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00031319914451277686,
+          "actual_test_band_holdout": -0.00010999669724520711,
+          "test_boundary_neighbor2_holdout": -8.183345582912782e-05,
+          "test_boundary_neighbor5_holdout": 0.00018102241631112737,
+          "loso_10": 0.0003292167261559342
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5298693318919867,
+          "actual_test_band_holdout": 0.5513763451954466,
+          "test_boundary_neighbor2_holdout": 0.5737500941965299,
+          "test_boundary_neighbor5_holdout": 0.5534353962645435,
+          "loso_10": 0.52988534947363
+        }
+      },
+      {
+        "target": "S2",
+        "candidate": "blend_id341_circadian_phase_lr_c0_02_w0.01",
+        "model_spec": {
+          "name": "lr_c0_02",
+          "kind": "lr",
+          "c_value": 0.02
+        },
+        "anchor": "id341",
+        "weight": 0.01,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.0001263216267811007,
+        "min_delta_vs_id341": -0.00010999669724520711,
+        "max_delta_vs_id341": 0.0003292167261559342,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.00031319914451277686,
+          "actual_test_band_holdout": -0.00010999669724520711,
+          "test_boundary_neighbor2_holdout": -8.183345582912782e-05,
+          "test_boundary_neighbor5_holdout": 0.00018102241631112737,
+          "loso_10": 0.0003292167261559342
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5298693318919867,
+          "actual_test_band_holdout": 0.5513763451954466,
+          "test_boundary_neighbor2_holdout": 0.5737500941965299,
+          "test_boundary_neighbor5_holdout": 0.5534353962645435,
+          "loso_10": 0.52988534947363
+        }
+      },
+      {
+        "target": "S2",
+        "candidate": "blend_id178_circadian_phase_lr_c0_02_w0.025",
+        "model_spec": {
+          "name": "lr_c0_02",
+          "kind": "lr",
+          "c_value": 0.02
+        },
+        "anchor": "id178",
+        "weight": 0.025,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.0003924521676197834,
+        "min_delta_vs_id341": -0.00017460293288129591,
+        "max_delta_vs_id341": 0.000906569533265511,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0008232562433933,
+          "actual_test_band_holdout": -0.00017460293288129591,
+          "test_boundary_neighbor2_holdout": -0.00011439166170579274,
+          "test_boundary_neighbor5_holdout": 0.0005214296560271947,
+          "loso_10": 0.000906569533265511
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5303793889908672,
+          "actual_test_band_holdout": 0.5513117389598106,
+          "test_boundary_neighbor2_holdout": 0.5737175359906532,
+          "test_boundary_neighbor5_holdout": 0.5537758035042596,
+          "loso_10": 0.5304627022807396
+        }
+      },
+      {
+        "target": "S2",
+        "candidate": "blend_id341_circadian_phase_lr_c0_02_w0.025",
+        "model_spec": {
+          "name": "lr_c0_02",
+          "kind": "lr",
+          "c_value": 0.02
+        },
+        "anchor": "id341",
+        "weight": 0.025,
+        "primary_wins_vs_id341": 2,
+        "mean_delta_vs_id341": 0.0003924521676197834,
+        "min_delta_vs_id341": -0.00017460293288129591,
+        "max_delta_vs_id341": 0.000906569533265511,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0008232562433933,
+          "actual_test_band_holdout": -0.00017460293288129591,
+          "test_boundary_neighbor2_holdout": -0.00011439166170579274,
+          "test_boundary_neighbor5_holdout": 0.0005214296560271947,
+          "loso_10": 0.000906569533265511
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5303793889908672,
+          "actual_test_band_holdout": 0.5513117389598106,
+          "test_boundary_neighbor2_holdout": 0.5737175359906532,
+          "test_boundary_neighbor5_holdout": 0.5537758035042596,
+          "loso_10": 0.5304627022807396
+        }
+      },
+      {
+        "target": "S2",
+        "candidate": "blend_id178_circadian_phase_lr_c0_08_w0.005",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "anchor": "id178",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 6.982224728835362e-05,
+        "min_delta_vs_id341": -7.459066363679767e-06,
+        "max_delta_vs_id341": 0.00014979635375089728,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0001344640378031503,
+          "actual_test_band_holdout": -7.459066363679767e-06,
+          "test_boundary_neighbor2_holdout": 3.115124006747294e-06,
+          "test_boundary_neighbor5_holdout": 6.9194787244653e-05,
+          "loso_10": 0.00014979635375089728
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5296905967852771,
+          "actual_test_band_holdout": 0.5514788828263282,
+          "test_boundary_neighbor2_holdout": 0.5738350427763658,
+          "test_boundary_neighbor5_holdout": 0.553323568635477,
+          "loso_10": 0.5297059291012249
+        }
+      },
+      {
+        "target": "S2",
+        "candidate": "blend_id341_circadian_phase_lr_c0_08_w0.005",
+        "model_spec": {
+          "name": "lr_c0_08",
+          "kind": "lr",
+          "c_value": 0.08
+        },
+        "anchor": "id341",
+        "weight": 0.005,
+        "primary_wins_vs_id341": 1,
+        "mean_delta_vs_id341": 6.982224728835362e-05,
+        "min_delta_vs_id341": -7.459066363679767e-06,
+        "max_delta_vs_id341": 0.00014979635375089728,
+        "split_deltas_vs_id341": {
+          "subject_hole_5": 0.0001344640378031503,
+          "actual_test_band_holdout": -7.459066363679767e-06,
+          "test_boundary_neighbor2_holdout": 3.115124006747294e-06,
+          "test_boundary_neighbor5_holdout": 6.9194787244653e-05,
+          "loso_10": 0.00014979635375089728
+        },
+        "split_losses": {
+          "subject_hole_5": 0.5296905967852771,
+          "actual_test_band_holdout": 0.5514788828263282,
+          "test_boundary_neighbor2_holdout": 0.5738350427763658,
+          "test_boundary_neighbor5_holdout": 0.553323568635477,
+          "loso_10": 0.5297059291012249
+        }
+      }
+    ]
+  },
+  "scan_row_count": 405,
+  "decision": {
+    "model_smoke_completed": true,
+    "source_family": "circadian_hr_light_phase_shape_v1",
+    "target_focus": [
+      "Q3",
+      "S3",
+      "S2"
+    ],
+    "selected_targets": [],
+    "any_circadian_phase_signal_found": false,
+    "all_focus_targets_covered": false,
+    "public_058_evidence": false,
+    "score_route_opened": false,
+    "next_local_allowed_step": "close_circadian_phase_model_smoke",
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "If selected targets exist, run a no-artifact geometry gate before any artifact contract. Otherwise close the circadian HR/light local model lane and return to the explicit-approved upstream route."
+  },
+  "safety_contract": {
+    "in_memory_models_trained": true,
+    "persisted_model_created": false,
+    "full_test_predictions_created": false,
+    "submission_csv_created": false,
+    "base_prediction_artifact_created": false,
+    "notebook_history_artifact_created": false,
+    "submission_log_modified": false,
+    "kaggle_run_executed": false,
+    "dacon_submission_executed": false,
+    "uses_target_labels_for_training_only_inside_cv": true,
+    "uses_oof_predictions_as_baseline_only": true,
+    "uses_public_scores": false
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "created_at_kst": "2026-06-23 18:17:38 UTC+09:00",
+  "diagnostic": "post_id341_local_remote_compute_boundary_contract",
+  "purpose": "Keep local prelaunch bounded to fast contract-staging checks and reserve the full upstream runner for exact-approved Kaggle no-submit execution.",
+  "inputs": {
+    "makefile": "Makefile",
+    "local_smoke_script": "scripts/run_post_id341_kaggle_runner_local_smoke.py",
+    "runner_notebook": "notebooks/kaggle_upstream_rebuild_runner/Upstream_Rebuild_Post_ID341_Runner.ipynb",
+    "runner_metadata": "notebooks/kaggle_upstream_rebuild_runner/kernel-metadata.json"
+  },
+  "local_full_run_forbidden_tokens_found": [],
+  "checks": {
+    "contract_smoke": {
+      "smoke_mode_declared": true,
+      "stages_contract_outputs": true,
+      "uses_output_intake_gate": true,
+      "does_not_call_local_notebook_execution": true,
+      "markdown_explicitly_blocks_full_local_notebook": true
+    },
+    "makefile": {
+      "help_describes_contract_smoke": true,
+      "help_does_not_claim_full_local_execution": true,
+      "local_smoke_target_uses_contract_script": true,
+      "local_smoke_target_has_no_network_flag": true,
+      "local_smoke_target_has_no_dacon_submit": true,
+      "upstream_ready_runs_smoke_before_prelaunch": true,
+      "prelaunch_records_compute_boundary_before_final_gate": true
+    },
+    "remote_guard": {
+      "remote_guard_target_exists": true,
+      "remote_guard_defaults_closed": true,
+      "upstream_push_goes_through_guarded_push_only": true,
+      "push_only_requires_remote_approval": true,
+      "approval_phrase_recorded": true
+    },
+    "runner_metadata": {
+      "runner_notebook_exists": true,
+      "runner_metadata_exists": true,
+      "runner_cpu_only_gpu_disabled": true,
+      "runner_cpu_only_tpu_disabled": true
+    }
+  },
+  "decision": {
+    "local_remote_compute_boundary_contract_pass": true,
+    "local_full_upstream_notebook_execution_allowed_by_default": false,
+    "local_contract_smoke_required_before_kaggle_approval": true,
+    "full_runner_requires_exact_kaggle_approval": true,
+    "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+    "create_submission_artifact": false,
+    "modify_submission_log": false,
+    "create_id342_or_new_submission_id": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Boundary is healthy: local work remains a fast contract smoke; full runner stays behind exact Kaggle no-submit approval."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

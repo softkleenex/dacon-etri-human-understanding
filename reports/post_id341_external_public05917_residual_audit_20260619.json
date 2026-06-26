@@ -1,0 +1,202 @@
+{
+  "created_at_kst": "2026-06-23 18:15:19 UTC+09:00",
+  "diagnostic": "post_id341_external_public05917_residual_audit",
+  "purpose": "Audit whether the external Public 0.5917 reference notebook still contains an untested direct post-ID341 score route after current Q2/Q3/S3 and Q3/S3 closures.",
+  "reference_notebook": {
+    "exists": true,
+    "path": "/Volumes/samsd/download_samsd/[Public_0.5917] LGBM+XGB 앵커·Subject-hole CV·안정성 피처선별·블렌드.ipynb",
+    "sha256": "71ae4397d0b429e501af44aa4de679cd4394f915862e68a2ffe62cf561846808",
+    "size_bytes": 51847,
+    "cell_count": 31,
+    "markdown_cell_count": 13,
+    "code_cell_count": 18,
+    "keyword_counts": {
+      "anchor_blending": 39,
+      "subject_hole_cv": 13,
+      "stability_filtering": 22,
+      "window_pair_screen": 19,
+      "lgbm_xgb_cat": 133,
+      "target_specific_blend": 8,
+      "subject_adaptive_calibration": 18
+    },
+    "claimed_public_score_from_filename": 0.5917,
+    "future_work_excerpt": "## 13. 개선 방향 (Future Work)\n\n### 13.1 단기 개선 가능 방향\n\n| 방향 | 예상 개선 | 설명 |\n|------|-----------|------|\n| mScreenStatus 피처 활용 | +0.005~0.010 | 729개 피처, 강한 S-target 신호 |\n| Subject-adaptive calibration | +0.002~0.005 | 극단값 subject 보정 |\n| Day-of-week 피처 추가 | +0.001~0.003 | 명확한 신호 |\n\n### 13.2 중기 개선 가능 방향\n\n| 방향 | 예상 개선 | 설명 |\n|------|-----------|------|\n| 6-model 앙상블 확장 | +0.002~0.005 | 더 많은 모델 diversity |\n| Sensor-sensor 교차 특성 | +0.003~0.008 | 윈도우 쌍 외 추가 상호작용 |\n| Feature stability 재선별 | +0.001~0.003 | 새로운 특성 공간 탐색 |\n"
+  },
+  "required_reports": {
+    "external_review": {
+      "path": "reports/external_public05917_notebook_review_20260616.json",
+      "exists": true
+    },
+    "feature_similarity": {
+      "path": "reports/public_feature_similarity_review_post_id221_20260616.json",
+      "exists": true
+    },
+    "booster_stability": {
+      "path": "reports/public_booster_stability_overlay_fast_scan_20260616.json",
+      "exists": true
+    },
+    "window_pair": {
+      "path": "reports/id215_window_pair_sequence_diagnostic_20260616.json",
+      "exists": true
+    },
+    "smartphone_light": {
+      "path": "reports/id215_smartphone_light_compact_diagnostic_20260616.json",
+      "exists": true
+    },
+    "s3_smartphone_artifact": {
+      "path": "reports/experiment_198_id193_s3_smartphone_light_compact_overlay_cv0.536380_unsubmitted.json",
+      "exists": true
+    },
+    "q2q3s3_model_smoke": {
+      "path": "reports/post_id341_q2q3s3_fold_internal_model_smoke_20260618.json",
+      "exists": true
+    },
+    "q2_lead_geometry": {
+      "path": "reports/post_id341_q2q3s3_q2_lead_geometry_gate_20260618.json",
+      "exists": true
+    },
+    "q3s3_inventory": {
+      "path": "reports/post_id341_q3s3_remaining_route_inventory_20260618.json",
+      "exists": true
+    },
+    "transfer_gate_v2": {
+      "path": "reports/post_id341_transfer_gate_v2_joint_risk_20260618.json",
+      "exists": true
+    },
+    "operator_handoff": {
+      "path": "reports/post_id341_operator_handoff_contract_20260619.json",
+      "exists": true
+    }
+  },
+  "missing_reports": [],
+  "external_review_summary": {
+    "claimed_public_score": 0.5917,
+    "claimed_local_oof": 0.514,
+    "claimed_local_public_gap": 0.0777,
+    "practical_assessment": {
+      "reproducible_as_is": false,
+      "reason": "Notebook describes functions and claimed results, but does not include the V152 anchor artifacts, large prebuilt feature matrices, or a complete executable feature build.",
+      "public_benchmark": "Slightly better than current local-log best public ID178 0.6014113009, but still far from public 0.55 and still has a large local-public gap."
+    },
+    "transferable_ideas": [
+      "Use conservative anchor blending rather than high-variance residual dominance.",
+      "Compare subject-hole and within-subject temporal validation lenses before trusting local CV.",
+      "Prefer stability-selected features and low-variance models for leaderboard-facing candidates.",
+      "Rank candidates by public-gap risk signals: prediction extremeness, anchor distance, and target-wise drift."
+    ]
+  },
+  "idea_status": [
+    {
+      "idea": "anchor_blending_and_subject_hole_cv",
+      "source_notebook_signal": "Core claimed recipe: V152 anchor + Subject-Hole CV + conservative blend.",
+      "current_evidence": "Absorbed into current artifact discipline and public-transfer gates.",
+      "status": "absorbed_as_validation_principle",
+      "artifact_allowed": false,
+      "reason": "ID178/ID341 anchor controls remain safer than local-CV-only candidates; no new direct notebook artifact exists."
+    },
+    {
+      "idea": "stability_selected_lgbm_xgb_side_models",
+      "source_notebook_signal": "23,177 -> 1,682 stability-selected feature reduction and LGBM/XGB blend.",
+      "current_evidence": "Fast stability-booster scan non-base target choices: 0.",
+      "status": "tested_and_closed_as_direct_overlay",
+      "artifact_allowed": false,
+      "reason": "Existing stability-booster report selected base for every target/base combination."
+    },
+    {
+      "idea": "window_pair_screen_interactions",
+      "source_notebook_signal": "Window-pair/screen-status stability features, especially S targets.",
+      "current_evidence": {
+        "target_count": 7,
+        "non_base_targets": [
+          "Q3"
+        ],
+        "best_by_target": {
+          "Q1": "base",
+          "Q2": "base",
+          "Q3": "blend__window_pair__lr_c0_3__w0.02",
+          "S1": "base",
+          "S2": "base",
+          "S3": "base",
+          "S4": "base"
+        }
+      },
+      "status": "tested_as_sequence_window_pair_context",
+      "artifact_allowed": false,
+      "reason": "Window-pair diagnostic does not currently clear post-ID341 Public-0.58 transfer gates."
+    },
+    {
+      "idea": "smartphone_light_screen_compact_s3",
+      "source_notebook_signal": "mScreenStatus and phone-light style S-target signal.",
+      "current_evidence": {
+        "id215_diagnostic": {
+          "target_count": 7,
+          "non_base_targets": [
+            "S3"
+          ],
+          "best_by_target": {
+            "Q1": "base",
+            "Q2": "base",
+            "Q3": "base",
+            "S1": "base",
+            "S2": "base",
+            "S3": "blend__phone_light__hgb_l7__w0.01",
+            "S4": "base"
+          }
+        },
+        "promoted_context_artifact_id198_modified_targets": [
+          "S3"
+        ]
+      },
+      "status": "partially_used_but_not_promotable_post_id341",
+      "artifact_allowed": false,
+      "reason": "S3 compact signal was already tried as ID198 context; Q3/S3 remain uncovered post-ID341."
+    },
+    {
+      "idea": "target_specific_blending",
+      "source_notebook_signal": "Target-specific weights such as Q2 XGB-heavy and S3/S4 Cat-heavy.",
+      "current_evidence": {
+        "q2_selected_targets_post_id341": [
+          "Q2"
+        ],
+        "q2_best_proxy": 0.6019107525231998,
+        "q3_s3_still_uncovered": true
+      },
+      "status": "q2_context_only_q3s3_missing",
+      "artifact_allowed": false,
+      "reason": "Post-ID341 local fallback finds Q2 only; Q3/S3 coverage is still missing and proxy is not Public-0.58 plausible."
+    },
+    {
+      "idea": "subject_adaptive_or_subject_profile_calibration",
+      "source_notebook_signal": "Subject profile analysis and future subject-adaptive calibration.",
+      "current_evidence": "Subject/demographic/calibration descendants are represented in existing diagnostics and are blocked by transfer/joint-risk gates.",
+      "status": "research_only_not_submission_evidence",
+      "artifact_allowed": false,
+      "reason": "ID287/ID329 demonstrated that local calibration/recombination can collapse or plateau publicly."
+    }
+  ],
+  "decision": {
+    "audit_ready": true,
+    "residual_direct_notebook_route_exists": false,
+    "residual_direct_routes": [],
+    "public_058_evidence_present": false,
+    "q3_s3_still_uncovered": true,
+    "only_score_relevant_open_route": "explicit_approved_clean_upstream_id221_to_id226",
+    "prelaunch_ready_for_explicit_approval": true,
+    "operator_handoff_ready": true,
+    "approval_phrase": "Kaggle upstream rebuild no-submit 실행 승인",
+    "transfer_gate_public_058_candidate_exists": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "Do not reopen the external Public 0.5917 notebook as a direct local submission route. Keep its anchor/stability ideas as validation philosophy; the score-relevant route remains the explicit-approved no-submit Kaggle upstream rebuild."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_history_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

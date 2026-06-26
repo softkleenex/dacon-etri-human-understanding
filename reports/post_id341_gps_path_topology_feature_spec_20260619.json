@@ -1,0 +1,197 @@
+{
+  "created_at_kst": "2026-06-19 07:02:38 UTC+09:00",
+  "diagnostic": "post_id341_gps_path_topology_feature_spec",
+  "report_only": true,
+  "source_family": "gps_path_topology_sequence_v1",
+  "inputs": {
+    "queue_report": {
+      "path": "reports/post_id341_material_new_source_queue_20260619.json",
+      "exists": true,
+      "next_no_approval_step": "circadian_hr_light_phase_shape_v1",
+      "gps_queue_status": "closed_after_feature_matrix_and_model_smoke",
+      "gps_next_allowed_step": "closed_no_artifact"
+    },
+    "metadata_report": {
+      "path": "reports/post_id341_gps_path_topology_metadata_probe_20260619.json",
+      "exists": true,
+      "metadata_probe_passed": true,
+      "strong_topology_train_rate": 0.9333333333333333,
+      "strong_topology_test_rate": 0.936
+    }
+  },
+  "feature_blocks": [
+    {
+      "block": "gps_payload_quality",
+      "purpose": "Expose whether a day has enough usable topology signal without using labels.",
+      "raw_inputs": [
+        "mGps"
+      ],
+      "features": [
+        "gps_rows",
+        "gps_payload_points",
+        "gps_active_minutes",
+        "gps_missing_gap_count",
+        "gps_longest_missing_gap_minutes",
+        "gps_evening_rows_18_23",
+        "gps_night_rows_00_05"
+      ],
+      "fit_scope": "row_local_no_fit",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ]
+    },
+    {
+      "block": "path_motion_shape",
+      "purpose": "Represent movement shape rather than daily aggregate distance alone.",
+      "raw_inputs": [
+        "mGps",
+        "mActivity"
+      ],
+      "features": [
+        "trajectory_step_euclidean_sum",
+        "trajectory_step_euclidean_p50_p90",
+        "speed_p50_p90_max",
+        "low_speed_run_count",
+        "high_speed_burst_count",
+        "late_day_motion_ratio",
+        "activity_gps_motion_disagreement_minutes"
+      ],
+      "fit_scope": "predeclared_numeric_thresholds_only",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ]
+    },
+    {
+      "block": "dwell_segment_topology",
+      "purpose": "Approximate home/away and place-transition motifs from dense GPS points.",
+      "raw_inputs": [
+        "mGps",
+        "mWifi"
+      ],
+      "features": [
+        "dwell_segment_count",
+        "longest_dwell_minutes",
+        "dwell_entropy",
+        "dominant_dwell_share",
+        "evening_dominant_dwell_share",
+        "night_away_from_train_home_proxy_minutes",
+        "dwell_transition_count"
+      ],
+      "fit_scope": "train_fold_subject_baseline_only",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ]
+    },
+    {
+      "block": "route_novelty_and_regularization",
+      "purpose": "Measure whether a day deviates from the subject's normal route/place sequence.",
+      "raw_inputs": [
+        "mGps",
+        "mWifi",
+        "mBle"
+      ],
+      "features": [
+        "route_token_novelty_rate",
+        "route_token_revisit_rate",
+        "wifi_place_token_novelty_rate",
+        "ble_social_context_novelty_rate",
+        "weekday_adjusted_route_distance",
+        "late_day_route_disruption_score"
+      ],
+      "fit_scope": "train_fold_subject_baseline_only",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ]
+    },
+    {
+      "block": "place_social_context_alignment",
+      "purpose": "Separate physical movement from social/place context density.",
+      "raw_inputs": [
+        "mWifi",
+        "mBle",
+        "mActivity"
+      ],
+      "features": [
+        "wifi_scan_count",
+        "wifi_unique_token_count",
+        "wifi_top_token_share",
+        "ble_scan_count",
+        "ble_unique_token_count",
+        "ble_top_token_share",
+        "stationary_but_social_dense_minutes"
+      ],
+      "fit_scope": "token_hashing_or_train_fold_vocabulary_only",
+      "target_focus": [
+        "Q3",
+        "S3"
+      ]
+    }
+  ],
+  "leakage_guards": [
+    "No target labels, OOF predictions, submission CSVs, public scores, or previous candidate predictions may enter feature generation.",
+    "Any subject-level home/place baseline must be fit inside the training fold only for validation.",
+    "For final test feature generation, place baselines may use current train raw logs only unless a separate report approves unlabeled-test baselines.",
+    "All coordinate bucketing must be predeclared or train-fold-fitted; never tune bucket sizes on validation loss.",
+    "BLE/Wi-Fi vocabularies must be hashed or train-fold-fitted with capped cardinality.",
+    "Feature generation may write only reports in the next dry run; no feature parquet is allowed until a separate smoke contract opens it.",
+    "A fold model is explicitly blocked until the dry-run report proves row alignment, coverage, and cardinality bounds."
+  ],
+  "resource_bounds": {
+    "max_gps_rows_expected": 1000000,
+    "max_daily_feature_columns_for_first_matrix": 64,
+    "max_coordinate_bins_per_subject": 32,
+    "max_wifi_tokens_per_subject": 64,
+    "max_ble_tokens_per_subject": 64,
+    "allowed_first_execution": "report_only_feature_generation_dryrun",
+    "disallowed_first_execution": [
+      "fold_model_training",
+      "test_prediction_generation",
+      "submission_csv_creation",
+      "kaggle_remote_run_without_exact_approval"
+    ]
+  },
+  "validation_lenses": [
+    {
+      "lens": "row_alignment_dryrun",
+      "required_before_model": true,
+      "pass_rule": "700 subject/lifelog rows align exactly with train+sample IDs and dates; no duplicate keys."
+    },
+    {
+      "lens": "coverage_cardinality_gate",
+      "required_before_model": true,
+      "pass_rule": "train/test coverage both remain >= 0.90 and feature columns <= 64 in the first dry run."
+    },
+    {
+      "lens": "subject_hole_5",
+      "required_before_artifact": true,
+      "pass_rule": "future fold-internal model must beat ID341 on Q3/S3 target slices without moving broad distribution risk upward."
+    },
+    {
+      "lens": "public_transfer_gate_v2",
+      "required_before_artifact": true,
+      "pass_rule": "future candidate must pass transfer and joint-risk gates before any artifact-contract review."
+    }
+  ],
+  "decision": {
+    "feature_spec_ready": true,
+    "source_family": "gps_path_topology_sequence_v1",
+    "target_focus": [
+      "Q3",
+      "S3"
+    ],
+    "metadata_probe_passed": true,
+    "next_local_allowed_step": "report_only_feature_generation_dryrun",
+    "feature_matrix_allowed_now": false,
+    "train_model_now": false,
+    "public_058_evidence": false,
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "next_action": "The GPS topology design spec is ready. The next no-approval step may only be a report-only feature-generation dry run that checks row alignment, coverage, and cardinality; no model, feature parquet, ID342, Kaggle run, or DACON submission is allowed."
+  }
+}

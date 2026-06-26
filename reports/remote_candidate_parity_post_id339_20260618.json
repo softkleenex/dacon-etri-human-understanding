@@ -1,0 +1,128 @@
+{
+  "created_at_kst": "2026-06-18 02:58:51 UTC+09:00",
+  "diagnostic": "candidate_parity_post_id339",
+  "purpose": "Recompute ID337/ID339 and compare rebuilt predictions against stored base prediction artifacts.",
+  "environment": {
+    "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.6.1",
+    "scipy": "1.16.3"
+  },
+  "thresholds": {
+    "exact_max_abs_delta": 1e-12,
+    "review_max_abs_delta": 1e-06,
+    "review_local_cv_delta": 1e-06,
+    "review_min_correlation": 0.999999
+  },
+  "candidates": [
+    {
+      "candidate_id": 337,
+      "name": "ID178 S1 seed45502 random-conv weight0.05 safety",
+      "submission_file": "submission_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066_unsubmitted.csv",
+      "artifact_source": "base_oof_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066.csv; base_test_id_337_id178_s1_seed45502_randomconv_w005_safety_cv0.538066.csv",
+      "reference_local_cv": 0.538066,
+      "rebuilt_local_cv": 0.5380664215047368,
+      "local_cv_delta": 4.2150473678059797e-07,
+      "rebuilt_target_scores": {
+        "Q1": 0.5519157186538461,
+        "Q2": 0.5566793351664245,
+        "Q3": 0.5670897848363184,
+        "S1": 0.4676312357423164,
+        "S2": 0.529556132747474,
+        "S3": 0.4908930389002769,
+        "S4": 0.6026997044865015
+      },
+      "oof_comparison": {
+        "max_abs_delta": 6.264472415584699e-06,
+        "mean_abs_delta": 7.55145314922123e-08,
+        "rmse_delta": 4.084427373370607e-07,
+        "correlation": 0.999999999998356,
+        "max_abs_delta_by_target": {
+          "Q1": 0.0,
+          "Q2": 0.0,
+          "Q3": 0.0,
+          "S1": 6.264472415584699e-06,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      },
+      "test_comparison": {
+        "max_abs_delta": 1.4954881429884992e-06,
+        "mean_abs_delta": 3.669990397557412e-08,
+        "rmse_delta": 1.3960377406204388e-07,
+        "correlation": 0.9999999999997972,
+        "max_abs_delta_by_target": {
+          "Q1": 0.0,
+          "Q2": 0.0,
+          "Q3": 0.0,
+          "S1": 1.4954881429884992e-06,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      },
+      "parity_status": "fail",
+      "passes_review_gate": false
+    },
+    {
+      "candidate_id": 339,
+      "name": "ID178 Q123 sequence-summary scale0.80 + ID337 S1 safety",
+      "submission_file": "submission_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441_unsubmitted.csv",
+      "artifact_source": "base_oof_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441.csv; base_test_id_339_id178_q123_seqsum_s080_id337_s1_safety_cv0.536441.csv",
+      "reference_local_cv": 0.536441,
+      "rebuilt_local_cv": 0.5364407662866836,
+      "local_cv_delta": -2.3371331636656834e-07,
+      "rebuilt_target_scores": {
+        "Q1": 0.5490171871075517,
+        "Q2": 0.550696157473204,
+        "Q3": 0.5645920821694572,
+        "S1": 0.46763106112231995,
+        "S2": 0.529556132747474,
+        "S3": 0.4908930389002769,
+        "S4": 0.6026997044865015
+      },
+      "oof_comparison": {
+        "max_abs_delta": 1.6625235404743588e-05,
+        "mean_abs_delta": 1.576238347847086e-07,
+        "rmse_delta": 7.453922358133066e-07,
+        "correlation": 0.9999999999944204,
+        "max_abs_delta_by_target": {
+          "Q1": 6.648189149083272e-06,
+          "Q2": 1.0074100276757925e-05,
+          "Q3": 1.6625235404743588e-05,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      },
+      "test_comparison": {
+        "max_abs_delta": 2.24918324859269e-05,
+        "mean_abs_delta": 1.2871660260322223e-07,
+        "rmse_delta": 6.397528985188945e-07,
+        "correlation": 0.999999999995602,
+        "max_abs_delta_by_target": {
+          "Q1": 1.6441993430094115e-06,
+          "Q2": 2.24918324859269e-05,
+          "Q3": 5.236610698400312e-07,
+          "S1": 0.0,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0
+        }
+      },
+      "parity_status": "fail",
+      "passes_review_gate": false
+    }
+  ],
+  "decision": {
+    "all_candidates_pass_review_gate": false,
+    "no_submission_created": true,
+    "no_dacon_submission_made": true,
+    "next_action": "Run this same diagnostic on Kaggle CPU before treating ID337 or ID339 as an environment-independent public probe candidate."
+  }
+}

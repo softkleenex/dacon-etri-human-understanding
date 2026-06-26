@@ -1,0 +1,1947 @@
+{
+  "anchor": {
+    "id": 342,
+    "public_score": 0.5960832519
+  },
+  "created_at_kst": "2026-06-25 06:39:38 UTC+09:00",
+  "decision": {
+    "best_row": {
+      "config": "solar_holiday_interaction_S4_lr_c0_08_w0.05",
+      "eligible": false,
+      "family_name": "solar_holiday_interaction",
+      "feature_count": 7,
+      "max_delta": 0.0012387505466900928,
+      "mean_delta": -0.0022385082996842164,
+      "min_delta": -0.006761661354929394,
+      "model_spec": {
+        "c_value": 0.08,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_08"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.006761661354929394,
+        "loso_10": 0.0012387505466900928,
+        "subject_hole_5": 0.0009731518247615423,
+        "test_boundary_neighbor2_holdout": -0.005343554239813919,
+        "test_boundary_neighbor5_holdout": -0.0012992282751294049
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6594886419001974,
+        "loso_10": 0.5928678019967328,
+        "subject_hole_5": 0.5926022032748042,
+        "test_boundary_neighbor2_holdout": 0.6369928946167844,
+        "test_boundary_neighbor5_holdout": 0.6097688620384432
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.05,
+      "wins": 3
+    },
+    "create_submission_artifact": false,
+    "eligible_row_count": 0,
+    "estimated_all_target_delta_vs_id342": 0.0,
+    "gap_to_public_055_after_proxy": 0.046083251899999955,
+    "modify_submission_log": false,
+    "next_action": "Treat solar/seasonal/holiday priors as report-only domain evidence. Do not create artifacts, Kaggle runs, or DACON submissions unless a future independent gate produces a Public-0.55 plausible row.",
+    "projected_public_proxy_from_id342": 0.5960832519,
+    "public_055_evidence": false,
+    "push_kaggle_now": false,
+    "q3_selected": false,
+    "run_kaggle_now": false,
+    "s3_selected": false,
+    "s4_selected": false,
+    "selected_targets": [],
+    "solar_seasonal_holiday_prior_gate_pass": false,
+    "submit_now": false
+  },
+  "diagnostic": "post_id342_solar_seasonal_holiday_prior_gate",
+  "eligible_rows": [],
+  "no_base_prediction_artifact_created": true,
+  "no_dacon_submission": true,
+  "no_feature_matrix_created": true,
+  "no_kaggle_action": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_submission_log_row_created": true,
+  "purpose": "Gate external date-derived solar/seasonal/Korean-holiday priors against ID342.",
+  "test_feature_metadata": {
+    "families": {
+      "korean_holiday_calendar": {
+        "feature_count": 11,
+        "feature_sample": [
+          "weekday",
+          "is_weekend",
+          "weekday_sin",
+          "weekday_cos",
+          "is_korean_public_holiday",
+          "days_to_nearest_korean_holiday_abs",
+          "days_to_nearest_korean_holiday_signed",
+          "near_korean_holiday_3d",
+          "near_korean_holiday_7d",
+          "post_korean_holiday_3d",
+          "pre_korean_holiday_3d"
+        ],
+        "mean_missing_rate": 0.0
+      },
+      "solar_holiday_all": {
+        "feature_count": 28,
+        "feature_sample": [
+          "autumn_x_holiday_near7",
+          "autumn_x_weekend",
+          "days_to_nearest_korean_holiday_abs",
+          "days_to_nearest_korean_holiday_signed",
+          "is_korean_public_holiday",
+          "is_weekend",
+          "near_korean_holiday_3d",
+          "near_korean_holiday_7d",
+          "post_korean_holiday_3d",
+          "pre_korean_holiday_3d",
+          "season_cos",
+          "season_sin"
+        ],
+        "mean_missing_rate": 0.0
+      },
+      "solar_holiday_interaction": {
+        "feature_count": 7,
+        "feature_sample": [
+          "solar_daylight_x_weekend",
+          "solar_daylight_x_holiday_near7",
+          "solar_night_x_holiday_near7",
+          "autumn_x_weekend",
+          "autumn_x_holiday_near7",
+          "subject_solar_daylight_delta",
+          "subject_holiday_gap_delta"
+        ],
+        "mean_missing_rate": 0.0
+      },
+      "solar_photoperiod": {
+        "feature_count": 13,
+        "feature_sample": [
+          "solar_daylight_hours",
+          "solar_night_hours",
+          "solar_declination_sin",
+          "solar_declination_cos",
+          "solar_daylight_change_1d",
+          "solar_sunrise_minutes",
+          "solar_sunset_minutes",
+          "solar_noon_minutes",
+          "season_sin",
+          "season_cos",
+          "solar_daylight_x_weekend",
+          "solar_daylight_x_holiday_near7"
+        ],
+        "mean_missing_rate": 0.0
+      }
+    },
+    "feature_source": "Date-derived Seoul/Korea photoperiod approximation plus fixed 2024 Korean public-holiday proximity. No raw sensor payloads, processed sleep columns, labels, public scores, or candidate predictions are used to create features.",
+    "holiday_dates": {
+      "2024-08-15": "liberation_day",
+      "2024-09-16": "chuseok_day_minus1",
+      "2024-09-17": "chuseok",
+      "2024-09-18": "chuseok_day_plus1",
+      "2024-10-03": "national_foundation_day",
+      "2024-10-09": "hangeul_day"
+    },
+    "rows": 250,
+    "seoul_latitude": 37.5665,
+    "seoul_longitude": 126.978
+  },
+  "top_rows": [
+    {
+      "config": "solar_holiday_interaction_S4_lr_c0_08_w0.05",
+      "eligible": false,
+      "family_name": "solar_holiday_interaction",
+      "feature_count": 7,
+      "max_delta": 0.0012387505466900928,
+      "mean_delta": -0.0022385082996842164,
+      "min_delta": -0.006761661354929394,
+      "model_spec": {
+        "c_value": 0.08,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_08"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.006761661354929394,
+        "loso_10": 0.0012387505466900928,
+        "subject_hole_5": 0.0009731518247615423,
+        "test_boundary_neighbor2_holdout": -0.005343554239813919,
+        "test_boundary_neighbor5_holdout": -0.0012992282751294049
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6594886419001974,
+        "loso_10": 0.5928678019967328,
+        "subject_hole_5": 0.5926022032748042,
+        "test_boundary_neighbor2_holdout": 0.6369928946167844,
+        "test_boundary_neighbor5_holdout": 0.6097688620384432
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.05,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_interaction_S4_lr_c0_02_w0.05",
+      "eligible": false,
+      "family_name": "solar_holiday_interaction",
+      "feature_count": 7,
+      "max_delta": 0.0014973272029984441,
+      "mean_delta": -0.0019027578570709914,
+      "min_delta": -0.0060595241094898444,
+      "model_spec": {
+        "c_value": 0.02,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_02"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0060595241094898444,
+        "loso_10": 0.0014973272029984441,
+        "subject_hole_5": 0.0012752249608105615,
+        "test_boundary_neighbor2_holdout": -0.0050278575087719934,
+        "test_boundary_neighbor5_holdout": -0.0011989598309021243
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.660190779145637,
+        "loso_10": 0.5931263786530412,
+        "subject_hole_5": 0.5929042764108532,
+        "test_boundary_neighbor2_holdout": 0.6373085913478264,
+        "test_boundary_neighbor5_holdout": 0.6098691304826704
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.05,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_interaction_S4_lr_c0_08_w0.02",
+      "eligible": false,
+      "family_name": "solar_holiday_interaction",
+      "feature_count": 7,
+      "max_delta": 0.00042921370608117737,
+      "mean_delta": -0.0009998112938416793,
+      "min_delta": -0.0028352536204130363,
+      "model_spec": {
+        "c_value": 0.08,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_08"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0028352536204130363,
+        "loso_10": 0.00042921370608117737,
+        "subject_hole_5": 0.0003326804933644345,
+        "test_boundary_neighbor2_holdout": -0.002288742264683008,
+        "test_boundary_neighbor5_holdout": -0.0006369547835579636
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6634150496347138,
+        "loso_10": 0.5920582651561239,
+        "subject_hole_5": 0.5919617319434071,
+        "test_boundary_neighbor2_holdout": 0.6400477065919153,
+        "test_boundary_neighbor5_holdout": 0.6104311355300146
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.02,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_interaction_S4_lr_c0_02_w0.02",
+      "eligible": false,
+      "family_name": "solar_holiday_interaction",
+      "feature_count": 7,
+      "max_delta": 0.0005379539013575796,
+      "mean_delta": -0.000854928345684236,
+      "min_delta": -0.002544163134438948,
+      "model_spec": {
+        "c_value": 0.02,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_02"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.002544163134438948,
+        "loso_10": 0.0005379539013575796,
+        "subject_hole_5": 0.0004565788000062687,
+        "test_boundary_neighbor2_holdout": -0.0021440724391187382,
+        "test_boundary_neighbor5_holdout": -0.0005809388562273421
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6637061401206878,
+        "loso_10": 0.5921670053514003,
+        "subject_hole_5": 0.5920856302500489,
+        "test_boundary_neighbor2_holdout": 0.6401923764174796,
+        "test_boundary_neighbor5_holdout": 0.6104871514573452
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.02,
+      "wins": 3
+    },
+    {
+      "config": "korean_holiday_calendar_S4_hgb_l5_w0.05",
+      "eligible": false,
+      "family_name": "korean_holiday_calendar",
+      "feature_count": 11,
+      "max_delta": 0.0013714965120915634,
+      "mean_delta": -0.0008366281783638074,
+      "min_delta": -0.0033776347151845965,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 5,
+        "name": "hgb_l5"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0033776347151845965,
+        "loso_10": 0.0013714965120915634,
+        "subject_hole_5": 0.0010927676366676575,
+        "test_boundary_neighbor2_holdout": -0.001908506816755362,
+        "test_boundary_neighbor5_holdout": -0.0013612635086382996
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6628726685399422,
+        "loso_10": 0.5930005479621343,
+        "subject_hole_5": 0.5927218190867103,
+        "test_boundary_neighbor2_holdout": 0.640427942039843,
+        "test_boundary_neighbor5_holdout": 0.6097068268049343
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.05,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_all_S4_lr_c0_02_w0.05",
+      "eligible": false,
+      "family_name": "solar_holiday_all",
+      "feature_count": 28,
+      "max_delta": 0.0014623709293162257,
+      "mean_delta": -0.0007692883181843246,
+      "min_delta": -0.003320172643609065,
+      "model_spec": {
+        "c_value": 0.02,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_02"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.003320172643609065,
+        "loso_10": 0.0014623709293162257,
+        "subject_hole_5": 0.0014348599646892835,
+        "test_boundary_neighbor2_holdout": -0.0026550722391761594,
+        "test_boundary_neighbor5_holdout": -0.0007684276021419079
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6629301306115177,
+        "loso_10": 0.593091422379359,
+        "subject_hole_5": 0.5930639114147319,
+        "test_boundary_neighbor2_holdout": 0.6396813766174222,
+        "test_boundary_neighbor5_holdout": 0.6102996627114307
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.05,
+      "wins": 3
+    },
+    {
+      "config": "solar_photoperiod_S4_hgb_l5_w0.05",
+      "eligible": false,
+      "family_name": "solar_photoperiod",
+      "feature_count": 13,
+      "max_delta": 0.001717095335437846,
+      "mean_delta": -0.0006014475038523814,
+      "min_delta": -0.003472310860890393,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 5,
+        "name": "hgb_l5"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.003472310860890393,
+        "loso_10": 0.001717095335437846,
+        "subject_hole_5": 0.0010170114998827584,
+        "test_boundary_neighbor2_holdout": -0.0007215291789333111,
+        "test_boundary_neighbor5_holdout": -0.0015475043147588075
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6627779923942364,
+        "loso_10": 0.5933461467854806,
+        "subject_hole_5": 0.5926460629499254,
+        "test_boundary_neighbor2_holdout": 0.641614919677665,
+        "test_boundary_neighbor5_holdout": 0.6095205859988138
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.05,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_all_S4_hgb_l5_w0.05",
+      "eligible": false,
+      "family_name": "solar_holiday_all",
+      "feature_count": 28,
+      "max_delta": 0.0016107740966079254,
+      "mean_delta": -0.0005909439860316779,
+      "min_delta": -0.0035803651492256616,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 5,
+        "name": "hgb_l5"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0035803651492256616,
+        "loso_10": 0.0016107740966079254,
+        "subject_hole_5": 0.0011136515783994883,
+        "test_boundary_neighbor2_holdout": -0.0011781197417357614,
+        "test_boundary_neighbor5_holdout": -0.0009206607142043799
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6626699381059011,
+        "loso_10": 0.5932398255466507,
+        "subject_hole_5": 0.5927427030284421,
+        "test_boundary_neighbor2_holdout": 0.6411583291148626,
+        "test_boundary_neighbor5_holdout": 0.6101474295993682
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.05,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_interaction_S4_lr_c0_08_w0.01",
+      "eligible": false,
+      "family_name": "solar_holiday_interaction",
+      "feature_count": 7,
+      "max_delta": 0.00020322154744478738,
+      "mean_delta": -0.0005180194400245863,
+      "min_delta": -0.0014403687076979255,
+      "model_spec": {
+        "c_value": 0.08,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_08"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0014403687076979255,
+        "loso_10": 0.00020322154744478738,
+        "subject_hole_5": 0.00015664371792267762,
+        "test_boundary_neighbor2_holdout": -0.0011707575575997664,
+        "test_boundary_neighbor5_holdout": -0.00033883620019270477
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6648099345474289,
+        "loso_10": 0.5918322729974875,
+        "subject_hole_5": 0.5917856951679653,
+        "test_boundary_neighbor2_holdout": 0.6411656912989986,
+        "test_boundary_neighbor5_holdout": 0.6107292541133799
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_interaction_S4_lr_c0_02_w0.01",
+      "eligible": false,
+      "family_name": "solar_holiday_interaction",
+      "feature_count": 7,
+      "max_delta": 0.0002585025158053922,
+      "mean_delta": -0.0004437419748577032,
+      "min_delta": -0.001293047087365773,
+      "model_spec": {
+        "c_value": 0.02,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_02"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.001293047087365773,
+        "loso_10": 0.0002585025158053922,
+        "subject_hole_5": 0.00021911043450395518,
+        "test_boundary_neighbor2_holdout": -0.0010951909160996642,
+        "test_boundary_neighbor5_holdout": -0.0003080848211324261
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.664957256167761,
+        "loso_10": 0.5918875539658481,
+        "subject_hole_5": 0.5918481618845466,
+        "test_boundary_neighbor2_holdout": 0.6412412579404987,
+        "test_boundary_neighbor5_holdout": 0.6107600054924401
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 3
+    },
+    {
+      "config": "korean_holiday_calendar_S4_hgb_l5_w0.02",
+      "eligible": false,
+      "family_name": "korean_holiday_calendar",
+      "feature_count": 11,
+      "max_delta": 0.00047729139609753446,
+      "mean_delta": -0.0004139784579338723,
+      "min_delta": -0.0014340115820224986,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 5,
+        "name": "hgb_l5"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0014340115820224986,
+        "loso_10": 0.00047729139609753446,
+        "subject_hole_5": 0.00037614507539240893,
+        "test_boundary_neighbor2_holdout": -0.0008383653932378943,
+        "test_boundary_neighbor5_holdout": -0.0006509517858989122
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6648162916731043,
+        "loso_10": 0.5921063428461403,
+        "subject_hole_5": 0.592005196525435,
+        "test_boundary_neighbor2_holdout": 0.6414980834633605,
+        "test_boundary_neighbor5_holdout": 0.6104171385276737
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.02,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_all_S4_lr_c0_02_w0.02",
+      "eligible": false,
+      "family_name": "solar_holiday_all",
+      "feature_count": 28,
+      "max_delta": 0.000521329062445508,
+      "mean_delta": -0.0003835232297924263,
+      "min_delta": -0.001410075739726513,
+      "model_spec": {
+        "c_value": 0.02,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_02"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.001410075739726513,
+        "loso_10": 0.000521329062445508,
+        "subject_hole_5": 0.0005168838112240559,
+        "test_boundary_neighbor2_holdout": -0.0011430863458549156,
+        "test_boundary_neighbor5_holdout": -0.0004026669370502667
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6648402275154003,
+        "loso_10": 0.5921503805124883,
+        "subject_hole_5": 0.5921459352612667,
+        "test_boundary_neighbor2_holdout": 0.6411933625107434,
+        "test_boundary_neighbor5_holdout": 0.6106654233765223
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.02,
+      "wins": 3
+    },
+    {
+      "config": "solar_photoperiod_S4_hgb_l5_w0.02",
+      "eligible": false,
+      "family_name": "solar_photoperiod",
+      "feature_count": 13,
+      "max_delta": 0.0006126695604481425,
+      "mean_delta": -0.00031646472249757807,
+      "min_delta": -0.0014672842644519735,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 5,
+        "name": "hgb_l5"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0014672842644519735,
+        "loso_10": 0.0006126695604481425,
+        "subject_hole_5": 0.000350951514306419,
+        "test_boundary_neighbor2_holdout": -0.00036311079466477825,
+        "test_boundary_neighbor5_holdout": -0.0007155496281257001
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6647830189906748,
+        "loso_10": 0.5922417210104909,
+        "subject_hole_5": 0.591980002964349,
+        "test_boundary_neighbor2_holdout": 0.6419733380619336,
+        "test_boundary_neighbor5_holdout": 0.6103525406854469
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.02,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_all_S4_hgb_l5_w0.02",
+      "eligible": false,
+      "family_name": "solar_holiday_all",
+      "feature_count": 28,
+      "max_delta": 0.00057182629794994,
+      "mean_delta": -0.00031258388855508467,
+      "min_delta": -0.0015134729379751022,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 5,
+        "name": "hgb_l5"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0015134729379751022,
+        "loso_10": 0.00057182629794994,
+        "subject_hole_5": 0.00038463114712716795,
+        "test_boundary_neighbor2_holdout": -0.0005411674539691491,
+        "test_boundary_neighbor5_holdout": -0.00046473649590828003
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6647368303171517,
+        "loso_10": 0.5922008777479927,
+        "subject_hole_5": 0.5920136825971698,
+        "test_boundary_neighbor2_holdout": 0.6417952814026292,
+        "test_boundary_neighbor5_holdout": 0.6106033538176643
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.02,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_interaction_S4_lr_c0_08_w0.005",
+      "eligible": false,
+      "family_name": "solar_holiday_interaction",
+      "feature_count": 7,
+      "max_delta": 9.87303772622683e-05,
+      "mean_delta": -0.00026361051304288894,
+      "min_delta": -0.000725968390221321,
+      "model_spec": {
+        "c_value": 0.08,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_08"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.000725968390221321,
+        "loso_10": 9.87303772622683e-05,
+        "subject_hole_5": 7.587095720429371e-05,
+        "test_boundary_neighbor2_holdout": -0.0005920945303319325,
+        "test_boundary_neighbor5_holdout": -0.00017459097912775334
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6655243348649055,
+        "loso_10": 0.591727781827305,
+        "subject_hole_5": 0.5917049224072469,
+        "test_boundary_neighbor2_holdout": 0.6417443543262664,
+        "test_boundary_neighbor5_holdout": 0.6108934993344448
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_all_S4_lr_c0_08_w0.05",
+      "eligible": false,
+      "family_name": "solar_holiday_all",
+      "feature_count": 28,
+      "max_delta": 0.0014592879122375946,
+      "mean_delta": -0.00023351423038289187,
+      "min_delta": -0.0021982643060793894,
+      "model_spec": {
+        "c_value": 0.08,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_08"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0021982643060793894,
+        "loso_10": 0.0013728393569079067,
+        "subject_hole_5": 0.0014592879122375946,
+        "test_boundary_neighbor2_holdout": -0.0016719363976757107,
+        "test_boundary_neighbor5_holdout": -0.0001294977173048606
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6640520389490474,
+        "loso_10": 0.5930018908069506,
+        "subject_hole_5": 0.5930883393622802,
+        "test_boundary_neighbor2_holdout": 0.6406645124589226,
+        "test_boundary_neighbor5_holdout": 0.6109385925962677
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.05,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_interaction_S4_lr_c0_02_w0.005",
+      "eligible": false,
+      "family_name": "solar_holiday_interaction",
+      "feature_count": 7,
+      "max_delta": 0.00012660121544538772,
+      "mean_delta": -0.00022600522826687897,
+      "min_delta": -0.0006518563807235145,
+      "model_spec": {
+        "c_value": 0.02,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_02"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0006518563807235145,
+        "loso_10": 0.00012660121544538772,
+        "subject_hole_5": 0.00010723428928594014,
+        "test_boundary_neighbor2_holdout": -0.0005534855994393517,
+        "test_boundary_neighbor5_holdout": -0.0001585196659028565
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6655984468744033,
+        "loso_10": 0.5917556526654881,
+        "subject_hole_5": 0.5917362857393286,
+        "test_boundary_neighbor2_holdout": 0.641782963257159,
+        "test_boundary_neighbor5_holdout": 0.6109095706476697
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 3
+    },
+    {
+      "config": "korean_holiday_calendar_S4_hgb_l5_w0.01",
+      "eligible": false,
+      "family_name": "korean_holiday_calendar",
+      "feature_count": 11,
+      "max_delta": 0.00022632684254109137,
+      "mean_delta": -0.00022065656681908853,
+      "min_delta": -0.000731228979182208,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 5,
+        "name": "hgb_l5"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.000731228979182208,
+        "loso_10": 0.00022632684254109137,
+        "subject_hole_5": 0.0001775827868339963,
+        "test_boundary_neighbor2_holdout": -0.00043194412301417184,
+        "test_boundary_neighbor5_holdout": -0.00034401936127415045
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6655190742759446,
+        "loso_10": 0.5918553782925838,
+        "subject_hole_5": 0.5918066342368766,
+        "test_boundary_neighbor2_holdout": 0.6419045047335842,
+        "test_boundary_neighbor5_holdout": 0.6107240709522984
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_all_S4_lr_c0_02_w0.01",
+      "eligible": false,
+      "family_name": "solar_holiday_all",
+      "feature_count": 28,
+      "max_delta": 0.0002497344561732673,
+      "mean_delta": -0.00020484605393695788,
+      "min_delta": -0.0007192479859995382,
+      "model_spec": {
+        "c_value": 0.02,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_02"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0007192479859995382,
+        "loso_10": 0.0002497344561732673,
+        "subject_hole_5": 0.00024866083538654937,
+        "test_boundary_neighbor2_holdout": -0.00058543559937696,
+        "test_boundary_neighbor5_holdout": -0.00021794197586810782
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6655310552691273,
+        "loso_10": 0.591878785906216,
+        "subject_hole_5": 0.5918777122854292,
+        "test_boundary_neighbor2_holdout": 0.6417510132572214,
+        "test_boundary_neighbor5_holdout": 0.6108501483377045
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 3
+    },
+    {
+      "config": "solar_photoperiod_S4_lr_c0_08_w0.05",
+      "eligible": false,
+      "family_name": "solar_photoperiod",
+      "feature_count": 13,
+      "max_delta": 0.0018900099292575856,
+      "mean_delta": -0.0001897817622069642,
+      "min_delta": -0.0032785561379305994,
+      "model_spec": {
+        "c_value": 0.08,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_08"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0032785561379305994,
+        "loso_10": 0.0018900099292575856,
+        "subject_hole_5": 0.0013909060226364733,
+        "test_boundary_neighbor2_holdout": -0.0008417957727545611,
+        "test_boundary_neighbor5_holdout": -0.00010947285224371939
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6629717471171962,
+        "loso_10": 0.5935190613793003,
+        "subject_hole_5": 0.5930199574726791,
+        "test_boundary_neighbor2_holdout": 0.6414946530838438,
+        "test_boundary_neighbor5_holdout": 0.6109586174613288
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.05,
+      "wins": 3
+    },
+    {
+      "config": "solar_photoperiod_S4_lr_c0_02_w0.05",
+      "eligible": false,
+      "family_name": "solar_photoperiod",
+      "feature_count": 13,
+      "max_delta": 0.0018719491058056814,
+      "mean_delta": -0.00017854324607011752,
+      "min_delta": -0.003167727832898648,
+      "model_spec": {
+        "c_value": 0.02,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_02"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.003167727832898648,
+        "loso_10": 0.0018719491058056814,
+        "subject_hole_5": 0.0015214192484266365,
+        "test_boundary_neighbor2_holdout": -0.0010690098356403999,
+        "test_boundary_neighbor5_holdout": -4.934691604385755e-05
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6630825754222281,
+        "loso_10": 0.5935010005558484,
+        "subject_hole_5": 0.5931504706984693,
+        "test_boundary_neighbor2_holdout": 0.641267439020958,
+        "test_boundary_neighbor5_holdout": 0.6110187433975287
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.05,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_all_S4_lr_c0_08_w0.02",
+      "eligible": false,
+      "family_name": "solar_holiday_all",
+      "feature_count": 28,
+      "max_delta": 0.0005219451396077934,
+      "mean_delta": -0.00017166179782037715,
+      "min_delta": -0.0009627570083392545,
+      "model_spec": {
+        "c_value": 0.08,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_08"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0009627570083392545,
+        "loso_10": 0.0004784147997941579,
+        "subject_hole_5": 0.0005219451396077934,
+        "test_boundary_neighbor2_holdout": -0.0007398816798607211,
+        "test_boundary_neighbor5_holdout": -0.0001560302403038616
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6652875462467875,
+        "loso_10": 0.5921074662498369,
+        "subject_hole_5": 0.5921509965896504,
+        "test_boundary_neighbor2_holdout": 0.6415965671767376,
+        "test_boundary_neighbor5_holdout": 0.6109120600732687
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.02,
+      "wins": 3
+    },
+    {
+      "config": "solar_photoperiod_S4_hgb_l5_w0.01",
+      "eligible": false,
+      "family_name": "solar_photoperiod",
+      "feature_count": 13,
+      "max_delta": 0.0002936332241405548,
+      "mean_delta": -0.00017127638357443685,
+      "min_delta": -0.0007471410868888917,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 5,
+        "name": "hgb_l5"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0007471410868888917,
+        "loso_10": 0.0002936332241405548,
+        "subject_hole_5": 0.00016594770058897534,
+        "test_boundary_neighbor2_holdout": -0.00019429476528975975,
+        "test_boundary_neighbor5_holdout": -0.00037452699042306303
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6655031621682379,
+        "loso_10": 0.5919226846741833,
+        "subject_hole_5": 0.5917949991506316,
+        "test_boundary_neighbor2_holdout": 0.6421421540913086,
+        "test_boundary_neighbor5_holdout": 0.6106935633231495
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_all_S4_hgb_l5_w0.01",
+      "eligible": false,
+      "family_name": "solar_holiday_all",
+      "feature_count": 28,
+      "max_delta": 0.0002734863998588022,
+      "mean_delta": -0.00016940525622861636,
+      "min_delta": -0.0007707101629986779,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 5,
+        "name": "hgb_l5"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0007707101629986779,
+        "loso_10": 0.0002734863998588022,
+        "subject_hole_5": 0.00018188177597944222,
+        "test_boundary_neighbor2_holdout": -0.00028252780154569557,
+        "test_boundary_neighbor5_holdout": -0.0002491564924369527
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6654795930921281,
+        "loso_10": 0.5919025378499015,
+        "subject_hole_5": 0.5918109332260221,
+        "test_boundary_neighbor2_holdout": 0.6420539210550527,
+        "test_boundary_neighbor5_holdout": 0.6108189338211356
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 3
+    },
+    {
+      "config": "solar_photoperiod_S4_lr_c0_08_w0.02",
+      "eligible": false,
+      "family_name": "solar_photoperiod",
+      "feature_count": 13,
+      "max_delta": 0.0006943811509438902,
+      "mean_delta": -0.00014066656765721053,
+      "min_delta": -0.001385445419758713,
+      "model_spec": {
+        "c_value": 0.08,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_08"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.001385445419758713,
+        "loso_10": 0.0006943811509438902,
+        "subject_hole_5": 0.0005014440889159477,
+        "test_boundary_neighbor2_holdout": -0.00039352379529455916,
+        "test_boundary_neighbor5_holdout": -0.00012018886309261845
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6648648578353681,
+        "loso_10": 0.5923234326009866,
+        "subject_hole_5": 0.5921304955389586,
+        "test_boundary_neighbor2_holdout": 0.6419429250613038,
+        "test_boundary_neighbor5_holdout": 0.61094790145048
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.02,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_interaction_S4_hgb_l5_w0.05",
+      "eligible": false,
+      "family_name": "solar_holiday_interaction",
+      "feature_count": 7,
+      "max_delta": 0.0018044117588699171,
+      "mean_delta": -0.00013645460193953963,
+      "min_delta": -0.0024818459743320975,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 5,
+        "name": "hgb_l5"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0024818459743320975,
+        "loso_10": 0.0018044117588699171,
+        "subject_hole_5": 0.0015793691383761965,
+        "test_boundary_neighbor2_holdout": -0.0007767314149891291,
+        "test_boundary_neighbor5_holdout": -0.0008074765176225851
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6637684572807947,
+        "loso_10": 0.5934334632089127,
+        "subject_hole_5": 0.5932084205884188,
+        "test_boundary_neighbor2_holdout": 0.6415597174416092,
+        "test_boundary_neighbor5_holdout": 0.61026061379595
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.05,
+      "wins": 3
+    },
+    {
+      "config": "solar_photoperiod_S4_lr_c0_02_w0.02",
+      "eligible": false,
+      "family_name": "solar_photoperiod",
+      "feature_count": 13,
+      "max_delta": 0.0006906627222328376,
+      "mean_delta": -0.00013463595348108814,
+      "min_delta": -0.001342337904865265,
+      "model_spec": {
+        "c_value": 0.02,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_02"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.001342337904865265,
+        "loso_10": 0.0006906627222328376,
+        "subject_hole_5": 0.0005550965296894361,
+        "test_boundary_neighbor2_holdout": -0.0004837900544020224,
+        "test_boundary_neighbor5_holdout": -9.281106006042705e-05
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6649079653502615,
+        "loso_10": 0.5923197141722756,
+        "subject_hole_5": 0.5921841479797321,
+        "test_boundary_neighbor2_holdout": 0.6418526588021963,
+        "test_boundary_neighbor5_holdout": 0.6109752792535121
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.02,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_interaction_S4_lr_c0_08_w0.0025",
+      "eligible": false,
+      "family_name": "solar_holiday_interaction",
+      "feature_count": 7,
+      "max_delta": 4.8640702493218946e-05,
+      "mean_delta": -0.00013296479392526094,
+      "min_delta": -0.00036444289305526123,
+      "model_spec": {
+        "c_value": 0.08,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_08"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.00036444289305526123,
+        "loso_10": 4.8640702493218946e-05,
+        "subject_hole_5": 3.7319312908512536e-05,
+        "test_boundary_neighbor2_holdout": -0.00029774162314144537,
+        "test_boundary_neighbor5_holdout": -8.859946883132963e-05
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6658858603620715,
+        "loso_10": 0.591677692152536,
+        "subject_hole_5": 0.5916663707629511,
+        "test_boundary_neighbor2_holdout": 0.6420387072334569,
+        "test_boundary_neighbor5_holdout": 0.6109794908447412
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.0025,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_interaction_S4_hgb_l5_w0.02",
+      "eligible": false,
+      "family_name": "solar_holiday_interaction",
+      "feature_count": 7,
+      "max_delta": 0.0006471356443996656,
+      "mean_delta": -0.0001326303913270266,
+      "min_delta": -0.0010774658356728084,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 5,
+        "name": "hgb_l5"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0010774658356728084,
+        "loso_10": 0.0006471356443996656,
+        "subject_hole_5": 0.0005724249733534137,
+        "test_boundary_neighbor2_holdout": -0.00038750578492996457,
+        "test_boundary_neighbor5_holdout": -0.0004177409537854393
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.665172837419454,
+        "loso_10": 0.5922761870944424,
+        "subject_hole_5": 0.592201476423396,
+        "test_boundary_neighbor2_holdout": 0.6419489430716684,
+        "test_boundary_neighbor5_holdout": 0.6106503493597871
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.02,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_interaction_S4_lr_c0_02_w0.0025",
+      "eligible": false,
+      "family_name": "solar_holiday_interaction",
+      "feature_count": 7,
+      "max_delta": 6.263405030659808e-05,
+      "mean_delta": -0.00011404452644268038,
+      "min_delta": -0.0003272731742002266,
+      "model_spec": {
+        "c_value": 0.02,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_02"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0003272731742002266,
+        "loso_10": 6.263405030659808e-05,
+        "subject_hole_5": 5.30335458501785e-05,
+        "test_boundary_neighbor2_holdout": -0.0002782284312974337,
+        "test_boundary_neighbor5_holdout": -8.038862287251813e-05
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6659230300809266,
+        "loso_10": 0.5916916855003493,
+        "subject_hole_5": 0.5916820849958928,
+        "test_boundary_neighbor2_holdout": 0.6420582204253009,
+        "test_boundary_neighbor5_holdout": 0.6109877016907
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.0025,
+      "wins": 3
+    },
+    {
+      "config": "korean_holiday_calendar_S4_hgb_l5_w0.005",
+      "eligible": false,
+      "family_name": "korean_holiday_calendar",
+      "feature_count": 11,
+      "max_delta": 0.00011003855820024278,
+      "mean_delta": -0.00011379085564484636,
+      "min_delta": -0.0003692098538500277,
+      "model_spec": {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 5,
+        "name": "hgb_l5"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0003692098538500277,
+        "loso_10": 0.00011003855820024278,
+        "subject_hole_5": 8.613487745678938e-05,
+        "test_boundary_neighbor2_holdout": -0.00021918887967076195,
+        "test_boundary_neighbor5_holdout": -0.00017672898036047435
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6658810934012768,
+        "loso_10": 0.591739090008243,
+        "subject_hole_5": 0.5917151863274994,
+        "test_boundary_neighbor2_holdout": 0.6421172599769276,
+        "test_boundary_neighbor5_holdout": 0.6108913613332121
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 3
+    },
+    {
+      "config": "korean_holiday_calendar_S4_lr_c0_08_w0.02",
+      "eligible": false,
+      "family_name": "korean_holiday_calendar",
+      "feature_count": 11,
+      "max_delta": 0.0005996312761510358,
+      "mean_delta": -0.00010742446402061123,
+      "min_delta": -0.0011135333488108135,
+      "model_spec": {
+        "c_value": 0.08,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_08"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0011135333488108135,
+        "loso_10": 0.00058897693310489,
+        "subject_hole_5": 0.0005996312761510358,
+        "test_boundary_neighbor2_holdout": -0.0002895651709549085,
+        "test_boundary_neighbor5_holdout": -0.00032263200959326
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.665136769906316,
+        "loso_10": 0.5922180283831476,
+        "subject_hole_5": 0.5922286827261937,
+        "test_boundary_neighbor2_holdout": 0.6420468836856434,
+        "test_boundary_neighbor5_holdout": 0.6107454583039793
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.02,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_all_S4_lr_c0_02_w0.005",
+      "eligible": false,
+      "family_name": "solar_holiday_all",
+      "feature_count": 28,
+      "max_delta": 0.0001221014842791579,
+      "mean_delta": -0.00010573981997579196,
+      "min_delta": -0.0003632314957772165,
+      "model_spec": {
+        "c_value": 0.02,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_02"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0003632314957772165,
+        "loso_10": 0.0001221014842791579,
+        "subject_hole_5": 0.00012185753670568289,
+        "test_boundary_neighbor2_holdout": -0.0002962288638489463,
+        "test_boundary_neighbor5_holdout": -0.0001131977612376378
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6658870717593496,
+        "loso_10": 0.5917511529343219,
+        "subject_hole_5": 0.5917509089867483,
+        "test_boundary_neighbor2_holdout": 0.6420402199927494,
+        "test_boundary_neighbor5_holdout": 0.6109548925523349
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.005,
+      "wins": 3
+    },
+    {
+      "config": "korean_holiday_calendar_S4_lr_c0_02_w0.02",
+      "eligible": false,
+      "family_name": "korean_holiday_calendar",
+      "feature_count": 11,
+      "max_delta": 0.0006076250256202842,
+      "mean_delta": -0.000101523110096835,
+      "min_delta": -0.0011554145845401598,
+      "model_spec": {
+        "c_value": 0.02,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_02"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0011554145845401598,
+        "loso_10": 0.0005990417881349686,
+        "subject_hole_5": 0.0006076250256202842,
+        "test_boundary_neighbor2_holdout": -0.0003346606009348996,
+        "test_boundary_neighbor5_holdout": -0.00022420717876436846
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6650948886705866,
+        "loso_10": 0.5922280932381777,
+        "subject_hole_5": 0.5922366764756629,
+        "test_boundary_neighbor2_holdout": 0.6420017882556635,
+        "test_boundary_neighbor5_holdout": 0.6108438831348082
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.02,
+      "wins": 3
+    },
+    {
+      "config": "solar_holiday_all_S4_lr_c0_08_w0.01",
+      "eligible": false,
+      "family_name": "solar_holiday_all",
+      "feature_count": 28,
+      "max_delta": 0.00025039263797310696,
+      "mean_delta": -9.93199688811286e-05,
+      "min_delta": -0.0004958029380321971,
+      "model_spec": {
+        "c_value": 0.08,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_08"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0004958029380321971,
+        "loso_10": 0.00022706597332800005,
+        "subject_hole_5": 0.00025039263797310696,
+        "test_boundary_neighbor2_holdout": -0.0003820710101732905,
+        "test_boundary_neighbor5_holdout": -9.61845075012624e-05
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6657545003170946,
+        "loso_10": 0.5918561174233707,
+        "subject_hole_5": 0.5918794440880157,
+        "test_boundary_neighbor2_holdout": 0.6419543778464251,
+        "test_boundary_neighbor5_holdout": 0.6109719058060713
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.01,
+      "wins": 3
+    },
+    {
+      "config": "korean_holiday_calendar_S4_lr_c0_08_w0.05",
+      "eligible": false,
+      "family_name": "korean_holiday_calendar",
+      "feature_count": 11,
+      "max_delta": 0.0016310674962927152,
+      "mean_delta": -9.483141759210056e-05,
+      "min_delta": -0.0025852712207500295,
+      "model_spec": {
+        "c_value": 0.08,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_08"
+      },
+      "split_anchor_losses": {
+        "actual_test_band_holdout": 0.6662503032551268,
+        "loso_10": 0.5916290514500427,
+        "subject_hole_5": 0.5916290514500426,
+        "test_boundary_neighbor2_holdout": 0.6423364488565984,
+        "test_boundary_neighbor5_holdout": 0.6110680903135726
+      },
+      "split_deltas": {
+        "actual_test_band_holdout": -0.0025852712207500295,
+        "loso_10": 0.0016302357782749244,
+        "subject_hole_5": 0.0016310674962927152,
+        "test_boundary_neighbor2_holdout": -0.000573488340229189,
+        "test_boundary_neighbor5_holdout": -0.0005767008015489239
+      },
+      "split_losses": {
+        "actual_test_band_holdout": 0.6636650320343768,
+        "loso_10": 0.5932592872283177,
+        "subject_hole_5": 0.5932601189463353,
+        "test_boundary_neighbor2_holdout": 0.6417629605163692,
+        "test_boundary_neighbor5_holdout": 0.6104913895120236
+      },
+      "target": "S4",
+      "valid_rows_by_split": {
+        "actual_test_band_holdout": 98,
+        "loso_10": 450,
+        "subject_hole_5": 450,
+        "test_boundary_neighbor2_holdout": 82,
+        "test_boundary_neighbor5_holdout": 172
+      },
+      "weight": 0.05,
+      "wins": 3
+    }
+  ],
+  "train_feature_metadata": {
+    "families": {
+      "korean_holiday_calendar": {
+        "feature_count": 11,
+        "feature_sample": [
+          "weekday",
+          "is_weekend",
+          "weekday_sin",
+          "weekday_cos",
+          "is_korean_public_holiday",
+          "days_to_nearest_korean_holiday_abs",
+          "days_to_nearest_korean_holiday_signed",
+          "near_korean_holiday_3d",
+          "near_korean_holiday_7d",
+          "post_korean_holiday_3d",
+          "pre_korean_holiday_3d"
+        ],
+        "mean_missing_rate": 0.0
+      },
+      "solar_holiday_all": {
+        "feature_count": 28,
+        "feature_sample": [
+          "autumn_x_holiday_near7",
+          "autumn_x_weekend",
+          "days_to_nearest_korean_holiday_abs",
+          "days_to_nearest_korean_holiday_signed",
+          "is_korean_public_holiday",
+          "is_weekend",
+          "near_korean_holiday_3d",
+          "near_korean_holiday_7d",
+          "post_korean_holiday_3d",
+          "pre_korean_holiday_3d",
+          "season_cos",
+          "season_sin"
+        ],
+        "mean_missing_rate": 0.0
+      },
+      "solar_holiday_interaction": {
+        "feature_count": 7,
+        "feature_sample": [
+          "solar_daylight_x_weekend",
+          "solar_daylight_x_holiday_near7",
+          "solar_night_x_holiday_near7",
+          "autumn_x_weekend",
+          "autumn_x_holiday_near7",
+          "subject_solar_daylight_delta",
+          "subject_holiday_gap_delta"
+        ],
+        "mean_missing_rate": 0.0
+      },
+      "solar_photoperiod": {
+        "feature_count": 13,
+        "feature_sample": [
+          "solar_daylight_hours",
+          "solar_night_hours",
+          "solar_declination_sin",
+          "solar_declination_cos",
+          "solar_daylight_change_1d",
+          "solar_sunrise_minutes",
+          "solar_sunset_minutes",
+          "solar_noon_minutes",
+          "season_sin",
+          "season_cos",
+          "solar_daylight_x_weekend",
+          "solar_daylight_x_holiday_near7"
+        ],
+        "mean_missing_rate": 0.0
+      }
+    },
+    "feature_source": "Date-derived Seoul/Korea photoperiod approximation plus fixed 2024 Korean public-holiday proximity. No raw sensor payloads, processed sleep columns, labels, public scores, or candidate predictions are used to create features.",
+    "holiday_dates": {
+      "2024-08-15": "liberation_day",
+      "2024-09-16": "chuseok_day_minus1",
+      "2024-09-17": "chuseok",
+      "2024-09-18": "chuseok_day_plus1",
+      "2024-10-03": "national_foundation_day",
+      "2024-10-09": "hangeul_day"
+    },
+    "rows": 450,
+    "seoul_latitude": 37.5665,
+    "seoul_longitude": 126.978
+  },
+  "validation": {
+    "blend_weights": [
+      0.0025,
+      0.005,
+      0.01,
+      0.02,
+      0.05
+    ],
+    "focus_targets": [
+      "Q3",
+      "S3",
+      "S4"
+    ],
+    "model_specs": [
+      {
+        "c_value": 0.02,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_02"
+      },
+      {
+        "c_value": 0.08,
+        "kind": "lr",
+        "max_leaf_nodes": null,
+        "name": "lr_c0_08"
+      },
+      {
+        "c_value": null,
+        "kind": "hgb",
+        "max_leaf_nodes": 5,
+        "name": "hgb_l5"
+      }
+    ],
+    "primary_splits": [
+      "subject_hole_5",
+      "actual_test_band_holdout",
+      "test_boundary_neighbor2_holdout",
+      "test_boundary_neighbor5_holdout",
+      "loso_10"
+    ],
+    "target_max_delta_ceiling": 0.00075,
+    "target_mean_delta_ceiling": -5e-05,
+    "target_win_floor": 4
+  }
+}

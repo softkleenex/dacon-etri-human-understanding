@@ -1,0 +1,394 @@
+{
+  "created_at_kst": "2026-06-18 07:43:21 UTC+09:00",
+  "diagnostic": "phase2_raw_multimodal_execution_plan_post_id341",
+  "purpose": "Translate local post-ID341 weak-source evidence into a small no-submit Kaggle CPU raw-source execution plan.",
+  "evidence_status": {
+    "phase2_spec": {
+      "path": "reports/post_id341_phase2_raw_source_execution_spec_20260618.json",
+      "exists": true,
+      "bytes": 14616
+    },
+    "transfer_gate_v2": {
+      "path": "reports/post_id341_transfer_gate_v2_joint_risk_20260618.json",
+      "exists": true,
+      "bytes": 122574
+    },
+    "sleep_boundary_gate": {
+      "path": "reports/sleep_boundary_prepromotion_gate_post_id341_20260618.json",
+      "exists": true,
+      "bytes": 9003
+    },
+    "combined_external_gate": {
+      "path": "reports/combined_sleep_evening_external_prior_gate_post_id341_20260618.json",
+      "exists": true,
+      "bytes": 56491
+    },
+    "subject_residual_gate": {
+      "path": "reports/subject_residual_target_restricted_gate_post_id341_20260618.json",
+      "exists": true,
+      "bytes": 70700
+    },
+    "place_social_smoke": {
+      "path": "reports/place_social_novelty_smoke_fixedlist_post_id341_20260618.json",
+      "exists": true,
+      "bytes": 52392
+    },
+    "sensor_adherence_smoke": {
+      "path": "reports/sensor_adherence_dropout_smoke_post_id341_20260618.json",
+      "exists": true,
+      "bytes": 90975
+    },
+    "split_manifest": {
+      "path": "reports/id340_validation_split_manifest_20260618.json",
+      "exists": true,
+      "bytes": 135846
+    }
+  },
+  "missing_evidence": [],
+  "evidence_read": {
+    "transfer_gate_closed": true,
+    "sleep_boundary_low_movement_lead": true,
+    "sleep_boundary_promotable": false,
+    "combined_weak_best_proxy": 0.6014904915736343,
+    "combined_weak_public_058": false,
+    "residual_selected_targets": [
+      "Q1",
+      "S4"
+    ],
+    "residual_primary_wins": 3,
+    "residual_projected_proxy": 0.6037839111413839,
+    "residual_public_058": false,
+    "place_selected_targets": [],
+    "sensor_selected_targets": [],
+    "phase2_ready": true
+  },
+  "processed_meta": {
+    "train_shape": [
+      450,
+      242
+    ],
+    "test_shape": [
+      250,
+      242
+    ],
+    "feature_columns": 231,
+    "group_counts": {
+      "screen": 17,
+      "activity": 25,
+      "charge": 6,
+      "light": 36,
+      "heart_rate": 39,
+      "pedo": 27,
+      "usage": 27,
+      "place_social": 28
+    },
+    "train_subject_count": 10,
+    "test_subject_count": 10,
+    "train_date_min": "2024-06-03",
+    "train_date_max": "2024-11-14",
+    "test_date_min": "2024-07-06",
+    "test_date_max": "2024-11-19"
+  },
+  "raw_file_meta": {
+    "mACStatus": {
+      "path": "data/raw/ch2025_data_items/ch2025_mACStatus.parquet",
+      "rows": 939896,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_charging"
+      ],
+      "subject_count": 10,
+      "has_timestamp": true,
+      "size_mb": 4.328
+    },
+    "mActivity": {
+      "path": "data/raw/ch2025_data_items/ch2025_mActivity.parquet",
+      "rows": 961062,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_activity"
+      ],
+      "subject_count": 10,
+      "has_timestamp": true,
+      "size_mb": 4.427
+    },
+    "mAmbience": {
+      "path": "data/raw/ch2025_data_items/ch2025_mAmbience.parquet",
+      "rows": 476577,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_ambience"
+      ],
+      "subject_count": 10,
+      "has_timestamp": true,
+      "size_mb": 14.155
+    },
+    "mBle": {
+      "path": "data/raw/ch2025_data_items/ch2025_mBle.parquet",
+      "rows": 21830,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_ble"
+      ],
+      "subject_count": 10,
+      "has_timestamp": true,
+      "size_mb": 3.878
+    },
+    "mGps": {
+      "path": "data/raw/ch2025_data_items/ch2025_mGps.parquet",
+      "rows": 800611,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_gps"
+      ],
+      "subject_count": 10,
+      "has_timestamp": true,
+      "size_mb": 68.592
+    },
+    "mLight": {
+      "path": "data/raw/ch2025_data_items/ch2025_mLight.parquet",
+      "rows": 96258,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_light"
+      ],
+      "subject_count": 10,
+      "has_timestamp": true,
+      "size_mb": 0.646
+    },
+    "mScreenStatus": {
+      "path": "data/raw/ch2025_data_items/ch2025_mScreenStatus.parquet",
+      "rows": 939653,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_screen_use"
+      ],
+      "subject_count": 10,
+      "has_timestamp": true,
+      "size_mb": 4.359
+    },
+    "mUsageStats": {
+      "path": "data/raw/ch2025_data_items/ch2025_mUsageStats.parquet",
+      "rows": 45197,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_usage_stats"
+      ],
+      "subject_count": 10,
+      "has_timestamp": true,
+      "size_mb": 0.955
+    },
+    "mWifi": {
+      "path": "data/raw/ch2025_data_items/ch2025_mWifi.parquet",
+      "rows": 76336,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "m_wifi"
+      ],
+      "subject_count": 10,
+      "has_timestamp": true,
+      "size_mb": 3.799
+    },
+    "wHr": {
+      "path": "data/raw/ch2025_data_items/ch2025_wHr.parquet",
+      "rows": 382918,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "heart_rate"
+      ],
+      "subject_count": 10,
+      "has_timestamp": true,
+      "size_mb": 9.894
+    },
+    "wLight": {
+      "path": "data/raw/ch2025_data_items/ch2025_wLight.parquet",
+      "rows": 633741,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "w_light"
+      ],
+      "subject_count": 10,
+      "has_timestamp": true,
+      "size_mb": 3.251
+    },
+    "wPedo": {
+      "path": "data/raw/ch2025_data_items/ch2025_wPedo.parquet",
+      "rows": 748100,
+      "columns": [
+        "subject_id",
+        "timestamp",
+        "step",
+        "step_frequency",
+        "running_step",
+        "walking_step",
+        "distance",
+        "speed",
+        "burned_calories"
+      ],
+      "subject_count": 10,
+      "has_timestamp": true,
+      "size_mb": 4.548
+    }
+  },
+  "execution_blocks": [
+    {
+      "block": "A_q1_s4_sleep_residual_bridge",
+      "priority": 1,
+      "why": "The only repeated local raw/source signals after ID341 are sleep-boundary structure plus residual Q1/S4 drift. This block tests their common raw cause instead of blending their OOF outputs.",
+      "target_focus": [
+        "Q1",
+        "S4"
+      ],
+      "raw_inputs": [
+        "mScreenStatus",
+        "mActivity",
+        "mACStatus",
+        "mLight",
+        "wLight",
+        "wHr",
+        "wPedo"
+      ],
+      "feature_families": [
+        "12h-36h relative-night bins for screen/activity/charge/light/hr/pedo",
+        "longest quiet interval and interruption count from screen-on + active + step spikes",
+        "HR dip timing, morning-minus-night HR, and light/dark transitions",
+        "fold-internal subject residuals of inferred onset/wake/recovery features",
+        "Q1/S4-only compact model heads; all other targets stay anchored during this block"
+      ],
+      "model_allowlist": [
+        "LogisticRegression C in {0.03, 0.10}",
+        "HistGradientBoosting max_leaf_nodes<=5 l2>=3",
+        "ExtraTrees max_depth<=4 min_samples_leaf>=25 only for feature screening, not final promotion"
+      ],
+      "selection_gate": {
+        "target_config_win_floor": 4,
+        "assembled_primary_wins_floor": 5,
+        "max_primary_delta_vs_id341_ceiling": 0.0,
+        "projected_proxy_must_be_below": 0.6014113009,
+        "public_058_review_cutoff": 0.59
+      },
+      "expected_failure_mode": "Current residual gate wins only 3/5 primary splits and fails subject_hole/loso; if this raw bridge does not fix those two lenses, stop immediately."
+    },
+    {
+      "block": "B_sleep_boundary_s2_recovery_retry",
+      "priority": 2,
+      "why": "S2 had residual smoke but failed the stricter target-restricted gate. Test whether raw recovery features explain S2 without borrowing Q1/S4 movement.",
+      "target_focus": [
+        "S2"
+      ],
+      "raw_inputs": [
+        "wHr",
+        "wPedo",
+        "mActivity",
+        "mLight",
+        "wLight",
+        "mScreenStatus"
+      ],
+      "feature_families": [
+        "night HR volatility and min-HR timing",
+        "low-step and stillness segment duration",
+        "morning recovery slope and light exposure",
+        "fold-internal subject residuals of recovery features"
+      ],
+      "model_allowlist": [
+        "LogisticRegression",
+        "HistGradientBoosting shallow"
+      ],
+      "selection_gate": {
+        "target_config_win_floor": 4,
+        "mean_delta_vs_id341_must_be_negative": true,
+        "assembled_primary_wins_floor": 5,
+        "projected_proxy_must_be_below": 0.6014113009
+      },
+      "expected_failure_mode": "If S2 remains 2/5 or worse, close S2 residual/recovery locally."
+    },
+    {
+      "block": "C_env_social_routine_rebuild_only_if_A_or_B_passes",
+      "priority": 3,
+      "why": "Place/social novelty and sensor-adherence standalone lanes selected no targets, so this should not consume compute unless a sleep/residual block creates a stronger anchor first.",
+      "target_focus": [
+        "Q2",
+        "Q3"
+      ],
+      "raw_inputs": [
+        "mWifi",
+        "mBle",
+        "mGps",
+        "mUsageStats",
+        "mAmbience"
+      ],
+      "feature_families": [
+        "home/routine entropy with hashed top-k buckets only",
+        "app-category evening novelty, not direct app-name memorization",
+        "ambience context ratios as weak modifiers"
+      ],
+      "model_allowlist": [
+        "LogisticRegression with strong regularization"
+      ],
+      "selection_gate": {
+        "run_condition": "only after block A or B passes all-primary transfer pre-gate",
+        "target_config_win_floor": 4,
+        "no_high_joint_risk_warning": true
+      },
+      "expected_failure_mode": "Do not widen local place/social scans; previous fixed-list parser smoke already failed."
+    }
+  ],
+  "remote_runner_contract": {
+    "compute": "Kaggle CPU only; GPU/TPU disabled",
+    "max_runtime_plan": "single notebook revision, report-only, stop after block A if it fails all-primary gate",
+    "allowed_outputs": [
+      "reports/remote_phase2_raw_multimodal_execution_plan_post_id341_20260618.json/.md",
+      "reports/remote_phase2_block_A_q1_s4_sleep_residual_bridge_20260618.json/.md",
+      "reports/remote_phase2_block_B_s2_recovery_retry_20260618.json/.md only if block A has non-catastrophic transfer",
+      "kaggle_outputs/phase2_raw_multimodal_manifest.json"
+    ],
+    "forbidden_outputs": [
+      "submissions/*.csv",
+      "artifacts/base_predictions/base_oof_id_*.csv",
+      "artifacts/base_predictions/base_test_id_*.csv",
+      "notebooks/history/submission_*.ipynb",
+      "submission_log.csv row changes",
+      "DACON submission"
+    ],
+    "stop_rules": [
+      "Stop if block A does not beat ID341 on all primary splits.",
+      "Stop if projected proxy remains above actual ID178 public 0.6014113009.",
+      "Stop if any temporary source resembles ID287 high-movement/high-joint-risk geometry.",
+      "Stop before creating ID342; artifact-contract review is separate even if gates pass."
+    ],
+    "block_order": [
+      "A_q1_s4_sleep_residual_bridge",
+      "B_sleep_boundary_s2_recovery_retry",
+      "C_env_social_routine_rebuild_only_if_A_or_B_passes"
+    ]
+  },
+  "decision": {
+    "phase2_raw_multimodal_plan_ready": true,
+    "recommended_first_block": "A_q1_s4_sleep_residual_bridge",
+    "create_submission_artifact": false,
+    "submit_now": false,
+    "push_kaggle_now": false,
+    "run_kaggle_now": false,
+    "run_heavy_rebuild_now": false,
+    "next_action": "Wire this plan into the no-submit Kaggle upstream runner only after explicit approval. Locally, do not create ID342 from residual/sleep/evening micro leads; use them only to implement block A."
+  },
+  "no_model_trained": true,
+  "no_predictions_created": true,
+  "no_submission_created": true,
+  "no_base_prediction_artifact_created": true,
+  "no_notebook_artifact_created": true,
+  "no_submission_log_row_created": true,
+  "no_kaggle_push_or_run_made": true,
+  "no_dacon_submission_made": true
+}

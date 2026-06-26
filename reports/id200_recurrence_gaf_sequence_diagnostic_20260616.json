@@ -1,0 +1,1013 @@
+{
+  "diagnostic": "public_recurrence_gaf_sequence_overlay",
+  "base_id": 200,
+  "base_source": "base_oof_id_200_id198_sax_paa_sequence_overlay_cv0.536190.csv; base_test_id_200_id198_sax_paa_sequence_overlay_cv0.536190.csv",
+  "validation_lens": "public_structure_interleaved_within_subject_blocked_cv",
+  "feature_info": {
+    "n_sequence_rows": 809,
+    "n_value_channels": 34,
+    "n_total_channels": 68,
+    "n_bins": 44,
+    "n_recurrence_gaf_features": 3204,
+    "feature_name_sample": [
+      "active_mean__recurrence_rate_eps0.35",
+      "activity_mean__recurrence_rate_eps0.35",
+      "amb_inside__recurrence_rate_eps0.35",
+      "amb_music__recurrence_rate_eps0.35",
+      "amb_outside__recurrence_rate_eps0.35",
+      "amb_speech__recurrence_rate_eps0.35",
+      "amb_vehicle__recurrence_rate_eps0.35",
+      "ble_count__recurrence_rate_eps0.35",
+      "ble_rssi_max__recurrence_rate_eps0.35",
+      "ble_rssi_mean__recurrence_rate_eps0.35",
+      "charging_mean__recurrence_rate_eps0.35",
+      "distance_sum__recurrence_rate_eps0.35",
+      "gps_fix_count__recurrence_rate_eps0.35",
+      "gps_lat_std__recurrence_rate_eps0.35",
+      "gps_lon_std__recurrence_rate_eps0.35",
+      "gps_speed_mean__recurrence_rate_eps0.35",
+      "hr_max__recurrence_rate_eps0.35",
+      "hr_mean__recurrence_rate_eps0.35",
+      "hr_min__recurrence_rate_eps0.35",
+      "pedo_speed_mean__recurrence_rate_eps0.35",
+      "phone_light_log_max__recurrence_rate_eps0.35",
+      "phone_light_log_mean__recurrence_rate_eps0.35",
+      "screen_mean__recurrence_rate_eps0.35",
+      "screen_sum__recurrence_rate_eps0.35",
+      "step_freq_mean__recurrence_rate_eps0.35",
+      "step_sum__recurrence_rate_eps0.35",
+      "still_mean__recurrence_rate_eps0.35",
+      "usage_app_count__recurrence_rate_eps0.35",
+      "usage_total_log__recurrence_rate_eps0.35",
+      "watch_light_log_max__recurrence_rate_eps0.35",
+      "watch_light_log_mean__recurrence_rate_eps0.35",
+      "wifi_count__recurrence_rate_eps0.35",
+      "wifi_rssi_max__recurrence_rate_eps0.35",
+      "wifi_rssi_mean__recurrence_rate_eps0.35",
+      "present_active_mean__recurrence_rate_eps0.35",
+      "present_activity_mean__recurrence_rate_eps0.35",
+      "present_amb_inside__recurrence_rate_eps0.35",
+      "present_amb_music__recurrence_rate_eps0.35",
+      "present_amb_outside__recurrence_rate_eps0.35",
+      "present_amb_speech__recurrence_rate_eps0.35"
+    ],
+    "representation": "Recurrence-rate and Gramian Angular Field style image summaries over the aligned raw tensor."
+  },
+  "model_specs": [
+    {
+      "name": "lr_c0_03",
+      "kind": "lr",
+      "c_value": 0.03,
+      "max_depth": null,
+      "max_leaf_nodes": null
+    },
+    {
+      "name": "lr_c0_1",
+      "kind": "lr",
+      "c_value": 0.1,
+      "max_depth": null,
+      "max_leaf_nodes": null
+    },
+    {
+      "name": "lr_c0_3",
+      "kind": "lr",
+      "c_value": 0.3,
+      "max_depth": null,
+      "max_leaf_nodes": null
+    },
+    {
+      "name": "hgb_l7",
+      "kind": "hgb",
+      "c_value": null,
+      "max_depth": null,
+      "max_leaf_nodes": 7
+    },
+    {
+      "name": "et_d4",
+      "kind": "et",
+      "c_value": null,
+      "max_depth": 4,
+      "max_leaf_nodes": null
+    }
+  ],
+  "blend_weights": [
+    0.0,
+    0.01,
+    0.02,
+    0.03,
+    0.05,
+    0.07,
+    0.1,
+    0.15,
+    0.2
+  ],
+  "base_scores": {
+    "Q1": 0.5482579081715612,
+    "Q2": 0.5506886916995475,
+    "Q3": 0.5639144216327321,
+    "S1": 0.4677372079771736,
+    "S2": 0.5295216690835329,
+    "S3": 0.4905526802245998,
+    "S4": 0.602656424532675
+  },
+  "base_mean": 0.5361898576174031,
+  "targets": {
+    "Q1": {
+      "base_loss": 0.5482579081715612,
+      "best": "base",
+      "best_config": {
+        "kind": "base"
+      },
+      "best_loss": 0.5482579081715612,
+      "improvement_vs_base": 0.0,
+      "top10": [
+        [
+          "base",
+          {
+            "kind": "base",
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619
+          }
+        ],
+        [
+          "blend__recurrence_gaf__et_d4__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "et_d4",
+            "weight": 0.0,
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__hgb_l7__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "hgb_l7",
+            "weight": 0.0,
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_03__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_03",
+            "weight": 0.0,
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_1__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_1",
+            "weight": 0.0,
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_3__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_3",
+            "weight": 0.0,
+            "loss": 0.5482579081715612,
+            "test_mean": 0.5120534295399619,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_1__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_1",
+            "weight": 0.01,
+            "loss": 0.5483910384333125,
+            "test_mean": 0.5117192821047759,
+            "test_max_abs_delta": 0.007379385025312241
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_03__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_03",
+            "weight": 0.01,
+            "loss": 0.5484141225091406,
+            "test_mean": 0.5118135022994325,
+            "test_max_abs_delta": 0.006517994208117606
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_3__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_3",
+            "weight": 0.01,
+            "loss": 0.548428010083776,
+            "test_mean": 0.5116814306993989,
+            "test_max_abs_delta": 0.0077253238238332855
+          }
+        ],
+        [
+          "blend__recurrence_gaf__hgb_l7__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "hgb_l7",
+            "weight": 0.01,
+            "loss": 0.5485420763027276,
+            "test_mean": 0.5119661349296609,
+            "test_max_abs_delta": 0.0041756340088900945
+          }
+        ]
+      ]
+    },
+    "Q2": {
+      "base_loss": 0.5506886916995475,
+      "best": "base",
+      "best_config": {
+        "kind": "base"
+      },
+      "best_loss": 0.5506886916995475,
+      "improvement_vs_base": 0.0,
+      "top10": [
+        [
+          "base",
+          {
+            "kind": "base",
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415
+          }
+        ],
+        [
+          "blend__recurrence_gaf__et_d4__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "et_d4",
+            "weight": 0.0,
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__hgb_l7__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "hgb_l7",
+            "weight": 0.0,
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_03__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_03",
+            "weight": 0.0,
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_1__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_1",
+            "weight": 0.0,
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_3__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_3",
+            "weight": 0.0,
+            "loss": 0.5506886916995475,
+            "test_mean": 0.553652736316415,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__hgb_l7__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "hgb_l7",
+            "weight": 0.01,
+            "loss": 0.5510976586496548,
+            "test_mean": 0.553763211290835,
+            "test_max_abs_delta": 0.004377602094939759
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_03__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_03",
+            "weight": 0.01,
+            "loss": 0.5511390236136581,
+            "test_mean": 0.5535574675636896,
+            "test_max_abs_delta": 0.007111383644791913
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_1__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_1",
+            "weight": 0.01,
+            "loss": 0.551154596379547,
+            "test_mean": 0.5536229133361806,
+            "test_max_abs_delta": 0.007618220654968644
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_3__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_3",
+            "weight": 0.01,
+            "loss": 0.5511757633790058,
+            "test_mean": 0.5536253607107763,
+            "test_max_abs_delta": 0.007677589997259204
+          }
+        ]
+      ]
+    },
+    "Q3": {
+      "base_loss": 0.5639144216327321,
+      "best": "base",
+      "best_config": {
+        "kind": "base"
+      },
+      "best_loss": 0.5639144216327321,
+      "improvement_vs_base": 0.0,
+      "top10": [
+        [
+          "base",
+          {
+            "kind": "base",
+            "loss": 0.5639144216327321,
+            "test_mean": 0.6335899728678334
+          }
+        ],
+        [
+          "blend__recurrence_gaf__et_d4__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "et_d4",
+            "weight": 0.0,
+            "loss": 0.5639144216327321,
+            "test_mean": 0.6335899728678334,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__hgb_l7__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "hgb_l7",
+            "weight": 0.0,
+            "loss": 0.5639144216327321,
+            "test_mean": 0.6335899728678334,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_03__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_03",
+            "weight": 0.0,
+            "loss": 0.5639144216327321,
+            "test_mean": 0.6335899728678334,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_1__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_1",
+            "weight": 0.0,
+            "loss": 0.5639144216327321,
+            "test_mean": 0.6335899728678334,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_3__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_3",
+            "weight": 0.0,
+            "loss": 0.5639144216327321,
+            "test_mean": 0.6335899728678334,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__hgb_l7__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "hgb_l7",
+            "weight": 0.01,
+            "loss": 0.5643243174366651,
+            "test_mean": 0.6333417700859083,
+            "test_max_abs_delta": 0.005293954338644075
+          }
+        ],
+        [
+          "blend__recurrence_gaf__et_d4__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "et_d4",
+            "weight": 0.01,
+            "loss": 0.5643599292696208,
+            "test_mean": 0.6332889377774269,
+            "test_max_abs_delta": 0.0047503960256513045
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_3__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_3",
+            "weight": 0.01,
+            "loss": 0.564401344066303,
+            "test_mean": 0.6332739829721906,
+            "test_max_abs_delta": 0.00818300781027581
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_1__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_1",
+            "weight": 0.01,
+            "loss": 0.5644521750775953,
+            "test_mean": 0.6332517581539334,
+            "test_max_abs_delta": 0.007888854851992866
+          }
+        ]
+      ]
+    },
+    "S1": {
+      "base_loss": 0.4677372079771736,
+      "best": "base",
+      "best_config": {
+        "kind": "base"
+      },
+      "best_loss": 0.4677372079771736,
+      "improvement_vs_base": 0.0,
+      "top10": [
+        [
+          "base",
+          {
+            "kind": "base",
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863
+          }
+        ],
+        [
+          "blend__recurrence_gaf__et_d4__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "et_d4",
+            "weight": 0.0,
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__hgb_l7__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "hgb_l7",
+            "weight": 0.0,
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_03__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_03",
+            "weight": 0.0,
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_1__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_1",
+            "weight": 0.0,
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_3__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_3",
+            "weight": 0.0,
+            "loss": 0.4677372079771736,
+            "test_mean": 0.6822007812756863,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__hgb_l7__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "hgb_l7",
+            "weight": 0.01,
+            "loss": 0.4678168457674757,
+            "test_mean": 0.6823954364118392,
+            "test_max_abs_delta": 0.004988438145514973
+          }
+        ],
+        [
+          "blend__recurrence_gaf__hgb_l7__w0.02",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "hgb_l7",
+            "weight": 0.02,
+            "loss": 0.467912928327497,
+            "test_mean": 0.6825900915479924,
+            "test_max_abs_delta": 0.009976876291029946
+          }
+        ],
+        [
+          "blend__recurrence_gaf__hgb_l7__w0.03",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "hgb_l7",
+            "weight": 0.03,
+            "loss": 0.46802508122015246,
+            "test_mean": 0.6827847466841453,
+            "test_max_abs_delta": 0.014965314436544863
+          }
+        ],
+        [
+          "blend__recurrence_gaf__et_d4__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "et_d4",
+            "weight": 0.01,
+            "loss": 0.46804848673280386,
+            "test_mean": 0.6822461399442884,
+            "test_max_abs_delta": 0.004205753303306969
+          }
+        ]
+      ]
+    },
+    "S2": {
+      "base_loss": 0.5295216690835329,
+      "best": "base",
+      "best_config": {
+        "kind": "base"
+      },
+      "best_loss": 0.5295216690835329,
+      "improvement_vs_base": 0.0,
+      "top10": [
+        [
+          "base",
+          {
+            "kind": "base",
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255
+          }
+        ],
+        [
+          "blend__recurrence_gaf__et_d4__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "et_d4",
+            "weight": 0.0,
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__hgb_l7__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "hgb_l7",
+            "weight": 0.0,
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_03__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_03",
+            "weight": 0.0,
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_1__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_1",
+            "weight": 0.0,
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_3__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_3",
+            "weight": 0.0,
+            "loss": 0.5295216690835329,
+            "test_mean": 0.6389349394279255,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_3__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_3",
+            "weight": 0.01,
+            "loss": 0.5296107558190687,
+            "test_mean": 0.6388358969460185,
+            "test_max_abs_delta": 0.00758400951756516
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_1__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_1",
+            "weight": 0.01,
+            "loss": 0.5297122872235511,
+            "test_mean": 0.6387760942753677,
+            "test_max_abs_delta": 0.0074528892415823
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_3__w0.02",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_3",
+            "weight": 0.02,
+            "loss": 0.5298048720345201,
+            "test_mean": 0.6387368544641114,
+            "test_max_abs_delta": 0.015168019035130348
+          }
+        ],
+        [
+          "blend__recurrence_gaf__hgb_l7__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "hgb_l7",
+            "weight": 0.01,
+            "loss": 0.5298211637055396,
+            "test_mean": 0.6392299712814506,
+            "test_max_abs_delta": 0.0047939157564741985
+          }
+        ]
+      ]
+    },
+    "S3": {
+      "base_loss": 0.4905526802245998,
+      "best": "base",
+      "best_config": {
+        "kind": "base"
+      },
+      "best_loss": 0.4905526802245998,
+      "improvement_vs_base": 0.0,
+      "top10": [
+        [
+          "base",
+          {
+            "kind": "base",
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706
+          }
+        ],
+        [
+          "blend__recurrence_gaf__et_d4__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "et_d4",
+            "weight": 0.0,
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__hgb_l7__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "hgb_l7",
+            "weight": 0.0,
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_03__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_03",
+            "weight": 0.0,
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_1__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_1",
+            "weight": 0.0,
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_3__w0",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_3",
+            "weight": 0.0,
+            "loss": 0.4905526802245998,
+            "test_mean": 0.6391968773652706,
+            "test_max_abs_delta": 0.0
+          }
+        ],
+        [
+          "blend__recurrence_gaf__et_d4__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "et_d4",
+            "weight": 0.01,
+            "loss": 0.4911145935995264,
+            "test_mean": 0.6394408560255052,
+            "test_max_abs_delta": 0.005250761485680752
+          }
+        ],
+        [
+          "blend__recurrence_gaf__hgb_l7__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "hgb_l7",
+            "weight": 0.01,
+            "loss": 0.49131897923923284,
+            "test_mean": 0.6394986450509452,
+            "test_max_abs_delta": 0.005748520711921168
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_1__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_1",
+            "weight": 0.01,
+            "loss": 0.4913723657102009,
+            "test_mean": 0.6387747002456733,
+            "test_max_abs_delta": 0.008296145026170598
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_3__w0.01",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_3",
+            "weight": 0.01,
+            "loss": 0.4913725177239486,
+            "test_mean": 0.6388789915287232,
+            "test_max_abs_delta": 0.008559206974860678
+          }
+        ]
+      ]
+    },
+    "S4": {
+      "base_loss": 0.602656424532675,
+      "best": "blend__recurrence_gaf__lr_c0_03__w0.1",
+      "best_config": {
+        "kind": "blend",
+        "feature_set": "recurrence_gaf",
+        "model": "lr_c0_03",
+        "weight": 0.1
+      },
+      "best_loss": 0.6011883543294968,
+      "improvement_vs_base": 0.0014680702031781845,
+      "top10": [
+        [
+          "blend__recurrence_gaf__lr_c0_03__w0.1",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_03",
+            "weight": 0.1,
+            "loss": 0.6011883543294968,
+            "test_mean": 0.562476804386664,
+            "test_max_abs_delta": 0.059741269766047767
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_03__w0.07",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_03",
+            "weight": 0.07,
+            "loss": 0.6012984304439637,
+            "test_mean": 0.5625905856536684,
+            "test_max_abs_delta": 0.041818888836233414
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_03__w0.05",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_03",
+            "weight": 0.05,
+            "loss": 0.6015275107726242,
+            "test_mean": 0.5626664398316712,
+            "test_max_abs_delta": 0.029870634883023883
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_03__w0.15",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_03",
+            "weight": 0.15,
+            "loss": 0.6016200916799767,
+            "test_mean": 0.562287168941657,
+            "test_max_abs_delta": 0.08961190464907154
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_03__w0.03",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_03",
+            "weight": 0.03,
+            "loss": 0.6018827885572265,
+            "test_mean": 0.5627422940096741,
+            "test_max_abs_delta": 0.017922380929814352
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_1__w0.05",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_1",
+            "weight": 0.05,
+            "loss": 0.6019751481102591,
+            "test_mean": 0.5632687517144318,
+            "test_max_abs_delta": 0.03319758120651123
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_1__w0.07",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_1",
+            "weight": 0.07,
+            "loss": 0.602029358949016,
+            "test_mean": 0.5634338222895333,
+            "test_max_abs_delta": 0.046476613689115764
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_1__w0.03",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_1",
+            "weight": 0.03,
+            "loss": 0.6021062013059569,
+            "test_mean": 0.5631036811393305,
+            "test_max_abs_delta": 0.019918548723906693
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_03__w0.02",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_03",
+            "weight": 0.02,
+            "loss": 0.602108305519213,
+            "test_mean": 0.5627802210986755,
+            "test_max_abs_delta": 0.011948253953209531
+          }
+        ],
+        [
+          "blend__recurrence_gaf__lr_c0_1__w0.02",
+          {
+            "kind": "blend",
+            "feature_set": "recurrence_gaf",
+            "model": "lr_c0_1",
+            "weight": 0.02,
+            "loss": 0.6022420347870205,
+            "test_mean": 0.5630211458517796,
+            "test_max_abs_delta": 0.013279032482604536
+          }
+        ]
+      ]
+    }
+  },
+  "targetwise_best_mean": 0.5359801333026634
+}

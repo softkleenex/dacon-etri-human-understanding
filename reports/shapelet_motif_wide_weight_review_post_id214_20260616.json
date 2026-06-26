@@ -1,0 +1,91 @@
+{
+  "created_at": "2026-06-16",
+  "purpose": "Review after ID212 wide-weight shapelet/motif overlay and ID213/ID214 bridge updates.",
+  "id212": {
+    "base_id": 206,
+    "local_cv_before": 0.5357639123296409,
+    "local_cv_after": 0.5344686176174948,
+    "modified_targets": [
+      "Q1",
+      "S4"
+    ],
+    "selected_configs": {
+      "Q1": {
+        "kind": "blend",
+        "feature_set": "shapelet_motif",
+        "model": "lr_c0_1",
+        "weight": 0.03
+      },
+      "Q2": {
+        "kind": "base"
+      },
+      "Q3": {
+        "kind": "base"
+      },
+      "S1": {
+        "kind": "base"
+      },
+      "S2": {
+        "kind": "base"
+      },
+      "S3": {
+        "kind": "base"
+      },
+      "S4": {
+        "kind": "blend",
+        "feature_set": "shapelet_motif",
+        "model": "lr_c0_01",
+        "weight": 0.25
+      }
+    },
+    "target_scores_after": {
+      "Q1": 0.5480756209146977,
+      "Q2": 0.5506886916995475,
+      "Q3": 0.5628770675141632,
+      "S1": 0.4677372079771736,
+      "S2": 0.5295161847284966,
+      "S3": 0.4905526802245998,
+      "S4": 0.5918328702637847
+    },
+    "submission_file": "submission_id_212_id206_shapelet_motif_sequence_wide_weight_overlay_cv0.534469_unsubmitted.csv",
+    "diagnostic_report": "reports/id206_shapelet_motif_sequence_wide_weight_diagnostic_20260616.json"
+  },
+  "id213_delta06": {
+    "base_id": 212,
+    "extreme_id": 172,
+    "local_cv": 0.5232866958766459,
+    "comparison_id210_local_cv": 0.5233999532055247,
+    "submission_file": "submission_id_213_id212_targetwise_delta06_id172_extreme_probe_cv0.523287_unsubmitted.csv",
+    "interpretation": "Same delta06 target-wise clean weights as ID210, but with ID212 as clean anchor."
+  },
+  "id214_delta08": {
+    "base_id": 212,
+    "extreme_id": 172,
+    "local_cv": 0.5199816216938604,
+    "comparison_id211_local_cv": 0.5201055344856742,
+    "submission_file": "submission_id_214_id212_targetwise_delta08_id172_extreme_probe_cv0.519982_unsubmitted.csv",
+    "interpretation": "Same delta08 target-wise clean weights as ID211, but with ID212 as clean anchor."
+  },
+  "robustness": {
+    "diagnostic_report": "reports/id178_id214_split_robustness_diagnostic_20260616.json",
+    "id209_to_id212": {
+      "overall_before": 0.5345300685479047,
+      "overall_after": 0.5344686176174946,
+      "robust_before": 0.5670550739003832,
+      "robust_after": 0.5669941976205726
+    },
+    "id210_to_id213": {
+      "overall_before": 0.5233999532055247,
+      "overall_after": 0.5232866958766459,
+      "robust_before": 0.5553671568155721,
+      "robust_after": 0.5552224484643223
+    },
+    "id211_to_id214": {
+      "overall_before": 0.5201055344856742,
+      "overall_after": 0.5199816216938604,
+      "robust_before": 0.5519278522340688,
+      "robust_after": 0.551764906499453
+    }
+  },
+  "warning": "ID212 is a small wide-weight refinement of ID209. ID213/ID214 inherit non-nested ID172 calibration risk."
+}
