@@ -78,6 +78,7 @@ Do not run auto-submission scripts or `make dacon-submit` without an explicit `S
 
 ## 📖 Key Documentation
 - [Root Document Roles](docs/ROOT_DOCUMENTS.md)
+- [Final Handoff](docs/FINAL_HANDOFF_20260626.md)
 - [Workflow Review and Session Handoff](docs/WORKFLOW_REVIEW.md)
 - [Master Plan](docs/MASTER_PLAN.md)
 - [Public 0.55 Plan](docs/PUBLIC_055_PLAN.md)
