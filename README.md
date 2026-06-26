@@ -86,3 +86,11 @@ Do not run auto-submission scripts or `make dacon-submit` without an explicit `S
 - [Submission Log](submissions/submission_log.csv)
 - [Kaggle Environment & Troubleshooting](docs/infrastructure/cloud_env/guide.md)
 - [Pipeline Automation Guide](docs/infrastructure/automation/guide.md)
+
+<!-- BLOG-URL:START -->
+
+## Blog
+
+- Blog note: [DACON ETRI Human Understanding AI Paper Challenge](https://softkleenex.github.io/coding_training/dacon/dacon-etri-human-understanding)
+
+<!-- BLOG-URL:END -->
