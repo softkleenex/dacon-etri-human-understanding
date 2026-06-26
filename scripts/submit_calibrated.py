@@ -7,9 +7,9 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.append(str(PROJECT_ROOT))
 
-# Inject DACON credentials safely
-os.environ['DACON_TOKEN'] = 'REDACTED_DACON_TOKEN'
-os.environ['DACON_TEAMNAME'] = 'softkleenex'
+# DACON credentials must come from the caller's environment.
+if not os.environ.get("DACON_TOKEN") or not os.environ.get("DACON_TEAMNAME"):
+    raise RuntimeError("DACON_TOKEN and DACON_TEAMNAME must be set in the environment.")
 
 from scripts.runner_bot import submit_to_dacon
 
