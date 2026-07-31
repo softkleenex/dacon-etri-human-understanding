@@ -1,6 +1,6 @@
 # Paper submission package audit
 
-Created: `2026-06-25 22:20:55 UTC+09:00`
+Created: `2026-07-31 15:23:50 UTC+09:00`
 
 This is report-only. It creates no predictions, feature matrices, submission artifacts, Kaggle runs, or DACON submissions.
 
@@ -8,11 +8,12 @@ This is report-only. It creates no predictions, feature matrices, submission art
 
 - Package audit pass: `True`
 - pdflatex available: `False`
+- tectonic available: `True`
 - chktex available: `False`
-- Human fill-ins remaining: `True`
+- Human fill-ins remaining: `False`
 - Run Kaggle now: `False`
 - DACON submit now: `False`
-- Next action: Use paper.tex as the working IEEE source draft. Human author/affiliation/EDAS fields remain; no score-bearing action is opened by this package audit.
+- Next action: Review submission is complete. Monitor the EDAS email/status and do not use Final manuscript unless acceptance or organizer instructions open the camera-ready stage.
 
 ## Required Files
 
@@ -38,11 +39,10 @@ This is report-only. It creates no predictions, feature matrices, submission art
 {
   "bibliography": true,
   "current_anchor_score": true,
+  "current_title": true,
   "failed_frontier_controls": true,
-  "four_page_rule_context": true,
   "id342_anchor": true,
-  "ieee_conference_class": true,
-  "public_055_not_achieved": true
+  "ieee_conference_class": true
 }
 ```
 
@@ -97,9 +97,9 @@ This is report-only. It creates no predictions, feature matrices, submission art
 {
   "dacon_rules_page": true,
   "edas_submission_link": true,
-  "human_upload_steps": true,
   "ictc_submission_page": true,
-  "no_credentials": true
+  "no_credentials": true,
+  "review_upload_completed": true
 }
 ```
 
@@ -108,9 +108,15 @@ This is report-only. It creates no predictions, feature matrices, submission art
 ```json
 {
   "abstract_score_boundary": true,
+  "active_with_manuscript": true,
+  "affiliation": true,
+  "author_count": true,
   "edas_link": true,
+  "edas_paper_id": true,
   "keyword_count": true,
-  "title": true
+  "review_manuscript_uploaded": true,
+  "title": true,
+  "topic": true
 }
 ```
 
@@ -118,7 +124,8 @@ This is report-only. It creates no predictions, feature matrices, submission art
 
 ```json
 {
-  "final_pdf_required": true,
+  "actual_pdf_pages": true,
+  "final_pdf_verified": true,
   "length_pass": true,
   "max_pages": true
 }
@@ -129,8 +136,8 @@ This is report-only. It creates no predictions, feature matrices, submission art
 ```json
 {
   "four_page_check": true,
+  "local_pdf_verified": true,
   "main_file": true,
-  "pdf_compile_boundary": true,
   "source_zip": true
 }
 ```
@@ -188,18 +195,5 @@ This is report-only. It creates no predictions, feature matrices, submission art
 ## Human Fill-Ins
 
 ```json
-[
-  {
-    "file": "docs/paper_submission_20260626/paper.tex",
-    "token": "To Be Filled"
-  },
-  {
-    "file": "docs/paper_submission_20260626/paper.tex",
-    "token": "to be filled"
-  },
-  {
-    "file": "docs/paper_submission_20260626/paper.tex",
-    "token": "Author Name"
-  }
-]
+[]
 ```

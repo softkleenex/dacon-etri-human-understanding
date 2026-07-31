@@ -19,7 +19,7 @@
 ## 4. 논문 제출 방법
 - ICTC 2026 EDAS 시스템을 통해 'ICTC Workshop on ETRI Human Understanding AI Paper Challenge (IWETRIAI) 부문'에 투고
 - 타 학술지 발표되지 않은 논문이어야 함.
-- 형식: Standard IEEE conference templates, 6-page full paper 양식.
+- 형식: Standard IEEE conference templates, 4-page full paper 양식.
 
 ## 5. 코드 및 모델설명서 제출 규칙
 - 논문 채택된 팀은 dacon@dacon.io로 팀명 포함하여 제출

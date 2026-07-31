@@ -27,6 +27,8 @@ Expected state:
 - `make paper-submission-length-audit` passes as a source-level length check.
 - `make paper-submission-source-archive` writes an ignored ZIP under
   `build/paper_submission_20260626/`.
+- Tectonic compilation writes the verified four-page PDF to
+  `build/paper_submission_20260626/compile/paper.pdf`.
 - `make docs-audit` reports `Findings: 0`.
 - `git diff --check` prints no whitespace errors.
 - Deadline policy keeps `run_kaggle_now=False` and `dacon_submit_now=False`.
@@ -45,11 +47,8 @@ Expected state:
 
 The following cannot be completed by repository automation:
 
-- author names,
-- affiliations,
-- email addresses,
 - EDAS account/session details,
-- final PDF compilation and upload if local TeX is unavailable,
+- final rebuild after author metadata is inserted and EDAS upload,
 - any required acknowledgments or funding text.
 
 ## Do Not Run From This Runbook

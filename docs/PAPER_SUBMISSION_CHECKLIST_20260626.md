@@ -1,6 +1,6 @@
-# Paper Submission Checklist 2026-06-26
+# Paper Submission Checklist 2026-07-31
 
-Status: deadline checklist for the technical draft in
+Status: updated deadline checklist for the technical draft in
 `docs/PAPER_SUBMISSION_DRAFT_20260626.md`. This document creates no prediction,
 submission CSV, Kaggle run, submission-log row, or DACON submission.
 
@@ -19,23 +19,30 @@ EDAS copy-paste metadata:
 
 ## Current Deadline Position
 
-- Paper deadline date: `2026-06-26`.
-- Primary source: ICTC official paper-submission page.
-- Corroborating source: DACON talkboard notice for the ETRI workshop track.
+- Paper deadline date: `2026-07-31 23:59`.
+- Primary source: DACON talkboard notice updated `2026-07-17 09:10`.
+- Corroborating source: ICTC workshop list and EDAS link.
 - Official ICTC paper-submission page says full and short papers must both be
   at least `2` pages.
 - DACON rules for this challenge require the IWETRIAI paper to use the Standard
   IEEE conference template as a `4`-page full paper.
 - Algorithm leaderboard close recorded separately as `2026-07-23`.
-- Exact paper submission cutoff time is not locally verified; treat the safe
-  operational deadline as before Korean business-day end on `2026-06-26`.
+- Treat the safe operational deadline as before Korean business-day end on
+  `2026-07-31`; the official notice states `23:59`.
+- Review submission completed: EDAS paper `1571325954`, status
+  `Active (has manuscript)`, four-page PDF uploaded.
 
 ## Must Finish Before Submission
 
-- Replace placeholder author, affiliation, email, and acknowledgment details.
-- Convert the technical draft into the Standard IEEE conference template as a
-  `4`-page full paper for the IWETRIAI track. Current source draft:
-  `docs/paper_submission_20260626/paper.tex`.
+The initial review submission items below are complete. Retain them as the
+camera-ready recheck list if the paper is accepted.
+
+- Confirm the single corresponding-author metadata: `Shangjae Lee`,
+  `Kyungpook National University`, `dltkdwo31@knu.ac.kr`.
+- Rebuild the verified Standard IEEE conference `4`-page full paper after any
+  camera-ready edit. Current source draft:
+  `docs/paper_submission_20260626/paper.tex`; verified PDF:
+  `build/paper_submission_20260626/compile/paper.pdf`.
 - Verify whether the IWETRIAI workshop track is visible in EDAS at submission
   time.
 - Use the ICTC official EDAS submission link recorded in
@@ -58,6 +65,9 @@ EDAS copy-paste metadata:
 
 - Current confirmed public anchor: ID342, Public `0.5960832519`, local
   `0.534000`, DACON submission `1467937`.
+- Local `0.534000` is a non-nested model-selection score and must not be
+  described as an unbiased generalization estimate.
+- The 2026-06-26 emergency Q3 app-lexicon slate did not beat ID342 publicly.
 - Public `0.55` remains unproven; do not imply prize-range performance.
 - The method is an anchor-controlled ensemble and validation-risk-control
   workflow, not a solved Q3/S3/S4 representation breakthrough.

@@ -46,10 +46,9 @@ REQUIRED_FILES = [
 
 REQUIRED_TEX_PATTERNS = {
     "ieee_conference_class": r"\\documentclass\[conference\]\{IEEEtran\}",
-    "four_page_rule_context": r"four-page full paper",
+    "current_title": r"Anchor-Constrained Feature-Similarity Ensembling",
     "current_anchor_score": r"0\.5960832519",
     "id342_anchor": r"ID342",
-    "public_055_not_achieved": r"did not reach Public 0\.55",
     "failed_frontier_controls": r"ID287.*ID329|ID329.*ID287",
     "bibliography": r"\\bibliography\{references\}",
 }
@@ -217,16 +216,22 @@ def build_report(_args: argparse.Namespace) -> dict[str, Any]:
             "ictc_submission_page": r"https://ictc\.org/authors_paperSubmission",
             "edas_submission_link": r"https://edas\.info/newPaper\.php\?c=35149",
             "dacon_rules_page": r"https://dacon\.io/en/competitions/official/236690/overview/rules",
-            "human_upload_steps": r"Log in to EDAS.*Upload the compiled IEEE-format four-page PDF",
+            "review_upload_completed": r"Review manuscript uploaded:\s*`True`",
             "no_credentials": r"Do not expose API keys.*EDAS\s+credentials",
         },
     )
     metadata_hits = pattern_hits(
         edas_metadata_text,
         {
-            "title": r"Conservative Multimodal Lifelog Modeling",
+            "title": r"Anchor-Constrained Feature-Similarity Ensembling",
             "abstract_score_boundary": r"0\.5960832519",
             "keyword_count": r'"keyword_count":\s*6',
+            "topic": r'"topic":\s*"Artificial Intelligence and Machine Learning"',
+            "affiliation": r'"affiliation":\s*"Kyungpook National University"',
+            "author_count": r'"author_count":\s*1',
+            "edas_paper_id": r'"edas_paper_id":\s*"1571325954"',
+            "active_with_manuscript": r'"edas_status":\s*"Active \(has manuscript\)"',
+            "review_manuscript_uploaded": r'"review_manuscript_uploaded":\s*true',
             "edas_link": r"https://edas\.info/newPaper\.php\?c=35149",
         },
     )
@@ -234,7 +239,8 @@ def build_report(_args: argparse.Namespace) -> dict[str, Any]:
         length_budget_text,
         {
             "length_pass": r'"length_audit_pass":\s*true',
-            "final_pdf_required": r'"pdf_compile_required_for_final_page_count":\s*true',
+            "actual_pdf_pages": r'"actual_pdf_pages":\s*4',
+            "final_pdf_verified": r'"pdf_compile_required_for_final_page_count":\s*false',
             "max_pages": r'"max_pages":\s*4\.0',
         },
     )
@@ -244,7 +250,7 @@ def build_report(_args: argparse.Namespace) -> dict[str, Any]:
             "source_zip": r"build/paper_submission_20260626/paper_submission_20260626_source\.zip",
             "main_file": r"paper\.tex",
             "four_page_check": r"four pages|4 pages",
-            "pdf_compile_boundary": r"pdflatex.*unavailable|local.*TeX.*unavailable",
+            "local_pdf_verified": r"tectonic.*four pages|four pages.*tectonic",
         },
     )
     final_handoff_hits = pattern_hits(
@@ -282,6 +288,7 @@ def build_report(_args: argparse.Namespace) -> dict[str, Any]:
             and not forbidden
         ),
         "pdflatex_available": shutil.which("pdflatex") is not None,
+        "tectonic_available": shutil.which("tectonic") is not None,
         "chktex_available": shutil.which("chktex") is not None,
         "human_fillins_remaining": bool(placeholders),
         "create_prediction_now": False,
@@ -290,8 +297,8 @@ def build_report(_args: argparse.Namespace) -> dict[str, Any]:
         "run_kaggle_now": False,
         "submit_dacon_now": False,
         "next_action": (
-            "Use paper.tex as the working IEEE source draft. Human author/affiliation/EDAS fields remain; "
-            "no score-bearing action is opened by this package audit."
+            "Review submission is complete. Monitor the EDAS email/status and do not use Final manuscript "
+            "unless acceptance or organizer instructions open the camera-ready stage."
         ),
     }
     return {
@@ -334,6 +341,7 @@ def build_markdown(report: dict[str, Any]) -> str:
         "",
         f"- Package audit pass: `{decision['package_audit_pass']}`",
         f"- pdflatex available: `{decision['pdflatex_available']}`",
+        f"- tectonic available: `{decision['tectonic_available']}`",
         f"- chktex available: `{decision['chktex_available']}`",
         f"- Human fill-ins remaining: `{decision['human_fillins_remaining']}`",
         f"- Run Kaggle now: `{decision['run_kaggle_now']}`",

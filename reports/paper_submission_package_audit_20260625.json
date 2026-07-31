@@ -4,32 +4,39 @@
     "human_fillins": true,
     "no_dacon_spend_for_paper": true
   },
-  "created_at_kst": "2026-06-25 22:20:55 UTC+09:00",
+  "created_at_kst": "2026-07-31 15:23:50 UTC+09:00",
   "decision": {
     "chktex_available": false,
     "create_prediction_now": false,
     "create_submission_artifact_now": false,
-    "human_fillins_remaining": true,
+    "human_fillins_remaining": false,
     "modify_submission_log_now": false,
-    "next_action": "Use paper.tex as the working IEEE source draft. Human author/affiliation/EDAS fields remain; no score-bearing action is opened by this package audit.",
+    "next_action": "Review submission is complete. Monitor the EDAS email/status and do not use Final manuscript unless acceptance or organizer instructions open the camera-ready stage.",
     "package_audit_pass": true,
     "pdflatex_available": false,
     "run_kaggle_now": false,
-    "submit_dacon_now": false
+    "submit_dacon_now": false,
+    "tectonic_available": true
   },
   "diagnostic": "paper_submission_package_audit",
   "edas_metadata_patterns": {
     "abstract_score_boundary": true,
+    "active_with_manuscript": true,
+    "affiliation": true,
+    "author_count": true,
     "edas_link": true,
+    "edas_paper_id": true,
     "keyword_count": true,
-    "title": true
+    "review_manuscript_uploaded": true,
+    "title": true,
+    "topic": true
   },
   "edas_required_patterns": {
     "dacon_rules_page": true,
     "edas_submission_link": true,
-    "human_upload_steps": true,
     "ictc_submission_page": true,
-    "no_credentials": true
+    "no_credentials": true,
+    "review_upload_completed": true
   },
   "final_handoff_patterns": {
     "edas_link": true,
@@ -39,22 +46,10 @@
     "source_zip": true
   },
   "forbidden_hits": [],
-  "human_fillins": [
-    {
-      "file": "docs/paper_submission_20260626/paper.tex",
-      "token": "To Be Filled"
-    },
-    {
-      "file": "docs/paper_submission_20260626/paper.tex",
-      "token": "to be filled"
-    },
-    {
-      "file": "docs/paper_submission_20260626/paper.tex",
-      "token": "Author Name"
-    }
-  ],
+  "human_fillins": [],
   "length_budget_patterns": {
-    "final_pdf_required": true,
+    "actual_pdf_pages": true,
+    "final_pdf_verified": true,
     "length_pass": true,
     "max_pages": true
   },
@@ -71,8 +66,8 @@
   "no_submission_log_row_created": true,
   "overleaf_compile_note_patterns": {
     "four_page_check": true,
+    "local_pdf_verified": true,
     "main_file": true,
-    "pdf_compile_boundary": true,
     "source_zip": true
   },
   "purpose": "Check the deadline paper package for required files, claim boundaries, and secret hygiene.",
@@ -188,10 +183,9 @@
   "tex_required_patterns": {
     "bibliography": true,
     "current_anchor_score": true,
+    "current_title": true,
     "failed_frontier_controls": true,
-    "four_page_rule_context": true,
     "id342_anchor": true,
-    "ieee_conference_class": true,
-    "public_055_not_achieved": true
+    "ieee_conference_class": true
   }
 }

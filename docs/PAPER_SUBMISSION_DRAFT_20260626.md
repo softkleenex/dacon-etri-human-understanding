@@ -1,33 +1,33 @@
 # ETRI Human Understanding Challenge 2026 Paper Draft
 
-Status: deadline-ready technical draft from verified local records. Author,
-affiliation, formatting, and final competition-result wording still need human
-review before EDAS/ICTC submission.
+Status: updated technical draft from verified local records. Author,
+affiliation, and final EDAS metadata still need human review before EDAS/ICTC
+submission. The canonical IEEE source compiles locally to exactly four pages.
 
 IEEE package draft: `docs/paper_submission_20260626/paper.tex`.
 
 ## Title
 
-Conservative Multimodal Lifelog Modeling with Public-Anchor Risk Control for
-Sleep and Stress State Prediction
+Anchor-Constrained Feature-Similarity Ensembling for Multimodal Lifelog State
+Prediction
 
 ## Abstract
 
-This paper describes a competition system for the 5th ETRI Human Understanding
-AI Paper Challenge. The task is to predict seven binary daily targets spanning
-subjective sleep quality, fatigue, stress, and objective sleep-health
-guideline adherence. Our current confirmed public submission is ID342, a
-conservative feature-similarity shrink blend between a public random-convolution
-sequence anchor and an independent feature-similarity source. The approach
-prioritizes leaderboard transfer safety over local cross-validation gains:
-candidate promotion is blocked unless a model improves local validation while
-also surviving stable-shape, failed-frontier, and public-gap risk checks. The
-best confirmed public score as of 2026-06-25 is 0.5960832519. Extensive late-stage audits found
-that weather, AirKorea pollution context, historical ETRI survey/sleep priors,
-raw temporal representations, missingness-aware subject-state embeddings, and
-registered material-source recombinations did not open a credible Public 0.58
-review path. The resulting system is therefore best characterized as a robust
-anchor-controlled ensemble with explicit negative-evidence accounting.
+Predicting daily sleep and stress states from lifelogs is difficult when labels
+are scarce, observations are participant-dependent, and validation does not
+match the hidden test distribution. We present an anchor-constrained ensemble
+for seven binary targets in the 5th ETRI Human Understanding AI Paper
+Challenge. A stable sequence-based probability model is augmented with a
+same-participant nearest-neighbor signal computed from four sensor feature
+families. Target-specific similarity predictions are first blended
+conservatively into a secondary model, then shrunk halfway toward the stable
+public anchor. On 450 labeled person-days from 10 participants, the resulting
+model obtains a local mean log loss of 0.534000 and a DACON public score of
+0.5960832519, improving the previous anchor by 0.0053280490. More aggressive
+models achieved much lower local loss but transferred poorly. The result is a
+practical validation and risk-control procedure for small-sample multimodal
+lifelog prediction; the local score remains a non-nested model-selection
+estimate.
 
 ## Contributions
 
@@ -125,6 +125,10 @@ alpha 0.50. The purpose is not to chase the lowest local loss, but to keep an
 independent strict-feature signal while limiting movement away from a known
 public anchor.
 
+The 2026-06-26 emergency Q3 app-name lexicon slate produced local improvements
+but all submitted variants scored worse than ID342 publicly. This strengthens
+the paper's validation-risk narrative.
+
 ## Confirmed Public Results
 
 | ID | Description | Local CV | Public | Note |
@@ -194,21 +198,19 @@ Security notes:
 
 ## Deadline Notes
 
-Verified public sources on 2026-06-25:
+Verified/updated public sources:
 
 - DACON overview search result lists algorithm close as 2026-07-23.
-- ICTC official paper-submission page lists paper submission deadline as
-  2026-06-26.
+- DACON talkboard notice updated on 2026-07-17 lists paper submission deadline
+  as 2026-07-31 23:59 and links to EDAS `https://edas.info/newPaper.php?c=35149`.
 - ICTC official paper-submission page states that both full and short papers
   must be at least 2 pages.
 - DACON rules for this challenge require the IWETRIAI submission to use the
   Standard IEEE conference template as a 4-page full paper.
-- DACON talkboard notice corroborates that the ETRI workshop paper deadline
-  follows the ICTC 2026 paper submission deadline.
 
-Because the paper deadline is immediate and no current candidate clears the
-submission gates, the deadline-aware policy is to freeze low-evidence DACON
-submissions and prioritize paper/reproducibility packaging.
+Because the paper deadline has been extended, the deadline-aware policy is to
+use the remaining time for paper quality, reproducibility packaging, and final
+author/EDAS preparation. It does not reopen low-evidence DACON submissions.
 
 ## Limitations
 

@@ -20,6 +20,9 @@ PAPER_DIR = ROOT / "docs" / "paper_submission_20260626"
 DEFAULT_TEX = PAPER_DIR / "paper.tex"
 DEFAULT_OUTPUT = PAPER_DIR / "edas_metadata.json"
 KST = timezone(timedelta(hours=9))
+EDAS_TOPIC = "Artificial Intelligence and Machine Learning"
+EDAS_PAPER_ID = "1571325954"
+EDAS_STATUS = "Active (has manuscript)"
 
 
 def rel(path: Path) -> str:
@@ -47,12 +50,22 @@ def clean_latex_text(text: str) -> str:
 
 def build_metadata(tex_path: Path) -> dict[str, Any]:
     text = tex_path.read_text(encoding="utf-8")
+    author_name = clean_latex_text(
+        extract_required(r"\\newcommand\{\\paperauthorname\}\{(.*?)\}", text, "paper author name")
+    )
+    affiliation = clean_latex_text(
+        extract_required(r"\\newcommand\{\\paperaffiliation\}\{(.*?)\}", text, "paper affiliation")
+    )
+    email = clean_latex_text(extract_required(r"\\newcommand\{\\paperemail\}\{(.*?)\}", text, "paper email"))
     title = clean_latex_text(extract_required(r"\\title\{(.*?)\}", text, "title"))
     abstract = clean_latex_text(extract_required(r"\\begin\{abstract\}(.*?)\\end\{abstract\}", text, "abstract"))
     keywords_text = clean_latex_text(
         extract_required(r"\\begin\{IEEEkeywords\}(.*?)\\end\{IEEEkeywords\}", text, "IEEE keywords")
     )
     keywords = [item.strip() for item in keywords_text.split(",") if item.strip()]
+    human_fillins: list[str] = []
+    if "To Be Filled" in author_name:
+        human_fillins.insert(0, "author name")
     now = datetime.now(KST)
     return {
         "created_at_kst": now.strftime("%Y-%m-%d %H:%M:%S UTC+09:00"),
@@ -60,18 +73,25 @@ def build_metadata(tex_path: Path) -> dict[str, Any]:
         "title": title,
         "abstract": abstract,
         "keywords": keywords,
+        "topic": EDAS_TOPIC,
+        "authors": [
+            {
+                "name": author_name,
+                "affiliation": affiliation,
+                "email": email,
+                "corresponding_author": True,
+            }
+        ],
+        "author_count": 1,
+        "edas_paper_id": EDAS_PAPER_ID,
+        "edas_status": EDAS_STATUS,
+        "review_manuscript_uploaded": True,
         "abstract_word_count": len(abstract.split()),
         "keyword_count": len(keywords),
         "edas_submission_link": "https://edas.info/newPaper.php?c=35149",
         "ictc_submission_page": "https://ictc.org/authors_paperSubmission",
         "dacon_rules_page": "https://dacon.io/en/competitions/official/236690/overview/rules",
-        "human_fillins_remaining": [
-            "author names",
-            "affiliations",
-            "email addresses",
-            "compiled PDF upload",
-            "EDAS account/session details",
-        ],
+        "human_fillins_remaining": human_fillins,
         "no_predictions_created": True,
         "no_feature_matrix_created": True,
         "no_submission_artifact_created": True,
@@ -98,9 +118,25 @@ def build_markdown(metadata: dict[str, Any]) -> str:
         "",
         metadata["abstract"],
         "",
-        "## Keywords",
+        "## EDAS Form Fields",
         "",
-        keyword_line,
+        f"- Topic: `{metadata['topic']}`",
+        f"- Author count: `{metadata['author_count']}`",
+        f"- Author name: `{metadata['authors'][0]['name']}`",
+        f"- Affiliation: `{metadata['authors'][0]['affiliation']}`",
+        f"- Email: `{metadata['authors'][0]['email']}`",
+        f"- Corresponding author: `{metadata['authors'][0]['corresponding_author']}`",
+        f"- EDAS paper ID: `{metadata['edas_paper_id']}`",
+        f"- Status: `{metadata['edas_status']}`",
+        f"- Review manuscript uploaded: `{metadata['review_manuscript_uploaded']}`",
+        "",
+        "## Keywords 1-6",
+        "",
+    ]
+    lines.extend(f"- Keyword {index}: `{keyword}`" for index, keyword in enumerate(metadata["keywords"], start=1))
+    lines.extend([
+        "",
+        f"Combined: {keyword_line}",
         "",
         "## Links",
         "",
@@ -115,10 +151,12 @@ def build_markdown(metadata: dict[str, Any]) -> str:
         "",
         "## Human Fill-Ins",
         "",
-    ]
-    lines.extend(f"- {item}" for item in metadata["human_fillins_remaining"])
-    lines.append("")
-    return "\n".join(lines)
+    ])
+    if metadata["human_fillins_remaining"]:
+        lines.extend(f"- {item}" for item in metadata["human_fillins_remaining"])
+    else:
+        lines.append("- None.")
+    return "\n".join(lines) + "\n"
 
 
 def parse_args() -> argparse.Namespace:

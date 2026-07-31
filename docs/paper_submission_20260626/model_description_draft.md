@@ -23,6 +23,9 @@ row.
 - Base test:
   `artifacts/base_predictions/base_test_id_342_id178_id221_featuresim_shrink050_cv0.534000.csv`
 
+ID342 remains the selected paper anchor after the 2026-06-26 emergency slate:
+IDs `346`, `350`, and `347` improved local proxies but scored worse publicly.
+
 ## Model Summary
 
 The confirmed model is an anchor-controlled probability blend:
@@ -31,10 +34,11 @@ The confirmed model is an anchor-controlled probability blend:
 ID342 = 0.50 * ID221 + 0.50 * ID178
 ```
 
-ID178 is the stable public-anchor lineage. ID221 contributes an independent
-feature-similarity signal from the strict-feature family. The blend shrinks the
-ID221 movement back toward ID178 to reduce the risk of large public-frontier
-movement. All seven targets are blended under the same alpha.
+ID178 is the stable public-anchor lineage. ID221 contributes a target-specific
+same-participant feature-similarity signal. Its grid was selected on the full
+primary OOF diagnostic rather than nested CV, so local `0.532990` is optimistic
+and ID221 was not treated as independent public evidence. The final blend
+shrinks ID221 movement back toward ID178; all seven targets use alpha `0.50`.
 
 The model should be described as a conservative ensemble and risk-control
 workflow, not as a single end-to-end neural architecture.

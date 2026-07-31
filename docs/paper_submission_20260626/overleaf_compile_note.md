@@ -20,11 +20,13 @@ rows, or DACON submissions.
 5. Recompile from scratch after bibliography changes.
 6. Confirm the compiled PDF is four pages or fewer.
 7. Confirm the bibliography appears and there are no unresolved citations.
-8. Replace human placeholders such as author names, affiliations, and email.
+8. Confirm the author block matches the EDAS profile for `Shangjae Lee`.
 9. Download the PDF and upload it through EDAS.
 
 ## Local Boundary
 
-Local `pdflatex`, `latexmk`, and `tectonic` were unavailable in this workspace,
-so final page count and EDAS PDF-checker compliance must be verified in
-Overleaf or another TeX environment.
+Tectonic `0.16.9` compiled the source locally on `2026-07-17`. The verified
+output is `build/paper_submission_20260626/compile/paper.pdf`: IEEE conference
+Letter format, exactly four pages, with no overfull boxes or unresolved
+citations. EDAS PDF-checker compliance must still be verified after the author
+block is replaced.

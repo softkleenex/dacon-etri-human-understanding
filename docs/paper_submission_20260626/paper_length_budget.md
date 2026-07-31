@@ -1,27 +1,30 @@
 # Paper Length Budget
 
-Created: `2026-06-25 22:20:55 UTC+09:00`
+Created: `2026-07-31 15:23:50 UTC+09:00`
 
-This is an approximate source-level check. Final page count still requires PDF compilation in a TeX environment.
+Source length is approximate. When a compiled PDF exists, its actual page count is authoritative.
 
 ## Decision
 
 - Length audit pass: `True`
-- Estimated pages from source: `2.15` / `4.0`
-- Total words: `1127` / `2600`
-- Abstract words: `160` / `250`
-- Tables: `1`
-- Equations: `2`
-- Final PDF compile required: `True`
+- Estimated pages from source: `5.633` / `4.0`
+- Actual compiled PDF pages: `4` / `4.0`
+- Compiled PDF: `build/paper_submission_20260626/compile/paper.pdf`
+- Total words: `2242` / `2600`
+- Abstract words: `163` / `250`
+- Tables: `5`
+- Figures: `1`
+- Equations: `4`
+- Final PDF compile required: `False`
 
 ## Section Word Counts
 
 | section | words |
 |---|---:|
-| Introduction | 185 |
-| Task and Data | 144 |
-| Method | 180 |
-| Results | 77 |
-| Negative Evidence | 161 |
-| Reproducibility and Safety | 83 |
-| Conclusion | 82 |
+| Introduction | 227 |
+| Data and Evaluation | 491 |
+| Method | 483 |
+| Results | 356 |
+| Negative Evidence and Reproducibility | 255 |
+| Discussion and Limitations | 165 |
+| Conclusion | 60 |

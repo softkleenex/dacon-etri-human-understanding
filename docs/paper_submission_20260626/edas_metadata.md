@@ -1,20 +1,39 @@
 # EDAS Metadata
 
-Created: `2026-06-25 22:20:55 UTC+09:00`
+Created: `2026-07-31 15:23:45 UTC+09:00`
 
 This is copy-paste metadata for EDAS. It creates no predictions, feature matrices, submission CSVs, Kaggle runs, or DACON submissions.
 
 ## Title
 
-Conservative Multimodal Lifelog Modeling with Public-Anchor Risk Control for Sleep and Stress State Prediction
+Anchor-Constrained Feature-Similarity Ensembling for Multimodal Lifelog State Prediction
 
 ## Abstract
 
-This paper describes a competition system for the 5th ETRI Human Understanding AI Paper Challenge. The task is to predict seven binary daily targets spanning subjective sleep quality, fatigue, stress, and objective sleep-health guideline adherence from multimodal lifelog data. The confirmed public anchor of the system is ID342, a conservative feature-similarity shrink blend between a known public anchor lineage and an independent feature-similarity source. The workflow prioritizes leaderboard transfer safety over local cross-validation gains: candidate promotion is blocked unless a model improves local validation while also surviving stable-shape, failed-frontier, and public-gap risk checks. The best confirmed public score as of 2026-06-25 is 0.5960832519. Extensive late-stage audits found that weather, AirKorea pollution context, historical ETRI survey/sleep priors, raw temporal representations, missingness-aware subject-state embeddings, and registered material-source recombinations did not open a credible Public 0.58 review path. The resulting system is best characterized as a robust anchor-controlled ensemble with explicit negative-evidence accounting rather than an overfit local-frontier solution.
+Predicting daily sleep and stress states from lifelogs is difficult when labels are scarce, observations are participant-dependent, and validation does not match the hidden test distribution. We present an anchor-constrained ensemble for seven binary targets in the 5th ETRI Human Understanding AI Paper Challenge. A stable sequence-based probability model is augmented with a same-participant nearest-neighbor signal computed from four sensor feature families. Target-specific similarity predictions are first blended conservatively into a secondary model, then shrunk halfway toward the stable public anchor. On 450 labeled person-days from 10 participants, the resulting model obtains a local mean log loss of 0.534000 and a DACON public score of 0.5960832519, improving the previous anchor by 0.0053280490. More aggressive models achieved much lower local loss but transferred poorly. Ablations and three later public probes show that small local gains are not sufficient evidence near the anchor. The main result is therefore a practical validation and risk-control procedure for multimodal lifelog prediction under small-sample distribution shift.
 
-## Keywords
+## EDAS Form Fields
 
-lifelog, multimodal sensing, sleep prediction, stress prediction, validation risk, ensemble learning
+- Topic: `Artificial Intelligence and Machine Learning`
+- Author count: `1`
+- Author name: `Shangjae Lee`
+- Affiliation: `Kyungpook National University`
+- Email: `dltkdwo31@knu.ac.kr`
+- Corresponding author: `True`
+- EDAS paper ID: `1571325954`
+- Status: `Active (has manuscript)`
+- Review manuscript uploaded: `True`
+
+## Keywords 1-6
+
+- Keyword 1: `lifelog`
+- Keyword 2: `multimodal sensing`
+- Keyword 3: `sleep prediction`
+- Keyword 4: `stress prediction`
+- Keyword 5: `nearest neighbors`
+- Keyword 6: `ensemble learning`
+
+Combined: lifelog, multimodal sensing, sleep prediction, stress prediction, nearest neighbors, ensemble learning
 
 ## Links
 
@@ -24,13 +43,9 @@ lifelog, multimodal sensing, sleep prediction, stress prediction, validation ris
 
 ## Counts
 
-- Abstract words: `156`
+- Abstract words: `160`
 - Keywords: `6`
 
 ## Human Fill-Ins
 
-- author names
-- affiliations
-- email addresses
-- compiled PDF upload
-- EDAS account/session details
+- None.

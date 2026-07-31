@@ -6,33 +6,55 @@ runs, submission-log rows, or DACON submissions.
 
 ## Official Links
 
+- DACON paper-deadline update notice:
+  `https://dacon.io/en/competitions/official/236690/talkboard/416804`
 - ICTC 2026 paper submission page:
   `https://ictc.org/authors_paperSubmission`
 - ICTC EDAS submission link observed from the official ICTC page:
   `https://edas.info/newPaper.php?c=35149`
 - DACON rules page:
   `https://dacon.io/en/competitions/official/236690/overview/rules`
-- DACON paper-deadline talkboard notice:
-  `https://dacon.io/en/competitions/official/236690/talkboard/416793`
 - EDAS author instructions:
   `https://edas.info/doc/authors.html`
 
-## Required Human Actions
+## Current Deadline
 
-1. Log in to EDAS or create an EDAS account.
-2. Open the ICTC submission link above.
-3. Confirm the IWETRIAI / ETRI Human Understanding workshop track is visible.
-4. Register the paper title and abstract from `paper.tex`.
-5. Add all authors, affiliations, and email addresses.
-6. Upload the compiled IEEE-format four-page PDF.
-7. Check the EDAS PDF checker output and fix any page/font/template warnings.
-8. Save the EDAS paper ID and submission timestamp outside this repo, then
-   optionally mirror non-secret metadata into a future report.
+- Updated paper deadline: `2026-07-31 23:59`.
+- Source: DACON notice updated `2026-07-17 09:10`.
+- The notice lists the same EDAS submission system:
+  `https://edas.info/newPaper.php?c=35149`.
+
+## Submission Status
+
+- EDAS paper ID: `1571325954`.
+- Status: `Active (has manuscript)`.
+- Review manuscript uploaded: `True`.
+- EDAS file inspection: `4` pages, Letter size (`8.5 x 11 in`), aspect ratio
+  `22:17`, PDF `1.5`, created by Tectonic.
+- Reference section begins on page `4.3`, within the four-page limit.
+
+## Completed Review-Submission Actions
+
+1. EDAS account and IWETRIAI track registration completed.
+2. Title, abstract, keywords, topic, and single author registered.
+3. IEEE-format four-page review PDF uploaded.
+4. EDAS status confirmed as `Active (has manuscript)`.
+
+Do not upload through `Final manuscript` unless a later acceptance or organizer
+instruction opens the camera-ready stage.
 
 ## Draft Values To Copy Carefully
 
 - Title:
-  `Conservative Multimodal Lifelog Modeling with Public-Anchor Risk Control for Sleep and Stress State Prediction`
+  `Anchor-Constrained Feature-Similarity Ensembling for Multimodal Lifelog State Prediction`
+- Topic:
+  `Artificial Intelligence and Machine Learning`
+- Author count: `1` (single and corresponding author).
+- Author display name: `Shangjae Lee`.
+- EDAS first/given name: `Shangjae`.
+- EDAS last/family name: `Lee`.
+- Affiliation: `Kyungpook National University`.
+- Email: `dltkdwo31@knu.ac.kr`.
 - Working source:
   `docs/paper_submission_20260626/paper.tex`
 - EDAS metadata:
@@ -51,5 +73,6 @@ runs, submission-log rows, or DACON submissions.
   the paper story.
 - Do not expose API keys, DACON credentials, Kaggle credentials, or EDAS
   credentials in any repo file.
-- Local `pdflatex` is currently unavailable in this workspace, so final PDF
-  compilation must happen in another TeX environment unless TeX is installed.
+- Tectonic compilation and the EDAS inspection are verified at exactly four
+  pages. After any camera-ready edit, rebuild and rerun the PDF checker because
+  content changes can still affect pagination or font checks.

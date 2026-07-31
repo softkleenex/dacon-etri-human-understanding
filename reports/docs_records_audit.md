@@ -8,7 +8,7 @@ Found **0 findings**: 0 critical, 0 high, 0 medium.
 
 ```json
 {
-  "submission_rows": 344,
+  "submission_rows": 349,
   "submission_columns": [
     "artifact_exists",
     "artifact_role",

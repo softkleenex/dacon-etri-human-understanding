@@ -19,6 +19,7 @@
 .PHONY: post-id342-external-etri-sleep-survey-prior
 .PHONY: post-id342-deadline-operating-policy
 .PHONY: paper-submission-metadata
+.PHONY: paper-submission-pdf
 .PHONY: paper-submission-length-audit
 .PHONY: paper-submission-source-archive
 .PHONY: paper-submission-package-audit
@@ -51,6 +52,8 @@
 .PHONY: kaggle-wait-and-pull-missingness-subject-state-output
 
 KAGGLE ?= .venv/bin/kaggle
+PAPER_PYTHON ?= python3
+TECTONIC ?= tectonic
 KAGGLE_DATASET_DIR := build/kaggle_dataset
 KAGGLE_UPSTREAM_PATCH_DATASET_DIR := build/kaggle_upstream_patch_dataset
 KAGGLE_SELF_SUPERVISED_SUBJECT_STATE_PATCH_DATASET_DIR := build/kaggle_self_supervised_subject_state_patch_dataset
@@ -114,6 +117,7 @@ help:
 	@echo "  make post-id342-external-etri-sleep-survey-prior - Audit historical ETRI sleep/survey priors"
 	@echo "  make post-id342-deadline-operating-policy - Refresh deadline-aware operating policy"
 	@echo "  make paper-submission-metadata - Extract EDAS title/abstract/keywords from paper.tex"
+	@echo "  make paper-submission-pdf - Compile the IEEE paper with Tectonic"
 	@echo "  make paper-submission-length-audit - Audit paper.tex source length budget"
 	@echo "  make paper-submission-source-archive - Build Overleaf/TeX-ready paper source ZIP"
 	@echo "  make paper-submission-package-audit - Audit deadline IEEE paper package claims and hygiene"
@@ -433,16 +437,20 @@ post-id342-deadline-operating-policy:
 	.venv/bin/python scripts/diagnose_post_id342_deadline_operating_policy.py --output reports/post_id342_deadline_operating_policy_20260625.json
 
 paper-submission-metadata:
-	.venv/bin/python scripts/extract_paper_submission_metadata.py --tex docs/paper_submission_20260626/paper.tex --output docs/paper_submission_20260626/edas_metadata.json
+	$(PAPER_PYTHON) scripts/extract_paper_submission_metadata.py --tex docs/paper_submission_20260626/paper.tex --output docs/paper_submission_20260626/edas_metadata.json
 
-paper-submission-length-audit:
-	.venv/bin/python scripts/audit_paper_length_budget.py --tex docs/paper_submission_20260626/paper.tex --output docs/paper_submission_20260626/paper_length_budget.json
+paper-submission-pdf:
+	mkdir -p build/paper_submission_20260626/compile
+	cd docs/paper_submission_20260626 && $(TECTONIC) paper.tex --outdir ../../build/paper_submission_20260626/compile --keep-logs --keep-intermediates
+
+paper-submission-length-audit: paper-submission-pdf
+	$(PAPER_PYTHON) scripts/audit_paper_length_budget.py --tex docs/paper_submission_20260626/paper.tex --output docs/paper_submission_20260626/paper_length_budget.json
 
 paper-submission-source-archive: paper-submission-metadata paper-submission-length-audit
-	.venv/bin/python scripts/package_paper_submission_sources.py --archive build/paper_submission_20260626/paper_submission_20260626_source.zip --output reports/paper_submission_source_archive_20260625.json
+	$(PAPER_PYTHON) scripts/package_paper_submission_sources.py --archive build/paper_submission_20260626/paper_submission_20260626_source.zip --output reports/paper_submission_source_archive_20260625.json
 
 paper-submission-package-audit: paper-submission-source-archive
-	.venv/bin/python scripts/audit_paper_submission_package.py --output reports/paper_submission_package_audit_20260625.json
+	$(PAPER_PYTHON) scripts/audit_paper_submission_package.py --output reports/paper_submission_package_audit_20260625.json
 
 post-id342-stable-envelope-multisource-optimizer: post-id342-public-gap-risk-lens
 	.venv/bin/python scripts/diagnose_post_id342_stable_envelope_microblend_scan.py --output reports/post_id342_stable_envelope_microblend_scan_20260625.json
