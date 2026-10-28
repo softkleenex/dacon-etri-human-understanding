@@ -10,14 +10,17 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SKIP_DIRS = {".git", ".venv", "data", "models", "artifacts"}
-EXPECTED_ROOT_MD = {"README.md", "AGENTS.md", "CONTRIBUTING.md", "CHANGELOG.md"}
+SKIP_DIRS = {".git", ".venv", "build", "data", "models", "artifacts"}
+EXPECTED_ROOT_MD = {"README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md", "CHANGELOG.md"}
+# Deliverables that cannot be Markdown: the compiled manuscript and the PDF actually submitted.
+ALLOWED_PDF_PARENT_GLOB = "docs/paper_submission_*"
 ALLOWED_ROOT = {
     ".env.example",
     ".geminiignore",
     ".gitignore",
     "AGENTS.md",
     "CHANGELOG.md",
+    "CLAUDE.md",
     "CONTRIBUTING.md",
     "Makefile",
     "README.md",
@@ -28,6 +31,7 @@ ALLOWED_ROOT_DIRS = {
     ".git",
     ".venv",
     "_inbox",
+    "build",
     "artifacts",
     "checks",
     "conf",
@@ -156,7 +160,11 @@ def audit_recursive_files() -> tuple[list[Finding], dict]:
     stats["file_count_scanned"] = len(files)
     stats["extension_counts"] = dict(ext_counts.most_common(30))
 
-    pdfs = [str(p.relative_to(ROOT)) for p in files if p.suffix.lower() == ".pdf"]
+    pdfs = [
+        str(p.relative_to(ROOT))
+        for p in files
+        if p.suffix.lower() == ".pdf" and not p.parent.match(ALLOWED_PDF_PARENT_GLOB)
+    ]
     if pdfs:
         findings.append(
             Finding(
@@ -284,7 +292,7 @@ def audit_nested_project_copies() -> list[Finding]:
         if not d.is_dir():
             continue
         rel_parts = d.relative_to(ROOT).parts
-        if any(part in {".git", ".venv", "artifacts"} for part in rel_parts):
+        if any(part in {".git", ".venv", "artifacts", "build"} for part in rel_parts):
             continue
         child_names = {p.name for p in d.iterdir()}
         if {"src", "scripts", "conf"}.issubset(child_names) and d != ROOT:
@@ -308,7 +316,8 @@ def audit_tracked_ignored_patterns() -> list[Finding]:
     tracked_generated = sorted(
         p
         for p in tracked
-        if p not in {
+        if p
+        not in {
             "data/raw/.gitkeep",
             "data/raw/README.md",
             "data/processed/.gitkeep",
@@ -317,15 +326,17 @@ def audit_tracked_ignored_patterns() -> list[Finding]:
             "data/interim/README.md",
             "models/.gitkeep",
         }
-        and p.startswith((
-            "data/raw/",
-            "data/processed/",
-            "data/interim/",
-            "models/",
-            "artifacts/",
-            "lightning_logs/",
-            "catboost_info/",
-        ))
+        and p.startswith(
+            (
+                "data/raw/",
+                "data/processed/",
+                "data/interim/",
+                "models/",
+                "artifacts/",
+                "lightning_logs/",
+                "catboost_info/",
+            )
+        )
     )
     if tracked_generated:
         findings.append(
