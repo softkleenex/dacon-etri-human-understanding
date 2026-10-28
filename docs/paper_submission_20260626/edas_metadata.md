@@ -1,6 +1,6 @@
 # EDAS Metadata
 
-Created: `2026-07-31 15:23:45 UTC+09:00`
+Created: `2026-09-15 22:02:29 UTC+09:00`
 
 This is copy-paste metadata for EDAS. It creates no predictions, feature matrices, submission CSVs, Kaggle runs, or DACON submissions.
 
@@ -10,7 +10,7 @@ Anchor-Constrained Feature-Similarity Ensembling for Multimodal Lifelog State Pr
 
 ## Abstract
 
-Predicting daily sleep and stress states from lifelogs is difficult when labels are scarce, observations are participant-dependent, and validation does not match the hidden test distribution. We present an anchor-constrained ensemble for seven binary targets in the 5th ETRI Human Understanding AI Paper Challenge. A stable sequence-based probability model is augmented with a same-participant nearest-neighbor signal computed from four sensor feature families. Target-specific similarity predictions are first blended conservatively into a secondary model, then shrunk halfway toward the stable public anchor. On 450 labeled person-days from 10 participants, the resulting model obtains a local mean log loss of 0.534000 and a DACON public score of 0.5960832519, improving the previous anchor by 0.0053280490. More aggressive models achieved much lower local loss but transferred poorly. Ablations and three later public probes show that small local gains are not sufficient evidence near the anchor. The main result is therefore a practical validation and risk-control procedure for multimodal lifelog prediction under small-sample distribution shift.
+Predicting daily sleep and stress states from lifelogs is difficult when labels are scarce, observations are participant-dependent, and validation does not match the hidden test distribution. We present an anchor-constrained ensemble for seven binary targets in the 5th ETRI Human Understanding AI Paper Challenge. A stable sequence-based anchor is blended with a pre-existing multi-signal model carrying a small same-participant nearest-neighbor correction over four sensor families. On 450 labeled person-days from 10 participants, the complete lineage ensemble obtains a non-nested local mean log loss of 0.534000 and a DACON public score of 0.5960832519, improving the previous public anchor by 0.0053280490. An OOF ablation attributes only 0.000508 of the 0.004638 local gain to the similarity correction; no public ablation isolates its leaderboard effect. More aggressive models transferred poorly, and three later near-anchor probes did not improve the result. The contribution is therefore the conservative ensemble and its explicit attribution and risk audit, not evidence that feature similarity alone caused the public gain.
 
 ## EDAS Form Fields
 
@@ -23,6 +23,9 @@ Predicting daily sleep and stress states from lifelogs is difficult when labels 
 - EDAS paper ID: `1571325954`
 - Status: `Active (has manuscript)`
 - Review manuscript uploaded: `True`
+- Registered title matches source: `True`
+- EDAS status observed: `2026-07-17 17:56:39 UTC+09:00`
+- EDAS receipt: `docs/paper_submission_20260626/edas_receipt.json`
 
 ## Keywords 1-6
 

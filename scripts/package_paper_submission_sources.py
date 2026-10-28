@@ -31,8 +31,11 @@ SOURCE_FILES = [
     PAPER_DIR / "README.md",
     PAPER_DIR / "model_description_draft.md",
     PAPER_DIR / "id342_lineage_manifest.md",
+    PAPER_DIR / "lineage_attribution_evidence.json",
+    PAPER_DIR / "reviewer_response.md",
     PAPER_DIR / "reproducibility_runbook.md",
     PAPER_DIR / "edas_submission_handoff.md",
+    PAPER_DIR / "edas_receipt.json",
     PAPER_DIR / "edas_metadata.json",
     PAPER_DIR / "edas_metadata.md",
     PAPER_DIR / "paper_length_budget.json",
@@ -43,7 +46,7 @@ SOURCE_FILES = [
 ]
 
 FORBIDDEN_PATTERNS = {
-    "secret_key_like": r"serviceKey\s*=|[0-9a-f]{64}",
+    "secret_key_like": r"serviceKey\s*[:=]|(?:api|secret|access)[_-]?key\s*[:=]",
     "dacon_token": r"DACON_TOKEN\s*=|DACON_TEAMNAME\s*=",
     "kaggle_token": r"\"key\"\s*:\s*\"[^\"]+\"",
 }

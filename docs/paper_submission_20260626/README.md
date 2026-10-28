@@ -10,8 +10,9 @@ Review submission is registered as EDAS paper `1571325954` with status
 
 ## Files
 
-- [`paper.pdf`](paper.pdf): EDAS에 제출한 내용과 일치하는 4-page review
-  manuscript.
+- [`paper.pdf`](paper.pdf): current four-page revision rebuilt from `paper.tex`.
+- [`review_manuscript_submitted_20260717.pdf`](review_manuscript_submitted_20260717.pdf):
+  immutable snapshot of the review manuscript uploaded to EDAS.
 - `paper.tex`: IEEEtran-style 4-page full-paper draft.
 - `references.bib`: bibliography entries for DACON/ICTC pages and related
   method context.
@@ -19,9 +20,15 @@ Review submission is registered as EDAS paper `1571325954` with status
   DACON/organizer handoff.
 - `id342_lineage_manifest.md`: one-to-one mapping from notebook to CSV to
   submission-log row and DACON public score.
+- `lineage_attribution_evidence.json`: tracked aggregate OOF attribution values
+  and source hashes; row-level labels and predictions remain excluded.
+- `reviewer_response.md`: point-by-point response and the additional robustness
+  analyses incorporated after the review.
 - `reproducibility_runbook.md`: safe handoff commands and non-score-bearing
   reproduction checks.
 - `edas_submission_handoff.md`: official EDAS links and human upload checklist.
+- `edas_receipt.json`: author-confirmed EDAS paper ID, status observation, and
+  submitted-PDF hash. This is not generated from `paper.tex`.
 - `edas_metadata.json` / `edas_metadata.md`: EDAS title, abstract, and keywords
   extracted from `paper.tex`.
 - `paper_length_budget.json` / `paper_length_budget.md`: source-level length
@@ -50,8 +57,9 @@ The tracked manifest report is
 - Current confirmed public anchor: ID342, Public `0.5960832519`, local
   `0.534000`, DACON submission `1467937`.
 - Public `0.55` is not achieved and must not be claimed.
-- The paper presents anchor-constrained feature-similarity ensembling,
-  validation-risk control, and negative-evidence accounting.
+- ID221 is an ID218 multi-signal predecessor plus a small feature-similarity
+  correction. OOF decomposition attributes about `11%` of ID342's local gain
+  over ID178 to that correction; its public contribution is not isolated.
 - Local `0.534000` is a non-nested model-selection score; the official Public
   `0.5960832519` result is the final comparative evidence.
 
@@ -66,16 +74,13 @@ The tracked manifest report is
 
 ## Build
 
-The verified local build uses Tectonic:
+The verified local build uses Tectonic. Prefer the Make target because it also
+synchronizes the tracked current PDF:
 
 ```bash
-cd docs/paper_submission_20260626
-tectonic paper.tex \
-  --outdir ../../build/paper_submission_20260626/compile \
-  --keep-logs --keep-intermediates
+make paper-submission-pdf
 ```
 
-Verified result: IEEE conference Letter PDF, exactly four pages, with no
-overfull boxes or unresolved citations. The tracked review manuscript is
-[`paper.pdf`](paper.pdf); the reproducible build output is
-`build/paper_submission_20260626/compile/paper.pdf`.
+The target writes `build/paper_submission_20260626/compile/paper.pdf` and copies
+the same bytes to [`paper.pdf`](paper.pdf). The package audit requires both
+files to match while separately preserving the submitted snapshot.

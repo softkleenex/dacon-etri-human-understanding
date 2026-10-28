@@ -1,5 +1,5 @@
 {
-  "abstract": "Predicting daily sleep and stress states from lifelogs is difficult when labels are scarce, observations are participant-dependent, and validation does not match the hidden test distribution. We present an anchor-constrained ensemble for seven binary targets in the 5th ETRI Human Understanding AI Paper Challenge. A stable sequence-based probability model is augmented with a same-participant nearest-neighbor signal computed from four sensor feature families. Target-specific similarity predictions are first blended conservatively into a secondary model, then shrunk halfway toward the stable public anchor. On 450 labeled person-days from 10 participants, the resulting model obtains a local mean log loss of 0.534000 and a DACON public score of 0.5960832519, improving the previous anchor by 0.0053280490. More aggressive models achieved much lower local loss but transferred poorly. Ablations and three later public probes show that small local gains are not sufficient evidence near the anchor. The main result is therefore a practical validation and risk-control procedure for multimodal lifelog prediction under small-sample distribution shift.",
+  "abstract": "Predicting daily sleep and stress states from lifelogs is difficult when labels are scarce, observations are participant-dependent, and validation does not match the hidden test distribution. We present an anchor-constrained ensemble for seven binary targets in the 5th ETRI Human Understanding AI Paper Challenge. A stable sequence-based anchor is blended with a pre-existing multi-signal model carrying a small same-participant nearest-neighbor correction over four sensor families. On 450 labeled person-days from 10 participants, the complete lineage ensemble obtains a non-nested local mean log loss of 0.534000 and a DACON public score of 0.5960832519, improving the previous public anchor by 0.0053280490. An OOF ablation attributes only 0.000508 of the 0.004638 local gain to the similarity correction; no public ablation isolates its leaderboard effect. More aggressive models transferred poorly, and three later near-anchor probes did not improve the result. The contribution is therefore the conservative ensemble and its explicit attribution and risk audit, not evidence that feature similarity alone caused the public gain.",
   "abstract_word_count": 160,
   "author_count": 1,
   "authors": [
@@ -10,10 +10,12 @@
       "name": "Shangjae Lee"
     }
   ],
-  "created_at_kst": "2026-07-31 15:23:45 UTC+09:00",
+  "created_at_kst": "2026-09-15 22:02:29 UTC+09:00",
   "dacon_rules_page": "https://dacon.io/en/competitions/official/236690/overview/rules",
   "edas_paper_id": "1571325954",
+  "edas_receipt": "docs/paper_submission_20260626/edas_receipt.json",
   "edas_status": "Active (has manuscript)",
+  "edas_status_observed_at_kst": "2026-07-17 17:56:39 UTC+09:00",
   "edas_submission_link": "https://edas.info/newPaper.php?c=35149",
   "human_fillins_remaining": [],
   "ictc_submission_page": "https://ictc.org/authors_paperSubmission",
@@ -32,6 +34,7 @@
   "no_predictions_created": true,
   "no_submission_artifact_created": true,
   "no_submission_log_row_created": true,
+  "registered_title_matches_source": true,
   "review_manuscript_uploaded": true,
   "source_tex": "docs/paper_submission_20260626/paper.tex",
   "title": "Anchor-Constrained Feature-Similarity Ensembling for Multimodal Lifelog State Prediction",

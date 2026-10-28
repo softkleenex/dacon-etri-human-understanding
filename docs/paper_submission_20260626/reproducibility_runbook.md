@@ -28,7 +28,12 @@ Expected state:
 - `make paper-submission-source-archive` writes an ignored ZIP under
   `build/paper_submission_20260626/`.
 - Tectonic compilation writes the verified four-page PDF to
-  `build/paper_submission_20260626/compile/paper.pdf`.
+  `build/paper_submission_20260626/compile/paper.pdf` and synchronizes
+  `docs/paper_submission_20260626/paper.pdf`.
+- The package audit verifies that the current/build PDFs match and that the
+  immutable submitted PDF matches `edas_receipt.json`.
+- The package audit validates aggregate OOF attribution evidence on a clean
+  clone and, when all ignored local source artifacts exist, recomputes it.
 - `make docs-audit` reports `Findings: 0`.
 - `git diff --check` prints no whitespace errors.
 - Deadline policy keeps `run_kaggle_now=False` and `dacon_submit_now=False`.
@@ -39,17 +44,18 @@ Expected state:
 - `docs/paper_submission_20260626/references.bib`
 - `docs/paper_submission_20260626/model_description_draft.md`
 - `docs/paper_submission_20260626/id342_lineage_manifest.md`
+- `docs/paper_submission_20260626/lineage_attribution_evidence.json`
 - `docs/paper_submission_20260626/reproducibility_runbook.md`
 - `docs/paper_submission_20260626/edas_submission_handoff.md`
+- `docs/paper_submission_20260626/edas_receipt.json`
 - `docs/PAPER_SUBMISSION_CHECKLIST_20260626.md`
 
-## Human Fill-Ins
+## Human Follow-Up
 
-The following cannot be completed by repository automation:
-
-- EDAS account/session details,
-- final rebuild after author metadata is inserted and EDAS upload,
-- any required acknowledgments or funding text.
+Repository automation cannot observe live EDAS state. Update
+`edas_receipt.json` only after the author verifies a status change, and upload a
+new PDF only after an acceptance or organizer instruction. Any required
+acknowledgment or funding text also requires author confirmation.
 
 ## Do Not Run From This Runbook
 

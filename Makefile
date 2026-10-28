@@ -442,6 +442,7 @@ paper-submission-metadata:
 paper-submission-pdf:
 	mkdir -p build/paper_submission_20260626/compile
 	cd docs/paper_submission_20260626 && $(TECTONIC) paper.tex --outdir ../../build/paper_submission_20260626/compile --keep-logs --keep-intermediates
+	cp build/paper_submission_20260626/compile/paper.pdf docs/paper_submission_20260626/paper.pdf
 
 paper-submission-length-audit: paper-submission-pdf
 	$(PAPER_PYTHON) scripts/audit_paper_length_budget.py --tex docs/paper_submission_20260626/paper.tex --output docs/paper_submission_20260626/paper_length_budget.json

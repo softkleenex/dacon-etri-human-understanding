@@ -26,6 +26,8 @@ runs, submission-log rows, or DACON submissions.
 
 ## Submission Status
 
+- Recorded evidence: `edas_receipt.json`, observed from the author-confirmed
+  EDAS paper record. Repository automation does not query the live EDAS state.
 - EDAS paper ID: `1571325954`.
 - Status: `Active (has manuscript)`.
 - Review manuscript uploaded: `True`.
@@ -59,6 +61,8 @@ instruction opens the camera-ready stage.
   `docs/paper_submission_20260626/paper.tex`
 - EDAS metadata:
   `docs/paper_submission_20260626/edas_metadata.md`
+- EDAS receipt:
+  `docs/paper_submission_20260626/edas_receipt.json`
 - Bibliography:
   `docs/paper_submission_20260626/references.bib`
 - Model-description draft:

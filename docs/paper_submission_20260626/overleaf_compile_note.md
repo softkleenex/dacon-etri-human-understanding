@@ -21,12 +21,13 @@ rows, or DACON submissions.
 6. Confirm the compiled PDF is four pages or fewer.
 7. Confirm the bibliography appears and there are no unresolved citations.
 8. Confirm the author block matches the EDAS profile for `Shangjae Lee`.
-9. Download the PDF and upload it through EDAS.
+9. Upload only when an organizer instruction opens a revision or camera-ready
+   action; do not overwrite the recorded review submission by default.
 
 ## Local Boundary
 
-Tectonic `0.16.9` compiled the source locally on `2026-07-17`. The verified
-output is `build/paper_submission_20260626/compile/paper.pdf`: IEEE conference
-Letter format, exactly four pages, with no overfull boxes or unresolved
-citations. EDAS PDF-checker compliance must still be verified after the author
-block is replaced.
+Tectonic `0.16.9` compiles the source to
+`build/paper_submission_20260626/compile/paper.pdf`, and the Make target copies
+the same bytes to `paper.pdf`. The immutable EDAS review snapshot is
+`review_manuscript_submitted_20260717.pdf`. Any future uploaded revision still
+requires the EDAS PDF checker.

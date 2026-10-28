@@ -46,7 +46,8 @@ Kaggle runs, submission-log rows, or DACON submissions.
 - The paper is configured for one corresponding author, `Shangjae Lee`, at
   Kyungpook National University using `dltkdwo31@knu.ac.kr`.
 - EDAS track selection and paper metadata confirmation.
-- Final rebuild after author insertion and EDAS PDF-checker result.
+- Any future camera-ready rebuild and EDAS PDF-checker result after an
+  acceptance or organizer instruction.
 
 These review-submission actions are complete. `Final manuscript` remains a
 future camera-ready action only if requested after the review decision.

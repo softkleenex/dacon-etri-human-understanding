@@ -1,0 +1,67 @@
+{
+  "description": "Aggregate OOF attribution evidence for the ID342 paper claims; row-level labels and predictions are intentionally excluded.",
+  "method": {
+    "id221_predecessor_id": 218,
+    "id342_formula": "0.5 * ID178 + 0.5 * ID221",
+    "midpoint_ablation_formula": "0.5 * ID178 + 0.5 * ID218",
+    "row_count": 450,
+    "similarity_candidates_per_target": 216,
+    "similarity_target_configuration_evaluations": 1512,
+    "target_count": 7
+  },
+  "metrics": {
+    "alpha_sensitivity_mean_log_loss": {
+      "0.00": 0.5386377373903545,
+      "0.25": 0.5358126881150828,
+      "0.50": 0.5340000057700848,
+      "0.75": 0.5330741072081471,
+      "1.00": 0.5329901873426955
+    },
+    "alpha_sensitivity_fold_wins_vs_id178": {
+      "0.00": 0,
+      "0.25": 5,
+      "0.50": 5,
+      "0.75": 4,
+      "1.00": 4
+    },
+    "id178_mean_log_loss": 0.5386377373903545,
+    "id218_mean_log_loss": 0.53410316496098,
+    "id221_mean_log_loss": 0.5329901873426955,
+    "id342_mean_log_loss": 0.5340000057700848,
+    "midpoint_id178_id218_mean_log_loss": 0.5345081742255229,
+    "midpoint_id178_id221_mean_log_loss": 0.5340000057700848,
+    "similarity_increment": 0.000508168455438,
+    "similarity_share": 0.1095726309856,
+    "similarity_target_fold_comparisons": 35,
+    "similarity_target_fold_wins_vs_id218": 21,
+    "train_only_preprocessing_delta": 0.0000251989537261,
+    "train_only_preprocessing_id221_mean_log_loss": 0.5330153862964216,
+    "total_id178_to_id342_gain": 0.0046377316202697
+  },
+  "source_artifacts": {
+    "feature_similarity_report": {
+      "path": "reports/id218_public_feature_similarity_narrow_grid_20260616.json",
+      "sha256": "73a7b0857663a8cd8d58329ff1b0dd18fa3d5014a20f5ad790470b21610a7889"
+    },
+    "id178_oof": {
+      "path": "artifacts/base_predictions/base_oof_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638.csv",
+      "sha256": "43f2a245c64401fe576e46c99191221b6f1c3cef7e95b2f29997a57d063e2d49"
+    },
+    "id218_oof": {
+      "path": "artifacts/base_predictions/base_oof_id_218_id215_multi_signal_clean_overlay_cv0.534103.csv",
+      "sha256": "cb78ba8eacb2cf9f8125ba23d0415fdb746eadcf14fa720fef329cf5099fb5cb"
+    },
+    "id221_oof": {
+      "path": "artifacts/base_predictions/base_oof_id_221_id218_public_feature_similarity_overlay_cv0.532990.csv",
+      "sha256": "8f3a295a87485c070dd94c6fd20d813d2a21b838741b6ebd253d72459ee5b32e"
+    },
+    "id342_oof": {
+      "path": "artifacts/base_predictions/base_oof_id_342_id178_id221_featuresim_shrink050_cv0.534000.csv",
+      "sha256": "a5129ac12a909978a6424d98c7c38fd14b66a262eb9cb294ec937d0ee47a26cf"
+    },
+    "metrics_train": {
+      "path": "data/raw/ch2026_metrics_train.csv",
+      "sha256": "650af4f15ad7b884febd331a2157a946bf9aa6e23347a6cd381916ff570e9a88"
+    }
+  }
+}
