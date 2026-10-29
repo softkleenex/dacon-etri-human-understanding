@@ -7,7 +7,22 @@ This repository contains the codebase and workspace for the **ETRI Human Underst
 - **Objective:** Predict 7 targets (Q1~Q3: Sleep Quality, Fatigue, Stress; S1~S4: Sleep Metrics) using multimodal lifelog data.
 - **Task Type:** Multi-task Binary Classification (0 or 1 for each metric) optimized for **Average Log-Loss**.
 - **Data Source:** Smartphone ('m' prefix) and Smartwatch ('w' prefix) sensor/usage logs over 700 days, with 450 days of labels.
-- **Current status:** Public `0.55` is not yet proven. See [Workflow Review and Session Handoff](docs/WORKFLOW_REVIEW.md) before running new experiments.
+- **Status:** Closed. The leaderboard ended 2026-06-26; the paper was accepted to ICTC 2026 but was **not published** (author registration was not completed). See [Final outcome](#-final-outcome-closed) below and [ICTC/DACON status](docs/ICTC_DACON_STATUS_20260916.md).
+
+## 📌 Final outcome (closed)
+
+| Stage | Result |
+| --- | --- |
+| Leaderboard | Best submission **ID342** — local CV `0.534000`, public `0.5960832519`, rank 220. The `0.55` target was never reached. |
+| Paper | *Anchor-Constrained Feature-Similarity Ensembling for Multimodal Lifelog State Prediction* — **accepted** (EDAS `1571325954`, IEEE PDF eXpress `2026332958`). Camera-ready and IEEE copyright were filed. |
+| Reproducibility check | **Not satisfied.** DACON required raw data → preprocessing → features → training → inference → `submission.csv` in one path. `reproduce_submission.py` reassembles *stored* OOF/test matrices; `replay_lineage.py` does start from raw data but drifts `+0.000845` log loss because the June scikit-learn/numpy versions were never pinned. No re-submission was sent by the 9/18 13:00 deadline. |
+| Author registration | **Not completed** (ICTC requires one author at Regular rate). |
+| Publication | Not in proceedings, not on IEEE Xplore. |
+| DACON comprehensive evaluation | Excluded — it required leaderboard + paper acceptance + code/model report + author registration. **No award.** |
+
+The operational lesson is recorded in full in the blog note linked at the bottom: reproducibility is decided
+when experiment #1 is built, not when the submission is packaged. A 50-step ensemble lineage in which each
+step consumes the previous step's *stored predictions* buys score and forfeits reproducibility.
 
 ## 🧠 Core Architecture
 
@@ -18,14 +33,19 @@ This project uses a multi-track modeling stack, but candidate promotion is gated
 
 ## 🗂️ Directory Structure
 
-- `data/`: Raw and processed dataset storage.
+- `artifacts/`: `base_predictions/` OOF and test matrices that later experiments blend. Immutable once registered. Git-ignored.
+- `conf/`: Hydra/YAML experiment configuration.
+- `data/`: Raw and processed dataset storage. Git-ignored.
 - `docs/`: Project documentation, strategy notes, and planning.
-- `models/`: Checkpoints for PyTorch models and CatBoost models.
-- `notebooks/kaggle_runner/`: Jupyter notebook runner pushed to Kaggle for cloud GPU training.
 - `docs/competition/`: Official competition rules, metric descriptions, and the data dictionary.
+- `models/`: Checkpoints for PyTorch models and CatBoost models.
+- `notebooks/history/`: One stub notebook per experiment (349 files) — the first link in the artifact contract.
+- `notebooks/kaggle_runner/`: Jupyter notebook runner pushed to Kaggle for cloud GPU training.
+- `reports/`: Paired `<name>_<date>.json` + `.md` outputs of the report-only analysis scripts (1,662 files).
 - `scripts/`: Executable automation (`pre_flight_check.py`, `ensemble.py`, `normalize_submission_log.py`, audit utilities).
 - `src/`: Reusable source code (PyTorch DataLoaders, Feature Engineering, Lightning Trainers, Utilities).
-- `submissions/`: Output CSV predictions, `submission_log.csv`, and JSON metadata files.
+- `submissions/`: Output CSV predictions, `submission_log.csv`, and JSON metadata files (349 log rows, ids 1-350).
+- `tests/`: pytest suite, including the frozen ID341-era contract snapshots.
 
 ## 🚀 Setup & Installation
 
@@ -41,6 +61,8 @@ This project uses a multi-track modeling stack, but candidate promotion is gated
 ## ☁️ Kaggle Cloud Workflow & Automation
 
 We leverage Kaggle's free compute for heavy model training and tuning. Cloud runs must remain staging-only until a human explicitly approves a DACON submission.
+
+> The submission phase closed on 2026-06-26. The steps below are kept as a record of how the workflow ran; `make dacon-submit` has no remaining purpose and its approval gate still blocks it by default.
 
 1. **Push Source Code to Kaggle Dataset:**
    Zips the `src` and `conf` folders and uploads them. **Pre-flight checks** run automatically to ensure valid configurations and paths.
@@ -77,6 +99,8 @@ Do not run auto-submission scripts or `make dacon-submit` without an explicit `S
   ```
 
 ## 📖 Key Documentation
+- [ICTC/DACON Final Status](docs/ICTC_DACON_STATUS_20260916.md) — paper review, reproducibility finding, and why there is no award
+- [ID341 Snapshot Contract Tests](docs/ID341_SNAPSHOT_CONTRACT_TESTS_20261028.md) — why 27 tests are skipped rather than rewritten
 - [Root Document Roles](docs/ROOT_DOCUMENTS.md)
 - [Final Handoff](docs/FINAL_HANDOFF_20260626.md)
 - [Workflow Review and Session Handoff](docs/WORKFLOW_REVIEW.md)
@@ -91,6 +115,6 @@ Do not run auto-submission scripts or `make dacon-submit` without an explicit `S
 
 ## Blog
 
-- Blog note: [DACON ETRI Human Understanding AI Paper Challenge](https://softkleenex.github.io/coding_training/dacon/dacon-etri-human-understanding)
+- Blog note: [ETRI 휴먼 이해 대회 회고](https://softkleenex.github.io/posts/dacon-etri-human-understanding/)
 
 <!-- BLOG-URL:END -->

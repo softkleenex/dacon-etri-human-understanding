@@ -69,3 +69,59 @@ make test   →  320 passed, 27 skipped
 남은 4건은 `.pytest_cache`, `.ruff_cache`, `__pycache__`, `.obsidian`, `.DS_Store` 로
 전부 gitignore 되는 로컬 도구 산출물이다. `.obsidian` 은 사용자 편집기 설정이고 캐시는
 테스트를 돌리면 즉시 다시 생기므로 삭제하지 않았다.
+
+---
+
+## 추가 확인 (2026-10-28, 전체 점검)
+
+위 27건과 **같은 뿌리의 결함이 리포트 쪽에도 있다.** `make audit`을 돌리면
+날짜가 박힌 과거 스냅샷이 현재 수치로 덮어써진다.
+
+```
+Makefile:337  scripts/diagnose_post_id341_public_local_gap.py \
+                --output reports/post_id341_public_local_gap_diagnosis_20260618.json
+```
+
+파일명의 `20260618`은 고정인데 스크립트는 `submission_log.csv`를 매번 다시 읽는다.
+그래서 `make audit` 한 번으로 6월 18일 당시 상위 후보 기록이
+
+| 원본 (2026-06-18) | 덮어쓴 값 (2026-10-28) |
+| --- | --- |
+| 342, 339, 338 | 348, 349, 344, 343 |
+
+로 바뀐다. **6월 18일에는 존재하지도 않았던 id가 "6월 18일 진단"에 들어간다.**
+테스트 27건이 `rows == 342`에 묶여 깨진 것과 정확히 같은 구조다 — 시점 스냅샷을
+파일명으로만 고정하고 내용은 live 재계산에 맡겼다.
+
+영향받는 파일 5개는 이번 점검에서 `git checkout`으로 원복했다.
+
+```
+reports/post_id341_data_source_coverage_audit_20260618.json
+reports/post_id341_manual_submission_probe_decision_20260618.{json,md}
+reports/post_id341_public_local_gap_diagnosis_20260618.{json,md}
+```
+
+반대로 **날짜 없는 "현재 상태" 리포트 3종은 갱신본을 채택했다.** 커밋돼 있던
+값이 낡아 있었기 때문이다.
+
+| 리포트 | 커밋돼 있던 값 | 실제 |
+| --- | --- | --- |
+| `submissions_audit` | 로그 344행 기준 | 349행 (`cv_lb_gap_risk` 13 → 16) |
+| `workspace_audit` | `git_status_entries` 1185, CRITICAL 1건 | 7, CRITICAL 0건 |
+| `repository_structure_audit` | — | 캐시 크기만 변동 |
+
+`workspace_audit`의 CRITICAL("Working tree is too dirty for reliable experiments,
+git status has 1185 entries")은 **이미 해소된 과거 상태였다.** 워킹트리는 지금
+깨끗하다. 낡은 리포트가 해소된 문제를 계속 보고하고 있었다.
+
+### 남은 구조적 문제
+
+`make audit`은 지금도 돌릴 때마다 위 5개 파일을 다시 덮어쓴다. 제대로 고치려면
+둘 중 하나다.
+
+1. 날짜 박힌 타깃을 `make audit` 체인에서 떼고, 재생성이 필요할 때만 수동 호출한다.
+2. 출력 파일명을 실행일로 바꾸고(`_$(shell date +%Y%m%d)`), 과거 파일은 읽기 전용으로 둔다.
+
+대회가 끝났고 이 리포트들을 새로 만들 이유가 없으므로 이번에는 고치지 않고
+기록만 남긴다. `make audit`을 돌린 뒤에는 `git status`에서 날짜 박힌
+`reports/*_2026*.{json,md}`가 올라왔는지 확인하고 원복할 것.
