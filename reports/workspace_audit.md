@@ -24,9 +24,9 @@ Found **2 issues**: 0 critical, 2 high, 0 medium.
 
 ## Key Stats
 
-- `git_status_by_code`: `{"M": 8, "??": 2}`
+- `git_status_by_code`: `{"M": 8}`
 
-- `git_status_entries`: `10`
+- `git_status_entries`: `8`
 
 - `largest_cv_lb_gaps`: `[{"id": "287", "file": "submission_id_287_post285_base282_fixedtemp_balanced_cv0.378934_unsubmitted.csv", "local": "0.378934", "public": "0.6698787318", "gap": 0.290945}, {"id": "9", "file": "submission_id_009_score0.6258.csv", "local": "0.6258", "public": "0.8208847151", "gap": 0.195085}, {"id": "74", "file": "submission_id_074_score0.5986.csv", "local": "0.5986", "public": "0.7436431908", "gap": 0.145043}, {"id": "73", "file": "submission_id_073_score0.6022.csv", "local": "0.6022", "public": "0.7454473391", "gap": 0.143247}, {"id": "329", "file": "submission_id_329_post328_combo4_cap080_budget050_practical_cv0.516718_unsubmitted.csv", "local": "0.516718", "public": "0.6017908577", "gap": 0.085073}, {"id": "340", "file": "submission_id_340_id178_q2_seqsum_lr_c03_w001_safety_cv0.538426_unsubmitted.csv", "local": "0.538426", "public": "0.601379175253277", "gap": 0.062953}, {"id": "178", "file": "submission_id_178_id173_fine_highc_random_conv_sequence_overlay_cv0.538638_unsubmitted.csv",`
 

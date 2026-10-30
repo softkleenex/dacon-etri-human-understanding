@@ -6,11 +6,12 @@
 
 | | |
 | --- | --- |
-| 이 문서가 증명하는 것 | 논문이 ICTC 2026에 **채택**되었고, IEEE 저작권 양식과 PDF eXpress 검증, camera-ready 업로드까지 완료했다는 것 |
+| 이 문서가 증명하는 것 | 논문이 ICTC 2026 Special Track에 **채택**되었고, IEEE 저작권 양식과 PDF eXpress 검증, camera-ready 업로드까지 완료했다는 것 |
 | 이 문서가 증명하지 **않는** 것 | **게재.** 저자 등록을 하지 않아 proceedings에 실리지 않았고 IEEE Xplore에도 없다 |
+| 현재 기록 상태 | EDAS의 논문 상태는 **`Withdrawn`**. 등록 미이행으로 채택이 유지되지 않았다 |
 
-따라서 이 자료를 "IEEE 논문 게재"의 근거로 쓸 수 없다. "채택되었으나 저자 등록
-미이행으로 게재되지 않음"이 정확한 서술이다. 경위는
+따라서 이 자료를 "IEEE 논문 게재"의 근거로 쓸 수 없다. **"채택되었으나 저자 등록
+미이행으로 철회(Withdrawn)되어 게재되지 않음"이 정확한 서술이다.** 경위는
 [ICTC/DACON 최종 현황](ICTC_DACON_STATUS_20260916.md)에 있다.
 
 ---
@@ -43,6 +44,14 @@
 
 제목: *Anchor-Constrained Feature-Similarity Ensembling for Multimodal Lifelog State Prediction*
 저자: Shangjae Lee (Kyungpook National University), 단독 저자. 4페이지.
+투고처: ICTC 2026 Special Track — *ICTC Workshop on ETRI Human Understanding AI Paper
+Challenge (iWETRIA)*. 본 트랙이 아니라 대회 연계 워크숍 트랙이다. 논문 번호 #373.
+
+**심사는 만장일치가 아니었다.** 리뷰 3건의 권고가 수락·중립·거절로 갈린 상태에서 채택됐다.
+`reviewer_response.md`에 정리된 지적 5건은 **수락을 권고한 리뷰어 한 명**의 코멘트이며,
+리뷰 전체가 아니다. 거절을 권고한 리뷰어의 요지는 "참가자 10명 밖으로 일반성이 입증되지
+않은 대회 특화 휴리스틱"이었고, 개정본에서 기여 주장을 좁힌 것이 그 지점에 대한 대응이다.
+리뷰 원문과 점수는 심사 자료이므로 공개하지 않는다.
 
 ## 3. 채택 이후 절차 — 이 저장소에 포함
 
@@ -87,7 +96,8 @@ $ strings 2026332958_PDFeXpress_certified.pdf | grep Creator
 
 | 자료 | 이유 |
 | --- | --- |
-| EDAS 논문 상태 화면 (`Accepted`) | EDAS 로그인이 필요해 파일로 공개할 수 없다. 요청 시 캡처 제시 |
+| EDAS 논문 상태 화면 | 로그인이 필요해 파일로 공개할 수 없다. 요청 시 캡처 제시. 현재 상태는 `Withdrawn` |
+| 리뷰 원문·점수 | 심사 자료다. 요지는 위에 적었고 원문은 공개하지 않는다 |
 | 채택 통보 메일, 데이콘 회신 메일 | 담당자 신원·연락처가 포함된 사신. 내용 요지만 [현황 문서](ICTC_DACON_STATUS_20260916.md)에 인용 |
 | 등록비 문의 메일 초안, 통화 스크립트 | 수신처 연락처 포함. 저장소 바깥에 둔다 |
 

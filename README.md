@@ -7,14 +7,15 @@ This repository contains the codebase and workspace for the **ETRI Human Underst
 - **Objective:** Predict 7 targets (Q1~Q3: Sleep Quality, Fatigue, Stress; S1~S4: Sleep Metrics) using multimodal lifelog data.
 - **Task Type:** Multi-task Binary Classification (0 or 1 for each metric) optimized for **Average Log-Loss**.
 - **Data Source:** Smartphone ('m' prefix) and Smartwatch ('w' prefix) sensor/usage logs over 700 days, with 450 days of labels.
-- **Status:** Closed. The leaderboard ended 2026-06-26; the paper was accepted to ICTC 2026 but was **not published** (author registration was not completed). See [Final outcome](#-final-outcome-closed) below and [ICTC/DACON status](docs/ICTC_DACON_STATUS_20260916.md).
+- **Status:** Closed. The leaderboard ended 2026-06-26; the paper was accepted to an ICTC 2026 Special Track but was **not published** — author registration was not completed, and the EDAS record now reads `Withdrawn`. See [Final outcome](#-final-outcome-closed) below and [ICTC/DACON status](docs/ICTC_DACON_STATUS_20260916.md).
 
 ## 📌 Final outcome (closed)
 
 | Stage | Result |
 | --- | --- |
 | Leaderboard | Best submission **ID342** — local CV `0.534000`, public `0.5960832519`, rank 220. The `0.55` target was never reached. |
-| Paper | *Anchor-Constrained Feature-Similarity Ensembling for Multimodal Lifelog State Prediction* — **accepted** (EDAS `1571325954`, IEEE PDF eXpress `2026332958`). Camera-ready and IEEE copyright were filed. |
+| Paper | *Anchor-Constrained Feature-Similarity Ensembling for Multimodal Lifelog State Prediction* — **accepted** to the ICTC 2026 Special Track *iWETRIA* (paper #373, EDAS `1571325954`, IEEE PDF eXpress `2026332958`). Three reviews, split recommendations. Camera-ready and IEEE copyright were filed. |
+| EDAS record today | **`Withdrawn`.** Acceptance is not retained when author registration is not completed. |
 | Reproducibility check | **Not satisfied.** DACON required raw data → preprocessing → features → training → inference → `submission.csv` in one path. `reproduce_submission.py` reassembles *stored* OOF/test matrices; `replay_lineage.py` does start from raw data but drifts `+0.000845` log loss because the June scikit-learn/numpy versions were never pinned. No re-submission was sent by the 9/18 13:00 deadline. |
 | Author registration | **Not completed** (ICTC requires one author at Regular rate). |
 | Publication | Not in proceedings, not on IEEE Xplore. |
