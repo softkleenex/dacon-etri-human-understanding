@@ -99,6 +99,7 @@ Do not run auto-submission scripts or `make dacon-submit` without an explicit `S
   ```
 
 ## 📖 Key Documentation
+- [Evidence](docs/EVIDENCE.md) — primary documents for the paper's acceptance, and an explicit statement of what they do *not* prove
 - [ICTC/DACON Final Status](docs/ICTC_DACON_STATUS_20260916.md) — paper review, reproducibility finding, and why there is no award
 - [ID341 Snapshot Contract Tests](docs/ID341_SNAPSHOT_CONTRACT_TESTS_20261028.md) — why 27 tests are skipped rather than rewritten
 - [Root Document Roles](docs/ROOT_DOCUMENTS.md)
