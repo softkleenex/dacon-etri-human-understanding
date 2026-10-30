@@ -56,9 +56,11 @@ ICTC 2026 학회: 2026-10-14 ~ 10-16, 쉐라톤 제주.
 ### 4. EDAS camera-ready 업로드
 
 - Paper ID `1571325954`, Status `Accepted`
+  (**2026-09-16 시점의 값이다.** 현재 상태는 `Withdrawn` — 아래 "최종 결과" 참조)
 - `Final manuscript` 슬롯에 PDF eXpress 검증본 업로드 완료
 - 업로드본은 리뷰어 지적 5건을 반영한 개정본이며,
   2026-07-17 심사본(`review_manuscript_submitted_20260717.pdf`)과 다른 파일
+  (그 5건은 리뷰 3건 중 **수락을 권고한 한 명**의 코멘트다)
 
 ---
 
